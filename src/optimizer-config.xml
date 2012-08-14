@@ -1,7 +1,7 @@
 <optimizer-config>
     
     <params>
-        <profile>development</profile>
+        <profile>production</profile>
     </params>
     
     <set-profile>${profile}</set-profile>
@@ -69,6 +69,9 @@
     <page-output-dir>..</page-output-dir>
 
     <bundles name="default">
+        <bundle name="jquery">
+            <module name="jQuery" recursive="true"/>
+        </bundle>
         <bundle name="core">
             <module name="core" recursive="true"/>
             <init-raptor/>

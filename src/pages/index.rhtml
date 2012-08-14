@@ -3,9 +3,16 @@
     xmlns:w="widgets"
     xmlns:docs="docs"
     xmlns:main="main"
-    params="includes,samples">
+    params="includes,samples"
+    docs:functions="url">
     
     <docs:urls basePath="."/>
+    
+    <c:def function="learnMore(href)">
+        <div class="learn-more">
+            <a href="${url(href)}">Learn more ${entity:raquo}</a>
+        </div>
+    </c:def>
     
     <![CDATA[<!doctype html>]]>
     
@@ -30,8 +37,8 @@
                         A JavaScript Toolset from eBay
                     </h2>
                     <div class="main-buttons">
-                        <docs:button size="large" type="primary" class="get-started-button">Get Started</docs:button>
-                        <docs:button size="large" class="github-button">View project on GitHub</docs:button>
+                        <docs:button size="large" type="primary" class="get-started-button" href="${url('/get-started')}">Get Started</docs:button>
+                        <docs:button size="large" class="github-button" href="https://github.com/raptorjs/raptorjs">View project on GitHub</docs:button>
                     </div>
                 </div>
 
@@ -48,6 +55,7 @@
                                 <h3>Modules &amp; Classes</h3>
                                 <div class="bd">                                    
                                     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce vehicula iaculis rhoncus. Sed bibendum rutrum nulla, sed condimentum felis aliquam non. Praesent quis lectus lacus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.
+                                    <c:invoke function="learnMore" href="/modules"/>
                                 </div>
                             </div>
                         </div>
@@ -57,6 +65,7 @@
                                 <h3>Packaging &amp; Extensions</h3>
                                 <div class="bd">                                    
                                     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce vehicula iaculis rhoncus. Sed bibendum rutrum nulla, sed condimentum felis aliquam non. Praesent quis lectus lacus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.
+                                    <c:invoke function="learnMore" href="/packaging"/>
                                 </div>
                             </div>
                         </div>
@@ -66,6 +75,7 @@
                                 <h3>Optimizer</h3>
                                 <div class="bd">                                    
                                     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce vehicula iaculis rhoncus. Sed bibendum rutrum nulla, sed condimentum felis aliquam non. Praesent quis lectus lacus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.
+                                    <c:invoke function="learnMore" href="/optimizer"/>
                                 </div>
                             </div>
                         </div>
@@ -78,6 +88,7 @@
                                 <h3>Raptor Templates</h3>
                                 <div class="bd">                                    
                                     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce vehicula iaculis rhoncus. Sed bibendum rutrum nulla, sed condimentum felis aliquam non. Praesent quis lectus lacus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.
+                                    <c:invoke function="learnMore" href="/raptor-templates"/>
                                 </div>
                             </div>
                         </div>
@@ -87,6 +98,7 @@
                                 <h3>Widgets Framework</h3>
                                 <div class="bd">                                    
                                     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce vehicula iaculis rhoncus. Sed bibendum rutrum nulla, sed condimentum felis aliquam non. Praesent quis lectus lacus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.
+                                    <c:invoke function="learnMore" href="/widgets"/>
                                 </div>
                             </div>
                         </div>
@@ -95,6 +107,7 @@
                                 <h3>Cross-Environment</h3>
                                 <div class="bd">                                    
                                     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce vehicula iaculis rhoncus. Sed bibendum rutrum nulla, sed condimentum felis aliquam non. Praesent quis lectus lacus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.
+                                    <c:invoke function="learnMore" href="/cross-environment"/>
                                 </div>
                             </div>
                         </div>

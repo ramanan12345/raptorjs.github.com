@@ -6,7 +6,7 @@ exports.controller = function() {
     var samples = [];
     
     var readResource = function(path, defaultValue) {        
-        var resource = resources.findResource("/samples/" + path);
+        var resource = resources.findResource("/sample-templates/" + path);
         return resource && resource.exists() ? resource.readFully() : defaultValue;
     };
     

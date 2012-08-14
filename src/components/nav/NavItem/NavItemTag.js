@@ -39,14 +39,16 @@ raptor.define(
                     input.anchorAttrs["data-toggle"] = "dropdown";
                     input.anchorAttrs["class"] = "dropdown-toggle";
                 }
-                
-                if (input.toggle) {
-                    input.anchorAttrs["href"] = "#" + input.toggle;
-                    input.anchorAttrs["data-toggle"] = (input.type === 'pills' ? 'pill' : 'tab');
-                }
                 else {
-                    input.anchorAttrs["href"] = input.href ? input.href : "#";
+                    if (input.toggle) {
+                        input.anchorAttrs["href"] = "#" + input.toggle;
+                        input.anchorAttrs["data-toggle"] = (input.type === 'pills' ? 'pill' : 'tab');
+                    }
+                    else {
+                        input.anchorAttrs["href"] = input.href ? input.href : "#";
+                    }    
                 }
+                
                 
                 raptor.require('templating').render('components/nav/NavItem', {
                         navItem: input,

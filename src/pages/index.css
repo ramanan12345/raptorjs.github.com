@@ -39,14 +39,12 @@ BODY > .content {
     margin-top: 20px;
 }
 
-.main-buttons BUTTON {
+.main-buttons .btn {
     font-size: 20px;
-    margin-right: 20px;
 }
 
-.main-buttons BUTTON.get-started-button {
-    font-size: 20px;
-   
+.main-buttons .btn.get-started-button {
+    margin-right: 20px;
 }
 
 .overview {
@@ -63,7 +61,7 @@ BODY > .content {
 .features-row {
     clear: both;
     padding-bottom: 20px;
-    padding-top: 15px;
+    padding-top: 20px;
 }
 
 .features-row:first-child {
@@ -76,7 +74,7 @@ BODY > .content {
     -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
     -moz-box-sizing: border-box;    /* Firefox, other Gecko */
     box-sizing: border-box;         /* Opera/IE 8+ */
-    font-size: 
+    font-size: 14px;
 }
 
 
@@ -107,4 +105,10 @@ BODY > .content {
 
 .feature-section > H3 {
     text-align: middle;
+}
+
+.learn-more {
+    text-align: right;
+    margin-top: 5px;
+    font-size: 14px;
 }

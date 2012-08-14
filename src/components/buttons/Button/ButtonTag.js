@@ -51,7 +51,8 @@ raptor.define(
                     rootAttrs: rootAttrs,
                     widgetContext: input.widgetContext,
                     widgetConfig: widgetConfig,
-                    isDropdown: input.dropdown === true
+                    isDropdown: input.dropdown === true,
+                    href: input.href
                 }, context);
             }
         };

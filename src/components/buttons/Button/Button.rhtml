@@ -2,9 +2,9 @@
     xmlns:c="core"
     xmlns:w="widgets"
     name="components/buttons/Button"
-    params="tag,rootAttrs,label">
+    params="tag,rootAttrs,label,href">
     
-    <button w:widget="components.buttons.Button.ButtonWidget" c:attrs="rootAttrs">
+    <c:def function="body()">
         <c:choose>
             <c:when c:test="label">
                 ${label}
@@ -13,9 +13,20 @@
                 <c:invoke function="tag.invokeBody"/>
             </c:when>
         </c:choose>
+        
         <c:if test="data.isDropdown">
             ${entity:nbsp}
             <span class="caret"></span>
         </c:if>
-    </button>
+    </c:def>
+    
+    <c:choose>
+        <a w:widget="components.buttons.Button.ButtonWidget" c:attrs="rootAttrs" href="$href" c:when="href">
+            <c:invoke function="body()"/>
+        </a>
+        <button w:widget="components.buttons.Button.ButtonWidget" c:attrs="rootAttrs" c:otherwise="">
+            <c:invoke function="body()"/>
+        </button>
+    </c:choose>
+
 </c:template>
