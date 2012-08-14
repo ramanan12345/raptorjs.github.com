@@ -1,0 +1,9 @@
+{
+    "includes": [
+        { "module": "core" },
+        { "type": "init-raptor" },
+        { "module": "jQuery" },
+        { "module": "components/main/MainTopNav" },
+        "index.css"
+     ]
+}

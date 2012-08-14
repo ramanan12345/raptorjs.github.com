@@ -1,0 +1,28 @@
+<c:template name="components/main/MainTopNav"
+    xmlns:docs="docs"
+    xmlns:c="core"
+    params="activeItem"
+    docs:functions="url">
+    
+    <docs:nav-bar brand="RaptorJS" brandHref="${url('/')}" type="fixed-top">
+        <docs:nav>
+            <docs:nav-divider/>
+            <docs:nav-item href="${url('/get-started')}" label="Get Started" active="${activeItem == 'get-started'}"/>
+            <docs:nav-divider/>
+            <docs:nav-item href="docs.html" label="Learn" type="dropdown-menu" active="${activeItem == 'learn'}">
+                <docs:nav-item label="Overview" href="${url('/overview')}"/>
+                <docs:nav-item label="Modules and Classes" href="${url('/modules')}"/>
+                <docs:nav-item label="Packaging and Extensions" href="${url('/packaging')}"/>
+                <docs:nav-item label="Optimizer" href="${url('/optimizer')}"/>
+                <docs:nav-item label="Raptor Templates" href="${url('/raptor-templates')}"/>
+                <docs:nav-item label="Widgets Framework" href="${url('/widgets')}"/>
+                <docs:nav-item label="Logging" href="${url('/logging')}"/>
+                <docs:nav-item label="FAQ" href="${url('/faq')}"/>
+            </docs:nav-item>
+            <docs:nav-divider/>
+            <docs:nav-item href="docs.html" label="Community" active="${activeItem == 'community'}"/>
+            <docs:nav-divider/>
+        </docs:nav>
+    </docs:nav-bar>
+    
+</c:template>

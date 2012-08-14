@@ -1,0 +1,110 @@
+BODY > .content {
+    margin-top: 50px;
+    width: 960px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.fork > IMG {
+    border: 0 none;
+    position: absolute;
+    right: 0;
+    top: 0;
+    z-index: 2000;
+}
+
+
+
+
+.main-content {
+/*     width: 700px; */
+/*     margin-left: auto; */
+/*     margin-right: auto; */
+/*     background-color: #EEE; */
+    padding: 20px;
+/*     border: 1px solid #C0C0C0; */
+    margin-bottom: 20px;
+}
+
+.main-content > H1 {
+    font-size: 32px;
+}
+
+.main-content > H2 {
+    font-size: 28px;
+    color: #535353;
+}
+
+.main-buttons {
+    margin-top: 20px;
+}
+
+.main-buttons BUTTON {
+    font-size: 20px;
+    margin-right: 20px;
+}
+
+.main-buttons BUTTON.get-started-button {
+    font-size: 20px;
+   
+}
+
+.overview {
+    
+}
+
+.summary {
+    border-top: 1px solid #C0C0C0;
+    padding-top: 20px;
+    padding-bottom: 20px;   
+    font-size: 16px;
+}
+
+.features-row {
+    clear: both;
+    padding-bottom: 20px;
+    padding-top: 15px;
+}
+
+.features-row:first-child {
+     padding-top: 0;
+}
+
+.feature-section {
+    width: 33%;
+    float: left;
+    -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+    -moz-box-sizing: border-box;    /* Firefox, other Gecko */
+    box-sizing: border-box;         /* Opera/IE 8+ */
+    font-size: 
+}
+
+
+.feature-section IMG {
+    margin-right: 15px;
+    margin-bottom: 0px;
+    float: left;
+}
+
+.feature-section > .content {
+    margin-left: 8px;
+    margin-right: 8px;
+}
+
+.feature-section > .content > .bd{
+    text-align: justify ;
+}
+
+
+.feature-section:first-child > .content {
+     margin-left: 0px;
+}
+
+.feature-section:last-child > .content {
+     margin-right: 0px;
+}
+
+
+.feature-section > H3 {
+    text-align: middle;
+}

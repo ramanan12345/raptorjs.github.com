@@ -1,0 +1,6 @@
+<raptor-taglib>
+
+    <tag name="nav-divider" handler-class="components.nav.NavDivider.NavDividerTag" dynamic-attributes="true">
+    </tag>
+    
+</raptor-taglib>

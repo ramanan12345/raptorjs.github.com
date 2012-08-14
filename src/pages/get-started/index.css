@@ -1,0 +1,10 @@
+BODY > .content {
+    margin-top: 50px;
+    width: 960px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+BODY > .content > H1 {
+    padding-top: 20px;
+}
