@@ -35,7 +35,7 @@ raptor.define(
                 input.anchorAttrs = {};
                 
                 if (isDropdownMenu) {
-                    input.anchorAttrs["href"] = "#";
+                    input.anchorAttrs["href"] = "";
                     input.anchorAttrs["data-toggle"] = "dropdown";
                     input.anchorAttrs["class"] = "dropdown-toggle";
                 }
