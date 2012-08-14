@@ -3,6 +3,7 @@
         { "module": "core" },
         { "type": "init-raptor" },
         { "module": "jQuery" },
+        { "module": "components/buttons/Button" },
         { "module": "components/main/MainTopNav" },
         "index.css"
      ]

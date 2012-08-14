@@ -1,1 +1,1 @@
-(cd src && raptor-optimizer profile=production) && git add --all '**' && git commit && git push origin master
+(cd src && raptor-optimizer profile=production) && git add --all '**' && git commit -m "Published documentation" && git push origin master
