@@ -26,7 +26,7 @@ raptor.define(
                     }
                 }
                 else {
-                    return url + '/'
+                    return url === '/' ? url : url + '/';
                 }                
             }    
         }

@@ -1,7 +1,7 @@
 exports.controller = function() {
     var resources = raptor.require('resources');
     
-    var index = eval('(' + resources.findResource('/samples/index.json').readFully() + ')');
+    var index = eval('(' + resources.findResource('/sample-templates/index.json').readFully() + ')');
     
     var samples = [];
     

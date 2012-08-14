@@ -9,7 +9,7 @@
             <docs:nav-divider/>
             <docs:nav-item href="${url('/get-started')}" label="Get Started" active="${activeItem == 'get-started'}"/>
             <docs:nav-divider/>
-            <docs:nav-item href="docs.html" label="Learn" type="dropdown-menu" active="${activeItem == 'learn'}">
+            <docs:nav-item href="${url('/learn')}" label="Learn" type="dropdown-menu" active="${activeItem == 'learn'}">
                 <docs:nav-item label="Overview" href="${url('/overview')}"/>
                 <docs:nav-item label="Modules and Classes" href="${url('/modules')}"/>
                 <docs:nav-item label="Packaging and Extensions" href="${url('/packaging')}"/>
