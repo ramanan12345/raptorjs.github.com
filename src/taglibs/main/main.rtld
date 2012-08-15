@@ -1,8 +1,0 @@
-<raptor-taglib>
-    <uri>http://docs.raptorjs.org/main</uri>
-    <short-name>main</short-name>
-    <prefix>main</prefix>
-    
-    <import-taglib path="/components/main/MainTopNav/MainTopNav.rtld"/>
-
-</raptor-taglib>

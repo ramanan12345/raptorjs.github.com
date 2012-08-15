@@ -15,6 +15,8 @@
     
     <import-taglib path="/components/editors/CodeEditor/CodeEditor.rtld"/>
     
+    <import-taglib path="/components/footers/FooterDefault/FooterDefault.rtld"/>
+    
     <import-taglib path="/components/icons/Icon/Icon.rtld"/>
     
     <import-taglib path="/components/nav/NavBar/NavBar.rtld"/>
@@ -23,6 +25,7 @@
     <import-taglib path="/components/nav/NavDivider/NavDivider.rtld"/>
     <import-taglib path="/components/nav/TabContent/TabContent.rtld"/>
     <import-taglib path="/components/nav/TabPane/TabPane.rtld"/>
+    <import-taglib path="/components/nav/TopNavDefault/TopNavDefault.rtld"/>
     
     
     <import-taglib path="/components/social/TwitterFollow/TwitterFollow.rtld"/>

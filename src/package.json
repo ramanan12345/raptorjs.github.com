@@ -18,7 +18,6 @@
     "raptor-taglibs": [
         "taglibs/docs/docs.rtld",
         "taglibs/templates/templates.rtld",
-        "taglibs/main/main.rtld",
         "taglibs/test/test.rtld"
     ]
 }

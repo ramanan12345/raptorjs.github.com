@@ -1,7 +1,7 @@
 {
     "includes": [
         { "module": "docs-global" },
-        { "module": "components/main/MainTopNav" },
+        { "module": "components/nav/TopNavDefault" },
         { "module": "components/docs/Docs" },
         "index.css"
      ]

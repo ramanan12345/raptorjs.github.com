@@ -1,6 +1,6 @@
 <raptor-taglib>
 
-    <tag name="top-nav" handler-class="components.main.MainTopNav.MainTopNavTag">
+    <tag name="top-nav" handler-class="components.nav.TopNavDefault.TopNavDefaultTag">
         <attribute name="activeItem" type="string"/>
     </tag>
     
