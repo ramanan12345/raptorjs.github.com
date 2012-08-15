@@ -5,6 +5,7 @@
         { "module": "jQuery" },
         { "module": "components/buttons/Button" },
         { "module": "components/main/MainTopNav" },
+        { "module": "components/social/TwitterFollow" },
         "index.css"
      ]
 }

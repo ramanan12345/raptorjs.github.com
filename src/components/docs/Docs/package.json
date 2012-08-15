@@ -1,0 +1,7 @@
+{
+    "includes": [
+        { "module": "components/docs/Section" },
+        "Docs.css",
+        "DocsWidget.js"
+    ]
+}

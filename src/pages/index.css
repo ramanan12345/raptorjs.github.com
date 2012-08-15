@@ -7,7 +7,7 @@ BODY > .content {
 
 .fork > IMG {
     border: 0 none;
-    position: absolute;
+    position: fixed;
     right: 0;
     top: 0;
     z-index: 2000;
@@ -45,6 +45,10 @@ BODY > .content {
 
 .main-buttons .btn.get-started-button {
     margin-right: 20px;
+}
+
+.main-content .social {
+    float: right;
 }
 
 .overview {

@@ -1,0 +1,29 @@
+<c:template
+    xmlns:c="core"
+    xmlns:w="widgets"
+    name="components/docs/Docs"
+    params="heading,content,rootSection">
+    
+    <c:def function="toc(parentSection)">
+        <ul class="toc">
+            <li class="toc toc-level-${section.level}" c:for="section in parentSection.sections">
+                <a href="#${section.anchorName}">${section.heading}</a>
+                <c:invoke function="toc(section)"/>
+            </li>
+        </ul>
+    </c:def>
+    
+    <div class="docs">
+        <div class="bd">
+            <div class="toc nav">
+                <c:invoke function="toc(rootSection)"/>
+            </div>
+            <div class="docs-content">
+                <h1>${heading}</h1>
+                ${xml:content}
+            </div>
+        </div>
+        <div class="docs-footer"/>
+    </div>
+
+</c:template>

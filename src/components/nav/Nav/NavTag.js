@@ -31,7 +31,8 @@ raptor.define(
                     rootAttrs: rootAttrs,
                     widgetContext: input.widgetContext,
                     widgetConfig: widgetConfig,
-                    invokeBody: input.invokeBody
+                    invokeBody: input.invokeBody,
+                    nav: input
                 }, context);
             }
         };

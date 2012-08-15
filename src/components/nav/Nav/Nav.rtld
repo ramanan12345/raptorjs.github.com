@@ -6,6 +6,8 @@
         
         <!-- Support widget attributes -->
         <attribute name="id" uri="widgets"/>
+        
+        <nested-variable name="nav"/>
     </tag>
     
 </raptor-taglib>

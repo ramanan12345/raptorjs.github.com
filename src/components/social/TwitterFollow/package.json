@@ -1,0 +1,21 @@
+{
+    "includes": [
+        {"module": "widgets"},
+        "TwitterFollow.css"
+    ],
+    
+    "extensions": [
+        {
+            "name": "development",
+            "includes": [
+                "TwitterFollowWidget_dev.js"
+            ]
+        },
+        {
+            "name": "production",
+            "includes": [
+                "TwitterFollowWidget.js"
+            ]
+        }
+    ]
+}

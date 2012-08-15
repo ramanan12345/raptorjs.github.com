@@ -2,9 +2,9 @@
     xmlns:c="core"
     xmlns:w="widgets"
     name="components/nav/Nav"
-    params="rootAttrs,navItems,invokeBody">
+    params="rootAttrs,navItems,invokeBody,nav">
     
     <ul w:widget="components.nav.Nav.NavWidget" c:attrs="rootAttrs">
-        <c:invoke function="invokeBody" c:if="invokeBody"/>
+        <c:invoke function="invokeBody(nav)" c:if="invokeBody"/>
     </ul>
 </c:template>

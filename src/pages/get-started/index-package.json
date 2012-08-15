@@ -4,6 +4,7 @@
         { "type": "init-raptor" },
         { "module": "jQuery" },
         { "module": "components/main/MainTopNav" },
+        { "module": "components/docs/Docs" },
         "index.css"
      ]
 }

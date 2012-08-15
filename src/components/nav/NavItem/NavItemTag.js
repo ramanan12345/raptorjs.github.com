@@ -30,11 +30,13 @@ raptor.define(
                     raptor.extend(input.attrs, input["*"]);
                 }
                 
+                var nav = input.nav;
                 
                 
                 input.anchorAttrs = {};
                 
                 if (isDropdownMenu) {
+                    nav = input;
                     input.anchorAttrs["href"] = "";
                     input.anchorAttrs["data-toggle"] = "dropdown";
                     input.anchorAttrs["class"] = "dropdown-toggle";
@@ -51,6 +53,7 @@ raptor.define(
                 
                 
                 raptor.require('templating').render('components/nav/NavItem', {
+                        nav: nav,
                         navItem: input,
                         isDropdownMenu: isDropdownMenu
                     },

@@ -1,0 +1,97 @@
+
+
+.docs > H1 {
+}
+
+.docs-content H2 {
+/*     padding-top: 40px; */
+}
+
+.docs > .bd {
+}
+
+.docs > .bd > DIV.toc {
+    float: left;
+    width: 180px;
+    -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+    -moz-box-sizing: border-box;    /* Firefox, other Gecko */
+    box-sizing: border-box;         /* Opera/IE 8+ */
+    padding: 14px;
+    background-color: #EEE;
+    border: 1px solid #C0C0C0;
+    border-radius: 5px;
+    position: fixed;
+}
+
+.docs > .bd > .docs-content {
+    margin-left: 200px;
+}
+
+.docs .section {
+}
+
+.docs > .bd > .toc > UL.toc {
+    margin: 0;
+    padding: 0;
+}
+
+.docs > .bd > .toc > UL.toc UL {
+    margin-left: 10px;
+}
+
+.docs-footer {
+    clear: both;
+    height: 800px;
+    border-top: 1px solid #C0C0C0;
+}
+
+.toc LI {
+    list-style: none outside none;
+    
+}
+
+.toc LI > A {
+    display: inline-block;
+    padding-left: 2px;
+    padding-right: 2px;
+}
+
+.toc LI.active > A {
+    background-color: #0088CC;
+    color: #FFF;
+}
+
+
+LI.toc-level-0 {
+    list-style: none outside none;
+    padding-left: 0px;
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+LI.toc-level-1 {
+    font-size: 14px;
+    font-weight: normal;
+}
+
+
+LI.toc-level-1 {
+    font-size: 12px;
+    font-weight: normal;
+}
+
+.section-level-0 > H2 {
+    font-size: 24px;
+    border-bottom: 1px solid #C0C0C0;
+    
+}
+
+.section-level-0 {
+    margin-bottom: 15px;
+    
+}
+
+.section-level-1 > H2 {
+    font-size: 18px;
+}

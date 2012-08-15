@@ -7,9 +7,19 @@ raptor.define(
         
         NavDividerTag.prototype = {
             process: function(input, context) {
+                var nav = input.nav,
+                    className;
+
+                if (nav && nav.type === 'dropdown-menu') {
+                    className = "divider"
+                }
+                else {
+                    className = "divider-vertical"
+                }
                 
                 raptor.require('templating').render('components/nav/NavDivider', {
-                        navItem: input
+                        navItem: input,
+                        className: className
                     }, context);
                 
             }

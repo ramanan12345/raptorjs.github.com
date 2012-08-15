@@ -6,6 +6,9 @@
         <attribute name="active" type="boolean"/>
         <attribute name="toggle" type="string"/>
         <attribute name="href" type="string"/>
+        
+        <nested-variable name="nav"/>
+        <imported-variable property-name="nav" expression="nav"/>
     </tag>
     
 </raptor-taglib>

@@ -1,0 +1,7 @@
+<raptor-taglib>
+
+    <tag name="docs" handler-class="components.docs.Docs.DocsTag">
+        <attribute name="heading" type="string"/>
+    </tag>
+    
+</raptor-taglib>

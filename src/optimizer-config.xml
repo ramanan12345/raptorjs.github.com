@@ -1,7 +1,7 @@
 <optimizer-config>
     
     <params>
-        <profile>production</profile>
+        <profile>development</profile>
     </params>
     
     <set-profile>${profile}</set-profile>
@@ -16,7 +16,7 @@
             }
         }
         </raptor-config>
-        <enabled-extensions>jquery,browser,logging.console</enabled-extensions>
+        <enabled-extensions>jquery,browser,logging.console,development</enabled-extensions>
         <bundling-enabled>false</bundling-enabled>
         <in-place-deployment-enabled>true</in-place-deployment-enabled>
         <minify-js>false</minify-js>
@@ -30,7 +30,7 @@
     
     <profile name="production">
         <checksums-enabled>true</checksums-enabled>
-        <enabled-extensions>jquery,browser</enabled-extensions>
+        <enabled-extensions>jquery,browser,production</enabled-extensions>
         <bundling-enabled>true</bundling-enabled>
         <in-place-deployment-enabled>false</in-place-deployment-enabled>
         <minify-js>true</minify-js>
