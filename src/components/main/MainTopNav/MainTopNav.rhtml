@@ -10,21 +10,23 @@
             <docs:nav-item href="${url('/get-started')}" label="Get Started" active="${activeItem == 'get-started'}"/>
             <docs:nav-divider/>
             <docs:nav-item label="Learn" type="dropdown-menu" active="${activeItem == 'learn'}">
-                <docs:nav-item label="Overview" href="${url('/overview')}"/>
-                <docs:nav-item label="Get Started" href="${url('/get-started')}"/>
-                <docs:nav-item label="Modules and Classes" href="${url('/modules')}"/>
-                <docs:nav-item label="Packaging and Extensions" href="${url('/packaging')}"/>
-                <docs:nav-item label="Optimizer" href="${url('/optimizer')}"/>
-                <docs:nav-item label="Raptor Templates" href="${url('/raptor-templates')}"/>
-                <docs:nav-item label="Widgets Framework" href="${url('/widgets')}"/>
-                <docs:nav-item label="Logging" href="${url('/logging')}"/>
-                <docs:nav-item label="FAQ" href="${url('/faq')}"/>
+                <docs:nav-item label="Overview" href="${url('/overview')}" active="${activeItem == 'overview'}"/>
+                <docs:nav-item label="Get Started" href="${url('/get-started')}" active="${activeItem == 'get-started'}"/>
+                <docs:nav-item label="FAQ" href="${url('/faq')}" active="${activeItem == 'faq'}"/>
+                <docs:nav-divider/>
+                <docs:nav-item label="Modules and Classes" href="${url('/modules')}" active="${activeItem == 'modules'}"/>
+                <docs:nav-item label="Packaging and Extensions" href="${url('/packaging')}" active="${activeItem == 'packaging'}"/>
+                <docs:nav-item label="Optimizer" href="${url('/optimizer')}" active="${activeItem == 'optimizer'}"/>
+                <docs:nav-item label="Raptor Templates" href="${url('/raptor-templates')}" active="${activeItem == 'raptor-templates'}"/>
+                <docs:nav-item label="Widgets Framework" href="${url('/widgets')}" active="${activeItem == 'widgets'}"/>
+                <docs:nav-item label="Logging" href="${url('/logging')}" active="${activeItem == 'logging'}"/>
             </docs:nav-item>
             <docs:nav-divider/>
             <docs:nav-item label="Community" type="dropdown-menu" active="${activeItem == 'community'}">
                 <docs:nav-item label="Source code" href="https://github.com/raptorjs/raptorjs"/>
                 <docs:nav-item label="Issue Tracker" href="https://github.com/raptorjs/raptorjs/issues"/>
                 <docs:nav-item label="Contribute" href="${url('/contribute')}"/>
+                <docs:nav-item label="Contributors" href="${url('/contributors')}"/>
                 <docs:nav-divider/>
                 <docs:nav-item label="Discussion Forum" href="http://groups.google.com/group/raptorjs"/>
                 <docs:nav-divider/>

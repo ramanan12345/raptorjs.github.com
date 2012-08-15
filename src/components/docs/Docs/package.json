@@ -1,5 +1,6 @@
 {
     "includes": [
+        { "module": "Bootstrap/scrollspy" },
         { "module": "components/docs/Section" },
         "Docs.css",
         "DocsWidget.js"

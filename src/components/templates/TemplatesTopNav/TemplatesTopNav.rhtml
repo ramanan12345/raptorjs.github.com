@@ -7,14 +7,14 @@
     <docs:nav-bar brand="Raptor Templates" brandHref="${url('/raptor-templates')}" type="fixed-top">
         <docs:nav>
             <docs:nav-divider/>
-            <docs:nav-item href="${url('/raptor-templates')}" label="Try it Out!" active="${activeItem == 'try-it'}"/>
+            <docs:nav-item href="${url('/raptor-templates')}" label="Documentation"/>
             <docs:nav-divider/>
-            <docs:nav-item href="${url('/raptor-templates/docs')}" label="Documentation" active="${activeItem == 'docs'}"/>
+            <docs:nav-item href="${url('/raptor-templates/try-it')}" label="Try it Out!" active="${activeItem == 'try-it'}"/>
             <docs:nav-divider/>
-            <div class="powered-by">
-                Powered by <a href="${url('/')}" class="raptorjs">RaptorJS</a>
-            </div>
         </docs:nav>
+        <div class="powered-by">
+            Powered by <a href="${url('/')}" class="raptorjs">RaptorJS</a>
+        </div>
     </docs:nav-bar>
     
 </c:template>

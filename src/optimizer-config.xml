@@ -1,7 +1,7 @@
 <optimizer-config>
     
     <params>
-        <profile>production</profile>
+        <profile>development</profile>
     </params>
     
     <set-profile>${profile}</set-profile>
@@ -60,7 +60,7 @@
     </page-search-path>
 
     <clean-dirs>
-        <dir path="static"/>
+        <dir path="../static"/>
     </clean-dirs>
     
 <!--     <js-output-dir>dist/bundles</js-output-dir> -->
@@ -71,6 +71,19 @@
     <bundles name="default">
         <bundle name="jquery">
             <module name="jQuery" recursive="true"/>
+        </bundle>
+        <bundle name="bootstrap">
+            <module name="Bootstrap/reset" recursive="true"/>
+            <module name="Bootstrap/scaffolding" recursive="true"/>
+            <module name="Bootstrap/layouts" recursive="true"/>
+            <module name="Bootstrap/type" recursive="true"/>
+            <module name="Bootstrap/dropdowns" recursive="true"/>
+            
+            <module name="Bootstrap/buttons" recursive="true"/>
+            <module name="Bootstrap/button-groups" recursive="true"/>
+            
+            <module name="Bootstrap/navs" recursive="true"/>
+            <module name="Bootstrap/navbar" recursive="true"/>
         </bundle>
         <bundle name="core">
             <module name="core" recursive="true"/>

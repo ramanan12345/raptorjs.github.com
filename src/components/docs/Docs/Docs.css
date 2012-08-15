@@ -4,7 +4,7 @@
 }
 
 .docs-content H2 {
-/*     padding-top: 40px; */
+    padding-top: 40px;
 }
 
 .docs > .bd {
@@ -29,6 +29,11 @@
 
 .docs .section {
 }
+
+.docs .section .bd {
+    font-size: 14px;
+}
+
 
 .docs > .bd > .toc > UL.toc {
     margin: 0;

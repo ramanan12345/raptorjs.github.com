@@ -4,14 +4,18 @@
     <prefix>docs</prefix>
     
     <function name="url" bind-to-context="true" class="taglibs.docs.DocsFunctions"/>
+
+    <import-taglib path="/components/buttons/Button/Button.rtld"/>
+    <import-taglib path="/components/buttons/ButtonGroup/ButtonGroup.rtld"/>
+    
+    <import-taglib path="/components/config/Urls/Urls.rtld"/>
     
     <import-taglib path="/components/docs/Docs/Docs.rtld"/>
     <import-taglib path="/components/docs/Section/Section.rtld"/>
     
     <import-taglib path="/components/editors/CodeEditor/CodeEditor.rtld"/>
     
-    <import-taglib path="/components/buttons/Button/Button.rtld"/>
-    <import-taglib path="/components/buttons/ButtonGroup/ButtonGroup.rtld"/>
+    <import-taglib path="/components/icons/Icon/Icon.rtld"/>
     
     <import-taglib path="/components/nav/NavBar/NavBar.rtld"/>
     <import-taglib path="/components/nav/Nav/Nav.rtld"/>
@@ -20,7 +24,6 @@
     <import-taglib path="/components/nav/TabContent/TabContent.rtld"/>
     <import-taglib path="/components/nav/TabPane/TabPane.rtld"/>
     
-    <import-taglib path="/components/config/Urls/Urls.rtld"/>
     
     <import-taglib path="/components/social/TwitterFollow/TwitterFollow.rtld"/>
     

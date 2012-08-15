@@ -1,8 +1,6 @@
 {
     "includes": [
-        { "module": "core" },
-        { "type": "init-raptor" },
-        { "module": "jQuery" },
+        { "module": "docs-global" },
         { "module": "components/main/MainTopNav" },
         { "module": "components/docs/Docs" },
         "index.css"

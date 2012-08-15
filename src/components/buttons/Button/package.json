@@ -1,7 +1,7 @@
 {
     "includes": [
         {"module": "widgets"},
-        {"module": "Bootstrap"},
+        {"module": "Bootstrap/buttons"},
         "ButtonWidget.js",
         "Button.css"
     ]

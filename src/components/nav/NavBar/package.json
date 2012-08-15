@@ -1,7 +1,8 @@
 {
     "includes": [
         {"module": "widgets"},
-        {"module": "Bootstrap"},
+        {"module": "Bootstrap/navbar"},
+        {"module": "Bootstrap/dropdowns"},
         "NavBar.css"
     ]
 }

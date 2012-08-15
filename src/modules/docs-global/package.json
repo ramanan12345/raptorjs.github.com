@@ -1,0 +1,12 @@
+{
+    "includes": [
+        { "module": "core" },
+        { "type": "init-raptor" },
+        { "module": "jQuery" },
+        { "module": "Bootstrap/reset" },
+        { "module": "Bootstrap/scaffolding" },
+        { "module": "Bootstrap/util" },
+        { "module": "Bootstrap/layouts" },
+        { "module": "Bootstrap/type" }
+     ]
+}
