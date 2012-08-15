@@ -26,19 +26,25 @@
   box-sizing: border-box;
 }
 
-.navbar .nav LI.divider-vertical {
-    margin: 0;
-}
-.navbar A.brand {
-    color: #FFF;
-}
-BODY > .content {
+BODY > .container {
     margin-top: 50px;
     width: 960px;
     margin-left: auto;
     margin-right: auto;
 }
 
+BODY > .container > H1 {
+    padding-top: 20px;
+}
+.navbar .nav LI.divider-vertical {
+    margin: 0;
+}
+.navbar A.brand {
+    color: #FFF;
+}
+.footer {
+    clear: both;
+}
 .fork > IMG {
     border: 0 none;
     position: fixed;

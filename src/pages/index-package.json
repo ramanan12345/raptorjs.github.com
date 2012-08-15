@@ -3,6 +3,7 @@
         { "module": "docs-global" },
         { "module": "components/buttons/Button" },
         { "module": "components/nav/TopNavDefault" },
+        { "module": "components/footers/FooterDefault" },
         { "module": "components/social/TwitterFollow" },
         "index.css"
      ]

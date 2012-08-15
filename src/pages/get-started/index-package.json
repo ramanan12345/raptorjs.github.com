@@ -2,7 +2,9 @@
     "includes": [
         { "module": "docs-global" },
         { "module": "components/nav/TopNavDefault" },
+        { "module": "components/footers/FooterDefault" },
         { "module": "components/docs/Docs" },
+        { "module": "components/editors/CodeEditor" },
         "index.css"
      ]
 }

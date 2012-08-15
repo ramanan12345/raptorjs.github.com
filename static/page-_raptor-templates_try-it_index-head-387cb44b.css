@@ -26,6 +26,16 @@
   box-sizing: border-box;
 }
 
+BODY > .container {
+    margin-top: 50px;
+    width: 960px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+BODY > .container > H1 {
+    padding-top: 20px;
+}
 .CodeMirror {
   line-height: 1em;
   font-family: monospace;
