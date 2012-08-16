@@ -1,7 +1,7 @@
 <optimizer-config>
     
     <params>
-        <profile>production</profile>
+        <profile>development</profile>
     </params>
     
     <set-profile>${profile}</set-profile>
@@ -71,6 +71,12 @@
     <bundles name="default">
         <bundle name="jquery">
             <module name="jQuery" recursive="true"/>
+        </bundle>
+        <bundle name="code-editor">
+            <module name="components/editors/CodeEditor" recursive="true"/>
+            <module name="components/editors/CodeEditor/mode-javascript" recursive="true"/>
+            <module name="components/editors/CodeEditor/mode-htmlmixed" recursive="true"/>
+            <module name="components/editors/CodeEditor/mode-xml" recursive="true"/>
         </bundle>
         <bundle name="bootstrap">
             <module name="Bootstrap/reset" recursive="true"/>

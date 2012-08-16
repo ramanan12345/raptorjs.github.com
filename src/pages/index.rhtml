@@ -49,7 +49,9 @@
 
                 <div class="summary">
                     RaptorJS is a JavaScript toolset that makes it easy to build all types of web applications. 
-                    It's a toolset and not a framework so take what you want and leave what you don't.
+                    It is a toolset and not a framework so take what you want and leave what you do not. To
+                    support creating ""RaptorJS
+                    includes a module definition, packaging and loading system 
                 </div>
                 
                 <div class="overview">
@@ -58,8 +60,20 @@
                             <div class="content">
                                 <img src="objects.png" width="48" height="48"/>
                                 <h3>Modules &amp; Classes</h3>
-                                <div class="bd">                                    
-                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce vehicula iaculis rhoncus. Sed bibendum rutrum nulla, sed condimentum felis aliquam non. Praesent quis lectus lacus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.
+                                <div class="bd">
+                                    RaptorJS provides a simple JavaScript library (~2k gzipped) that 
+                                    makes it easy to define modules, classes, mixins and enums.
+                                    All of these objects support 
+                                    <docs:popover 
+                                        title="Lazy Initialization" 
+                                        content="Lazy initialization improves performance by deferring the initialization of 
+                                                 an object until it is first required. In addition, lazy initialization allows
+                                                 dependencies to be downloaded in parallel for optimal performance.">
+                                        lazy initialization
+                                    </docs:popover>${entity:nbsp}
+                                    and are very
+                                    close to pure JavaScript so the learning
+                                    curve is extremely low. 
                                     <c:invoke function="learnMore" href="/modules"/>
                                 </div>
                             </div>
@@ -68,8 +82,24 @@
                             <div class="content">
                                 <img src="package.png" width="48" height="48"/>
                                 <h3>Packaging &amp; Extensions</h3>
-                                <div class="bd">                                    
-                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce vehicula iaculis rhoncus. Sed bibendum rutrum nulla, sed condimentum felis aliquam non. Praesent quis lectus lacus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.
+                                <div class="bd">                   
+                                    <p>                 
+                                        RaptorJS provides an intuitive system for packaging
+                                        up code so that it can be treated as a unit. RaptorJS
+                                        packages can consist of any type of resources 
+                                        (JavaScript files, CSS files, Less files, etc.) and
+                                        packages can also be used to describe dependencies on
+                                        other packages.
+                                    </p>
+                                    <p>
+                                        Packages can be loaded on the server or delivered
+                                        to a browser as part of the initial page load or
+                                        asynchronously via a loader. In addition, packages support
+                                        extensions which make it possible to package
+                                        up code differently for different environments for
+                                        ultimate flexibility.
+                                    </p>
+                                     
                                     <c:invoke function="learnMore" href="/packaging"/>
                                 </div>
                             </div>
@@ -117,6 +147,8 @@
                             </div>
                         </div>
                     </div>
+                    
+                    
                     
                 </div>
             </div>

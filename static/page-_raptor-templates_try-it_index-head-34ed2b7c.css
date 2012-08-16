@@ -1,0 +1,207 @@
+.clearfix {
+  *zoom: 1;
+}
+.clearfix:before,
+.clearfix:after {
+  display: table;
+  content: "";
+}
+.clearfix:after {
+  clear: both;
+}
+.hide-text {
+  font: 0/0 a;
+  color: transparent;
+  text-shadow: none;
+  background-color: transparent;
+  border: 0;
+}
+.input-block-level {
+  display: block;
+  width: 100%;
+  min-height: 28px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+BODY > .container {
+    margin-top: 50px;
+    width: 960px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+BODY > .container > H1 {
+    padding-top: 20px;
+}
+.navbar .nav LI.divider-vertical {
+    margin: 0;
+}
+.errors {
+}
+
+UL.errors {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    border-left: 1px solid #EEEEEE;
+    border-right: 1px solid #EEEEEE;
+}
+
+UL.errors > LI > PRE {
+    background-color: #FFFFCC;
+    margin: 0;
+    padding: 2px;
+    margin-left: 20px;
+    border: 0;
+}
+
+
+UL.errors LI {
+    border-bottom: 1px solid #EEEEEE;
+    color: #660000;
+    padding-top: 2px;
+    padding-bottom: 2px;
+    background-color: #FFFFCC;
+}
+
+UL.errors .x {
+    margin-left: 5px;
+    float: left;
+    color: #CC0000;
+}
+.template-testbed H1 {
+    font-size: 32px;
+    margin-right: 14px;
+}
+
+.template-testbed {
+    margin-left: 8px;
+    margin-right: 8px;
+}
+
+.template-testbed .header-bar {
+    vertical-align: bottom;
+}
+
+
+.template-testbed H3.first {
+    margin-top: 0px;
+}
+
+.template-testbed H3 {
+    margin-top: 15px;
+}
+
+#samples-nav {
+    width: 160px;
+    float: left;
+}
+
+#samples-nav > .content {
+    margin-left: 10px;
+    margin-top: 10px;
+}
+
+#editors {
+    margin-left: 170px;
+}
+
+
+.template-testbed .input-col {
+    width: 50%;
+    float: left;
+}
+
+
+.template-testbed .output-col {
+    width: 50%;
+    float: left;
+}
+
+.template-testbed .input-col > DIV.content{
+    margin-left: 10px;
+    margin-right: 8px;
+}
+
+.template-testbed .output-col > DIV.content{
+    margin-left: 8px;
+    margin-right: 10px;
+}
+
+.template-testbed .html-viewer {
+    border-left: 1px solid #EEEEEE;
+    border-right: 1px solid #EEEEEE;
+    border-bottom: 1px solid #EEEEEE;
+    padding: 3px;
+}
+
+.template-testbed TD.option-buttons {
+    padding-left: 10px;
+}
+
+.template-testbed .footer-bar {
+    position: fixed;
+    bottom: 0px;
+    left: 0px;
+    background-color: #CCCCCC;
+    width: 100%;
+    height: 40px;
+    z-index: 1000;
+    padding-left: 8px;
+}
+
+.template-testbed .footer-bar > TABLE {
+    height: 40px;
+    float: left;
+}
+
+.template-testbed .footer-bar TD.render-button, .template-testbed .footer-bar TD.option-buttons {
+    vertical-align: middle;
+}
+
+.template-testbed .editor-view {
+    position: fixed;
+    left: 0px;
+    top: 50px;
+    bottom: 40px;
+    width: 100%;
+    overflow-y: auto;
+}
+
+.template-editor-container {
+    max-height: 400px;
+    overflow-y: auto;
+}
+
+.compiler-options-hidden {
+    top: 0px;
+    left: 0px;
+    position: absolute;
+    visibility: hidden;
+}
+
+.powered-by {
+    float: right;
+    line-height: 40px;
+    vertical-align: middle;
+    margin-right: 15px;
+    font-size: 16px;
+}
+
+.powered-by > .raptorjs {
+    font-weight: bold;
+}
+
+body {
+    font-family: "Helvetica neue",Helvetica,Arial,Verdana,Sans-serif;
+    font-size: 14px;
+}
+
+
+TD {
+    vertical-align: top;
+}
+

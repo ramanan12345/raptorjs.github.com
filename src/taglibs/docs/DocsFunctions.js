@@ -13,11 +13,18 @@ raptor.define(
                 var profile = optimizer.getParam('profile');
                 if (profile !== 'production') {
                     if (basePath === '.') {
-                        url = url.substring(1);
+                        if (url === '/') {
+                            return "index.html";
+                        }
+                        else {
+                            url = url.substring(1);    
+                        }
+                        
                     }
                     else {
                         url = basePath + url;
                     }
+                    
                     if (strings.endsWith(url, '/')) {
                         return url + 'index.html';
                     }

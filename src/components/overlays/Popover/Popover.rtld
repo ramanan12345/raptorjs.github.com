@@ -1,0 +1,13 @@
+<raptor-taglib>
+
+    <tag name="popover" handler-class="components.overlays.Popover.PopoverTag" dynamic-attributes="true">
+        <attribute name="animation" type="boolean"/>
+        <attribute name="placement" type="string"/>
+        <attribute name="selector" type="string"/>
+        <attribute name="trigger" type="string"/>
+        <attribute name="title" type="string"/>
+        <attribute name="content" type="string"/>
+        <attribute name="delay" type="int"/>
+    </tag>
+    
+</raptor-taglib>
