@@ -17,13 +17,14 @@
     
     <html>
         <head>
-            <title>RaptorJS</title>
+            <title>RaptorJS — A JavaScript Toolset from eBay</title>
             <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
             ${includes.head}
             <docs:google-analytics/>
         </head>
         <body>
-            <docs:top-nav/>
+            <docs:top-nav activeItem="home"/>
+            
             
             <a href="https://github.com/raptorjs/raptorjs" class="fork">
                 <img src="https://s3.amazonaws.com/github/ribbons/forkme_right_red_aa0000.png" alt="Fork me on GitHub"/>
@@ -31,6 +32,7 @@
             
             <div class="container">
                 <div class="main-content">
+
                     <div class="social">
                         <docs:twitter-follow username="raptorjs" showCount="true" size="large"/>
                     </div>
@@ -39,19 +41,27 @@
                         RaptorJS 
                     </h1>
                     <h2>
-                        A JavaScript Toolset from eBay
+                        A JavaScript Toolset from <img src="images/ebay-logo.png" alt="eBay" width="66" height="28"/>
                     </h2>
                     <div class="main-buttons">
-                        <docs:button size="large" type="primary" class="get-started-button" href="${url('/get-started')}">Get Started</docs:button>
-                        <docs:button size="large" class="github-button" href="https://github.com/raptorjs/raptorjs">View project on GitHub</docs:button>
-                    </div>                   
+                        <docs:button size="large" class="github-button" href="https://github.com/raptorjs/raptorjs">
+                            <docs:icon name="github" size="large"/> 
+                            View project on GitHub
+                        </docs:button>
+                        <docs:button size="large" type="primary" class="get-started-button" href="${url('/get-started')}">
+                            Get Started <docs:icon name="arrow-right" size="large"/> 
+                        </docs:button>
+                    </div>
+                    <div class="version-container">
+                        <span class="lbl">Current Version:</span> <span class="version">0.9 (beta)</span>
+                    </div>
                 </div>
 
                 <div class="summary">
-                    RaptorJS is a JavaScript toolset that makes it easy to build all types of web applications. 
-                    It is a toolset and not a framework so take what you want and leave what you do not. To
-                    support creating ""RaptorJS
-                    includes a module definition, packaging and loading system 
+                    <p>
+                        RaptorJS is a JavaScript toolset that makes it easy to build all types of web applications. 
+                        Since it is a toolset and not a framework feel free to take what you want and save the rest for later.
+                    </p>
                 </div>
                 
                 <div class="overview">
@@ -61,19 +71,27 @@
                                 <img src="objects.png" width="48" height="48"/>
                                 <h3>Modules &amp; Classes</h3>
                                 <div class="bd">
-                                    RaptorJS provides a simple JavaScript library (~2k gzipped) that 
-                                    makes it easy to define modules, classes, mixins and enums.
-                                    All of these objects support 
-                                    <docs:popover 
-                                        title="Lazy Initialization" 
-                                        content="Lazy initialization improves performance by deferring the initialization of 
-                                                 an object until it is first required. In addition, lazy initialization allows
-                                                 dependencies to be downloaded in parallel for optimal performance.">
-                                        lazy initialization
-                                    </docs:popover>${entity:nbsp}
-                                    and are very
-                                    close to pure JavaScript so the learning
-                                    curve is extremely low. 
+                                    <p>
+                                        RaptorJS provides a simple JavaScript library (~2k gzipped) that 
+                                        makes it easy to define modules, classes (with support for inheritance), mixins and enums.
+                                        To minimize the learning curve, the syntax for defining RaptorJS objects
+                                        is minimal and kept very close to pure JavaScript while offering
+                                        additional performance benefits.
+                                    </p>
+                                    <p>
+                                        All objects defined using RaptorJS support 
+                                        <docs:popover 
+                                            title="Lazy Initialization" 
+                                            content="Lazy initialization improves performance by deferring the initialization of 
+                                                     an object until it is first required. In addition, lazy initialization allows
+                                                     dependencies to be downloaded in parallel for optimal performance.">
+                                            lazy initialization
+                                        </docs:popover>${entity:nbsp} via the use of a factory function so
+                                        the object is not initialized until it is first required.
+                                        In addition, unlike in other systems, the code used to define
+                                        objects in RaptorJS works unmodified in all server and
+                                        browser environments to reduce the dependency on build tools.
+                                    </p>
                                     <c:invoke function="learnMore" href="/modules"/>
                                 </div>
                             </div>
@@ -92,12 +110,20 @@
                                         other packages.
                                     </p>
                                     <p>
-                                        Packages can be loaded on the server or delivered
-                                        to a browser as part of the initial page load or
-                                        asynchronously via a loader. In addition, packages support
-                                        extensions which make it possible to package
+                                        Packages can be loaded on the server, delivered
+                                        to a browser or shared with other developers. In addition, packages support 
+                                        <docs:popover 
+                                            title="Extensions" 
+                                            content="Package extensions allow files to be conditionally
+                                                     included based on which extensions have been enabled
+                                                     or disabled. For example, if a package has mobile specific code then
+                                                     you might create an extension named &quot;mobile&quot;
+                                                     and then enable that extension for all requests from mobile users.">
+                                        extensions
+                                        </docs:popover> 
+                                        which make it possible to package
                                         up code differently for different environments for
-                                        ultimate flexibility.
+                                        the ultimate in flexibility.
                                     </p>
                                      
                                     <c:invoke function="learnMore" href="/packaging"/>
@@ -108,8 +134,28 @@
                             <div class="content">
                                 <img src="lightning.png" width="48" height="48"/>
                                 <h3>Optimizer</h3>
-                                <div class="bd">                                    
-                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce vehicula iaculis rhoncus. Sed bibendum rutrum nulla, sed condimentum felis aliquam non. Praesent quis lectus lacus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.
+                                <div class="bd">          
+                                    <p>                          
+                                        Reducing the number of HTTP requests is important
+                                        to improve the performance of web applications. The RaptorJS
+                                        Optimizer can be used in your JavaScript server or as part
+                                        of your build tools to generate the static bundles 
+                                        <i>and</i> the HTML markup to include in your HTML pages.
+                                        The RaptorJS optimizer gives developers
+                                        full control over what goes into each bundle and
+                                        where the bundled resource is added to your page. In addition,
+                                        the optimizer utilzes the RaptorJS packager to 
+                                        automatically compile resources that require it and
+                                        it supports pluggable filters to support code minifiers
+                                        and other post-processors.
+                                    </p>
+                                    <p>
+                                        The RaptorJS Optimizer supports multiple user-configued 
+                                        profiles to control how the application is optimized.
+                                        For example, in development mode resource bundling and
+                                        minification can easily be disabled to make debugging
+                                        easier. 
+                                    </p>
                                     <c:invoke function="learnMore" href="/optimizer"/>
                                 </div>
                             </div>
@@ -122,7 +168,28 @@
                                 <img src="templates.png" width="48" height="48"/>
                                 <h3>Raptor Templates</h3>
                                 <div class="bd">                                    
-                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce vehicula iaculis rhoncus. Sed bibendum rutrum nulla, sed condimentum felis aliquam non. Praesent quis lectus lacus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.
+                                    <p>
+                                        RaptorJS provides a new templating language, Raptor Templates, 
+                                        that provides unparalleled extensibility while also being extremely
+                                        easy to use. The compiler for Raptor Templates produces JavaScript
+                                        code that is tiny since the output was designed with minification
+                                        in mind. The compiled code uses the JavaScript language to its
+                                        full advantage to provide amazing performance.
+                                    </p>
+                                    <p>
+                                        The Raptor Templating language is XML-based so
+                                        that it can be smarter about using the XML structure
+                                        of HTML documents to its advantage. In addition, utilizing XML makes
+                                        it possible to parse Raptor Templates with ease—opening the
+                                        door for more powerful tools and static code validators.
+                                    </p>
+                                    <p>
+                                        Raptor Templates takes the good parts of JSP (i.e. extensibility)
+                                        and combines it with the simplicity of the
+                                        <a href="http://genshi.edgewall.org/wiki/Documentation/xml-templates.html">Genshi Template Language</a>, 
+                                        a proven templating language for Python.
+                                    </p>
+                                    
                                     <c:invoke function="learnMore" href="/raptor-templates"/>
                                 </div>
                             </div>
@@ -140,8 +207,27 @@
                         <div class="feature-section">
                             <div class="content">
                                 <h3>Cross-Environment</h3>
-                                <div class="bd">                                    
-                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce vehicula iaculis rhoncus. Sed bibendum rutrum nulla, sed condimentum felis aliquam non. Praesent quis lectus lacus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.
+                                <div class="bd">   
+                                    <p>                                 
+                                        While it is beneficial to create modules of code that work 
+                                        seamlessly in all environments, unfortunately not all JavaScript environments, web browsers and web devices are created equal. 
+                                        Modern web browsers are drastically different from older web browsers and
+                                        mobile devices have a lot more constraints than desktops. To
+                                        to further complicate the situation, server-side JavaScript
+                                        environments differ drastically. 
+                                    </p>
+                                    <p>
+                                        The RaptorJS packaging and extension system works around the problem
+                                        of varying environments by allowing developers to target
+                                        code for specific environments through the use of declarative package extensions.
+                                        Developers no longer have to code to the lowest common denominator, send unnecessary code
+                                        or implement ugly JavaScript and CSS hacks. In addition, RaptorJS
+                                        makes it easy for
+                                        developers to normalize the API of their JavaScript modules
+                                        across environments so that other developers don't have to
+                                        worry about the differences.
+                                    </p>
+
                                     <c:invoke function="learnMore" href="/cross-environment"/>
                                 </div>
                             </div>

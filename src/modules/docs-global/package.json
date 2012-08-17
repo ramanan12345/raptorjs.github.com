@@ -3,6 +3,7 @@
         { "module": "core" },
         { "type": "init-raptor" },
         { "module": "jQuery" },
+        { "module": "components/icons/Icon" },
         { "module": "Bootstrap/reset" },
         { "module": "Bootstrap/scaffolding" },
         { "module": "Bootstrap/util" },

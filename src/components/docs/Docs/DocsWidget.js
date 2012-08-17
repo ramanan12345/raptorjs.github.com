@@ -1,5 +1,6 @@
 (function() {
     $('body').scrollspy({
+        target: '.docs',
         offset: 40
     });
 

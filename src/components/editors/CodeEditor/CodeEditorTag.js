@@ -14,10 +14,9 @@ raptor.define(
                 if (input.mode) {
                     widgetConfig.mode = input.mode;
                 }
-                if (input.autoResize === true) {
-                    widgetConfig.autoResize = true;
-                    
-                }
+                
+                widgetConfig.autoResize = input.autoResize !== false;
+
                 if (classNames.length) {
                     rootAttrs["class"] = classNames.join(" ");    
                 }
@@ -38,7 +37,7 @@ raptor.define(
                 }
                 
                 if (input.indentUnit) {
-                    widgetConfig.indentUnit = input.indentUnit;
+                    widgetConfig.indentUnit = input.indentUnit == null ? 4 : input.indentUnit;
                 }
                     
                 raptor.require('templating').render('components/editors/CodeEditor', {

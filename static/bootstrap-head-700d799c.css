@@ -99,7 +99,7 @@ textarea {
 body {
   margin: 0;
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-  font-size: 13px;
+  font-size: 14px;
   line-height: 18px;
   color: #555555;
   background-color: #ffffff;
@@ -144,7 +144,7 @@ p {
   margin: 0 0 9px;
 }
 p small {
-  font-size: 11px;
+  font-size: 12px;
   color: #999999;
 }
 .lead {
@@ -469,7 +469,7 @@ cite {
   *zoom: 1;
   padding: 4px 10px 4px;
   margin-bottom: 0;
-  font-size: 13px;
+  font-size: 14px;
   line-height: 18px;
   *line-height: 20px;
   color: #333333;
@@ -560,7 +560,7 @@ cite {
 }
 .btn-large {
   padding: 9px 14px;
-  font-size: 15px;
+  font-size: 16px;
   line-height: normal;
   -webkit-border-radius: 5px;
   -moz-border-radius: 5px;
@@ -571,7 +571,7 @@ cite {
 }
 .btn-small {
   padding: 5px 9px;
-  font-size: 11px;
+  font-size: 12px;
   line-height: 16px;
 }
 .btn-small [class^="icon-"] {
@@ -579,7 +579,7 @@ cite {
 }
 .btn-mini {
   padding: 2px 6px;
-  font-size: 11px;
+  font-size: 12px;
   line-height: 14px;
 }
 .btn-primary,
@@ -755,15 +755,15 @@ cite {
   background-color: #24748c \9;
 }
 .btn-inverse {
-  background-color: #a27a28;
-  background-image: -moz-linear-gradient(top, #f7b42c, #222222);
-  background-image: -ms-linear-gradient(top, #f7b42c, #222222);
-  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#f7b42c), to(#222222));
-  background-image: -webkit-linear-gradient(top, #f7b42c, #222222);
-  background-image: -o-linear-gradient(top, #f7b42c, #222222);
-  background-image: linear-gradient(top, #f7b42c, #222222);
+  background-color: #537230;
+  background-image: -moz-linear-gradient(top, #73a839, #222222);
+  background-image: -ms-linear-gradient(top, #73a839, #222222);
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#73a839), to(#222222));
+  background-image: -webkit-linear-gradient(top, #73a839, #222222);
+  background-image: -o-linear-gradient(top, #73a839, #222222);
+  background-image: linear-gradient(top, #73a839, #222222);
   background-repeat: repeat-x;
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#f7b42c', endColorstr='#222222', GradientType=0);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#73a839', endColorstr='#222222', GradientType=0);
   border-color: #222222 #222222 #000000;
   border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
   *background-color: #222222;

@@ -57,6 +57,10 @@
     margin-right: 10px;
 }
 
+.template-testbed .btn-group {
+    white-space:nowrap;
+}
+
 .template-testbed .html-viewer {
     border-left: 1px solid #EEEEEE;
     border-right: 1px solid #EEEEEE;
@@ -109,14 +113,3 @@
     visibility: hidden;
 }
 
-.powered-by {
-    float: right;
-    line-height: 40px;
-    vertical-align: middle;
-    margin-right: 15px;
-    font-size: 16px;
-}
-
-.powered-by > .raptorjs {
-    font-weight: bold;
-}
