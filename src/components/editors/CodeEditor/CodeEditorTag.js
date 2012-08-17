@@ -28,9 +28,12 @@ raptor.define(
                     widgetConfig.autoFormat = true;
                 }
                 
-                if (input.name) {
-                    rootAttrs.name = input.name;
+                if (!input.name) {
+                    var nextId = context.nextCodeEditorId || (context.nextCodeEditorId = 0);
+                    input.name = "code-" + nextId;
                 }
+                
+                rootAttrs.name = input.name;
                 
                 if (input.lineNumbers === false) {
                     widgetConfig.lineNumbers = false;
@@ -39,6 +42,8 @@ raptor.define(
                 if (input.indentUnit) {
                     widgetConfig.indentUnit = input.indentUnit == null ? 4 : input.indentUnit;
                 }
+                
+                
                     
                 raptor.require('templating').render('components/editors/CodeEditor', {
                     tag: input, 

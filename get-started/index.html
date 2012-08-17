@@ -6,7 +6,7 @@ $ mkdir hello-world
 $ npm init
 </pre>Now the <code>raptor</code> module can be added as a project dependency using the following command:<pre class="sh">
 $ npm install raptor --save
-</pre>Now create a simple <code>index.js</code> file with the following contents:<textarea style="display: none;" id="s1">
+</pre>Now create a simple <code>index.js</code> file with the following contents:<textarea style="display: none;" id="s1" name="code-0">
 require("raptor").create({ //Initialize RaptorJS
     logging: {
         loggers: { //Configure the loggers control the logging output
@@ -26,7 +26,7 @@ resources.getSearchPath().addDir(__dirname);
 
 raptor.require("hello").greet("World"); //Load the RaptorJS "hello" module
                                         //and invoke the "greet" method
-</textarea>Now create the <code>hello.js</code> file which will contain the definition for the <code>hello</code> module:<textarea style="display: none;" id="s2">
+</textarea>Now create the <code>hello.js</code> file which will contain the definition for the <code>hello</code> module:<textarea style="display: none;" id="s2" name="code-0">
 raptor.define(
     "hello",
     function() { //This function will be invoked only once
