@@ -48,6 +48,7 @@
     clear: both;
     height: 800px;
     border-top: 1px solid #C0C0C0;
+    margin-top: 40px;
 }
 
 .toc LI {
@@ -93,7 +94,6 @@ LI.toc-level-1 {
 }
 
 .section-level-0 {
-    margin-bottom: 15px;
     
 }
 
