@@ -10,9 +10,11 @@ raptor.define(
                 var liClassParts = [];
                 
                 var nav = input.nav,
-                    activeItem;
+                    activeItem,
+                    type;
                 if (nav) {
                     activeItem = nav.activeItem;
+                    type = nav.type
                 }
                 
                 if (input.itemId && activeItem && activeItem === input.itemId) {
@@ -51,8 +53,8 @@ raptor.define(
                 }
                 else {
                     if (input.toggle) {
-                        input.anchorAttrs["href"] = "#" + input.toggle;
-                        input.anchorAttrs["data-toggle"] = (input.type === 'pills' ? 'pill' : 'tab');
+                        input.anchorAttrs["href"] = "#";
+                        input.anchorAttrs["data-toggle"] = (type === 'pills' || type === 'pill' ? 'pill' : 'tab');
                     }
                     else {
                         input.anchorAttrs["href"] = input.href ? input.href : "#";

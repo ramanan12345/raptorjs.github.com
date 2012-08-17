@@ -1,7 +1,7 @@
 <optimizer-config>
     
     <params>
-        <profile>production</profile>
+        <profile>development</profile>
     </params>
     
     <set-profile>${profile}</set-profile>
