@@ -26,6 +26,8 @@
 .main-content > H2 {
     font-size: 28px;
     color: #535353;
+    line-height: 28px;
+    vertical-align: middle;
 }
 
 .main-buttons {
@@ -36,12 +38,25 @@
     font-size: 20px;
 }
 
-.main-buttons .btn.get-started-button {
+.main-buttons .btn:first-child {
     margin-right: 20px;
+}
+
+
+.main-buttons .btn.get-started-button {
+    
 }
 
 .main-content .social {
     float: right;
+}
+
+.version-container {
+    padding-top: 4px;
+}
+
+.version-container > .version {
+    font-weight: bold;
 }
 
 .overview {

@@ -1,45 +1,104 @@
 <c:template
     xmlns:c="core"
-    xmlns:docs="docs">
+    xmlns:docs="docs"
+    docs:functions="url">
     
     <docs:docs heading="Get Started with RaptorJS">
         
-        <docs:section heading="TEST SECTION">
-            Content for test section
-            <docs:code-editor 
-                    autoResize="true"
-                    indentUnit="4"
-                    mode="xml">
-            
-            <![CDATA[
-            <test></test>
-            ]]>
-            </docs:code-editor>
+        <docs:section heading="Overview">
+            <p>
+                This guide will help you quickly get started with using
+                RaptorJS in an environment with <a href="http://nodejs.org/">Node</a> installed. While RaptorJS works 
+                in other JavaScript environments, many of the features of RaptorJS
+                are best experienced with Node.
+            </p>
+            <p>
+                This guide will help you quickly start using RaptorJS in
+                a Node application. For more details on building a real-world web
+                application you will want to go through the <a href="${url('/tutorial')}">tutorial</a>.
+            </p>
         </docs:section>
             
-        <docs:section heading="Overview">
-                
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis sagittis metus vitae velit pretium aliquam. Donec pellentesque enim magna. Aliquam quis varius purus. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Aenean ut sagittis mi. Fusce sit amet augue purus, eget adipiscing urna. Curabitur vel molestie purus. Cras quis est metus. Praesent non sem augue. Suspendisse potenti. Aenean vehicula dapibus pellentesque.
-
-            Etiam lacinia cursus massa, a dapibus augue ornare ultrices. Morbi risus eros, feugiat in bibendum eu, elementum eu justo. Vestibulum imperdiet congue aliquet. Cras hendrerit urna nec nisi tempus feugiat. Nam congue mauris sed nunc consectetur egestas. Quisque sit amet nisl lacus, sed dignissim eros. Etiam ac mollis lectus. Quisque eu nisi tellus, eu scelerisque enim. Maecenas a venenatis velit. Nam consectetur lobortis imperdiet. Vestibulum congue, risus et pretium mollis, enim turpis vulputate quam, sed placerat tortor augue at felis. Donec ut turpis nisl. Donec id sem consequat dui facilisis tempor ut ut lacus. In quam leo, cursus a pulvinar consequat, imperdiet id ipsum. Pellentesque sit amet dolor sed nisi hendrerit lobortis.
+        <docs:section heading="Installing Node">
             
-            <docs:section heading="Overview Nested">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis sagittis metus vitae velit pretium aliquam. Donec pellentesque enim magna. Aliquam quis varius purus. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Aenean ut sagittis mi. Fusce sit amet augue purus, eget adipiscing urna. Curabitur vel molestie purus. Cras quis est metus. Praesent non sem augue. Suspendisse potenti. Aenean vehicula dapibus pellentesque.
-
-                Etiam lacinia cursus massa, a dapibus augue ornare ultrices. Morbi risus eros, feugiat in bibendum eu, elementum eu justo. Vestibulum imperdiet congue aliquet. Cras hendrerit urna nec nisi tempus feugiat. Nam congue mauris sed nunc consectetur egestas. Quisque sit amet nisl lacus, sed dignissim eros. Etiam ac mollis lectus. Quisque eu nisi tellus, eu scelerisque enim. Maecenas a venenatis velit. Nam consectetur lobortis imperdiet. Vestibulum congue, risus et pretium mollis, enim turpis vulputate quam, sed placerat tortor augue at felis. Donec ut turpis nisl. Donec id sem consequat dui facilisis tempor ut ut lacus. In quam leo, cursus a pulvinar consequat, imperdiet id ipsum. Pellentesque sit amet dolor sed nisi hendrerit lobortis.
-                <docs:section heading="Overview Nested 2">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis sagittis metus vitae velit pretium aliquam. Donec pellentesque enim magna. Aliquam quis varius purus. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Aenean ut sagittis mi. Fusce sit amet augue purus, eget adipiscing urna. Curabitur vel molestie purus. Cras quis est metus. Praesent non sem augue. Suspendisse potenti. Aenean vehicula dapibus pellentesque.
-
-                    Etiam lacinia cursus massa, a dapibus augue ornare ultrices. Morbi risus eros, feugiat in bibendum eu, elementum eu justo. Vestibulum imperdiet congue aliquet. Cras hendrerit urna nec nisi tempus feugiat. Nam congue mauris sed nunc consectetur egestas. Quisque sit amet nisl lacus, sed dignissim eros. Etiam ac mollis lectus. Quisque eu nisi tellus, eu scelerisque enim. Maecenas a venenatis velit. Nam consectetur lobortis imperdiet. Vestibulum congue, risus et pretium mollis, enim turpis vulputate quam, sed placerat tortor augue at felis. Donec ut turpis nisl. Donec id sem consequat dui facilisis tempor ut ut lacus. In quam leo, cursus a pulvinar consequat, imperdiet id ipsum. Pellentesque sit amet dolor sed nisi hendrerit lobortis.
-                </docs:section>
-            </docs:section>
-            
+            The easiest way to start using RaptorJS is to install
+            the "raptor" module using <a href="https://npmjs.org/">npm</a>,
+            the package manager for Node. npm is installed as part of Node so if you
+            have not yet installed node then head over to the 
+            <a href="http://nodejs.org/">Node website</a> and download and install the appropriate
+            version of Node.  
         </docs:section>
         
-        <docs:section heading="Installing Node">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis sagittis metus vitae velit pretium aliquam. Donec pellentesque enim magna. Aliquam quis varius purus. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Aenean ut sagittis mi. Fusce sit amet augue purus, eget adipiscing urna. Curabitur vel molestie purus. Cras quis est metus. Praesent non sem augue. Suspendisse potenti. Aenean vehicula dapibus pellentesque.
+        <docs:section heading="Creating a Node Project">
+            npm makes it easy to create a Node project that includes the module for RaptorJS.
+            Follow the steps below to start using RaptorJS in a Node application:
+<pre class="sh" xml:space="preserve">
+$ mkdir hello-world              
+</pre>
+            In the newly created directory, you will need to create a <code>package.json</code> file. This file
+            will be used describe dependencies and additional metadata. To initialize
+            a new package.json file use the following command and follow the prompts (use <code>index.js</code> as the main script):
+<pre class="sh" xml:space="preserve">
+$ npm init
+</pre>
+            Now the <code>raptor</code> module can be added as a project dependency using the following command:
+<pre class="sh" xml:space="preserve">
+$ npm install raptor --save
+</pre>
+            Now create a simple <code>index.js</code> file with the following contents:
+<docs:code-editor
+    readOnly="true"
+    mode="javascript"><![CDATA[
+require("raptor").create({ //Initialize RaptorJS
+    logging: {
+        loggers: { //Configure the loggers control the logging output
+            'ROOT': {level: 'WARN'},
+            'hello': {level: 'DEBUG'}
+        }
+    }
+});
 
-            Etiam lacinia cursus massa, a dapibus augue ornare ultrices. Morbi risus eros, feugiat in bibendum eu, elementum eu justo. Vestibulum imperdiet congue aliquet. Cras hendrerit urna nec nisi tempus feugiat. Nam congue mauris sed nunc consectetur egestas. Quisque sit amet nisl lacus, sed dignissim eros. Etiam ac mollis lectus. Quisque eu nisi tellus, eu scelerisque enim. Maecenas a venenatis velit. Nam consectetur lobortis imperdiet. Vestibulum congue, risus et pretium mollis, enim turpis vulputate quam, sed placerat tortor augue at felis. Donec ut turpis nisl. Donec id sem consequat dui facilisis tempor ut ut lacus. In quam leo, cursus a pulvinar consequat, imperdiet id ipsum. Pellentesque sit amet dolor sed nisi hendrerit lobortis.
+/*
+ * Tell RaptorJS where it can find modules
+ * and other resources by adding the current
+ * directory to the resource search path.
+ */
+var resources = raptor.require('resources'); 
+resources.getSearchPath().addDir(__dirname);
+
+raptor.require("hello").greet("World"); //Load the RaptorJS "hello" module
+                                        //and invoke the "greet" method
+]]></docs:code-editor>
+
+    Now create the <code>hello.js</code> file which will contain the definition for the <code>hello</code> module:
+<docs:code-editor
+    readOnly="true"
+    mode="javascript"><![CDATA[
+raptor.define(
+    "hello",
+    function() { //This function will be invoked only once
+                 //when the module is first required
+                 
+        return { //The return value of the factory function will be
+                 //registered as the implementation for the module
+                  
+            greet: function(name) {
+                this.logger().debug("Hello " + name + "!");
+            }
+        }
+    });
+]]></docs:code-editor>
+            Test out the application!:
+<pre class="sh" xml:space="preserve">
+$ node index.js
+</pre>
+            You should see the following in the console:
+<pre class="sh" xml:space="preserve">
+DEBUG hello: Hello World!
+</pre>
+
+            Not very exciting, but at least we know that RaptorJS is
+            working in a Node environment.
         </docs:section>
         
     </docs:docs>

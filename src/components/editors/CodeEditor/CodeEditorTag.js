@@ -14,10 +14,9 @@ raptor.define(
                 if (input.mode) {
                     widgetConfig.mode = input.mode;
                 }
-                if (input.autoResize === true) {
-                    widgetConfig.autoResize = true;
-                    
-                }
+                
+                widgetConfig.autoResize = input.autoResize !== false;
+
                 if (classNames.length) {
                     rootAttrs["class"] = classNames.join(" ");    
                 }
@@ -29,17 +28,22 @@ raptor.define(
                     widgetConfig.autoFormat = true;
                 }
                 
-                if (input.name) {
-                    rootAttrs.name = input.name;
+                if (!input.name) {
+                    var nextId = context.nextCodeEditorId || (context.nextCodeEditorId = 0);
+                    input.name = "code-" + nextId;
                 }
+                
+                rootAttrs.name = input.name;
                 
                 if (input.lineNumbers === false) {
                     widgetConfig.lineNumbers = false;
                 }
                 
                 if (input.indentUnit) {
-                    widgetConfig.indentUnit = input.indentUnit;
+                    widgetConfig.indentUnit = input.indentUnit == null ? 4 : input.indentUnit;
                 }
+                
+                
                     
                 raptor.require('templating').render('components/editors/CodeEditor', {
                     tag: input, 

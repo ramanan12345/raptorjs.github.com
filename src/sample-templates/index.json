@@ -49,6 +49,11 @@
         "path": "helper-functions"
     },
     {
+        "label": "Whitespace",
+        "path": "whitespace",
+        showCompilerOptions: true
+    },
+    {
         "label": "Taglibs",
         "path": "taglibs"
     },

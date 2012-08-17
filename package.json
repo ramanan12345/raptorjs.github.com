@@ -1,0 +1,13 @@
+{
+    "name": "raptorjs-www",
+    "version": "1.0.0",
+    "author": "Patrick Steele-Idem <psteeleidem@ebay.com>",
+    "contributors": [
+        "Patrick Steele-Idem <psteeleidem@ebay.com>"
+    ],
+    "maintainers": "Patrick Steele-Idem <psteeleidem@ebay.com>",
+    
+    "devDependencies": {
+        "express": ">= 3.0"
+    }
+}

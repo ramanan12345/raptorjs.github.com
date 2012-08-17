@@ -1,7 +1,7 @@
 <optimizer-config>
     
     <params>
-        <profile>production</profile>
+        <profile>development</profile>
     </params>
     
     <set-profile>${profile}</set-profile>
@@ -21,6 +21,7 @@
         <in-place-deployment-enabled>true</in-place-deployment-enabled>
         <minify-js>false</minify-js>
         <checksums-enabled>false</checksums-enabled>
+        <write-html-includes>true</write-html-includes>
 <!--         <watch-files-enabled>true</watch-files-enabled> -->
 <!--         <watch> -->
 <!--             <dir path="../lib/components" recursive="true" filenamePatterns="*.js,*.rhtml,*.rtld"/> -->
@@ -72,7 +73,13 @@
         <bundle name="jquery">
             <module name="jQuery" recursive="true"/>
         </bundle>
+        <bundle name="core">
+            <module name="core" recursive="true"/>
+            <init-raptor/>
+            <module name="widgets" recursive="true"/>
+        </bundle>
         <bundle name="bootstrap">
+            <module name="components/icons/Icon"/>
             <module name="Bootstrap/reset" recursive="true"/>
             <module name="Bootstrap/scaffolding" recursive="true"/>
             <module name="Bootstrap/layouts" recursive="true"/>
@@ -85,9 +92,11 @@
             <module name="Bootstrap/navs" recursive="true"/>
             <module name="Bootstrap/navbar" recursive="true"/>
         </bundle>
-        <bundle name="core">
-            <module name="core" recursive="true"/>
-            <init-raptor/>
+        <bundle name="code-editor">
+            <module name="components/editors/CodeEditor" recursive="true"/>
+            <module name="components/editors/CodeEditor/mode-javascript" recursive="true"/>
+            <module name="components/editors/CodeEditor/mode-htmlmixed" recursive="true"/>
+            <module name="components/editors/CodeEditor/mode-xml" recursive="true"/>
         </bundle>
     </bundles>
     

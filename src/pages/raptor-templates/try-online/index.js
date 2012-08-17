@@ -27,6 +27,7 @@ exports.controller = function() {
             template: readResource(sample.path + ".rhtml", ''),
             data: readResource(sample.path + "-data.json", '{}'),
             options: readResource(sample.path + "-options.json") || defaultOptionsJson,
+            showCompilerOptions: sample.showCompilerOptions,
             templates: templates
          });
     });

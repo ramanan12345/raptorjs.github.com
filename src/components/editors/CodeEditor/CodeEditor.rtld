@@ -1,6 +1,6 @@
 <raptor-taglib>
 
-    <tag name="code-editor" handler-class="components.editors.CodeEditor.CodeEditorTag">
+    <tag name="code-editor" handler-class="components.editors.CodeEditor.CodeEditorTag" preserveSpace="true">
         <attribute name="name" type="string"/>
         <attribute name="autoResize" type="boolean"/>
         <attribute name="mode" type="string"/>

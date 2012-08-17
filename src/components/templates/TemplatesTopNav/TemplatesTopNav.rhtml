@@ -5,11 +5,11 @@
     docs:functions="url">
     
     <docs:nav-bar brand="Raptor Templates" brandHref="${url('/raptor-templates')}" type="fixed-top">
-        <docs:nav>
+        <docs:nav activeItem="${activeItem}">
             <docs:nav-divider/>
             <docs:nav-item href="${url('/raptor-templates')}" label="Documentation"/>
             <docs:nav-divider/>
-            <docs:nav-item href="${url('/raptor-templates/try-it')}" label="Try it Out!" active="${activeItem == 'try-it'}"/>
+            <docs:nav-item href="${url('/raptor-templates/try-online')}" label="Try Online!" itemId="try-online"/>
             <docs:nav-divider/>
         </docs:nav>
         <div class="powered-by">

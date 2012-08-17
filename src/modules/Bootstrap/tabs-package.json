@@ -1,0 +1,5 @@
+{
+    "includes": [
+        "bootstrap/js/bootstrap-tab.js"
+    ]
+}

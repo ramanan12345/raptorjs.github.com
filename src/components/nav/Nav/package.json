@@ -2,6 +2,7 @@
     "includes": [
         {"module": "widgets"},
         {"module": "Bootstrap/navs"},
+        {"module": "Bootstrap/tabs"},
         "NavWidget.js",
         "Nav.css"
     ]

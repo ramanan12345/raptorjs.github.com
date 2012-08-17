@@ -2,6 +2,7 @@
 
     <tag name="nav" handler-class="components.nav.Nav.NavTag">
         <attribute name="type" type="string"/>
+        <attribute name="activeItem" type="string"/>
         <attribute name="stacked" type="boolean"/>
         
         <!-- Support widget attributes -->

@@ -85,6 +85,10 @@ raptor.define(
                 this.dataEditor.setValue(sample.data);
                 this.optionsEditor.setValue(sample.options || this.defaultOptionsJson);
                 this.update();
+                
+                if (sample.showCompilerOptions) {
+                    this.toggleCompilerOptions(true);
+                }
             },
             
             handleEditorException: function(errorsWidget, e) {
@@ -226,7 +230,11 @@ raptor.define(
                 this.$("#compiledTemplateSection").toggle();
             },
             
-            toggleCompilerOptions: function() {
+            toggleCompilerOptions: function(visible) {
+                if (arguments.length === 1 && visible === this.visible) {
+                    return; //Nothing to do
+                }
+                
                 this.optionsVisible = !this.optionsVisible;
                 
                 if (this.optionsVisible) {
