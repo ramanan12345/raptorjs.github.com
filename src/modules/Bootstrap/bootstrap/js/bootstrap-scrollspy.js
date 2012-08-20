@@ -112,6 +112,8 @@
           active = active.closest('li.dropdown').addClass('active')
         }
 
+        $(selector).parent('li.active').trigger('activate');
+        
         active.trigger('activate')
       }
 
