@@ -7,7 +7,7 @@
     <c:def function="toc(parentSection)">
         <ul class="toc">
             <li class="toc toc-level-${section.level}" c:for="section in parentSection.sections">
-                <a href="#${section.anchorName}">${section.heading}</a>
+                <a href="#${section.getAnchorName()}">${section.heading}</a>
                 <c:invoke function="toc(section)"/>
             </li>
         </ul>
@@ -15,7 +15,7 @@
     
     <div class="docs">
         <div class="bd">
-            <div class="toc nav">
+            <div class="toc nav" id="docsNav">
                 <c:invoke function="toc(rootSection)"/>
             </div>
             <div class="docs-content">

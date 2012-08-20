@@ -2,6 +2,8 @@
 
     <tag name="section" handler-class="components.docs.Section.SectionTag">
         <attribute name="heading" type="string"/>
+        <attribute name="navHeading" type="string"/>
+        <attribute name="anchorName" type="string"/>
     </tag>
     
 </raptor-taglib>

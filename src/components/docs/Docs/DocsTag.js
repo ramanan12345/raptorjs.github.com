@@ -16,12 +16,13 @@ raptor.define(
                     sections: []
                 });
                 
-                context.docsBeginSection = function(heading, callback) {
+                context.docsBeginSection = function(callback) {
                     var section = {
-                       heading: heading,
                        level: sectionStack.length - 1,
                        sections: [],
-                       anchorName: heading.replace(/[^a-zA-Z0-9]+/g, '')
+                       getAnchorName: function() {
+                           return this.anchorName || this.heading.replace(/[^a-zA-Z0-9]+/g, '');
+                       }
                     };
                     
                     arrays.peek(sectionStack).sections.push(section);

@@ -31,6 +31,7 @@ raptor.define(
                 if (!input.name) {
                     var nextId = context.nextCodeEditorId || (context.nextCodeEditorId = 0);
                     input.name = "code-" + nextId;
+                    context.nextCodeEditorId++;
                 }
                 
                 rootAttrs.name = input.name;
