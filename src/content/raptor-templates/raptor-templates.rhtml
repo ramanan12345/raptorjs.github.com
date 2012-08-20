@@ -11,27 +11,278 @@
                 <div class="desc">Edit Raptor Templates in your browser with instant results!</div>
             </div>
             
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis sagittis metus vitae velit pretium aliquam. Donec pellentesque enim magna. Aliquam quis varius purus. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Aenean ut sagittis mi. Fusce sit amet augue purus, eget adipiscing urna. Curabitur vel molestie purus. Cras quis est metus. Praesent non sem augue. Suspendisse potenti. Aenean vehicula dapibus pellentesque.
-
-            Etiam lacinia cursus massa, a dapibus augue ornare ultrices. Morbi risus eros, feugiat in bibendum eu, elementum eu justo. Vestibulum imperdiet congue aliquet. Cras hendrerit urna nec nisi tempus feugiat. Nam congue mauris sed nunc consectetur egestas. Quisque sit amet nisl lacus, sed dignissim eros. Etiam ac mollis lectus. Quisque eu nisi tellus, eu scelerisque enim. Maecenas a venenatis velit. Nam consectetur lobortis imperdiet. Vestibulum congue, risus et pretium mollis, enim turpis vulputate quam, sed placerat tortor augue at felis. Donec ut turpis nisl. Donec id sem consequat dui facilisis tempor ut ut lacus. In quam leo, cursus a pulvinar consequat, imperdiet id ipsum. Pellentesque sit amet dolor sed nisi hendrerit lobortis.
+            <p>
+                The Raptor Templating Language is heavily inspired by  
+                <a href="http://genshi.edgewall.org/wiki/Documentation/xml-templates.html">Genshi XML Template Language</a> 
+                (a templating language for Python) with the good parts of JSP mixed in. The Raptor 
+                Templating Language borrows most of the same features from Genshi and includes a 
+                JavaScript compiler so that a template can be compiled to native JavaScript code.
+            </p>
+            <p>
+                Since the Raptor Templating Language borrows many of the good features of JSP, 
+                most templates will look very similar to JSP templates.
+            </p>
             
-            <docs:section heading="Overview Nested">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis sagittis metus vitae velit pretium aliquam. Donec pellentesque enim magna. Aliquam quis varius purus. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Aenean ut sagittis mi. Fusce sit amet augue purus, eget adipiscing urna. Curabitur vel molestie purus. Cras quis est metus. Praesent non sem augue. Suspendisse potenti. Aenean vehicula dapibus pellentesque.
-
-                Etiam lacinia cursus massa, a dapibus augue ornare ultrices. Morbi risus eros, feugiat in bibendum eu, elementum eu justo. Vestibulum imperdiet congue aliquet. Cras hendrerit urna nec nisi tempus feugiat. Nam congue mauris sed nunc consectetur egestas. Quisque sit amet nisl lacus, sed dignissim eros. Etiam ac mollis lectus. Quisque eu nisi tellus, eu scelerisque enim. Maecenas a venenatis velit. Nam consectetur lobortis imperdiet. Vestibulum congue, risus et pretium mollis, enim turpis vulputate quam, sed placerat tortor augue at felis. Donec ut turpis nisl. Donec id sem consequat dui facilisis tempor ut ut lacus. In quam leo, cursus a pulvinar consequat, imperdiet id ipsum. Pellentesque sit amet dolor sed nisi hendrerit lobortis.
-                <docs:section heading="Overview Nested 2">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis sagittis metus vitae velit pretium aliquam. Donec pellentesque enim magna. Aliquam quis varius purus. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Aenean ut sagittis mi. Fusce sit amet augue purus, eget adipiscing urna. Curabitur vel molestie purus. Cras quis est metus. Praesent non sem augue. Suspendisse potenti. Aenean vehicula dapibus pellentesque.
-
-                    Etiam lacinia cursus massa, a dapibus augue ornare ultrices. Morbi risus eros, feugiat in bibendum eu, elementum eu justo. Vestibulum imperdiet congue aliquet. Cras hendrerit urna nec nisi tempus feugiat. Nam congue mauris sed nunc consectetur egestas. Quisque sit amet nisl lacus, sed dignissim eros. Etiam ac mollis lectus. Quisque eu nisi tellus, eu scelerisque enim. Maecenas a venenatis velit. Nam consectetur lobortis imperdiet. Vestibulum congue, risus et pretium mollis, enim turpis vulputate quam, sed placerat tortor augue at felis. Donec ut turpis nisl. Donec id sem consequat dui facilisis tempor ut ut lacus. In quam leo, cursus a pulvinar consequat, imperdiet id ipsum. Pellentesque sit amet dolor sed nisi hendrerit lobortis.
-                </docs:section>
+        </docs:section>
+        
+        <docs:section heading="Introduction">
+            <p>
+                All Raptor templates are required to be well-formed XML. This
+                constraint allows the template language to use the structure of the
+                XML document to its advantage. For example, a template directive
+                that controls structural logic can be applied as an attribute of the
+                element that it controls. In addition, unlike in non-XML-based
+                templating languages, whitespace removal rules are based on the XML
+                structure and not a string language directives. Despite a template
+                being well-formed XML, the output does not have to be well-formed
+                XML which makes the Raptor Templating Language flexible enough for
+                using in all types of web applications.
+            </p>
+            <p>
+                The Raptor Templating Language aims to be easy to understand by utilizing
+                concepts that front-end developers are already familiar with such as
+                XML/HTML and JavaScript. While the Raptor Templating Language
+                introduces a new grammar on top of XHTML, it is not an entirely new
+                language which reduces the learning curve.
+            </p>
+            
+            <docs:section heading="Sample Template">
+                <p>
+                </p>
+            </docs:section>
+            
+            <docs:section heading="Template Compilation">
+                <p>
+                </p>
+            </docs:section>
+            
+            <docs:section heading="Template Directives Overview">
+                <p>
+                </p>
+            </docs:section>
+            
+            <docs:section heading="Extensibility">
+                <p>
+                </p>
             </docs:section>
             
         </docs:section>
         
-        <docs:section heading="Installing Node">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis sagittis metus vitae velit pretium aliquam. Donec pellentesque enim magna. Aliquam quis varius purus. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Aenean ut sagittis mi. Fusce sit amet augue purus, eget adipiscing urna. Curabitur vel molestie purus. Cras quis est metus. Praesent non sem augue. Suspendisse potenti. Aenean vehicula dapibus pellentesque.
+        <docs:section heading="Expressions">
+            <p>
+            </p>
+            
+            <docs:section heading="Helper Functions">
+                <p>
+                </p>
+            </docs:section>
+            
+            <docs:section heading="Expression Escape Sequences">
+                <p>
+                </p>
+            </docs:section>
+            
+            <docs:section heading="Expression Handlers">
+                <p>
+                </p>
+            </docs:section>
+            
+        </docs:section>
+        
+        <docs:section heading="Template Directives">
+            <p>
+            </p>
+            
+            <docs:section heading="Template">
+                <p>
+                </p>
+                
+                <docs:section heading="${startTag:c:template}">
+                    <p>
+                    </p>
+                </docs:section>
+                
+                <docs:section heading="${startTag:c:include}">
+                    <p>
+                    </p>
+                </docs:section>
+                
+            </docs:section>
+            
+            <docs:section heading="Text Replacement">
+                <p>
+                </p>
+                
+                <docs:section heading="XML Escaping">
+                    <p>
+                    </p>
+                </docs:section>
+                
+                
+        
+            </docs:section>
+        
+            <docs:section heading="Conditionals">
+                <p>
+                </p>
+                
+                <docs:section heading="if">
+                    <p>
+                    </p>
+                </docs:section>
+                
+                <docs:section
+                    anchorName="ChooseWhenOtherwise"  
+                    heading="choose…when…otherwise">
+                    <p>
+                    </p>
+                </docs:section>
+                
+            </docs:section>
+            
+            <docs:section heading="Looping">
+                <p>
+                </p>
+                
+                <docs:section heading="for">
+                    <p>
+                    </p>
+                    
+                    <docs:section heading="Loop status variable">
+                        <p>
+                        </p>
+                    </docs:section>
+                    
+                    <docs:section heading="Separator">
+                        <p>
+                        </p>
+                    </docs:section>
+                    
+                </docs:section>
+                
+                
+                
+            </docs:section>
+            
+            <docs:section heading="Macros">
+                <p>
+                </p>
+                
+                <docs:section heading="def">
+                    <p>
+                    </p>
+                    
+                </docs:section>
+                
+                <docs:section heading="invoke">
+                    <p>
+                    </p>
+                    
+                </docs:section>
+                
+                
+            </docs:section>
+            
+            <docs:section heading="Structure Manipulation">
+                <p>
+                </p>
+                
+                <docs:section heading="attrs">
+                    <p>
+                    </p>
+                    
+                </docs:section>
+                
+                <docs:section heading="bodyContent">
+                    <p>
+                    </p>
+                    
+                </docs:section>
+                
+                <docs:section heading="replace">
+                    <p>
+                    </p>
+                    
+                </docs:section>
+                
+                <docs:section heading="strip">
+                    <p>
+                    </p>
+                    
+                </docs:section>
+                
+            </docs:section>
+            
+        </docs:section>
+        
+        <docs:section heading="Taglibs">
+            <p>
+            </p>
+            <docs:section heading="Runtime Tag Handlers">
+                <p>
+                </p>    
+            </docs:section>
+            
+            <docs:section heading="Compile-Time Tag Handlers">
+                <p>
+                </p>    
+            </docs:section>
+            
+            <docs:section heading="Helper Functions">
+                <p>
+                </p>    
+            </docs:section>
+            
+        </docs:section>
+        
+        <docs:section heading="JavaScript API">
+            <p>
+            </p>
+            <docs:section heading="Template Rendering">
+                <p>
+                </p>
+                <docs:section heading="Rendering to a String">
+                    <p>
+                    </p>    
+                </docs:section>
+                
+                <docs:section heading="Rendering to a Context">
+                    <p>
+                    </p>    
+                </docs:section>
+                
+            </docs:section>
+            
+            <docs:section heading="Template Compilation">
+                <p>
+                </p>
+                <docs:section heading="Compiling a Template">
+                    <p>
+                    </p>    
+                </docs:section>
+                
+                <docs:section heading="Compiling and Loading a Template">
+                    <p>
+                    </p>    
+                </docs:section>
+                
+            </docs:section>
+        </docs:section>
+        
+        <docs:section heading="Side-By-Side Comparison">
+            <p>
+            </p>
+            <docs:section heading="Raptor Template">
+                <p>
+                </p>
 
-            Etiam lacinia cursus massa, a dapibus augue ornare ultrices. Morbi risus eros, feugiat in bibendum eu, elementum eu justo. Vestibulum imperdiet congue aliquet. Cras hendrerit urna nec nisi tempus feugiat. Nam congue mauris sed nunc consectetur egestas. Quisque sit amet nisl lacus, sed dignissim eros. Etiam ac mollis lectus. Quisque eu nisi tellus, eu scelerisque enim. Maecenas a venenatis velit. Nam consectetur lobortis imperdiet. Vestibulum congue, risus et pretium mollis, enim turpis vulputate quam, sed placerat tortor augue at felis. Donec ut turpis nisl. Donec id sem consequat dui facilisis tempor ut ut lacus. In quam leo, cursus a pulvinar consequat, imperdiet id ipsum. Pellentesque sit amet dolor sed nisi hendrerit lobortis.
+            </docs:section>
+            
+            <docs:section heading="Dust Template">
+                <p>
+                </p>
+
+            </docs:section>
         </docs:section>
         
     </docs:docs>
