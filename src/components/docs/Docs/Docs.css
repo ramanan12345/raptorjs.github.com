@@ -20,9 +20,11 @@
 .docs .section {
 }
 
+/*
 .docs .section .bd {
     font-size: 14px;
 }
+*/
 
 #docsNav {
     top: 50px;
@@ -108,6 +110,7 @@ LI.toc-level-3 {
 
 .section-level-1 > H2 {
     font-size: 18px;
+    padding-top:10px;
 }
 
 .section-level-2 > H2 {

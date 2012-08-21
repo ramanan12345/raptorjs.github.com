@@ -1,5 +1,240 @@
-<!doctype html><html><head><title>RaptorJS: Modules & Classes</title><meta http-equiv="content-type" content="text/html; charset=UTF-8"/><link rel="stylesheet" type="text/css" href="../static/bootstrap-head-3ddb7969.css" />
-<link rel="stylesheet" type="text/css" href="../static/page-_modules-classes_index-head-0999392f.css" /><script type="text/javascript">var _gaq=_gaq||[];_gaq.push(["_setAccount","UA-33982282-1"]);_gaq.push(["_trackPageview"]);(function(){var a=document.createElement("script");a.type="text/javascript";a.async=!0;a.src=("https:"==document.location.protocol?"https://ssl":"http://www")+".google-analytics.com/ga.js";var b=document.getElementsByTagName("script")[0];b.parentNode.insertBefore(a,b)})();</script></head><body data-spy="scroll"><div class="navbar navbar-fixed-top"><div class="navbar-inner"><div class="container"><a class="brand" href="/">RaptorJS</a><ul id="s0" class="nav"><li class="divider-vertical"></li><li><a href="/get-started/">Get Started</a></li><li class="divider-vertical"></li><li class="dropdown"><a href="" data-toggle="dropdown" class="dropdown-toggle">Learn<b class="caret"></b></a><ul class="dropdown-menu"><li><a href="/overview/">Overview</a></li><li><a href="/get-started/">Get Started</a></li><li><a href="/faq/">FAQ</a></li><li class="divider"></li><li><a href="/modules/">Modules and Classes</a></li><li><a href="/packaging/">Packaging and Extensions</a></li><li><a href="/optimizer/">Optimizer</a></li><li><a href="/raptor-templates/">Raptor Templates</a></li><li><a href="/widgets/">Widgets Framework</a></li><li><a href="/logging/">Logging</a></li></ul></li><li class="divider-vertical"></li><li class="dropdown"><a href="" data-toggle="dropdown" class="dropdown-toggle">Community<b class="caret"></b></a><ul class="dropdown-menu"><li><a href="https://github.com/raptorjs/raptorjs">Source code</a></li><li><a href="https://github.com/raptorjs/raptorjs/issues">Issue Tracker</a></li><li><a href="/contribute/">Contribute</a></li><li><a href="/contributors/">Contributors</a></li><li class="divider"></li><li><a href="http://groups.google.com/group/raptorjs">Discussion Forum</a></li><li class="divider"></li><li><a href="http://twitter.com/raptorjs">Twitter (@raptorjs)</a></li><li><a href="http://twitter.com/raptorjs">Google+</a></li></ul></li><li class="divider-vertical"></li></ul></div></div></div><div class="container"><div class="docs"><div class="bd"><div class="toc nav"><ul class="toc"><li class="toc toc-level-0"><a href="#Modules">Modules</a><ul class="toc"><li class="toc toc-level-1"><a href="#DefiningRaptorJavaScriptModules">Defining Raptor JavaScript Modules</a><ul class="toc"></ul></li><li class="toc toc-level-1"><a href="#SampleExampleCode">Sample Example Code</a><ul class="toc"></ul></li></ul></li><li class="toc toc-level-0"><a href="#Classes">Classes</a><ul class="toc"></ul></li></ul></div><div class="docs-content"><h1>Modules and Classes</h1><div class="section section-level-0"><h2 id="Modules">Modules</h2><div class="bd"><div>Raptor JavaScript modules are JavaScript classes with only static properties. In addition, a module is treated as a collection of JavaScript files that are packaged together so it is possible for a module to also include other resources, JavaScript classes, mixins, enums and even other modules. Every module must include a package.json file which provides additional metadata for the module including the list of files that should be included as part of the module. Modules are packaged so that they can include any number of JavaScript and CSS resources and so that their dependencies on other modules are well-defined. Because of these features, modules make it easy to expose complex functionality that has been split across multiple JavaScript files. Raptor JavaScript modules are similar in nature to CommonJS modules.</div><div>Unlike JavaScript classes, Raptor JavaScript modules are singleton objects. They have the following restrictions.</div><ul><li>Modules cannot be used with the new keyword.</li><li>Modules do not support inheritance.</li></ul><div class="section section-level-1"><h2 id="DefiningRaptorJavaScriptModules">Defining Raptor JavaScript Modules</h2><div class="bd">Use the following method to define raptor module:<textarea style="display: none;" id="s1">raptor.defineModule(moduleName, factoryFunction);</textarea><div><b>moduleName</b>: This is a unique name for the module. By convention, dots or slashes should be used to separate parts (for example: <b>"utilities.strings.helpers"</b>).<br><b>factoryFunction</b>: his should be a function that returns the definition of the module when the module is initialized for the first time. As with defining classes, the factory function provides a convenient closure to support private variables and private functions. There are no special properties of the module definition object and the returned object directly becomes the singleton instance of the module.</div></div></div><div class="section section-level-1"><h2 id="SampleExampleCode">Sample Example Code</h2><div class="bd"><textarea style="display: none;" id="s2">raptor.defineModule('some.namespace.myModule', function() { var SomeClass = raptor.require('some.namespace.SomeClass'); return { someProperty: "Hello World", createSomeObject: function() { return new SomeClass(); } } });</textarea> </div></div></div></div><div class="section section-level-0"><h2 id="Classes">Classes</h2><div class="bd"></div></div></div></div><div class="docs-footer"></div></div></div><script type="text/javascript" src="../static/core-body-5fc6430e.js"></script>
+<!doctype html><html><head><title>RaptorJS: Modules & Classes</title><meta http-equiv="content-type" content="text/html; charset=UTF-8"/><link rel="stylesheet" type="text/css" href="../static/page-modules-classes-index-head-f6019aae.css" />
+<link rel="stylesheet" type="text/css" href="../static/bootstrap-head-1a1e7e24.css" />
+<link rel="stylesheet" type="text/css" href="../static/code-editor-head-553eaffc.css" /><script type="text/javascript">var _gaq=_gaq||[];_gaq.push(["_setAccount","UA-33982282-1"]);_gaq.push(["_trackPageview"]);(function(){var a=document.createElement("script");a.type="text/javascript";a.async=!0;a.src=("https:"==document.location.protocol?"https://ssl":"http://www")+".google-analytics.com/ga.js";var b=document.getElementsByTagName("script")[0];b.parentNode.insertBefore(a,b)})();</script></head><body data-spy="scroll"><div class="navbar navbar-fixed-top"><div class="navbar-inner"><div class="container"><a class="brand" href="/">RaptorJS</a><ul id="s0" class="nav"><li class="divider-vertical"></li><li><a href="/get-started/">Get Started</a></li><li class="divider-vertical"></li><li class="dropdown"><a href="" data-toggle="dropdown" class="dropdown-toggle">Learn<b class="caret"></b></a><ul class="dropdown-menu"><li><a href="/">Overview</a></li><li><a href="/get-started/">Get Started</a></li><li><a href="/tutorial/">Tutorial</a></li><li><a href="/api/">API Reference</a></li><li><a href="/faq/">FAQ</a></li><li class="divider"></li><li><a href="/modules/">Modules and Classes</a></li><li><a href="/packaging/">Packaging and Extensions</a></li><li><a href="/optimizer/">Optimizer</a></li><li><a href="/raptor-templates/">Raptor Templates</a></li><li><a href="/widgets/">Widgets Framework</a></li><li><a href="/logging/">Logging</a></li><li><a href="/resource-search-path/">Resource Search Path</a></li></ul></li><li class="divider-vertical"></li><li class="dropdown"><a href="" data-toggle="dropdown" class="dropdown-toggle">Community<b class="caret"></b></a><ul class="dropdown-menu"><li><a href="https://github.com/raptorjs/raptorjs">Source code</a></li><li><a href="https://github.com/raptorjs/raptorjs/issues">Issue Tracker</a></li><li><a href="/contribute/">Contribute</a></li><li><a href="/contributors/">Contributors</a></li><li class="divider"></li><li><a href="http://groups.google.com/group/raptorjs">Discussion Forum</a></li><li class="divider"></li><li><a href="http://twitter.com/raptorjs">Twitter (@raptorjs)</a></li><li><a href="http://twitter.com/raptorjs">Google+</a></li></ul></li><li class="divider-vertical"></li><li class="dropdown"><a href="" data-toggle="dropdown" class="dropdown-toggle">About<b class="caret"></b></a><ul class="dropdown-menu"><li><a href="https://github.com/raptorjs/raptorjs/wiki/Release-Notes">Release Notes</a></li><li><a href="/design-philosophy/">Design Philosophy</a></li><li><a href="/license/">License</a></li><li><a href="/credits/">Credits</a></li><li><a href="/creator/">Creators</a></li></ul></li><li class="divider-vertical"></li></ul></div></div></div><div class="container"><div class="docs"><div class="bd"><div class="toc nav" id="docsNav"><ul class="toc"><li class="toc toc-level-0"><a href="#Modules">Modules</a><ul class="toc"><li class="toc toc-level-1"><a href="#DefiningRaptorJavaScriptModules">Defining Raptor JavaScript Modules</a><ul class="toc"></ul></li><li class="toc toc-level-1"><a href="#SampleExampleCode">Sample Example Code</a><ul class="toc"></ul></li><li class="toc toc-level-1"><a href="#ModuleDirectoryStructureandMetadata">Module Directory Structure and Metadata</a><ul class="toc"></ul></li><li class="toc toc-level-1"><a href="#Examplepackagejsonfile">Example package.json file</a><ul class="toc"></ul></li></ul></li><li class="toc toc-level-0"><a href="#Classes">Classes</a><ul class="toc"><li class="toc toc-level-1"><a href="#ExampleClassDefinitions">Example Class Definitions</a><ul class="toc"></ul></li><li class="toc toc-level-1"><a href="#Inheritance">Inheritance</a><ul class="toc"></ul></li><li class="toc toc-level-1"><a href="#UsingRaptorJavaScriptClasses">Using Raptor JavaScript Classes</a><ul class="toc"></ul></li></ul></li><li class="toc toc-level-0"><a href="#ClassMixins">Class Mixins</a><ul class="toc"><li class="toc toc-level-1"><a href="#DefiningRaptorMixins">Defining Raptor Mixins</a><ul class="toc"></ul></li><li class="toc toc-level-1"><a href="#ExampleMixinDefinitions">Example Mixin Definitions</a><ul class="toc"></ul></li><li class="toc toc-level-1"><a href="#UsingMixins">Using Mixins</a><ul class="toc"></ul></li><li class="toc toc-level-1"><a href="#CallingOverriddenMethodsintheTargetObject">Calling Overridden Methods in the Target Object</a><ul class="toc"></ul></li></ul></li><li class="toc toc-level-0"><a href="#Enums">Enums</a><ul class="toc"><li class="toc toc-level-1"><a href="#DefiningaRaptorenum">Defining a Raptor enum</a><ul class="toc"></ul></li><li class="toc toc-level-1"><a href="#ExampleenumDefinitions">Example enum Definitions</a><ul class="toc"></ul></li><li class="toc toc-level-1"><a href="#enumMethods">enum Methods</a><ul class="toc"></ul></li><li class="toc toc-level-1"><a href="#enumMethods">enum Methods</a><ul class="toc"></ul></li></ul></li></ul></div><div class="docs-content"><h1>Modules and Classes</h1><div class="section section-level-0"><h2 id="Modules">Modules</h2><div class="bd"><div class="para">Raptor JavaScript modules are JavaScript classes with only static properties. In addition, a module is also treated as a collection of resource files (JavaScript, Less, CSS, Templates, etc.) that are packaged together for a module to work. It is also possible for a module to also include other modules, which brings its own dependencies.</div><div class="para">Let's take a look at singleton JS Module first, package module is dicussed later in this section. Unlike JavaScript classes, Raptor JavaScript modules are singleton objects. They have the following restrictions.</div><ul><li>Modules cannot be used with the new keyword.</li><li>Modules do not support inheritance.</li></ul><div class="section section-level-1"><h2 id="DefiningRaptorJavaScriptModules">Defining Raptor JavaScript Modules</h2><div class="bd">Use the following method to define raptor module:<textarea style="display: none;" id="s1" name="code-0">
+	            
+		            
+		            	raptor.define(moduleName, factoryFunction);
+		            
+	            </textarea><div class="para"><b>moduleName</b>: This is a unique name for the module. By convention, dots or slashes should be used to separate parts (for example: <b>"utilities.strings.helpers"</b>).</div><div class="para"><b>factoryFunction</b>: his should be a function that returns the definition of the module when the module is initialized for the first time. As with defining classes, the factory function provides a convenient closure to support private variables and private functions. There are no special properties of the module definition object and the returned object directly becomes the singleton instance of the module.</div></div></div><div class="section section-level-1"><h2 id="SampleExampleCode">Sample Example Code</h2><div class="bd"><textarea style="display: none;" id="s2" name="code-1">
+	            
+		            
+		            	raptor.define('some.namespace.myModule', function() {
+		    				var SomeClass = raptor.require('some.namespace.SomeClass');
+		    				
+						    return {
+						    
+						        someProperty: "Hello World",
+						        
+						        createSomeObject: function() {
+						            return new SomeClass();
+						        }
+						    }
+						});
+		            
+	            </textarea> </div></div><div class="section section-level-1"><h2 id="ModuleDirectoryStructureandMetadata">Module Directory Structure and Metadata</h2><div class="bd"><div class="para">Modules are packaged so that they can include any number of JavaScripts and resources, and define their dependencies on other modules. Because of these features, modules make it easy to expose complex functionality that has been split across multiple JavaScript files. Raptor JavaScript modules are similar in nature to CommonJS modules.</div><div class="para">Every module must include a package.json file which provides additional metadata for the module including the list of files that should be included as part of the module. The module metadata specifies the JavaScript resources resources that should be packaged together as part of the module including which of the includes are optional. The optional includes for a module are only included if they are explicitly requested.</div><div class="para">The module metadata also describes extensions for the module that are only loaded if the extension is supported for the current page. For example, a module may be extended with additional jQuery-specific includes if the jQuery library is loaded.</div></div></div><div class="section section-level-1"><h2 id="Examplepackagejsonfile">Example package.json file</h2><div class="bd"><textarea style="display: none;" id="s3" name="code-2">
+	            
+		            
+		            	{
+						    "name": "myModule",
+						    "version": "1.0",
+						    "description": "Description of your module",
+						    "homepage": "url for the module page",
+						    "authors": [
+						        {
+						            "name": "",
+						            "email": ""
+						        }
+						    ],
+						    "includes": [
+						        {"type": "module", "name": "myModule2"},
+						        {"type": "module", "name": "myModule3"},
+						        {"type": "js", "path": "myModuleClass.js"},
+						        {"type": "js", "path": "myModule.js"},
+						        {"type": "less", "path": "myModule.less"}
+						    ],
+						     
+						    "extensions": {
+						        "jquery": {
+						            "includes": [
+						                {"type": "js", "path": "Widget_jquery.js"}
+						            ]
+						        }
+						    }
+						}
+		            
+	            </textarea> </div></div></div></div><div class="section section-level-0"><h2 id="Classes">Classes</h2><div class="bd"><div class="para">Raptor classes Either of the following signatures can be used to define Raptor Class:</div><ol><li>raptor.define(className, factoryFunction);</li><li>raptor.define(className, modifiers, factoryFunction);</li></ol><div class="para"><ul><li><b>className:</b> The name of the class</li><li><b>modifiers:</b> (optional) set of modifiers, for example: "superclass"</li><li><b>factoryFunction:</b> A function that returns the class definition when the class is initialized for the first time. The factory function provides a convenient closure to support private static variables and private functions for your class (that is, no code outside the function can directly reference the local variables of the function).</li></ul></div><div class="para">Classes support following modifiers:<ul><li>superclass (string) - The name of the superclass (for example, "test.MySuperClass")</li><li>mixins (array) - An array of mixins to be applied to the class (see the "Class Mixins" section below)</li></ul></div><div class="para">As you can see signature to define module and classes are same, only difference is the return object from the factory function. In case of module, it is a JavaScript object and in case of class, it will be a constructor function. It will be more clear from the examples below.</div><div class="section section-level-1"><h2 id="ExampleClassDefinitions">Example Class Definitions</h2><div class="bd"><div class="para"><b>Simple Class</b></div><textarea style="display: none;" id="s4" name="code-3">
+	            
+		            
+		            	raptor.define(
+						    'some.namespace.MyClass',                      
+						    function() {   
+						        var privateProperty = "something";
+						        var privateMethod = function(){
+						            // some code
+						        };
+						
+						        // Prototype function
+						        var MyClass = function() {
+						            // constructor function
+						        };
+						         
+						        MyClass.prototype = {
+						            init: function(){
+						                // init constructor
+						            },
+						
+						            subMethod: function(){
+						                
+						            }
+						        };
+						         
+						        return MyClass;
+						    }
+						);
+		            
+	            </textarea> <div class="para">Above sample creates JavaScript class names <b>some.namespace.MyClass</b>, defines a private property and method and function with prototypes.</div><div class="para">If the class has "init" method defined, it will be used as a constructor when new instace for the class is created otherwise main function body will work as constructor.</div></div></div><div class="section section-level-1"><h2 id="Inheritance">Inheritance</h2><div class="bd"><div class="para">Raptor JavaScript classes support prototypal-based inheritance. If a "superclass" modifier is provided then the class will be configured to extend the specified class by updating the prototype chain such that the prototype of the newly created class will have as its prototype and the prototype of the specified super class. </div><div class="para">If a superclass was specified and a constructor function was returned by the factory function then a "superclass" property will be added to the constructor function that points to the prototype of the superclass. This property allows the subclass to reference methods and properties in the superclass.</div><div class="para"><b>Sample code</b></div><textarea style="display: none;" id="s5" name="code-4">
+	            
+		            
+		            	raptor.define(
+						    'some.namespace.MyClass',   
+						    {
+						    	superclass: "'some.namespace.MySuperClass'"
+						    },                
+						    function() {   
+						        var privateProperty = "something";
+						        var privateMethod = function(){
+						            // some code
+						        };
+						
+						        // Prototype function
+						        var MyClass = function() {
+						            MyClass.superclass.constructor.apply(this, arguments);
+						        };
+						         
+						        MyClass.prototype = {
+
+						            subMethod: function(){
+						            	//Call a method in the superclass with arguments using the JavaScript call function
+						            	MyClass.superclass.superMethod.call(this, "hello", "world");
+						            	
+						            	//Alternatively, call a method in the superclass with arguments using the JavaScript apply function
+						                MyClass.superclass.superMethod.apply(this, arguments);
+						                
+						                //subMethod body code
+						            }
+						        };
+						         
+						        return MyClass;
+						    }
+						);
+		            
+	            </textarea> </div></div><div class="section section-level-1"><h2 id="UsingRaptorJavaScriptClasses">Using Raptor JavaScript Classes</h2><div class="bd">Once a class has been defined it can easily be accessed using the following method:<div class="para">raptor.require(className)</div><div class="para"><b>Example Usage of Class Instantiation</b></div><textarea style="display: none;" id="s6" name="code-5">
+	            
+		            
+		            	var MyClass = raptor.require("some.namespace.MyClass");
+						var myInstance = new MyClass();
+		            
+	            </textarea></div></div></div></div><div class="section section-level-0"><h2 id="ClassMixins">Class Mixins</h2><div class="bd"><div class="para">Mixins are additional properties and methods that can be applied to the prototype of any class. Once a mixin has been defined with a name it can easily be applied to the prototype of a class (either as part of the class definition or using the raptor.extend(target, mixinName) method. Mixins are helpful when you have characteristics that can be applied to any class. For example, if a circular button has characteristics of a circle, the circle mixin could be applied to the circular button.</div><div class="para">Because using mixins do not modify the prototype-chain, using mixins is very different from using inheritance. For more details on mixins, see the <a href="http://en.wikipedia.org/wiki/Mixin" target="_blank">Wikipedia: Mixin article.</a></div><div class="section section-level-1"><h2 id="DefiningRaptorMixins">Defining Raptor Mixins</h2><div class="bd">The following method should be used to define mixins:<div class="para">raptor.defineMixin(mixinName, factoryFunction);</div><div class="para"><b>mixinName</b>: This is a reference to the raptor object</div><div class="para"><b>factoryFunction</b>: Function that returns the definition of the mixin when the mixin is initialized for the first time. The factory function provides a convenient closure to support private static variables and private functions for your class (that is, no code outside the function can directly reference the local variables of the function). The return value of the factory function should be an object that defines the mixin. The properties of the returned object become properties of the prototype of any class that the mixin is applied to unless the property is the mixinModifiers property described below.</div></div></div><div class="section section-level-1"><h2 id="ExampleMixinDefinitions">Example Mixin Definitions</h2><div class="bd"><textarea style="display: none;" id="s7" name="code-6">
+	            
+		            
+		            	raptor.defineMixin(
+						    'some.namespace.Rectangle',
+						    function() {
+						 
+						        return {
+						            setDimensions: function(width, height) {
+						                this.width = width;
+						                this.height = height;
+						            },
+						             
+						            getArea: function() {
+						                return this.width * this.height;
+						            }
+						        }
+						    }
+						);
+		            
+	            </textarea></div></div><div class="section section-level-1"><h2 id="UsingMixins">Using Mixins</h2><div class="bd"><div class="para"><b>Applying mixins as Part of the Definition of a Class</b></div><textarea style="display: none;" id="s8" name="code-7">
+	            
+		            
+		            	raptor.defineClass(
+						    'some.namespace.MyClass',
+						    {
+						        mixins: ['some.namespace.MyMixin',
+						                 'another.namespace.AnotherMixin']
+						    },
+						    function() {
+						        return {
+						            //Class prototype
+						        };
+						    }
+						);
+		            
+	            </textarea><div class="para"><b>Applying mixins to an Object Manually</b></div><div class="para">Once a mixin has been defined it can be applied to a class as part of the definition of a class. You can also apply mixins manually by using the raptor.extend(target, mixinName) function.</div><div class="para">raptor.extend(MyClass.prototype, 'some.namespace.Rectangle')</div></div></div><div class="section section-level-1"><h2 id="CallingOverriddenMethodsintheTargetObject">Calling Overridden Methods in the Target Object</h2><div class="bd">If a mixin contains a property that overrides a function in the original prototype, the mixin should be created using a createMixin method that returns the mixins. The createMixin method will be invoked by Raptor with an overridden parameter that is given references to any of the methods that were overridden in the class to which the mixins are applied. That is, if a method in the mixin returned by the createMixin method has the same name as a method in the target object to which the mixin is being, the overridden object supplied as the first argument to the createMixin method will then be populated with a reference to the overridden function. The overridden method can then be invoked using the native JavaScript apply function or the native JavaScript call function. For example:<textarea style="display: none;" id="s9" name="code-8">
+	            
+		            
+		            	raptor.defineMixin(
+					        'some.namespace.MyMixin',
+					        {
+					            createMixin: function(overridden) {
+					                return {
+					                    myMixinMethod: function(arg1, arg2, ...) {
+					                        //Invoke the method that was overridden by this mixin method using the same arguments that were used to invoke this method
+					                        overridden.myMixinMethod.apply(this, arguments);
+					                    }
+					                };
+					            }
+					        }
+					    );
+		            
+	            </textarea></div></div></div></div><div class="section section-level-0"><h2 id="Enums">Enums</h2><div class="bd">Similar to Java enum, Raptor JavaScript enum provides a way to define constants. Each enum value is an instance of a JavaScript class that can have a constructor, methods, and properties.<div class="section section-level-1"><h2 id="DefiningaRaptorenum">Defining a Raptor enum</h2><div class="bd">Use the following method to define an enum.<div class="para">raptor.defineEnum(enumName, enumValues, factoryFunction);</div><div class="para">The enumValues argument can be an array of strings that define the constant fields, or it can be a map. If the enumValues argument is a map, the keys correspond to the names of the constant fields and the value should be an array of arguments to pass to the constructor and a factoryFunction must be provided and it must define the class.</div></div></div><div class="section section-level-1"><h2 id="ExampleenumDefinitions">Example enum Definitions</h2><div class="bd"><div class="para"><b>Simple enum</b></div><textarea style="display: none;" id="s10" name="code-9">
+		        
+		            
+		                raptor.defineEnum(
+		                    'some.namespace.Day',
+		                    [
+		                        "SUN",
+		                        "MON",
+		                        "TUE",
+		                        "WED",
+		                        "THU",
+		                        "FRI",
+		                        "SAT"
+		                    ]
+		                );
+		            
+		        </textarea><div class="para"><b>Complex enum with a constructor, properties and methods</b></div><textarea style="display: none;" id="s11" name="code-10">
+		        
+		            
+		                raptor.defineEnum(
+		                    'some.namespace.Day',
+		                    {
+		                        SUN: [false, "Sunday"],
+		                        MON: [true, "Monday"],
+		                        TUE: [true, "Tuesday"],
+		                        WED: [true, "Wednesday"],
+		                        THU: [true, "Thursday"],
+		                        FRI: [true, "Friday"],
+		                        SAT: [false, "Saturday"]
+		                    },
+		                    function(raptor, type) {
+		                        return {
+		                            init: function(isWeekday, longName) {
+		                                this._isWeekday = isWeekday;
+		                                this._longName = longName;
+		                            },
+		                             
+		                            getLongName: function() {
+		                                return this._longName;
+		                            },
+		                             
+		                            isWeekday: function() {
+		                                return this._isWeekday;
+		                            }
+		                        }
+		                    }
+		                );
+		            
+		        </textarea></div></div><div class="section section-level-1"><h2 id="enumMethods">enum Methods</h2><div class="bd"><div class="para">Every enum class supports the following methods.</div><ul><li>valueOf(name) - Returns the constant field with the same name (case sensitive)</li></ul><div class="para">Every enum field supports the following methods.</div><ul><li>name() - Returns the name of the enum</li><li>ordinal() - Returns the positional value of the enum (NOTE: This should only be used for an array of enum strings. Order is undefined for maps but it will work correctly in most browsers.)</li><li>toString() - Returns the name of the enum unless it has been overridden</li><li>compareTo(other) - Compares one enum field to another based on the ordinal value</li></ul></div></div><div class="section section-level-1"><h2 id="enumMethods">enum Methods</h2><div class="bd">Once you define an enum, the enum constants can be accessed as static properties of the class as shown in the following example.<textarea style="display: none;" id="s12" name="code-11">
+		        
+		            
+		                var Day = raptor.require('some.namespace.Day');
+		                if (day === Day.FRI) {
+		                    alert("It is " + day.getLongName() + "!");
+		                }
+		            
+		        </textarea></div></div></div></div></div></div><div class="docs-footer"></div></div></div><script type="text/javascript" src="../static/core-body-b84f1bcd.js"></script>
 <script type="text/javascript" src="../static/jquery-body-371da524.js"></script>
-<script type="text/javascript" src="../static/page-_modules-classes_index-body-58c8ee67.js"></script>
-<script type="text/javascript" src="../static/bootstrap-body-34d7fcf3.js"></script><script type="text/javascript">$rwidgets(["components.nav.Nav.NavWidget","s0",0,0,{}],["components.editors.CodeEditor.CodeEditorWidget","s1",0,0,{"mode":"xml","autoResize":true,"readOnly":true,"indentUnit":4}],["components.editors.CodeEditor.CodeEditorWidget","s2",0,0,{"mode":"xml","autoResize":true,"readOnly":true,"indentUnit":4}]);</script></body></html>
+<script type="text/javascript" src="../static/bootstrap-body-34d7fcf3.js"></script>
+<script type="text/javascript" src="../static/page-modules-classes-index-body-5c8199eb.js"></script>
+<script type="text/javascript" src="../static/code-editor-body-c09ad78d.js"></script><script type="text/javascript">$rwidgets(["components.nav.Nav.NavWidget","s0",0,0,{}],["components.editors.CodeEditor.CodeEditorWidget","s1",0,0,{"mode":"xml","autoResize":true,"readOnly":true,"indentUnit":4}],["components.editors.CodeEditor.CodeEditorWidget","s2",0,0,{"mode":"xml","autoResize":true,"readOnly":true,"indentUnit":4}],["components.editors.CodeEditor.CodeEditorWidget","s3",0,0,{"mode":"xml","autoResize":true,"readOnly":true,"indentUnit":4}],["components.editors.CodeEditor.CodeEditorWidget","s4",0,0,{"mode":"xml","autoResize":true,"readOnly":true,"indentUnit":4}],["components.editors.CodeEditor.CodeEditorWidget","s5",0,0,{"mode":"xml","autoResize":true,"readOnly":true,"indentUnit":4}],["components.editors.CodeEditor.CodeEditorWidget","s6",0,0,{"mode":"xml","autoResize":true,"readOnly":true,"indentUnit":4}],["components.editors.CodeEditor.CodeEditorWidget","s7",0,0,{"mode":"xml","autoResize":true,"readOnly":true,"indentUnit":4}],["components.editors.CodeEditor.CodeEditorWidget","s8",0,0,{"mode":"xml","autoResize":true,"readOnly":true,"indentUnit":4}],["components.editors.CodeEditor.CodeEditorWidget","s9",0,0,{"mode":"xml","autoResize":true,"readOnly":true,"indentUnit":4}],["components.editors.CodeEditor.CodeEditorWidget","s10",0,0,{"mode":"xml","autoResize":true,"readOnly":true,"indentUnit":4}],["components.editors.CodeEditor.CodeEditorWidget","s11",0,0,{"mode":"xml","autoResize":true,"readOnly":true,"indentUnit":4}],["components.editors.CodeEditor.CodeEditorWidget","s12",0,0,{"mode":"xml","autoResize":true,"readOnly":true,"indentUnit":4}]);</script></body></html>
