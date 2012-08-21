@@ -1,0 +1,31 @@
+<c:template
+    xmlns:c="core"
+    xmlns:w="widgets"
+    xmlns:docs="docs"
+    params="includes,samples">
+    
+    <docs:urls basePath=".."/>
+    
+    <![CDATA[<!doctype html>]]>
+    
+    <html>
+        <head>
+            <title>RaptorJS: Modules & Classes</title>
+            <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+            ${includes.head}
+            <docs:google-analytics/>
+        </head>
+        <body data-spy="scroll">
+            <docs:top-nav activeItem="modules-classes"/>
+            <div class="container">
+                <c:include template="content/modules-classes"/>
+            </div>
+            
+            
+            ${includes.body}
+            
+            <w:initWidgets/>
+        </body>
+    </html>
+</c:template>
+
