@@ -1,0 +1,124 @@
+
+
+.docs > H1 {
+}
+
+.docs-content H2 {
+    padding-top: 40px;
+    margin-bottom: 10px;
+}
+
+.docs > .bd {
+}
+
+
+
+.docs > .bd > .docs-content {
+    margin-left: 260px;
+}
+
+.docs .section {
+}
+
+.docs .section .bd {
+    font-size: 14px;
+}
+
+#docsNav {
+    top: 50px;
+    bottom: 0px;
+    width: 250px;
+    -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+    -moz-box-sizing: border-box;    /* Firefox, other Gecko */
+    box-sizing: border-box;         /* Opera/IE 8+ */
+    padding: 10px;
+    background-color: #EEE;
+    border: 1px solid #C0C0C0;
+    border-radius: 5px;
+    position: fixed;
+    overflow-y: auto;
+    margin-bottom: 10px;
+}
+
+.docs > .bd > .toc  UL.toc {
+    margin: 0;
+    padding: 0;
+}
+
+.docs > .bd > .toc > UL.toc UL.toc UL.toc {
+    margin-left: 6px;
+    padding-left: 10px;
+}
+
+.docs-footer {
+    clear: both;
+    height: 800px;
+    border-top: 1px solid #C0C0C0;
+    margin-top: 40px;
+}
+
+.toc LI {
+    list-style: none outside none;
+/*     padding-left: 2px; */
+}
+
+.toc LI > A {
+    line-height: 20px;
+}
+
+.toc LI.active > A {
+    font-weight: bold;
+    color: #033C73;
+}
+
+
+LI.toc-level-0 {
+    list-style: none outside none;
+    padding-left: 0px;
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+LI.toc-level-1 {
+    font-size: 14px;
+    font-weight: normal;
+}
+
+
+LI.toc-level-2 {
+    font-size: 13px;
+    font-weight: normal;
+}
+
+LI.toc-level-3 {
+    font-size: 13px;
+    font-weight: normal;
+}
+
+.section-level-0 > H2 {
+    font-size: 24px;
+    border-bottom: 2px solid #C0C0C0;
+    
+}
+
+.section-level-0 {
+    
+}
+
+.section-level-1 > H2 {
+    font-size: 18px;
+<<<<<<< HEAD
+}
+
+.section-level-2 > H2 {
+    font-size: 16px;
+}
+
+.section-level-3 > H2 {
+    font-size: 15px;
+    font-style: italic;
+=======
+    padding-top: 0;
+>>>>>>> 33411253d7c78dabf2f9a231d14cf793bc622226
+}

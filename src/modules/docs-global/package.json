@@ -9,6 +9,7 @@
         { "module": "Bootstrap/util" },
         { "module": "Bootstrap/layouts" },
         { "module": "Bootstrap/type" },
+        { "module": "Bootstrap/tables" },
         "global.css"
      ]
 }

@@ -48,16 +48,151 @@
             
             <docs:section heading="Sample Template">
                 <p>
+                    Below is a sample Raptor HTML template:
+                </p>
+<docs:code-editor 
+    mode="xml"
+    readOnly="true" 
+    c:parseBodyText="false"
+><![CDATA[<c:template
+    xmlns:c="http://raptor.ebayopensource.org/core"
+    name="demo"
+    params="colors">
+ 
+    <!-- Colors available -->
+    <ul c:if="notEmpty(colors)">
+        <li c:for="color in colors">
+            $color
+        </li>
+    </ul>
+     
+    <!-- No colors available -->
+    <div c:if="empty(colors)">
+        No colors!
+    </div>
+     
+</c:template>]]></docs:code-editor>
+                <p>
                 </p>
             </docs:section>
             
             <docs:section heading="Template Compilation">
                 <p>
+                    Given the following input data:
                 </p>
+<docs:code-editor 
+    mode="javascript"
+    readOnly="true" 
+    c:parseBodyText="false"
+><![CDATA[{
+    colors: ["red", "green", "blue"]
+}]]></docs:code-editor>
+                <p>
+                    The output would be the following:
+                </p>
+<docs:code-editor 
+    mode="xml"
+    readOnly="true" 
+    c:parseBodyText="false"
+><![CDATA[<ul><li>red</li><li>green</li><li>blue</li></ul>]]></docs:code-editor>
+                <p>
+                    For comparison, given the following input data consisting of an empty array of colors:
+                </p>
+<docs:code-editor 
+    mode="javascript"
+    readOnly="true" 
+    c:parseBodyText="false"
+><![CDATA[{
+    colors: []
+}]]></docs:code-editor>
+                <p>
+                    The output would be the following:
+                </p>
+<docs:code-editor 
+    mode="xml"
+    readOnly="true" 
+    c:parseBodyText="false"
+><![CDATA[<div>No colors!</div>]]></docs:code-editor>
             </docs:section>
             
             <docs:section heading="Template Directives Overview">
                 <p>
+                    Almost all of the Raptor templating directives can be used as either
+                    an attribute or as an element. The template included above can be
+                    rewritten to apply template directives as elements instead of as
+                    attributes to produce the equivalent output. For example:
+                </p>
+                <p>
+                    <table>
+                        <thead>
+                            <tr>
+                                <td>
+                                    Applying directives using attributes
+                                </td>
+                                <td>
+                                    Applying directives using elements
+                                </td>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>
+<docs:code-editor 
+    mode="xml"
+    readOnly="true" 
+    c:parseBodyText="false"
+><![CDATA[<c:template
+    xmlns:c="http://raptor.ebayopensource.org/core"
+    name="demo"
+    params="colors">
+ 
+    <!-- Colors available -->
+    <ul c:if="notEmpty(colors)">
+        <li c:for="color in colors">
+            $color
+        </li>
+    </ul>
+     
+    <!-- No colors available -->
+    <div c:if="empty(colors)">
+        No colors!
+    </div>
+     
+</c:template>]]></docs:code-editor>
+                                </td>
+                                <td>
+<docs:code-editor 
+    mode="xml"
+    readOnly="true" 
+    c:parseBodyText="false"
+><![CDATA[<c:template
+    xmlns:c="http://raptor.ebayopensource.org/core"
+    name="demo"
+    params="colors">
+  
+    <!-- Colors available -->
+    <c:if test="notEmpty(colors)">
+        <ul>
+            <c:for each="color in colors">
+                <li>
+                    $color
+                </li>
+            </c:for>
+        </ul>
+    </c:if>
+      
+    <!-- No colors available -->
+    <c:if test="empty(colors)">
+        <div>
+            No colors!
+        </div>
+    </c:if>
+     
+</c:template>]]></docs:code-editor>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </p>
             </docs:section>
             
@@ -261,7 +396,7 @@
                     </p>    
                 </docs:section>
                 
-                <docs:section heading="Compiling and Loading a Template">
+                <docs:section heading="Loading a Compiled Template">
                     <p>
                     </p>    
                 </docs:section>
