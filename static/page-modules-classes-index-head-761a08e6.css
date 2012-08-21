@@ -964,6 +964,77 @@ table .span24 {
   margin-left: 0;
 }
 
+.footer {
+    border-top: 1px solid #C0C0C0;
+    margin-top: 20px;
+    background-color: #EEE;
+}
+
+.footer > .container {
+    width: 960px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.footer > .container > .bd {
+}
+DIV.footer-single-line {
+    border-top: 1px solid #C0C0C0;
+    margin-top: 20px;
+    background-color: #EEE;
+}
+
+DIV.footer-single-line {
+    position: fixed;
+    height: 20px;
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+    z-index: 1000;
+}
+
+DIV.footer-single-line > .container {
+    width: auto;
+    padding-top: 0;
+    padding-bottom: 0;
+    padding-left: 10px;
+    padding-right: 10px;
+    line-height: 20px;
+    vertical-align: middle;
+}
+
+DIV.footer-single-line > .container > .bd {
+    width: 400px;
+    margin-left: auto;
+    margin-right: auto;
+    
+    text-align: center;
+    line-height: 20px;
+    vertical-align: middle;
+}
+
+.back-to-top {
+    position: absolute;
+    right: 10px;
+}
+.footer {
+    border-top: 1px solid #C0C0C0;
+    margin-top: 20px;
+    background-color: #EEE;
+}
+
+.footer > .container {
+    width: 960px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.footer > .container > .bd {
+}
 BODY > .container {
     margin-top: 50px;
     width: 960px;
@@ -989,25 +1060,16 @@ PRE.code, PRE.sh {
 .navbar A.brand {
     color: #FFF;
 }
-.footer {
-    border-top: 1px solid #C0C0C0;
-    margin-top: 20px;
-    background-color: #EEE;
+div.bd div.para{
+	margin: 5px 0;	
 }
-
-.footer > .container {
-    width: 960px;
-    margin-left: auto;
-    margin-right: auto;
-    padding-top: 20px;
-    padding-bottom: 20px;
-}
-
-.footer > .container > .bd {
+BODY > DIV.container {
+    width: auto;
 }
 
 
-.docs > H1 {
+.docs-content > H1 {
+    padding-top: 40px;
 }
 
 .docs-content H2 {
@@ -1027,12 +1089,14 @@ PRE.code, PRE.sh {
 .docs .section {
 }
 
+/*
 .docs .section .bd {
     font-size: 14px;
 }
+*/
 
 #docsNav {
-    top: 50px;
+    top: 40px;
     bottom: 0px;
     width: 250px;
     -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
@@ -1040,11 +1104,10 @@ PRE.code, PRE.sh {
     box-sizing: border-box;         /* Opera/IE 8+ */
     padding: 10px;
     background-color: #EEE;
-    border: 1px solid #C0C0C0;
-    border-radius: 5px;
+    border-right: 1px solid #C0C0C0;
     position: fixed;
     overflow-y: auto;
-    margin-bottom: 10px;
+    margin-bottom: 20px;
 }
 
 .docs > .bd > .toc  UL.toc {
@@ -1115,6 +1178,7 @@ LI.toc-level-3 {
 
 .section-level-1 > H2 {
     font-size: 18px;
+    padding-top:10px;
 }
 
 .section-level-2 > H2 {
@@ -1126,3 +1190,5 @@ LI.toc-level-3 {
     font-style: italic;
     padding-top: 0;
 }
+
+
