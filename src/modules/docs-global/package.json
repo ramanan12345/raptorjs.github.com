@@ -10,6 +10,7 @@
         { "module": "Bootstrap/layouts" },
         { "module": "Bootstrap/type" },
         { "module": "Bootstrap/tables" },
+        { "module": "components/footers/Footer" },
         "global.css"
      ]
 }

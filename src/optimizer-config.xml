@@ -21,7 +21,7 @@
         <in-place-deployment-enabled>true</in-place-deployment-enabled>
         <minify-js>false</minify-js>
         <checksums-enabled>false</checksums-enabled>
-        <write-html-includes>true</write-html-includes>
+<!--         <write-html-includes>true</write-html-includes> -->
 <!--         <watch-files-enabled>true</watch-files-enabled> -->
 <!--         <watch> -->
 <!--             <dir path="../lib/components" recursive="true" filenamePatterns="*.js,*.rhtml,*.rtld"/> -->

@@ -15,7 +15,9 @@
     
     <import-taglib path="/components/editors/CodeEditor/CodeEditor.rtld"/>
     
+    <import-taglib path="/components/footers/Footer/Footer.rtld"/>
     <import-taglib path="/components/footers/FooterDefault/FooterDefault.rtld"/>
+    <import-taglib path="/components/footers/FooterSingleLine/FooterSingleLine.rtld"/>
     
     <import-taglib path="/components/icons/Icon/Icon.rtld"/>
     

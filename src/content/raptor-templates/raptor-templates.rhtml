@@ -122,27 +122,26 @@
                     rewritten to apply template directives as elements instead of as
                     attributes to produce the equivalent output. For example:
                 </p>
-                <p>
-                    <table>
-                        <thead>
-                            <tr>
-                                <td>
-                                    Applying directives using attributes
-                                </td>
-                                <td>
-                                    Applying directives using elements
-                                </td>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th>
+                                Applying directives using attributes
+                            </th>
+                            <th>
+                                Applying directives using elements
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td style="width: 50%">
 <docs:code-editor 
     mode="xml"
     readOnly="true" 
     c:parseBodyText="false"
 ><![CDATA[<c:template
-    xmlns:c="http://raptor.ebayopensource.org/core"
+    xmlns:c="core"
     name="demo"
     params="colors">
  
@@ -159,14 +158,14 @@
     </div>
      
 </c:template>]]></docs:code-editor>
-                                </td>
-                                <td>
+                            </td>
+                            <td style="width: 50%">
 <docs:code-editor 
     mode="xml"
     readOnly="true" 
     c:parseBodyText="false"
 ><![CDATA[<c:template
-    xmlns:c="http://raptor.ebayopensource.org/core"
+    xmlns:c="core"
     name="demo"
     params="colors">
   
@@ -189,10 +188,13 @@
     </c:if>
      
 </c:template>]]></docs:code-editor>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                
+                <p>
+                    The disadvantage of using elements to control structural logic is that they change the nesting of the elements which can impact readability. For this reason it is often more suitable to use attributes.
                 </p>
             </docs:section>
             

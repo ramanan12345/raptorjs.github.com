@@ -1,8 +1,15 @@
 (function() {
+    
+    $(window).load(function() {
+        $('body').scrollspy('refresh');
+    });
+    
     $('body').scrollspy({
         target: '.docs',
         offset: 40
     });
+    
+    
     
     $("#docsNav").bind("activate", function() {
         var target = $(".toc li.active > A", document.getElementById("docsNav"));
