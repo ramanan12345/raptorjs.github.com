@@ -4,7 +4,7 @@ DIV.footer-single-line {
     background-color: #EEE;
 }
 
-BODY > DIV.footer-single-line {
+DIV.footer-single-line {
     position: fixed;
     height: 20px;
     bottom: 0px;
@@ -13,7 +13,7 @@ BODY > DIV.footer-single-line {
     z-index: 1000;
 }
 
-BODY > DIV.footer-single-line > .container {
+DIV.footer-single-line > .container {
     width: auto;
     padding-top: 0;
     padding-bottom: 0;
@@ -23,7 +23,7 @@ BODY > DIV.footer-single-line > .container {
     vertical-align: middle;
 }
 
-BODY > DIV.footer-single-line > .container > .bd {
+DIV.footer-single-line > .container > .bd {
     width: 400px;
     margin-left: auto;
     margin-right: auto;
