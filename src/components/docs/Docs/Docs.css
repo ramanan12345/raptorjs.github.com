@@ -18,7 +18,8 @@ BODY > DIV.container {
 
 
 .docs > .bd > .docs-content {
-    margin-left: 260px;
+    margin-left: 270px;
+    margin-right: 20px;
 }
 
 .docs .section {
@@ -113,7 +114,6 @@ LI.toc-level-3 {
 
 .section-level-1 > H2 {
     font-size: 18px;
-    padding-top:10px;
 }
 
 .section-level-2 > H2 {

@@ -11,6 +11,7 @@
         { "module": "Bootstrap/type" },
         { "module": "Bootstrap/tables" },
         { "module": "components/footers/Footer" },
+        { "module": "components/notifications/Message" },
         "global.css"
      ]
 }

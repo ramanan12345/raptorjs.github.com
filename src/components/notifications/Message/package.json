@@ -1,0 +1,7 @@
+{
+    "includes": [
+        {"module": "widgets"},
+        {"module": "components/icons/Icon"},
+        "Message.css"
+    ]
+}

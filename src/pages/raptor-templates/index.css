@@ -34,3 +34,7 @@ BODY > .content > H1 {
     margin: 0;
     font-size: 16px;
 }
+
+TABLE.table.expression-operators {
+    width: auto;
+}

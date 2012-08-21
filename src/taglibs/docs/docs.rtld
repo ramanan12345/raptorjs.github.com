@@ -29,6 +29,8 @@
     <import-taglib path="/components/nav/TabPane/TabPane.rtld"/>
     <import-taglib path="/components/nav/TopNavDefault/TopNavDefault.rtld"/>
     
+    <import-taglib path="/components/notifications/Message/Message.rtld"/>
+    
     <import-taglib path="/components/overlays/Popover/Popover.rtld"/>
     
     <import-taglib path="/components/social/TwitterFollow/TwitterFollow.rtld"/>
