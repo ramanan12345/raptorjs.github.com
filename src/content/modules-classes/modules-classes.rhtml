@@ -45,21 +45,21 @@
                 </p>
 			</docs:section>
 			<docs:section heading="Sample Example Code">
-				<docs:code-editor 
-	                    autoResize="true"
-	                    indentUnit="4"
-	                    readOnly="true"
+<docs:code-editor 
+    autoResize="true"
+    indentUnit="4"
+    readOnly="true"
     mode="javascript"><![CDATA[raptor.define('some.namespace.myModule', function() {
-		    				var SomeClass = raptor.require('some.namespace.SomeClass');
-		    				
-						    return {
-						    
-						        someProperty: "Hello World",
-						        
-						        createSomeObject: function() {
-						            return new SomeClass();
-						        }
-						    }
+	var SomeClass = raptor.require('some.namespace.SomeClass');
+	
+    return {
+    
+        someProperty: "Hello World",
+        
+        createSomeObject: function() {
+            return new SomeClass();
+        }
+    }
 });]]></docs:code-editor>		
 			</docs:section>
 			<docs:section heading="Directory Structure">
@@ -88,37 +88,37 @@
 				</p>
 			</docs:section>
 			<docs:section heading="Example package.json file">
-				<docs:code-editor 
-	                    autoResize="true"
-	                    indentUnit="4"
-	                    readOnly="true"
+<docs:code-editor 
+        autoResize="true"
+        indentUnit="4"
+        readOnly="true"
         mode="javascript"><![CDATA[
-		            	{
-						    "name": "myModule",
-						    "version": "1.0",
-						    "description": "Description of your module",
-						    "homepage": "url for the module page",
-						    "authors": [
-						        {
-						            "name": "",
-						            "email": ""
-						        }
-						    ],
-						    "includes": [
-						        {"type": "module", "name": "myModule2"},
-						        {"type": "module", "name": "myModule3"},
-						        {"type": "js", "path": "myModuleClass.js"},
-						        {"type": "js", "path": "myModule.js"},
-						        {"type": "less", "path": "myModule.less"}
-						    ],
-						     
-						    "extensions": {
-						        "jquery": {
-						            "includes": [
-						                {"type": "js", "path": "Widget_jquery.js"}
-						            ]
-						        }
-						    }
+{
+    "name": "myModule",
+    "version": "1.0",
+    "description": "Description of your module",
+    "homepage": "url for the module page",
+    "authors": [
+        {
+            "name": "",
+            "email": ""
+        }
+    ],
+    "includes": [
+        {"type": "module", "name": "myModule2"},
+        {"type": "module", "name": "myModule3"},
+        {"type": "js", "path": "myModuleClass.js"},
+        {"type": "js", "path": "myModule.js"},
+        {"type": "less", "path": "myModule.less"}
+    ],
+     
+    "extensions": {
+        "jquery": {
+            "includes": [
+                {"type": "js", "path": "Widget_jquery.js"}
+            ]
+        }
+    }
 }]]></docs:code-editor>		
 			</docs:section>
 		</docs:section>
@@ -157,41 +157,41 @@
                 difference is the return object from the factory function. In case
                 of module, it is a JavaScript object and in case of class, it will
                 be a constructor function.
-			    It will be more clear from the examples below.
+                It will be more clear from the examples below.
 			</p>
 			
 			<docs:section heading="Example Class Definitions">
 				<p><b>Simple Class</b></p>
-				<docs:code-editor 
-	                    autoResize="true"
-	                    indentUnit="4"
-	                    readOnly="true"
+<docs:code-editor 
+    autoResize="true"
+    indentUnit="4"
+    readOnly="true"
     mode="javascript"><![CDATA[
-		            	raptor.define(
-						    'some.namespace.MyClass',                      
-						    function() {   
-						        var privateProperty = "something";
-						        var privateMethod = function(){
-						            // some code
-						        };
-						
-						        // Prototype function
-						        var MyClass = function() {
-						            // constructor function
-						        };
-						         
-						        MyClass.prototype = {
-						            init: function(){
-						                // init constructor
-						            },
-						
-						            subMethod: function(){
-						                
-						            }
-						        };
-						         
-						        return MyClass;
-						    }
+raptor.define(
+    'some.namespace.MyClass',                      
+    function() {   
+        var privateProperty = "something";
+        var privateMethod = function(){
+            // some code
+        };
+
+        // Prototype function
+        var MyClass = function() {
+            // constructor function
+        };
+         
+        MyClass.prototype = {
+            init: function(){
+                // init constructor
+            },
+
+            subMethod: function(){
+                
+            }
+        };
+         
+        return MyClass;
+    }
 );]]></docs:code-editor>	
 	            <p>
                     Above sample creates JavaScript class names
@@ -227,47 +227,47 @@
 	                    readOnly="true"
 	                    mode="javascript"><![CDATA[raptor.define(
     "some.namespace.MyClass},   
-						    {
+    {
     	superclass: "some.namespace.MySuperClass"
-						    },                
-						    function() {   
-						        var privateProperty = "something";
-						        var privateMethod = function(){
-						            // some code
-						        };
-						
-						        // Prototype function
-						        var MyClass = function() {
-						            MyClass.superclass.constructor.apply(this, arguments);
-						        };
-						         
-						        MyClass.prototype = {
+    },                
+    function() {   
+        var privateProperty = "something";
+        var privateMethod = function(){
+            // some code
+        };
 
-						            subMethod: function(){
-						            	//Call a method in the superclass with arguments using the JavaScript call function
-						            	MyClass.superclass.superMethod.call(this, "hello", "world");
-						            	
-						            	//Alternatively, call a method in the superclass with arguments using the JavaScript apply function
-						                MyClass.superclass.superMethod.apply(this, arguments);
-						                
-						                //subMethod body code
-						            }
-						        };
-						         
-						        return MyClass;
-						    }
+        // Prototype function
+        var MyClass = function() {
+            MyClass.superclass.constructor.apply(this, arguments);
+        };
+         
+        MyClass.prototype = {
+
+            subMethod: function(){
+            	//Call a method in the superclass with arguments using the JavaScript call function
+            	MyClass.superclass.superMethod.call(this, "hello", "world");
+            	
+            	//Alternatively, call a method in the superclass with arguments using the JavaScript apply function
+                MyClass.superclass.superMethod.apply(this, arguments);
+                
+                //subMethod body code
+            }
+        };
+         
+        return MyClass;
+    }
 );]]></docs:code-editor>	
 			</docs:section>
 			<docs:section heading="Using Classes">
 				Once a class has been defined it can easily be accessed using the following method:
 				<p>raptor.require(className)</p>
 				<p><b>Example Usage of Class Instantiation</b></p>
-				<docs:code-editor 
-	                    autoResize="true"
-	                    indentUnit="4"
-	                    readOnly="true"
+<docs:code-editor 
+    autoResize="true"
+    indentUnit="4"
+    readOnly="true"
     mode="javascript"><![CDATA[
-		            	var MyClass = raptor.require("some.namespace.MyClass");
+var MyClass = raptor.require("some.namespace.MyClass");
 var myInstance = new MyClass();]]></docs:code-editor>
 			</docs:section>
 		</docs:section>
@@ -311,45 +311,45 @@ var myInstance = new MyClass();]]></docs:code-editor>
 			</docs:section>
 			
 			<docs:section heading="Example Mixin Definitions">
-				<docs:code-editor 
-	                    autoResize="true"
-	                    indentUnit="4"
-	                    readOnly="true"
+<docs:code-editor 
+    autoResize="true"
+    indentUnit="4"
+    readOnly="true"
     mode="javascript"><![CDATA[raptor.defineMixin(
-						    'some.namespace.Rectangle',
-						    function() {
-						 
-						        return {
-						            setDimensions: function(width, height) {
-						                this.width = width;
-						                this.height = height;
-						            },
-						             
-						            getArea: function() {
-						                return this.width * this.height;
-						            }
-						        }
-						    }
+    'some.namespace.Rectangle',
+    function() {
+ 
+        return {
+            setDimensions: function(width, height) {
+                this.width = width;
+                this.height = height;
+            },
+             
+            getArea: function() {
+                return this.width * this.height;
+            }
+        }
+    }
 );]]></docs:code-editor>
 			</docs:section>
 			
 			<docs:section heading="Using Mixins">
 				<p><b>Applying mixins as Part of the Definition of a Class</b></p>
-				<docs:code-editor 
-	                    autoResize="true"
-	                    indentUnit="4"
-	                    readOnly="true"
+<docs:code-editor 
+    autoResize="true"
+    indentUnit="4"
+    readOnly="true"
     mode="javascript"><![CDATA[raptor.defineClass(
-						    'some.namespace.MyClass',
-						    {
-						        mixins: ['some.namespace.MyMixin',
-						                 'another.namespace.AnotherMixin']
-						    },
-						    function() {
-						        return {
-						            //Class prototype
-						        };
-						    }
+    'some.namespace.MyClass',
+    {
+        mixins: ['some.namespace.MyMixin',
+                 'another.namespace.AnotherMixin']
+    },
+    function() {
+        return {
+            //Class prototype
+        };
+    }
 );]]></docs:code-editor>
 	            
 	            <p><b>Applying mixins to an Object Manually</b></p>
@@ -380,23 +380,23 @@ var myInstance = new MyClass();]]></docs:code-editor>
                     apply function or the native JavaScript call function.
                 </p>
                 <p> 
-				For example:
+				    For example:
                 </p>
-				<docs:code-editor 
-	                    autoResize="true"
-	                    indentUnit="4"
-	                    readOnly="true"
+<docs:code-editor 
+    autoResize="true"
+    indentUnit="4"
+    readOnly="true"
     mode="javascript"><![CDATA[raptor.defineMixin(
-					        'some.namespace.MyMixin',
+    'some.namespace.MyMixin',
     function(raptor, target, overridden)
-					        {
-					                return {
-					                    myMixinMethod: function(arg1, arg2, ...) {
-					                        //Invoke the method that was overridden by this mixin method using the same arguments that were used to invoke this method
-					                        overridden.myMixinMethod.apply(this, arguments);
-					                    }
-					                };
-					            }
+    {
+        return {
+            myMixinMethod: function(arg1, arg2, ...) {
+                //Invoke the method that was overridden by this mixin method using the same arguments that were used to invoke this method
+                overridden.myMixinMethod.apply(this, arguments);
+            }
+        };
+    }
 );]]></docs:code-editor>
 			</docs:section>
 			
@@ -422,21 +422,21 @@ var myInstance = new MyClass();]]></docs:code-editor>
 		    
 		    <docs:section heading="Example Enum Definitions">
 		        <p><b>Simple enum</b></p>
-		        <docs:code-editor 
-		                autoResize="true"
-		                indentUnit="4"
-		                readOnly="true"
+<docs:code-editor 
+    autoResize="true"
+    indentUnit="4"
+    readOnly="true"
     mode="javascript"><![CDATA[raptor.defineEnum(
-		                    'some.namespace.Day',
-		                    [
-		                        "SUN",
-		                        "MON",
-		                        "TUE",
-		                        "WED",
-		                        "THU",
-		                        "FRI",
-		                        "SAT"
-		                    ]
+    'some.namespace.Day',
+    [
+        "SUN",
+        "MON",
+        "TUE",
+        "WED",
+        "THU",
+        "FRI",
+        "SAT"
+    ]
 );]]></docs:code-editor>
 		        
 		        <p><b>Complex enum with a constructor, properties and methods</b></p>
@@ -445,32 +445,32 @@ var myInstance = new MyClass();]]></docs:code-editor>
 		                indentUnit="4"
 		                readOnly="true"
 		                mode="javascript"><![CDATA[raptor.defineEnum(
-		                    'some.namespace.Day',
-		                    {
-		                        SUN: [false, "Sunday"],
-		                        MON: [true, "Monday"],
-		                        TUE: [true, "Tuesday"],
-		                        WED: [true, "Wednesday"],
-		                        THU: [true, "Thursday"],
-		                        FRI: [true, "Friday"],
-		                        SAT: [false, "Saturday"]
-		                    },
-		                    function(raptor, type) {
-		                        return {
-		                            init: function(isWeekday, longName) {
-		                                this._isWeekday = isWeekday;
-		                                this._longName = longName;
-		                            },
-		                             
-		                            getLongName: function() {
-		                                return this._longName;
-		                            },
-		                             
-		                            isWeekday: function() {
-		                                return this._isWeekday;
-		                            }
-		                        }
-		                    }
+    'some.namespace.Day',
+    {
+        SUN: [false, "Sunday"],
+        MON: [true, "Monday"],
+        TUE: [true, "Tuesday"],
+        WED: [true, "Wednesday"],
+        THU: [true, "Thursday"],
+        FRI: [true, "Friday"],
+        SAT: [false, "Saturday"]
+    },
+    function(raptor, type) {
+        return {
+            init: function(isWeekday, longName) {
+                this._isWeekday = isWeekday;
+                this._longName = longName;
+            },
+             
+            getLongName: function() {
+                return this._longName;
+            },
+             
+            isWeekday: function() {
+                return this._isWeekday;
+            }
+        }
+    }
 );]]></docs:code-editor>
 		    </docs:section>
 		    
@@ -503,13 +503,13 @@ var myInstance = new MyClass();]]></docs:code-editor>
                     Once you define an enum, the enum constants can be accessed as
                     static properties of the class as shown in the following example.
                 </p>
-		        <docs:code-editor 
-		                autoResize="true"
-		                indentUnit="4"
-		                readOnly="true"
+<docs:code-editor 
+    autoResize="true"
+    indentUnit="4"
+    readOnly="true"
     mode="javascript"><![CDATA[var Day = raptor.require('some.namespace.Day');
-		                if (day === Day.FRI) {
-		                    alert("It is " + day.getLongName() + "!");
+if (day === Day.FRI) {
+    alert("It is " + day.getLongName() + "!");
 }]]></docs:code-editor>
 		    </docs:section>
 		</docs:section>
