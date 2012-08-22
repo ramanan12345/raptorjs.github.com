@@ -1,10 +1,12 @@
 <optimizer-config>
     
+    
+    
     <params>
         <profile>development</profile>
     </params>
     
-    <set-profile>${profile}</set-profile>
+    <enable-profile>${profile}</enable-profile>
     
     <profile name="development">
         <raptor-config>
@@ -27,6 +29,8 @@
 <!--             <dir path="../lib/components" recursive="true" filenamePatterns="*.js,*.rhtml,*.rtld"/> -->
 <!--             <dir path="components" recursive="true" filenamePatterns="*.js,*.rhtml,*.rtld"/> -->
 <!--         </watch> -->
+
+        <params file="local-properties.json"/>
     </profile>
     
     <profile name="production">
@@ -43,6 +47,16 @@
         </raptor-config>
         <watch-config-enabled>false</watch-config-enabled>
     </profile>
+    
+    <page-search-path>
+        <dir path="pages"/>
+    </page-search-path>
+    
+    <profile enabled="${singlePage}">
+        <page-search-path reset="true">
+            <dir path="pages${singlePage}" base-path="pages" recursive="false"/>
+        </page-search-path>
+    </profile>
    
     <resource-search-path>
         <dir path="."/>
@@ -56,9 +70,7 @@
         <modify-pages>false</modify-pages> <!-- Don't modify the original HTML pages and instead copy them to page output directory -->
     </inject-html-includes>
     
-    <page-search-path>
-        <dir path="pages"/>
-    </page-search-path>
+    
 
     <clean-dirs>
         <dir path="../static"/>
