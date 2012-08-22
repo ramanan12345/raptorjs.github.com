@@ -7,7 +7,7 @@
         
         <docs:section heading="Overview">
             <div class="try-it">
-                <h1><docs:icon name="play-circle" size="large"/> <a href="${url('/raptor-templates/try-online')}">Try Raptor Templates Online</a></h1>
+                <h1><docs:icon name="play-circle" size="large"/> <a href="${url('/raptor-templates/try-online')}" target="_blank">Try Raptor Templates Online</a></h1>
                 <div class="desc">Edit Raptor Templates in your browser with instant results!</div>
             </div>
             
@@ -338,7 +338,7 @@
                         <p>
                             All taglib URIs support a "short name" that can be used as an
                             alternative to a long taglib URI. For example, the short name for
-                            "http://raptor.ebayopensource.org/core" is "core". Therefore, the
+                            "http://raptorjs.org/templates/core" is "core". Therefore, the
                             following will work as well:
                         </p>
 <docs:code-editor 
@@ -1062,7 +1062,6 @@ count="${10}"  <!-- number argument -->]]></docs:code-editor>
     <test:greeting name="World"/>
      
 </c:template>]]></docs:code-editor>
-
 <docs:code-editor 
     title="Tag Handler Implementation"
     mode="javascript"
@@ -1077,22 +1076,161 @@ count="${10}"  <!-- number argument -->]]></docs:code-editor>
             }
         }
     });]]></docs:code-editor>
+<docs:code-editor 
+    title="Output"
+    mode="xml"
+    readOnly="true" 
+    c:parseBodyText="false"
+><![CDATA[Hello World!]]></docs:code-editor>
+                <p>
+                    The following Taglib fragment shows how to associate
+                    a custom tag with a runtime tag handler class:
+                </p>
+<docs:code-editor 
+    mode="xml"
+    readOnly="true" 
+    c:parseBodyText="false"
+><![CDATA[<tag>
+    <name>greeting</name>
+    <handler-class>taglibs.test.GreetingHandler</handler-class>
+    <attribute name="name" type="string"/>
+</tag>]]></docs:code-editor>
+                <p>
+                    
+                    For more details on creating taglibs, please see the following sub-page:                   
+                </p>
+                <ul>
+                    <li><a href="${url('/raptor-templates/taglibs')}">Advanced ${entity:raquo} Creating Taglibs</a></li>
+                </ul>
 
             </docs:section>
             
             <docs:section heading="Compile-Time Tag Handlers">
                 <p>
+                    Raptor Templates allow custom tags to be handled
+                    both at runtime via runtime tag handlers and
+                    also at compile-time via compile-time tag handlers.
+                    Raptor Templates allow a "Node" class to be associated
+                    with a custom tag and this class is required to implement
+                    one method—<code>doGenerateCode</code>. As part of compilation
+                    process, a tree of nodes is built based on the input
+                    template and to generate code, the <code>generateCode</code>
+                    method of the root node is invoked which recursively
+                    invoke the <code>generateCode</code> method for all
+                    child nodes.
+                </p>
+                <p>
+                    The following Taglib fragment shows how to associate
+                    a custom tag with a node compiler class:
                 </p>    
+<docs:code-editor 
+    mode="xml"
+    readOnly="true" 
+    c:parseBodyText="false"
+><![CDATA[<tag>
+    <name>if</name> 
+    <compiler-class>templating.taglibs.core.IfNode</compiler-class>
+    <attribute name="test" type="expression"/>
+</tag>]]></docs:code-editor>
+                <p>
+                    
+                    For more details on Raptor Templates compilation and creating taglibs, please see the following sub-pages                    
+                </p>
+                <ul>
+                    <li><a href="${url('/raptor-templates/compilation')}">Advanced ${entity:raquo} Raptor Templates Compilation</a></li>
+                    <li><a href="${url('/raptor-templates/taglibs')}">Advanced ${entity:raquo} Creating Taglibs</a></li>
+                </ul>
             </docs:section>
             
             <docs:section heading="Compile-Time Transformers">
                 <p>
+                    Raptor Templates allows code generation to be
+                    controlled by registering compile-time tree transformers.
+                    Transformers have full control over the parsed node tree before the
+                    code generation phase. Transformers can manipulate the node tree in any way, including removing/adding/rearranging nodes, adding/removing element attributes, etc.
+                </p>
+                <p>
+                    As an example, the core taglib registers a transform that looks for the <code>c:if</code> attribute
+                    on all elements and will surround the node with a new <code>${entity:lt}c:if></code> 
+                    node.
                 </p>    
+                <p>
+                    
+                    For more details on Raptor Templates compilation and registering transformers, please see the following sub-pages                    
+                </p>
+                <ul>
+                    <li><a href="${url('/raptor-templates/compilation')}">Advanced ${entity:raquo} Raptor Templates Compilation</a></li>
+                    <li><a href="${url('/raptor-templates/taglibs')}">Advanced ${entity:raquo} Creating Taglibs</a></li>
+                </ul>
             </docs:section>
             
             <docs:section heading="Helper Functions" anchorName="TaglibHelperFunctions">
                 <p>
-                </p>    
+                    Raptor Template taglibs can export helper functions that can be used
+                    in any template that imports the functions. Imported helper functions
+                    be used inside any JavaScript expression.
+                </p>
+                <p>
+                    The following code shows how to import and use functions inside a Raptor Template:
+                </p>
+<docs:code-editor 
+    mode="xml"
+    readOnly="true" 
+    c:parseBodyText="false"
+><![CDATA[<c:template
+    xmlns:test="test"
+    xmlns:c="core"
+    test:functions="reverse">
+    
+    <div>${reverse('reverse test')}</div>
+    
+</c:template>]]></docs:code-editor>
+                <p>
+                    The output for the above rendered template would be the following:
+                </p>
+<docs:code-editor 
+    mode="xml"
+    readOnly="true" 
+    c:parseBodyText="false"
+><![CDATA[<div>tset esrever</div>]]></docs:code-editor>
+                <p>
+                    Helper functions can be registered as part of a taglib as shown in the following
+                    taglib code fragment:
+                </p>
+<docs:code-editor 
+    mode="xml"
+    readOnly="true" 
+    c:parseBodyText="false"
+><![CDATA[<function name="reverse" class="taglibs.test.TestFunctions"/>]]></docs:code-editor>
+                <p>
+                    The above fragment registers a helper function and tells the Raptor Template compiler
+                    where the implementation for the function can be found. The sample code
+                    below illustrates how to implement helper functions:
+                </p>
+<docs:code-editor 
+    mode="javascript"
+    readOnly="true" 
+    c:parseBodyText="false"
+><![CDATA[raptor.define(
+    "taglibs.test.TestFunctions",
+    function() {
+        return {
+            reverse: function(str) {
+                var out = "";
+                for (var i=str.length-1; i>=0; i--) {
+                    out += str.charAt(i); 
+                }
+                return out;
+            }
+        }
+    });]]></docs:code-editor>
+                <p>
+                    
+                    For more details on creating taglibs, please see the following sub-page:                   
+                </p>
+                <ul>
+                    <li><a href="${url('/raptor-templates/taglibs')}">Advanced ${entity:raquo} Creating Taglibs</a></li>
+                </ul>  
             </docs:section>
             
         </docs:section>
@@ -1105,12 +1243,54 @@ count="${10}"  <!-- number argument -->]]></docs:code-editor>
                 </p>
                 <docs:section heading="Rendering to a String">
                     <p>
-                    </p>    
+                        The <code>template.renderToString(templateName, templateData)</code> 
+                        method can be used to render a template to a string.
+                    </p>
+<docs:code-editor 
+    mode="javascript"
+    readOnly="true" 
+    c:parseBodyText="false"
+><![CDATA[var templating = raptor.require("templating");
+var output = templating.renderToString("test/Person", {person: person});]]></docs:code-editor>
+                    <docs:message type="info">
+                        <p>
+                            NOTE: On the server, if the template cannot be found then the templating
+                            module will convert the template name to a path and try to load the
+                            template. The templating module actually checks two paths as illustrated by the following:
+                        </p>    
+                        
+                        Input template name: <code>"test/Person"</code><br/>
+                        Paths checked: 
+                        <ol>
+                            <li><code>/test/Person.rtmpl</code></li>
+                            <li><code>/test/Person/Person.rtmpl</code></li>
+                        </ol>
+                    </docs:message>
                 </docs:section>
                 
                 <docs:section heading="Rendering to a Context">
                     <p>
-                    </p>    
+                        Instead of rendering a template to a new string, the output of
+                        rendering a template can be added to an existing "context". A context
+                        is an object that gets created every time a template is rendered
+                        if a context is not provided. At a minimum, a context should
+                        contain a <code>write(str)</code> method that is used to add output
+                        to an output buffer and a <code>getOutput()</code> method that is
+                        used to get the string output.
+                    </p>
+                    <p>
+                        The following code illustrates how to render a template to an
+                        existing context:
+                    </p>
+<docs:code-editor 
+    mode="javascript"
+    readOnly="true" 
+    c:parseBodyText="false"
+><![CDATA[var templating = raptor.require("templating");
+var context = templating.createContext();
+templating.render("test/Person", {person: person}, context);
+var output = context.getOutput();]]></docs:code-editor>
+
                 </docs:section>
                 
             </docs:section>
@@ -1120,7 +1300,60 @@ count="${10}"  <!-- number argument -->]]></docs:code-editor>
                 </p>
                 <docs:section heading="Compiling a Template">
                     <p>
-                    </p>    
+                        If you prefer to only compile a code to JavaScript then
+                        the following code can be used:
+                    </p>
+<docs:code-editor 
+    mode="javascript"
+    readOnly="true" 
+    c:parseBodyText="false"
+><![CDATA[var compiler = raptor.require("templating.compiler");
+var compilerOptions = {
+    preserveWhitespace: true
+};
+var jsSource = compiler.compile('<c:template \
+        xmlns:c="core"> \
+        name="greeting" \
+        params="name"> \
+            Hello ${name}! \
+        </c:template>', 
+        compilerOptions);]]></docs:code-editor>
+                    <docs:message type="info">
+                        The the <code>compilerOptions</code> argument is optional but 
+                        allows additional options to be passed to the compiler to control
+                        the compiled output. The default options are the following:
+<docs:code-editor 
+    mode="javascript"
+    readOnly="true" 
+    c:parseBodyText="false"
+><![CDATA[{
+    minify: false,
+    preserveWhitespace: {
+        'pre': true,
+        'textarea': true
+    },
+    allowSelfClosing: {
+        'script': false,
+        'div': false,
+        'textarea': false,
+        'li': false,
+        'b': false,
+        'a': false,
+        'i': false
+    },
+    startTagOnly: {
+        'img': true,
+        'br': true,
+        'input': true
+    }
+}]]></docs:code-editor>
+                        <p>
+                            For more details on the supported compiler options please see the following sub-page:
+                        </p>
+                        <ul>
+                            <li><a href="${url('/raptor-templates/compilation')}">Advanced ${entity:raquo} Raptor Templates Compilation</a></li>
+                        </ul>
+                    </docs:message>
                 </docs:section>
                 
                 <docs:section heading="Loading a Compiled Template">
@@ -1142,6 +1375,27 @@ count="${10}"  <!-- number argument -->]]></docs:code-editor>
             
             <docs:section heading="Dust Template">
                 <p>
+                </p>
+
+            </docs:section>
+        </docs:section>
+        
+        <docs:section heading="Advanced">
+            <p>
+            </p>
+            <docs:section heading="Creating Taglibs">
+                <p>
+                    Please see the sub-page, 
+                    <a href="${url('/raptor-templates/taglibs')}">Creating Taglibs</a>, 
+                    for more details.
+                </p>
+
+            </docs:section>
+            <docs:section heading="Raptor Templates Compilation">
+                <p>
+                    Please see the sub-page, 
+                    <a href="${url('/raptor-templates/compilation')}">Raptor Templates Compilation</a>, 
+                    for more details.
                 </p>
 
             </docs:section>
