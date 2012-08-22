@@ -14,6 +14,7 @@
 
 .message > .bd {
     margin-left: 40px;
+    position: relative;
 }
 
 .message.message-info {

@@ -7,7 +7,7 @@ raptor.define(
             this.autoFormat = config.autoFormat;
             
             this.codeMirror = CodeMirror.fromTextArea(
-                    this.getEl(),
+                    this.getEl('textarea'),
                     {
                         mode: config.mode,
                         indentUnit: config.indentUnit,

@@ -392,7 +392,8 @@
     name="greeting"
     params="name,count">
   
-    Hello $name! You have $count new messages.
+    Hello $name! 
+    You have $count new messages.
   
 </c:template>]]></docs:code-editor>
                                     </td>
@@ -405,7 +406,8 @@
     xmlns:c="core"
     name="greeting">
   
-    Hello ${data.name}! You have ${data.count} new messages.
+    Hello ${data.name}! 
+    You have ${data.count} new messages.
   
 </c:template>]]></docs:code-editor>
                                     </td>
@@ -754,7 +756,55 @@
                     
                     <docs:section heading="Separator">
                         <p>
+                            When looping over an array of items, a separator can be defined. The
+                            separator will automatically be written to the output after each
+                            iteration.
                         </p>
+                        <table class="table table-bordered">
+                            <thead>
+                                <tr>
+                                    <th>
+                                        Applied as an attribute
+                                    </th>
+                                    <th>
+                                        Applied as an element
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td style="width: 50%">
+<docs:code-editor 
+    mode="xml"
+    readOnly="true" 
+    c:parseBodyText="false"
+><![CDATA[<span c:for="item in items; separator=', '">
+   ${item}
+</span>]]></docs:code-editor>
+                                    </td>
+                                    <td style="width: 50%">
+<docs:code-editor 
+    mode="xml"
+    readOnly="true" 
+    c:parseBodyText="false"
+><![CDATA[<c:for each="item in items" separator=", ">
+    <span>
+        ${item}
+    </span>
+</c:for>]]></docs:code-editor>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <p>
+                            Given a value of <code>["red", "green", "blue"]</code> for 
+                            items, the output would be the following:
+                        </p>
+<docs:code-editor 
+    mode="xml"
+    readOnly="true" 
+    c:parseBodyText="false"
+><![CDATA[<span>red<span>, <span>green</span>, <span>blue</span>]]></docs:code-editor>
                     </docs:section>
                     
                 </docs:section>
@@ -765,18 +815,110 @@
             
             <docs:section heading="Macros">
                 <p>
+                    Macros allow for reusable fragments within an HTML template. 
+                    Macros can also be parameterized. A macro can be defined 
+                    using the ${entity:lt}c:de> directive and a macro 
+                    when defining a macro.
                 </p>
                 
                 <docs:section heading="def">
                     <p>
+                        The &lt;c:def> directive can be used to define a reusable
+                        function within a template.
                     </p>
-                    
+<docs:code-editor 
+    mode="xml"
+    readOnly="true" 
+    c:parseBodyText="false"
+><![CDATA[<c:def function="greeting(name, count)">
+    Hello $name! You have $count new messages.
+</c:def>]]></docs:code-editor>
+                    <p>
+                        The above macro can then be invoked as part of any
+                        expression. Alternatively, the <a href="#invoke">&lt;c:invoke></a>
+                        directive can be used invoke a macro function
+                        using named attributes. The following sample
+                        template shows how to use macro functions inside
+                        expressions:
+                    </p>
+<docs:code-editor 
+    mode="xml"
+    readOnly="true" 
+    c:parseBodyText="false"
+><![CDATA[<c:def function="greeting(name, count)">
+    Hello $name! You have $count new messages.
+</c:def>
+
+<p>
+    ${greeting("John", 10)}
+</p>
+<p>
+    ${greeting("Frank", 20)}
+</p>]]></docs:code-editor>
+                    <p>
+                        The output for the above template would be the following:
+                    </p>
+<docs:code-editor 
+    mode="xml"
+    readOnly="true" 
+    c:parseBodyText="false"
+><![CDATA[<p>
+    Hello John! You have 10 new messages.
+</p>
+<p>
+    Hello Frank! You have 20 new messages.
+</p>]]></docs:code-editor>
                 </docs:section>
                 
-                <docs:section heading="invoke">
+                <docs:section heading="invoke" anchorName="invoke">
                     <p>
+                        The &lt;c:invoke> directive can be used to 
+                        invoke a function defined using the &lt;c:def>
+                        directive or a function that is part of the input
+                        to a template. The &lt;c:invoke> directive allows
+                        arguments to be passed using element attributes,
+                        but that format is only supported for functions
+                        that were previously defined using the &lt;c:def>
+                        directive.
                     </p>
-                    
+<docs:code-editor 
+    mode="xml"
+    readOnly="true" 
+    c:parseBodyText="false"
+><![CDATA[<c:def function="greeting(name, count)">
+    Hello ${name}! You have ${count} new messages.
+</c:def>
+ 
+<c:invoke function="greeting" name="John" count="${10}"/>
+<c:invoke function="greeting('Frank', 20)"/> 
+]]></docs:code-editor>
+                    <p>
+                        The output for the above template would be the following:
+                    </p>
+<docs:code-editor
+    title="Output" 
+    mode="xml"
+    readOnly="true" 
+    c:parseBodyText="false"
+><![CDATA[<p>
+    Hello John! You have 10 new messages.
+</p>
+<p>
+    Hello Frank! You have 20 new messages.
+</p>]]></docs:code-editor>
+                    <docs:message type="info">
+                        <p>
+                            NOTE: By default, the arguments will be of type "string" when using
+                            ${entity:lt}c:invoke>. However, argument attributes support JavaScript
+                            expressions which allow for other types of arguments. Example:
+                        </p>
+<docs:code-editor 
+    mode="xml"
+    readOnly="true" 
+    c:parseBodyText="false"
+><![CDATA[count="10" <!-- string argument -->
+count="${10}"  <!-- number argument -->]]></docs:code-editor>
+                    </docs:message>
                 </docs:section>
                 
                 
@@ -788,26 +930,105 @@
                 
                 <docs:section heading="attrs">
                     <p>
+                        The <code>c:attrs</code> attribute allows attributes to be dynamically added to
+                        an element at runtime. The value of the c:attrs attribute should be
+                        an expression that resolves to an object with properties that
+                        correspond to the dynamic attributes. For example:
                     </p>
-                    
+<docs:code-editor 
+    mode="xml"
+    readOnly="true" 
+    c:parseBodyText="false"
+><![CDATA[<div c:attrs="myAttrs">
+    Hello World!
+</div>]]></docs:code-editor>
+                    <p>
+                        Given a value of  
+                        <code>{style: "background-color: #FF0000;", "class": "my-div"}</code> 
+                        for the <code>myAttrs</code> variable, the output would then be the
+                        following:
+                    </p>
+<docs:code-editor 
+    mode="xml"
+    readOnly="true" 
+    c:parseBodyText="false"
+><![CDATA[<div style="background-color: #FF0000;" class="my-div">
+    Hello World!
+</div>]]></docs:code-editor>
                 </docs:section>
                 
                 <docs:section heading="bodyContent">
                     <p>
+                        This directive replaces any nested content with the result of
+                        evaluating the expression:
                     </p>
-                    
+<docs:code-editor 
+    mode="xml"
+    readOnly="true" 
+    c:parseBodyText="false"
+><![CDATA[<ul>
+    <li c:bodyContent="myExpr">Hello</li>
+</ul>]]></docs:code-editor>
+                    <p>
+                        Given a value of <code>"Bye!"</code> for the value of <code>myExpr</code>, the output of the
+                        above template would be the following:
+                    </p>
+<docs:code-editor 
+    mode="xml"
+    readOnly="true" 
+    c:parseBodyText="false"
+><![CDATA[<ul>
+    <li>Bye!</li>
+</ul>]]></docs:code-editor>
                 </docs:section>
                 
                 <docs:section heading="replace">
                     <p>
+                        This directive replaces the element itself with the result of
+                        evaluating the expression:
                     </p>
-                    
+<docs:code-editor 
+    mode="xml"
+    readOnly="true" 
+    c:parseBodyText="false"
+><![CDATA[<div>
+    <span c:replace="myExpr">Hello</span>
+</div>]]></docs:code-editor>
+                    <p>
+                        Given a value of "Bye!" for the value of "myExpr", the output of the
+                        above template would be the following: 
+                    </p>
+<docs:code-editor 
+    mode="xml"
+    readOnly="true" 
+    c:parseBodyText="false"
+><![CDATA[<div>
+    Bye!
+</div>]]></docs:code-editor>
                 </docs:section>
                 
                 <docs:section heading="strip">
                     <p>
+                        This directive conditionally strips the top-level element from the
+                        output. If the expression provided as the attribute value evaluates
+                        to true then the element is stripped from the output:
                     </p>
-                    
+<docs:code-editor 
+    mode="xml"
+    readOnly="true" 
+    c:parseBodyText="false"
+><![CDATA[<div>
+    <span c:strip="true"><b>Hello</b></span>
+</div>]]></docs:code-editor>
+
+<docs:code-editor 
+    title="Output"
+    mode="xml"
+    readOnly="true" 
+    c:parseBodyText="false"
+><![CDATA[<div>
+    <b>Hello</b>
+</div>]]></docs:code-editor>
                 </docs:section>
                 
             </docs:section>
@@ -819,10 +1040,52 @@
             </p>
             <docs:section heading="Runtime Tag Handlers">
                 <p>
+                    Tag handlers allow templates to be extended by allowing the
+                    rendering of an element template to be controlled by an external
+                    class/component. Handlers are given a reference to their body
+                    fragment so that they can control how to handle the rendering of
+                    their body content. In addition, a handler can introduce scoped
+                    variables that are available to the nested body content only.
+                </p>
+                <p>
+                    For example, the ${entity:lt}test:greeting> handler might be used as follows:
                 </p>    
+<docs:code-editor 
+    mode="xml"
+    readOnly="true" 
+    c:parseBodyText="false"
+><![CDATA[<c:template
+    xmlns:c="core"
+    xmlns:test="test"
+    name="simple-handlers">
+     
+    <test:greeting name="World"/>
+     
+</c:template>]]></docs:code-editor>
+
+<docs:code-editor 
+    title="Tag Handler Implementation"
+    mode="javascript"
+    readOnly="true" 
+    c:parseBodyText="false"
+><![CDATA[raptor.defineClass(
+    'taglibs.test.GreetingHandler',
+    function(raptor) {
+        return {
+            process: function(input, context) {
+                context.write("Hello " + input.name + "!");
+            }
+        }
+    });]]></docs:code-editor>
+
             </docs:section>
             
             <docs:section heading="Compile-Time Tag Handlers">
+                <p>
+                </p>    
+            </docs:section>
+            
+            <docs:section heading="Compile-Time Transformers">
                 <p>
                 </p>    
             </docs:section>

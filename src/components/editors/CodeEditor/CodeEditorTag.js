@@ -8,8 +8,7 @@ raptor.define(
         CodeEditorTag.prototype = {
             process: function(input, context) {
                 var widgetConfig = {},
-                    rootAttrs = {},
-                    classNames = [];
+                    textareaAttrs = {};
                 
                 if (input.mode) {
                     widgetConfig.mode = input.mode;
@@ -17,9 +16,6 @@ raptor.define(
                 
                 widgetConfig.autoResize = input.autoResize !== false;
 
-                if (classNames.length) {
-                    rootAttrs["class"] = classNames.join(" ");    
-                }
                 if (input.readOnly === true) {
                     widgetConfig.readOnly = true;
                 }
@@ -34,7 +30,7 @@ raptor.define(
                     context.nextCodeEditorId++;
                 }
                 
-                rootAttrs.name = input.name;
+                textareaAttrs.name = input.name;
                 
                 if (input.lineNumbers === false) {
                     widgetConfig.lineNumbers = false;
@@ -43,14 +39,13 @@ raptor.define(
                 if (input.indentUnit) {
                     widgetConfig.indentUnit = input.indentUnit == null ? 4 : input.indentUnit;
                 }
-                
-                
                     
                 raptor.require('templating').render('components/editors/CodeEditor', {
                     tag: input, 
                     widgetConfig: widgetConfig,
                     widgetContext: input.widgetContext,
-                    rootAttrs: rootAttrs
+                    textareaAttrs: textareaAttrs,
+                    title: input.title
                 }, context);
             }
         };

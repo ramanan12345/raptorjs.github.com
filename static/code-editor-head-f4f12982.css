@@ -181,3 +181,18 @@ div.CodeMirror span.CodeMirror-nonmatchingbracket {color: #f22;}
 .CodeMirror {
     background-color: #FFF;
 }
+
+.code-editor {
+    margin-bottom: 10px;
+}
+
+.code-editor > H2.code-editor-title {
+    font-size: 14px;
+    line-height: 15px;
+    vertical-align: middle;
+    font-weight: bold;
+    margin: 0;
+    padding: 5px;
+    background-color: #EEEEEE;
+    color: #000;
+}

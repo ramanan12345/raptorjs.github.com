@@ -8,6 +8,7 @@
         <attribute name="autoFormat" type="boolean"/>
         <attribute name="lineNumbers" type="boolean"/>
         <attribute name="indentUnit" type="integer"/>
+        <attribute name="title" type="string"/>
         
         <!-- Support widget attributes -->
         <attribute name="id" uri="widgets"/>
