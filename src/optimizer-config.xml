@@ -4,11 +4,17 @@
     
     <params>
         <profile>development</profile>
+        
     </params>
     
     <enable-profile>${profile}</enable-profile>
     
     <profile name="development">
+        <params file="local-properties.json"/>
+        <params>
+            <singlePage>false</singlePage>
+        </params>
+    
         <raptor-config>
         {
             logging: {
@@ -30,10 +36,14 @@
 <!--             <dir path="components" recursive="true" filenamePatterns="*.js,*.rhtml,*.rtld"/> -->
 <!--         </watch> -->
 
-        <params file="local-properties.json"/>
+        
     </profile>
     
     <profile name="production">
+        <params>
+            <singlePage>false</singlePage>
+        </params>
+        
         <checksums-enabled>true</checksums-enabled>
         <enabled-extensions>jquery,browser,production</enabled-extensions>
         <bundling-enabled>true</bundling-enabled>
