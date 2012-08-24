@@ -1,0 +1,1 @@
+(cd src && raptor-optimizer profile=production publish=true) && npm start
