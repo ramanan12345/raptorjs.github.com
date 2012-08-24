@@ -3,17 +3,27 @@
     
     
     <params>
-        <profile>development</profile>
-        
+        <profile>production</profile>
+        <publish>false</publish>
     </params>
     
     <enable-profile>${profile}</enable-profile>
     
-    <profile name="development">
-        <params file="local-properties.json"/>
+    
+    <profile enabled="${publish}">
+        <!-- Always set singlePage to false if publishing -->
         <params>
             <singlePage>false</singlePage>
         </params>
+    </profile>
+    
+    <params file="local-properties.json"/>
+    <params>
+        <singlePage>false</singlePage>
+    </params>
+    
+    <profile name="development">
+        
     
         <raptor-config>
         {
@@ -92,12 +102,21 @@
     <page-output-dir>..</page-output-dir>
 
     <bundles name="default">
+        <bundle name="templating-test">
+            <module name="core" recursive="true"/>
+            <init-raptor/>
+            <module name="templating" recursive="true"/>
+        </bundle>
+        
         <bundle name="jquery">
             <module name="jQuery" recursive="true"/>
         </bundle>
         <bundle name="core">
             <module name="core" recursive="true"/>
             <init-raptor/>
+            <module name="listeners" recursive="true"/>
+        </bundle>
+        <bundle name="widgets">
             <module name="widgets" recursive="true"/>
         </bundle>
         <bundle name="bootstrap">
@@ -119,6 +138,14 @@
             <module name="components/editors/CodeEditor/mode-javascript" recursive="true"/>
             <module name="components/editors/CodeEditor/mode-htmlmixed" recursive="true"/>
             <module name="components/editors/CodeEditor/mode-xml" recursive="true"/>
+        </bundle>
+        
+        <bundle name="templating">
+            <module name="templating" recursive="true"/>
+        </bundle>
+        
+        <bundle name="templating-compiler">
+            <module name="templating.compiler" recursive="true"/>
         </bundle>
     </bundles>
     
