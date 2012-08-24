@@ -1367,19 +1367,132 @@ var jsSource = compiler.compile('<c:template \
             </docs:section>
         </docs:section>
         
-        <docs:section heading="Side-By-Side Comparison">
+        <docs:section heading="Performance">
             <p>
+                Raptor Templates were designed for optimal performance for
+                use in applications with the toughest constraints by producing
+                compiled templates with the minimal amount of code while
+                also focusing on runtime performance.
             </p>
-            <docs:section heading="Raptor Template">
-                <p>
-                </p>
+            <p>
+                The compiled output of Raptor Templates is kept minimal to reduce the amount of bytes
+                that need to be sent over the wire and to reduce the amount
+                of time that is required for a template's compiled code
+                to be parsed and executed by a JavaScript environment.
+                Local variables are used wherever possible to improve
+                minification and short method names are used to keep
+                the compiled size to a minimum.
+            </p>
+            <p>
+                The rendering time of Raptor Templates is kept to a minimum
+                by fine-tuning the compiler. In addition, developers
+                have complete flexibility to control how the compiled
+                output is generated to allow for the most demanding
+                performance constraints.   
+            </p>
+            <docs:section heading="Sample Compiled Template">
+<docs:code-editor 
+    title="Input Template"
+    mode="xml"
+    readOnly="true" 
+    c:parseBodyText="false"
+><![CDATA[<c:template 
+    xmlns:c="core" 
+    params="name,colors">
+    
+    Hello $name!
 
-            </docs:section>
-            
-            <docs:section heading="Dust Template">
-                <p>
-                </p>
+    <c:choose>
+        <ul c:when="notEmpty(colors)">
+            <li c:for="color in colors">
+                $color
+            </li>
+        </ul>
+        <div c:otherwise="">
+            No colors!
+        </div>
+    </c:choose>
+    
+</c:template>]]></docs:code-editor>
+<docs:code-editor 
+    title="Unminified Compiled Output"
+    mode="javascript"
+    readOnly="true" 
+    c:parseBodyText="false"
+><![CDATA[$rset("rhtml", "test", function(helpers){
+  var empty=helpers.e,
+      notEmpty=helpers.ne,
+      escapeXml=helpers.x,
+      forEach=helpers.f;
 
+  return function(data, context){
+    var name=data.name,
+        colors=data.colors;
+
+    context.w('Hello ')
+      .w(escapeXml(name))
+      .w('!');
+    if (notEmpty(colors)) {
+      context.w('<ul>');
+      forEach(colors, function(color) {
+        context.w('<li>')
+          .w(escapeXml(color))
+          .w('</li>');
+      });
+
+      context.w('</ul>');
+    } else {
+      context.w('<div>No colors!</div>');
+    }
+
+  }
+});]]></docs:code-editor>
+<docs:code-editor 
+    title="Unminified Compiled Output"
+    mode="javascript"
+    readOnly="true" 
+    c:parseBodyText="false"
+><![CDATA[$rset("rhtml","test",function(a){var e=a.ne,c=a.x,f=a.f;return function(a,b){var g=a.name,d=a.colors;b.w("Hello ").w(c(g)).w("!");e(d)?(b.w("<ul>"),f(d,function(a){b.w("<li>").w(c(a)).w("</li>")}),b.w("</ul>")):b.w("<div>No colors!</div>")}});]]></docs:code-editor>
+                <table class="sizes table table-bordered">
+                    <thead>
+                        <tr>
+                            <th>
+                                
+                            </th>
+                            <th>
+                                Uncompressed
+                            </th>
+                            <th>
+                                Gzipped
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>
+                                Original Size:
+                            </td>
+                            <td>
+                                454 bytes
+                            </td>
+                            <td>
+                                248 bytes
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                Compiled Size:
+                            </td>
+                            <td>
+                                243 bytes
+                            </td>
+                            <td>
+                                178 bytes
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                Saved 46.48% off the original size (28.23% off the gzipped size)
             </docs:section>
         </docs:section>
         

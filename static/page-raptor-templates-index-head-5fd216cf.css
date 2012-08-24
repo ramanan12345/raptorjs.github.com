@@ -1261,3 +1261,7 @@ BODY > .content > H1 {
 TABLE.table.expression-operators {
     width: auto;
 }
+
+TABLE.sizes.table {
+    width: auto;
+}

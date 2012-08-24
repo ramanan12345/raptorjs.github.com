@@ -3,7 +3,7 @@
     
     
     <params>
-        <profile>production</profile>
+        <profile>development</profile>
         <publish>false</publish>
     </params>
     
