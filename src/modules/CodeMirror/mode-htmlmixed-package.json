@@ -5,6 +5,6 @@
         {"module": "CodeMirror/mode-css"},
         {"module": "CodeMirror/mode-xml"},
         {"module": "CodeMirror/mode-javascript"},
-        {"path": "CodeMirror-2.32/mode/htmlmixed/htmlmixed.js"}
+        {"path": "CodeMirror-2.33/mode/htmlmixed/htmlmixed.js"}
     ]
 }

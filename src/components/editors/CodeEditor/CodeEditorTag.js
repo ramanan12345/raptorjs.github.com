@@ -43,7 +43,7 @@ raptor.define(
                 raptor.require('templating').render('components/editors/CodeEditor', {
                     tag: input, 
                     widgetConfig: widgetConfig,
-                    widgetContext: input.widgetContext,
+                    widgetArgs: input.widgetArgs,
                     textareaAttrs: textareaAttrs,
                     title: input.title
                 }, context);

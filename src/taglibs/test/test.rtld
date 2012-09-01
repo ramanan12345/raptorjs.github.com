@@ -15,7 +15,7 @@
     </function>
     
     <function class="taglibs.test.TestFunctions">
-        <name>classNames</name>
+        <name>reverse</name>
     </function>
 
 </raptor-taglib>

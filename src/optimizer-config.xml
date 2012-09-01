@@ -102,12 +102,7 @@
     <page-output-dir>..</page-output-dir>
 
     <bundles name="default">
-        <bundle name="templating-test">
-            <module name="core" recursive="true"/>
-            <init-raptor/>
-            <module name="templating" recursive="true"/>
-        </bundle>
-        
+
         <bundle name="jquery">
             <module name="jQuery" recursive="true"/>
         </bundle>

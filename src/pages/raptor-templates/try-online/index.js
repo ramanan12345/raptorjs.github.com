@@ -28,7 +28,8 @@ exports.controller = function() {
             data: readResource(sample.path + "-data.json", '{}'),
             options: readResource(sample.path + "-options.json") || defaultOptionsJson,
             showCompilerOptions: sample.showCompilerOptions,
-            templates: templates
+            templates: templates,
+            samples: sample.samples
          });
     });
     

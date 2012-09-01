@@ -4,14 +4,11 @@ raptor.define(
         upperCase: function(o) {
             return o ? o.toString().toUpperCase() : '';
         },
-        classNames: function() {
-            var out = [];
-            for (var i=0, len=arguments.length, value; i<len; i++) {
-                value = arguments[i];
-                if (value) {
-                    out.push(value);
-                }
+        reverse: function(str) {
+            var out = "";
+            for (var i=str.length-1; i>=0; i--) {
+                out += str.charAt(i); 
             }
-            return out.join(' ');
+            return out;
         }
     });

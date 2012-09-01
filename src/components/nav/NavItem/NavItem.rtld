@@ -9,7 +9,7 @@
         <attribute name="href" type="string"/>
         
         <nested-variable name="nav"/>
-        <imported-variable property-name="nav" expression="nav"/>
+        <imported-variable target-property="nav" expression="nav"/>
     </tag>
     
 </raptor-taglib>

@@ -1,10 +1,6 @@
-<c:template 
-    xmlns:c="core"
-    xmlns:test="test" 
-    params=""
-    test:functions="upperCase,classNames">
+<c:template xmlns:c="core" xmlns:test="test" test:functions="upperCase,reverse">
 
-    <div class="${classNames('class1', 'class2')}">
-        Hello ${upperCase("John")}!
+    <div>
+        Hello ${reverse(upperCase("John"))}!
     </div>
 </c:template>

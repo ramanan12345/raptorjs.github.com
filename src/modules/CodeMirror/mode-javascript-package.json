@@ -2,6 +2,6 @@
     "type": "raptor-module",
     "name": "CodeMirror/mode-javascript",
     "includes": [
-        {"path": "CodeMirror-2.32/mode/javascript/javascript.js"}
+        {"path": "CodeMirror-2.33/mode/javascript/javascript.js"}
     ]
 }

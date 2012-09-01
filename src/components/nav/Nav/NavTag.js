@@ -29,7 +29,7 @@ raptor.define(
                 raptor.require('templating').render('components/nav/Nav', {
                     navItems: navItems,
                     rootAttrs: rootAttrs,
-                    widgetContext: input.widgetContext,
+                    widgetArgs: input.widgetArgs,
                     widgetConfig: widgetConfig,
                     invokeBody: input.invokeBody,
                     nav: input

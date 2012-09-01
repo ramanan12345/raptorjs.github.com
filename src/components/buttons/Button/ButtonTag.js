@@ -24,13 +24,13 @@ raptor.define(
                 
                 
                 
-                if (input["*"]) {
-                    var className = input["*"]["class"];
+                if (input.dymamicAttributes) {
+                    var className = input.dymamicAttributes["class"];
                     if (className) {
-                        delete input["*"]["class"];
+                        delete input.dymamicAttributes["class"];
                         classParts.push(className);
                     }
-                    raptor.extend(rootAttrs, input["*"]);
+                    raptor.extend(rootAttrs, input.dymamicAttributes);
                 }
                 
                 rootAttrs["class"] = classParts.join(" ");
@@ -49,7 +49,7 @@ raptor.define(
                     tag: input, 
                     label: input.label,
                     rootAttrs: rootAttrs,
-                    widgetContext: input.widgetContext,
+                    widgetArgs: input.widgetArgs,
                     widgetConfig: widgetConfig,
                     isDropdown: input.dropdown === true,
                     href: input.href

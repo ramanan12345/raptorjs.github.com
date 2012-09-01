@@ -37,8 +37,8 @@ raptor.define(
                     input.attrs["class"] = liClassParts.join(" ");
                 }
                 
-                if (input["*"]) {
-                    raptor.extend(input.attrs, input["*"]);
+                if (input.dynamicAttributes) {
+                    raptor.extend(input.attrs, input.dynamicAttributes);
                 }
                 
                 input.anchorAttrs = {};

@@ -9,7 +9,17 @@
     },
     {
         "label": "Conditionals",
-        "path": "conditionals"
+        "path": "conditionals",
+        "samples": [
+            {
+                "label": "If...Else",
+                "path": "if-else"
+            },
+            {
+                "label": "Choose...When...Otherwise",
+                "path": "choose"
+            }
+        ]
     },
     {
         "label": "Text Replacement",

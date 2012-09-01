@@ -11,7 +11,7 @@ raptor.define(
                 
                 raptor.require('templating').render('components/templates/Errors', {
                     widgetConfig: widgetConfig,
-                    widgetContext: input.widgetContext
+                    widgetArgs: input.widgetArgs
                 }, context);
             }
         };
