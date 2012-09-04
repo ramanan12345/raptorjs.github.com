@@ -6,7 +6,41 @@ $ mkdir hello-world
 $ npm init
 </pre>Now the <code>raptor</code> module can be added as a project dependency using the following command:<pre class="sh">
 $ npm install raptor --save
-</pre>Now create a simple <code>index.js</code> file with the following contents:<div class="code-editor" id="s29"> <textarea id="s29-textarea" style="display: none;" name="code-0">require("raptor").create({ //Initialize RaptorJS logging: { loggers: { //Configure the loggers control the logging output 'ROOT': {level: 'WARN'}, 'hello': {level: 'DEBUG'} } } }); /* * Tell RaptorJS where it can find modules * and other resources by adding the current * directory to the resource search path. */ var resources = raptor.require('resources'); resources.getSearchPath().addDir(__dirname); raptor.require("hello").greet("World"); //Load the RaptorJS "hello" module //and invoke the "greet" method</textarea></div>Now create the <code>hello.js</code> file which will contain the definition for the <code>hello</code> module:<div class="code-editor" id="s30"> <textarea id="s30-textarea" style="display: none;" name="code-1">raptor.define( "hello", function() { //This function will be invoked only once //when the module is first required return { //The return value of the factory function will be //registered as the implementation for the module greet: function(name) { this.logger().debug("Hello " + name + "!"); } } });</textarea></div>Test out the application!:<pre class="sh">
+</pre>Now create a simple <code>index.js</code> file with the following contents:<div class="code-editor" id="s29"> <textarea id="s29-textarea" style="display: none;" name="code-0">
+require("raptor").create({ //Initialize RaptorJS
+    logging: {
+        loggers: { //Configure the loggers control the logging output
+            'ROOT': {level: 'WARN'},
+            'hello': {level: 'DEBUG'}
+        }
+    }
+});
+
+/*
+ * Tell RaptorJS where it can find modules
+ * and other resources by adding the current
+ * directory to the resource search path.
+ */
+var resources = raptor.require('resources'); 
+resources.getSearchPath().addDir(__dirname);
+
+raptor.require("hello").greet("World"); //Load the RaptorJS "hello" module
+                                        //and invoke the "greet" method
+</textarea></div>Now create the <code>hello.js</code> file which will contain the definition for the <code>hello</code> module:<div class="code-editor" id="s30"> <textarea id="s30-textarea" style="display: none;" name="code-1">
+raptor.define(
+    "hello",
+    function() { //This function will be invoked only once
+                 //when the module is first required
+                 
+        return { //The return value of the factory function will be
+                 //registered as the implementation for the module
+                  
+            greet: function(name) {
+                this.logger().debug("Hello " + name + "!");
+            }
+        }
+    });
+</textarea></div>Test out the application!:<pre class="sh">
 $ node index.js
 </pre>You should see the following in the console:<pre class="sh">
 DEBUG hello: Hello World!
