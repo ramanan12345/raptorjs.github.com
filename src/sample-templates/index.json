@@ -9,7 +9,6 @@
     },
     {
         "label": "Conditionals",
-        "path": "conditionals",
         "samples": [
             {
                 "label": "If...Else",

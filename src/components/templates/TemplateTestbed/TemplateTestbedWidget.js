@@ -5,13 +5,16 @@ raptor.define(
         
         var TemplateTestbedWidget = function(config) {
             this.samples = config.samples;
-
+            this.activeSample = null;
+            this.topLevelIndex = -1;
+            
             this.autoRender = true;
             this.compileRequired = true;
             this.dataModified = true;
             this.optionsModified = true;
             this.renderRequired = true;
             this.optionsVisible = false;
+            
             
             this.defaultOptionsJson = stringify(raptor.require('templating.compiler').defaultOptions);
             
@@ -63,16 +66,53 @@ raptor.define(
                 }
             }, this);
             
-            this.samplesNav.subscribe('navItemClick', function(eventArgs) {
-                var sampleIndex = $(eventArgs.el).data("sample");
-                this.loadSample(sampleIndex);
+            raptor.require('pubsub').subscribe('loadSample', function(eventArgs) {
+                this.loadSample(eventArgs.sampleIndex);
             }, this);
-
         };
         
         TemplateTestbedWidget.prototype = {
             loadSample: function(index) {
-                var sample = this.samples[index];
+                
+                var samples = this.samples, 
+                    sample,
+                    navItemId;
+
+                raptor.forEach(index, function(i) {
+                    sample = samples[i];
+                    samples = sample ? sample.samples : null;
+                });
+                
+                while (!sample.path) {
+                    if (sample.samples) {
+                        sample = sample.samples[0];
+                    }
+                    else {
+                        break;
+                    }
+                }
+                
+                if (sample === this.activeSample) {
+                    return;
+                }
+                
+                if (raptor.isNumber(index)) { //Check if the index is top-level index
+                    if (this.topLevelIndex != -1) {
+                        $("#subsamples-" + this.topLevelIndex).slideToggle();
+                    }
+                    
+                    this.topLevelIndex = index;
+                    $("#subsamples-" + index).slideToggle();
+
+                    
+                    var subSampleNavItem = this.getWidget('subSampleNavItem-' + sample.path);
+                    if (subSampleNavItem) {
+                        subSampleNavItem.show();
+                    }
+                }
+                
+                
+                this.activeSample = sample;
                 
                 if (!sample.templatesLoaded) {
                     raptor.forEach(sample.templates, function(template) {

@@ -21,16 +21,12 @@ raptor.define(
                 }
                 
                 rootAttrs["class"] = classParts.join(" ");
-                
-                var widgetConfig = {};
 
                 var navItems = [];
                 
                 raptor.require('templating').render('components/nav/Nav', {
                     navItems: navItems,
                     rootAttrs: rootAttrs,
-                    widgetArgs: input.widgetArgs,
-                    widgetConfig: widgetConfig,
                     invokeBody: input.invokeBody,
                     nav: input
                 }, context);

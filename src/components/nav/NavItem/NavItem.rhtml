@@ -4,7 +4,7 @@
     name="components/nav/Nav"
     params="rootAttrs,navItem,isDropdownMenu,nav">
     
-    <li c:attrs="navItem.attrs">
+    <li w:widget="components.nav.Nav.NavItemWidget" c:attrs="navItem.attrs">
         <a c:attrs="navItem.anchorAttrs">
             <c:choose>
                 <c:when test="navItem.label">

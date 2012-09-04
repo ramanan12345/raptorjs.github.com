@@ -8,6 +8,9 @@
         <attribute name="toggle" type="string"/>
         <attribute name="href" type="string"/>
         
+        <attribute name="id" uri="widgets"/>
+        <attribute name="event-click" uri="widgets"/>
+        
         <nested-variable name="nav"/>
         <imported-variable target-property="nav" expression="nav"/>
     </tag>

@@ -4,7 +4,7 @@
     name="components/nav/Nav"
     params="rootAttrs,navItems,invokeBody,nav">
     
-    <ul w:widget="components.nav.Nav.NavWidget" c:attrs="rootAttrs">
+    <ul c:attrs="rootAttrs">
         <c:invoke function="invokeBody(nav)" c:if="invokeBody"/>
     </ul>
 </c:template>

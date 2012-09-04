@@ -61,11 +61,11 @@ raptor.define(
                     }    
                 }
                 
-                
                 raptor.require('templating').render('components/nav/NavItem', {
                         nav: nav,
                         navItem: input,
-                        isDropdownMenu: isDropdownMenu
+                        isDropdownMenu: isDropdownMenu,
+                        widgetArgs: input.widgetArgs
                     },
                     context);
             }
