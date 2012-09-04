@@ -28,6 +28,8 @@ raptor.define(
         
         ButtonWidget.events = ["click", "toggle"];
         
+        ButtonWidget.controller = "components.buttons.Button.ButtonTag";
+        
         ButtonWidget.prototype = {
             toggle: function() {
                 this.toggled = !this.toggled;
