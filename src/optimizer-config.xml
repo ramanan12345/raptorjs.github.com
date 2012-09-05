@@ -8,15 +8,12 @@
     </profile>
     
     <params file="local-properties.json"/>
+    
     <params>
         <profile>development</profile>
         <publish>false</publish>
     </params>
 
-    
-    
-    
-    
     <params>
         <singlePage>false</singlePage>
     </params>
@@ -78,6 +75,12 @@
             <dir path="pages${singlePage}" base-path="pages" recursive="false"/>
         </page-search-path>
     </profile>
+    
+    <echo message=""/>
+    <echo message="Profile: ${profile}"/>
+    <echo message="Single page: ${singlePage}"/>
+    <echo message="Publish?: ${publish}"/>
+    <echo message=""/>
    
     <resource-search-path>
         <dir path="."/>
@@ -96,6 +99,8 @@
     <clean-dirs>
         <dir path="../static"/>
     </clean-dirs>
+    
+
     
 <!--     <js-output-dir>dist/bundles</js-output-dir> -->
 <!--     <css-output-dir>dist/bundles</css-output-dir> -->

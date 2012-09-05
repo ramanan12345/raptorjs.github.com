@@ -11,8 +11,208 @@
             
         <docs:section heading="Overview">
             <p>
-                
+                The RaptorJS Optimizer simplifies the development
+                of web applications by relieving developers from
+                worrying about managing a mess of constantly evolving <code>${entity:lt}script></code> and <code>${entity:lt}link></code> 
+                tags. When using RaptorJS, optimizing an application
+                is taken care of automatically, but can be easily
+                tuned without changing a single line of application code.
             </p>
+            <p>
+                Instead of worrying about transitive dependencies, developers only need
+                to declare which top-level modules and resources a page depends on
+                and the optimizer will then use that information to resolve <i>all</i> dependencies. 
+                The optimizer will then generate static resource bundles and <i>also</i> the HTML markup 
+                that should be used to include the resources for a web page.
+            </p>
+        </docs:section>
+        
+        <docs:section heading="Page Dependencies">
+            <p>
+                Complex pages will often depend on a lot of JavaScript and
+                CSS resources and those dependencies often change over time.
+                RaptorJS supports the concept of <i>"package everything"</i>.
+                This includes creating a package for a page that describes
+                all of the top-level dependencies for a page. The page package
+                can add dependencies for other module packages. The same package.json
+                file is used to declare packages for pages, modules, UI components, etc.
+            </p>
+            
+            <docs:section heading="Declaring Page Dependencies">
+                <p>
+                    The modules and resources that a page depends on should be 
+                    declared in the page's <code>package.json</code> file. A
+                    sample <code>package.json</code> file is shown below:
+                </p>
+<docs:code-editor 
+    mode="javascript"
+    readOnly="true" 
+    c:parseBodyText="false"
+><![CDATA[{
+    "includes": [
+        {"module": "widgets"},
+        {"module": "pubsub"},
+        {"module": "components/buttons/Button"},
+        "page.js",
+        "page.css"
+    ]
+}]]></docs:code-editor>
+                <p>
+                    The above <code>package.json</code> file declares
+                    that a page depends on three modules (i.e., widgets, pubsub, widgets).
+                    Each of those modules will have a <code>package.json</code>
+                    files that describes the dependencies for each. The <code>package.json</code>
+                    file also declares that two resources should be sent to the browser 
+                    (i.e. "page.js" and page.css). A page's <code>package.json</code> file
+                    provides enough information for the RaptorJS optimizer
+                    to be able to know how to generate the resources are
+                    required for the page to function in a browser. The next few
+                    sections describes how the required resources are injected into a webpage.
+                </p>
+            </docs:section>
+            
+            <docs:section heading="Resource Slots">
+                <p>
+                    An HTML page that is sent to the browser will need to
+                    include <code>${entity:lt}script></code> and <code>${entity:lt}link></code>
+                    tags that include the required resources for the page to function
+                    correctly. For performance reasons, <code>${entity:lt}link></code> tags
+                    for CSS resources are typically inserted into the <code>${entity:lt}head></code>
+                    tag of a page while <code>${entity:lt}script></code> tags for JavaScript resources are typically
+                    inserted just before the closing <code>${entity:lt}body></code> tag. This
+                    is the default strategy that RaptorJS uses as well—CSS resources are included
+                    in the "head" slot by default, while JavaScript resourcs are included
+                    in the "body" slot by default. A developer can override which slot
+                    a resource should go into and developers can add as many slots as they would
+                    like to an HTML page. 
+                </p>
+            </docs:section>
+            
+            <docs:section heading="Injecting Page Dependencies">
+                <p>
+                </p>
+                
+                <docs:section heading="Optimizer Taglib">
+                    <p>
+                    </p>
+                </docs:section>
+            </docs:section>
+            
+            <docs:section heading="Optional Package Extensions">
+                <p>
+                </p>
+            </docs:section>
+            
+            <docs:section heading="Compiled Resources">
+                <p>
+                </p>
+            </docs:section>
+            
+        </docs:section>
+    
+    
+        <docs:section heading="Configuration">
+            <p>
+                The configuration for the RaptorJS optimizer is driven
+                by a simple, but powerful <code>optimizer-config.xml</code>
+                file that will typically be placed in the root of a
+                project.
+            </p>
+            <p>
+                The optimizer configuration file supports profiles
+                so that the page can be optimized differently
+                based on which profile is enabled. For example,
+                to improve developer productivity, bundling of resources
+                and resource minification can be disabled.
+                 
+            </p>
+            
+            <docs:section heading="Profiles">
+                <p>
+                    The optimizer will combine resources based on a bundle configuration
+                    to reduce the number of HTTP round-trips required to deliver a
+                    web page. The Rapt
+                </p>
+            </docs:section>
+            
+            <docs:section heading="Bundling">
+                <p>
+                    The optimizer will combine resources based on a bundle configuration
+                    to reduce the number of HTTP round-trips required to deliver a
+                    web page. The Rapt
+                </p>
+            </docs:section>
+            
+            <docs:section heading="Minification and Filters">
+                <p>
+                </p>
+            </docs:section>
+            
+            <docs:section heading="Output Directories">
+                <p>
+                    The optimizer will combine resources based on a bundle configuration
+                    to reduce the number of HTTP round-trips required to deliver a
+                    web page. The Rapt
+                </p>
+            </docs:section>
+            
+        </docs:section>
+        
+        <docs:section heading="Asynchronous Loading">
+            <p>
+            </p>
+            
+            <docs:section heading="Asynchronous Module Includes">
+                <p>
+                </p>
+            </docs:section>
+        
+            <docs:section heading="Loading Modules Includes">
+                <p>
+                </p>
+            </docs:section>
+        </docs:section>
+        
+        <docs:section heading="Building Websites">
+            <p>
+            </p>
+            
+            <docs:section heading="Static Websites">
+                <p>
+                </p>
+            </docs:section>
+            
+            <docs:section heading="Server-based Websites">
+                <p>
+                </p>
+            </docs:section>
+            
+            <docs:section heading="CDN Integration">
+                <p>
+                </p>
+            </docs:section>
+            
+        </docs:section>
+        
+        <docs:section heading="JavaScript API">
+            <p>
+            </p>
+            
+            <docs:section heading="Registering Pages">
+                <p>
+                </p>
+            </docs:section>
+            
+            <docs:section heading="Generating Page Includes">
+                <p>
+                </p>
+            </docs:section>
+            
+            <docs:section heading="Dependency Caching">
+                <p>
+                </p>
+            </docs:section>
+            
         </docs:section>
         
     </docs:docs>
