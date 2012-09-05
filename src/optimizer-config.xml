@@ -1,5 +1,11 @@
 <optimizer-config>
     
+    <profile enabled="${publish}">
+        <!-- Always set singlePage to false if publishing -->
+        <params>
+            <singlePage>false</singlePage>
+        </params>
+    </profile>
     
     <params file="local-properties.json"/>
     <params>
@@ -7,12 +13,7 @@
         <publish>false</publish>
     </params>
 
-    <profile enabled="${publish}">
-        <!-- Always set singlePage to false if publishing -->
-        <params>
-            <singlePage>false</singlePage>
-        </params>
-    </profile>
+    
     
     
     
