@@ -504,9 +504,9 @@
                 <p>
                 </p>
                 
-                <docs:section heading="if">
+                <docs:section heading="if...else-if...else">
                     <p>
-                        Any element or fragment of HTML can be made conditional using the c:if directive.
+                        Any element or fragment of HTML can be made conditional using the c:if, c:else-if or c:else directive.
                     </p>
                     <table class="table table-bordered">
                         <thead>
@@ -526,8 +526,23 @@
     mode="xml"
     readOnly="true" 
     c:parseBodyText="false"
-><![CDATA[<div c:if="someCondition">
+><![CDATA[<!--Simple if-->
+<div c:if="someCondition">
     Hello World
+</div>
+
+<!--Complex if-->
+<div c:if="test === 'a'">
+    A
+</div>
+<div c:else-if="test === 'b'">
+    B
+</div>
+<div c:else-if="test === 'c'">
+    c
+</div>
+<div c:else="">
+    Something else
 </div>]]></docs:code-editor>
                                 </td>
                                 <td style="width: 50%">
@@ -535,11 +550,34 @@
     mode="xml"
     readOnly="true" 
     c:parseBodyText="false"
-><![CDATA[<c:if test="someCondition">
+><![CDATA[<!--Simple if-->
+<c:if test="someCondition">
     <div>
         Hello World
     </div>
-</c:if>]]></docs:code-editor>
+</c:if>
+
+<!--Complex if-->
+<c:if test="test === 'a'">
+    <div>
+        A
+    </div>
+</c:if>
+<c:else-if test="test === 'b'">
+    <div>
+        B
+    </div>
+</c:else-if>
+<c:else-if test="test === 'c'">
+    <div>
+        C
+    </div>
+</c:else-if>
+<c:else>
+    <div>
+        Something else
+    </div>
+</c:else>]]></docs:code-editor>
                                 </td>
                             </tr>
                         </tbody>
@@ -622,6 +660,65 @@
     readOnly="true" 
     c:parseBodyText="false"
 ><![CDATA[<div>Something else</div>]]></docs:code-editor>
+                </docs:section>
+                
+                <docs:section heading="Short-hand conditionals">
+                    <p>
+                        Short-hand conditionals allow for conditional
+                        values inside attributes or wherever expressions are allowed.
+                        Short-hand conditionals are of the following form:<br/>
+                        <code>\{?${entity:lt}expression>;${entity:lt}true-template>[;${entity:lt}false-template>]}</code>
+                    </p>
+                    <p>
+                        For example:
+                    </p>
+<docs:code-editor 
+    mode="xml"
+    readOnly="true" 
+    c:parseBodyText="false"
+><![CDATA[<div class="{?active;tab-active}">Hello</div>]]></docs:code-editor>
+                    <p>
+                        With a value of <code>true</code> for <code>active</code>, the output
+                        would be the following:
+                    </p>
+<docs:code-editor 
+    mode="xml"
+    readOnly="true" 
+    c:parseBodyText="false"
+><![CDATA[<div class="tab-active">Hello</div>]]></docs:code-editor>
+                    <p>
+                        With a value of <code>false</code> for <code>active</code>, the output
+                        would be the following:
+                    </p>
+<docs:code-editor 
+    mode="xml"
+    readOnly="true" 
+    c:parseBodyText="false"
+><![CDATA[<div>Hello</div>]]></docs:code-editor>
+                    <docs:message type="info">
+                        <p>
+                            If the expression inside an attribute
+                            evalutes to <code>null</code> or an empty string then the attribute is not included in the output.
+                        </p>
+                    </docs:message>
+                    <p>
+                        As shown in the previous example, the "else" block for short-hand conditionals is optional.
+                        The usage of an else block is shown below:
+                    </p>
+<docs:code-editor 
+    mode="xml"
+    readOnly="true" 
+    c:parseBodyText="false"
+><![CDATA[<div class="{?active;tab-active;tab-inactive}">Hello</div>]]></docs:code-editor>
+                    <p>
+                        With a value of <code>false</code> for <code>active</code>, the output
+                        would be the following:
+                    </p>
+<docs:code-editor 
+    mode="xml"
+    readOnly="true" 
+    c:parseBodyText="false"
+><![CDATA[<div class="tab-inactive">Hello</div>]]></docs:code-editor>
                 </docs:section>
                 
             </docs:section>
