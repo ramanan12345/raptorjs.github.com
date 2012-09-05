@@ -21,7 +21,19 @@ raptor.define(
                        level: sectionStack.length - 1,
                        sections: [],
                        getAnchorName: function() {
-                           return this.anchorName || this.heading.replace(/[^a-zA-Z0-9]+/g, '');
+                           var anchorName = this.anchorName;
+                           if (!anchorName) {
+                               anchorName = this.heading;
+                               //anchorName = anchorName.substring(0, 1).toUpperCase() + anchorName.substring(1);
+                               console.error('anchorName: ', anchorName);
+                               anchorName = anchorName.replace(/[\-]/g, '');
+                               anchorName = anchorName.replace(/(?:\s|[\-.])+((?:[a-zA-Z])+)/g, function(matches, part) {
+                                   console.error(part);
+                                   return "_" + part;
+                               })
+                               anchorName = anchorName.replace(/[^a-zA-Z0-9_]+/g, '')
+                           }
+                           return anchorName;
                        }
                     };
                     
