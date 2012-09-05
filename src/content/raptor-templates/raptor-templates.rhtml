@@ -439,6 +439,24 @@
     readOnly="true" 
     c:parseBodyText="false"
 ><![CDATA[<c:include template="myTemplate" someArg="${someVar}" anotherArg="Hello"/>]]></docs:code-editor>
+
+                    <p>
+                        As shown in the above example, attributes are used to define the template
+                        data for the included template. Alternatively, the <code>templateData</code>
+                        attribute can be used to pass along a complete data object to use
+                        for the included template as shown in the following example:
+                    </p>
+<docs:code-editor 
+    mode="xml"
+    readOnly="true" 
+    c:parseBodyText="false"
+><![CDATA[<c:include template="myTemplate" templateData="includeData"/>]]></docs:code-editor>
+                    <p>
+                        In the above example, <code>includeData</code> is an expression
+                        that resolves to a JavaScript object. The resolved JavaScript
+                        object will then be used as the <code>data</code> object
+                        for the included template.
+                    </p>
                 </docs:section>
                 
             </docs:section>
@@ -1229,7 +1247,7 @@ count="${10}"  <!-- number argument -->]]></docs:code-editor>
     c:parseBodyText="false"
 ><![CDATA[<tag>
     <name>if</name> 
-    <compiler-class>templating.taglibs.core.IfNode</compiler-class>
+    <node-class>templating.taglibs.core.IfNode</node-class>
     <attribute name="test" type="expression"/>
 </tag>]]></docs:code-editor>
                 <p>
