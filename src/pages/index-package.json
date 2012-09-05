@@ -6,6 +6,7 @@
         { "module": "components/nav/TopNavDefault" },
         { "module": "components/footers/FooterDefault" },
         { "module": "components/social/TwitterFollow" },
+        { "module": "components/social/GooglePlusOne" },
         "index.css"
      ]
 }

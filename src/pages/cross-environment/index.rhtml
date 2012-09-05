@@ -1,5 +1,6 @@
 <c:template
     xmlns:c="core"
+    xmlns:optimizer="optimizer"
     xmlns:w="widgets"
     xmlns:docs="docs"
     params="includes,samples"
@@ -13,7 +14,7 @@
         <head>
             <title>RaptorJS: Cross-Environment</title>
             <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
-            ${includes.head}
+            <optimizer:slot name="head"/>
             <docs:google-analytics/>
         </head>
         <body>
@@ -24,7 +25,7 @@
                 <c:include template="content/cross-environment"/>
             </div>
             
-            ${includes.body}
+            <optimizer:slot name="body"/>
             
             <w:initWidgets/>
         </body>

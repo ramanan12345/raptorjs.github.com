@@ -1,5 +1,6 @@
 <c:template
     xmlns:c="core"
+    xmlns:optimizer="optimizer"
     xmlns:w="widgets"
     xmlns:templates="templates"
     xmlns:docs="docs"
@@ -13,7 +14,7 @@
         <head>
             <title>Raptor Templates — Try it Out!</title>
             <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
-            ${includes.head}
+            <optimizer:slot name="head"/>
             <docs:google-analytics/>
         </head>
         <body> 
@@ -21,7 +22,7 @@
             
             <templates:template-testbed samples="samples" />
             
-            ${includes.body}
+            <optimizer:slot name="body"/>
             
             <w:initWidgets/>
         </body>

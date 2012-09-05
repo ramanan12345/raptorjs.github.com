@@ -1,15 +1,12 @@
 <optimizer-config>
     
     
-    
+    <params file="local-properties.json"/>
     <params>
         <profile>development</profile>
         <publish>false</publish>
     </params>
-    
-    <enable-profile>${profile}</enable-profile>
-    
-    
+
     <profile enabled="${publish}">
         <!-- Always set singlePage to false if publishing -->
         <params>
@@ -17,10 +14,13 @@
         </params>
     </profile>
     
-    <params file="local-properties.json"/>
+    
+    
     <params>
         <singlePage>false</singlePage>
     </params>
+    
+    <enable-profile>${profile}</enable-profile>
     
     <profile name="development">
         

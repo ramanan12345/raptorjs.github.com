@@ -1,0 +1,6 @@
+{
+    "includes": [
+        "GooglePlusOne.css",
+        "GooglePlusOneWidget.js"
+    ]
+}
