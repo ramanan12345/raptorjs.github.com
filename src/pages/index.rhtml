@@ -82,14 +82,17 @@
                                         additional performance benefits.
                                     </p>
                                     <p>
-                                        All objects defined using RaptorJS support 
-                                        <docs:popover 
-                                            title="Lazy Initialization" 
-                                            content="Lazy initialization improves performance by deferring the initialization of 
-                                                     an object until it is first required. In addition, lazy initialization allows
-                                                     dependencies to be downloaded in parallel for optimal performance.">
-                                            lazy initialization
-                                        </docs:popover>${entity:nbsp} via the use of a factory function so
+                                        All objects defined using RaptorJS support
+                                        
+                                        <docs:popover title="Lazy Initialization">
+                                             <docs:popover-content>
+                                                Lazy initialization improves performance by deferring the initialization of 
+                                                an object until it is first required. In addition, lazy initialization allows
+                                                dependencies to be downloaded in parallel for optimal performance.
+                                            </docs:popover-content>
+                                             lazy initialization
+                                        </docs:popover>
+                                        via the use of a factory function so
                                         the object is not initialized until it is first required.
                                         In addition, unlike in other systems, the code used to define
                                         objects in RaptorJS works unmodified in all server and
@@ -104,7 +107,7 @@
                                 <img src="package.png" width="48" height="48"/>
                                 <h3><a href="${url('/packaging')}">Packaging &amp; Extensions</a></h3>
                                 <div class="bd">                   
-                                    <p>                 
+                                    <p>
                                         RaptorJS provides an intuitive system for packaging
                                         up code so that it can be treated as a unit. RaptorJS
                                         packages can consist of any type of resources 
@@ -114,16 +117,19 @@
                                     </p>
                                     <p>
                                         Packages can be loaded on the server, delivered
-                                        to a browser or shared with other developers. In addition, packages support 
-                                        <docs:popover 
-                                            title="Extensions" 
-                                            content="Package extensions allow files to be conditionally
-                                                     included based on which extensions have been enabled
-                                                     or disabled. For example, if a package has mobile specific code then
-                                                     you might create an extension named &quot;mobile&quot;
-                                                     and then enable that extension for all requests from mobile users.">
-                                        extensions
-                                        </docs:popover> 
+                                        to a browser or shared with other developers. In addition, packages support
+                                        
+                                        <docs:popover title="Extensions">
+                                             <docs:popover-content>
+                                                Package extensions allow files to be conditionally
+                                                included based on which extensions have been enabled
+                                                or disabled. For example, if a package has mobile specific code then
+                                                you might create an extension named &quot;mobile&quot;
+                                                and then enable that extension for all requests from mobile users.
+                                            </docs:popover-content>
+                                             extensions
+                                        </docs:popover>
+                                         
                                         which make it possible to package
                                         up code differently for different environments for
                                         the ultimate in flexibility.
@@ -138,7 +144,7 @@
                                 <img src="lightning.png" width="48" height="48"/>
                                 <h3><a href="${url('/optimizer')}">Optimizer</a></h3>
                                 <div class="bd">          
-                                    <p>                          
+                                    <p>
                                         Reducing the number of HTTP requests is important
                                         to improve the performance of web applications. The RaptorJS
                                         Optimizer can be used in your JavaScript server or as part
@@ -202,7 +208,7 @@
                                 <img src="widgets.png" width="48" height="48"/>
                                 <h3><a href="${url('/widgets')}">Widgets Framework</a></h3>
                                 <div class="bd">              
-                                    <p>                      
+                                    <p>
                                         The RaptorJS Widgets Framework solves the problem of
                                         allowing UI components to easily be rendered to HTML
                                         and added to the DOM either on the server side or
@@ -220,7 +226,7 @@
                             <div class="content">
                                 <h3><a href="${url('/cross-environment')}">Cross-Environment</a></h3>
                                 <div class="bd">   
-                                    <p>                                 
+                                    <p>
                                         While it is beneficial to create modules of code that work 
                                         seamlessly in all environments, unfortunately not all JavaScript environments, web browsers and web devices are created equal. 
                                         Modern web browsers are drastically different from older web browsers and

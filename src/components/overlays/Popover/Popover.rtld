@@ -9,7 +9,10 @@
         <attribute name="content" type="string"/>
         <attribute name="delay" type="int"/>
         
-        <transformer-class>components.overlays.Popover.PopoverTagTransformer</transformer-class>
+        <nested-tag name="popover-title" type="string" target-property="title"/>
+        <nested-tag name="popover-content" type="string" target-property="content"/>
     </tag>
+    
+    
     
 </raptor-taglib>

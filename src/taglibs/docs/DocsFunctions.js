@@ -7,7 +7,7 @@ raptor.define(
             url: function(url) {
                 var basePath = this.basePath;
                 if (!basePath) {
-                    raptor.throwError(new Error('Base path not set. Use the <shared:urls basePath="<base-path>"/> tag to set the base path for all URLs.'));
+                    throw raptor.createError(new Error('Base path not set. Use the <shared:urls basePath="<base-path>"/> tag to set the base path for all URLs.'));
                 }
                 var optimizer = raptor.require('optimizer').getFromContext(this);
                 var profile = optimizer.getParam('profile');
