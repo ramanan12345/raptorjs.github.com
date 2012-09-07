@@ -2,15 +2,13 @@
     
     Hello $name!
 
-    <c:choose>
-        <ul c:when="notEmpty(colors)">
-            <li c:for="color in colors">
-                $color
-            </li>
-        </ul>
-        <div c:otherwise="">
-            No colors!
-        </div>
-    </c:choose>
+    <ul c:if="notEmpty(colors)">
+        <li style="color: $color" c:for="color in colors">
+            $color
+        </li>
+    </ul>
+    <div c:else="">
+        No colors!
+    </div>
     
 </c:template>

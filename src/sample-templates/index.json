@@ -5,7 +5,21 @@
     },
     {
         "label": "Looping",
-        "path": "looping"
+        "samples": [
+            {
+                "label": "Simple Loops",
+                "path": "looping"
+            },
+            {
+                "label": "Loop Status Variable",
+                "path": "looping-varStatus"
+            },
+            {
+                "label": "Loop Separator",
+                "path": "looping-separator"
+            }
+        ]
+        
     },
     {
         "label": "Conditionals",
@@ -17,6 +31,10 @@
             {
                 "label": "Choose...When...Otherwise",
                 "path": "choose"
+            },
+            {
+                "label": "Shorthand Conditionals",
+                "path": "shorthand-conditionals"
             }
         ]
     },

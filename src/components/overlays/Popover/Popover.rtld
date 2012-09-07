@@ -8,6 +8,8 @@
         <attribute name="title" type="string"/>
         <attribute name="content" type="string"/>
         <attribute name="delay" type="int"/>
+        
+        <transformer-class>components.overlays.Popover.PopoverTagTransformer</transformer-class>
     </tag>
     
 </raptor-taglib>

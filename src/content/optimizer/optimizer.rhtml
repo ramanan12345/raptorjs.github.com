@@ -1,6 +1,7 @@
 <c:template
     xmlns:c="core"
-    xmlns:docs="docs">
+    xmlns:docs="docs"
+    docs:functions="url">
     
     
     
@@ -11,19 +12,63 @@
             
         <docs:section heading="Overview">
             <p>
-                The RaptorJS Optimizer simplifies the development
+                The RaptorJS optimizer simplifies the development
                 of web applications by relieving developers from
-                worrying about managing a mess of constantly evolving <code>${entity:lt}script></code> and <code>${entity:lt}link></code> 
-                tags. When using RaptorJS, optimizing an application
-                is taken care of automatically, but can be easily
-                tuned without changing a single line of application code.
+                worrying about and managing webpage dependencies (i.e. CSS and JavaScript resources).
+                RaptorJS provides structure around dependencies by allowing every module and UI component to
+                declare its own dependencies as part of a package. Each package
+                provides enough information for the RaptorJS optimizer
+                to optimize the delivery of webpages with little to no developer intervention.
+                The webpage developer only needs to tell the optimizer which
+                top-level modules, UI components and resources are required
+                and the optimizer will take care of the rest—including generating
+                the static resource bundles <i>and</i> the HTML markup to include
+                the required resources in an HTML page.
             </p>
             <p>
-                Instead of worrying about transitive dependencies, developers only need
-                to declare which top-level modules and resources a page depends on
-                and the optimizer will then use that information to resolve <i>all</i> dependencies. 
-                The optimizer will then generate static resource bundles and <i>also</i> the HTML markup 
-                that should be used to include the resources for a web page.
+                Unlike other optimizers, the RaptorJS optimizer is source-code agnostic. As a developer, you
+                can write your web application code however you prefer and still
+                benefit from the RaptorJS optimizer. 
+                Third-party libraries can easily be utilized with no constraints, but you will most likely
+                want to wrap the third-party library with one or more 
+                <docs:popover 
+                    title="" 
+                    content="Only a package.json file needs to be created and added to your codebase. You will not need to change the code for the library.">
+                     RaptorJS packages
+                     
+                     <h1>Packages</h1>
+                     <
+                 </docs:popover> 
+                
+                <docs:popover>
+                     <popover-title>Packages</popover-title>
+                     <popover-content>
+                        Only a package.json file needs to be created and added to your codebase. 
+                        You will not need to change the code for the library.
+                    </popover-content>
+                    
+                     RaptorJS packages
+                </docs:popover>
+                
+                to make dependencies explicit.
+            </p>
+            <p>
+                RaptorJS is extensible and supports any type of resource as a dependency (in addition to raw JavaScript and CSS resources). 
+                Out of the box, RaptorJS supports compiled resources such as <a href="${url('/raptor-templates')}">Raptor Templates</a> and 
+                <a href="http://lesscss.org/">LESS</a> as dependencies, but you can
+                add support for your own compiled resources with just a few lines of code.
+            </p>
+            <p>
+                Optimizing an application by changing how resources or bundled or minified
+                does not require any changes to application code. The RaptorJS optimizer
+                is developer-friendly by supporting multiple profiles to easily enable
+                and disable optimization features such minification and bundling.
+            </p>
+            <p>
+                Lastly, the RaptorJS optimizer is aware of "package extensions" which allow
+                pages to be optimized differently based on the target environment.
+                This allows developers to design web applications that adapt to the target
+                client and only send the code that is required.
             </p>
         </docs:section>
         
@@ -59,7 +104,7 @@
 }]]></docs:code-editor>
                 <p>
                     The above <code>package.json</code> file declares
-                    that a page depends on three modules (i.e., widgets, pubsub, widgets).
+                    that a page depends on three modules (i.e., widgets, pubsub and widgets).
                     Each of those modules will have a <code>package.json</code>
                     files that describes the dependencies for each. The <code>package.json</code>
                     file also declares that two resources should be sent to the browser 
@@ -75,17 +120,68 @@
                 <p>
                     An HTML page that is sent to the browser will need to
                     include <code>${entity:lt}script></code> and <code>${entity:lt}link></code>
-                    tags that include the required resources for the page to function
-                    correctly. For performance reasons, <code>${entity:lt}link></code> tags
-                    for CSS resources are typically inserted into the <code>${entity:lt}head></code>
-                    tag of a page while <code>${entity:lt}script></code> tags for JavaScript resources are typically
-                    inserted just before the closing <code>${entity:lt}body></code> tag. This
-                    is the default strategy that RaptorJS uses as well—CSS resources are included
-                    in the "head" slot by default, while JavaScript resourcs are included
-                    in the "body" slot by default. A developer can override which slot
-                    a resource should go into and developers can add as many slots as they would
-                    like to an HTML page. 
+                    tags that link to the required resources for the page to function
+                    correctly.
+                    The RaptorJS optimizer allows resources to be targeted for any location
+                    on a page through the use of "slots". Slot markers can be added
+                    to an HTML page and resources can be targeted for any available user-defined slot.   
                 </p>
+                <p>
+                    For performance reasons, <code>${entity:lt}link></code> tags
+                    for CSS resources are typically inserted into the <code>${entity:lt}head></code>
+                    tag of a page (we'll call this the "head" slot) 
+                    while <code>${entity:lt}script></code> tags for JavaScript resources are typically
+                    inserted just before the closing <code>${entity:lt}body></code> tag (we'll call this the "body" slot). 
+                    By default, CSS resources are injected into the "head" slot and JavaScript
+                    resources are injected into the "body" slot.
+                     
+                    
+                    go into and developers can add as many slots as they would
+                    like to an HTML page.
+                </p>
+                
+                <docs:section heading="Defining Slots">
+                    <p>
+                        The JavaScript API for the RaptorJS provides a method for retrieving
+                        the HTML markup for slots. For example:
+                        
+                    </p>
+<docs:code-editor 
+    mode="javascript"
+    readOnly="true" 
+    c:parseBodyText="false"
+><![CDATA[{
+    "includes": [
+        {"module": "widgets"},
+        {"module": "pubsub"},
+        {"module": "components/buttons/Button"},
+        "page.js",
+        "page.css"
+    ]
+}]]></docs:code-editor>
+                    <p>
+                        If using Raptor Templates, an "optimizer" taglib is provided
+                    </p>
+                </docs:section>
+                
+                <docs:section heading="Targeting Slots">
+                    <p>
+                        A developer can override which slot
+                        a resource should be targeted for by specifying a "slot" attribute for a resource
+                        include as shown in the following example:
+                    </p>
+<docs:code-editor 
+    mode="javascript"
+    readOnly="true" 
+    c:parseBodyText="false"
+><![CDATA[{
+    "includes": [
+        { "path": "my-head.js", "slot": "head"}
+        "my-head.css"
+    ]
+}]]></docs:code-editor>
+                </docs:section>
+                
             </docs:section>
             
             <docs:section heading="Injecting Page Dependencies">

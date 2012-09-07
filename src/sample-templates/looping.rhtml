@@ -1,26 +1,18 @@
 <c:template xmlns:c="core" params="colors">
     
     <ul>
-        <li c:for="color in colors">$color</li>
+        <li c:for="color in colors" style="color: $color">$color</li>
     </ul>
+    
+    <ul>
+        <c:for each="color in colors">
+            <li style="color: $color">$color</li>
+        </c:for>
+    </ul>
+    
     
     <ul>
         <li c:for="animal in ['dog', 'cat', 'duck']">$animal</li>
     </ul>
     
-    <ul>
-        <c:for each="color in colors">
-            <li>$color</li>
-        </c:for>
-    </ul>
-    
-    <ul>
-        <li c:for="color in colors; varStatus=loop">
-            ${loop.getIndex()+1}) $color
-            <c:if test="loop.isFirst()"> - FIRST</c:if>
-            <c:if test="loop.isLast()"> - LAST</c:if>
-        </li>
-    </ul>
-    
-    <c:for each="color in colors" separator=", ">$color</c:for>
 </c:template>

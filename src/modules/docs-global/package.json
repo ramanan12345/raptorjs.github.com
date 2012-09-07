@@ -4,6 +4,7 @@
         { "type": "init-raptor" },
         { "module": "jQuery" },
         { "module": "components/icons/Icon" },
+        { "module": "components/overlays/Popover" },
         { "module": "Bootstrap/reset" },
         { "module": "Bootstrap/scaffolding" },
         { "module": "Bootstrap/util" },
