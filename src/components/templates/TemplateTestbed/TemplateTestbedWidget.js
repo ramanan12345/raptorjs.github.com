@@ -15,6 +15,11 @@ raptor.define(
             this.renderRequired = true;
             this.optionsVisible = false;
             
+            raptor.require('pubsub').subscribe({
+                "toggleAutoFormatHtml": function() {
+                    this.toggleAutoFormatHtml();
+                }
+            }, this)
             
             this.defaultOptionsJson = stringify(raptor.require('templating.compiler').defaultOptions);
             
@@ -284,7 +289,11 @@ raptor.define(
                     this.$("#compilerOptionsSection").addClass("compiler-options-hidden");
                 }
                 
-            }
+            },
+            
+            toggleAutoFormatHtml: function() {
+                this.outputEditor.setAutoFormat(!this.outputEditor.isAutoFormat());
+            },
         };
         
         return TemplateTestbedWidget;

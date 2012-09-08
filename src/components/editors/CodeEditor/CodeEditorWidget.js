@@ -4,7 +4,7 @@ raptor.define(
         var CodeEditorWidget = function(config) {
             var _this = this;
             
-            this.autoFormat = config.autoFormat;
+            this.autoFormat = config.autoFormat === true;
             
             this.codeMirror = CodeMirror.fromTextArea(
                     this.getEl('textarea'),
@@ -45,11 +45,26 @@ raptor.define(
                 this.codeMirror.setValue(value);
                 
                 if (this.autoFormat) {
-                    var startPos = this.codeMirror.posFromIndex(0);
-                    var endPos = this.codeMirror.posFromIndex(value.length);
-                    this.codeMirror.autoFormatRange(startPos, endPos);    
+                    this.format();
                 }
                 
+            },
+            
+            setAutoFormat: function(autoFormat) {
+                this.autoFormat = autoFormat === true;
+                if (this.autoFormat) {
+                    this.format();
+                }
+            },
+            
+            isAutoFormat: function() {
+                return this.autoFormat === true;
+            },
+            
+            format: function() {
+                var startPos = this.codeMirror.posFromIndex(0);
+                var endPos = this.codeMirror.posFromIndex(this.getValue().length);
+                this.codeMirror.autoFormatRange(startPos, endPos);    
             }
         };
         

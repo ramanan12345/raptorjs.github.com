@@ -3,71 +3,132 @@
     xmlns:docs="docs"
     docs:functions="url">
     
-    
-    
     <docs:docs heading="RaptorJS Optmizer">
         <docs:message type="warning">
             Documentation In-Progress
         </docs:message>
             
         <docs:section heading="Overview">
-            <p>
-                The RaptorJS optimizer simplifies the development
-                of web applications by relieving developers from
-                worrying about and managing webpage dependencies (i.e. CSS and JavaScript resources).
-                RaptorJS provides structure around dependencies by allowing every module and UI component to
-                declare its own dependencies as part of a package. Each package
-                provides enough information for the RaptorJS optimizer
-                to optimize the delivery of webpages with little to no developer intervention.
-                The webpage developer only needs to tell the optimizer which
-                top-level modules, UI components and resources are required
-                and the optimizer will take care of the rest—including generating
-                the static resource bundles <i>and</i> the HTML markup to include
-                the required resources in an HTML page.
-            </p>
-            <p>
-                Unlike other optimizers, the RaptorJS optimizer is source-code agnostic. As a developer, you
-                can write your web application code however you prefer and still
-                benefit from the RaptorJS optimizer. 
-                Third-party libraries can easily be utilized with no constraints, but you will most likely
-                want to wrap the third-party library with one or more 
-                
-                <docs:popover>
-                     <docs:popover-title>Packages</docs:popover-title>
-                     <docs:popover-content>
-                        Only a package.json file needs to be created and added to your codebase. 
-                        You will not need to change the code for the library.
-                    </docs:popover-content>
-                     RaptorJS packages
-                </docs:popover>
-                
-                to make dependencies explicit.
-            </p>
-            <p>
-                RaptorJS is extensible and supports any type of resource as a dependency (in addition to raw JavaScript and CSS resources). 
-                Out of the box, RaptorJS supports compiled resources such as <a href="${url('/raptor-templates')}">Raptor Templates</a> and 
-                <a href="http://lesscss.org/">LESS</a> as dependencies, but you can
-                add support for your own compiled resources with just a few lines of code.
-            </p>
-            <p>
-                Optimizing an application by changing how resources or bundled or minified
-                does not require any changes to application code. The RaptorJS optimizer
-                is developer-friendly by supporting multiple profiles to easily enable
-                and disable optimization features such minification and bundling.
-            </p>
-            <p>
-                Lastly, the RaptorJS optimizer is aware of "package extensions" which allow
-                pages to be optimized differently based on the target environment.
-                This allows developers to design web applications that adapt to the target
-                client and only send the code that is required.
-            </p>
+            <docs:section heading="Features at a Glance">
+                <ul>
+                    <li>
+                        <docs:popover title="Source code agnostic">
+                            <docs:popover-content>
+                                Write code however you prefer with no restriction on which third-party libraries you choose to use
+                            </docs:popover-content>
+                            Source code agnostic
+                        </docs:popover> 
+                    </li>
+                    <li>Generates optimized resource bundles <i>and</i> the HTML markup to include them in web pages</li>
+                    <li>Improves performance by reducing the number of HTTP requests through resource bundling</li>
+                    <li>Supports CDN integration
+                        <ul>
+                            <li>Custom URL prefixes</li>
+                            <li>Resource checksums included in URLs for optimal caching</li>
+                        </ul>
+                    </li>
+                    <li>Works at build time or at request time</li>
+                    <li>Driven by the <a href="${url('/packaging')}">RaptorJS Packaging</a> system
+                        <ul>
+                            <li>Package everything using simple <code>package.json</code> files</li>
+                            <li>Supports package extensions for targeted optimizations (target code for specific browsers, devices, etc.)</li>
+                            <li>Supports any type of resource (LESS, Raptor Templates, etc.) with automatic compilation</li>
+                        </ul>
+                    </li>
+                    <li>
+                        Supports
+                        <docs:popover title="Optimized asynchronous module loading">
+                            <docs:popover-content>
+                                For modules that may be downloaded asynchronously,
+                                the RaptorJS Optimizer generates the metadata containing
+                                the URLs that are required by the module to function.
+                                The asynchronous module loader uses this information
+                                to optimally download modules.
+                            </docs:popover-content>
+                            optimized asynchronous module loading
+                        </docs:popover> 
+                    </li>
+                    <li>Supports
+                        <docs:popover title="In-place Deployment">
+                            <docs:popover-content>
+                                With in-place deployment enabled, URLs are generated such that they
+                                point to the original file on disk. Changes to files
+                                are reflected up instantly without having to monitor
+                                the file system for changes.
+                            </docs:popover-content>
+                            in-place deployment
+                        </docs:popover> 
+                        for improved developer productivity
+                    </li>
+                    <li>Easily configurable
+                        <ul>
+                            <li>Supports profiles for targeting development and production</li>
+                            <li>Configurable resource bundling</li>        
+                        </ul>
+                    </li>
+                    <li>Supports custom filters for minification, pre/post-processing, etc.</li>
+                    <li>Simple JavaScript API and command-line interface</li>
+                </ul>
+            </docs:section>
+            <docs:section heading="Benefits">
+                <p>
+                    The RaptorJS optimizer simplifies the development
+                    of web applications by relieving developers from
+                    worrying about and managing web page dependencies (i.e. CSS and JavaScript resources).
+                    RaptorJS provides structure around dependencies by allowing every module and UI component to
+                    declare its own dependencies as part of a package. Each package
+                    provides enough information for the RaptorJS optimizer
+                    to optimize the delivery of web pages with little to no developer intervention.
+                    The web page developer only needs to tell the optimizer which
+                    top-level modules, UI components and resources are required
+                    and the optimizer will take care of the rest—including generating
+                    the static resource bundles <i>and</i> the HTML markup to include
+                    the required resources in an HTML page.
+                </p>
+                <p>
+                    Unlike other optimizers, the RaptorJS optimizer is source-code agnostic. As a developer, you
+                    can write your web application code however you prefer and still
+                    benefit from the RaptorJS optimizer. 
+                    Third-party libraries can easily be utilized with no constraints, but you will most likely
+                    want to wrap the third-party library with one or more 
+                    
+                    <docs:popover>
+                         <docs:popover-title>Packages</docs:popover-title>
+                         <docs:popover-content>
+                            Only a package.json file needs to be created and added to your codebase. 
+                            You will not need to change the code for the library.
+                        </docs:popover-content>
+                         RaptorJS packages
+                    </docs:popover>
+                    
+                    to make dependencies explicit.
+                </p>
+                <p>
+                    RaptorJS is extensible and supports any type of resource as a dependency (in addition to raw JavaScript and CSS resources). 
+                    Out of the box, RaptorJS supports compiled resources such as <a href="${url('/raptor-templates')}">Raptor Templates</a> and 
+                    <a href="http://lesscss.org/">LESS</a> as dependencies, but you can
+                    add support for your own compiled resources with just a few lines of code.
+                </p>
+                <p>
+                    Optimizing an application by changing how resources are bundled or minified
+                    does not require any changes to application code. The RaptorJS optimizer
+                    is developer-friendly by supporting multiple profiles to easily enable
+                    and disable optimization features such minification and bundling.
+                </p>
+                <p>
+                    Lastly, the RaptorJS optimizer is aware of "package extensions" which allow
+                    pages to be optimized differently based on the target environment.
+                    This allows developers to design web applications that adapt to the target
+                    client and only send the code that is required.
+                </p>
+            </docs:section>
         </docs:section>
         
         <docs:section heading="Page Dependencies">
             <p>
                 Complex pages will often depend on a lot of JavaScript and
                 CSS resources and those dependencies often change over time.
-                RaptorJS supports the concept of <i>"package everything"</i>.
+                RaptorJS supports the concept of <i>package everything</i>.
                 This includes creating a package for a page that describes
                 all of the top-level dependencies for a page. The page package
                 can add dependencies for other module packages. The same package.json
@@ -103,7 +164,7 @@
                     provides enough information for the RaptorJS optimizer
                     to be able to know how to generate the resources are
                     required for the page to function in a browser. The next few
-                    sections describes how the required resources are injected into a webpage.
+                    sections describes how the required resources are injected into a web page.
                 </p>
             </docs:section>
             
@@ -134,7 +195,8 @@
                 <docs:section heading="Defining Slots">
                     <p>
                         The JavaScript API for the RaptorJS provides a method for retrieving
-                        the HTML markup for slots. For example:
+                        the HTML markup for the slots on the page. You can use any templating
+                        language to inject the content into your page. 
                         
                     </p>
 <docs:code-editor 

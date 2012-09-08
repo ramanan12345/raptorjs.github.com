@@ -9,7 +9,7 @@ raptor.define(
                 if (!basePath) {
                     throw raptor.createError(new Error('Base path not set. Use the <shared:urls basePath="<base-path>"/> tag to set the base path for all URLs.'));
                 }
-                var optimizer = raptor.require('optimizer').getFromContext(this);
+                var optimizer = raptor.require('optimizer').getOptimizerFromContext(this);
                 var profile = optimizer.getParam('profile');
                 if (profile !== 'production') {
                     if (basePath === '.') {

@@ -93,7 +93,8 @@
                                 autoResize="true"
                                 indentUnit="4"
                                 mode="htmlmixed"
-                                name="output"/>
+                                name="output"
+                                autoFormat="true"/>
                             
                             <div class="html-viewer" id="${widget.elId('htmlViewer')}"/>
                             
@@ -119,11 +120,12 @@
                                     <docs:button type="primary" label="Render Template" w:id="renderButton"/>                                    
                                 </docs:button-group>
                             </td>
-                            <td class="option-buttons" width="600">
+                            <td class="option-buttons" width="100%">
                                 <docs:button-group>
-                                    <docs:button type="inverse" label="Automatic Rendering" toggle="true" toggled="true" w:id="autoRenderToggleButton"/>
-                                    <docs:button type="inverse" label="Show compiler options" toggle="true" toggled="false" w:id="showOptionsToggleButton"/>
+                                    <docs:button type="inverse" label="Auto compile and render" toggle="true" toggled="true" w:id="autoRenderToggleButton"/>
                                     <docs:button type="inverse" label="Show compiled template" toggle="true" toggled="true" w:id="showCompiledToggleButton"/>
+                                    <docs:button type="inverse" label="Auto format HTML output" toggle="true" toggled="true" w:event-click="toggleAutoFormatHtml"/>
+                                    <docs:button type="inverse" label="Show compiler options" toggle="true" toggled="false" w:id="showOptionsToggleButton"/>
                                 </docs:button-group>
                             </td>
                         </tr>

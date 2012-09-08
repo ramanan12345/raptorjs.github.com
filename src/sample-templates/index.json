@@ -60,8 +60,22 @@
         "path": "macros"
     },
     {
-        "label": "Dynamic Attributes",
-        "path": "dynamic-attributes"
+        "label": "Attributes",
+        "samples": [
+            {
+                "label": "Conditional Attributes",
+                "path": "conditional-attributes"
+            },
+            {
+                "label": "Nested Attributes",
+                "path": "nested-attributes"
+            },
+            {
+                "label": "Attributes from Object",
+                "path": "object-attributes"
+            }
+        ]
+        
     },
     {
         "label": "Parameters",
