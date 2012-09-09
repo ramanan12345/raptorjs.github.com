@@ -1346,6 +1346,10 @@ PRE.code, PRE.sh {
     margin-top: 5px;
 }
 
+.plusone-container SPAN {
+    color: #FFF !important;
+}
+
 .version-container {
     padding-top: 4px;
 }
