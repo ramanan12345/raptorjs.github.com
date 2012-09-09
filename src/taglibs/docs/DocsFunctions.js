@@ -3,8 +3,11 @@ raptor.define(
     function(raptor) {
         var strings = raptor.require('strings');
         
-        return {
+        var funcs = {
             url: function(url) {
+                if (strings.endsWith(url, '.jpg')) {
+                    return funcs.imageUrl.call(this, url);
+                }
                 var basePath = this.basePath;
                 if (!basePath) {
                     throw raptor.createError(new Error('Base path not set. Use the <shared:urls basePath="<base-path>"/> tag to set the base path for all URLs.'));
@@ -35,8 +38,19 @@ raptor.define(
                 else {
                     return url === '/' ? url : url + '/';
                 }                
-            }    
-        }
+            },
+            
+            imageUrl: function(url) {
+                var basePath = this.basePath;
+                if (!basePath) {
+                    throw raptor.createError(new Error('Base path not set. Use the <shared:urls basePath="<base-path>"/> tag to set the base path for all URLs.'));
+                }
+                return basePath + '/' + url;         
+            }
+            
+        };
+        
+        return funcs;
         
     });
     
