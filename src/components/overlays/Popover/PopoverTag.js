@@ -41,6 +41,7 @@ raptor.define(
                 
                 raptor.require('templating').render('components/overlays/Popover', {
                     tag: input, 
+                    linkText: input['link-text'],
                     rootAttrs: rootAttrs,
                     widgetConfig: widgetConfig
                 }, context);

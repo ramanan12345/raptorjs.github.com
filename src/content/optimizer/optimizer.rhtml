@@ -315,17 +315,53 @@
                 to improve developer productivity, bundling of resources
                 and resource minification can be disabled.
             </p>
-            <docs:section heading="Sample Configuration Files">
-                Sample Configuration Files:
-                <ul>
-                    <li>
-                        <a href="https://github.com/raptorjs/raptorjs.github.com/blob/master/optimizer/sample-configuration-files/optimizer-config-profiles.xml" target="blank">
-                            Sample Configuration File with Profiles
-                        </a>
-                    </li>
-                </ul>
-                
-            </docs:section>
+            <p>
+                Below is a very basic optimizer configuration file:
+            </p>
+<docs:code-editor 
+    mode="xml"
+    readOnly="true" 
+    c:parse-body-text="false"
+><![CDATA[<optimizer-config>
+
+    <params>
+        <profile>minify</profile>
+    </params>
+
+    <enabled-extensions>jquery,browser,production</enabled-extensions>
+    
+    <resource-url-prefix>/static/</resource-url-prefix>
+    
+    <minify-js>${minify}</minify-js>
+    
+    <resource-search-path>
+        <dir path="."/>
+        <dir path="modules"/>
+    </resource-search-path>
+
+    <clean-dirs>
+        <dir path="static"/>
+    </clean-dirs>
+
+    <bundles-output-dir>static</bundles-output-dir>
+
+    <bundles>
+
+        <bundle name="jquery">
+            <module name="jQuery" recursive="true"/>
+        </bundle>
+        
+        <bundle name="core">
+            <module name="core" recursive="true"/>
+            <init-raptor/>
+            <module name="listeners" recursive="true"/>
+            <module name="widgets" recursive="true"/>
+            <module name="templating" recursive="true"/>
+        </bundle>
+
+    </bundles>
+    
+</optimizer-config>]]></docs:code-editor>
             
             <docs:section heading="Profiles">
                 <p>
@@ -354,6 +390,18 @@
                     to reduce the number of HTTP round-trips required to deliver a
                     web page. The Rapt
                 </p>
+            </docs:section>
+            
+            <docs:section heading="Sample Configuration Files">
+                Sample Configuration Files:
+                <ul>
+                    <li>
+                        <a href="https://github.com/raptorjs/raptorjs.github.com/blob/master/optimizer/sample-configuration-files/optimizer-config-profiles.xml" target="blank">
+                            Sample Configuration File with Profiles
+                        </a>
+                    </li>
+                </ul>
+                
             </docs:section>
             
         </docs:section>
