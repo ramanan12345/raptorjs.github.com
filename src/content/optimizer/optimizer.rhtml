@@ -21,13 +21,13 @@
                     </li>
                     <li>Generates optimized resource bundles <i>and</i> the HTML markup to include them in web pages</li>
                     <li>Improves performance by reducing the number of HTTP requests through resource bundling</li>
-                    <li>Supports CDN integration
+                    <li>Supports content distribution networks (CDNs)
                         <ul>
                             <li>Custom URL prefixes</li>
                             <li>Resource checksums included in URLs for optimal caching</li>
                         </ul>
                     </li>
-                    <li>Works at build time or at request time</li>
+                    <li>Works at build time <i>or</i> at request time</li>
                     <li>Driven by the <a href="${url('/packaging')}">RaptorJS Packaging</a> system
                         <ul>
                             <li>Package everything using simple <code>package.json</code> files</li>
@@ -52,8 +52,8 @@
                         <docs:popover title="In-place Deployment">
                             <docs:popover-content>
                                 With in-place deployment enabled, URLs are generated such that they
-                                point to the original file on disk. Changes to files
-                                are reflected up instantly without having to monitor
+                                point to the original file on disk. Therefore, changes to files
+                                are reflected instantly without having to monitor
                                 the file system for changes.
                             </docs:popover-content>
                             in-place deployment
@@ -62,7 +62,7 @@
                     </li>
                     <li>Easily configurable
                         <ul>
-                            <li>Supports profiles for targeting development and production</li>
+                            <li>Supports profiles for targeting development, production, etc.</li>
                             <li>Configurable resource bundling</li>        
                         </ul>
                     </li>
@@ -92,12 +92,11 @@
                     Third-party libraries can easily be utilized with no constraints, but you will most likely
                     want to wrap the third-party library with one or more 
                     
-                    <docs:popover>
-                         <docs:popover-title>Packages</docs:popover-title>
-                         <docs:popover-content>
+                    <docs:popover title="Packages">
+                         <c:attr name="content">
                             Only a package.json file needs to be created and added to your codebase. 
                             You will not need to change the code for the library.
-                        </docs:popover-content>
+                        </c:attr>
                          RaptorJS packages
                     </docs:popover>
                     
@@ -116,10 +115,23 @@
                     and disable optimization features such minification and bundling.
                 </p>
                 <p>
-                    Lastly, the RaptorJS optimizer is aware of "package extensions" which allow
+                    Lastly, the RaptorJS optimizer is aware of
+                    
+                    <docs:popover title="Package Extensions">
+                        <c:attr name="content">
+                            Package extensions allow developers to define packages
+                            that include dependencies that are only included
+                            if a specified extension is enabled. Package
+                            extensions allow for conditional dependencies.
+                        </c:attr>
+                         package extensions
+                    </docs:popover>
+                    which allow
                     pages to be optimized differently based on the target environment.
                     This allows developers to design web applications that adapt to the target
-                    client and only send the code that is required.
+                    client and only send the code that is required. For more
+                    information on package extensions please see
+                    <a href="${url('/packaging')}">Packaging and Extensions</a>.
                 </p>
             </docs:section>
         </docs:section>
@@ -144,7 +156,7 @@
 <docs:code-editor 
     mode="javascript"
     readOnly="true" 
-    c:parseBodyText="false"
+    c:parse-body-text="false"
 ><![CDATA[{
     "includes": [
         {"module": "widgets"},
@@ -156,15 +168,17 @@
 }]]></docs:code-editor>
                 <p>
                     The above <code>package.json</code> file declares
-                    that a page depends on three modules (i.e., widgets, pubsub and widgets).
+                    that a page depends on three modules (i.e., <i>widgets</i>, <i>pubsub</i> and <i>components/buttons/Button</i>).
                     Each of those modules will have a <code>package.json</code>
-                    files that describes the dependencies for each. The <code>package.json</code>
+                    file that describes the dependencies for each. The <code>package.json</code>
                     file also declares that two resources should be sent to the browser 
                     (i.e. "page.js" and page.css). A page's <code>package.json</code> file
                     provides enough information for the RaptorJS optimizer
                     to be able to know how to generate the resources are
                     required for the page to function in a browser. The next few
                     sections describes how the required resources are injected into a web page.
+                    For more information on declaring RaptorJS packages, please
+                    see the documentation <a href="${url('/packaging')}">RaptorJS Packaging and Extensions</a>.
                 </p>
             </docs:section>
             
@@ -178,82 +192,109 @@
                     on a page through the use of "slots". Slot markers can be added
                     to an HTML page and resources can be targeted for any available user-defined slot.   
                 </p>
-                <p>
-                    For performance reasons, <code>${entity:lt}link></code> tags
-                    for CSS resources are typically inserted into the <code>${entity:lt}head></code>
-                    tag of a page (we'll call this the "head" slot) 
-                    while <code>${entity:lt}script></code> tags for JavaScript resources are typically
-                    inserted just before the closing <code>${entity:lt}body></code> tag (we'll call this the "body" slot). 
-                    By default, CSS resources are injected into the "head" slot and JavaScript
-                    resources are injected into the "body" slot.
-                     
-                    
-                    go into and developers can add as many slots as they would
-                    like to an HTML page.
-                </p>
                 
                 <docs:section heading="Defining Slots">
                     <p>
-                        The JavaScript API for the RaptorJS provides a method for retrieving
-                        the HTML markup for the slots on the page. You can use any templating
-                        language to inject the content into your page. 
-                        
+                        The RaptorJS Optimizer provides a JavaScript API that includes a method for retrieving
+                        the HTML markup for the slots on the page. 
+                        You can then use any templating
+                        language to inject the HTML content into your page.
+                    </p>
+                    <p>
+                        For convenience, Raptor Templates includes an "optimizer"
+                        taglib that can be used to define slots inside
+                        the HTML template and to also connect HTML pages
+                        with its corresponding package.json file. The basic structure
+                        for a page to be optimized using Raptor Templates is the following:
                     </p>
 <docs:code-editor 
-    mode="javascript"
+    mode="xml"
     readOnly="true" 
-    c:parseBodyText="false"
-><![CDATA[{
-    "includes": [
-        {"module": "widgets"},
-        {"module": "pubsub"},
-        {"module": "components/buttons/Button"},
-        "page.js",
-        "page.css"
-    ]
-}]]></docs:code-editor>
+    c:parse-body-text="false"
+><![CDATA[<c:template
+    xmlns:c="core"
+    xmlns:optimizer="optimizer">
+ 
+    <optimizer:page package="my-page-package.json"/>
+    
+    <html>
+        <head>
+            <title>Hello World</title>
+            <optimizer:slot name="head"/>
+        </head>
+        <body>
+            ...
+            <optimizer:slot name="body"/>
+        </body>
+    </html>
+     
+</c:template>]]></docs:code-editor>
                     <p>
-                        If using Raptor Templates, an "optimizer" taglib is provided
+                        For more information on the JavaScript API and Taglib please see the following sections:
                     </p>
+                    <ul>
+                        <li><a href="#JavaScriptAPI">JavaScript API</a></li>
+                        <li><a href="#OptimizerTaglib">Optimizer Taglib</a></li>
+                    </ul>
                 </docs:section>
                 
                 <docs:section heading="Targeting Slots">
-                    <p>
-                        A developer can override which slot
-                        a resource should be targeted for by specifying a "slot" attribute for a resource
-                        include as shown in the following example:
-                    </p>
+                <p>
+                    By default, CSS resources are injected into the "head" slot and JavaScript
+                    resources are injected into the "body" slot. Both of these defaults
+                    can easily be overridden at the resource level by adding a "slot" 
+                    property to the resource include. For example:
+                </p>
 <docs:code-editor 
     mode="javascript"
     readOnly="true" 
-    c:parseBodyText="false"
+    c:parse-body-text="false"
 ><![CDATA[{
     "includes": [
-        { "path": "my-head.js", "slot": "head"}
-        "my-head.css"
+        ...
+        { path: "my-library.js", slot="head" }
     ]
 }]]></docs:code-editor>
-                </docs:section>
-                
-            </docs:section>
-            
-            <docs:section heading="Injecting Page Dependencies">
-                <p>
-                </p>
-                
-                <docs:section heading="Optimizer Taglib">
                     <p>
+                        When optimizing the above package, the RaptorJS optimizer will place
+                        "my-library.js" into the "head" slot instead of the default "body" slot.
                     </p>
                 </docs:section>
+                
             </docs:section>
             
             <docs:section heading="Optional Package Extensions">
                 <p>
+                    When optimizing a page, the RaptorJS optimizer
+                    allows a set of enabled extensions to be passed in.
+                    When the optimizer encounters a package with extensions
+                    it checks each extension to see if it is enabled. The RaptorJS
+                    optimizer allows extensions to be globally enabled,
+                    enabled at the page level or enabled at the request/context level.
+                    The JavaScript API allows a set of enabled extensions to
+                    be passed in as an argument when generating the
+                    slot HTML for a page. The optimizer taglib
+                    allows provides tags for enabling and disabling extensions.
                 </p>
+                <p>
+                    For more information on the JavaScript API and Taglib please see the following sections:
+                </p>
+                <ul>
+                    <li><a href="#JavaScriptAPI">JavaScript API</a></li>
+                    <li><a href="#OptimizerTaglib">Optimizer Taglib</a></li>
+                </ul>
             </docs:section>
             
             <docs:section heading="Compiled Resources">
                 <p>
+                    The RaptorJS optimizer supports compiled resources such
+                    as LESS CSS files and Raptor Template files. The RaptorJS
+                    optimizer relies on the <a href="${url('/packaging')}">RaptorJS Packaging and Extensions</a>
+                    for compiling resource dependencies.
+                </p>
+                <p>
+                    For more information on registering new types of compiled
+                    resources please see <a href="${url('/packaging')}#RegisteringIncludeTypes">RaptorJS Packaging and Extensions</a>.
                 </p>
             </docs:section>
             
@@ -273,8 +314,169 @@
                 based on which profile is enabled. For example,
                 to improve developer productivity, bundling of resources
                 and resource minification can be disabled.
-                 
             </p>
+            <docs:section heading="Sample optimizer-config.xml">
+<docs:code-editor 
+    mode="xml"
+    readOnly="true" 
+    c:parse-body-text="false"
+><![CDATA[<optimizer-config>
+
+    <!-- Load params from file -->
+    <params file="local-properties.json"/>
+    
+    <!-- 
+    NOTE: Params can be passed in through the CLI
+          or through the JavaScript API
+    -->
+
+    <!-- Provide defaults for parameters -->
+    <params>
+        <profile>development</profile>
+        <publish>false</publish>
+    </params>
+
+    <!-- Enable a profile -->
+    <enable-profile>${profile}</enable-profile>
+    
+    <!-- Development Profile -->
+    <profile name="development">
+        
+        <!-- Provide configuration for RaptorJS -->
+        <raptor-config>
+        {
+            logging: {
+                loggers: {
+                    'ROOT': {level: 'WARN'}
+                }
+            }
+        }
+        </raptor-config>
+
+        <!-- Set globally enabled extensions (including console logging for debugging) -->
+        <enabled-extensions>jquery,browser,logging.console,development</enabled-extensions>
+
+        <!-- Disabling bundling of resources so line numbers match up-->
+        <bundling-enabled>false</bundling-enabled>
+
+        <!-- For resources that are not compiled, generate URLs to the files on disk -->
+        <in-place-deployment-enabled>true</in-place-deployment-enabled>
+
+        <!-- Disable minification -->
+        <minify-js>false</minify-js>
+
+        <!-- Don't include checksums in resource URLs -->
+        <checksums-enabled>false</checksums-enabled>
+        
+    </profile>
+    
+    <!-- Production Profile -->
+    <profile name="production">
+        
+        <!-- Combine resources based on the configuration below -->
+        <bundling-enabled>true</bundling-enabled>
+        <!-- NOTE: Any resources that are not part of a configured bundle
+                   will become part of a default "page" bundle -->
+
+        <!-- Include checksums in all resource URLs -->        
+        <checksums-enabled>true</checksums-enabled>
+
+        <!-- Set globally enabled extensions (not including console logging) -->
+        <enabled-extensions>jquery,browser,production</enabled-extensions>
+        
+        <!-- In-place deployment will not work for public websites -->
+        <in-place-deployment-enabled>false</in-place-deployment-enabled>
+
+        <!-- Set the URL prefix -->
+        <resource-url-prefix>/static/</resource-url-prefix>
+        <!-- NOTE: If you have a CDN then include the host
+                   name for the CDN in the URL prefix -->
+
+        <!-- Enable minification -->
+        <minify-js>true</minify-js>
+
+        <!-- Configure RaptorJS to not include logging -->
+        <raptor-config>
+        {
+        }
+        </raptor-config>
+    </profile>
+
+    <!-- The optimizer will automatically discover pages by searching in
+         the specified directories. -->
+    <page-search-path>
+        <dir path="pages"/>
+    </page-search-path>
+  
+    <!-- Tell the optimizer where it can find modules/resources/packages --> 
+    <resource-search-path>
+        <dir path="."/>
+        <dir path="../shared"/>
+        <dir path="modules"/>
+    </resource-search-path>
+
+    <!-- Clean out the output directory every time the optimizer is executed -->
+    <clean-dirs>
+        <dir path="../static"/>
+    </clean-dirs>
+
+    <!-- Write resource bundles to the specified directory -->
+    <bundles-output-dir>../static</bundles-output-dir>
+
+    <!-- For static pages, write them to disk when the optimizer is executed -->
+    <write-rendered-pages enabled="true" output-dir=".."/>
+    <!-- NOTE: Should only be enabled for static sites such as this documentation -->
+
+    <!-- Configure zero or more bundles -->
+    <bundles name="default">
+        <!-- Each bundle is given a name that is used for the output file.
+             NOTE: A resource becomes part of the first bundle that it is
+                   added to so *order matters*. -->
+        <bundle name="jquery">
+            <module name="jQuery"/>
+        </bundle>
+        <bundle name="core">
+            <module name="core" recursive="true"/>
+            <!-- NOTE: Setting recursive to "true" will cause the optimizer
+                       to include all of the module's resources and
+                       all of the resources for packages that it depends
+                       on (recursively). -->
+            
+            <!-- Include the dependency that will generate the code to 
+                 initialize RaptorJS -->
+            <init-raptor/> 
+
+            <module name="listeners" recursive="true"/>
+        </bundle>
+        <bundle name="widgets">
+            <module name="widgets" recursive="true"/>
+        </bundle>
+        <bundle name="bootstrap">
+            <module name="components/icons/Icon"/>
+            <module name="Bootstrap/reset" recursive="true"/>
+            <module name="Bootstrap/scaffolding" recursive="true"/>
+            <module name="Bootstrap/layouts" recursive="true"/>
+            <module name="Bootstrap/type" recursive="true"/>
+            <module name="Bootstrap/dropdowns" recursive="true"/>
+            <module name="Bootstrap/buttons" recursive="true"/>
+            <module name="Bootstrap/button-groups" recursive="true"/>
+            <module name="Bootstrap/navs" recursive="true"/>
+            <module name="Bootstrap/navbar" recursive="true"/>
+        </bundle>
+        <bundle name="code-editor">
+            <module name="components/editors/CodeEditor" recursive="true"/>
+            <module name="components/editors/CodeEditor/mode-javascript" recursive="true"/>
+            <module name="components/editors/CodeEditor/mode-htmlmixed" recursive="true"/>
+            <module name="components/editors/CodeEditor/mode-xml" recursive="true"/>
+        </bundle>
+        
+        <bundle name="templating">
+            <module name="templating" recursive="true"/>
+        </bundle>
+    </bundles>
+    
+</optimizer-config>]]></docs:code-editor>
+            </docs:section>
             
             <docs:section heading="Profiles">
                 <p>
@@ -343,7 +545,13 @@
             
         </docs:section>
         
-        <docs:section heading="JavaScript API">
+        <docs:section heading="Command Line Interface">
+            <p>
+                
+            </p>
+        </docs:section>
+        
+        <docs:section heading="JavaScript API" anchorName="JavaScriptAPI">
             <p>
             </p>
             
@@ -352,14 +560,138 @@
                 </p>
             </docs:section>
             
-            <docs:section heading="Generating Page Includes">
+            <docs:section heading="Generating Page HTML">
                 <p>
+                    The <code>OptimizerEngine</code> object
+                    provides a <code>optimizer.getPageHtmlBySlot()</code> method
+                    that can be used to generate the HTML for
+                    a page that has been previously registered. The sample
+                    code below shows how to use the <code>optimizer.getPageHtmlBySlot</code>
+                    method:
                 </p>
+<docs:code-editor 
+    mode="javascript"
+    readOnly="true" 
+    c:parse-body-text="false"
+><![CDATA[var optimizer = raptor.require("optimizer").createOptimizer();
+//...
+optimizer.registerPage({
+    name: "my-page",
+    packageResource: "/path/to/my-page-package.json"
+});
+//...
+var pageHtmlBySlot = optimizer.getPageHtmlBySlot('my-page');]]></docs:code-editor>
+                    <p>
+                        
+                        After executing the above code, 
+                        the value of <code>pageHtmlBySlot</code>
+                        would be a JavaScript object similar to the following:  
+                    </p>
+<docs:code-editor 
+    mode="javascript"
+    readOnly="true" 
+    c:parse-body-text="false"
+><![CDATA[
+{
+    'body': '<script type="text/javascript" src="/static/core-body-81a10a80.js"></script>\
+             <script type="text/javascript" src="/static/jquery-body-371da524.js"></script>\
+             <script type="text/javascript" src="/static/widgets-body-658fce85.js"></script>\
+             <script type="text/javascript" src="/static/my-page-body-27a3f194.js"></script>',
+    'head': '<link rel="stylesheet" type="text/css" href="/static/my-page-head-c07b8669.css" />\
+             <link rel="stylesheet" type="text/css" href="/static/bootstrap-head-700d799c.css" />'
+}]]></docs:code-editor>
+
+                    <p>
+                        For the above example, the files written to disk
+                        would be the following:
+                    </p>
+                    <ul>
+                        <b>/path/to/my/webapp/static/</b>
+                        <ul>
+                            <li>core-body-81a10a80.js</li>
+                            <li>jquery-body-371da524.js</li>
+                            <li>widgets-body-658fce85.js</li>
+                            <li>my-page-body-27a3f194.js</li>
+                            <li>my-page-head-c07b8669.css</li>
+                            <li>bootstrap-head-700d799c.css</li>
+                        </ul>
+                    </ul>
             </docs:section>
             
             <docs:section heading="Dependency Caching">
                 <p>
+                    The result of executing the <code>optimizer.getPageHtmlBySlot()</code>
+                    method is <b>cached</b>. When the <code>optimizer.getPageHtmlBySlot</code> method is executed
+                    for the first time for a particular page the optimizer
+                    will first write the optimized resource bundles to disk (destination directory is determined by the optimizer's configuration)
+                    and then generate the HTML to include the resource
+                    bundles for the specified page.
                 </p>
+            </docs:section>
+            
+        </docs:section>
+        
+        <docs:section heading="Optimizer Taglib" anchorName="OptimizerTaglib">
+            <p>
+            </p>
+            
+            <docs:section heading="Linking Page Packages">
+                <p>
+                    The <code>${entity:lt}optimizer:page></code> tag can be used to associate
+                    a rendering context with a optimizer page. The only
+                    required attribute for the <code>${entity:lt}optimizer:page></code> tag
+                    is the <code>package</code> attribute. The <code>package</code> attribute
+                    should be used to specify a relative path to a <code>package.json</code>
+                    file that describes the dependencies for a page.
+                    For example: 
+                </p>
+<docs:code-editor 
+    mode="xml"
+    readOnly="true" 
+    c:parse-body-text="false"
+><![CDATA[<optimizer:page package="my-page-package.json"/>]]></docs:code-editor>
+                <p>
+                    The above example assumes that there is a file named "my-page-package.json"
+                    in the same directory that contains the template.
+                </p>
+            </docs:section>
+            
+            <docs:section heading="Defining Slots" anchorName="OptimizerTaglibDefiningSlots">
+                <p>
+                    The <code>${entity:lt}optimizer:slot></code> tag can be used
+                    to define a slot for a page. When rendered, the <code>${entity:lt}optimizer:slot></code> tag
+                    will render the dependency HTML corresponding to the specified slot.
+                </p>
+<docs:code-editor 
+    mode="xml"
+    readOnly="true" 
+    c:parse-body-text="false"
+><![CDATA[<optimizer:slot name="head"/>]]></docs:code-editor>
+            </docs:section>
+            
+            <docs:section heading="Enabling Extensions" anchorName="OptimizerTaglibEnablingExtensions">
+                <p>
+                    The <code>${entity:lt}optimizer:enable-extension></code> tag can be used
+                    to enable an extension for the current request. The only required
+                    attribute is the "name" attribute which defines the name of the example.
+                </p>
+                <p>
+                    The following code illustrates how to enable an extension:
+                </p>
+<docs:code-editor 
+    mode="xml"
+    readOnly="true" 
+    c:parse-body-text="false"
+><![CDATA[<optimizer:enable-extension name="ipad"/>]]></docs:code-editor>
+                <p>
+                    In the above example, an extension named "ipad" is enabled.
+                    Any package that contains an extension named "ipad" will
+                    then have its dependencies included in the optimized page.
+                </p>
+                <docs:message type="warning">
+                    All extensions must be enabled <i>before</i> any slots that
+                    are defined on the page.
+                </docs:message>
             </docs:section>
             
         </docs:section>

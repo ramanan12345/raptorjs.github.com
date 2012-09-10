@@ -21,7 +21,7 @@
                                 toggle="true"
                                 active="${sample.active}" 
                                 label="${sample.label}" 
-                                c:for="sample in samples; varStatus=loop"
+                                c:for="sample in samples; status-var=loop"
                                 w:event-click="loadSample; sampleIndex=loop.getIndex()"/>
                         </docs:nav>
                         
@@ -34,7 +34,7 @@
                         <div class="content">
                             <h3 class="first">Template</h3>
                             <div id="${widget.elId('subSamples')}">
-                                <div c:for="sample in samples; varStatus=loop"
+                                <div c:for="sample in samples; status-var=loop"
                                     c:if="sample.samples"  
                                     style="display:none"
                                     id="subsamples-${loop.getIndex()}" >
@@ -46,7 +46,7 @@
                                             label="${subSample.label}" 
                                             w:id="subSampleNavItem-${subSample.path}"
                                             w:event-click="loadSample; sampleIndex=[loop.getIndex(),subLoop.getIndex()]"
-                                            c:for="subSample in sample.samples; varStatus=subLoop"/>
+                                            c:for="subSample in sample.samples; status-var=subLoop"/>
                                     </docs:nav>
                                 </div>
                             </div>

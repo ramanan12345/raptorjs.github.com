@@ -56,9 +56,8 @@
         <enabled-extensions>jquery,browser,production</enabled-extensions>
         <bundling-enabled>true</bundling-enabled>
         <in-place-deployment-enabled>false</in-place-deployment-enabled>
+        <resource-url-prefix>/static/</resource-url-prefix>
         <minify-js>true</minify-js>
-<!--         <js-url-prefix>//cdn-ebay.com/static/bundles/js/</js-url-prefix> -->
-<!--         <css-url-prefix>//cdn-ebay.com/static/bundles/css/</css-url-prefix> -->
         <raptor-config>
         {
         }
@@ -76,36 +75,26 @@
         </page-search-path>
     </profile>
     
-    <echo message=""/>
-    <echo message="Profile: ${profile}"/>
-    <echo message="Single page: ${singlePage}"/>
-    <echo message="Publish?: ${publish}"/>
-    <echo message=""/>
+<!--     <echo message=""/> -->
+<!--     <echo message="Profile: ${profile}"/> -->
+<!--     <echo message="Single page: ${singlePage}"/> -->
+<!--     <echo message="Publish?: ${publish}"/> -->
+<!--     <echo message=""/> -->
    
     <resource-search-path>
         <dir path="."/>
         <dir path="../shared"/>
         <dir path="modules"/>
     </resource-search-path>
-    
-    <inject-html-includes>
-        <enabled>true</enabled>
-        <keep-html-markers>false</keep-html-markers>
-        <modify-pages>false</modify-pages> <!-- Don't modify the original HTML pages and instead copy them to page output directory -->
-    </inject-html-includes>
-    
-    
 
     <clean-dirs>
         <dir path="../static"/>
     </clean-dirs>
-    
 
-    
-<!--     <js-output-dir>dist/bundles</js-output-dir> -->
-<!--     <css-output-dir>dist/bundles</css-output-dir> -->
     <bundles-output-dir>../static</bundles-output-dir>
-    <page-output-dir>..</page-output-dir>
+
+    <write-page-slots-html enabled="false" output-dir="../slots-html"/>
+    <write-rendered-pages enabled="true" output-dir=".."/>
 
     <bundles name="default">
 

@@ -20,11 +20,50 @@
                 (a templating language for Python) with the good parts of JSP mixed in. The Raptor 
                 Templating Language borrows most of the same features from Genshi and includes a 
                 JavaScript compiler so that a template can be compiled to native JavaScript code.
+                The templating language is XML-based so that it can use the XML structure
+                of an HTML document to its full advantage—including improved readability and
+                optimized output.
             </p>
             <p>
-                Since the Raptor Templating Language borrows many of the good features of JSP, 
-                most templates will look very similar to JSP templates.
+                The Raptor Templating language is a proven templating language
+                that was designed with the scale of eBay in mind where every millisecond
+                and byte counts.
             </p>
+        </docs:section>
+        
+        <docs:section heading="Benefits">
+            <docs:section heading="Performance">
+                <p>
+                    The Raptor Templating language was designed with performance
+                    in mind from the beginning. The compiled code for 
+                    Raptor Templates is optimized for both runtime
+                    performance and small footprint and the runtime
+                    library required to render templates has been
+                    kept to a minimal size by pushing all of the logic
+                    into the compiler.
+                </p>
+                <docs:message type="info">
+                    While the Raptor Templates compiler
+                    works on both the server and in browsers, it was
+                    only meant to be used on the server since
+                    the compiler has a lot of complexity associated with
+                    due to the optimizations and work that it performs at compile-time.
+                    Therefore, templates should be compiled on the server
+                    and sent to the browser.
+                </docs:message>
+            </docs:section>
+            <docs:section heading="Extensible">
+                <p>
+                    The Raptor Templating language was designed to be extremely
+                    extensible by supporting taglibs and allowing both compile-time tag handlers
+                    and runtime tag handlers. Taglibs allow templates to be validated
+                    by tools and it also allows for tools to provide guidance
+                    to developers when creating templates through mechanisms
+                    through auto-completion and context-aware help.
+                </p>
+            </docs:section>
+            
+            
             
         </docs:section>
         
@@ -56,7 +95,7 @@
 <docs:code-editor 
     mode="xml"
     readOnly="true" 
-    c:parseBodyText="false"
+    c:parse-body-text="false"
 ><![CDATA[<c:template
     xmlns:c="core"
     name="demo"
@@ -91,7 +130,7 @@
 <docs:code-editor 
     mode="javascript"
     readOnly="true" 
-    c:parseBodyText="false"
+    c:parse-body-text="false"
 ><![CDATA[{
     colors: ["red", "green", "blue"]
 }]]></docs:code-editor>
@@ -101,7 +140,7 @@
 <docs:code-editor 
     mode="xml"
     readOnly="true" 
-    c:parseBodyText="false"
+    c:parse-body-text="false"
 ><![CDATA[<ul><li>red</li><li>green</li><li>blue</li></ul>]]></docs:code-editor>
                 <p>
                     For comparison, given the following input data consisting of an empty array of colors:
@@ -109,7 +148,7 @@
 <docs:code-editor 
     mode="javascript"
     readOnly="true" 
-    c:parseBodyText="false"
+    c:parse-body-text="false"
 ><![CDATA[{
     colors: []
 }]]></docs:code-editor>
@@ -119,7 +158,7 @@
 <docs:code-editor 
     mode="xml"
     readOnly="true" 
-    c:parseBodyText="false"
+    c:parse-body-text="false"
 ><![CDATA[<div>No colors!</div>]]></docs:code-editor>
             </docs:section>
             
@@ -147,7 +186,7 @@
 <docs:code-editor 
     mode="xml"
     readOnly="true" 
-    c:parseBodyText="false"
+    c:parse-body-text="false"
 ><![CDATA[<c:template
     xmlns:c="core"
     name="demo"
@@ -171,7 +210,7 @@
 <docs:code-editor 
     mode="xml"
     readOnly="true" 
-    c:parseBodyText="false"
+    c:parse-body-text="false"
 ><![CDATA[<c:template
     xmlns:c="core"
     name="demo"
@@ -287,16 +326,16 @@
             </docs:section>
             
             <docs:section heading="Expression Escape Sequences">
-                <p c:parseBodyText="false">
+                <p c:parse-body-text="false">
                      If the text "${" is intended to be part of the output then the "$" 
                      character must be escaped using a backslash as shown in the following code:
                 </p>
 <docs:code-editor 
     mode="xml"
     readOnly="true" 
-    c:parseBodyText="false"
+    c:parse-body-text="false"
 ><![CDATA[\${test} &lt;!-- Output: ${test} -->]]></docs:code-editor>
-                <p c:parseBodyText="false">
+                <p c:parse-body-text="false">
                     In the unlikely case that "\${" was intended to be part of the
                     output then the backslash must be escaped by another backslash as
                     shown in the following code:
@@ -304,7 +343,7 @@
 <docs:code-editor 
     mode="xml"
     readOnly="true" 
-    c:parseBodyText="false"
+    c:parse-body-text="false"
 ><![CDATA[\\${test} &lt;!-- Output: \${test} -->]]></docs:code-editor>
             </docs:section>
             
@@ -329,7 +368,7 @@
 <docs:code-editor 
     mode="xml"
     readOnly="true" 
-    c:parseBodyText="false"
+    c:parse-body-text="false"
 ><![CDATA[<c:template
     xmlns:c="http://raptorjs.org/templates/core"
     name="greeting"
@@ -347,7 +386,7 @@
 <docs:code-editor 
     mode="xml"
     readOnly="true" 
-    c:parseBodyText="false"
+    c:parse-body-text="false"
 ><![CDATA[<c:template
     xmlns:c="core"
     name="greeting"
@@ -389,7 +428,7 @@
 <docs:code-editor 
     mode="xml"
     readOnly="true" 
-    c:parseBodyText="false"
+    c:parse-body-text="false"
 ><![CDATA[<c:template
     xmlns:c="core"
     name="greeting"
@@ -404,7 +443,7 @@
 <docs:code-editor 
     mode="xml"
     readOnly="true" 
-    c:parseBodyText="false"
+    c:parse-body-text="false"
 ><![CDATA[<c:template
     xmlns:c="core"
     name="greeting">
@@ -437,20 +476,20 @@
 <docs:code-editor 
     mode="xml"
     readOnly="true" 
-    c:parseBodyText="false"
+    c:parse-body-text="false"
 ><![CDATA[<c:include template="myTemplate" someArg="${someVar}" anotherArg="Hello"/>]]></docs:code-editor>
 
                     <p>
                         As shown in the above example, attributes are used to define the template
-                        data for the included template. Alternatively, the <code>templateData</code>
+                        data for the included template. Alternatively, the <code>template-data</code>
                         attribute can be used to pass along a complete data object to use
                         for the included template as shown in the following example:
                     </p>
 <docs:code-editor 
     mode="xml"
     readOnly="true" 
-    c:parseBodyText="false"
-><![CDATA[<c:include template="myTemplate" templateData="includeData"/>]]></docs:code-editor>
+    c:parse-body-text="false"
+><![CDATA[<c:include template="myTemplate" template-data="includeData"/>]]></docs:code-editor>
                     <p>
                         In the above example, <code>includeData</code> is an expression
                         that resolves to a JavaScript object. The resolved JavaScript
@@ -462,14 +501,14 @@
             </docs:section>
             
             <docs:section heading="Text Replacement">
-                <p c:parseBodyText="false">
+                <p c:parse-body-text="false">
                     Dynamic text should be of the form ${entity:lt}variable-name> or
                     ${{entity:lt}javascript-expression>}:
                 </p>
 <docs:code-editor 
     mode="xml"
     readOnly="true" 
-    c:parseBodyText="false"
+    c:parse-body-text="false"
 ><![CDATA[<div>
     Hello $name!
 </div>
@@ -487,7 +526,7 @@
 <docs:code-editor 
     mode="xml"
     readOnly="true" 
-    c:parseBodyText="false"
+    c:parse-body-text="false"
 ><![CDATA[Hello $name]]></docs:code-editor>
                 </docs:section>
                 <p>
@@ -496,7 +535,7 @@
 <docs:code-editor 
     mode="javascript"
     readOnly="true" 
-    c:parseBodyText="false"
+    c:parse-body-text="false"
 ><![CDATA[{
     "name": "<script>alert('Hello World')</script>"
 }]]></docs:code-editor>
@@ -511,7 +550,7 @@
                     In this example, the browser would not interpret the script tag
                     since the XML characters had been escaped.
                 </p>
-                <p c:parseBodyText="false">
+                <p c:parse-body-text="false">
                     To disable XML escaping, the expression should be of the form ${xml:<span>${entity:lt}</span>javascript-expression>}. 
                     The "xml" expression handler lets the compiler know that XML is
                     expected and that the XML characters should not be escaped.
@@ -543,7 +582,7 @@
 <docs:code-editor 
     mode="xml"
     readOnly="true" 
-    c:parseBodyText="false"
+    c:parse-body-text="false"
 ><![CDATA[<!--Simple if-->
 <div c:if="someCondition">
     Hello World
@@ -567,7 +606,7 @@
 <docs:code-editor 
     mode="xml"
     readOnly="true" 
-    c:parseBodyText="false"
+    c:parse-body-text="false"
 ><![CDATA[<!--Simple if-->
 <c:if test="someCondition">
     <div>
@@ -629,7 +668,7 @@
 <docs:code-editor 
     mode="xml"
     readOnly="true" 
-    c:parseBodyText="false"
+    c:parse-body-text="false"
 ><![CDATA[<c:choose>
     <c:when test="myVar === 'A'">
         <div>A</div>
@@ -646,7 +685,7 @@
 <docs:code-editor 
     mode="xml"
     readOnly="true" 
-    c:parseBodyText="false"
+    c:parse-body-text="false"
 ><![CDATA[<c:choose>
     <div c:when="myVar === 'A'">
         A
@@ -668,7 +707,7 @@
 <docs:code-editor 
     mode="xml"
     readOnly="true" 
-    c:parseBodyText="false"
+    c:parse-body-text="false"
 ><![CDATA[<div>A</div>]]></docs:code-editor>
                     <p>
                         Given a value of "C" for "myVar", the output would be the following:
@@ -676,7 +715,7 @@
 <docs:code-editor 
     mode="xml"
     readOnly="true" 
-    c:parseBodyText="false"
+    c:parse-body-text="false"
 ><![CDATA[<div>Something else</div>]]></docs:code-editor>
                 </docs:section>
                 
@@ -693,7 +732,7 @@
 <docs:code-editor 
     mode="xml"
     readOnly="true" 
-    c:parseBodyText="false"
+    c:parse-body-text="false"
 ><![CDATA[<div class="{?active;tab-active}">Hello</div>]]></docs:code-editor>
                     <p>
                         With a value of <code>true</code> for <code>active</code>, the output
@@ -702,7 +741,7 @@
 <docs:code-editor 
     mode="xml"
     readOnly="true" 
-    c:parseBodyText="false"
+    c:parse-body-text="false"
 ><![CDATA[<div class="tab-active">Hello</div>]]></docs:code-editor>
                     <p>
                         With a value of <code>false</code> for <code>active</code>, the output
@@ -711,7 +750,7 @@
 <docs:code-editor 
     mode="xml"
     readOnly="true" 
-    c:parseBodyText="false"
+    c:parse-body-text="false"
 ><![CDATA[<div>Hello</div>]]></docs:code-editor>
                     <docs:message type="info">
                         <p>
@@ -726,7 +765,7 @@
 <docs:code-editor 
     mode="xml"
     readOnly="true" 
-    c:parseBodyText="false"
+    c:parse-body-text="false"
 ><![CDATA[<div class="{?active;tab-active;tab-inactive}">Hello</div>]]></docs:code-editor>
                     <p>
                         With a value of <code>false</code> for <code>active</code>, the output
@@ -735,7 +774,7 @@
 <docs:code-editor 
     mode="xml"
     readOnly="true" 
-    c:parseBodyText="false"
+    c:parse-body-text="false"
 ><![CDATA[<div class="tab-inactive">Hello</div>]]></docs:code-editor>
                 </docs:section>
                 
@@ -765,7 +804,7 @@
 <docs:code-editor 
     mode="xml"
     readOnly="true" 
-    c:parseBodyText="false"
+    c:parse-body-text="false"
 ><![CDATA[<ul>
     <li c:for="item in items">${item}</li>
 </ul>]]></docs:code-editor>
@@ -774,7 +813,7 @@
 <docs:code-editor 
     mode="xml"
     readOnly="true" 
-    c:parseBodyText="false"
+    c:parse-body-text="false"
 ><![CDATA[<ul>
     <c:for each="item in items">
         <li>${item}</li>
@@ -791,7 +830,7 @@
 <docs:code-editor 
     mode="xml"
     readOnly="true" 
-    c:parseBodyText="false"
+    c:parse-body-text="false"
 ><![CDATA[<ul>
     <li>red</li>
     <li>green</li>
@@ -801,7 +840,7 @@
                     <docs:section heading="Loop status variable">
                         <p>
                             If while looping you need access to additional information about the
-                            status of the looping then the "varStatus" attribute can be
+                            status of the looping then the "status-var" attribute can be
                             specified to introduce a new variable. The loop status variable
                             supports the following methods:
                         </p>
@@ -828,9 +867,9 @@
 <docs:code-editor 
     mode="xml"
     readOnly="true" 
-    c:parseBodyText="false"
+    c:parse-body-text="false"
 ><![CDATA[<ul>
-    <li c:for="item in items; varStatus=loopStatus">
+    <li c:for="item in items; status-var=loopStatus">
         ${loopStatus.getIndex()+1}) ${item}
     </li>
 </ul>]]></docs:code-editor>
@@ -839,9 +878,9 @@
 <docs:code-editor 
     mode="xml"
     readOnly="true" 
-    c:parseBodyText="false"
+    c:parse-body-text="false"
 ><![CDATA[<ul>
-    <c:for each="item in items" varStatus="loopStatus">
+    <c:for each="item in items" status-var="loopStatus">
         <li>
             ${loopStatus.getIndex()+1}) ${item}
         </li>
@@ -858,7 +897,7 @@
 <docs:code-editor 
     mode="xml"
     readOnly="true" 
-    c:parseBodyText="false"
+    c:parse-body-text="false"
 ><![CDATA[<ul>
     <li>
         1) red
@@ -895,7 +934,7 @@
 <docs:code-editor 
     mode="xml"
     readOnly="true" 
-    c:parseBodyText="false"
+    c:parse-body-text="false"
 ><![CDATA[<span c:for="item in items; separator=', '">
    ${item}
 </span>]]></docs:code-editor>
@@ -904,7 +943,7 @@
 <docs:code-editor 
     mode="xml"
     readOnly="true" 
-    c:parseBodyText="false"
+    c:parse-body-text="false"
 ><![CDATA[<c:for each="item in items" separator=", ">
     <span>
         ${item}
@@ -921,7 +960,7 @@
 <docs:code-editor 
     mode="xml"
     readOnly="true" 
-    c:parseBodyText="false"
+    c:parse-body-text="false"
 ><![CDATA[<span>red<span>, <span>green</span>, <span>blue</span>]]></docs:code-editor>
                     </docs:section>
                     
@@ -947,7 +986,7 @@
 <docs:code-editor 
     mode="xml"
     readOnly="true" 
-    c:parseBodyText="false"
+    c:parse-body-text="false"
 ><![CDATA[<c:def function="greeting(name, count)">
     Hello $name! You have $count new messages.
 </c:def>]]></docs:code-editor>
@@ -962,7 +1001,7 @@
 <docs:code-editor 
     mode="xml"
     readOnly="true" 
-    c:parseBodyText="false"
+    c:parse-body-text="false"
 ><![CDATA[<c:def function="greeting(name, count)">
     Hello $name! You have $count new messages.
 </c:def>
@@ -979,7 +1018,7 @@
 <docs:code-editor 
     mode="xml"
     readOnly="true" 
-    c:parseBodyText="false"
+    c:parse-body-text="false"
 ><![CDATA[<p>
     Hello John! You have 10 new messages.
 </p>
@@ -1002,7 +1041,7 @@
 <docs:code-editor 
     mode="xml"
     readOnly="true" 
-    c:parseBodyText="false"
+    c:parse-body-text="false"
 ><![CDATA[<c:def function="greeting(name, count)">
     Hello ${name}! You have ${count} new messages.
 </c:def>
@@ -1017,7 +1056,7 @@
     title="Output" 
     mode="xml"
     readOnly="true" 
-    c:parseBodyText="false"
+    c:parse-body-text="false"
 ><![CDATA[<p>
     Hello John! You have 10 new messages.
 </p>
@@ -1033,7 +1072,7 @@
 <docs:code-editor 
     mode="xml"
     readOnly="true" 
-    c:parseBodyText="false"
+    c:parse-body-text="false"
 ><![CDATA[count="10" <!-- string argument -->
 count="${10}"  <!-- number argument -->]]></docs:code-editor>
                     </docs:message>
@@ -1056,7 +1095,7 @@ count="${10}"  <!-- number argument -->]]></docs:code-editor>
 <docs:code-editor 
     mode="xml"
     readOnly="true" 
-    c:parseBodyText="false"
+    c:parse-body-text="false"
 ><![CDATA[<div c:attrs="myAttrs">
     Hello World!
 </div>]]></docs:code-editor>
@@ -1069,13 +1108,13 @@ count="${10}"  <!-- number argument -->]]></docs:code-editor>
 <docs:code-editor 
     mode="xml"
     readOnly="true" 
-    c:parseBodyText="false"
+    c:parse-body-text="false"
 ><![CDATA[<div style="background-color: #FF0000;" class="my-div">
     Hello World!
 </div>]]></docs:code-editor>
                 </docs:section>
                 
-                <docs:section heading="bodyContent">
+                <docs:section heading="content">
                     <p>
                         This directive replaces any nested content with the result of
                         evaluating the expression:
@@ -1083,9 +1122,9 @@ count="${10}"  <!-- number argument -->]]></docs:code-editor>
 <docs:code-editor 
     mode="xml"
     readOnly="true" 
-    c:parseBodyText="false"
+    c:parse-body-text="false"
 ><![CDATA[<ul>
-    <li c:bodyContent="myExpr">Hello</li>
+    <li c:content="myExpr">Hello</li>
 </ul>]]></docs:code-editor>
                     <p>
                         Given a value of <code>"Bye!"</code> for the value of <code>myExpr</code>, the output of the
@@ -1094,7 +1133,7 @@ count="${10}"  <!-- number argument -->]]></docs:code-editor>
 <docs:code-editor 
     mode="xml"
     readOnly="true" 
-    c:parseBodyText="false"
+    c:parse-body-text="false"
 ><![CDATA[<ul>
     <li>Bye!</li>
 </ul>]]></docs:code-editor>
@@ -1108,7 +1147,7 @@ count="${10}"  <!-- number argument -->]]></docs:code-editor>
 <docs:code-editor 
     mode="xml"
     readOnly="true" 
-    c:parseBodyText="false"
+    c:parse-body-text="false"
 ><![CDATA[<div>
     <span c:replace="myExpr">Hello</span>
 </div>]]></docs:code-editor>
@@ -1119,7 +1158,7 @@ count="${10}"  <!-- number argument -->]]></docs:code-editor>
 <docs:code-editor 
     mode="xml"
     readOnly="true" 
-    c:parseBodyText="false"
+    c:parse-body-text="false"
 ><![CDATA[<div>
     Bye!
 </div>]]></docs:code-editor>
@@ -1134,7 +1173,7 @@ count="${10}"  <!-- number argument -->]]></docs:code-editor>
 <docs:code-editor 
     mode="xml"
     readOnly="true" 
-    c:parseBodyText="false"
+    c:parse-body-text="false"
 ><![CDATA[<div>
     <span c:strip="true"><b>Hello</b></span>
 </div>]]></docs:code-editor>
@@ -1143,7 +1182,7 @@ count="${10}"  <!-- number argument -->]]></docs:code-editor>
     title="Output"
     mode="xml"
     readOnly="true" 
-    c:parseBodyText="false"
+    c:parse-body-text="false"
 ><![CDATA[<div>
     <b>Hello</b>
 </div>]]></docs:code-editor>
@@ -1171,7 +1210,7 @@ count="${10}"  <!-- number argument -->]]></docs:code-editor>
 <docs:code-editor 
     mode="xml"
     readOnly="true" 
-    c:parseBodyText="false"
+    c:parse-body-text="false"
 ><![CDATA[<c:template
     xmlns:c="core"
     xmlns:test="test"
@@ -1184,7 +1223,7 @@ count="${10}"  <!-- number argument -->]]></docs:code-editor>
     title="Tag Handler Implementation"
     mode="javascript"
     readOnly="true" 
-    c:parseBodyText="false"
+    c:parse-body-text="false"
 ><![CDATA[raptor.defineClass(
     'taglibs.test.GreetingHandler',
     function(raptor) {
@@ -1198,7 +1237,7 @@ count="${10}"  <!-- number argument -->]]></docs:code-editor>
     title="Output"
     mode="xml"
     readOnly="true" 
-    c:parseBodyText="false"
+    c:parse-body-text="false"
 ><![CDATA[Hello World!]]></docs:code-editor>
                 <p>
                     The following Taglib fragment shows how to associate
@@ -1207,7 +1246,7 @@ count="${10}"  <!-- number argument -->]]></docs:code-editor>
 <docs:code-editor 
     mode="xml"
     readOnly="true" 
-    c:parseBodyText="false"
+    c:parse-body-text="false"
 ><![CDATA[<tag>
     <name>greeting</name>
     <handler-class>taglibs.test.GreetingHandler</handler-class>
@@ -1244,7 +1283,7 @@ count="${10}"  <!-- number argument -->]]></docs:code-editor>
 <docs:code-editor 
     mode="xml"
     readOnly="true" 
-    c:parseBodyText="false"
+    c:parse-body-text="false"
 ><![CDATA[<tag>
     <name>if</name> 
     <node-class>templating.taglibs.core.IfNode</node-class>
@@ -1294,7 +1333,7 @@ count="${10}"  <!-- number argument -->]]></docs:code-editor>
 <docs:code-editor 
     mode="xml"
     readOnly="true" 
-    c:parseBodyText="false"
+    c:parse-body-text="false"
 ><![CDATA[<c:template
     xmlns:test="test"
     xmlns:c="core"
@@ -1309,7 +1348,7 @@ count="${10}"  <!-- number argument -->]]></docs:code-editor>
 <docs:code-editor 
     mode="xml"
     readOnly="true" 
-    c:parseBodyText="false"
+    c:parse-body-text="false"
 ><![CDATA[<div>tset esrever</div>]]></docs:code-editor>
                 <p>
                     Helper functions can be registered as part of a taglib as shown in the following
@@ -1318,7 +1357,7 @@ count="${10}"  <!-- number argument -->]]></docs:code-editor>
 <docs:code-editor 
     mode="xml"
     readOnly="true" 
-    c:parseBodyText="false"
+    c:parse-body-text="false"
 ><![CDATA[<function name="reverse" class="taglibs.test.TestFunctions"/>]]></docs:code-editor>
                 <p>
                     The above fragment registers a helper function and tells the Raptor Template compiler
@@ -1328,7 +1367,7 @@ count="${10}"  <!-- number argument -->]]></docs:code-editor>
 <docs:code-editor 
     mode="javascript"
     readOnly="true" 
-    c:parseBodyText="false"
+    c:parse-body-text="false"
 ><![CDATA[raptor.define(
     "taglibs.test.TestFunctions",
     function() {
@@ -1361,13 +1400,13 @@ count="${10}"  <!-- number argument -->]]></docs:code-editor>
                 </p>
                 <docs:section heading="Rendering to a String">
                     <p>
-                        The <code>template.renderToString(templateName, templateData)</code> 
+                        The <code>template.renderToString(templateName, template-data)</code> 
                         method can be used to render a template to a string.
                     </p>
 <docs:code-editor 
     mode="javascript"
     readOnly="true" 
-    c:parseBodyText="false"
+    c:parse-body-text="false"
 ><![CDATA[var templating = raptor.require("templating");
 var output = templating.renderToString("test/Person", {person: person});]]></docs:code-editor>
                     <docs:message type="info">
@@ -1403,7 +1442,7 @@ var output = templating.renderToString("test/Person", {person: person});]]></doc
 <docs:code-editor 
     mode="javascript"
     readOnly="true" 
-    c:parseBodyText="false"
+    c:parse-body-text="false"
 ><![CDATA[var templating = raptor.require("templating");
 var context = templating.createContext();
 templating.render("test/Person", {person: person}, context);
@@ -1424,7 +1463,7 @@ var output = context.getOutput();]]></docs:code-editor>
 <docs:code-editor 
     mode="javascript"
     readOnly="true" 
-    c:parseBodyText="false"
+    c:parse-body-text="false"
 ><![CDATA[var compiler = raptor.require("templating.compiler");
 var compilerOptions = {
     preserveWhitespace: true
@@ -1443,7 +1482,7 @@ var jsSource = compiler.compile('<c:template \
 <docs:code-editor 
     mode="javascript"
     readOnly="true" 
-    c:parseBodyText="false"
+    c:parse-body-text="false"
 ><![CDATA[{
     minify: false,
     preserveWhitespace: {
@@ -1510,7 +1549,7 @@ var jsSource = compiler.compile('<c:template \
     title="Input Template"
     mode="xml"
     readOnly="true" 
-    c:parseBodyText="false"
+    c:parse-body-text="false"
 ><![CDATA[<c:template 
     xmlns:c="core" 
     params="name,colors">
@@ -1533,7 +1572,7 @@ var jsSource = compiler.compile('<c:template \
     title="Unminified Compiled Output"
     mode="javascript"
     readOnly="true" 
-    c:parseBodyText="false"
+    c:parse-body-text="false"
 ><![CDATA[$rset("rhtml", "test", function(helpers){
   var empty=helpers.e,
       notEmpty=helpers.ne,
@@ -1566,7 +1605,7 @@ var jsSource = compiler.compile('<c:template \
     title="Unminified Compiled Output"
     mode="javascript"
     readOnly="true" 
-    c:parseBodyText="false"
+    c:parse-body-text="false"
 ><![CDATA[$rset("rhtml","test",function(a){var e=a.ne,c=a.x,f=a.f;return function(a,b){var g=a.name,d=a.colors;b.w("Hello ").w(c(g)).w("!");e(d)?(b.w("<ul>"),f(d,function(a){b.w("<li>").w(c(a)).w("</li>")}),b.w("</ul>")):b.w("<div>No colors!</div>")}});]]></docs:code-editor>
                 <table class="sizes table table-bordered">
                     <thead>
