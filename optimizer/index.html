@@ -115,162 +115,7 @@ powerful
 optimized differently based on which profile is enabled. For example, to
 improve developer productivity, bundling of resources and resource minification
 can be
-disabled.</p><div class="section section-level-1"><h2 id="Sample_optimizerconfig_xml">Sample optimizer-config.xml</h2><div class="bd"><div class="code-editor" id="s37"> <textarea id="s37-textarea" style="display: none;" name="code-3"><optimizer-config>
-
-    <!-- Load params from file -->
-    <params file="local-properties.json"/>
-    
-    <!-- 
-    NOTE: Params can be passed in through the CLI
-          or through the JavaScript API
-    -->
-
-    <!-- Provide defaults for parameters -->
-    <params>
-        <profile>development</profile>
-        <publish>false</publish>
-    </params>
-
-    <!-- Enable a profile -->
-    <enable-profile>${profile}</enable-profile>
-    
-    <!-- Development Profile -->
-    <profile name="development">
-        
-        <!-- Provide configuration for RaptorJS -->
-        <raptor-config>
-        {
-            logging: {
-                loggers: {
-                    'ROOT': {level: 'WARN'}
-                }
-            }
-        }
-        </raptor-config>
-
-        <!-- Set globally enabled extensions (including console logging for debugging) -->
-        <enabled-extensions>jquery,browser,logging.console,development</enabled-extensions>
-
-        <!-- Disabling bundling of resources so line numbers match up-->
-        <bundling-enabled>false</bundling-enabled>
-
-        <!-- For resources that are not compiled, generate URLs to the files on disk -->
-        <in-place-deployment-enabled>true</in-place-deployment-enabled>
-
-        <!-- Disable minification -->
-        <minify-js>false</minify-js>
-
-        <!-- Don't include checksums in resource URLs -->
-        <checksums-enabled>false</checksums-enabled>
-        
-    </profile>
-    
-    <!-- Production Profile -->
-    <profile name="production">
-        
-        <!-- Combine resources based on the configuration below -->
-        <bundling-enabled>true</bundling-enabled>
-        <!-- NOTE: Any resources that are not part of a configured bundle
-                   will become part of a default "page" bundle -->
-
-        <!-- Include checksums in all resource URLs -->        
-        <checksums-enabled>true</checksums-enabled>
-
-        <!-- Set globally enabled extensions (not including console logging) -->
-        <enabled-extensions>jquery,browser,production</enabled-extensions>
-        
-        <!-- In-place deployment will not work for public websites -->
-        <in-place-deployment-enabled>false</in-place-deployment-enabled>
-
-        <!-- Set the URL prefix -->
-        <resource-url-prefix>/static/</resource-url-prefix>
-        <!-- NOTE: If you have a CDN then include the host
-                   name for the CDN in the URL prefix -->
-
-        <!-- Enable minification -->
-        <minify-js>true</minify-js>
-
-        <!-- Configure RaptorJS to not include logging -->
-        <raptor-config>
-        {
-        }
-        </raptor-config>
-    </profile>
-
-    <!-- The optimizer will automatically discover pages by searching in
-         the specified directories. -->
-    <page-search-path>
-        <dir path="pages"/>
-    </page-search-path>
-  
-    <!-- Tell the optimizer where it can find modules/resources/packages --> 
-    <resource-search-path>
-        <dir path="."/>
-        <dir path="../shared"/>
-        <dir path="modules"/>
-    </resource-search-path>
-
-    <!-- Clean out the output directory every time the optimizer is executed -->
-    <clean-dirs>
-        <dir path="../static"/>
-    </clean-dirs>
-
-    <!-- Write resource bundles to the specified directory -->
-    <bundles-output-dir>../static</bundles-output-dir>
-
-    <!-- For static pages, write them to disk when the optimizer is executed -->
-    <write-rendered-pages enabled="true" output-dir=".."/>
-    <!-- NOTE: Should only be enabled for static sites such as this documentation -->
-
-    <!-- Configure zero or more bundles -->
-    <bundles name="default">
-        <!-- Each bundle is given a name that is used for the output file.
-             NOTE: A resource becomes part of the first bundle that it is
-                   added to so *order matters*. -->
-        <bundle name="jquery">
-            <module name="jQuery"/>
-        </bundle>
-        <bundle name="core">
-            <module name="core" recursive="true"/>
-            <!-- NOTE: Setting recursive to "true" will cause the optimizer
-                       to include all of the module's resources and
-                       all of the resources for packages that it depends
-                       on (recursively). -->
-            
-            <!-- Include the dependency that will generate the code to 
-                 initialize RaptorJS -->
-            <init-raptor/> 
-
-            <module name="listeners" recursive="true"/>
-        </bundle>
-        <bundle name="widgets">
-            <module name="widgets" recursive="true"/>
-        </bundle>
-        <bundle name="bootstrap">
-            <module name="components/icons/Icon"/>
-            <module name="Bootstrap/reset" recursive="true"/>
-            <module name="Bootstrap/scaffolding" recursive="true"/>
-            <module name="Bootstrap/layouts" recursive="true"/>
-            <module name="Bootstrap/type" recursive="true"/>
-            <module name="Bootstrap/dropdowns" recursive="true"/>
-            <module name="Bootstrap/buttons" recursive="true"/>
-            <module name="Bootstrap/button-groups" recursive="true"/>
-            <module name="Bootstrap/navs" recursive="true"/>
-            <module name="Bootstrap/navbar" recursive="true"/>
-        </bundle>
-        <bundle name="code-editor">
-            <module name="components/editors/CodeEditor" recursive="true"/>
-            <module name="components/editors/CodeEditor/mode-javascript" recursive="true"/>
-            <module name="components/editors/CodeEditor/mode-htmlmixed" recursive="true"/>
-            <module name="components/editors/CodeEditor/mode-xml" recursive="true"/>
-        </bundle>
-        
-        <bundle name="templating">
-            <module name="templating" recursive="true"/>
-        </bundle>
-    </bundles>
-    
-</optimizer-config></textarea></div></div></div><div class="section section-level-1"><h2 id="Profiles">Profiles</h2><div class="bd"><p>The optimizer will combine resources based on a bundle configuration to reduce
+disabled.</p><div class="section section-level-1"><h2 id="Sample_optimizerconfig_xml">Sample optimizer-config.xml</h2><div class="bd"><ul><li></li></ul></div></div><div class="section section-level-1"><h2 id="Profiles">Profiles</h2><div class="bd"><p>The optimizer will combine resources based on a bundle configuration to reduce
 the number of HTTP round-trips required to deliver a web page. The
 Rapt</p></div></div><div class="section section-level-1"><h2 id="Bundling">Bundling</h2><div class="bd"><p>The optimizer will combine resources based on a bundle configuration to reduce
 the number of HTTP round-trips required to deliver a web page. The
@@ -278,14 +123,14 @@ Rapt</p></div></div><div class="section section-level-1"><h2 id="Minification_an
 the number of HTTP round-trips required to deliver a web page. The
 Rapt</p></div></div></div></div><div class="section section-level-0"><h2 id="Asynchronous_Loading">Asynchronous Loading</h2><div class="bd"><p></p><div class="section section-level-1"><h2 id="Asynchronous_Module_Includes">Asynchronous Module Includes</h2><div class="bd"><p></p></div></div><div class="section section-level-1"><h2 id="Loading_Modules_Includes">Loading Modules Includes</h2><div class="bd"><p></p></div></div></div></div><div class="section section-level-0"><h2 id="Building_Websites">Building Websites</h2><div class="bd"><p></p><div class="section section-level-1"><h2 id="Static_Websites">Static Websites</h2><div class="bd"><p></p></div></div><div class="section section-level-1"><h2 id="Serverbased_Websites">Server-based Websites</h2><div class="bd"><p></p></div></div><div class="section section-level-1"><h2 id="CDN_Integration">CDN Integration</h2><div class="bd"><p></p></div></div></div></div><div class="section section-level-0"><h2 id="Command_Line_Interface">Command Line Interface</h2><div class="bd"><p></p></div></div><div class="section section-level-0"><h2 id="JavaScriptAPI">JavaScript API</h2><div class="bd"><p></p><div class="section section-level-1"><h2 id="Registering_Pages">Registering Pages</h2><div class="bd"><p></p></div></div><div class="section section-level-1"><h2 id="Generating_Page_HTML">Generating Page HTML</h2><div class="bd"><p>The <code>OptimizerEngine</code> object provides a <code>optimizer.getPageHtmlBySlot()</code> method that can be used to generate the HTML for a page that has been
 previously registered. The sample code below shows how to use the
-<code>optimizer.getPageHtmlBySlot</code> method:</p><div class="code-editor" id="s38"> <textarea id="s38-textarea" style="display: none;" name="code-4">var optimizer = raptor.require("optimizer").createOptimizer();
+<code>optimizer.getPageHtmlBySlot</code> method:</p><div class="code-editor" id="s37"> <textarea id="s37-textarea" style="display: none;" name="code-3">var optimizer = raptor.require("optimizer").createOptimizer();
 //...
 optimizer.registerPage({
     name: "my-page",
     packageResource: "/path/to/my-page-package.json"
 });
 //...
-var pageHtmlBySlot = optimizer.getPageHtmlBySlot('my-page');</textarea></div><p>After executing the above code, the value of <code>pageHtmlBySlot</code> would be a JavaScript object similar to the following: </p><div class="code-editor" id="s39"> <textarea id="s39-textarea" style="display: none;" name="code-5">
+var pageHtmlBySlot = optimizer.getPageHtmlBySlot('my-page');</textarea></div><p>After executing the above code, the value of <code>pageHtmlBySlot</code> would be a JavaScript object similar to the following: </p><div class="code-editor" id="s38"> <textarea id="s38-textarea" style="display: none;" name="code-4">
 {
     'body': '<script type="text/javascript" src="/static/core-body-81a10a80.js"></script>\
              <script type="text/javascript" src="/static/jquery-body-371da524.js"></script>\
@@ -299,11 +144,11 @@ determined by the optimizer's configuration) and then generate the HTML to
 include the resource bundles for the specified
 page.</p></div></div></div></div><div class="section section-level-0"><h2 id="OptimizerTaglib">Optimizer Taglib</h2><div class="bd"><p></p><div class="section section-level-1"><h2 id="Linking_Page_Packages">Linking Page Packages</h2><div class="bd"><p>The <code>&lt;optimizer:page></code> tag can be used to associate a rendering context with a optimizer page. The
 only required attribute for the
-<code>&lt;optimizer:page></code> tag is the <code>package</code> attribute. The <code>package</code> attribute should be used to specify a relative path to a <code>package.json</code> file that describes the dependencies for a page. For example: </p><div class="code-editor" id="s40"> <textarea id="s40-textarea" style="display: none;" name="code-6"><optimizer:page package="my-page-package.json"/></textarea></div><p>The above example assumes that there is a file named "my-page-package.json" in
+<code>&lt;optimizer:page></code> tag is the <code>package</code> attribute. The <code>package</code> attribute should be used to specify a relative path to a <code>package.json</code> file that describes the dependencies for a page. For example: </p><div class="code-editor" id="s39"> <textarea id="s39-textarea" style="display: none;" name="code-5"><optimizer:page package="my-page-package.json"/></textarea></div><p>The above example assumes that there is a file named "my-page-package.json" in
 the same directory that contains the
-template.</p></div></div><div class="section section-level-1"><h2 id="OptimizerTaglibDefiningSlots">Defining Slots</h2><div class="bd"><p>The <code>&lt;optimizer:slot></code> tag can be used to define a slot for a page. When rendered, the <code>&lt;optimizer:slot></code> tag will render the dependency HTML corresponding to the specified slot.</p><div class="code-editor" id="s41"> <textarea id="s41-textarea" style="display: none;" name="code-7"><optimizer:slot name="head"/></textarea></div></div></div><div class="section section-level-1"><h2 id="OptimizerTaglibEnablingExtensions">Enabling Extensions</h2><div class="bd"><p>The <code>&lt;optimizer:enable-extension></code> tag can be used to enable an extension for the current request. The only
+template.</p></div></div><div class="section section-level-1"><h2 id="OptimizerTaglibDefiningSlots">Defining Slots</h2><div class="bd"><p>The <code>&lt;optimizer:slot></code> tag can be used to define a slot for a page. When rendered, the <code>&lt;optimizer:slot></code> tag will render the dependency HTML corresponding to the specified slot.</p><div class="code-editor" id="s40"> <textarea id="s40-textarea" style="display: none;" name="code-6"><optimizer:slot name="head"/></textarea></div></div></div><div class="section section-level-1"><h2 id="OptimizerTaglibEnablingExtensions">Enabling Extensions</h2><div class="bd"><p>The <code>&lt;optimizer:enable-extension></code> tag can be used to enable an extension for the current request. The only
 required attribute is the "name" attribute which defines the name of the
-example.</p><p>The following code illustrates how to enable an extension:</p><div class="code-editor" id="s42"> <textarea id="s42-textarea" style="display: none;" name="code-8"><optimizer:enable-extension name="ipad"/></textarea></div><p>In the above example, an extension named "ipad" is enabled. Any package that
+example.</p><p>The following code illustrates how to enable an extension:</p><div class="code-editor" id="s41"> <textarea id="s41-textarea" style="display: none;" name="code-7"><optimizer:enable-extension name="ipad"/></textarea></div><p>In the above example, an extension named "ipad" is enabled. Any package that
 contains an extension named "ipad" will then have its dependencies included in
 the optimized
 page.</p><div class="message message-warning"><div class="icon"><i class="icon-warning-sign" style="font-size: 30px;"></i></div><div class="bd">All extensions must be enabled <i>before</i> any slots that are defined on the page.</div></div></div></div></div></div></div></div><div class="docs-footer"></div></div><div style="clear: both"></div><div class="footer footer-single-line"><div class="container"><div class="bd"><span class="powered-by">Powered by <a href="/" class="raptorjs">RaptorJS</a> </span> &nbsp; | &nbsp; <a href="/license/">License</a>&nbsp; | &nbsp; <a href="/credits/">Credits</a><span class="back-to-top"><a href="#title">Back to Top</a></span></div></div></div></div><script type="text/javascript" src="/static/core-body-81a10a80.js"></script>
@@ -349,9 +194,8 @@ page.</p><div class="message message-warning"><div class="icon"><i class="icon-w
 ["components.editors.CodeEditor.CodeEditorWidget","s34",0,0,{"mode":"javascript","autoResize":true,"readOnly":true},0],
 ["components.editors.CodeEditor.CodeEditorWidget","s35",0,0,{"mode":"xml","autoResize":true,"readOnly":true},0],
 ["components.editors.CodeEditor.CodeEditorWidget","s36",0,0,{"mode":"javascript","autoResize":true,"readOnly":true},0],
-["components.editors.CodeEditor.CodeEditorWidget","s37",0,0,{"mode":"xml","autoResize":true,"readOnly":true},0],
+["components.editors.CodeEditor.CodeEditorWidget","s37",0,0,{"mode":"javascript","autoResize":true,"readOnly":true},0],
 ["components.editors.CodeEditor.CodeEditorWidget","s38",0,0,{"mode":"javascript","autoResize":true,"readOnly":true},0],
-["components.editors.CodeEditor.CodeEditorWidget","s39",0,0,{"mode":"javascript","autoResize":true,"readOnly":true},0],
+["components.editors.CodeEditor.CodeEditorWidget","s39",0,0,{"mode":"xml","autoResize":true,"readOnly":true},0],
 ["components.editors.CodeEditor.CodeEditorWidget","s40",0,0,{"mode":"xml","autoResize":true,"readOnly":true},0],
-["components.editors.CodeEditor.CodeEditorWidget","s41",0,0,{"mode":"xml","autoResize":true,"readOnly":true},0],
-["components.editors.CodeEditor.CodeEditorWidget","s42",0,0,{"mode":"xml","autoResize":true,"readOnly":true},0]);</script></body></html>
+["components.editors.CodeEditor.CodeEditorWidget","s41",0,0,{"mode":"xml","autoResize":true,"readOnly":true},0]);</script></body></html>
