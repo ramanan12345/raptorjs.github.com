@@ -360,7 +360,7 @@
                 
                 <docs:section heading="${startTag:c:template}">
                     <p>
-                        The root element of all templates should be a &lt;c:template>
+                        The root element of all templates should be a ${entity:lt}c:template>
                         tag. This tag defines the name of the template and the input
                         parameters for the template. In addition, XML namespaces
                         corresponding to taglibs should be attached to the root element.
@@ -642,7 +642,7 @@
                 </docs:section>
                 
                 <docs:section
-                    anchorName="ChooseWhenOtherwise"  
+                    anchor-name="ChooseWhenOtherwise"  
                     heading="choose…when…otherwise">
                     <p>
                         The c:choose directive, in combination with the directives c:when
@@ -1027,7 +1027,7 @@
 </p>]]></docs:code-editor>
                 </docs:section>
                 
-                <docs:section heading="invoke" anchorName="invoke">
+                <docs:section heading="invoke" anchor-name="invoke">
                     <p>
                         The &lt;c:invoke> directive can be used to 
                         invoke a function defined using the &lt;c:def>
@@ -1321,7 +1321,7 @@ count="${10}"  <!-- number argument -->]]></docs:code-editor>
                 </ul>
             </docs:section>
             
-            <docs:section heading="Helper Functions" anchorName="TaglibHelperFunctions">
+            <docs:section heading="Helper Functions" anchor-name="TaglibHelperFunctions">
                 <p>
                     Raptor Template taglibs can export helper functions that can be used
                     in any template that imports the functions. Imported helper functions

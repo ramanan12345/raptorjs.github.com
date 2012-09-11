@@ -5,7 +5,7 @@
     params="tag,rootAttrs,linkText">
     
     <span w:widget="components.overlays.Popover.PopoverWidget" c:attrs="rootAttrs" class="popover-target">
-        <c:if test="linkTest">$linkText</c:if>
+        <c:if test="linkText">$linkText</c:if>
         <c:invoke function="tag.invokeBody()" c:else-if="tag.invokeBody"/>
     </span>
 </c:template>

@@ -316,7 +316,7 @@
                 and resource minification can be disabled.
             </p>
             <p>
-                Below is a very basic optimizer configuration file:
+                Below is a basic optimizer configuration file:
             </p>
 <docs:code-editor 
     mode="xml"
@@ -325,7 +325,7 @@
 ><![CDATA[<optimizer-config>
 
     <params>
-        <profile>minify</profile>
+        <minify>true</minify>
     </params>
 
     <enabled-extensions>jquery,browser,production</enabled-extensions>
@@ -365,10 +365,51 @@
             
             <docs:section heading="Profiles">
                 <p>
-                    The optimizer will combine resources based on a bundle configuration
-                    to reduce the number of HTTP round-trips required to deliver a
-                    web page. The Rapt
+                    The RaptorJS optimizer configuration
+                    file supports profiles using the <code>${entity:lt}profile></code> and <code>${entity:lt}enable-profile></code>
+                    tags as shown in the following example:
                 </p>
+<docs:code-editor 
+    mode="xml"
+    readOnly="true" 
+    c:parse-body-text="false"
+><![CDATA[<optimizer-config>
+
+    <params>
+        <!-- Default to the "development" profile -->
+        <profile>development</profile>
+    </params>
+
+    <!-- Enable the profile with the specified name -->
+    <enable-profile>${profile}</enable-profile>
+    
+    <profile name="development">
+        ...
+        <!-- Disable minification in development -->
+        <minify-js>false</minify-js>
+        ...
+    </profile>
+    
+    <profile name="production">
+        ...
+        <!-- Enable minification in production -->
+        <minify-js>false</minify-js>
+        ...
+    </profile>
+    
+    ...
+    
+</optimizer-config>]]></docs:code-editor>
+                <p>
+                    Parameters can be loaded from a JSON file, passed in as command line arguments or provided
+                    to the optimizer when using the JavaScript API. For more information on 
+                    parameters please see the following sections:
+                </p>
+                <ul>
+                    <li><a href="#JSONParams">Configuration ${entity:raqou} Configuration Params from JSON File</a></li>
+                    <li><a href="#CLIParams">Command Line Interface ${entity:raqou} Configuration Params</a></li>
+                    <li><a href="#JavaScriptAPIParams">JavaScript API ${entity:raqou} Configuration Params</a></li>
+                </ul>
             </docs:section>
             
             <docs:section heading="Bundling">
@@ -389,6 +430,12 @@
                     The optimizer will combine resources based on a bundle configuration
                     to reduce the number of HTTP round-trips required to deliver a
                     web page. The Rapt
+                </p>
+            </docs:section>
+            
+            <docs:section heading="Configuration Params from JSON File" anchor-name="JSONParams">
+                <p>
+                    
                 </p>
             </docs:section>
             
@@ -446,9 +493,16 @@
             <p>
                 
             </p>
+            
+            <docs:section heading="Parameters" anchor-name="CLIParams">
+                <p>
+                    
+                </p>
+            </docs:section>
+            
         </docs:section>
         
-        <docs:section heading="JavaScript API" anchorName="JavaScriptAPI">
+        <docs:section heading="JavaScript API" anchor-name="JavaScriptAPI">
             <p>
             </p>
             
@@ -528,7 +582,7 @@ var pageHtmlBySlot = optimizer.getPageHtmlBySlot('my-page');]]></docs:code-edito
             
         </docs:section>
         
-        <docs:section heading="Optimizer Taglib" anchorName="OptimizerTaglib">
+        <docs:section heading="Optimizer Taglib" anchor-name="OptimizerTaglib">
             <p>
             </p>
             
@@ -553,7 +607,7 @@ var pageHtmlBySlot = optimizer.getPageHtmlBySlot('my-page');]]></docs:code-edito
                 </p>
             </docs:section>
             
-            <docs:section heading="Defining Slots" anchorName="OptimizerTaglibDefiningSlots">
+            <docs:section heading="Defining Slots" anchor-name="OptimizerTaglibDefiningSlots">
                 <p>
                     The <code>${entity:lt}optimizer:slot></code> tag can be used
                     to define a slot for a page. When rendered, the <code>${entity:lt}optimizer:slot></code> tag
@@ -566,7 +620,7 @@ var pageHtmlBySlot = optimizer.getPageHtmlBySlot('my-page');]]></docs:code-edito
 ><![CDATA[<optimizer:slot name="head"/>]]></docs:code-editor>
             </docs:section>
             
-            <docs:section heading="Enabling Extensions" anchorName="OptimizerTaglibEnablingExtensions">
+            <docs:section heading="Enabling Extensions" anchor-name="OptimizerTaglibEnablingExtensions">
                 <p>
                     The <code>${entity:lt}optimizer:enable-extension></code> tag can be used
                     to enable an extension for the current request. The only required

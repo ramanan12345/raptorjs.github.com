@@ -3,7 +3,7 @@
     <tag name="section" handler-class="components.docs.Section.SectionTag">
         <attribute name="heading" type="string"/>
         <attribute name="navHeading" type="string"/>
-        <attribute name="anchorName" type="string"/>
+        <attribute name="anchor-name" type="string" target-property="anchorName"/>
     </tag>
     
 </raptor-taglib>
