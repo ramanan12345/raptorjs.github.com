@@ -400,28 +400,37 @@
     ...
     
 </optimizer-config>]]></docs:code-editor>
-                <p>
-                    Parameters can be loaded from a JSON file, passed in as command line arguments or provided
-                    to the optimizer when using the JavaScript API. For more information on 
-                    parameters please see the following sections:
-                </p>
-                <ul>
-                    <li><a href="#JSONParams">Configuration ${entity:raqou} Configuration Params from JSON File</a></li>
-                    <li><a href="#CLIParams">Command Line Interface ${entity:raqou} Configuration Params</a></li>
-                    <li><a href="#JavaScriptAPIParams">JavaScript API ${entity:raqou} Configuration Params</a></li>
-                </ul>
+                <docs:message type="info">
+                    <p>
+                        Parameters can be loaded from a JSON file, passed in as command line arguments or provided
+                        to the optimizer when using the JavaScript API. For more information on 
+                        parameters please see the following sections:
+                    </p>
+                    <ul>
+                        <li><a href="#JSONParams">Configuration ${entity:raquo} Configuration Params from JSON File</a></li>
+                        <li><a href="#CLIParams">Command Line Interface ${entity:raquo} Configuration Params</a></li>
+                        <li><a href="#JavaScriptAPIParams">JavaScript API ${entity:raquo} Configuration Params</a></li>
+                    </ul>
+                </docs:message>
+                
+                
             </docs:section>
             
             <docs:section heading="Bundling">
                 <p>
                     The optimizer will combine resources based on a bundle configuration
                     to reduce the number of HTTP round-trips required to deliver a
-                    web page. The Rapt
+                    web page. A resource can only belong to one bundle and the first
+                    bundle that a resource is added to becomes the resource's bundle.
+                    If bundling is enabled and a particular page dependency is not part
+                    of a configured bundle then the dependency is added to a default
+                    page bundle.
                 </p>
             </docs:section>
             
             <docs:section heading="Minification and Filters">
                 <p>
+                    The RaptorJS optimizer supports custom filters. 
                 </p>
             </docs:section>
             

@@ -17,54 +17,98 @@
             <p>
                 The Raptor Templating Language is heavily inspired by  
                 <a href="http://genshi.edgewall.org/wiki/Documentation/xml-templates.html">Genshi XML Template Language</a> 
-                (a templating language for Python) with the good parts of JSP mixed in. The Raptor 
+                (an XML-based templating language for Python) with the good parts of JSP mixed in. The Raptor 
                 Templating Language borrows most of the same features from Genshi and includes a 
                 JavaScript compiler so that a template can be compiled to native JavaScript code.
-                The templating language is XML-based so that it can use the XML structure
-                of an HTML document to its full advantage—including improved readability and
+                The templating language is XML-based so that the XML structure
+                of an HTML document can be used to its full advantage to make it easier for developers
+                write easily readable templates and to provide optimal output—including improved readability and
                 optimized output.
             </p>
             <p>
-                The Raptor Templating language is a proven templating language
-                that was designed with the scale of eBay in mind where every millisecond
-                and byte counts.
+                The Raptor Templating language is a proven templating language that
+                is being used at eBay in applications where every millisecond
+                and byte counts. eBay will continue to invest in Raptor Templates
+                to ensure that it has a very healthy ecosystem.
             </p>
         </docs:section>
         
-        <docs:section heading="Benefits">
-            <docs:section heading="Performance">
-                <p>
-                    The Raptor Templating language was designed with performance
-                    in mind from the beginning. The compiled code for 
-                    Raptor Templates is optimized for both runtime
-                    performance and small footprint and the runtime
-                    library required to render templates has been
-                    kept to a minimal size by pushing all of the logic
-                    into the compiler.
-                </p>
-                <docs:message type="info">
-                    While the Raptor Templates compiler
-                    works on both the server and in browsers, it was
-                    only meant to be used on the server since
-                    the compiler has a lot of complexity associated with
-                    due to the optimizations and work that it performs at compile-time.
-                    Therefore, templates should be compiled on the server
-                    and sent to the browser.
-                </docs:message>
-            </docs:section>
-            <docs:section heading="Extensible">
-                <p>
-                    The Raptor Templating language was designed to be extremely
-                    extensible by supporting taglibs and allowing both compile-time tag handlers
-                    and runtime tag handlers. Taglibs allow templates to be validated
-                    by tools and it also allows for tools to provide guidance
-                    to developers when creating templates through mechanisms
-                    through auto-completion and context-aware help.
-                </p>
-            </docs:section>
-            
-            
-            
+        <docs:section heading="Features at a Glance">
+            <ul>
+                <li>
+                    Not dogmatic—the decision to be logic-less, less-logic or more-logic is left to the users
+                </li>
+                <li>
+                    Easily extensible. Supports:
+                    <ul>
+                        <li>Taglibs for easy extensibility</li>
+                        <li>Allows full control over compiled output</li>
+                        <li>Custom tag handlers with support for both compile-time tag handlers and runtime tag handlers</li>
+                        <li>Custom helper functions</li>
+                        <li>Custom compile-time template transformers</li>
+                    </ul>
+                </li>
+                <li>
+                    Works in any JavaScript environment—including on the server (Node and Rhino) and in all web browsers  
+                </li>
+                <li>XML-based
+                    <ul>
+                        <li>Smarter compiler that leverages the structure of HTML documents</li>
+                        <li>Easy to validate</li>
+                        <li>Extensible</li>
+                        <li>Easily readable with any off-the-shelf XML parser</li>
+                    </ul>
+                </li>
+                <li>
+                    Designed with readability and code maintenance in mind
+                </li>
+                <li>
+                    Optimized compiled output
+                    <ul>
+                        <li>Templates are compiled to native JavaScript functions</li>
+                        <li>Compiled code generated with minification in mind</li>
+                        <li>Smart compiler and optimizer</li>
+                    </ul>
+                </li>
+                <li>
+                    Optimized runtime
+                    <ul>
+                        <li>Lightweight runtime</li>
+                        <li>Optimized for performance and scalability</li>
+                    </ul>
+                </li>
+                <li>Leverages the full power of JavaScript
+                    <ul>
+                        <li>Allow expressions are JavaScript expressions (<code>eval</code> is <i>never</i> used)</li>
+                        <li>Templates and macros compile down to native JavaScript functions</li>
+                        <li>If directives compile down to native JavaScript if-statements and similar for most directives</li>
+                        <li>Function closures utilized for scoped variables and nesting</li>
+                    </ul>
+                </li>
+                <li>
+                    <docs:popover title="Smart Whitespace Removal">
+                        <c:attr name="content">
+                            <p>
+                                The compiler understands that whitespace inside <code>${entity:lt}textarea></code>
+                                and <code>${entity:lt}textarea></code> tags should be preserved.
+                            </p>
+                            <p>
+                                Since templats are XML-based, the compiler knows that 
+                                extra whitespace between XML elements can be removed
+                                and that extra whitespace in body text can be removed.
+                            </p>
+                        </c:attr>
+                        Smart whitespace removal
+                    </docs:popover>
+                </li>
+                <li>
+                    Helpful error messages that provide friendly messages and line/column numbers.
+                </li>
+                <li>
+                    Compiled code is nicely formatted and easy to debug
+                </li>
+                
+            </ul>            
         </docs:section>
         
         <docs:section heading="Introduction">
