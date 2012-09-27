@@ -1,12 +1,12 @@
 exports.controller = function() {
     var resources = raptor.require('resources');
     
-    var samples = eval('(' + resources.findResource('/sample-templates/index.json').readFully() + ')');
+    var samples = eval('(' + resources.findResource('/sample-templates/index.json').readAsString() + ')');
     
     
     var readResource = function(path, defaultValue) {        
         var resource = resources.findResource("/sample-templates/" + path);
-        return resource && resource.exists() ? resource.readFully() : defaultValue;
+        return resource && resource.exists() ? resource.readAsString() : defaultValue;
     };
     
     var defaultOptionsJson = readResource('default-options.json');
