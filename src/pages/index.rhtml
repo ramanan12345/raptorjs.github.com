@@ -6,7 +6,18 @@
     params="samples"
     docs:functions="url">
     
-    <docs:urls basePath="."/>
+    <optimizer:page name="index" base-path="${data.pageOutputDir}">
+        <includes>
+            <module name="docs-global"/>
+            <module name="components/buttons/Button"/>
+            <module name="components/overlays/Popover"/>
+            <module name="components/nav/TopNavDefault"/>
+            <module name="components/footers/FooterDefault"/>
+            <module name="components/social/TwitterFollow"/>
+            <module name="components/social/GooglePlusOne"/>
+            <css path="index.css"/>
+        </includes>
+    </optimizer:page>
     
     <c:def function="learnMore(href)">
         <div class="learn-more">
@@ -16,6 +27,7 @@
     
     <![CDATA[<!doctype html>]]>
     
+
     <html>
         <head>
             <title>RaptorJS — A JavaScript Toolset from eBay</title>
@@ -93,9 +105,6 @@
             </div>
             
             <div class="container">
-                
-                
-                
 
                 <div class="summary">
                     <p>

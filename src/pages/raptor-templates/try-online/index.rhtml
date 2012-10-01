@@ -5,8 +5,22 @@
     xmlns:templates="templates"
     xmlns:docs="docs"
     params="includes,samples">
-    
-    <docs:urls basePath="../.."/>
+
+    <optimizer:page name="${data.pageName}" base-path="${data.pageOutputDir}">
+        <includes>
+            <module name="docs-global"/>
+            <module name="templating"/>
+            <module name="templating.compiler"/>
+            <module name="taglibs/core/compile-time"/>
+            <module name="taglibs/html/compile-time"/>
+            <module name="taglibs/widgets/compile-time"/>
+            <module name="taglibs/test/client-render"/>
+            <module name="taglibs/test/compile-time"/>
+            <module name="components/templates/TemplatesTopNav"/>
+            <module name="components/templates/TemplateTestbed"/>
+            <css path="index.css"/>
+        </includes>
+    </optimizer:page>
     
     <![CDATA[<!doctype html>]]>
     

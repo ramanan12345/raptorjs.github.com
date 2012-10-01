@@ -5,8 +5,16 @@
     xmlns:docs="docs"
     params="includes,samples"
     docs:functions="url">
-    
-    <docs:urls basePath=".."/>
+
+    <optimizer:page name="${data.pageName}" base-path="${data.pageOutputDir}">
+        <includes>
+            <module name="docs-global"/>
+            <module name="components/nav/TopNavDefault"/>
+            <module name="components/docs/Docs"/>
+            <module name="components/icons/Icon"/>
+            <css path="index.css"/>
+        </includes>
+    </optimizer:page>
 
     <![CDATA[<!doctype html>]]>
     

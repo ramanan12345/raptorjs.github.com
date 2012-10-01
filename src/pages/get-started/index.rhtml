@@ -4,9 +4,18 @@
     xmlns:w="widgets"
     xmlns:docs="docs"
     params="includes,samples">
-    
-    <docs:urls basePath=".."/>
-    
+
+    <optimizer:page name="${data.pageName}" base-path="${data.pageOutputDir}">
+        <includes>
+            <module name="docs-global"/>
+            <module name="components/nav/TopNavDefault"/>
+            <module name="components/footers/FooterDefault"/>
+            <module name="components/docs/Docs"/>
+            <module name="components/editors/CodeEditor"/>
+            <css path="index.css"/>
+        </includes>
+    </optimizer:page>
+
     <![CDATA[<!doctype html>]]>
     
     <html>
