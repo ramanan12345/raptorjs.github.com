@@ -1,0 +1,48 @@
+{
+	"build_systems":
+	[
+		{
+			"cmd":
+			[
+				"${project_path}/src/publish-dev"
+			],
+			"name": "Publish (dev)",
+			"working_dir": "${project_path}/src"
+		},
+		{
+			"cmd":
+			[
+				"${project_path}/src/publish-dev",
+				"page=optimizer"
+			],
+			"name": "Publish (dev) - optimizer",
+			"working_dir": "${project_path}/src"
+		},
+		{
+			"cmd":
+			[
+				"${project_path}/publish-to-github"
+			],
+			"name": "Publish to Github",
+			"working_dir": "${project_path}"
+		}
+	],
+	"folders":
+	[
+		{
+			"path": "src"
+		},
+		{
+			"path": "/Users/psteeleidem/development/ebay/github/Raptor/RaptorJSOpenSource/src/main/resources/META-INF/resources/raptor_modules"
+		}
+	],
+	"settings":
+	{
+		"build_switcher_systems":
+		[
+			"Publish (dev)",
+			"Publish (dev) - optimizer",
+			"Publish to Github"
+		]
+	}
+}
