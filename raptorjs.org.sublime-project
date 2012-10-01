@@ -12,6 +12,14 @@
 		{
 			"cmd":
 			[
+				"${project_path}/src/publish"
+			],
+			"name": "Publish",
+			"working_dir": "${project_path}/src"
+		},
+		{
+			"cmd":
+			[
 				"${project_path}/src/publish-dev",
 				"page=optimizer"
 			],
