@@ -3,7 +3,7 @@
     <short-name>docs</short-name>
     <prefix>docs</prefix>
     
-    <function name="url" bind-to-context="true" class="taglibs.docs.DocsFunctions"/>
+    <function name="url" class="taglibs.docs.DocsFunctions"/>
 
     <import-taglib path="/components/buttons/Button/Button.rtld"/>
     <import-taglib path="/components/buttons/ButtonGroup/ButtonGroup.rtld"/>
