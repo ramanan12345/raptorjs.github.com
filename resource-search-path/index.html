@@ -1,40 +1,40 @@
- <!doctype html> <html><head><title>RaptorJS: Resource Search Path</title><meta http-equiv="content-type" content="text/html; charset=UTF-8"></meta><link rel="stylesheet" type="text/css" href="../static/resource-search-path-head-c07b8669.css" />
+ <!doctype html> <html><head><title>RaptorJS: Resource Search Path</title><meta http-equiv="content-type" content="text/html; charset=UTF-8"></meta><link rel="stylesheet" type="text/css" href="../static/resource-search-path-head-007b276f.css" />
 <link rel="stylesheet" type="text/css" href="../static/bootstrap-head-d0572038.css" />
 <link rel="stylesheet" type="text/css" href="../static/code-editor-head-6a226e30.css" /><script type="text/javascript">var
 _gaq=_gaq||[];_gaq.push(["_setAccount","UA-33982282-1"]);_gaq.push(["_trackPageview"]);(function(){var
 a=document.createElement("script");a.type="text/javascript";a.async=!0;a.src=("https:"==document.location.protocol?"https://ssl":"http://www")+".google-analytics.com/ga.js";var
-b=document.getElementsByTagName("script")[0];b.parentNode.insertBefore(a,b)})();</script></head><body><div class="navbar navbar-fixed-top"><div class="navbar-inner"><div class="container"><a class="brand" href="../">RaptorJS</a><ul class="nav"><li class="divider-vertical"></li><li id="s637"><a href="../get-started/">Get Started</a></li><li class="divider-vertical"></li><li id="s638" class="dropdown"><a data-toggle="dropdown" class="dropdown-toggle">Learn<b class="caret"></b></a><ul class="dropdown-menu"><li id="s639"><a href="../">Overview</a></li><li id="s640"><a href="../get-started/">Get Started</a></li><li id="s641"><a href="../tutorial/">Tutorial</a></li><li id="s642"><a href="../api/">API Reference</a></li><li id="s643"><a href="../faq/">FAQ</a></li><li class="divider"></li><li id="s644"><a href="../modules-classes/">Modules and Classes</a></li><li id="s645"><a href="../packaging/">Packaging and Extensions</a></li><li id="s646"><a href="../optimizer/">Optimizer</a></li><li id="s647"><a href="../raptor-templates/">Raptor Templates</a></li><li id="s648"><a href="../widgets/">Widgets Framework</a></li><li id="s649"><a href="../logging/">Logging</a></li><li id="s650" class="active nav-item-active"><a href="../resource-search-path/">Resource Search Path</a></li><li id="s651"><a href="../cross-environment/">Cross Environment Support</a></li></ul></li><li class="divider-vertical"></li><li id="s652" class="dropdown"><a data-toggle="dropdown" class="dropdown-toggle">Community<b class="caret"></b></a><ul class="dropdown-menu"><li id="s653"><a href="https://github.com/raptorjs/raptorjs">Source code</a></li><li id="s654"><a href="https://github.com/raptorjs/raptorjs/issues">Issue Tracker</a></li><li id="s655"><a href="../contribute/">Contribute</a></li><li id="s656"><a href="../contributors/">Contributors</a></li><li class="divider"></li><li id="s657"><a href="http://groups.google.com/group/raptorjs">Discussion Forum</a></li><li class="divider"></li><li id="s658"><a href="http://twitter.com/raptorjs">Twitter (@raptorjs)</a></li><li id="s659"><a href="http://twitter.com/raptorjs">Google+</a></li></ul></li><li class="divider-vertical"></li><li id="s660" class="dropdown"><a data-toggle="dropdown" class="dropdown-toggle">About<b class="caret"></b></a><ul class="dropdown-menu"><li id="s661"><a href="https://github.com/raptorjs/raptorjs/wiki/Release-Notes">Release Notes</a></li><li id="s662"><a href="../design-philosophy/">Design Philosophy</a></li><li id="s663"><a href="../license/">License</a></li><li id="s664"><a href="../credits/">Credits</a></li><li id="s665"><a href="../creators/">Creators</a></li></ul></li><li class="divider-vertical"></li></ul></div></div></div><div class="container"><div class="docs"><div class="bd"><div class="toc nav" id="docsNav"><ul class="toc"><li class="toc toc-level-0"><a href="#Overview">Overview</a><ul class="toc"></ul></li></ul></div><div class="docs-content"><h1 id="title">Resource Search Path</h1><div class="message message-warning"><div class="icon"><i class="icon-warning-sign" style="font-size: 30px;"></i></div><div class="bd">Documentation In-Progress</div></div><div class="section section-level-0"><h2 id="Overview">Overview</h2><div class="bd"><p></p></div></div></div></div><div class="docs-footer"></div></div><div style="clear: both"></div><div class="footer footer-single-line"><div class="container"><div class="bd"><span class="powered-by">Powered by <a href="../" class="raptorjs">RaptorJS</a> </span> &nbsp; | &nbsp; <a href="../license/">License</a>&nbsp; | &nbsp; <a href="../credits/">Credits</a><span class="back-to-top"><a href="#title">Back to Top</a></span></div></div></div></div><script type="text/javascript" src="../static/core-body-81a10a80.js"></script>
+b=document.getElementsByTagName("script")[0];b.parentNode.insertBefore(a,b)})();</script></head><body><div class="navbar navbar-fixed-top"><div class="navbar-inner"><div class="container"><a class="brand" href="../">RaptorJS</a><ul class="nav"><li class="divider-vertical"></li><li id="s695"><a href="../get-started/">Get Started</a></li><li class="divider-vertical"></li><li id="s696" class="dropdown"><a data-toggle="dropdown" class="dropdown-toggle">Learn<b class="caret"></b></a><ul class="dropdown-menu"><li id="s697"><a href="../">Overview</a></li><li id="s698"><a href="../get-started/">Get Started</a></li><li id="s699"><a href="../tutorial/">Tutorial</a></li><li id="s700"><a href="../api/">API Reference</a></li><li id="s701"><a href="../faq/">FAQ</a></li><li class="divider"></li><li id="s702"><a href="../modules-classes/">Modules and Classes</a></li><li id="s703"><a href="../packaging/">Packaging and Extensions</a></li><li id="s704"><a href="../optimizer/">Optimizer</a></li><li id="s705"><a href="../raptor-templates/">Raptor Templates</a></li><li id="s706"><a href="../widgets/">Widgets Framework</a></li><li id="s707"><a href="../logging/">Logging</a></li><li id="s708" class="active nav-item-active"><a href="../resource-search-path/">Resource Search Path</a></li><li id="s709"><a href="../cross-environment/">Cross Environment Support</a></li></ul></li><li class="divider-vertical"></li><li id="s710" class="dropdown"><a data-toggle="dropdown" class="dropdown-toggle">Community<b class="caret"></b></a><ul class="dropdown-menu"><li id="s711"><a href="https://github.com/raptorjs/raptorjs">Source code</a></li><li id="s712"><a href="https://github.com/raptorjs/raptorjs/issues">Issue Tracker</a></li><li id="s713"><a href="../contribute/">Contribute</a></li><li id="s714"><a href="../contributors/">Contributors</a></li><li class="divider"></li><li id="s715"><a href="http://groups.google.com/group/raptorjs">Discussion Forum</a></li><li class="divider"></li><li id="s716"><a href="http://twitter.com/raptorjs">Twitter (@raptorjs)</a></li><li id="s717"><a href="http://twitter.com/raptorjs">Google+</a></li></ul></li><li class="divider-vertical"></li><li id="s718" class="dropdown"><a data-toggle="dropdown" class="dropdown-toggle">About<b class="caret"></b></a><ul class="dropdown-menu"><li id="s719"><a href="https://github.com/raptorjs/raptorjs/wiki/Release-Notes">Release Notes</a></li><li id="s720"><a href="../design-philosophy/">Design Philosophy</a></li><li id="s721"><a href="../license/">License</a></li><li id="s722"><a href="../credits/">Credits</a></li><li id="s723"><a href="../creators/">Creators</a></li></ul></li><li class="divider-vertical"></li></ul></div></div></div><div class="container"><div class="docs"><div class="bd"><div class="toc nav" id="docsNav"><ul class="toc"><li class="toc toc-level-0"><a href="#Overview">Overview</a><ul class="toc"></ul></li></ul></div><div class="docs-content"><h1 id="title">Resource Search Path</h1><div class="message message-warning"><div class="icon"><i class="icon-warning-sign" style="font-size: 30px;"></i></div><div class="bd">Documentation In-Progress</div></div><div class="section section-level-0"><h2 id="Overview">Overview</h2><div class="bd"><p></p></div></div></div></div><div class="docs-footer"></div></div><div style="clear: both"></div><div class="footer footer-single-line"><div class="container"><div class="bd"><span class="powered-by">Powered by <a href="../" class="raptorjs">RaptorJS</a> </span> &nbsp; | &nbsp; <a href="../license/">License</a>&nbsp; | &nbsp; <a href="../credits/">Credits</a><span class="back-to-top"><a href="#title">Back to Top</a></span></div></div></div></div><script type="text/javascript" src="../static/core-body-81a10a80.js"></script>
 <script type="text/javascript" src="../static/jquery-body-371da524.js"></script>
 <script type="text/javascript" src="../static/widgets-body-06552a07.js"></script>
 <script type="text/javascript" src="../static/resource-search-path-body-27a3f194.js"></script>
 <script type="text/javascript" src="../static/bootstrap-body-34d7fcf3.js"></script>
 <script type="text/javascript" src="../static/code-editor-body-a2bab28c.js"></script><script type="text/javascript">$rwidgets(
-["components.nav.Nav.NavItemWidget","s637",0,0,0,0],
-["components.nav.Nav.NavItemWidget","s638",0,0,0,0,
-["components.nav.Nav.NavItemWidget","s639",0,0,0,0],
-["components.nav.Nav.NavItemWidget","s640",0,0,0,0],
-["components.nav.Nav.NavItemWidget","s641",0,0,0,0],
-["components.nav.Nav.NavItemWidget","s642",0,0,0,0],
-["components.nav.Nav.NavItemWidget","s643",0,0,0,0],
-["components.nav.Nav.NavItemWidget","s644",0,0,0,0],
-["components.nav.Nav.NavItemWidget","s645",0,0,0,0],
-["components.nav.Nav.NavItemWidget","s646",0,0,0,0],
-["components.nav.Nav.NavItemWidget","s647",0,0,0,0],
-["components.nav.Nav.NavItemWidget","s648",0,0,0,0],
-["components.nav.Nav.NavItemWidget","s649",0,0,0,0],
-["components.nav.Nav.NavItemWidget","s650",0,0,0,0],
-["components.nav.Nav.NavItemWidget","s651",0,0,0,0]],
-["components.nav.Nav.NavItemWidget","s652",0,0,0,0,
-["components.nav.Nav.NavItemWidget","s653",0,0,0,0],
-["components.nav.Nav.NavItemWidget","s654",0,0,0,0],
-["components.nav.Nav.NavItemWidget","s655",0,0,0,0],
-["components.nav.Nav.NavItemWidget","s656",0,0,0,0],
-["components.nav.Nav.NavItemWidget","s657",0,0,0,0],
-["components.nav.Nav.NavItemWidget","s658",0,0,0,0],
-["components.nav.Nav.NavItemWidget","s659",0,0,0,0]],
-["components.nav.Nav.NavItemWidget","s660",0,0,0,0,
-["components.nav.Nav.NavItemWidget","s661",0,0,0,0],
-["components.nav.Nav.NavItemWidget","s662",0,0,0,0],
-["components.nav.Nav.NavItemWidget","s663",0,0,0,0],
-["components.nav.Nav.NavItemWidget","s664",0,0,0,0],
-["components.nav.Nav.NavItemWidget","s665",0,0,0,0]]);</script></body></html>
+["components.nav.Nav.NavItemWidget","s695",0,0,0,0],
+["components.nav.Nav.NavItemWidget","s696",0,0,0,0,
+["components.nav.Nav.NavItemWidget","s697",0,0,0,0],
+["components.nav.Nav.NavItemWidget","s698",0,0,0,0],
+["components.nav.Nav.NavItemWidget","s699",0,0,0,0],
+["components.nav.Nav.NavItemWidget","s700",0,0,0,0],
+["components.nav.Nav.NavItemWidget","s701",0,0,0,0],
+["components.nav.Nav.NavItemWidget","s702",0,0,0,0],
+["components.nav.Nav.NavItemWidget","s703",0,0,0,0],
+["components.nav.Nav.NavItemWidget","s704",0,0,0,0],
+["components.nav.Nav.NavItemWidget","s705",0,0,0,0],
+["components.nav.Nav.NavItemWidget","s706",0,0,0,0],
+["components.nav.Nav.NavItemWidget","s707",0,0,0,0],
+["components.nav.Nav.NavItemWidget","s708",0,0,0,0],
+["components.nav.Nav.NavItemWidget","s709",0,0,0,0]],
+["components.nav.Nav.NavItemWidget","s710",0,0,0,0,
+["components.nav.Nav.NavItemWidget","s711",0,0,0,0],
+["components.nav.Nav.NavItemWidget","s712",0,0,0,0],
+["components.nav.Nav.NavItemWidget","s713",0,0,0,0],
+["components.nav.Nav.NavItemWidget","s714",0,0,0,0],
+["components.nav.Nav.NavItemWidget","s715",0,0,0,0],
+["components.nav.Nav.NavItemWidget","s716",0,0,0,0],
+["components.nav.Nav.NavItemWidget","s717",0,0,0,0]],
+["components.nav.Nav.NavItemWidget","s718",0,0,0,0,
+["components.nav.Nav.NavItemWidget","s719",0,0,0,0],
+["components.nav.Nav.NavItemWidget","s720",0,0,0,0],
+["components.nav.Nav.NavItemWidget","s721",0,0,0,0],
+["components.nav.Nav.NavItemWidget","s722",0,0,0,0],
+["components.nav.Nav.NavItemWidget","s723",0,0,0,0]]);</script></body></html>

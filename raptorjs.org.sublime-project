@@ -29,6 +29,24 @@
 		{
 			"cmd":
 			[
+				"${project_path}/src/publish-dev",
+				"page=raptor-templates"
+			],
+			"name": "Publish (dev) - raptor-templates",
+			"working_dir": "${project_path}/src"
+		},
+		{
+			"cmd":
+			[
+				"${project_path}/src/publish-dev",
+				"page=/raptor-templates/developer-guide"
+			],
+			"name": "Publish (dev) - raptor-templates-developer-guide",
+			"working_dir": "${project_path}/src"
+		},
+		{
+			"cmd":
+			[
 				"${project_path}/publish-to-github"
 			],
 			"name": "Publish to Github",
@@ -50,6 +68,8 @@
 		[
 			"Publish (dev)",
 			"Publish (dev) - optimizer",
+			"Publish (dev) - raptor-templates",
+			"Publish (dev) - raptor-templates-developer-guide",
 			"Publish to Github"
 		]
 	}
