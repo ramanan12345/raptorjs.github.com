@@ -23,6 +23,7 @@ BODY > DIV.container {
 }
 
 .docs .section {
+    clear: both;
 }
 
 /*

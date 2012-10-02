@@ -30,6 +30,24 @@
 			"cmd":
 			[
 				"${project_path}/src/publish-dev",
+				"page=/optimizer/get-started"
+			],
+			"name": "Publish (dev) - optimizer-get-started",
+			"working_dir": "${project_path}/src"
+		},
+		{
+			"cmd":
+			[
+				"${project_path}/src/publish-dev",
+				"page=/optimizer/developer-guide"
+			],
+			"name": "Publish (dev) - optimizer-developer-guide",
+			"working_dir": "${project_path}/src"
+		},
+		{
+			"cmd":
+			[
+				"${project_path}/src/publish-dev",
 				"page=raptor-templates"
 			],
 			"name": "Publish (dev) - raptor-templates",
@@ -51,6 +69,35 @@
 			],
 			"name": "Publish to Github",
 			"working_dir": "${project_path}"
+		},
+		{
+			"cmd":
+			[
+				"raptor-jsdoc",
+				"src=node_modules/raptor/lib/raptor/raptor_modules/",
+				"output-dir=api",
+				"profile=production",
+				"include-filename=true",
+				"publish=true",
+				"props=node_modules/raptor/package.json,node_modules/raptor/jsdoc-props.json",
+				"clean=api"
+			],
+			"name": "jsdoc",
+			"working_dir": "${project_path}"
+		},
+		{
+			"cmd":
+			[
+				"raptor-jsdoc",
+				"src=node_modules/raptor/lib/raptor/raptor_modules/",
+				"output-dir=api",
+				"profile=development",
+				"include-filename=true",
+				"props=node_modules/raptor/package.json,node_modules/raptor/jsdoc-props.json",
+				"clean=api"
+			],
+			"name": "jsdoc (dev)",
+			"working_dir": "${project_path}"
 		}
 	],
 	"folders":
@@ -66,8 +113,12 @@
 	{
 		"build_switcher_systems":
 		[
+			"jsdoc",
+			"jsdoc (dev)",
 			"Publish (dev)",
 			"Publish (dev) - optimizer",
+			"Publish (dev) - optimizer-get-started",
+			"Publish (dev) - optimizer-developer-guide",
 			"Publish (dev) - raptor-templates",
 			"Publish (dev) - raptor-templates-developer-guide",
 			"Publish to Github"

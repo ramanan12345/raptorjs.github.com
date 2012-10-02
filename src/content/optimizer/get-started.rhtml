@@ -10,18 +10,121 @@
             
         <docs:section heading="Overview">
             <p>
-
+                Once you have <a href="${url('/get-started')}">Node up-and-running</a>, you can then very quickly
+                start using the RaptorJS to generate optimized JavaScript and CSS bundles, as well as
+                the HTML markup that is needed to include those bundles in your web page.
+            </p>
+            <p>
+                The RaptorJS Optimizer includes a simple JavaScript API for generating optimized bundles and
+                HTML markup. In addition, a custom taglib for <a href="${url('/raptor-templates')}">Raptor Templates</a>
+                is provided to make it even easier to build optimized pages. This guide will
+                show you how to start using the JavaScript API and then provide details on using the
+                RaptorJS Optimizer Taglib so that you don't have to write any JavaScript code to optimize
+                your pages.
             </p>
         </docs:section>
 
         <docs:section heading="Creating a Package">
             <p>
+                <img src="${url('/images/package.png')}" width="128" height="128" class="section-icon"/>
+                The first step to generating optimized web pages is to create packages for all of your modules. A module
+                is a collection of related resources that work together to provide functionality in your application. 
+                Modules can consist of resources of any type (JavaScript, CSS, LESS, Raptor Templates, etc.) and
+                modules can have dependencies on other modules.
+                Packages are necessary so that the optimizer will understand the dependencies in your application.
+                A package is defined using a simple <code>package.json</code> file. The RaptorJS Optimizer
+                utilizes the same format of package files described in the documentation for the
+                <a href="${url('/packaging')}">
+                    RaptorJS Packaging System
+                </a>. The packaging format is quickly described in this guide, but for more advanced usage please
+                see the developer guide for the <a href="${url('/packaging')}">
+                    RaptorJS Packaging System
+                </a>.
             </p>    
+            <docs:section heading="Directory Structure">
+                <p>
+                    A <code>package.json</code> file should be placed in a directory that corresponds to a module name.
+                    For example, the corresponding <code>package.json</code> file for a module named "test.hello"
+                    should be placed in the following location:
+                    <code><nobr>${entity:lt}modules-dir>/test/hello/package.json</nobr></code>. 
+                    In order for the RaptorJS Optimizer to be able
+                    to find your modules, you need to add the root directory containing your modules to the
+                    <a href="${url('/resource-search-path')}">
+                        <nobr>RaptorJS Resource Search Path</nobr>
+                    </a> as shown in the following code:
+                </p>
+<docs:code-editor 
+    mode="javascript"
+    readOnly="true" 
+    c:parse-body-text="false"
+><![CDATA[raptor.require("resources").addSearchPathDir("/path/to/modules");]]></docs:code-editor>
+            </docs:section>
+
+            <docs:section heading="Package Files">
+                <p>
+                    At a minimum, a package needs to describe what is included in the package.
+                    This is done by adding a "includes" property to a package.json file that is
+                    an array of resources that should be included as part of the package. 
+                    A simple <code>package.json</code> is shown below:
+                </p>
+<docs:code-editor 
+    mode="javascript"
+    readOnly="true" 
+    c:parse-body-text="false"
+><![CDATA[{
+    "includes": [
+        "my-widget.js",
+        "my-css-stylesheet.css",
+        "my-less-stylesheet.less",
+        "my-template.rhtml"
+    ]
+}]]></docs:code-editor>
+                <p>
+                    The above <code>package.json</code> file includes four resources. The RaptorJS Packaging System
+                    is flexible enough to support any type of resource, including resources that need to be compiled
+                    into either JavaScript or CSS (such as <a href="http://lesscss.org">LESS</a> CSS and 
+                    <a href="${url('/raptor-templates')}">Raptor Template</a> files). Resource paths
+                    that are not prefixed with a forward slash ("/") are treated as paths relative to the location
+                    of the <code>package.json</code> file. Paths that are prefixed with a forward slash
+                    are treated as relative to at least one of the resource search path entries 
+                    defined for your application.
+                </p>
+                <p>
+                    In addition to declaring which resources are included as part of a package, a <code>package.json</code>
+                    file can also declare that it depends on another module (i.e., another <code>package.json</code> file).
+                    A module dependency can be added using adding <code>{ "module": "${entity:lt}module-name>" }</code>
+                    entries as shown in the following example:
+                </p>
+<docs:code-editor 
+    mode="javascript"
+    readOnly="true" 
+    c:parse-body-text="false"
+><![CDATA[{
+    "includes": [
+        { "module": "widgets" },
+        { "module": "templating" },
+        "my-widget.js",
+        "my-css-stylesheet.css",
+        "my-less-stylesheet.less",
+        "my-template.rhtml"
+    ]
+}]]></docs:code-editor>
+            </docs:section>
+    
         </docs:section>
 
         <docs:section heading="Describing Page Dependencies">
             <p>
-                    
+                <img src="${url('/images/page-dependencies.png')}" width="128" height="128" class="section-icon"/>
+                The RaptorJS optimizer describes a few options for declaring page dependencies:
+                <ul>
+                    <li>
+                        Creating <code>package.json</code> files for your pages
+                    </li>
+                    <li>
+                        Inline page dependencies in Raptor Template files (using the <a href="#Taglib">Optimizer Taglib</a>)
+                    </li>
+                </ul>
             </p>    
         </docs:section>
 
@@ -37,7 +140,7 @@
             </p>    
         </docs:section>
 
-        <docs:section heading="Custom Taglib for Raptor Templates">
+        <docs:section heading="Optimizer Taglib" anchor-name="Taglib">
             <p>
                     
             </p>    
