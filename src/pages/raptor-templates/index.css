@@ -1,44 +1,81 @@
-BODY > .content {
+body > .container {
     margin-top: 50px;
     width: 960px;
     margin-left: auto;
     margin-right: auto;
 }
 
-BODY > .content > H1 {
-    padding-top: 20px;
+.icon {
+    float: left;
+    width: 48px;
+    height: 48px;
+    display: block;
+    margin-right: 10px;
+    margin-bottom: 10px;
 }
 
-.try-it {
-    float: right;
-    width: 450px;
+.section-row {
+    
+}
+
+.section {
+    width: 40%;
+    float: left;
     -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
     -moz-box-sizing: border-box;    /* Firefox, other Gecko */
     box-sizing: border-box;         /* Opera/IE 8+ */
-    padding: 10px;
-    border: 1px solid #C0C0C0;
-    margin: 10px;
-    background-color: #EEE;
+    margin-left: 5%;
+    margin-right: 5%;
 }
 
-.try-it > H1 {
-    text-align: center;
-    padding: 0;
-    margin: 0;
-    font-size: 26px;
+.top {
+    padding-top: 30px;
+    margin-bottom: 15px;
 }
 
-.try-it > .desc {
-    text-align: center;
-    padding: 0;
-    margin: 0;
+.desc {
+    background-color: #E5E5E5;
+    width: 600px;
+    padding: 30px;
+    -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+    -moz-box-sizing: border-box;    /* Firefox, other Gecko */
+    box-sizing: border-box;         /* Opera/IE 8+ */
+    float: left;
+    text-align: justify;
     font-size: 16px;
+    border-radius: 20px;
+    margin-right: 20px;
+
 }
 
-TABLE.table.expression-operators {
-    width: auto;
+.features {
+    float: left;
+    width: 340px;
 }
 
-TABLE.sizes.table {
-    width: auto;
+.continue {
+    text-align: right;
+}
+
+.section-dev-guide {
+    margin-top: 62px;
+}
+
+.section-try-online H3 > A {
+    z-index: 100;
+    position: absolute;
+}
+
+.section H3 {
+    height: 30px;
+}
+
+.start-here {
+    width: 165px;
+    height: 62px;
+    position: relative;
+    background-image: url(start-here.png);
+    top: 23px;
+    left: -44px;
+    z-index: 99;
 }

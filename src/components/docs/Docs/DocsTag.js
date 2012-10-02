@@ -51,7 +51,9 @@ raptor.define(
                 raptor.require('templating').render('components/docs/Docs', {
                     heading: input.heading,
                     content: sb.toString(),
-                    rootSection: sectionStack[0]
+                    rootSection: sectionStack[0],
+                    returnLabel: input['return-label'],
+                    returnHref: input['return-href']
                 }, context);
             }
         };

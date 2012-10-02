@@ -2,6 +2,8 @@
 
     <tag name="docs" handler-class="components.docs.Docs.DocsTag">
         <attribute name="heading" type="string"/>
+        <attribute name="return-label" type="string"/>
+        <attribute name="return-href" type="string"/>
     </tag>
     
 </raptor-taglib>

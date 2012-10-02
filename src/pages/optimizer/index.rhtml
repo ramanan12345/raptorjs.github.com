@@ -3,19 +3,18 @@
     xmlns:optimizer="optimizer"
     xmlns:w="widgets"
     xmlns:docs="docs"
-    params="includes,samples"
-    docs:functions="url">
+    docs:functions="url"
+    params="includes,samples">
 
     <optimizer:page name="${data.pageName}" base-path="${data.pageOutputDir}">
         <includes>
             <module name="docs-global"/>
             <module name="components/nav/TopNavDefault"/>
-            <module name="components/docs/Docs"/>
             <module name="components/icons/Icon"/>
             <css path="index.css"/>
         </includes>
     </optimizer:page>
-
+    
     <![CDATA[<!doctype html>]]>
     
     <html>
@@ -25,13 +24,94 @@
             <optimizer:slot name="head"/>
             <docs:google-analytics/>
         </head>
-        <body>
-            <docs:top-nav activeItem="optimizer"/>
-            
-            
+        <body data-spy="scroll">
+            <docs:top-nav activeItem="raptor-templates"/>
             <div class="container">
-                <c:include template="content/optimizer"/>
+                <div class="top">
+
+                    <div class="desc">
+                        <h1>RaptorJS Optimizer</h1>
+                        <p>
+                            The RaptorJS Optimizer makes managing complex JavaScript and CSS 
+                            dependencies almost effortless while helping you
+                            produce extremely optimized web pages for the enjoyment of your users. 
+                        </p>
+                        <p>
+                            Unlike other optimizers, the RaptorJS Optimizer does not care how you write your
+                            code.  Simply tell the optimizers which modules your
+                            page depends and it will take care of the rest—including
+                            writing optimized JavaScript and CSS bundles to disk <i>and</i>
+                            generating the HTML that is required to include those bundles. All dependencies
+                            are described using rich packaging metadata files that are easy to maintain and
+                            allow you to leverage the full power of the <a href="${url('/packaging')}">RaptorJS Packaging</a>
+                            system.
+                        </p>
+                        <p>
+                            Every application has different requirements so the RaptorJS Optimizer
+                            gives you full control over how resources are combined and where
+                            to include resources on your HTML pages. Its ease-of-use and flexibility make it perfect for
+                            any size application. Best of all, the RaptorJS Optimizer is designed so
+                            that it can easily be used at runtime—freeing you from yet another build tool.
+                        </p>
+                    </div>
+                    <div class="features">
+                        <h2>Features</h2>
+                        <ul>
+                            <li>Source Code Agnostic</li>
+                            <li>Custom Resource Compilers</li>
+                            <li>Reduces the Number of HTTP Requests</li>
+                            <li>Generates Optimized Bundles</li>
+                            <li>Generates HTML to Include Bundles</li>
+                            <li>Optimized Asynchronous Module Loader</li>
+                            <li>Consistent Bundles Across Pages</li>
+                            <li><i>All</i> URLs Include Checksums</li>
+                            <li>CDN Support</li>
+                            <li>Utilizes <a href="${url('/packaging')}">RaptorJS Packaging</a></li>
+                            <li>Supports In-place Deployment</li>
+                            <li>Easily Configurable</li>
+                            <li>Custom Filters for Minification, etc.</li>
+                            <li>Simple JavaScript API</li>
+                        </ul>
+                    </div>
+                    
+                    
+                </div>
+                <div class="section-row">
+                    <div class="section">
+                        <div class="content">
+                            <h3>
+                                <a href="${url('/optimizer/try-online')}">Get Started</a>
+                            </h3>
+                            <div class="bd">
+                                <p>
+                                    Learn how to easily start benefiting from the RaptorJS
+                                    Optimizer in your web application.
+                                </p>
+                                <div class="continue">
+                                    <a href="${url('/raptor-templates/try-online')}">Continue Reading ${entity:raquo}</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="section section-dev-guide">
+                        <div class="content">
+                            <h3>
+                                <a href="${url('/raptor-templates/developer-guide')}">Developer Guide</a>
+                            </h3>
+                            <div class="bd">
+                                <p>
+                                    An in-depth look at utilizing and
+                                    adapting the RaptorJS Optimizer to meet your needs.
+                                </p>
+                                <div class="continue">
+                                    <a href="${url('/raptor-templates/developer-guide')}">Continue Reading ${entity:raquo}</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
+            
             
             <optimizer:slot name="body"/>
             

@@ -3,13 +3,13 @@
     xmlns:optimizer="optimizer"
     xmlns:w="widgets"
     xmlns:docs="docs"
+    docs:functions="url"
     params="includes,samples">
 
     <optimizer:page name="${data.pageName}" base-path="${data.pageOutputDir}">
         <includes>
             <module name="docs-global"/>
             <module name="components/nav/TopNavDefault"/>
-            <module name="components/docs/Docs"/>
             <module name="components/icons/Icon"/>
             <css path="index.css"/>
         </includes>
@@ -27,7 +27,83 @@
         <body data-spy="scroll">
             <docs:top-nav activeItem="raptor-templates"/>
             <div class="container">
-                <c:include template="content/raptor-templates"/>
+                <div class="top">
+
+                    <div class="desc">
+                        <h1>Raptor Templates</h1>
+                        <p>
+                            Raptor Templates is an amazing new templating language
+                            that beautifully blends powerful templating directives 
+                            with HTML tags. Equally effective in both the browser
+                            and on the server, use Raptor Templates <i>wherever</i> you want to produce
+                            HTML.
+                        </p>
+                        <p>
+                            No other templating language makes
+                            it so effortless to produce easily readable templates
+                            that are blazingly fast with such a miniscule footprint.
+                        </p>
+                        <p>
+                            So say goodbye to the dogmatic and limiting templating languages 
+                            of old...and enjoy the freedom of this extremely extensible
+                            alternative that puts you in control!
+                        </p>
+                    </div>
+                    <div class="features">
+                        <h2>Features</h2>
+                        <ul>
+                            <li>Not Dogmatic</li>
+                            <li>Extensible</li>
+                            <li>XML-based</li>
+                            <li>JavaScript Runtime and Compiler</li>
+                            <li>Cross-environment</li>
+                            <li>Static Validation</li>
+                            <li>Custom Taglibs</li>
+                            <li>Optimized Runtime</li>
+                            <li>Advanced Compiler</li>
+                            <li>Tiny Compiled Output</li>
+                            <li>Smart Whitespace Removal</li>
+                            <li>User Friendly Error Messages</li>
+                            <li>Easily Debuggable</li>
+                        </ul>
+                    </div>
+                    
+                    
+                </div>
+                <div class="section-row">
+                    <div class="section section-try-online">
+                        <div class="content">
+                            <div class="start-here"/>
+                            <h3>
+                                <a href="${url('/raptor-templates/try-online')}">Try Online</a>
+                            </h3>
+                            <div class="bd">
+                                <p>
+                                    Edit Raptor Templates in your browser with instant results!
+                                </p>
+                                <div class="continue">
+                                    <a href="${url('/raptor-templates/try-online')}">Continue Reading ${entity:raquo}</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="section section-dev-guide">
+                        <div class="content">
+                            <h3>
+                                <a href="${url('/raptor-templates/developer-guide')}">Developer Guide</a>
+                            </h3>
+                            <div class="bd">
+                                <p>
+                                    An in-depth look at utilizing and
+                                    extending Raptor Templates.
+                                </p>
+                                <div class="continue">
+                                    <a href="${url('/raptor-templates/developer-guide')}">Continue Reading ${entity:raquo}</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
             
             
