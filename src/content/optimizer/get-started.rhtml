@@ -110,28 +110,123 @@
     ]
 }]]></docs:code-editor>
             </docs:section>
+
+            <docs:section heading="Resource Slotting">
+                <p>
+                    The RaptorJS Optimizer allows resources to be targeted to specific locations
+                    on HTML page by assigning "slot" names to resource includes. A slot
+                    is just unique name that should correspond to a location on an HTML page.
+                    An application can make use of as many resource slots that it needs.
+                    By default, all CSS resources will be targeted for a slot named "head" and 
+                    all JavaScript resources will be targeted for a slot named "body". The following
+                    example illustrates how to retarget a resource for a custom slot for a
+                    resource included inside a <code>package.json</code> file:
+                </p>
+<docs:code-editor 
+    mode="javascript"
+    readOnly="true" 
+    c:parse-body-text="false"
+><![CDATA[{
+    "includes": [
+        ...
+        { "path": "my-widget.js", "slot": "my-custom-slot" }
+        ...
+    ]
+}]]></docs:code-editor>
+            </docs:section>
     
         </docs:section>
 
         <docs:section heading="Describing Page Dependencies">
             <p>
                 <img src="${url('/images/page-dependencies.png')}" width="128" height="128" class="section-icon"/>
-                The RaptorJS optimizer describes a few options for declaring page dependencies:
-                <ul>
-                    <li>
-                        Creating <code>package.json</code> files for your pages
-                    </li>
-                    <li>
-                        Inline page dependencies in Raptor Template files (using the <a href="#Taglib">Optimizer Taglib</a>)
-                    </li>
-                </ul>
+                The RaptorJS optimizer describes a few options for declaring page dependencies. You can choose
+                to create <code>package.json</code> files for your pages to describe the dependencies for
+                each page. Another option, that is described later, is to inline page dependencies in Raptor Template files using the <a href="#Taglib">Optimizer Taglib</a>).
             </p>    
+            <p>
+                A <code>package.json</code> for page is no different from a <code>package.json</code>
+                file for a module. A page's <code>package.json</code> file can be placed in
+                any location that is convenient for your application.
+                Once you have created a <code>package.json</code> for your page you are now ready
+                to optimize your page as described in the next section.
+            </p>
         </docs:section>
 
         <docs:section heading="Optimizing a Page">
             <p>
-                    
+                <img src="${url('/images/optimized-delivery.png')}" width="128" height="128" class="section-icon"/>
+                The RaptorJS Optimizer provides a simple JavaScript API. The default configuration will
+                write all bundles to a "static" directory in the current working directory for the running process.
+                In addition, the default configuration will use "/static/" as the URL prefix for all
+                resource URLs. In addition, by default, no minification or other filters are applied
+                to JavaScript and CSS code. Lastly, the default configuration configures no bundles so
+                all resources of the same content type (i.e., either CSS or JavaScript) targeted
+                for the same slot will be bundled together.
             </p>    
+            <docs:section heading="Example Setup">
+                As an example will use the following directory structure:
+                <ul>
+                    <li>
+                        <b>/path/to/my-app/</b>
+                        <ul>
+                            <li>
+                                <b>modules/</b>
+                                <ul>
+                                    <li>
+                                        <b>module-a/</b>
+                                        <ul>
+                                            <li>
+                                                package.json
+                                            </li>
+                                            <li>
+                                                module-a.js
+                                            </li>
+                                            <li>
+                                                module-a.css
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        <b>module-b/</b>
+                                        <ul>
+                                            <li>
+                                                package.json
+                                            </li>
+                                            <li>
+                                                module-b.js
+                                            </li>
+                                            <li>
+                                                module-b.css
+                                            </li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>
+                                <b>pages/</b>
+                                <ul>
+                                    <li>
+                                        <b>test-page/</b>
+                                        <ul>
+                                            <li>
+                                                package.json
+                                            </li>
+                                            <li>
+                                                test-page.js
+                                            </li>
+                                            <li>
+                                                test-page.css
+                                            </li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </docs:section>
+    
         </docs:section>
 
         <docs:section heading="Configuring the Optimizer">

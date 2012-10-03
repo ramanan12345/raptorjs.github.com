@@ -98,6 +98,16 @@
 			],
 			"name": "jsdoc (dev)",
 			"working_dir": "${project_path}"
+		},
+		{
+			"cmd":
+			[
+				"jasmine-node",
+				"raptor-optimizer-spec.js",
+				"--noColor"
+			],
+			"name": "test - optimizer",
+			"working_dir": "${project_path}/node_modules/raptor/test"
 		}
 	],
 	"folders":
@@ -107,12 +117,16 @@
 		},
 		{
 			"path": "/Users/psteeleidem/development/ebay/github/Raptor/RaptorJSOpenSource/src/main/resources/META-INF/resources/raptor_modules"
+		},
+		{
+			"path": "/Users/psteeleidem/development/ebay/github/Raptor/RaptorJSOpenSource/test"
 		}
 	],
 	"settings":
 	{
 		"build_switcher_systems":
 		[
+			"test - optimizer",
 			"jsdoc",
 			"jsdoc (dev)",
 			"Publish (dev)",
