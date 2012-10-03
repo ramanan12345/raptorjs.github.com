@@ -278,7 +278,7 @@ $ node run-optimizer.js
                 {
                     'htmlBySlot': {
                         'body': '<script type="text/javascript" src="/static/test-page-body-f01892af.js"></script>',
-                        'head': '<link rel="stylesheet" type="text/css" href="/static/test-page-head-bf4cf798.css" />'
+                        'head': '<link rel="stylesheet" type="text/css" href="/static/test-page-head-bf4cf798.css">'
                     },
                     'loaderMetadata': {}
                 }
@@ -397,9 +397,10 @@ $ node run-optimizer.js
                     depends on a resource that is part of a bundle then the entire
                     bundle will be included in the optimized page. By default,
                     any resource that is not part of a bundle is bundled with
-                    all other resources that are not part of a bundle. If
-                    resources are used across multiple pages, or if you want
-                    to have have multiple resources be downloaded in parallel then
+                    all other resources that are not part of a bundle and are of the same content type 
+                    and targeted for the same slot. If
+                    resources are used across multiple pages, or if you would to enable
+                    the web browser to downloaded multiple resource bundles in parallel then
                     it is important to define resource bundles for your application.
                 </p>
                 <p>
@@ -482,8 +483,88 @@ $ node run-optimizer.js
 
         <docs:section heading="Optimizer Taglib" anchor-name="Taglib">
             <p>
-                    
-            </p>    
+                A custom Raptor Templates Taglib is provided to make optimizing pages with the RaptorJS Optimizer
+                extremely. Below is a sample page built using Raptor Templates:
+            </p>
+            <docs:code-editor 
+                mode="xml"
+                readOnly="true" 
+                c:parse-body-text="false">
+            <![CDATA[
+            
+            <c:template
+                xmlns:c="core"
+                xmlns:optimizer="optimizer">
+                
+                <optimizer:page name="test-page">
+                    <includes>
+                        <module name="module-a"/>
+                        <module name="module-b"/>
+                        <css path="test-page.css"/>
+                        <css path="test-page.css"/>
+                        <js path="test-page.js"/>
+                    </includes>
+                </optimizer:page>
+                
+                <html>
+                    <head>
+                        <title>Test Page</title>
+                        <optimizer:slot name="head"/>
+                    </head>
+                    <body>
+                        Hello World!
+                        <optimizer:slot name="body"/>
+                    </body>
+                </html>
+            </c:template>
+
+            ]]>
+            </docs:code-editor>
+            <p>
+                When the above Raptor Template is rendered the output is the following:
+            </p>
+            <docs:code-editor 
+                mode="htmlmixed"
+                readOnly="true" 
+                c:parse-body-text="false">
+            <![CDATA[
+            <html>
+                <head>
+                    <title>Test Page</title>
+                    <link rel="stylesheet" type="text/css" href="/static/test-page-head-bf4cf798.css">
+                </head>
+                <body>
+                    Hello World!
+                    <script type="text/javascript" src="/static/test-page-body-f01892af.js"></script>
+                </body>
+            </html>
+            ]]>
+            </docs:code-editor>
+
+            <docs:message type="info">
+                NOTE: By default, the Optimizer Taglib uses the global optimizer configured using the 
+                <code>optimizer.configure(...)</code> method as shown in the following example:
+                <docs:code-editor 
+                    mode="javascript"
+                    readOnly="true" 
+                    c:parse-body-text="false">
+                <![CDATA[
+
+                raptor.require('optimizer').configure('path/to/optimizer-config.xml', {
+                    minify: false
+                })
+
+                ]]>
+                </docs:code-editor>
+            </docs:message>
+
+            <p>
+                For a more advanced usages of the Optimizer Taglib, please see the full
+                documentation for the
+                <a href="${url('/optimizer/taglib')}">
+                    Optimizer Taglib
+                </a>
+            </p>
         </docs:section>
         
     </docs:docs>
