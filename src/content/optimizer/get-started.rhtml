@@ -12,7 +12,7 @@
             <p>
                 Once you have <a href="${url('/get-started')}">Node up-and-running</a>, you can then very quickly
                 start using the RaptorJS to generate optimized JavaScript and CSS bundles, as well as
-                the HTML markup that is needed to include those bundles in your web page.
+                the HTML markup that is needed to include those bundles in your web pages.
             </p>
             <p>
                 The RaptorJS Optimizer includes a simple JavaScript API for generating optimized bundles and
@@ -85,7 +85,7 @@
                     into either JavaScript or CSS (such as <a href="http://lesscss.org">LESS</a> CSS and 
                     <a href="${url('/raptor-templates')}">Raptor Template</a> files). Resource paths
                     that are not prefixed with a forward slash ("/") are treated as paths relative to the location
-                    of the <code>package.json</code> file. Paths that are prefixed with a forward slash
+                    of the containing <code>package.json</code> file. Paths that are prefixed with a forward slash
                     are treated as relative to at least one of the resource search path entries 
                     defined for your application.
                 </p>
@@ -142,10 +142,10 @@
                 <img src="${url('/images/page-dependencies.png')}" width="128" height="128" class="section-icon"/>
                 The RaptorJS optimizer describes a few options for declaring page dependencies. You can choose
                 to create <code>package.json</code> files for your pages to describe the dependencies for
-                each page. Another option, that is described later, is to inline page dependencies in Raptor Template files using the <a href="#Taglib">Optimizer Taglib</a>).
+                each page. Another option, that is described later, is to inline page dependencies in Raptor Template files using the <a href="#Taglib">Optimizer Taglib</a>.
             </p>    
             <p>
-                A <code>package.json</code> for page is no different from a <code>package.json</code>
+                A <code>package.json</code> for a page is no different from a <code>package.json</code>
                 file for a module. A page's <code>package.json</code> file can be placed in
                 any location that is convenient for your application.
                 Once you have created a <code>package.json</code> for your page you are now ready
@@ -156,16 +156,17 @@
         <docs:section heading="Optimizing a Page">
             <p>
                 <img src="${url('/images/optimized-delivery.png')}" width="128" height="128" class="section-icon"/>
-                The RaptorJS Optimizer provides a simple JavaScript API. The default configuration will
-                write all bundles to a "static" directory in the current working directory for the running process.
+                The RaptorJS Optimizer provides a simple JavaScript API that can be utitlized
+                to generate optimized bundles and HTML markup. The default configuration will
+                write all bundles to a "static" directory in the current working directory of the running process.
                 In addition, the default configuration will use "/static/" as the URL prefix for all
                 resource URLs. In addition, by default, no minification or other filters are applied
                 to JavaScript and CSS code. Lastly, the default configuration configures no bundles so
                 all resources of the same content type (i.e., either CSS or JavaScript) targeted
-                for the same slot will be bundled together.
+                for the same slot will be automically bundled together.
             </p>    
             <docs:section heading="Example Setup">
-                As an example will use the following directory structure:
+                For this guide, we will use the following directory structure:
                 <ul>
                     <li>
                         <b>/path/to/my-app/</b>
@@ -222,17 +223,175 @@
                                     </li>
                                 </ul>
                             </li>
+                            <li>
+                                run-optimizer.js
+                            </li>
                         </ul>
                     </li>
                 </ul>
+                <p>
+                    The sample code for this guide can be downloaded using the following link:
+                    <a href="${url('/resources/optimizer/optimizer-get-started-sample-code.zip')}">RaptorJS Optimizer: Get Started - Sample Code</a>
+                </p>
+            </docs:section>
+
+            <docs:section heading="Using the JavaScript API">
+                <p>
+                    If you are okay with the defaults, you can easily optimize the "test-page" from the example above using the
+                    following JavaScript code:
+                </p>
+<docs:code-editor 
+    mode="javascript"
+    readOnly="true" 
+    c:parse-body-text="false"
+><![CDATA[require('raptor').create();
+
+var files = raptor.require('files'),
+    resources = raptor.require('resources'),
+    optimizer = raptor.require('optimizer');
+
+resources.addSearchPathDir(files.joinPaths(__dirname, 'modules'));
+
+var optimizedPage = optimizer.optimizePage({
+    name: 'test-page',
+    packageFile: files.joinPaths(__dirname, 'pages/test-page/package.json')
+});]]></docs:code-editor>
+                <p>
+                    Assuming the above script is saved to a file name "run-optimizer.js", 
+                    the following commands should be used to execute the above program from the root directory of the application:
+                </p>
+<pre class="sh" xml:space="preserve">
+$ npm install raptor
+$ node run-optimizer.js
+</pre>
+                <p>
+                    After running the above commands, the value of the <code>optimizedPage</code> variable will
+                    be the following (formatted as JSON):
+                </p>
+<docs:code-editor 
+    mode="javascript"
+    readOnly="true" 
+    c:parse-body-text="false"
+><![CDATA[{
+    'htmlBySlot': {
+        'body': '<script type="text/javascript" src="/static/test-page-body-f01892af.js"></script>',
+        'head': '<link rel="stylesheet" type="text/css" href="/static/test-page-head-bf4cf798.css" />'
+    },
+    'loaderMetadata': {}
+}]]></docs:code-editor>
+                <p>
+                    In addition, the call to <code>optimizer.optimizePage(...)</code> in the above application will 
+                    cause the following
+                    files to be written to the <code>static</code> directory:
+                </p>
+                <ul>
+                    <li>
+                        test-page-body-f01892af.js
+                    </li>
+                    <li>
+                        test-page-head-bf4cf798.css
+                    </li>
+                </ul>
+
+                
+            </docs:section>
+
+            <docs:section heading="Injecting HTML Markup">
+                <p>
+                    For the RaptorJS Optimizer to be helpful you will need
+                    to inject the resulting HTML into the appropriate locations
+                    in your HTML page. To do this, you will typically use your 
+                    favorite templating language. For illustration purposes only,
+                    if a templating language were not being used, the following
+                    crude JavaScript code could be used to inject
+                    the HTML for the resource slots:
+                </p>
+<docs:code-editor 
+    mode="javascript"
+    readOnly="true" 
+    c:parse-body-text="false"
+><![CDATA[var pageHtml = 
+    '<html><head><title>Test Page</title>' + 
+    optimizedPage.getSlotHtml('head') + 
+    '</head><body>Hello World' + 
+    optimizedPage.getSlotHtml('body') + 
+    '</body></html>';]]></docs:code-editor>
+                <p>
+                    An Optimizer Taglib is provided for the Raptor Templating
+                    language and this taglib makes it extremely simple to define
+                    page dependencies and to inject slot HTML
+                    into a page. In addition, the Optimizer Taglib
+                    will cache the results of a call to
+                    <code>optimizePage()</code> so that runtime
+                    performance is not impacted after the optimized page bundles
+                    are generated for the first time. Utilizing
+                    the Optimizer Taglib is described later in this guide.
+                </p>
             </docs:section>
     
         </docs:section>
 
         <docs:section heading="Configuring the Optimizer">
             <p>
-                    
+                In most cases, you will want to configure the RaptorJS Optimizer
+                based on how the optimized web application will be deployed. The RaptorJS Optmizer
+                is extremely configurable and even supports multiple profiles so that
+                you can easily switch between different configurations for
+                development, production, etc. The RaptorJS Optimizer supports
+                an XML configuration file that makes it easy to enable
+                or disable minification, to control how modules are bundled,
+                to control how resource URLs are generated, etc.
             </p>    
+            <docs:section heading="XML Configuration File">
+                <p>
+                    A simple configuration file is shown below:
+                </p>
+<docs:code-editor 
+    mode="xml"
+    readOnly="true" 
+    c:parse-body-text="false"
+><![CDATA[<optimizer-config>
+
+    <minify-js>${minify}</minify-js>
+    <output-dir>static</output-dir>
+    <url-prefix>http://my-cdn/static/</url-prefix>
+
+    <bundles name="default">
+
+        <bundle name="jquery">
+            <module name="jQuery" recursive="true"/>
+        </bundle>
+
+        <bundle name="core">
+            <module name="core" recursive="true"/>
+            <init-raptor/>
+            <module name="listeners" recursive="true"/>
+            <module name="widgets" recursive="true"/>
+        </bundle>
+        
+        <bundle name="templating">
+            <module name="templating" recursive="true"/>
+        </bundle>
+
+    </bundles>
+    
+</optimizer-config>]]></docs:code-editor>                
+                <docs:section heading="XML Configuration File">
+                    <p>
+                        To configure the default optimizer using
+                        an XML configuration file, code similar to the following
+                        can be used:
+                    </p>
+<docs:code-editor 
+    mode="javascript"
+    readOnly="true" 
+    c:parse-body-text="false"
+><![CDATA[raptor.require('optimizer').configure('path/to/optimizer-config.xml', {
+    minify: false
+})]]></docs:code-editor>
+                </docs:section>
+            </docs:section>
+
         </docs:section>
 
         <docs:section heading="Optimizer Taglib" anchor-name="Taglib">
