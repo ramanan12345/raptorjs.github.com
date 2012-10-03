@@ -23,8 +23,7 @@ prompts (use
 $ npm init
 </pre> Now the <code>raptor</code> module can be added as a project dependency using the following command: <pre class="sh">
 $ npm install raptor --save
-</pre> Now create a simple <code>index.js</code> file with the following contents: <div class="code-editor" id="s232"> <textarea id="s232-textarea" style="display: none;" name="code-0">
-require("raptor").create({ //Initialize RaptorJS
+</pre> Now create a simple <code>index.js</code> file with the following contents: <div class="code-editor" id="s232"> <textarea id="s232-textarea" style="display: none;" name="code-0">require("raptor").create({ //Initialize RaptorJS
     logging: {
         loggers: { //Configure the loggers control the logging output
             'ROOT': {level: 'WARN'},
@@ -42,9 +41,7 @@ var resources = raptor.require('resources');
 resources.getSearchPath().addDir(__dirname);
 
 raptor.require("hello").greet("World"); //Load the RaptorJS "hello" module
-                                        //and invoke the "greet" method
-</textarea></div> Now create the <code>hello.js</code> file which will contain the definition for the <code>hello</code> module: <div class="code-editor" id="s233"> <textarea id="s233-textarea" style="display: none;" name="code-1">
-raptor.define(
+                                        //and invoke the "greet" method</textarea></div> Now create the <code>hello.js</code> file which will contain the definition for the <code>hello</code> module: <div class="code-editor" id="s233"> <textarea id="s233-textarea" style="display: none;" name="code-1">raptor.define(
     "hello",
     function() { //This function will be invoked only once
                  //when the module is first required
@@ -56,8 +53,7 @@ raptor.define(
                 this.logger().debug("Hello " + name + "!");
             }
         }
-    });
-</textarea></div> Test out the application!: <pre class="sh">
+    });</textarea></div> Test out the application!: <pre class="sh">
 $ node index.js
 </pre> You should see the following in the console: <pre class="sh">
 DEBUG hello: Hello World!

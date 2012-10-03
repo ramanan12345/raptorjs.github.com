@@ -14,18 +14,36 @@ body > .container {
     margin-bottom: 10px;
 }
 
-.section-row {
-    
+TABLE.sections {
+    width: 100%;
+    z-index: 100;
+    position: relative;
 }
 
 .section {
-    width: 40%;
+    width: 33%;
     float: left;
     -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
     -moz-box-sizing: border-box;    /* Firefox, other Gecko */
     box-sizing: border-box;         /* Opera/IE 8+ */
-    margin-left: 5%;
-    margin-right: 5%;
+    border-left: 1px solid #C0C0C0;
+    border-right: 1px solid #C0C0C0;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.section > .content > .bd > P {
+    text-align: justify;
+}
+
+.section:first-child {
+    border-left: 0;
+    padding-left: 0;
+}
+
+.section:last-child {
+    border-right: 0;
+    padding-right: 0;
 }
 
 .top {
@@ -59,11 +77,6 @@ body > .container {
 
 .section-dev-guide {
     margin-top: 62px;
-}
-
-.section-try-online H3 > A {
-    z-index: 100;
-    position: absolute;
 }
 
 .section H3 {

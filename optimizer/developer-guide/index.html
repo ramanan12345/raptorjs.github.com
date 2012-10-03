@@ -69,24 +69,24 @@ page.</p><p>For convenience, Raptor Templates includes an "optimizer" taglib tha
 used to define slots inside the HTML template and to also connect HTML pages
 with its corresponding package.json file. The basic structure for a page to be
 optimized using Raptor Templates is the
-following:</p><div class="code-editor" id="s431"> <textarea id="s431-textarea" style="display: none;" name="code-15"><c:template
+following:</p><div class="code-editor" id="s431"> <textarea id="s431-textarea" style="display: none;" name="code-15">&lt;c:template
     xmlns:c="core"
     xmlns:optimizer="optimizer">
  
-    <optimizer:page package="my-page-package.json"/>
+    &lt;optimizer:page package="my-page-package.json"/>
     
-    <html>
-        <head>
-            <title>Hello World</title>
-            <optimizer:slot name="head"/>
-        </head>
-        <body>
+    &lt;html>
+        &lt;head>
+            &lt;title>Hello World&lt;/title>
+            &lt;optimizer:slot name="head"/>
+        &lt;/head>
+        &lt;body>
             ...
-            <optimizer:slot name="body"/>
-        </body>
-    </html>
+            &lt;optimizer:slot name="body"/>
+        &lt;/body>
+    &lt;/html>
      
-</c:template></textarea></div><p>For more information on the JavaScript API and Taglib please see the following
+&lt;/c:template></textarea></div><p>For more information on the JavaScript API and Taglib please see the following
 sections:</p><ul><li><a href="#JavaScriptAPI">JavaScript API</a></li><li><a href="#OptimizerTaglib">Optimizer Taglib</a></li></ul></div></div><div class="section section-level-2"><h2 id="Targeting_Slots">Targeting Slots</h2><div class="bd"><p>By default, CSS resources are injected into the "head" slot and JavaScript
 resources are injected into the "body" slot. Both of these defaults can easily
 be overridden at the resource level by adding a "slot" property to the resource
@@ -115,72 +115,72 @@ powerful
 optimized differently based on which profile is enabled. For example, to
 improve developer productivity, bundling of resources and resource minification
 can be
-disabled.</p><p>Below is a basic optimizer configuration file:</p><div class="code-editor" id="s433"> <textarea id="s433-textarea" style="display: none;" name="code-17"><optimizer-config>
+disabled.</p><p>Below is a basic optimizer configuration file:</p><div class="code-editor" id="s433"> <textarea id="s433-textarea" style="display: none;" name="code-17">&lt;optimizer-config>
 
-    <params>
-        <minify>true</minify>
-    </params>
+    &lt;params>
+        &lt;minify>true&lt;/minify>
+    &lt;/params>
 
-    <enabled-extensions>jquery,browser,production</enabled-extensions>
+    &lt;enabled-extensions>jquery,browser,production&lt;/enabled-extensions>
     
-    <resource-url-prefix>/static/</resource-url-prefix>
+    &lt;resource-url-prefix>/static/&lt;/resource-url-prefix>
     
-    <minify-js>${minify}</minify-js>
+    &lt;minify-js>${minify}&lt;/minify-js>
     
-    <resource-search-path>
-        <dir path="."/>
-        <dir path="modules"/>
-    </resource-search-path>
+    &lt;resource-search-path>
+        &lt;dir path="."/>
+        &lt;dir path="modules"/>
+    &lt;/resource-search-path>
 
-    <clean-dirs>
-        <dir path="static"/>
-    </clean-dirs>
+    &lt;clean-dirs>
+        &lt;dir path="static"/>
+    &lt;/clean-dirs>
 
-    <bundles-output-dir>static</bundles-output-dir>
+    &lt;bundles-output-dir>static&lt;/bundles-output-dir>
 
-    <bundles>
+    &lt;bundles>
 
-        <bundle name="jquery">
-            <module name="jQuery" recursive="true"/>
-        </bundle>
+        &lt;bundle name="jquery">
+            &lt;module name="jQuery" recursive="true"/>
+        &lt;/bundle>
         
-        <bundle name="core">
-            <module name="core" recursive="true"/>
-            <init-raptor/>
-            <module name="listeners" recursive="true"/>
-            <module name="widgets" recursive="true"/>
-            <module name="templating" recursive="true"/>
-        </bundle>
+        &lt;bundle name="core">
+            &lt;module name="core" recursive="true"/>
+            &lt;init-raptor/>
+            &lt;module name="listeners" recursive="true"/>
+            &lt;module name="widgets" recursive="true"/>
+            &lt;module name="templating" recursive="true"/>
+        &lt;/bundle>
 
-    </bundles>
+    &lt;/bundles>
     
-</optimizer-config></textarea></div><div class="section section-level-1"><h2 id="Profiles">Profiles</h2><div class="bd"><p>The RaptorJS optimizer configuration file supports profiles using the <code>&lt;profile></code> and <code>&lt;enable-profile></code> tags as shown in the following example:</p><div class="code-editor" id="s434"> <textarea id="s434-textarea" style="display: none;" name="code-18"><optimizer-config>
+&lt;/optimizer-config></textarea></div><div class="section section-level-1"><h2 id="Profiles">Profiles</h2><div class="bd"><p>The RaptorJS optimizer configuration file supports profiles using the <code>&lt;profile></code> and <code>&lt;enable-profile></code> tags as shown in the following example:</p><div class="code-editor" id="s434"> <textarea id="s434-textarea" style="display: none;" name="code-18">&lt;optimizer-config>
 
-    <params>
-        <!-- Default to the "development" profile -->
-        <profile>development</profile>
-    </params>
+    &lt;params>
+        &lt;!-- Default to the "development" profile -->
+        &lt;profile>development&lt;/profile>
+    &lt;/params>
 
-    <!-- Enable the profile with the specified name -->
-    <enable-profile>${profile}</enable-profile>
+    &lt;!-- Enable the profile with the specified name -->
+    &lt;enable-profile>${profile}&lt;/enable-profile>
     
-    <profile name="development">
+    &lt;profile name="development">
         ...
-        <!-- Disable minification in development -->
-        <minify-js>false</minify-js>
+        &lt;!-- Disable minification in development -->
+        &lt;minify-js>false&lt;/minify-js>
         ...
-    </profile>
+    &lt;/profile>
     
-    <profile name="production">
+    &lt;profile name="production">
         ...
-        <!-- Enable minification in production -->
-        <minify-js>false</minify-js>
+        &lt;!-- Enable minification in production -->
+        &lt;minify-js>false&lt;/minify-js>
         ...
-    </profile>
+    &lt;/profile>
     
     ...
     
-</optimizer-config></textarea></div><div class="message message-info"><div class="icon"><i class="icon-info-sign" style="font-size: 30px;"></i></div><div class="bd"><p>Parameters can be loaded from a JSON file, passed in as command line arguments
+&lt;/optimizer-config></textarea></div><div class="message message-info"><div class="icon"><i class="icon-info-sign" style="font-size: 30px;"></i></div><div class="bd"><p>Parameters can be loaded from a JSON file, passed in as command line arguments
 or provided to the optimizer when using the JavaScript API. For more
 information on parameters please see the following
 sections:</p><ul><li><a href="#JSONParams">Configuration &raquo; Configuration Params from JSON File</a></li><li><a href="#CLIParams">Command Line Interface &raquo; Configuration Params</a></li><li><a href="#JavaScriptAPIParams">JavaScript API &raquo; Configuration Params</a></li></ul></div></div></div></div><div class="section section-level-1"><h2 id="Bundling">Bundling</h2><div class="bd"><p>The optimizer will combine resources based on a bundle configuration to reduce
@@ -200,25 +200,24 @@ optimizer.registerPage({
     packageResource: "/path/to/my-page-package.json"
 });
 //...
-var pageHtmlBySlot = optimizer.getPageHtmlBySlot('my-page');</textarea></div><p>After executing the above code, the value of <code>pageHtmlBySlot</code> would be a JavaScript object similar to the following: </p><div class="code-editor" id="s436"> <textarea id="s436-textarea" style="display: none;" name="code-20">
-{
-    'body': '<script type="text/javascript" src="/static/core-body-81a10a80.js"></script>\
-             <script type="text/javascript" src="/static/jquery-body-371da524.js"></script>\
-             <script type="text/javascript" src="/static/widgets-body-658fce85.js"></script>\
-             <script type="text/javascript" src="/static/my-page-body-27a3f194.js"></script>',
-    'head': '<link rel="stylesheet" type="text/css" href="/static/my-page-head-c07b8669.css" />\
-             <link rel="stylesheet" type="text/css" href="/static/bootstrap-head-700d799c.css" />'
+var pageHtmlBySlot = optimizer.getPageHtmlBySlot('my-page');</textarea></div><p>After executing the above code, the value of <code>pageHtmlBySlot</code> would be a JavaScript object similar to the following: </p><div class="code-editor" id="s436"> <textarea id="s436-textarea" style="display: none;" name="code-20">{
+    'body': '&lt;script type="text/javascript" src="/static/core-body-81a10a80.js">&lt;/script>\
+             &lt;script type="text/javascript" src="/static/jquery-body-371da524.js">&lt;/script>\
+             &lt;script type="text/javascript" src="/static/widgets-body-658fce85.js">&lt;/script>\
+             &lt;script type="text/javascript" src="/static/my-page-body-27a3f194.js">&lt;/script>',
+    'head': '&lt;link rel="stylesheet" type="text/css" href="/static/my-page-head-c07b8669.css" />\
+             &lt;link rel="stylesheet" type="text/css" href="/static/bootstrap-head-700d799c.css" />'
 }</textarea></div><p>For the above example, the files written to disk would be the following:</p><ul><b>/path/to/my/webapp/static/</b><ul><li>core-body-81a10a80.js</li><li>jquery-body-371da524.js</li><li>widgets-body-658fce85.js</li><li>my-page-body-27a3f194.js</li><li>my-page-head-c07b8669.css</li><li>bootstrap-head-700d799c.css</li></ul></ul></div></div><div class="section section-level-1"><h2 id="Dependency_Caching">Dependency Caching</h2><div class="bd"><p>The result of executing the <code>optimizer.getPageHtmlBySlot()</code> method is <b>cached</b>. When the <code>optimizer.getPageHtmlBySlot</code> method is executed for the first time for a particular page the optimizer will
 first write the optimized resource bundles to disk (destination directory is
 determined by the optimizer's configuration) and then generate the HTML to
 include the resource bundles for the specified
 page.</p></div></div></div></div><div class="section section-level-0"><h2 id="OptimizerTaglib">Optimizer Taglib</h2><div class="bd"><p></p><div class="section section-level-1"><h2 id="Linking_Page_Packages">Linking Page Packages</h2><div class="bd"><p>The <code>&lt;optimizer:page></code> tag can be used to associate a rendering context with a optimizer page. The
 only required attribute for the
-<code>&lt;optimizer:page></code> tag is the <code>package</code> attribute. The <code>package</code> attribute should be used to specify a relative path to a <code>package.json</code> file that describes the dependencies for a page. For example: </p><div class="code-editor" id="s437"> <textarea id="s437-textarea" style="display: none;" name="code-21"><optimizer:page package="my-page-package.json"/></textarea></div><p>The above example assumes that there is a file named "my-page-package.json" in
+<code>&lt;optimizer:page></code> tag is the <code>package</code> attribute. The <code>package</code> attribute should be used to specify a relative path to a <code>package.json</code> file that describes the dependencies for a page. For example: </p><div class="code-editor" id="s437"> <textarea id="s437-textarea" style="display: none;" name="code-21">&lt;optimizer:page package="my-page-package.json"/></textarea></div><p>The above example assumes that there is a file named "my-page-package.json" in
 the same directory that contains the
-template.</p></div></div><div class="section section-level-1"><h2 id="OptimizerTaglibDefiningSlots">Defining Slots</h2><div class="bd"><p>The <code>&lt;optimizer:slot></code> tag can be used to define a slot for a page. When rendered, the <code>&lt;optimizer:slot></code> tag will render the dependency HTML corresponding to the specified slot.</p><div class="code-editor" id="s438"> <textarea id="s438-textarea" style="display: none;" name="code-22"><optimizer:slot name="head"/></textarea></div></div></div><div class="section section-level-1"><h2 id="OptimizerTaglibEnablingExtensions">Enabling Extensions</h2><div class="bd"><p>The <code>&lt;optimizer:enable-extension></code> tag can be used to enable an extension for the current request. The only
+template.</p></div></div><div class="section section-level-1"><h2 id="OptimizerTaglibDefiningSlots">Defining Slots</h2><div class="bd"><p>The <code>&lt;optimizer:slot></code> tag can be used to define a slot for a page. When rendered, the <code>&lt;optimizer:slot></code> tag will render the dependency HTML corresponding to the specified slot.</p><div class="code-editor" id="s438"> <textarea id="s438-textarea" style="display: none;" name="code-22">&lt;optimizer:slot name="head"/></textarea></div></div></div><div class="section section-level-1"><h2 id="OptimizerTaglibEnablingExtensions">Enabling Extensions</h2><div class="bd"><p>The <code>&lt;optimizer:enable-extension></code> tag can be used to enable an extension for the current request. The only
 required attribute is the "name" attribute which defines the name of the
-example.</p><p>The following code illustrates how to enable an extension:</p><div class="code-editor" id="s439"> <textarea id="s439-textarea" style="display: none;" name="code-23"><optimizer:enable-extension name="ipad"/></textarea></div><p>In the above example, an extension named "ipad" is enabled. Any package that
+example.</p><p>The following code illustrates how to enable an extension:</p><div class="code-editor" id="s439"> <textarea id="s439-textarea" style="display: none;" name="code-23">&lt;optimizer:enable-extension name="ipad"/></textarea></div><p>In the above example, an extension named "ipad" is enabled. Any package that
 contains an extension named "ipad" will then have its dependencies included in
 the optimized
 page.</p><div class="message message-warning"><div class="icon"><i class="icon-warning-sign" style="font-size: 30px;"></i></div><div class="bd">All extensions must be enabled <i>before</i> any slots that are defined on the page.</div></div></div></div></div></div></div></div><div class="docs-footer"></div></div><div style="clear: both"></div><div class="footer footer-single-line"><div class="container"><div class="bd"><span class="powered-by">Powered by <a href="../../" class="raptorjs">RaptorJS</a> </span> &nbsp; | &nbsp; <a href="../../license/">License</a>&nbsp; | &nbsp; <a href="../../credits/">Credits</a><span class="back-to-top"><a href="#title">Back to Top</a></span></div></div></div></div><script type="text/javascript" src="../../static/core-body-fb755d4b.js"></script>

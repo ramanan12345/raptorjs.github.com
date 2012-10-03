@@ -11,7 +11,7 @@
         <docs:section heading="Overview">
             <p>
                 Once you have <a href="${url('/get-started')}">Node up-and-running</a>, you can then very quickly
-                start using the RaptorJS to generate optimized JavaScript and CSS bundles, as well as
+                start using the RaptorJS Optimizer to generate optimized JavaScript and CSS bundles, as well as
                 the HTML markup that is needed to include those bundles in your web pages.
             </p>
             <p>
@@ -268,17 +268,23 @@ $ node run-optimizer.js
                     After running the above commands, the value of the <code>optimizedPage</code> variable will
                     be the following (formatted as JSON):
                 </p>
-<docs:code-editor 
-    mode="javascript"
-    readOnly="true" 
-    c:parse-body-text="false"
-><![CDATA[{
-    'htmlBySlot': {
-        'body': '<script type="text/javascript" src="/static/test-page-body-f01892af.js"></script>',
-        'head': '<link rel="stylesheet" type="text/css" href="/static/test-page-head-bf4cf798.css" />'
-    },
-    'loaderMetadata': {}
-}]]></docs:code-editor>
+                <docs:code-editor 
+                    mode="javascript"
+                    readOnly="true" 
+                    c:parse-body-text="false">
+
+                <![CDATA[
+
+                {
+                    'htmlBySlot': {
+                        'body': '<script type="text/javascript" src="/static/test-page-body-f01892af.js"></script>',
+                        'head': '<link rel="stylesheet" type="text/css" href="/static/test-page-head-bf4cf798.css" />'
+                    },
+                    'loaderMetadata': {}
+                }
+
+                ]]>
+                </docs:code-editor>
                 <p>
                     In addition, the call to <code>optimizer.optimizePage(...)</code> in the above application will 
                     cause the following
@@ -306,16 +312,21 @@ $ node run-optimizer.js
                     crude JavaScript code could be used to inject
                     the HTML for the resource slots:
                 </p>
-<docs:code-editor 
-    mode="javascript"
-    readOnly="true" 
-    c:parse-body-text="false"
-><![CDATA[var pageHtml = 
-    '<html><head><title>Test Page</title>' + 
-    optimizedPage.getSlotHtml('head') + 
-    '</head><body>Hello World' + 
-    optimizedPage.getSlotHtml('body') + 
-    '</body></html>';]]></docs:code-editor>
+                <docs:code-editor 
+                    mode="javascript"
+                    readOnly="true" 
+                    c:parse-body-text="false">
+                <![CDATA[
+
+                var pageHtml = 
+                    '<html><head><title>Test Page</title>' + 
+                    optimizedPage.getSlotHtml('head') + 
+                    '</head><body>Hello World' + 
+                    optimizedPage.getSlotHtml('body') + 
+                    '</body></html>';
+
+                ]]>
+                </docs:code-editor>
                 <p>
                     An Optimizer Taglib is provided for the Raptor Templating
                     language and this taglib makes it extremely simple to define
@@ -346,37 +357,82 @@ $ node run-optimizer.js
                 <p>
                     A simple configuration file is shown below:
                 </p>
-<docs:code-editor 
-    mode="xml"
-    readOnly="true" 
-    c:parse-body-text="false"
-><![CDATA[<optimizer-config>
+                <docs:code-editor 
+                    mode="xml"
+                    readOnly="true" 
+                    c:parse-body-text="false"
+                ><![CDATA[
+                <optimizer-config>
 
-    <minify-js>${minify}</minify-js>
-    <output-dir>static</output-dir>
-    <url-prefix>http://my-cdn/static/</url-prefix>
+                    <minify-js>${minify}</minify-js>
+                    <output-dir>static</output-dir>
+                    <url-prefix>http://my-cdn/static/</url-prefix>
 
-    <bundles name="default">
+                    <bundles name="default">
 
-        <bundle name="jquery">
-            <module name="jQuery" recursive="true"/>
-        </bundle>
+                        <bundle name="jquery">
+                            <module name="jQuery" recursive="true"/>
+                        </bundle>
 
-        <bundle name="core">
-            <module name="core" recursive="true"/>
-            <init-raptor/>
-            <module name="listeners" recursive="true"/>
-            <module name="widgets" recursive="true"/>
-        </bundle>
-        
-        <bundle name="templating">
-            <module name="templating" recursive="true"/>
-        </bundle>
+                        <bundle name="core">
+                            <module name="core" recursive="true"/>
+                            <init-raptor/>
+                            <module name="listeners" recursive="true"/>
+                            <module name="widgets" recursive="true"/>
+                        </bundle>
+                        
+                        <bundle name="templating">
+                            <module name="templating" recursive="true"/>
+                        </bundle>
 
-    </bundles>
-    
-</optimizer-config>]]></docs:code-editor>                
-
+                    </bundles>
+                    
+                </optimizer-config>]]>
+                </docs:code-editor>                
+                <p>
+                    An optimizer XML configuration file is very flexible
+                    and allows for a lot of things to be controlled. Amongst other
+                    things, the optimizer configuration file allows
+                    developers to define resource bundles. If a page
+                    depends on a resource that is part of a bundle then the entire
+                    bundle will be included in the optimized page. By default,
+                    any resource that is not part of a bundle is bundled with
+                    all other resources that are not part of a bundle. If
+                    resources are used across multiple pages, or if you want
+                    to have have multiple resources be downloaded in parallel then
+                    it is important to define resource bundles for your application.
+                </p>
+                <p>
+                    Below is a quick summary of the important configuration options that the optimizer
+                    XML configuration file supports:
+                </p>
+                <ul>
+                    <li>
+                        <b>Resource bundles</b>: Configure any number of bundles dependin on your application's needs
+                    </li>
+                    <li>
+                        <b>Enabling/disabling resource bundling</b>: If bundling is disabled then the resource bundles defined in the XML configuration file will be ignored
+                    </li>
+                    <li>
+                        <b>In-place deployment</b>: Have the optimizer generate URLs to the original resource on disk (the original resource will remain untouched)
+                    </li>
+                    <li>
+                        <b>URL prefix</b>: Configure a special URL prefix for all URLs to optimized bundles. This option is necessary for certain server configurations and for utilizing a CDN host name
+                    </li>
+                    <li>
+                        <b>Output directory</b>: Tell the optimizer where to write bundles to disk
+                    </li>
+                    <li>
+                        <b>Enabling/disabling minification</b>: If minification is enabled then resources will be processed to reduce their size
+                    </li>
+                </ul>
+                <p>
+                    For a full list of configuration options that are supported, please see the 
+                    <a href="${url('/optimizer/developer-guide')}">
+                        RaptorJS Optimizer Developer Guide.    
+                    </a>
+                    
+                </p>
             </docs:section>
             <docs:section heading="Loading an XML Configuration File">
                 <p>
@@ -384,13 +440,42 @@ $ node run-optimizer.js
                     an XML configuration file, code similar to the following
                     can be used:
                 </p>
-<docs:code-editor 
-    mode="javascript"
-    readOnly="true" 
-    c:parse-body-text="false"
-><![CDATA[raptor.require('optimizer').configure('path/to/optimizer-config.xml', {
-    minify: false
-})]]></docs:code-editor>
+                <docs:code-editor 
+                    mode="javascript"
+                    readOnly="true" 
+                    c:parse-body-text="false">
+                <![CDATA[
+
+                raptor.require('optimizer').configure('path/to/optimizer-config.xml', {
+                    minify: false
+                })
+
+                ]]>
+                </docs:code-editor>
+                <docs:message type="info">
+                    <p>
+                        NOTE: The second parameter for the <code>optimizer.configure()</code>
+                              method is a parameters object. Any parameters provided can be
+                              used as variables inside the XML configuration file using
+                              the \${${entity:lt}variable-name>} syntax. For the above 
+                              example, "minify" is a paramter that can be used to enable/disable
+                              minification based on the following XML fragment:
+                        <docs:code-editor 
+                            mode="xml"
+                            readOnly="true" 
+                            c:parse-body-text="false">
+                        <![CDATA[
+                        
+                        <optimizer-config>
+                            ...
+                            <minify-js>${minify}</minify-js>
+                            ...
+                        </optimizer-config>
+
+                        ]]>
+                        </docs:code-editor>
+                    </p>
+                </docs:message>
             </docs:section>
 
         </docs:section>

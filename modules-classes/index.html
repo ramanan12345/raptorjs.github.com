@@ -44,8 +44,7 @@ requested.</p><p>The module metadata also describes extensions for the module th
 loaded if the extension is supported for the current page. For example, a
 module may be extended with additional jQuery-specific includes if the jQuery
 library is
-loaded.</p></div></div><div class="section section-level-1"><h2 id="Example_package_json_file">Example package.json file</h2><div class="bd"><div class="code-editor" id="s386"> <textarea id="s386-textarea" style="display: none;" name="code-4">
-{
+loaded.</p></div></div><div class="section section-level-1"><h2 id="Example_package_json_file">Example package.json file</h2><div class="bd"><div class="code-editor" id="s386"> <textarea id="s386-textarea" style="display: none;" name="code-4">{
     "name": "myModule",
     "version": "1.0",
     "description": "Description of your module",
@@ -83,8 +82,7 @@ below)</li></ul><p>As you can see signature to define module and classes are sam
 is the return object from the factory function. In case of module, it is a
 JavaScript object and in case of class, it will be a constructor function. It
 will be more clear from the examples
-below.</p><div class="section section-level-1"><h2 id="Example_Class_Definitions">Example Class Definitions</h2><div class="bd"><p><b>Simple Class</b></p><div class="code-editor" id="s387"> <textarea id="s387-textarea" style="display: none;" name="code-5">
-raptor.define(
+below.</p><div class="section section-level-1"><h2 id="Example_Class_Definitions">Example Class Definitions</h2><div class="bd"><p><b>Simple Class</b></p><div class="code-editor" id="s387"> <textarea id="s387-textarea" style="display: none;" name="code-5">raptor.define(
     'some.namespace.MyClass',                      
     function() {   
         var privateProperty = "something";
@@ -153,8 +151,7 @@ superclass.</p><p><b>Sample code</b></p><div class="code-editor" id="s388"> <tex
     }
 );</textarea></div> </div></div><div class="section section-level-1"><h2 id="Using_Classes">Using Classes</h2><div class="bd">Once a class has been defined it can easily be accessed using the following
 method:
-<p>raptor.require(className)</p><p><b>Example Usage of Class Instantiation</b></p><div class="code-editor" id="s389"> <textarea id="s389-textarea" style="display: none;" name="code-7">
-var MyClass = raptor.require("some.namespace.MyClass");
+<p>raptor.require(className)</p><p><b>Example Usage of Class Instantiation</b></p><div class="code-editor" id="s389"> <textarea id="s389-textarea" style="display: none;" name="code-7">var MyClass = raptor.require("some.namespace.MyClass");
 var myInstance = new MyClass();</textarea></div></div></div></div></div><div class="section section-level-0"><h2 id="Class_Mixins">Class Mixins</h2><div class="bd"><p>Mixins are additional properties and methods that can be applied to the
 prototype of any class. Once a mixin has been defined with a name it can easily
 be applied to the prototype of a class (either as part of the class definition
