@@ -376,12 +376,14 @@ $ node run-optimizer.js
     </bundles>
     
 </optimizer-config>]]></docs:code-editor>                
-                <docs:section heading="XML Configuration File">
-                    <p>
-                        To configure the default optimizer using
-                        an XML configuration file, code similar to the following
-                        can be used:
-                    </p>
+
+            </docs:section>
+            <docs:section heading="Loading an XML Configuration File">
+                <p>
+                    To configure the default optimizer using
+                    an XML configuration file, code similar to the following
+                    can be used:
+                </p>
 <docs:code-editor 
     mode="javascript"
     readOnly="true" 
@@ -389,7 +391,6 @@ $ node run-optimizer.js
 ><![CDATA[raptor.require('optimizer').configure('path/to/optimizer-config.xml', {
     minify: false
 })]]></docs:code-editor>
-                </docs:section>
             </docs:section>
 
         </docs:section>
