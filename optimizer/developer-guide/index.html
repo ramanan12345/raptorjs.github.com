@@ -129,7 +129,7 @@ disabled.</p><p>Below is a basic optimizer configuration file:</p><div class="co
 
     &lt;minify-js>${minify}&lt;/minify-js>
     &lt;output-dir>static&lt;/output-dir>
-    &lt;url-prefix>http://my-cdn/static/&lt;/url-prefix>
+    &lt;url-prefix>/static/&lt;/url-prefix>
 
     &lt;bundles name="default">
 
@@ -180,13 +180,13 @@ included as part of the metadata that is serialized to JSON and sent to the
 client:</p><div class="code-editor" id="s467"> <textarea id="s467-textarea" style="display: none;" name="code-22">{
     "js": ["&lt;url-1>", "&lt;url-2>", ...],
     "css": ["&lt;url-1>", "&lt;url-2>", ...],
-    "modules": ["&lt;module-1>", "&lt;module-2>"]
+    "requires": ["&lt;module-1>", "&lt;module-2>"]
 }</textarea></div><p>The following is example asynchronous module metadata:</p><div class="code-editor" id="s468"> <textarea id="s468-textarea" style="display: none;" name="code-23">{
     "my-module": {
         "js": ["/static/page1-async-body-d9103c2a.js"],
         "css": ["/static/page1-async-head-1929e414.css", 
                 "/static/widgets-head-c17b7d9b.css"],
-        "modules": ["another-module"]
+        "requires": ["another-module"]
     },
 
     "another-module": {
@@ -195,14 +195,18 @@ client:</p><div class="code-editor" id="s467"> <textarea id="s467-textarea" styl
 }</textarea></div></div></div></div></div><div class="section section-level-0"><h2 id="CDN_Integration">CDN Integration</h2><div class="bd"><p>Utilizing a Content Distribution Network (CDN) is very straightforward when
 using the RaptorJS Optimizer. Simply configure the URL prefix to include the
 host name for the
-CDN.</p> </div></div><div class="section section-level-0"><h2 id="JavaScriptAPI">JavaScript API</h2><div class="bd"><p>All of the code related to the RaptorJS Optimizer is part of the <a href="http://raptorjs.org/api/optimizer/">optimizer</a> module. The two most commonly used API methods are the following:</p><ul><li><b>configure</b>: </li><li></li></ul><div class="section section-level-1"><h2 id="Registering_Pages">Registering Pages</h2><div class="bd"><p></p></div></div><div class="section section-level-1"><h2 id="Generating_Page_HTML">Generating Page HTML</h2><div class="bd"><p>The <code>OptimizerEngine</code> object provides a <code>optimizer.getPageHtmlBySlot()</code> method that can be used to generate the HTML for a page that has been
+CDN.</p><p>For example:</p><div class="code-editor" id="s469"> <textarea id="s469-textarea" style="display: none;" name="code-24">&lt;optimizer-config>
+    ...
+    &lt;url-prefix>http://my-cdn/static/&lt;/url-prefix>
+    ...
+&lt;/optimizer-config></textarea></div></div></div><div class="section section-level-0"><h2 id="JavaScriptAPI">JavaScript API</h2><div class="bd"><p>All of the code related to the RaptorJS Optimizer is part of the <a href="http://raptorjs.org/api/optimizer/">optimizer</a> module. The two most commonly used API methods are the following:</p><ul><li><b>configure</b>: The configure method is used to configure the default page optimizer instance.</li><li></li></ul><div class="section section-level-1"><h2 id="Registering_Pages">Registering Pages</h2><div class="bd"><p></p></div></div><div class="section section-level-1"><h2 id="Generating_Page_HTML">Generating Page HTML</h2><div class="bd"><p>The <code>OptimizerEngine</code> object provides a <code>optimizer.getPageHtmlBySlot()</code> method that can be used to generate the HTML for a page that has been
 previously registered. The sample code below shows how to use the
-<code>optimizer.getPageHtmlBySlot</code> method:</p><div class="code-editor" id="s469"> <textarea id="s469-textarea" style="display: none;" name="code-24">var optimizer = raptor.require('optimizer');
+<code>optimizer.getPageHtmlBySlot</code> method:</p><div class="code-editor" id="s470"> <textarea id="s470-textarea" style="display: none;" name="code-25">var optimizer = raptor.require('optimizer');
 
 var optimizedPage = optimizer.optimizePage({
     name: 'my-page',
     packageFile: "/path/to/my-page-package.json"
-});</textarea></div><p>After executing the above code, the value of <code>optimizedPage</code> would be similar the following JavaScript object (formatted as JSON): </p><div class="code-editor" id="s470"> <textarea id="s470-textarea" style="display: none;" name="code-25">{
+});</textarea></div><p>After executing the above code, the value of <code>optimizedPage</code> would be similar the following JavaScript object (formatted as JSON): </p><div class="code-editor" id="s471"> <textarea id="s471-textarea" style="display: none;" name="code-26">{
     'body': '&lt;script type="text/javascript" src="/static/core-body-81a10a80.js">&lt;/script>\
              &lt;script type="text/javascript" src="/static/jquery-body-371da524.js">&lt;/script>\
              &lt;script type="text/javascript" src="/static/widgets-body-658fce85.js">&lt;/script>\
@@ -218,7 +222,7 @@ particular page was optimized. Therefore, to get an instance of a cache you
 will need to provide an
 <a href="http://raptorjs.org/api/packager.ExtensionCollection/">ExtensionCollection</a> as the first argument. The complete sequence for caching an retrieving an
 optimized page from the cache is shown below:
-<div class="code-editor" id="s471"> <textarea id="s471-textarea" style="display: none;" name="code-26">var pageKey = ...; //Use a String value for the page that uniquely identifies it
+<div class="code-editor" id="s472"> <textarea id="s472-textarea" style="display: none;" name="code-27">var pageKey = ...; //Use a String value for the page that uniquely identifies it
 var cache = pageOptimizer.getCache(enabledExtensions);
 var optimizedPage = cache.getOptimizedPage(pageKey);
                 
@@ -236,7 +240,7 @@ if (!optimizedPage) {
 return optimizedPage;</textarea></div></p></div></div></div></div><div class="section section-level-0"><h2 id="OptimizerTaglib">Optimizer Taglib</h2><div class="bd"><p>The RaptorJS Optimizer Taglib can be used in pages generated using Raptor
 Templates to easily declare page dependencies and inject optimized HTML into
 the appropriate page slots. Please see the
-<a href="../../optimizer/taglib/">Optimizer Taglib Documentation</a> for more details on using the Optimizer Taglib in your application.</p></div></div></div></div><div class="docs-footer"></div></div><div style="clear: both"></div><div class="footer footer-single-line"><div class="container"><div class="bd"><span class="powered-by">Powered by <a href="../../" class="raptorjs">RaptorJS</a> </span> &nbsp; | &nbsp; <a href="../../license/">License</a>&nbsp; | &nbsp; <a href="../../credits/">Credits</a><span class="back-to-top"><a href="#title">Back to Top</a></span></div></div></div></div><script type="text/javascript" src="../../static/core-body-fb755d4b.js"></script>
+<a href="../../optimizer/taglib/">Optimizer Taglib Documentation</a> for more details on using the Optimizer Taglib in your application.</p></div></div></div></div><div class="docs-footer"></div></div><div style="clear: both"></div><div class="footer footer-single-line"><div class="container"><div class="bd"><span class="powered-by">Powered by <a href="../../" class="raptorjs">RaptorJS</a> </span> &nbsp; | &nbsp; <a href="../../license/">License</a>&nbsp; | &nbsp; <a href="../../credits/">Credits</a><span class="back-to-top"><a href="#title">Back to Top</a></span></div></div></div></div><script type="text/javascript" src="../../static/core-body-f1e2805e.js"></script>
 <script type="text/javascript" src="../../static/jquery-body-371da524.js"></script>
 <script type="text/javascript" src="../../static/widgets-body-06552a07.js"></script>
 <script type="text/javascript" src="../../static/optimizer-developer-guide-body-27a3f194.js"></script>
@@ -285,6 +289,7 @@ the appropriate page slots. Please see the
 ["components.editors.CodeEditor.CodeEditorWidget","s466",0,0,{"mode":"javascript","autoResize":true,"readOnly":true},0],
 ["components.editors.CodeEditor.CodeEditorWidget","s467",0,0,{"mode":"javascript","autoResize":true,"readOnly":true},0],
 ["components.editors.CodeEditor.CodeEditorWidget","s468",0,0,{"mode":"javascript","autoResize":true,"readOnly":true},0],
-["components.editors.CodeEditor.CodeEditorWidget","s469",0,0,{"mode":"javascript","autoResize":true,"readOnly":true},0],
+["components.editors.CodeEditor.CodeEditorWidget","s469",0,0,{"mode":"xml","autoResize":true,"readOnly":true},0],
 ["components.editors.CodeEditor.CodeEditorWidget","s470",0,0,{"mode":"javascript","autoResize":true,"readOnly":true},0],
-["components.editors.CodeEditor.CodeEditorWidget","s471",0,0,{"mode":"javascript","autoResize":true,"readOnly":true},0]);</script></body></html>
+["components.editors.CodeEditor.CodeEditorWidget","s471",0,0,{"mode":"javascript","autoResize":true,"readOnly":true},0],
+["components.editors.CodeEditor.CodeEditorWidget","s472",0,0,{"mode":"javascript","autoResize":true,"readOnly":true},0]);</script></body></html>

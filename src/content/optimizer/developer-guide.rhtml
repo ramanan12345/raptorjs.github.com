@@ -371,7 +371,7 @@
 
                 <minify-js>${minify}</minify-js>
                 <output-dir>static</output-dir>
-                <url-prefix>http://my-cdn/static/</url-prefix>
+                <url-prefix>/static/</url-prefix>
 
                 <bundles name="default">
 
@@ -486,7 +486,7 @@
                 {
                     "js": ["<url-1>", "<url-2>", ...],
                     "css": ["<url-1>", "<url-2>", ...],
-                    "modules": ["<module-1>", "<module-2>"]
+                    "requires": ["<module-1>", "<module-2>"]
                 }
                 
                 ]]>
@@ -504,7 +504,7 @@
                         "js": ["/static/page1-async-body-d9103c2a.js"],
                         "css": ["/static/page1-async-head-1929e414.css", 
                                 "/static/widgets-head-c17b7d9b.css"],
-                        "modules": ["another-module"]
+                        "requires": ["another-module"]
                     },
 
                     "another-module": {
@@ -521,7 +521,22 @@
                 Utilizing a Content Distribution Network (CDN) is very straightforward when using the
                 RaptorJS Optimizer. Simply configure the URL prefix 
                 to include the host name for the CDN.
-            </p>            
+            </p>
+            <p>
+                For example:
+            </p>
+            <docs:code-editor 
+                mode="xml"
+                readOnly="true" 
+                c:parse-body-text="false">
+            <![CDATA[
+            <optimizer-config>
+                ...
+                <url-prefix>http://my-cdn/static/</url-prefix>
+                ...
+            </optimizer-config>
+            ]]>
+            </docs:code-editor>
         </docs:section>
         
         <docs:section heading="JavaScript API" anchor-name="JavaScriptAPI">
@@ -534,7 +549,7 @@
             </p>
             <ul>
                 <li>
-                    <b>configure</b>: 
+                    <b>configure</b>: The configure method is used to configure the default page optimizer instance.
                 </li>
                 <li>
                     
