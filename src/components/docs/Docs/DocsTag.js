@@ -22,7 +22,7 @@ raptor.define(
                        sections: [],
                        getAnchorName: function() {
                            var anchorName = this.anchorName;
-                           if (!anchorName) {
+                           if (!anchorName && this.heading) {
                                anchorName = this.heading;
                                anchorName = anchorName.replace(/[\-]/g, '');
                                anchorName = anchorName.replace(/(?:\s|[\-.])+((?:[a-zA-Z])+)/g, function(matches, part) {

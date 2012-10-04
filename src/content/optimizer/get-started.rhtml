@@ -122,17 +122,22 @@
                     example illustrates how to retarget a resource for a custom slot for a
                     resource included inside a <code>package.json</code> file:
                 </p>
-<docs:code-editor 
-    mode="javascript"
-    readOnly="true" 
-    c:parse-body-text="false"
-><![CDATA[{
-    "includes": [
-        ...
-        { "path": "my-widget.js", "slot": "my-custom-slot" }
-        ...
-    ]
-}]]></docs:code-editor>
+                <docs:code-editor 
+                    mode="javascript"
+                    readOnly="true" 
+                    c:parse-body-text="false">
+                <![CDATA[
+
+                {
+                    "includes": [
+                        ...
+                        { "path": "my-widget.js", "slot": "my-custom-slot" }
+                        ...
+                    ]
+                }
+
+                ]]>
+                </docs:code-editor>
             </docs:section>
     
         </docs:section>
@@ -240,22 +245,27 @@
                     If you are okay with the defaults, you can easily optimize the "test-page" from the example above using the
                     following JavaScript code:
                 </p>
-<docs:code-editor 
-    mode="javascript"
-    readOnly="true" 
-    c:parse-body-text="false"
-><![CDATA[require('raptor').create();
+                <docs:code-editor 
+                    mode="javascript"
+                    readOnly="true" 
+                    c:parse-body-text="false">
+                <![CDATA[
 
-var files = raptor.require('files'),
-    resources = raptor.require('resources'),
-    optimizer = raptor.require('optimizer');
+                require('raptor').create();
 
-resources.addSearchPathDir(files.joinPaths(__dirname, 'modules'));
+                var files = raptor.require('files'),
+                    resources = raptor.require('resources'),
+                    optimizer = raptor.require('optimizer');
 
-var optimizedPage = optimizer.optimizePage({
-    name: 'test-page',
-    packageFile: files.joinPaths(__dirname, 'pages/test-page/package.json')
-});]]></docs:code-editor>
+                resources.addSearchPathDir(files.joinPaths(__dirname, 'modules'));
+
+                var optimizedPage = optimizer.optimizePage({
+                    name: 'test-page',
+                    packageFile: files.joinPaths(__dirname, 'pages/test-page/package.json')
+                });
+                
+                ]]>
+                </docs:code-editor>
                 <p>
                     Assuming the above script is saved to a file name "run-optimizer.js", 
                     the following commands should be used to execute the above program from the root directory of the application:
@@ -391,7 +401,8 @@ $ node run-optimizer.js
                 </docs:code-editor>                
                 <p>
                     An optimizer XML configuration file is very flexible
-                    and allows for a lot of things to be controlled. Amongst other
+                    and gives application developers a lot of control over the optimization
+                    process. Amongst other
                     things, the optimizer configuration file allows
                     developers to define resource bundles. If a page
                     depends on a resource that is part of a bundle then the entire
@@ -484,7 +495,7 @@ $ node run-optimizer.js
         <docs:section heading="Optimizer Taglib" anchor-name="Taglib">
             <p>
                 A custom Raptor Templates Taglib is provided to make optimizing pages with the RaptorJS Optimizer
-                extremely. Below is a sample page built using Raptor Templates:
+                almost effortless. Below is a sample page built using Raptor Templates:
             </p>
             <docs:code-editor 
                 mode="xml"
@@ -566,7 +577,7 @@ $ node run-optimizer.js
                 </a>
             </p>
         </docs:section>
-        
+
     </docs:docs>
     
 </c:template>

@@ -1,0 +1,78 @@
+ <!doctype html> <html><head><title>RaptorJS Optimizer: Configuration</title><meta http-equiv="content-type" content="text/html; charset=UTF-8"></meta><link rel="stylesheet" type="text/css" href="../../static/optimizer-configuration-head-d2a7b186.css">
+<link rel="stylesheet" type="text/css" href="../../static/bootstrap-head-d0572038.css">
+<link rel="stylesheet" type="text/css" href="../../static/code-editor-head-6a226e30.css"><script type="text/javascript">var
+_gaq=_gaq||[];_gaq.push(["_setAccount","UA-33982282-1"]);_gaq.push(["_trackPageview"]);(function(){var
+a=document.createElement("script");a.type="text/javascript";a.async=!0;a.src=("https:"==document.location.protocol?"https://ssl":"http://www")+".google-analytics.com/ga.js";var
+b=document.getElementsByTagName("script")[0];b.parentNode.insertBefore(a,b)})();</script></head><body><div class="navbar navbar-fixed-top"><div class="navbar-inner"><div class="container"><a class="brand" href="../../">RaptorJS</a><ul class="nav"><li class="divider-vertical"></li><li id="s396"><a href="../../get-started/">Get Started</a></li><li class="divider-vertical"></li><li id="s397" class="dropdown"><a data-toggle="dropdown" class="dropdown-toggle">Learn<b class="caret"></b></a><ul class="dropdown-menu"><li id="s398"><a href="../../">Overview</a></li><li id="s399"><a href="../../get-started/">Get Started</a></li><li id="s400"><a href="../../tutorial/">Tutorial</a></li><li id="s401"><a href="../../api/">API Reference</a></li><li id="s402"><a href="../../faq/">FAQ</a></li><li class="divider"></li><li id="s403"><a href="../../modules-classes/">Modules and Classes</a></li><li id="s404"><a href="../../packaging/">Packaging and Extensions</a></li><li id="s405"><a href="../../optimizer/">Optimizer</a></li><li id="s406"><a href="../../raptor-templates/">Raptor Templates</a></li><li id="s407"><a href="../../widgets/">Widgets Framework</a></li><li id="s408"><a href="../../logging/">Logging</a></li><li id="s409"><a href="../../resource-search-path/">Resource Search Path</a></li><li id="s410"><a href="../../cross-environment/">Cross Environment Support</a></li></ul></li><li class="divider-vertical"></li><li id="s411" class="dropdown"><a data-toggle="dropdown" class="dropdown-toggle">Community<b class="caret"></b></a><ul class="dropdown-menu"><li id="s412"><a href="https://github.com/raptorjs/raptorjs">Source code</a></li><li id="s413"><a href="https://github.com/raptorjs/raptorjs/issues">Issue Tracker</a></li><li id="s414"><a href="../../contribute/">Contribute</a></li><li id="s415"><a href="../../contributors/">Contributors</a></li><li class="divider"></li><li id="s416"><a href="http://groups.google.com/group/raptorjs">Discussion Forum</a></li><li class="divider"></li><li id="s417"><a href="http://twitter.com/raptorjs">Twitter (@raptorjs)</a></li><li id="s418"><a href="http://twitter.com/raptorjs">Google+</a></li></ul></li><li class="divider-vertical"></li><li id="s419" class="dropdown"><a data-toggle="dropdown" class="dropdown-toggle">About<b class="caret"></b></a><ul class="dropdown-menu"><li id="s420"><a href="https://github.com/raptorjs/raptorjs/wiki/Release-Notes">Release Notes</a></li><li id="s421"><a href="../../design-philosophy/">Design Philosophy</a></li><li id="s422"><a href="../../license/">License</a></li><li id="s423"><a href="../../credits/">Credits</a></li><li id="s424"><a href="../../creators/">Creators</a></li></ul></li><li class="divider-vertical"></li></ul></div></div></div><div class="container"><div class="docs"><div class="bd"><div class="toc nav" id="docsNav"><ul class="toc"><li class="toc toc-level-0"><a href="#Overview">Overview</a><ul class="toc"></ul></li><li class="toc toc-level-0"><a href="#Profiles">Profiles</a><ul class="toc"></ul></li><li class="toc toc-level-0"><a href="#Bundling">Bundling</a><ul class="toc"></ul></li><li class="toc toc-level-0"><a href="#Minification_and_Filters">Minification and Filters</a><ul class="toc"></ul></li><li class="toc toc-level-0"><a href="#Output_Directories">Output Directories</a><ul class="toc"></ul></li><li class="toc toc-level-0"><a href="#JSONParams">Configuration Params from JSON File</a><ul class="toc"></ul></li><li class="toc toc-level-0"><a href="#Sample_Configuration_Files">Sample Configuration Files</a><ul class="toc"></ul></li></ul></div><div class="docs-content"><h1 id="title">RaptorJS Optmizer: Configuration</h1><div class="message message-warning"><div class="icon"><i class="icon-warning-sign" style="font-size: 30px;"></i></div><div class="bd">Documentation In-Progress</div></div><div class="section section-level-0"><h2 id="Overview">Overview</h2><div class="bd"><p></p></div></div><div class="section section-level-0"><h2 id="Profiles">Profiles</h2><div class="bd"><p>The RaptorJS Optimizer configuration file supports profiles using the <code>&lt;profile></code> and <code>&lt;enable-profile></code> tags as shown in the following example:</p><div class="code-editor" id="s425"> <textarea id="s425-textarea" style="display: none;" name="code-14">&lt;optimizer-config>
+
+    &lt;params>
+        &lt;!-- Default to the "development" profile -->
+        &lt;profile>development&lt;/profile>
+    &lt;/params>
+
+    &lt;!-- Enable the profile with the specified name -->
+    &lt;enable-profile>${profile}&lt;/enable-profile>
+    
+    &lt;profile name="development">
+        ...
+        &lt;!-- Disable minification in development -->
+        &lt;minify-js>false&lt;/minify-js>
+        ...
+    &lt;/profile>
+    
+    &lt;profile name="production">
+        ...
+        &lt;!-- Enable minification in production -->
+        &lt;minify-js>false&lt;/minify-js>
+        ...
+    &lt;/profile>
+    
+    ...
+    
+&lt;/optimizer-config></textarea></div><div class="message message-info"><div class="icon"><i class="icon-info-sign" style="font-size: 30px;"></i></div><div class="bd"><p>Parameters can be loaded from a JSON file, passed in as command line arguments
+or provided to the optimizer when using the JavaScript API. For more
+information on parameters please see the following
+sections:</p><ul><li><a href="#JSONParams">Configuration &raquo; Configuration Params from JSON File</a></li><li><a href="#CLIParams">Command Line Interface &raquo; Configuration Params</a></li><li><a href="#JavaScriptAPIParams">JavaScript API &raquo; Configuration Params</a></li></ul></div></div></div></div><div class="section section-level-0"><h2 id="Bundling">Bundling</h2><div class="bd"><p>The optimizer will combine resources based on a bundle configuration to reduce
+the number of HTTP round-trips required to deliver a web page. A resource can
+only belong to one bundle and the first bundle that a resource is added to
+becomes the resource's bundle. If bundling is enabled and a particular page
+dependency is not part of a configured bundle then the dependency is added to a
+default page
+bundle.</p></div></div><div class="section section-level-0"><h2 id="Minification_and_Filters">Minification and Filters</h2><div class="bd"><p>The RaptorJS Optimizer supports custom filters. </p></div></div><div class="section section-level-0"><h2 id="Output_Directories">Output Directories</h2><div class="bd"><p>The optimizer will combine resources based on a bundle configuration to reduce
+the number of HTTP round-trips required to deliver a web page. The
+Rapt</p></div></div><div class="section section-level-0"><h2 id="JSONParams">Configuration Params from JSON File</h2><div class="bd"><p></p></div></div><div class="section section-level-0"><h2 id="Sample_Configuration_Files">Sample Configuration Files</h2><div class="bd">Sample Configuration Files: <ul><li><a href="https://github.com/raptorjs/raptorjs.github.com/blob/master/optimizer/sample-configuration-files/optimizer-config-profiles.xml" target="blank">Sample Configuration File with Profiles</a></li></ul></div></div></div></div><div class="docs-footer"></div></div><div style="clear: both"></div><div class="footer footer-single-line"><div class="container"><div class="bd"><span class="powered-by">Powered by <a href="../../" class="raptorjs">RaptorJS</a> </span> &nbsp; | &nbsp; <a href="../../license/">License</a>&nbsp; | &nbsp; <a href="../../credits/">Credits</a><span class="back-to-top"><a href="#title">Back to Top</a></span></div></div></div></div><script type="text/javascript" src="../../static/core-body-fb755d4b.js"></script>
+<script type="text/javascript" src="../../static/jquery-body-371da524.js"></script>
+<script type="text/javascript" src="../../static/widgets-body-06552a07.js"></script>
+<script type="text/javascript" src="../../static/optimizer-configuration-body-27a3f194.js"></script>
+<script type="text/javascript" src="../../static/bootstrap-body-34d7fcf3.js"></script>
+<script type="text/javascript" src="../../static/code-editor-body-a2bab28c.js"></script><script type="text/javascript">$rwidgets(
+["components.nav.Nav.NavItemWidget","s396",0,0,0,0],
+["components.nav.Nav.NavItemWidget","s397",0,0,0,0,
+["components.nav.Nav.NavItemWidget","s398",0,0,0,0],
+["components.nav.Nav.NavItemWidget","s399",0,0,0,0],
+["components.nav.Nav.NavItemWidget","s400",0,0,0,0],
+["components.nav.Nav.NavItemWidget","s401",0,0,0,0],
+["components.nav.Nav.NavItemWidget","s402",0,0,0,0],
+["components.nav.Nav.NavItemWidget","s403",0,0,0,0],
+["components.nav.Nav.NavItemWidget","s404",0,0,0,0],
+["components.nav.Nav.NavItemWidget","s405",0,0,0,0],
+["components.nav.Nav.NavItemWidget","s406",0,0,0,0],
+["components.nav.Nav.NavItemWidget","s407",0,0,0,0],
+["components.nav.Nav.NavItemWidget","s408",0,0,0,0],
+["components.nav.Nav.NavItemWidget","s409",0,0,0,0],
+["components.nav.Nav.NavItemWidget","s410",0,0,0,0]],
+["components.nav.Nav.NavItemWidget","s411",0,0,0,0,
+["components.nav.Nav.NavItemWidget","s412",0,0,0,0],
+["components.nav.Nav.NavItemWidget","s413",0,0,0,0],
+["components.nav.Nav.NavItemWidget","s414",0,0,0,0],
+["components.nav.Nav.NavItemWidget","s415",0,0,0,0],
+["components.nav.Nav.NavItemWidget","s416",0,0,0,0],
+["components.nav.Nav.NavItemWidget","s417",0,0,0,0],
+["components.nav.Nav.NavItemWidget","s418",0,0,0,0]],
+["components.nav.Nav.NavItemWidget","s419",0,0,0,0,
+["components.nav.Nav.NavItemWidget","s420",0,0,0,0],
+["components.nav.Nav.NavItemWidget","s421",0,0,0,0],
+["components.nav.Nav.NavItemWidget","s422",0,0,0,0],
+["components.nav.Nav.NavItemWidget","s423",0,0,0,0],
+["components.nav.Nav.NavItemWidget","s424",0,0,0,0]],
+["components.editors.CodeEditor.CodeEditorWidget","s425",0,0,{"mode":"xml","autoResize":true,"readOnly":true},0]);</script></body></html>

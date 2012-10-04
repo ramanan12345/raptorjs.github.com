@@ -1,0 +1,82 @@
+ <!doctype html> <html><head><title>RaptorJS Optimizer: Taglib</title><meta http-equiv="content-type" content="text/html; charset=UTF-8"></meta><link rel="stylesheet" type="text/css" href="../../static/optimizer-taglib-head-d2a7b186.css">
+<link rel="stylesheet" type="text/css" href="../../static/bootstrap-head-d0572038.css">
+<link rel="stylesheet" type="text/css" href="../../static/code-editor-head-6a226e30.css"><script type="text/javascript">var
+_gaq=_gaq||[];_gaq.push(["_setAccount","UA-33982282-1"]);_gaq.push(["_trackPageview"]);(function(){var
+a=document.createElement("script");a.type="text/javascript";a.async=!0;a.src=("https:"==document.location.protocol?"https://ssl":"http://www")+".google-analytics.com/ga.js";var
+b=document.getElementsByTagName("script")[0];b.parentNode.insertBefore(a,b)})();</script></head><body><div class="navbar navbar-fixed-top"><div class="navbar-inner"><div class="container"><a class="brand" href="../../">RaptorJS</a><ul class="nav"><li class="divider-vertical"></li><li id="s543"><a href="../../get-started/">Get Started</a></li><li class="divider-vertical"></li><li id="s544" class="dropdown"><a data-toggle="dropdown" class="dropdown-toggle">Learn<b class="caret"></b></a><ul class="dropdown-menu"><li id="s545"><a href="../../">Overview</a></li><li id="s546"><a href="../../get-started/">Get Started</a></li><li id="s547"><a href="../../tutorial/">Tutorial</a></li><li id="s548"><a href="../../api/">API Reference</a></li><li id="s549"><a href="../../faq/">FAQ</a></li><li class="divider"></li><li id="s550"><a href="../../modules-classes/">Modules and Classes</a></li><li id="s551"><a href="../../packaging/">Packaging and Extensions</a></li><li id="s552"><a href="../../optimizer/">Optimizer</a></li><li id="s553"><a href="../../raptor-templates/">Raptor Templates</a></li><li id="s554"><a href="../../widgets/">Widgets Framework</a></li><li id="s555"><a href="../../logging/">Logging</a></li><li id="s556"><a href="../../resource-search-path/">Resource Search Path</a></li><li id="s557"><a href="../../cross-environment/">Cross Environment Support</a></li></ul></li><li class="divider-vertical"></li><li id="s558" class="dropdown"><a data-toggle="dropdown" class="dropdown-toggle">Community<b class="caret"></b></a><ul class="dropdown-menu"><li id="s559"><a href="https://github.com/raptorjs/raptorjs">Source code</a></li><li id="s560"><a href="https://github.com/raptorjs/raptorjs/issues">Issue Tracker</a></li><li id="s561"><a href="../../contribute/">Contribute</a></li><li id="s562"><a href="../../contributors/">Contributors</a></li><li class="divider"></li><li id="s563"><a href="http://groups.google.com/group/raptorjs">Discussion Forum</a></li><li class="divider"></li><li id="s564"><a href="http://twitter.com/raptorjs">Twitter (@raptorjs)</a></li><li id="s565"><a href="http://twitter.com/raptorjs">Google+</a></li></ul></li><li class="divider-vertical"></li><li id="s566" class="dropdown"><a data-toggle="dropdown" class="dropdown-toggle">About<b class="caret"></b></a><ul class="dropdown-menu"><li id="s567"><a href="https://github.com/raptorjs/raptorjs/wiki/Release-Notes">Release Notes</a></li><li id="s568"><a href="../../design-philosophy/">Design Philosophy</a></li><li id="s569"><a href="../../license/">License</a></li><li id="s570"><a href="../../credits/">Credits</a></li><li id="s571"><a href="../../creators/">Creators</a></li></ul></li><li class="divider-vertical"></li></ul></div></div></div><div class="container"><div class="docs"><div class="bd"><div class="toc nav" id="docsNav"><ul class="toc"><li class="toc toc-level-0"><a href="#Overview">Overview</a><ul class="toc"></ul></li><li class="toc toc-level-0"><a href="#Declaring_Page_Dependencies">Declaring Page Dependencies</a><ul class="toc"></ul></li><li class="toc toc-level-0"><a href="#OptimizerTaglibDefiningSlots">Defining Slots</a><ul class="toc"></ul></li><li class="toc toc-level-0"><a href="#OptimizerTaglibEnablingExtensions">Enabling Extensions</a><ul class="toc"></ul></li></ul></div><div class="docs-content"><h1 id="title">RaptorJS Optmizer: Taglib</h1><div class="message message-warning"><div class="icon"><i class="icon-warning-sign" style="font-size: 30px;"></i></div><div class="bd">Documentation In-Progress</div></div><div class="section section-level-0"><h2 id="Overview">Overview</h2><div class="bd"><p>A custom Raptor Templates Taglib is provided to make optimizing pages with the
+RaptorJS Optimizer almost effortless. Below is a sample page built using Raptor
+Templates:</p></div></div><div class="section section-level-0"><h2 id="Declaring_Page_Dependencies">Declaring Page Dependencies</h2><div class="bd"><p>The <code>&lt;optimizer:page></code> tag can be used to associate a rendering context with a optimizer page. The
+only required attribute for the
+<code>&lt;optimizer:page></code> tag is the <code>package</code> attribute. The <code>package</code> attribute should be used to specify a relative path to a <code>package.json</code> file that describes the dependencies for a page as shown in the following
+example:</p><div class="code-editor" id="s572"> <textarea id="s572-textarea" style="display: none;" name="code-40">&lt;c:template
+    xmlns:c="core"
+    xmlns:optimizer="optimizer">
+    
+    &lt;optimizer:page name="test-page">
+        &lt;includes>
+            &lt;module name="module-a"/>
+            &lt;module name="module-b"/>
+            &lt;css path="test-page.css"/>
+            &lt;css path="test-page.css"/>
+            &lt;js path="test-page.js"/>
+        &lt;/includes>
+    &lt;/optimizer:page>
+    
+    &lt;html>
+        &lt;head>
+            &lt;title>Test Page&lt;/title>
+            &lt;optimizer:slot name="head"/>
+        &lt;/head>
+        &lt;body>
+            Hello World!
+            &lt;optimizer:slot name="body"/>
+        &lt;/body>
+    &lt;/html>
+&lt;/c:template></textarea></div><p>the Optimizer Taglib will cache the results of a call to <code>optimizePage()</code> so that runtime performance is not impacted after the optimized page bundles
+are generated for the first time. The above example code illustrates declaring
+resource slots using the
+<code>&lt;optimizer:slot></code> tag as described in the subsequent section.</p></div></div><div class="section section-level-0"><h2 id="OptimizerTaglibDefiningSlots">Defining Slots</h2><div class="bd"><p>The <code>&lt;optimizer:slot></code> tag can be used to define a slot for a page. When rendered, the <code>&lt;optimizer:slot></code> tag will render the dependency HTML corresponding to the specified slot name.
+For
+example:</p><div class="code-editor" id="s573"> <textarea id="s573-textarea" style="display: none;" name="code-41">&lt;optimizer:slot name="head"/></textarea></div></div></div><div class="section section-level-0"><h2 id="OptimizerTaglibEnablingExtensions">Enabling Extensions</h2><div class="bd"><p>The <code>&lt;optimizer:enable-extension></code> tag can be used to enable an extension for the current request. The only
+required attribute is the "name" attribute which defines the name of the
+example.</p><p>The following code illustrates how to enable an extension:</p><div class="code-editor" id="s574"> <textarea id="s574-textarea" style="display: none;" name="code-42">&lt;optimizer:enable-extension name="ipad"/></textarea></div><p>In the above example, an extension named "ipad" is enabled. Any package that
+contains an extension named "ipad" will have the dependencies that are part of
+that extension included in the optimized
+page.</p><div class="message message-warning"><div class="icon"><i class="icon-warning-sign" style="font-size: 30px;"></i></div><div class="bd">All extensions must be enabled <i>before</i> the &lt;optimizer:page ...> tag is rendered.</div></div></div></div></div></div><div class="docs-footer"></div></div><div style="clear: both"></div><div class="footer footer-single-line"><div class="container"><div class="bd"><span class="powered-by">Powered by <a href="../../" class="raptorjs">RaptorJS</a> </span> &nbsp; | &nbsp; <a href="../../license/">License</a>&nbsp; | &nbsp; <a href="../../credits/">Credits</a><span class="back-to-top"><a href="#title">Back to Top</a></span></div></div></div></div><script type="text/javascript" src="../../static/core-body-fb755d4b.js"></script>
+<script type="text/javascript" src="../../static/jquery-body-371da524.js"></script>
+<script type="text/javascript" src="../../static/widgets-body-06552a07.js"></script>
+<script type="text/javascript" src="../../static/optimizer-taglib-body-27a3f194.js"></script>
+<script type="text/javascript" src="../../static/bootstrap-body-34d7fcf3.js"></script>
+<script type="text/javascript" src="../../static/code-editor-body-a2bab28c.js"></script><script type="text/javascript">$rwidgets(
+["components.nav.Nav.NavItemWidget","s543",0,0,0,0],
+["components.nav.Nav.NavItemWidget","s544",0,0,0,0,
+["components.nav.Nav.NavItemWidget","s545",0,0,0,0],
+["components.nav.Nav.NavItemWidget","s546",0,0,0,0],
+["components.nav.Nav.NavItemWidget","s547",0,0,0,0],
+["components.nav.Nav.NavItemWidget","s548",0,0,0,0],
+["components.nav.Nav.NavItemWidget","s549",0,0,0,0],
+["components.nav.Nav.NavItemWidget","s550",0,0,0,0],
+["components.nav.Nav.NavItemWidget","s551",0,0,0,0],
+["components.nav.Nav.NavItemWidget","s552",0,0,0,0],
+["components.nav.Nav.NavItemWidget","s553",0,0,0,0],
+["components.nav.Nav.NavItemWidget","s554",0,0,0,0],
+["components.nav.Nav.NavItemWidget","s555",0,0,0,0],
+["components.nav.Nav.NavItemWidget","s556",0,0,0,0],
+["components.nav.Nav.NavItemWidget","s557",0,0,0,0]],
+["components.nav.Nav.NavItemWidget","s558",0,0,0,0,
+["components.nav.Nav.NavItemWidget","s559",0,0,0,0],
+["components.nav.Nav.NavItemWidget","s560",0,0,0,0],
+["components.nav.Nav.NavItemWidget","s561",0,0,0,0],
+["components.nav.Nav.NavItemWidget","s562",0,0,0,0],
+["components.nav.Nav.NavItemWidget","s563",0,0,0,0],
+["components.nav.Nav.NavItemWidget","s564",0,0,0,0],
+["components.nav.Nav.NavItemWidget","s565",0,0,0,0]],
+["components.nav.Nav.NavItemWidget","s566",0,0,0,0,
+["components.nav.Nav.NavItemWidget","s567",0,0,0,0],
+["components.nav.Nav.NavItemWidget","s568",0,0,0,0],
+["components.nav.Nav.NavItemWidget","s569",0,0,0,0],
+["components.nav.Nav.NavItemWidget","s570",0,0,0,0],
+["components.nav.Nav.NavItemWidget","s571",0,0,0,0]],
+["components.editors.CodeEditor.CodeEditorWidget","s572",0,0,{"mode":"xml","autoResize":true,"readOnly":true},0],
+["components.editors.CodeEditor.CodeEditorWidget","s573",0,0,{"mode":"xml","autoResize":true,"readOnly":true},0],
+["components.editors.CodeEditor.CodeEditorWidget","s574",0,0,{"mode":"xml","autoResize":true,"readOnly":true},0]);</script></body></html>
