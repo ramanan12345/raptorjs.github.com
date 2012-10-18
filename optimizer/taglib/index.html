@@ -1,4 +1,4 @@
- <!doctype html> <html><head><title>RaptorJS Optimizer: Taglib</title><meta http-equiv="content-type" content="text/html; charset=UTF-8"></meta><link rel="stylesheet" type="text/css" href="../../static/optimizer-taglib-head-d2a7b186.css">
+ &lt;!doctype html> <!DOCTYPE html><html><head><title>RaptorJS Optimizer: Taglib</title><meta http-equiv="content-type" content="text/html; charset=UTF-8"></meta><link rel="stylesheet" type="text/css" href="../../static/optimizer-taglib-head-d2a7b186.css">
 <link rel="stylesheet" type="text/css" href="../../static/bootstrap-head-d0572038.css">
 <link rel="stylesheet" type="text/css" href="../../static/code-editor-head-6a226e30.css"><script type="text/javascript">var
 _gaq=_gaq||[];_gaq.push(["_setAccount","UA-33982282-1"]);_gaq.push(["_trackPageview"]);(function(){var
@@ -8,38 +8,38 @@ RaptorJS Optimizer almost effortless. Below is a sample page built using Raptor
 Templates:</p></div></div><div class="section section-level-0"><h2 id="Declaring_Page_Dependencies">Declaring Page Dependencies</h2><div class="bd"><p>The <code>&lt;optimizer:page></code> tag can be used to associate a rendering context with a optimizer page. The
 only required attribute for the
 <code>&lt;optimizer:page></code> tag is the <code>package</code> attribute. The <code>package</code> attribute should be used to specify a relative path to a <code>package.json</code> file that describes the dependencies for a page as shown in the following
-example:</p><div class="code-editor" id="s573"> <textarea id="s573-textarea" style="display: none;" name="code-41">&lt;c:template
+example:</p><div class="code-editor" id="s573"> <textarea id="s573-textarea" style="display: none;" name="code-41">&amp;lt;c:template
     xmlns:c="core"
     xmlns:optimizer="optimizer">
     
-    &lt;optimizer:page name="test-page">
-        &lt;includes>
-            &lt;module name="module-a"/>
-            &lt;module name="module-b"/>
-            &lt;css path="test-page.css"/>
-            &lt;css path="test-page.css"/>
-            &lt;js path="test-page.js"/>
-        &lt;/includes>
-    &lt;/optimizer:page>
+    &amp;lt;optimizer:page name="test-page">
+        &amp;lt;includes>
+            &amp;lt;module name="module-a"/>
+            &amp;lt;module name="module-b"/>
+            &amp;lt;css path="test-page.css"/>
+            &amp;lt;css path="test-page.css"/>
+            &amp;lt;js path="test-page.js"/>
+        &amp;lt;/includes>
+    &amp;lt;/optimizer:page>
     
-    &lt;html>
-        &lt;head>
-            &lt;title>Test Page&lt;/title>
-            &lt;optimizer:slot name="head"/>
-        &lt;/head>
-        &lt;body>
+    &amp;lt;html>
+        &amp;lt;head>
+            &amp;lt;title>Test Page&amp;lt;/title>
+            &amp;lt;optimizer:slot name="head"/>
+        &amp;lt;/head>
+        &amp;lt;body>
             Hello World!
-            &lt;optimizer:slot name="body"/>
-        &lt;/body>
-    &lt;/html>
-&lt;/c:template></textarea></div><p>the Optimizer Taglib will cache the results of a call to <code>optimizePage()</code> so that runtime performance is not impacted after the optimized page bundles
+            &amp;lt;optimizer:slot name="body"/>
+        &amp;lt;/body>
+    &amp;lt;/html>
+&amp;lt;/c:template></textarea></div><p>the Optimizer Taglib will cache the results of a call to <code>optimizePage()</code> so that runtime performance is not impacted after the optimized page bundles
 are generated for the first time. The above example code illustrates declaring
 resource slots using the
 <code>&lt;optimizer:slot></code> tag as described in the subsequent section.</p></div></div><div class="section section-level-0"><h2 id="OptimizerTaglibDefiningSlots">Defining Slots</h2><div class="bd"><p>The <code>&lt;optimizer:slot></code> tag can be used to define a slot for a page. When rendered, the <code>&lt;optimizer:slot></code> tag will render the dependency HTML corresponding to the specified slot name.
 For
-example:</p><div class="code-editor" id="s574"> <textarea id="s574-textarea" style="display: none;" name="code-42">&lt;optimizer:slot name="head"/></textarea></div></div></div><div class="section section-level-0"><h2 id="OptimizerTaglibEnablingExtensions">Enabling Extensions</h2><div class="bd"><p>The <code>&lt;optimizer:enable-extension></code> tag can be used to enable an extension for the current request. The only
+example:</p><div class="code-editor" id="s574"> <textarea id="s574-textarea" style="display: none;" name="code-42">&amp;lt;optimizer:slot name="head"/></textarea></div></div></div><div class="section section-level-0"><h2 id="OptimizerTaglibEnablingExtensions">Enabling Extensions</h2><div class="bd"><p>The <code>&lt;optimizer:enable-extension></code> tag can be used to enable an extension for the current request. The only
 required attribute is the "name" attribute which defines the name of the
-example.</p><p>The following code illustrates how to enable an extension:</p><div class="code-editor" id="s575"> <textarea id="s575-textarea" style="display: none;" name="code-43">&lt;optimizer:enable-extension name="ipad"/></textarea></div><p>In the above example, an extension named "ipad" is enabled. Any package that
+example.</p><p>The following code illustrates how to enable an extension:</p><div class="code-editor" id="s575"> <textarea id="s575-textarea" style="display: none;" name="code-43">&amp;lt;optimizer:enable-extension name="ipad"/></textarea></div><p>In the above example, an extension named "ipad" is enabled. Any package that
 contains an extension named "ipad" will have the dependencies that are part of
 that extension included in the optimized
 page.</p><div class="message message-warning"><div class="icon"><i class="icon-warning-sign" style="font-size: 30px;"></i></div><div class="bd">All extensions must be enabled <i>before</i> the &lt;optimizer:page ...> tag is rendered.</div></div></div></div></div></div><div class="docs-footer"></div></div><div style="clear: both"></div><div class="footer footer-single-line"><div class="container"><div class="bd"><span class="powered-by">Powered by <a href="../../" class="raptorjs">RaptorJS</a> </span> &nbsp; | &nbsp; <a href="../../license/">License</a>&nbsp; | &nbsp; <a href="../../credits/">Credits</a><span class="back-to-top"><a href="#title">Back to Top</a></span></div></div></div></div><script type="text/javascript" src="../../static/core-body-f1e2805e.js"></script>

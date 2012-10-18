@@ -103,10 +103,30 @@
 			"cmd":
 			[
 				"jasmine-node",
+				"raptor-dev-spec.js",
+				"--noColor"
+			],
+			"name": "test - dev",
+			"working_dir": "${project_path}/node_modules/raptor/test"
+		},
+		{
+			"cmd":
+			[
+				"jasmine-node",
 				"raptor-optimizer-spec.js",
 				"--noColor"
 			],
 			"name": "test - optimizer",
+			"working_dir": "${project_path}/node_modules/raptor/test"
+		},
+		{
+			"cmd":
+			[
+				"jasmine-node",
+				"raptor-templating-spec.js",
+				"--noColor"
+			],
+			"name": "test - templating",
 			"working_dir": "${project_path}/node_modules/raptor/test"
 		}
 	],
@@ -126,7 +146,9 @@
 	{
 		"build_switcher_systems":
 		[
+			"test - dev",
 			"test - optimizer",
+			"test - templating",
 			"jsdoc",
 			"jsdoc (dev)",
 			"Publish (dev)",
