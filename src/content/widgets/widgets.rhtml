@@ -5,7 +5,7 @@
 <docs:section heading="Overview">
 <p>Widgets are JavaScript classes that get instantiated on the client and are bound to a DOM node. Widgets can have children and the widget tree is automatically constructed by the Raptor framework based on how the widgets were rendered to HTML. Raptor manages the life cycle of the widgets and automatically initializes them at the appropriate time when loading the page in the browser by generating the required HTML code. Since a widget tree is constructed, a parent can access its child widgets and a child widget can access its parent. All widgets are made observable so that other widgets can subscribe to custom events that a widget publishes. A widget instance has access to its DOM elements and jQuery should be used for all DOM access and manipulation.</p>
 <p>A widget consists of the following resources.</p>
-<ul><li>A JSP tag file that defines the HTML template and uses the <code><span class="confluence-link">${entity:lt}r:widget${entity:gt}</span></code> tag</li><li>A JavaScript file that defines the JavaScript class for the widget</li><li>A CSS file that defines any style information for the widget (optional)</li></ul>
+<ul><li>A JSP tag file that defines the HTML template and uses the <code><span class="confluence-link">&lt;r:widget${entity:gt}</span></code> tag</li><li>A JavaScript file that defines the JavaScript class for the widget</li><li>A CSS file that defines any style information for the widget (optional)</li></ul>
 </docs:section>
 
 <docs:section heading="Widget Life Cycle">
@@ -19,19 +19,19 @@
 
 <docs:section heading="Widget JSP Tags">
 
-<h3>${entity:lt}r:widget${entity:gt}</h3>
-<p>The JSP body fragment for the widget must be wrapped in a ${entity:lt}r:widget${entity:gt} tag. Each widget should be in its own JSP tag file and, by convention, there should typically only be one <code>${entity:lt}r:widget${entity:gt}</code> tag per JSP tag file. The <code>${entity:lt}r:widget${entity:gt}</code> tag supports the following attributes.</p>
+<h3>&lt;r:widget${entity:gt}</h3>
+<p>The JSP body fragment for the widget must be wrapped in a &lt;r:widget${entity:gt} tag. Each widget should be in its own JSP tag file and, by convention, there should typically only be one <code>&lt;r:widget${entity:gt}</code> tag per JSP tag file. The <code>&lt;r:widget${entity:gt}</code> tag supports the following attributes.</p>
 <ul><li><strong>jsClass</strong> ${entity:ndash} The name of the JavaScript class for the widget.${entity:nbsp}</li><li><strong>id</strong>${entity:nbsp}${entity:ndash} The assigned child ID for the widget (the parent widget can refer to the child widget via this ID)</li><li><strong>cssPath</strong> ${entity:ndash}${entity:nbsp}The resource path to the CSS file for the widget (relative to a resource search path entry. See <a href="#Widgets-IncludingWidgetResources">Including Widget Resources</a>${entity:nbsp}below)</li></ul>
 <p>A new instance of the widget's JavaScript class is instantiated in the browser for every instance of the widget rendered. In addition, if a widget is rendered in the scope of another widget, the child widget instance is added as a child of the parent widget instance in the browser.</p>
 <p>Raptor automatically includes the JavaScript file for the widget if it is found by searching for the resource in the Raptor resource search path (see${entity:nbsp}<a href="#Widgets-IncludingWidgetResources">Including Widget Resources</a>${entity:nbsp}below). Raptor converts the class name to a resource path. The following example illustrates how a class name is resolved to a JavaScript file in a bundle.</p>
 <ul><li>Class name:${entity:nbsp}<code>test.MyWidget</code></li><li>Resource Path: <code>/test/MyWidget.js</code></li><li>Resource Search Path:${entity:nbsp}<code>["/js/widgets","/css/widgets"]</code></li><li>Resolved path:${entity:nbsp}<code>/js/widgets/test/MyWidget</code></li></ul>
 
-<h3>${entity:lt}r:widgetConfig${entity:gt} and ${entity:lt}r:property${entity:gt}</h3>
-<p>Sometimes it is necessary to pass information available at render time to the widget instance when it is initialized in the browser. The <code>${entity:lt}r:widgetConfig${entity:gt}</code> tag and the <code>${entity:lt}r:property${entity:gt}</code> tags can be used for this purpose. The <code>${entity:lt}r:widgetConfig${entity:gt}</code> tag must be nested within a <code>${entity:lt}r:widget${entity:gt}</code> tag. In addition, the properties that need to be passed to the widget instance should be provided as <code>${entity:lt}r:property${entity:gt}</code> tags nested within the <code>${entity:lt}r:widgetConfig${entity:gt}</code> tag. The${entity:nbsp}<span><code>${entity:lt}r:widgetConfig${entity:gt}</code> does not support any attributes but the${entity:nbsp}<code>${entity:lt}r:property${entity:gt}</code> supports the following attributes.</span></p>
+<h3>&lt;r:widgetConfig${entity:gt} and &lt;r:property${entity:gt}</h3>
+<p>Sometimes it is necessary to pass information available at render time to the widget instance when it is initialized in the browser. The <code>&lt;r:widgetConfig${entity:gt}</code> tag and the <code>&lt;r:property${entity:gt}</code> tags can be used for this purpose. The <code>&lt;r:widgetConfig${entity:gt}</code> tag must be nested within a <code>&lt;r:widget${entity:gt}</code> tag. In addition, the properties that need to be passed to the widget instance should be provided as <code>&lt;r:property${entity:gt}</code> tags nested within the <code>&lt;r:widgetConfig${entity:gt}</code> tag. The${entity:nbsp}<span><code>&lt;r:widgetConfig${entity:gt}</code> does not support any attributes but the${entity:nbsp}<code>&lt;r:property${entity:gt}</code> supports the following attributes.</span></p>
 <ul><li><code>name</code> - The name of the property<span>${entity:nbsp}</span></li><li><code>value</code> - The value of the property. The value supports EL expressions and the value can be a primitive Java type (for example, <code>int</code>, <code>boolean</code>, <code>String</code>) or a complex Java bean.</li></ul>
 <p>Each property is added to a HashMap with each property name as the key and the corresponding property value as the value. The resulting HashMap is serialized to JSON on the server using the <a rel="nofollow" class="external-link ebayLVTracking_exit" href="http://jackson.codehaus.org/">Jackson JSON serializer</a>. The Jackson JSON serializer uses reflection to serialize any Java beans.</p>
 <p>Care must be taken to make sure that there are no cyclic references. In addition, the Java beans being serialized as property values should${entity:nbsp}<strong>only</strong> include getters for properties that should be serialized and sent to the browser. Unnecessary data being serialized will result in poor performance.</p>
-<p>The resulting widget configuration is passed to the constructor of the widget in the browser as a native JavaScript object with properties that correspond to the properties passed in via the <code>${entity:lt}r:property${entity:gt}</code> tags.</p>
+<p>The resulting widget configuration is passed to the constructor of the widget in the browser as a native JavaScript object with properties that correspond to the properties passed in via the <code>&lt;r:property${entity:gt}</code> tags.</p>
 
 <h4>Example Widget Config</h4>
 <docs:code-editor mode="xml" readOnly="true" c:parse-body-text="false"><![CDATA[
@@ -61,8 +61,8 @@ raptor.defineClass('containers.DialogWidget', function(raptor) {
 
 <docs:section heading="Widget JSP Tag File">
 
-<p>A widget JSP tag file should be used when building a widget. The JSP tag file defines the attributes that are supported by the generated JSP tag handler. The values of the attributes should be used to control the HTML output and they may also be used to control the widget config. A JSP tag file should only a single <code>${entity:lt}r:widget${entity:gt}</code> tag as the root element.</p>
-<p>Every widget should support an <code>id</code> attribute that allows the parent widget to assign an ID to the child widget. The value of the <code>id</code> attribute should be assigned to the <code>id</code> attribute of the <code>${entity:lt}r:widget${entity:gt}</code> tag.</p>
+<p>A widget JSP tag file should be used when building a widget. The JSP tag file defines the attributes that are supported by the generated JSP tag handler. The values of the attributes should be used to control the HTML output and they may also be used to control the widget config. A JSP tag file should only a single <code>&lt;r:widget${entity:gt}</code> tag as the root element.</p>
+<p>Every widget should support an <code>id</code> attribute that allows the parent widget to assign an ID to the child widget. The value of the <code>id</code> attribute should be assigned to the <code>id</code> attribute of the <code>&lt;r:widget${entity:gt}</code> tag.</p>
 
 <h3>Example Widget JSP Tag File</h3>
 
@@ -113,7 +113,7 @@ raptor.defineClass('containers.DialogWidget', function(raptor) {
 </docs:section>
 
 <docs:section heading="Widget JavaScript Classes">
-<p>The <code>jsType</code> attributed specified for a <code>${entity:lt}r:widget${entity:gt}</code> tag is used by the RaptorJS "widgets" module to create an instance of a widget class for the specified type in the browser. The widget JavaScript class should be specified as a standard RaptorJS class using the <code>raptor.defineClass(widgetClassName, factoryFunction)</code> method. The constructor for the widget will not be invoked until all of the widget's children have been fully initialized and not until the "dom ready" event has been fired. In addition, the JavaScript object for the widget config is passed to the constructor function as the first argumen.</p>
+<p>The <code>jsType</code> attributed specified for a <code>&lt;r:widget${entity:gt}</code> tag is used by the RaptorJS "widgets" module to create an instance of a widget class for the specified type in the browser. The widget JavaScript class should be specified as a standard RaptorJS class using the <code>raptor.defineClass(widgetClassName, factoryFunction)</code> method. The constructor for the widget will not be invoked until all of the widget's children have been fully initialized and not until the "dom ready" event has been fired. In addition, the JavaScript object for the widget config is passed to the constructor function as the first argumen.</p>
 <h3>Example Widget JavaScript Class</h3>
 <docs:code-editor mode="javascript" readOnly="true" c:parse-body-text="false"><![CDATA[
 ]]></docs:code-editor>
@@ -139,7 +139,7 @@ raptor.defineClass(
 <docs:section heading="Widget DOM Elements">
 <p>Raptor provides support for assigning IDs to widget DOM elements and then accessing those elements inside the widget instance. The Raptor framework guarantees that the element IDs are unique even if the widget is rendered multiple times. The Raptor framework does this by assigning a unique ID to every rendered widget and then prefixing all element IDs with the widget ID to guarantee that the DOM element IDs are unique even if the widget is rendered multiple times. The widget is always initialized with its generated ID and to access a DOM element in a widget, the requested ID is simply prefixed with the widget ID to resolve the final DOM element ID.</p>
 <h3>Assigning DOM Element IDs</h3>
-<p>The elements nested within a <code>${entity:lt}r:widget${entity:gt}</code> tag should be assigned IDs using either of the following EL expressions.</p>
+<p>The elements nested within a <code>&lt;r:widget${entity:gt}</code> tag should be assigned IDs using either of the following EL expressions.</p>
 <ul><li><code>\${widget.elId}</code>${entity:nbsp}${entity:ndash} The ID to use for the root HTML element associated with the widget</li><li><code>\${widget.elId(id)}</code>${entity:nbsp}${entity:ndash} The ID to use for nested elements in a widget. The provided ID is prefixed with the widget ID</li></ul>
 <h3>Accessing DOM Elements by ID and via jQuery Selectors</h3>
 <p>Every widget instance is augmented with a <code>getEl(id)</code> method that should be used to access the raw DOM elements (i.e. a DOM element that is not wrapped by jQuery). The <code>id</code> parameter for the <code>getEl(id)</code> method is optional: if it is not provided, the root element for the widget is returned (assuming the <code>\${widget.elId}</code> EL expression was used correctly).</p>

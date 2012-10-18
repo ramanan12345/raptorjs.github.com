@@ -17,9 +17,9 @@
 
         <docs:section heading="Declaring Page Dependencies">
             <p>
-                The <code>${entity:lt}optimizer:page></code> tag can be used to associate
+                The <code>&lt;optimizer:page></code> tag can be used to associate
                 a rendering context with a optimizer page. The only
-                required attribute for the <code>${entity:lt}optimizer:page></code> tag
+                required attribute for the <code>&lt;optimizer:page></code> tag
                 is the <code>package</code> attribute. The <code>package</code> attribute
                 should be used to specify a relative path to a <code>package.json</code>
                 file that describes the dependencies for a page as shown in the following example:
@@ -67,15 +67,15 @@
                 performance is not impacted after the optimized page bundles
                 are generated for the first time. The above example
                 code illustrates declaring resource slots using 
-                the <code>${entity:lt}optimizer:slot></code> tag
+                the <code>&lt;optimizer:slot></code> tag
                 as described in the subsequent section.
             </p>
         </docs:section>
 
         <docs:section heading="Defining Slots" anchor-name="OptimizerTaglibDefiningSlots">
             <p>
-                The <code>${entity:lt}optimizer:slot></code> tag can be used
-                to define a slot for a page. When rendered, the <code>${entity:lt}optimizer:slot></code> tag
+                The <code>&lt;optimizer:slot></code> tag can be used
+                to define a slot for a page. When rendered, the <code>&lt;optimizer:slot></code> tag
                 will render the dependency HTML corresponding to the specified slot name. For example:
             </p>
             <docs:code-editor 
@@ -91,7 +91,7 @@
         </docs:section>
         <docs:section heading="Enabling Extensions" anchor-name="OptimizerTaglibEnablingExtensions">
             <p>
-                The <code>${entity:lt}optimizer:enable-extension></code> tag can be used
+                The <code>&lt;optimizer:enable-extension></code> tag can be used
                 to enable an extension for the current request. The only required
                 attribute is the "name" attribute which defines the name of the example.
             </p>
@@ -116,7 +116,7 @@
             </p>
             <docs:message type="warning">
                 All extensions must be enabled <i>before</i> the 
-                ${entity:lt}optimizer:page ...> tag is rendered.
+                &lt;optimizer:page ...> tag is rendered.
             </docs:message>
         </docs:section>
 

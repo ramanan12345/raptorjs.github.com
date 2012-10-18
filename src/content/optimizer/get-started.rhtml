@@ -46,7 +46,7 @@
                     A <code>package.json</code> file should be placed in a directory that corresponds to a module name.
                     For example, the corresponding <code>package.json</code> file for a module named "test.hello"
                     should be placed in the following location:
-                    <code><nobr>${entity:lt}modules-dir>/test/hello/package.json</nobr></code>. 
+                    <code><nobr>&lt;modules-dir>/test/hello/package.json</nobr></code>. 
                     In order for the RaptorJS Optimizer to be able
                     to find your modules, you need to add the root directory containing your modules to the
                     <a href="${url('/resource-search-path')}">
@@ -92,7 +92,7 @@
                 <p>
                     In addition to declaring which resources are included as part of a package, a <code>package.json</code>
                     file can also declare that it depends on another module (i.e., another <code>package.json</code> file).
-                    A module dependency can be added using adding <code>{ "module": "${entity:lt}module-name>" }</code>
+                    A module dependency can be added using adding <code>{ "module": "&lt;module-name>" }</code>
                     entries as shown in the following example:
                 </p>
 <docs:code-editor 
@@ -469,7 +469,7 @@ $ node run-optimizer.js
                         NOTE: The second parameter for the <code>optimizer.configure()</code>
                               method is a parameters object. Any parameters provided can be
                               used as variables inside the XML configuration file using
-                              the \${${entity:lt}variable-name>} syntax. For the above 
+                              the \${&lt;variable-name>} syntax. For the above 
                               example, "minify" is a paramter that can be used to enable/disable
                               minification based on the following XML fragment:
                         <docs:code-editor 

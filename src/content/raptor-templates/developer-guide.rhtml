@@ -89,8 +89,8 @@
                     <docs:popover title="Smart Whitespace Removal">
                         <c:attr name="content">
                             <p>
-                                The compiler understands that whitespace inside <code>${entity:lt}textarea></code>
-                                and <code>${entity:lt}textarea></code> tags should be preserved.
+                                The compiler understands that whitespace inside <code>&lt;textarea></code>
+                                and <code>&lt;textarea></code> tags should be preserved.
                             </p>
                             <p>
                                 Since templats are XML-based, the compiler knows that 
@@ -304,10 +304,10 @@
                 Valid JavaScript expressions are allowed wherever expressions can be
                 used within a template. However, because templates must be
                 well-formed XML you will have problems if you try to use unescaped
-                less than ("${entity:lt}") and ampersand ("${entity:amp}") characters as part of an
+                less than ("&lt;") and ampersand ("${entity:amp}") characters as part of an
                 expression since those characters are special XML characters and
                 would break parsing. You can choose to escape the special characters
-                (i.e. use "${entity:amp}lt;" for "${entity:lt}" and "${entity:amp}amp;" 
+                (i.e. use "${entity:amp}lt;" for "&lt;" and "${entity:amp}amp;" 
                 for "${entity:amp}") or, preferably, you
                 can choose to use any of the following equivalent binary operators
                 supported by the Raptor Templating Language:
@@ -337,7 +337,7 @@
                         <td><code>ne</code></td>
                     </tr>
                     <tr>
-                        <td><code>${entity:lt}</code></td>
+                        <td><code>&lt;</code></td>
                         <td><code>lt</code></td>
                     </tr>
                     <tr>
@@ -345,7 +345,7 @@
                         <td><code>gt</code></td>
                     </tr>
                     <tr>
-                        <td><code>${entity:lt}=</code></td>
+                        <td><code>&lt;=</code></td>
                         <td><code>le</code></td>
                     </tr>
                     <tr>
@@ -378,7 +378,7 @@
     mode="xml"
     readOnly="true" 
     c:parse-body-text="false"
-><![CDATA[\${test} &lt;!-- Output: ${test} -->]]></docs:code-editor>
+><![CDATA[\${test} <!-- Output: ${test} -->]]></docs:code-editor>
                 <p c:parse-body-text="false">
                     In the unlikely case that "\${" was intended to be part of the
                     output then the backslash must be escaped by another backslash as
@@ -388,7 +388,7 @@
     mode="xml"
     readOnly="true" 
     c:parse-body-text="false"
-><![CDATA[\\${test} &lt;!-- Output: \${test} -->]]></docs:code-editor>
+><![CDATA[\\${test} <!-- Output: \${test} -->]]></docs:code-editor>
             </docs:section>
             
             <docs:section heading="Expression Handlers">
@@ -404,7 +404,7 @@
                 
                 <docs:section heading="${startTag:c:template}">
                     <p>
-                        The root element of all templates should be a ${entity:lt}c:template>
+                        The root element of all templates should be a &lt;c:template>
                         tag. This tag defines the name of the template and the input
                         parameters for the template. In addition, XML namespaces
                         corresponding to taglibs should be attached to the root element.
@@ -512,7 +512,7 @@
                 
                 <docs:section heading="${startTag:c:include}">
                     <p>
-                        Another template can easily be included using the ${entity:lt}c:include>
+                        Another template can easily be included using the &lt;c:include>
                         directive. The "template" attribute is required to specify name of
                         the template to include and all other attributes are used as
                         arguments to the template.
@@ -546,7 +546,7 @@
             
             <docs:section heading="Text Replacement">
                 <p c:parse-body-text="false">
-                    Dynamic text should be of the form ${entity:lt}variable-name> or
+                    Dynamic text should be of the form &lt;variable-name> or
                     ${{entity:lt}javascript-expression>}:
                 </p>
 <docs:code-editor 
@@ -595,7 +595,7 @@
                     since the XML characters had been escaped.
                 </p>
                 <p c:parse-body-text="false">
-                    To disable XML escaping, the expression should be of the form ${xml:<span>${entity:lt}</span>javascript-expression>}. 
+                    To disable XML escaping, the expression should be of the form ${xml:<span>&lt;</span>javascript-expression>}. 
                     The "xml" expression handler lets the compiler know that XML is
                     expected and that the XML characters should not be escaped.
                 </p>
@@ -768,7 +768,7 @@
                         Shorthand conditionals allow for conditional
                         values inside attributes or wherever expressions are allowed.
                         Shorthand conditionals are of the following form:<br/>
-                        <code>\{?${entity:lt}expression>;${entity:lt}true-template>[;${entity:lt}false-template>]}</code>
+                        <code>\{?&lt;expression>;&lt;true-template>[;&lt;false-template>]}</code>
                     </p>
                     <p>
                         For example:
@@ -1018,7 +1018,7 @@
                 <p>
                     Macros allow for reusable fragments within an HTML template. 
                     Macros can also be parameterized. A macro can be defined 
-                    using the ${entity:lt}c:de> directive and a macro 
+                    using the &lt;c:de> directive and a macro 
                     when defining a macro.
                 </p>
                 
@@ -1110,7 +1110,7 @@
                     <docs:message type="info">
                         <p>
                             NOTE: By default, the arguments will be of type "string" when using
-                            ${entity:lt}c:invoke>. However, argument attributes support JavaScript
+                            &lt;c:invoke>. However, argument attributes support JavaScript
                             expressions which allow for other types of arguments. Example:
                         </p>
 <docs:code-editor 
@@ -1249,7 +1249,7 @@ count="${10}"  <!-- number argument -->]]></docs:code-editor>
                     variables that are available to the nested body content only.
                 </p>
                 <p>
-                    For example, the ${entity:lt}test:greeting> handler might be used as follows:
+                    For example, the &lt;test:greeting> handler might be used as follows:
                 </p>    
 <docs:code-editor 
     mode="xml"
@@ -1352,7 +1352,7 @@ count="${10}"  <!-- number argument -->]]></docs:code-editor>
                 </p>
                 <p>
                     As an example, the core taglib registers a transform that looks for the <code>c:if</code> attribute
-                    on all elements and will surround the node with a new <code>${entity:lt}c:if></code> 
+                    on all elements and will surround the node with a new <code>&lt;c:if></code> 
                     node.
                 </p>    
                 <p>
