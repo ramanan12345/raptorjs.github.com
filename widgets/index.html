@@ -51,10 +51,10 @@ browser. Unnecessary data being serialized will result in poor
 performance.</p><p>The resulting widget configuration is passed to the constructor of the widget
 in the browser as a native JavaScript object with properties that correspond to
 the properties passed in via the
-<code>&lt;r:property&gt;</code> tags.</p><h4>Example Widget Config</h4><div class="code-editor" id="s947"> <textarea id="s947-textarea" style="display: none;" name="code-113">&amp;lt;r:widgetConfig>
-&amp;lt;r:property name="modal" value="${modal}"/>
-&amp;lt;r:property name="autoShow" value="${autoShow}"/>
-&amp;lt;/r:widgetConfig></textarea></div><p>Given the above widget config definition, the generated JavaScript config
+<code>&lt;r:property&gt;</code> tags.</p><h4>Example Widget Config</h4><div class="code-editor" id="s947"> <textarea id="s947-textarea" style="display: none;" name="code-113">&lt;r:widgetConfig>
+&lt;r:property name="modal" value="${modal}"/>
+&lt;r:property name="autoShow" value="${autoShow}"/>
+&lt;/r:widgetConfig></textarea></div><p>Given the above widget config definition, the generated JavaScript config
 object can be accessed in the constructor for the widget as shown in the
 following
 example:</p><div class="code-editor" id="s948"> <textarea id="s948-textarea" style="display: none;" name="code-114">raptor.defineClass('containers.DialogWidget', function(raptor) {
@@ -73,39 +73,39 @@ values of the attributes should be used to control the HTML output and they may
 also be used to control the widget config. A JSP tag file should only a single
 <code>&lt;r:widget&gt;</code> tag as the root element.</p><p>Every widget should support an <code>id</code> attribute that allows the parent widget to assign an ID to the child widget.
 The value of the
-<code>id</code> attribute should be assigned to the <code>id</code> attribute of the <code>&lt;r:widget&gt;</code> tag.</p><h3>Example Widget JSP Tag File</h3><div class="code-editor" id="s949"> <textarea id="s949-textarea" style="display: none;" name="code-115">&amp;lt;%@ tag description="Raptor Dialog Widget" pageEncoding="UTF-8" %>
+<code>id</code> attribute should be assigned to the <code>id</code> attribute of the <code>&lt;r:widget&gt;</code> tag.</p><h3>Example Widget JSP Tag File</h3><div class="code-editor" id="s949"> <textarea id="s949-textarea" style="display: none;" name="code-115">&lt;%@ tag description="Raptor Dialog Widget" pageEncoding="UTF-8" %>
  
-&amp;lt;%@ taglib prefix="r" uri="http://ebay.com/raptor" %>
-&amp;lt;%@ taglib prefix="rui" uri="http://ebay.com/raptor/ui" %>
-&amp;lt;%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+&lt;%@ taglib prefix="r" uri="http://ebay.com/raptor" %>
+&lt;%@ taglib prefix="rui" uri="http://ebay.com/raptor/ui" %>
+&lt;%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
  
-&amp;lt;!-- Widget attributes -->
-&amp;lt;%@ attribute name="id" description="widget ID" %> &amp;lt;!-- Every widget should support an "id" attribute! -->
-&amp;lt;%@ attribute name="title" description="Dialog title" %>
-&amp;lt;%@ attribute name="modal" description="Is modal" %>
-&amp;lt;%@ attribute name="autoShow" description="Should the dialog be automatically shown" %>
+&lt;!-- Widget attributes -->
+&lt;%@ attribute name="id" description="widget ID" %> &lt;!-- Every widget should support an "id" attribute! -->
+&lt;%@ attribute name="title" description="Dialog title" %>
+&lt;%@ attribute name="modal" description="Is modal" %>
+&lt;%@ attribute name="autoShow" description="Should the dialog be automatically shown" %>
  
-&amp;lt;!-- This widget depends on jQuery UI -->
-&amp;lt;rui:include-jquery-ui/>
+&lt;!-- This widget depends on jQuery UI -->
+&lt;rui:include-jquery-ui/>
  
-&amp;lt;!-- The value of the "id" attribute is passed to the widget tag -->
-&amp;lt;r:widget id="${id}" jsClass="containers.DialogWidget">
+&lt;!-- The value of the "id" attribute is passed to the widget tag -->
+&lt;r:widget id="${id}" jsClass="containers.DialogWidget">
  
-    &amp;lt;!-- The next element is the root element for the widget -->
-    &amp;lt;div id="${widget.elId}" title="${title}" style="display:none;">
-        &amp;lt;p>
-            &amp;lt;!-- Render nested content inside the &amp;lt;p> tags -->
-            &amp;lt;jsp:doBody/>
-        &amp;lt;/p>
-    &amp;lt;/div>
+    &lt;!-- The next element is the root element for the widget -->
+    &lt;div id="${widget.elId}" title="${title}" style="display:none;">
+        &lt;p>
+            &lt;!-- Render nested content inside the &lt;p> tags -->
+            &lt;jsp:doBody/>
+        &lt;/p>
+    &lt;/div>
  
-    &amp;lt;!-- Widget Config -->   
-    &amp;lt;r:widgetConfig>
-        &amp;lt;r:property name="modal" value="${modal}"/>
-        &amp;lt;r:property name="autoShow" value="${autoShow}"/>
-    &amp;lt;/r:widgetConfig>
+    &lt;!-- Widget Config -->   
+    &lt;r:widgetConfig>
+        &lt;r:property name="modal" value="${modal}"/>
+        &lt;r:property name="autoShow" value="${autoShow}"/>
+    &lt;/r:widgetConfig>
      
-&amp;lt;/r:widget></textarea></div><h3>Example of Using a Widget Tag</h3><div class="code-editor" id="s950"> <textarea id="s950-textarea" style="display: none;" name="code-116">&amp;lt;rui:raptorDialog id="myDialog" modal="true" autoShow="false"/></textarea></div><p>If an "id" attribute is provided when using a widget then the parent widget can
+&lt;/r:widget></textarea></div><h3>Example of Using a Widget Tag</h3><div class="code-editor" id="s950"> <textarea id="s950-textarea" style="display: none;" name="code-116">&lt;rui:raptorDialog id="myDialog" modal="true" autoShow="false"/></textarea></div><p>If an "id" attribute is provided when using a widget then the parent widget can
 access the child widget using the provided ID as shown in the
 <a href="#Widgets-ParentChildCommunication">Parent/Child Communication</a> section.</p></div></div><div class="section section-level-0"><h2 id="Widget_JavaScript_Classes">Widget JavaScript Classes</h2><div class="bd"><p>The <code>jsType</code> attributed specified for a <code>&lt;r:widget&gt;</code> tag is used by the RaptorJS "widgets" module to create an instance of a widget
 class for the specified type in the browser. The widget JavaScript class should
@@ -139,15 +139,15 @@ can use any of the following
 approaches.</p><ul><li>Accessing the widget's root DOM element wrapped as a jQuery object: <ul><li>$(this.getEl())</li><li>this.$()</li></ul></li><li>Accessing a widget's DOM element by ID wrapped as a jQuery object: <ul><li>$(this.getEl("myEl"))</li><li>this.$("#myEl")</li></ul></li><li>Executing a jQuery selector scoped to the widget's root DOM element: <ul><li>$("LI.color", this.getEl())</li><li>this.$("LI.color")</li></ul></li><li>Executing a jQuery selector scoped to a widget's DOM element: <ul><li>$("LI.color", this.getEl("colorsUL"))</li><li>this.$("LI.color", "colorsUL")</li><li>this.$("#colorsUL LI.color")</li></ul></li></ul><p>Every widget is augmented with a Raptor "$" function that serves as proxy to
 the actual jQuery "$" function. The Raptor $ function handles executing
 selectors scoped to various widget DOM elements and it resolves widget element
-IDs.</p><h3>Examples of Working with Widget DOM Elements</h3><div class="code-editor" id="s952"> <textarea id="s952-textarea" style="display: none;" name="code-118">&amp;lt;r:widget id="${id}" jsClass="example.ColorsWidget">
-    &amp;lt;div id="${widget.elId}">
-        &amp;lt;ul id="${widget.elId('colorsUL')}">
-            &amp;lt;li class="color">red&amp;lt;/li>
-            &amp;lt;li class="color">green&amp;lt;/li>
-            &amp;lt;li class="color">blue&amp;lt;/li>
-        &amp;lt;/ul>
-    &amp;lt;/div>
-&amp;lt;/r:widget></textarea></div><div class="code-editor" id="s953"> <textarea id="s953-textarea" style="display: none;" name="code-119">raptor.defineClass('example.ColorsWidget', function() {
+IDs.</p><h3>Examples of Working with Widget DOM Elements</h3><div class="code-editor" id="s952"> <textarea id="s952-textarea" style="display: none;" name="code-118">&lt;r:widget id="${id}" jsClass="example.ColorsWidget">
+    &lt;div id="${widget.elId}">
+        &lt;ul id="${widget.elId('colorsUL')}">
+            &lt;li class="color">red&lt;/li>
+            &lt;li class="color">green&lt;/li>
+            &lt;li class="color">blue&lt;/li>
+        &lt;/ul>
+    &lt;/div>
+&lt;/r:widget></textarea></div><div class="code-editor" id="s953"> <textarea id="s953-textarea" style="display: none;" name="code-119">raptor.defineClass('example.ColorsWidget', function() {
     return {
         init: function(config) {
             this.$("#colorsUL li.color").each(function(i) {
@@ -234,18 +234,18 @@ to a child widget, that child can be accessed by the assigned child ID. An ID
 can be assigned to a child widget by providing an "id" attribute. Each widget
 instance is augmented with the following
 methods:</p><ul><li><code>getParent()</code>&nbsp;&ndash; Returns the parent widget</li><li><code>getChild(childId)</code>&nbsp;&ndash; Returns the child widget with the specified ID</li><li><p class="p1"><code>getChildren()</code>&nbsp;&ndash; Returns an array of the children widgets in the order they were
-added</p></li></ul><h3>Example of Parent/Child Communication</h3><p>Given the following widget JSP tag file:</p><h5>registrationForm.tag</h5><div class="code-editor" id="s958"> <textarea id="s958-textarea" style="display: none;" name="code-124">&amp;lt;%@ tag description="eBay Registration Form" pageEncoding="UTF-8" %>
-&amp;lt;%@ taglib prefix="r" uri="http://ebay.com/raptor" %>
-&amp;lt;%@ taglib prefix="rui" uri="http://ebay.com/raptor/ui" %>
-&amp;lt;%@ attribute name="id" description="widget ID" %>
-&amp;lt;r:widget id="${id}" jsClass="users.RegistrationFormWidget">
+added</p></li></ul><h3>Example of Parent/Child Communication</h3><p>Given the following widget JSP tag file:</p><h5>registrationForm.tag</h5><div class="code-editor" id="s958"> <textarea id="s958-textarea" style="display: none;" name="code-124">&lt;%@ tag description="eBay Registration Form" pageEncoding="UTF-8" %>
+&lt;%@ taglib prefix="r" uri="http://ebay.com/raptor" %>
+&lt;%@ taglib prefix="rui" uri="http://ebay.com/raptor/ui" %>
+&lt;%@ attribute name="id" description="widget ID" %>
+&lt;r:widget id="${id}" jsClass="users.RegistrationFormWidget">
     ...
-    &amp;lt;rui:dialog id="helpDialog" title="Help" width="320px">
-        &amp;lt;h1>Registration tips&amp;lt;/h1>
+    &lt;rui:dialog id="helpDialog" title="Help" width="320px">
+        &lt;h1>Registration tips&lt;/h1>
         To register with eBay, ...
-    &amp;lt;/rui:dialog>
+    &lt;/rui:dialog>
      
-&amp;lt;/r:widget></textarea></div><p>Each instance of <code>users.RegistrationFormWidget</code> can access the child button widget as shown in the following JavaScript for
+&lt;/r:widget></textarea></div><p>Each instance of <code>users.RegistrationFormWidget</code> can access the child button widget as shown in the following JavaScript for
 the
 <code>users.RegistrationFormWidget</code> class.</p><h5>RegistrationFormWidget.js</h5><div class="code-editor" id="s959"> <textarea id="s959-textarea" style="display: none;" name="code-125">raptor.defineClass(
     'users.RegistrationFormWidget',

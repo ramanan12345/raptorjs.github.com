@@ -70,32 +70,32 @@ favorite templating language to inject the HTML content into your
 page.</p><p>For convenience, the RaptorJS Optimizer ships with an <a href="../../optimizer/taglib/">Optimizer Taglib </a> that can be used to define page dependencies and slots inside the HTML
 template. The basic structure for a page to be optimized using Raptor Templates
 is the
-following:</p><div class="code-editor" id="s461"> <textarea id="s461-textarea" style="display: none;" name="code-16">&amp;lt;c:template
+following:</p><div class="code-editor" id="s461"> <textarea id="s461-textarea" style="display: none;" name="code-16">&lt;c:template
     xmlns:c="core"
     xmlns:optimizer="optimizer">
  
-    &amp;lt;optimizer:page>
-        &amp;lt;includes>
-            &amp;lt;module name="module-a"/>
-            &amp;lt;module name="module-b"/>
-            &amp;lt;css path="test-page.css"/>
-            &amp;lt;css path="test-page.css"/>
-            &amp;lt;js path="test-page.js"/>
-        &amp;lt;/includes>
-    &amp;lt;/optimizer:page>
+    &lt;optimizer:page>
+        &lt;includes>
+            &lt;module name="module-a"/>
+            &lt;module name="module-b"/>
+            &lt;css path="test-page.css"/>
+            &lt;css path="test-page.css"/>
+            &lt;js path="test-page.js"/>
+        &lt;/includes>
+    &lt;/optimizer:page>
     
-    &amp;lt;html>
-        &amp;lt;head>
-            &amp;lt;title>Hello World&amp;lt;/title>
-            &amp;lt;optimizer:slot name="head"/>
-        &amp;lt;/head>
-        &amp;lt;body>
+    &lt;html>
+        &lt;head>
+            &lt;title>Hello World&lt;/title>
+            &lt;optimizer:slot name="head"/>
+        &lt;/head>
+        &lt;body>
             ...
-            &amp;lt;optimizer:slot name="body"/>
-        &amp;lt;/body>
-    &amp;lt;/html>
+            &lt;optimizer:slot name="body"/>
+        &lt;/body>
+    &lt;/html>
      
-&amp;lt;/c:template></textarea></div><p>For more information on the JavaScript API and Taglib please see the following
+&lt;/c:template></textarea></div><p>For more information on the JavaScript API and Taglib please see the following
 sections:</p><ul><li><a href="#JavaScriptAPI">JavaScript API</a></li><li><a href="#OptimizerTaglib">Optimizer Taglib</a></li></ul></div></div><div class="section section-level-2"><h2 id="Targeting_Slots">Targeting Slots</h2><div class="bd"><p>By default, CSS resources are targeted for a slot named "head" and JavaScript
 resources are targeted for a slot named "body". Both of these defaults can
 easily be overridden at the resource level by adding a "slot" property to the
@@ -125,32 +125,32 @@ code:</p><div class="code-editor" id="s463"> <textarea id="s463-textarea" style=
 optimized differently based on which profile is enabled. For example, to
 improve developer productivity, bundling of resources and resource minification
 can be
-disabled.</p><p>Below is a basic optimizer configuration file:</p><div class="code-editor" id="s464"> <textarea id="s464-textarea" style="display: none;" name="code-19">&amp;lt;optimizer-config>
+disabled.</p><p>Below is a basic optimizer configuration file:</p><div class="code-editor" id="s464"> <textarea id="s464-textarea" style="display: none;" name="code-19">&lt;optimizer-config>
 
-    &amp;lt;minify-js>${minify}&amp;lt;/minify-js>
-    &amp;lt;output-dir>static&amp;lt;/output-dir>
-    &amp;lt;url-prefix>/static/&amp;lt;/url-prefix>
+    &lt;minify-js>${minify}&lt;/minify-js>
+    &lt;output-dir>static&lt;/output-dir>
+    &lt;url-prefix>/static/&lt;/url-prefix>
 
-    &amp;lt;bundles name="default">
+    &lt;bundles name="default">
 
-        &amp;lt;bundle name="jquery">
-            &amp;lt;module name="jQuery" recursive="true"/>
-        &amp;lt;/bundle>
+        &lt;bundle name="jquery">
+            &lt;module name="jQuery" recursive="true"/>
+        &lt;/bundle>
 
-        &amp;lt;bundle name="core">
-            &amp;lt;module name="core" recursive="true"/>
-            &amp;lt;init-raptor/>
-            &amp;lt;module name="listeners" recursive="true"/>
-            &amp;lt;module name="widgets" recursive="true"/>
-        &amp;lt;/bundle>
+        &lt;bundle name="core">
+            &lt;module name="core" recursive="true"/>
+            &lt;init-raptor/>
+            &lt;module name="listeners" recursive="true"/>
+            &lt;module name="widgets" recursive="true"/>
+        &lt;/bundle>
         
-        &amp;lt;bundle name="templating">
-            &amp;lt;module name="templating" recursive="true"/>
-        &amp;lt;/bundle>
+        &lt;bundle name="templating">
+            &lt;module name="templating" recursive="true"/>
+        &lt;/bundle>
 
-    &amp;lt;/bundles>
+    &lt;/bundles>
     
-&amp;lt;/optimizer-config></textarea></div> <p>The above sample configuration file only illustrates a small portion of the
+&lt;/optimizer-config></textarea></div> <p>The above sample configuration file only illustrates a small portion of the
 supported configuration options. For a more detailed description of supported
 configuration options please see the
 <a href="../../optimizer/configuration/"><nobr>RaptorJS Optimizer: Configuration</nobr></a> documentation.</p></div></div><div class="section section-level-0"><h2 id="Asynchronous_Loading">Asynchronous Loading</h2><div class="bd"><p>The RaptorJS Optimizer is compatible with the asynchronous module loader
@@ -178,9 +178,9 @@ example:</p><div class="code-editor" id="s466"> <textarea id="s466-textarea" sty
 }</textarea></div></div></div><div class="section section-level-1"><h2 id="Asynchronous_Module_Metadata">Asynchronous Module Metadata</h2><div class="bd"><p>For each module that is marked as asynchronous, the following information is
 included as part of the metadata that is serialized to JSON and sent to the
 client:</p><div class="code-editor" id="s467"> <textarea id="s467-textarea" style="display: none;" name="code-22">{
-    "js": ["&amp;lt;url-1>", "&amp;lt;url-2>", ...],
-    "css": ["&amp;lt;url-1>", "&amp;lt;url-2>", ...],
-    "requires": ["&amp;lt;module-1>", "&amp;lt;module-2>"]
+    "js": ["&lt;url-1>", "&lt;url-2>", ...],
+    "css": ["&lt;url-1>", "&lt;url-2>", ...],
+    "requires": ["&lt;module-1>", "&lt;module-2>"]
 }</textarea></div><p>The following is example asynchronous module metadata:</p><div class="code-editor" id="s468"> <textarea id="s468-textarea" style="display: none;" name="code-23">{
     "my-module": {
         "js": ["/static/page1-async-body-d9103c2a.js"],
@@ -195,11 +195,11 @@ client:</p><div class="code-editor" id="s467"> <textarea id="s467-textarea" styl
 }</textarea></div></div></div></div></div><div class="section section-level-0"><h2 id="CDN_Integration">CDN Integration</h2><div class="bd"><p>Utilizing a Content Distribution Network (CDN) is very straightforward when
 using the RaptorJS Optimizer. Simply configure the URL prefix to include the
 host name for the
-CDN.</p><p>For example:</p><div class="code-editor" id="s469"> <textarea id="s469-textarea" style="display: none;" name="code-24">&amp;lt;optimizer-config>
+CDN.</p><p>For example:</p><div class="code-editor" id="s469"> <textarea id="s469-textarea" style="display: none;" name="code-24">&lt;optimizer-config>
     ...
-    &amp;lt;url-prefix>http://my-cdn/static/&amp;lt;/url-prefix>
+    &lt;url-prefix>http://my-cdn/static/&lt;/url-prefix>
     ...
-&amp;lt;/optimizer-config></textarea></div></div></div><div class="section section-level-0"><h2 id="JavaScriptAPI">JavaScript API</h2><div class="bd"><p>All of the code related to the RaptorJS Optimizer is part of the <a href="http://raptorjs.org/api/optimizer/">optimizer</a> module. The two most commonly used API methods are the following:</p><ul><li><b>configure</b>: The configure method is used to configure the default page optimizer instance.</li><li></li></ul><div class="section section-level-1"><h2 id="Registering_Pages">Registering Pages</h2><div class="bd"><p></p></div></div><div class="section section-level-1"><h2 id="Generating_Page_HTML">Generating Page HTML</h2><div class="bd"><p>The <code>OptimizerEngine</code> object provides a <code>optimizer.getPageHtmlBySlot()</code> method that can be used to generate the HTML for a page that has been
+&lt;/optimizer-config></textarea></div></div></div><div class="section section-level-0"><h2 id="JavaScriptAPI">JavaScript API</h2><div class="bd"><p>All of the code related to the RaptorJS Optimizer is part of the <a href="http://raptorjs.org/api/optimizer/">optimizer</a> module. The two most commonly used API methods are the following:</p><ul><li><b>configure</b>: The configure method is used to configure the default page optimizer instance.</li><li></li></ul><div class="section section-level-1"><h2 id="Registering_Pages">Registering Pages</h2><div class="bd"><p></p></div></div><div class="section section-level-1"><h2 id="Generating_Page_HTML">Generating Page HTML</h2><div class="bd"><p>The <code>OptimizerEngine</code> object provides a <code>optimizer.getPageHtmlBySlot()</code> method that can be used to generate the HTML for a page that has been
 previously registered. The sample code below shows how to use the
 <code>optimizer.getPageHtmlBySlot</code> method:</p><div class="code-editor" id="s470"> <textarea id="s470-textarea" style="display: none;" name="code-25">var optimizer = raptor.require('optimizer');
 
@@ -207,12 +207,12 @@ var optimizedPage = optimizer.optimizePage({
     name: 'my-page',
     packageFile: "/path/to/my-page-package.json"
 });</textarea></div><p>After executing the above code, the value of <code>optimizedPage</code> would be similar the following JavaScript object (formatted as JSON): </p><div class="code-editor" id="s471"> <textarea id="s471-textarea" style="display: none;" name="code-26">{
-    'body': '&amp;lt;script type="text/javascript" src="/static/core-body-81a10a80.js">&amp;lt;/script>\
-             &amp;lt;script type="text/javascript" src="/static/jquery-body-371da524.js">&amp;lt;/script>\
-             &amp;lt;script type="text/javascript" src="/static/widgets-body-658fce85.js">&amp;lt;/script>\
-             &amp;lt;script type="text/javascript" src="/static/my-page-body-27a3f194.js">&amp;lt;/script>',
-    'head': '&amp;lt;link rel="stylesheet" type="text/css" href="/static/my-page-head-c07b8669.css">\
-             &amp;lt;link rel="stylesheet" type="text/css" href="/static/bootstrap-head-700d799c.css">'
+    'body': '&lt;script type="text/javascript" src="/static/core-body-81a10a80.js">&lt;/script>\
+             &lt;script type="text/javascript" src="/static/jquery-body-371da524.js">&lt;/script>\
+             &lt;script type="text/javascript" src="/static/widgets-body-658fce85.js">&lt;/script>\
+             &lt;script type="text/javascript" src="/static/my-page-body-27a3f194.js">&lt;/script>',
+    'head': '&lt;link rel="stylesheet" type="text/css" href="/static/my-page-head-c07b8669.css">\
+             &lt;link rel="stylesheet" type="text/css" href="/static/bootstrap-head-700d799c.css">'
 }</textarea></div><p>For the above example, the files written to disk would be the following:</p><ul><b>/path/to/my/webapp/static/</b><ul><li>core-body-81a10a80.js</li><li>jquery-body-371da524.js</li><li>widgets-body-658fce85.js</li><li>my-page-body-27a3f194.js</li><li>my-page-head-c07b8669.css</li><li>bootstrap-head-700d799c.css</li></ul></ul></div></div><div class="section section-level-1"><h2 id="Dependency_Caching">Dependency Caching</h2><div class="bd"><p>The result of executing the <code>optimizer.optimizePage()</code> is <i>not</i> cached. Therefore, every time <code>optimizer.optimizePage()</code> is called, the optimized page bundles will be written to disk. If you plan on
 optimizing pages at runtime (instead of at build time), you will want to cache
 the result of the call to
