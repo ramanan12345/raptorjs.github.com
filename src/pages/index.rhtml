@@ -107,6 +107,11 @@
             
             <div class="container" id="bodyContent">
                 
+                <div class="intro">
+                    Designed to work with your existing JavaScript libraries—not replace them.<br/>
+                    Since it is not a framework, feel free to take what you want and save the rest for later.
+                </div>
+
                 <div class="overview">
                     <div class="features-row">
                         <div class="feature-section small-tile">
@@ -187,7 +192,7 @@
                                     <div class="padding">
                                         <p>
                                             The RaptorJS Optimizer reads module package files to generate
-                                            optimized JavaScript and CSS bundles based on a page
+                                            optimized JavaScript and CSS bundles based on page
                                             dependencies.
                                         </p>
                                     </div>
@@ -218,9 +223,9 @@
                                 <div class="bd">
                                     <div class="padding">
                                         <p>
-                                            The Widgets Framework provides binding 
-                                            of JavaScript functionality to rendered UI components, as well as inter-widget
-                                            communication.
+                                            The Widgets Framework makes it easy to bind
+                                            JavaScript functionality to rendered UI components and
+                                            also offers inter-widget communication via Pub/Sub messaging.
                                         </p>
                                     </div>
                                     <c:invoke function="learnMore" href="/widgets"/>
@@ -232,20 +237,52 @@
 
 
                 <div class="features-row">
-                    <div class="feature-section overview">
+                    <div class="feature-section why">
                         <div class="content">
-                            <h3>Overview</h3>
+                            <h3>Why RaptorJS?</h3>
                             <div class="bd">
                                 <div class="padding">
-                                    <p>
-                                        RaptorJS is a modular JavaScript toolset that provides a foundation for building any type
-                                        of web application and was <b>designed to work with your existing JavaScript libraries</b>—not replace them.
-                                        Since it is a toolset and not a framework, feel free to take what you want and save the rest for later.
-                                    </p>
+                                    <ul>
+                                        <li>
+                                            Makes JavaScript Better
+                                        </li>
+                                        <li>
+                                            Modular Design
+                                        </li>
+                                        <li>
+                                            Designed for Scale
+                                        </li>
+                                        <li>
+                                            Lightweight and Optimized
+                                        </li>
+                                        <li>
+                                            Portable JavaScript Code
+                                        </li>
+                                        <li>
+                                            Supports Module Sharing
+                                        </li>
+                                        <li>
+                                            Simplifies Dependency Management
+                                        </li>
+                                        <li>
+                                            Supported by eBay
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="feature-section packaging">
+                        <div class="content">
+                            <h3>Adaptive Packaging</h3>
+                            <div class="bd">
+                                <div class="padding">
                                     <p>
                                         A feature that is unique to RaptorJS is <b>adapative packaging</b>. 
                                         This feature allows developers to easily target specific code for 
                                         different browsers, devices, frameworks, JavaScript runtime environments, etc.
+                                    </p>
+                                    <p>
                                         By simply separating out environment-specific code into individual files and creating RaptorJS
                                         package files that 
                                         <docs:popover title="Describing Dependencies">
@@ -265,21 +302,16 @@
                                         Adaptive packaging has allowed the RaptorJS toolset to be portable across multiple platforms 
                                         (including <a href="http://nodejs.org/">Node</a>, <a href="https://developer.mozilla.org/en-US/docs/Rhino">Rhino</a> and all web browsers). 
                                     </p>
-                                    <p>
-                                        
-                                        RaptorJS ships with a number of helpful modules, including
-                                        <a href="${url('/raptor-templates')}">Raptor Templates</a> and the <a href="${url('/widgets')}">Widgets Framework</a>,
-                                        and we hope that you, too, will take advantage of RaptorJS to build and share
-                                        JavaScript modules and UI components with others.
-                                        RaptorJS is being used on the most heavily used <a href="http://www.ebay.com/">eBay</a> pages and will continue
-                                        to be improved to support world-class websites and make web application development easier for
-                                        all developers. The RaptorJS toolset is still in development, and we welcome feedback and contributions.
-                                    </p>
                                 </div>
-                                <c:invoke function="learnMore" href="/get-started"/>
+                                <c:invoke function="learnMore" href="/packaging"/>
                             </div>
                         </div>
                     </div>
+                </div>
+                <div class="overview-footer">
+                    <docs:button size="large" class="get-started-button" href="${url('/get-started')}">
+                        Get Started <docs:icon name="arrow-right" size="large"/> 
+                    </docs:button>
                 </div>
             </div>
             

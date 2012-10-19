@@ -2,7 +2,7 @@
 <link rel="stylesheet" type="text/css" href="../static/bootstrap-head-90c3692d.css"><script type="text/javascript">var
 _gaq=_gaq||[];_gaq.push(["_setAccount","UA-33982282-1"]);_gaq.push(["_trackPageview"]);(function(){var
 a=document.createElement("script");a.type="text/javascript";a.async=!0;a.src=("https:"==document.location.protocol?"https://ssl":"http://www")+".google-analytics.com/ga.js";var
-b=document.getElementsByTagName("script")[0];b.parentNode.insertBefore(a,b)})();</script></head><body data-spy="scroll"><div class="navbar navbar-fixed-top"><div class="navbar-inner"><div class="container"><a class="brand" href="../">RaptorJS</a><ul class="nav"><li class="divider-vertical"></li><li id="s457"><a href="../get-started/">Get Started</a></li><li class="divider-vertical"></li><li id="s458" class="dropdown"><a data-toggle="dropdown" class="dropdown-toggle">Learn<b class="caret"></b></a><ul class="dropdown-menu"><li id="s459"><a href="../">Overview</a></li><li id="s460"><a href="../get-started/">Get Started</a></li><li id="s461"><a href="../tutorial/">Tutorial</a></li><li id="s462"><a href="../api/">API Reference</a></li><li id="s463"><a href="../faq/">FAQ</a></li><li class="divider"></li><li id="s464"><a href="../modules-classes/">Modules and Classes</a></li><li id="s465"><a href="../packaging/">Packaging and Extensions</a></li><li id="s466" class="active nav-item-active"><a href="../module-loader/">Module Loader</a></li><li id="s467"><a href="../optimizer/">Optimizer</a></li><li id="s468"><a href="../raptor-templates/">Raptor Templates</a></li><li id="s469"><a href="../widgets/">Widgets Framework</a></li><li id="s470"><a href="../logging/">Logging</a></li><li id="s471"><a href="../resource-search-path/">Resource Search Path</a></li><li id="s472"><a href="../cross-environment/">Cross Environment Support</a></li></ul></li><li class="divider-vertical"></li><li id="s473" class="dropdown"><a data-toggle="dropdown" class="dropdown-toggle">Community<b class="caret"></b></a><ul class="dropdown-menu"><li id="s474"><a href="https://github.com/raptorjs/raptorjs">Source code</a></li><li id="s475"><a href="https://github.com/raptorjs/raptorjs/issues">Issue Tracker</a></li><li id="s476"><a href="../contribute/">Contribute</a></li><li id="s477"><a href="../contributors/">Contributors</a></li><li class="divider"></li><li id="s478"><a href="http://groups.google.com/group/raptorjs">Discussion Forum</a></li><li class="divider"></li><li id="s479"><a href="http://twitter.com/raptorjs">Twitter (@raptorjs)</a></li><li id="s480"><a href="http://twitter.com/raptorjs">Google+</a></li></ul></li><li class="divider-vertical"></li><li id="s481" class="dropdown"><a data-toggle="dropdown" class="dropdown-toggle">About<b class="caret"></b></a><ul class="dropdown-menu"><li id="s482"><a href="https://github.com/raptorjs/raptorjs/wiki/Release-Notes">Release Notes</a></li><li id="s483"><a href="../design-philosophy/">Design Philosophy</a></li><li id="s484"><a href="../license/">License</a></li><li id="s485"><a href="../credits/">Credits</a></li><li id="s486"><a href="../creators/">Creators</a></li></ul></li><li class="divider-vertical"></li></ul></div></div></div><div class="container"><div class="top"><div class="desc"><h1>RaptorJS Module Loader</h1><p>For server-side JavaScript environment, RaptorJS provides a cross-platform
+b=document.getElementsByTagName("script")[0];b.parentNode.insertBefore(a,b)})();</script></head><body data-spy="scroll"><div class="navbar navbar-fixed-top"><div class="navbar-inner"><div class="container"><a class="brand" href="../">RaptorJS</a><ul class="nav"><li class="divider-vertical"></li><li id="s458"><a href="../get-started/">Get Started</a></li><li class="divider-vertical"></li><li id="s459" class="dropdown"><a data-toggle="dropdown" class="dropdown-toggle">Learn<b class="caret"></b></a><ul class="dropdown-menu"><li id="s460"><a href="../">Overview</a></li><li id="s461"><a href="../get-started/">Get Started</a></li><li id="s462"><a href="../tutorial/">Tutorial</a></li><li id="s463"><a href="../api/">API Reference</a></li><li id="s464"><a href="../faq/">FAQ</a></li><li class="divider"></li><li id="s465"><a href="../modules-classes/">Modules and Classes</a></li><li id="s466"><a href="../packaging/">Packaging and Extensions</a></li><li id="s467" class="active nav-item-active"><a href="../module-loader/">Module Loader</a></li><li id="s468"><a href="../optimizer/">Optimizer</a></li><li id="s469"><a href="../raptor-templates/">Raptor Templates</a></li><li id="s470"><a href="../widgets/">Widgets Framework</a></li><li id="s471"><a href="../logging/">Logging</a></li><li id="s472"><a href="../resource-search-path/">Resource Search Path</a></li><li id="s473"><a href="../cross-environment/">Cross Environment Support</a></li></ul></li><li class="divider-vertical"></li><li id="s474" class="dropdown"><a data-toggle="dropdown" class="dropdown-toggle">Community<b class="caret"></b></a><ul class="dropdown-menu"><li id="s475"><a href="https://github.com/raptorjs/raptorjs">Source code</a></li><li id="s476"><a href="https://github.com/raptorjs/raptorjs/issues">Issue Tracker</a></li><li id="s477"><a href="../contribute/">Contribute</a></li><li id="s478"><a href="../contributors/">Contributors</a></li><li class="divider"></li><li id="s479"><a href="http://groups.google.com/group/raptorjs">Discussion Forum</a></li><li class="divider"></li><li id="s480"><a href="http://twitter.com/raptorjs">Twitter (@raptorjs)</a></li><li id="s481"><a href="http://twitter.com/raptorjs">Google+</a></li></ul></li><li class="divider-vertical"></li><li id="s482" class="dropdown"><a data-toggle="dropdown" class="dropdown-toggle">About<b class="caret"></b></a><ul class="dropdown-menu"><li id="s483"><a href="https://github.com/raptorjs/raptorjs/wiki/Release-Notes">Release Notes</a></li><li id="s484"><a href="../design-philosophy/">Design Philosophy</a></li><li id="s485"><a href="../license/">License</a></li><li id="s486"><a href="../credits/">Credits</a></li><li id="s487"><a href="../creators/">Creators</a></li></ul></li><li class="divider-vertical"></li></ul></div></div></div><div class="container"><div class="top"><div class="desc"><h1>RaptorJS Module Loader</h1><p>For server-side JavaScript environment, RaptorJS provides a cross-platform
 module loader that reads modules package files to determine which code to load
 for a particular module.
 </p><p>For the client-side, RaptorJS provides an asynchronous module loader that uses
@@ -17,9 +17,8 @@ needs.</p><div class="continue"><a href="../module-loader/developer-guide/">Cont
 <script type="text/javascript" src="../static/widgets-body-06552a07.js"></script>
 <script type="text/javascript" src="../static/module-loader-body-d4ec3fec.js"></script>
 <script type="text/javascript" src="../static/bootstrap-body-34d7fcf3.js"></script><script type="text/javascript">$rwidgets(
-["components.nav.Nav.NavItemWidget","s457",0,0,0,0],
-["components.nav.Nav.NavItemWidget","s458",0,0,0,0,
-["components.nav.Nav.NavItemWidget","s459",0,0,0,0],
+["components.nav.Nav.NavItemWidget","s458",0,0,0,0],
+["components.nav.Nav.NavItemWidget","s459",0,0,0,0,
 ["components.nav.Nav.NavItemWidget","s460",0,0,0,0],
 ["components.nav.Nav.NavItemWidget","s461",0,0,0,0],
 ["components.nav.Nav.NavItemWidget","s462",0,0,0,0],
@@ -32,18 +31,19 @@ needs.</p><div class="continue"><a href="../module-loader/developer-guide/">Cont
 ["components.nav.Nav.NavItemWidget","s469",0,0,0,0],
 ["components.nav.Nav.NavItemWidget","s470",0,0,0,0],
 ["components.nav.Nav.NavItemWidget","s471",0,0,0,0],
-["components.nav.Nav.NavItemWidget","s472",0,0,0,0]],
-["components.nav.Nav.NavItemWidget","s473",0,0,0,0,
-["components.nav.Nav.NavItemWidget","s474",0,0,0,0],
+["components.nav.Nav.NavItemWidget","s472",0,0,0,0],
+["components.nav.Nav.NavItemWidget","s473",0,0,0,0]],
+["components.nav.Nav.NavItemWidget","s474",0,0,0,0,
 ["components.nav.Nav.NavItemWidget","s475",0,0,0,0],
 ["components.nav.Nav.NavItemWidget","s476",0,0,0,0],
 ["components.nav.Nav.NavItemWidget","s477",0,0,0,0],
 ["components.nav.Nav.NavItemWidget","s478",0,0,0,0],
 ["components.nav.Nav.NavItemWidget","s479",0,0,0,0],
-["components.nav.Nav.NavItemWidget","s480",0,0,0,0]],
-["components.nav.Nav.NavItemWidget","s481",0,0,0,0,
-["components.nav.Nav.NavItemWidget","s482",0,0,0,0],
+["components.nav.Nav.NavItemWidget","s480",0,0,0,0],
+["components.nav.Nav.NavItemWidget","s481",0,0,0,0]],
+["components.nav.Nav.NavItemWidget","s482",0,0,0,0,
 ["components.nav.Nav.NavItemWidget","s483",0,0,0,0],
 ["components.nav.Nav.NavItemWidget","s484",0,0,0,0],
 ["components.nav.Nav.NavItemWidget","s485",0,0,0,0],
-["components.nav.Nav.NavItemWidget","s486",0,0,0,0]]);</script></body></html>
+["components.nav.Nav.NavItemWidget","s486",0,0,0,0],
+["components.nav.Nav.NavItemWidget","s487",0,0,0,0]]);</script></body></html>
