@@ -65,6 +65,24 @@
 		{
 			"cmd":
 			[
+				"${project_path}/src/publish-dev",
+				"page=/"
+			],
+			"name": "Publish (dev) - index",
+			"working_dir": "${project_path}/src"
+		},
+		{
+			"cmd":
+			[
+				"${project_path}/src/publish-dev",
+				"page=/module-loader"
+			],
+			"name": "Publish (dev) - module-loader",
+			"working_dir": "${project_path}/src"
+		},
+		{
+			"cmd":
+			[
 				"${project_path}/publish-to-github"
 			],
 			"name": "Publish to Github",
@@ -152,6 +170,8 @@
 			"jsdoc",
 			"jsdoc (dev)",
 			"Publish (dev)",
+			"Publish (dev) - index",
+			"Publish (dev) - module-loader",
 			"Publish (dev) - optimizer",
 			"Publish (dev) - optimizer-get-started",
 			"Publish (dev) - optimizer-developer-guide",

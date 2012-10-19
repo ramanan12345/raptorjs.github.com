@@ -1,0 +1,122 @@
+<c:template
+    xmlns:c="core"
+    xmlns:html="html"
+    xmlns:optimizer="optimizer"
+    xmlns:w="widgets"
+    xmlns:docs="docs"
+    docs:functions="url"
+    params="includes,samples">
+
+    <optimizer:page name="${data.pageName}" base-path="${data.pageOutputDir}">
+        <includes>
+            <module name="docs-global"/>
+            <module name="components/nav/TopNavDefault"/>
+            <module name="components/icons/Icon"/>
+            <css path="index.css"/>
+        </includes>
+    </optimizer:page>
+    
+    <![CDATA[<!doctype html>]]>
+    
+    <html html:doctype="html">
+        <head>
+            <title>RaptorJS: Module Loader</title>
+            <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+            <optimizer:slot name="head"/>
+            <docs:google-analytics/>
+        </head>
+        <body data-spy="scroll">
+            <docs:top-nav activeItem="module-loader"/>
+            <div class="container">
+                <div class="top">
+
+                    <div class="desc">
+                        <h1>RaptorJS Module Loader</h1>
+                        <p>
+                            For server-side JavaScript environment, RaptorJS provides
+                            a cross-platform module loader that reads 
+                            modules package files to determine which code to load for a particular module. 
+                        </p>
+                        <p>
+                            For the client-side, RaptorJS provides an asynchronous
+                            module loader that uses output from the RaptorJS
+                            Optimizer to optimally download modules asynchronously. 
+                        </p>
+
+
+                    </div>
+                    
+                    <div class="features">
+                        <h2>Features</h2>
+                        <ul>
+                            <li>Supports Node and Rhino on the server</li>
+                            <li>Lightweight client-side module loader</li>
+                            <li>Utilizes the RaptorJS Optimizer</li>
+                        </ul>
+                    </div>
+                </div>
+
+
+                <table class="sections">
+                    <tr>
+                        <td class="section">
+                            <div class="content">
+                                <h3>
+                                    <a href="${url('/module-loader/get-started-node')}">Get Started: Node</a>
+                                </h3>
+                                <div class="bd">
+                                    <p>
+                                        Learn how to start loading RaptorJS JavaScript modules
+                                        in a Node runtime environment.
+                                    </p>
+                                    <div class="continue">
+                                        <a href="${url('/module-loader/get-started-node')}">Continue Reading ${entity:raquo}</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </td>
+                        <td class="section">
+                            <div class="content">
+                                <h3>
+                                    <a href="${url('/module-loader/get-started-async')}">Get Started: Async Loader</a>
+                                </h3>
+                                <div class="bd">
+                                    <p>
+                                        Learn how to easily start utilizing the RaptorJS asynchronous module loader
+                                        to lazily load modules for a web page.
+                                    </p>
+                                    <div class="continue">
+                                        <a href="${url('/module-loader/get-started-async')}">Continue Reading ${entity:raquo}</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </td>
+                        <td class="section">
+                            <div class="content">
+                                <h3>
+                                    <a href="${url('/module-loader/developer-guide')}">Developer Guide</a>
+                                </h3>
+                                <div class="bd">
+                                    <p>
+                                        An in-depth look at utilizing and
+                                        adapting the RaptorJS Optimizer to meet your needs.
+                                    </p>
+                                    <div class="continue">
+                                        <a href="${url('/module-loader/developer-guide')}">Continue Reading ${entity:raquo}</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+
+            </div>
+            
+            
+            <optimizer:slot name="body"/>
+            
+            <w:init-widgets/>
+        </body>
+    </html>
+</c:template>
+
