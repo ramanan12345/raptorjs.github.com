@@ -7,7 +7,7 @@
 }
 
 #bodyContent {
-    margin-top: 20px;
+    margin-top: 0px;
     width: 960px;
     margin-left: auto;
     margin-right: auto;
@@ -61,6 +61,7 @@
     font-size: 32px;
     color: #FFF;
     text-shadow: 0px 0px 4px #50A8DC;
+    text-shadow: 0 -2px 2px rgba(0,0,0,0.5);
 }
 
 .main-content > H2 {
@@ -73,23 +74,15 @@
 }
 
 .intro {
-    border-radius: 10px;
-    
-    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-    font-size: 22px;
-    line-height: 28px;
-    font-weight: normal;
-
-    background-color: #61b0df;
-    background-image: -moz-linear-gradient(top, #61b0df, #369bd7);
-    background-image: -ms-linear-gradient(top, #61b0df, #369bd7);
-    background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#61b0df), to(#369bd7));
-    background-image: -webkit-linear-gradient(top, #61b0df, #369bd7);
-    background-image: -o-linear-gradient(top, #61b0df, #369bd7);
-    background-image: linear-gradient(top, #61b0df, #369bd7);
-    background-repeat: repeat-x;
-    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#61b0df', endColorstr='#369bd7', GradientType=0);
-    color: white;
+    /*text-shadow: 5px 5px 10px black;*/
+    /*text-shadow: 0 -1px 1px rgba(0,0,0,0.5);*/
+    font-family: 'Telex', sans-serif;
+    /*font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;*/
+    font-size: 26px;
+    line-height: 32px;
+    font-weight: bold;
+    text-shadow: ;
+    color: #369BD7;
     padding: 10px;
     margin-bottom: 16px;
     text-align: center;

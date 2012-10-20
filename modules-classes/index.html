@@ -1,323 +1,62 @@
-<!DOCTYPE html><html><head><title>RaptorJS: Modules &amp; Classes</title><meta http-equiv="content-type" content="text/html; charset=UTF-8"></meta><link rel="stylesheet" type="text/css" href="../static/modules-classes-head-6ba2a270.css">
+<!DOCTYPE html><html><head><title>RaptorJS: Module Loader</title><meta http-equiv="content-type" content="text/html; charset=UTF-8"></meta><link rel="stylesheet" type="text/css" href="../static/modules-classes-head-01b178d2.css">
 <link rel="stylesheet" type="text/css" href="../static/bootstrap-head-90c3692d.css">
 <link rel="stylesheet" type="text/css" href="../static/code-editor-head-6a226e30.css"><script type="text/javascript">var
 _gaq=_gaq||[];_gaq.push(["_setAccount","UA-33982282-1"]);_gaq.push(["_trackPageview"]);(function(){var
 a=document.createElement("script");a.type="text/javascript";a.async=!0;a.src=("https:"==document.location.protocol?"https://ssl":"http://www")+".google-analytics.com/ga.js";var
-b=document.getElementsByTagName("script")[0];b.parentNode.insertBefore(a,b)})();</script></head><body data-spy="scroll"><div class="navbar navbar-fixed-top"><div class="navbar-inner"><div class="container"><a class="brand" href="../">RaptorJS</a><ul class="nav"><li class="divider-vertical"></li><li id="s521"><a href="../get-started/">Get Started</a></li><li class="divider-vertical"></li><li id="s522" class="dropdown"><a data-toggle="dropdown" class="dropdown-toggle">Learn<b class="caret"></b></a><ul class="dropdown-menu"><li id="s523"><a href="../">Overview</a></li><li id="s524"><a href="../get-started/">Get Started</a></li><li id="s525"><a href="../tutorial/">Tutorial</a></li><li id="s526"><a href="../api/">API Reference</a></li><li id="s527"><a href="../faq/">FAQ</a></li><li class="divider"></li><li id="s528"><a href="../modules-classes/">Modules and Classes</a></li><li id="s529"><a href="../packaging/">Packaging and Extensions</a></li><li id="s530"><a href="../module-loader/">Module Loader</a></li><li id="s531"><a href="../optimizer/">Optimizer</a></li><li id="s532"><a href="../raptor-templates/">Raptor Templates</a></li><li id="s533"><a href="../widgets/">Widgets Framework</a></li><li id="s534"><a href="../logging/">Logging</a></li><li id="s535"><a href="../resource-search-path/">Resource Search Path</a></li><li id="s536"><a href="../cross-environment/">Cross Environment Support</a></li></ul></li><li class="divider-vertical"></li><li id="s537" class="dropdown"><a data-toggle="dropdown" class="dropdown-toggle">Community<b class="caret"></b></a><ul class="dropdown-menu"><li id="s538"><a href="https://github.com/raptorjs/raptorjs">Source code</a></li><li id="s539"><a href="https://github.com/raptorjs/raptorjs/issues">Issue Tracker</a></li><li id="s540"><a href="../contribute/">Contribute</a></li><li id="s541"><a href="../contributors/">Contributors</a></li><li class="divider"></li><li id="s542"><a href="http://groups.google.com/group/raptorjs">Discussion Forum</a></li><li class="divider"></li><li id="s543"><a href="http://twitter.com/raptorjs">Twitter (@raptorjs)</a></li><li id="s544"><a href="http://twitter.com/raptorjs">Google+</a></li></ul></li><li class="divider-vertical"></li><li id="s545" class="dropdown"><a data-toggle="dropdown" class="dropdown-toggle">About<b class="caret"></b></a><ul class="dropdown-menu"><li id="s546"><a href="https://github.com/raptorjs/raptorjs/wiki/Release-Notes">Release Notes</a></li><li id="s547"><a href="../design-philosophy/">Design Philosophy</a></li><li id="s548"><a href="../license/">License</a></li><li id="s549"><a href="../credits/">Credits</a></li><li id="s550"><a href="../creators/">Creators</a></li></ul></li><li class="divider-vertical"></li></ul></div></div></div><div class="container"><div class="docs"><div class="bd"><div class="toc nav" id="docsNav"><ul class="toc"><li class="toc toc-level-0"><a href="#Modules">Modules</a><ul class="toc"><li class="toc toc-level-1"><a href="#Defining_Modules">Defining Modules</a><ul class="toc"></ul></li><li class="toc toc-level-1"><a href="#Sample_Example_Code">Sample Example Code</a><ul class="toc"></ul></li><li class="toc toc-level-1"><a href="#Directory_Structure">Directory Structure</a><ul class="toc"></ul></li><li class="toc toc-level-1"><a href="#Example_package_json_file">Example package.json file</a><ul class="toc"></ul></li></ul></li><li class="toc toc-level-0"><a href="#Classes">Classes</a><ul class="toc"><li class="toc toc-level-1"><a href="#Example_Class_Definitions">Example Class Definitions</a><ul class="toc"></ul></li><li class="toc toc-level-1"><a href="#Inheritance">Inheritance</a><ul class="toc"></ul></li><li class="toc toc-level-1"><a href="#Using_Classes">Using Classes</a><ul class="toc"></ul></li></ul></li><li class="toc toc-level-0"><a href="#Class_Mixins">Class Mixins</a><ul class="toc"><li class="toc toc-level-1"><a href="#Defining_Mixins">Defining Mixins</a><ul class="toc"></ul></li><li class="toc toc-level-1"><a href="#Example_Mixin_Definitions">Example Mixin Definitions</a><ul class="toc"></ul></li><li class="toc toc-level-1"><a href="#Using_Mixins">Using Mixins</a><ul class="toc"></ul></li><li class="toc toc-level-1"><a href="#Invoking_Overridden_Methods">Invoking Overridden Methods</a><ul class="toc"></ul></li></ul></li><li class="toc toc-level-0"><a href="#Enums">Enums</a><ul class="toc"><li class="toc toc-level-1"><a href="#Defining_an_Enum">Defining an Enum</a><ul class="toc"></ul></li><li class="toc toc-level-1"><a href="#Example_Enum_Definitions">Example Enum Definitions</a><ul class="toc"></ul></li><li class="toc toc-level-1"><a href="#Enum_Methods">Enum Methods</a><ul class="toc"></ul></li><li class="toc toc-level-1"><a href="#Enum_Usage">Enum Usage</a><ul class="toc"></ul></li></ul></li></ul></div><div class="docs-content"><h1 id="title">Modules and Classes</h1><div class="message message-warning"><div class="icon"><i class="icon-warning-sign" style="font-size: 30px;"></i></div><div class="bd">Documentation In-Progress</div></div><div class="section section-level-0"><h2 id="Modules">Modules</h2><div class="bd"><p>RaptorJS modules are JavaScript objects with only static properties. In
-addition, a module is also treated as a collection of resource files
-(JavaScript, Less, CSS, Templates, etc.) that are packaged together for a
-module to work. It is also possible for a module to also include other modules,
-which brings its own
-dependencies.</p><p>Let's take a look at singleton JS Module first, package module is dicussed
-later in this section. Unlike JavaScript classes, Raptor JavaScript modules are
-singleton objects. They have the following
-restrictions.</p><ul><li>Modules cannot be used with the new keyword.</li><li>Modules do not support inheritance.</li></ul><div class="section section-level-1"><h2 id="Defining_Modules">Defining Modules</h2><div class="bd">Use the following method to define raptor module: <div class="code-editor" id="s551"> <textarea id="s551-textarea" style="display: none;" name="code-5">raptor.define(moduleName, factoryFunction);</textarea></div><p><b>moduleName</b>: This is a unique name for the module. By convention, dots or slashes should
-be used to separate parts (for example:
-<b>"utilities.strings.helpers"</b>).</p><p><b>factoryFunction</b>: this should be a function that returns the definition of the module when the
-module is initialized for the first time. As with defining classes, the factory
-function provides a convenient closure to support private variables and private
-functions. There are no special properties of the module definition object and
-the returned object directly becomes the singleton instance of the
-module.</p></div></div><div class="section section-level-1"><h2 id="Sample_Example_Code">Sample Example Code</h2><div class="bd"><div class="code-editor" id="s552"> <textarea id="s552-textarea" style="display: none;" name="code-6">raptor.define('some.namespace.myModule', function() {
-	var SomeClass = raptor.require('some.namespace.SomeClass');
-	
-    return {
-    
-        someProperty: "Hello World",
+b=document.getElementsByTagName("script")[0];b.parentNode.insertBefore(a,b)})();</script></head><body data-spy="scroll"><div class="navbar navbar-fixed-top"><div class="navbar-inner"><div class="container"><a class="brand" href="../">RaptorJS</a><ul class="nav"><li class="divider-vertical"></li><li id="s593"><a href="../get-started/">Get Started</a></li><li class="divider-vertical"></li><li id="s594" class="dropdown"><a data-toggle="dropdown" class="dropdown-toggle">Learn<b class="caret"></b></a><ul class="dropdown-menu"><li id="s595"><a href="../">Overview</a></li><li id="s596"><a href="../get-started/">Get Started</a></li><li id="s597"><a href="../tutorial/">Tutorial</a></li><li id="s598"><a href="../api/">API Reference</a></li><li id="s599"><a href="../faq/">FAQ</a></li><li class="divider"></li><li id="s600"><a href="../modules-classes/">Modules and Classes</a></li><li id="s601"><a href="../packaging/">Packaging and Extensions</a></li><li id="s602" class="active nav-item-active"><a href="../module-loader/">Module Loader</a></li><li id="s603"><a href="../optimizer/">Optimizer</a></li><li id="s604"><a href="../raptor-templates/">Raptor Templates</a></li><li id="s605"><a href="../widgets/">Widgets Framework</a></li><li id="s606"><a href="../logging/">Logging</a></li><li id="s607"><a href="../resource-search-path/">Resource Search Path</a></li><li id="s608"><a href="../cross-environment/">Cross Environment Support</a></li></ul></li><li class="divider-vertical"></li><li id="s609" class="dropdown"><a data-toggle="dropdown" class="dropdown-toggle">Community<b class="caret"></b></a><ul class="dropdown-menu"><li id="s610"><a href="https://github.com/raptorjs/raptorjs">Source code</a></li><li id="s611"><a href="https://github.com/raptorjs/raptorjs/issues">Issue Tracker</a></li><li id="s612"><a href="../contribute/">Contribute</a></li><li id="s613"><a href="../contributors/">Contributors</a></li><li class="divider"></li><li id="s614"><a href="http://groups.google.com/group/raptorjs">Discussion Forum</a></li><li class="divider"></li><li id="s615"><a href="http://twitter.com/raptorjs">Twitter (@raptorjs)</a></li><li id="s616"><a href="http://twitter.com/raptorjs">Google+</a></li></ul></li><li class="divider-vertical"></li><li id="s617" class="dropdown"><a data-toggle="dropdown" class="dropdown-toggle">About<b class="caret"></b></a><ul class="dropdown-menu"><li id="s618"><a href="https://github.com/raptorjs/raptorjs/wiki/Release-Notes">Release Notes</a></li><li id="s619"><a href="../design-philosophy/">Design Philosophy</a></li><li id="s620"><a href="../license/">License</a></li><li id="s621"><a href="../credits/">Credits</a></li><li id="s622"><a href="../creators/">Creators</a></li></ul></li><li class="divider-vertical"></li></ul></div></div></div><div class="container"><div class="top"><div class="desc"><h1>Modules, Classes, Mixins and Enums</h1><p>RaptorJS provides a simple library for defining namespaced modules, classes,
+mixins and enums. This library uses a clean and easy-to-understand syntax that
+is close to pure JavaScript, but fills gaps in the existing JavaScript
+language. Now you can start creating modular code that is easy to maintain
+without waiting for a new version of JavaScript or switching to an alternate
+language.</p></div><div class="features"><h2>Features</h2><ul><li>Makes JavaScript Better</li> <li>Clean Syntax</li><li>Lightweight Library</li><li>Class Inheritance</li><li>Code Reuse across Client and Server</li><li>Lazy Initialization</li><li>Cross-platform</li><li>Supports Parallel Downloading</li></ul></div></div><table class="sections"><tr><td class="section" style="width: 40%;"><div class="content"><h3><a href="..modules-classes/get-started/">Get Started</a></h3><div class="bd"><p>Get started using RaptorJS modules, classes, mixins and enums.</p><div class="continue"><a href="../modules-classes/get-started/">Continue Reading &raquo;</a></div></div><h3><a href="../modules-classes/developer-guide/">Developer Guide</a></h3><div class="bd"><p>An in-depth look at using the RaptorJS library for defining modules, classes,
+mixins and
+enums.</p><div class="continue"><a href="../modules-classes/developer-guide/">Continue Reading &raquo;</a></div></div></div></td><td class="section" style="width: 60%;"><div class="content"><div class="code-editor" id="s623"> <textarea id="s623-textarea" style="display: none;" name="code-17">raptor.define(
+    'some.namespace.my-module', 
+    function() {
+        var MyClass = raptor.require('some.namespace.MyClass');
         
-        createSomeObject: function() {
-            return new SomeClass();
-        }
-    }
-});</textarea></div> </div></div><div class="section section-level-1"><h2 id="Directory_Structure">Directory Structure</h2><div class="bd"><p>Modules are packaged so that they can include any number of JavaScripts and
-resources, and define their dependencies on other modules. Because of these
-features, modules make it easy to expose complex functionality that has been
-split across multiple JavaScript files. Raptor JavaScript modules are similar
-in nature to CommonJS
-modules.</p><p>Every module must include a package.json file which provides additional
-metadata for the module including the list of files that should be included as
-part of the module. The module metadata specifies the JavaScript resources
-resources that should be packaged together as part of the module including
-which of the includes are optional. The optional includes for a module are only
-included if they are explicitly
-requested.</p><p>The module metadata also describes extensions for the module that are only
-loaded if the extension is supported for the current page. For example, a
-module may be extended with additional jQuery-specific includes if the jQuery
-library is
-loaded.</p></div></div><div class="section section-level-1"><h2 id="Example_package_json_file">Example package.json file</h2><div class="bd"><div class="code-editor" id="s553"> <textarea id="s553-textarea" style="display: none;" name="code-7">{
-    "name": "myModule",
-    "version": "1.0",
-    "description": "Description of your module",
-    "homepage": "url for the module page",
-    "authors": [
-        {
-            "name": "",
-            "email": ""
-        }
-    ],
-    "includes": [
-        {"type": "module", "name": "myModule2"},
-        {"type": "module", "name": "myModule3"},
-        {"type": "js", "path": "myModuleClass.js"},
-        {"type": "js", "path": "myModule.js"},
-        {"type": "less", "path": "myModule.less"}
-    ],
-     
-    "extensions": {
-        "jquery": {
-            "includes": [
-                {"type": "js", "path": "Widget_jquery.js"}
-            ]
-        }
-    }
-}</textarea></div> </div></div></div></div><div class="section section-level-0"><h2 id="Classes">Classes</h2><div class="bd"><p>Raptor classes Either of the following signatures can be used to define Raptor
-Class:</p><ol><li>raptor.define(className, factoryFunction);</li><li>raptor.define(className, modifiers, factoryFunction);</li></ol><p><ul><li><b>className:</b> The name of the class</li><li><b>modifiers:</b> (optional) set of modifiers, for example: "superclass"</li><li><b>factoryFunction:</b> A function that returns the class definition when the class is initialized for
-the first time. The factory function provides a convenient closure to support
-private static variables and private functions for your class (that is, no code
-outside the function can directly reference the local variables of the
-function).</li></ul></p><p>Classes support following modifiers:</p><ul><li>superclass (string) - The name of the superclass (for example,
-"test.MySuperClass")</li><li>mixins (array) - An array of mixins to be applied to the class (see the "Class
-Mixins" section
-below)</li></ul><p>As you can see signature to define module and classes are same, only difference
-is the return object from the factory function. In case of module, it is a
-JavaScript object and in case of class, it will be a constructor function. It
-will be more clear from the examples
-below.</p><div class="section section-level-1"><h2 id="Example_Class_Definitions">Example Class Definitions</h2><div class="bd"><p><b>Simple Class</b></p><div class="code-editor" id="s554"> <textarea id="s554-textarea" style="display: none;" name="code-8">raptor.define(
-    'some.namespace.MyClass',                      
-    function() {   
-        var privateProperty = "something";
-        var privateMethod = function(){
-            // some code
-        };
-
-        // Prototype function
-        var MyClass = function() {
-            // constructor function
-        };
-         
-        MyClass.prototype = {
-            init: function(){
-                // init constructor
-            },
-
-            subMethod: function(){
-                
-            }
-        };
-         
-        return MyClass;
-    }
-);</textarea></div> <p>Above sample creates JavaScript class names <b>some.namespace.MyClass</b>, defines a private property and method and function with prototypes.</p><p>If the class has "init" method defined, it will be used as a constructor when
-new instace for the class is created otherwise main function body will work as
-constructor.</p></div></div><div class="section section-level-1"><h2 id="Inheritance">Inheritance</h2><div class="bd"><p>RaptorJS classes support prototypal-based inheritance. If a "superclass"
-modifier is provided then the class will be configured to extend the specified
-class by updating the prototype chain such that the prototype of the newly
-created class will have as its prototype and the prototype of the specified
-super class.
-</p><p>If a superclass was specified and a constructor function was returned by the
-factory function then a "superclass" property will be added to the constructor
-function that points to the prototype of the superclass. This property allows
-the subclass to reference methods and properties in the
-superclass.</p><p><b>Sample code</b></p><div class="code-editor" id="s555"> <textarea id="s555-textarea" style="display: none;" name="code-9">raptor.define(
-    "some.namespace.MyClass},   
-    {
-    	superclass: "some.namespace.MySuperClass"
-    },                
-    function() {   
-        var privateProperty = "something";
-        var privateMethod = function(){
-            // some code
-        };
-
-        // Prototype function
-        var MyClass = function() {
-            MyClass.superclass.constructor.apply(this, arguments);
-        };
-         
-        MyClass.prototype = {
-
-            subMethod: function(){
-            	//Call a method in the superclass with arguments using the JavaScript call function
-            	MyClass.superclass.superMethod.call(this, "hello", "world");
-            	
-            	//Alternatively, call a method in the superclass with arguments using the JavaScript apply function
-                MyClass.superclass.superMethod.apply(this, arguments);
-                
-                //subMethod body code
-            }
-        };
-         
-        return MyClass;
-    }
-);</textarea></div> </div></div><div class="section section-level-1"><h2 id="Using_Classes">Using Classes</h2><div class="bd">Once a class has been defined it can easily be accessed using the following
-method:
-<p>raptor.require(className)</p><p><b>Example Usage of Class Instantiation</b></p><div class="code-editor" id="s556"> <textarea id="s556-textarea" style="display: none;" name="code-10">var MyClass = raptor.require("some.namespace.MyClass");
-var myInstance = new MyClass();</textarea></div></div></div></div></div><div class="section section-level-0"><h2 id="Class_Mixins">Class Mixins</h2><div class="bd"><p>Mixins are additional properties and methods that can be applied to the
-prototype of any class. Once a mixin has been defined with a name it can easily
-be applied to the prototype of a class (either as part of the class definition
-or using the raptor.extend(target, mixinName) method. Mixins are helpful when
-you have characteristics that can be applied to any class. For example, if a
-circular button has characteristics of a circle, the circle mixin could be
-applied to the circular
-button.</p><p>Because using mixins do not modify the prototype-chain, using mixins is very
-different from using inheritance. For more details on mixins, see the
-<a href="http://en.wikipedia.org/wiki/Mixin" target="_blank">Wikipedia: Mixin article.</a></p><div class="section section-level-1"><h2 id="Defining_Mixins">Defining Mixins</h2><div class="bd">The following method should be used to define mixins: <p>raptor.defineMixin(mixinName, factoryFunction);</p><p><b>mixinName</b>: This is a reference to the raptor object</p><p><b>factoryFunction</b>: Function that returns the definition of the mixin when the mixin is
-initialized for the first time. The factory function provides a convenient
-closure to support private static variables and private functions for your
-class (that is, no code outside the function can directly reference the local
-variables of the function). The return value of the factory function should be
-an object that defines the mixin. The properties of the returned object become
-properties of the prototype of any class that the mixin is applied to unless
-the property is the mixinModifiers property described
-below.</p></div></div><div class="section section-level-1"><h2 id="Example_Mixin_Definitions">Example Mixin Definitions</h2><div class="bd"><div class="code-editor" id="s557"> <textarea id="s557-textarea" style="display: none;" name="code-11">raptor.defineMixin(
-    'some.namespace.Rectangle',
-    function() {
- 
         return {
-            setDimensions: function(width, height) {
-                this.width = width;
-                this.height = height;
-            },
-             
-            getArea: function() {
-                return this.width * this.height;
-            }
-        }
-    }
-);</textarea></div></div></div><div class="section section-level-1"><h2 id="Using_Mixins">Using Mixins</h2><div class="bd"><p><b>Applying mixins as Part of the Definition of a Class</b></p><div class="code-editor" id="s558"> <textarea id="s558-textarea" style="display: none;" name="code-12">raptor.defineClass(
-    'some.namespace.MyClass',
-    {
-        mixins: ['some.namespace.MyMixin',
-                 'another.namespace.AnotherMixin']
-    },
-    function() {
-        return {
-            //Class prototype
-        };
-    }
-);</textarea></div><p><b>Applying mixins to an Object Manually</b></p><p>Once a mixin has been defined it can be applied to a class as part of the
-definition of a class. You can also apply mixins manually by using the
-raptor.extend(target, mixinName)
-function.</p><p>raptor.extend(MyClass.prototype, 'some.namespace.Rectangle')</p></div></div><div class="section section-level-1"><h2 id="Invoking_Overridden_Methods">Invoking Overridden Methods</h2><div class="bd"><p>If a mixin contains a property that overrides a function in the original
-prototype, the mixin should be created using a createMixin method that returns
-the mixins. The createMixin method will be invoked by Raptor with an overridden
-parameter that is given references to any of the methods that were overridden
-in the class to which the mixins are applied. That is, if a method in the mixin
-returned by the createMixin method has the same name as a method in the target
-object to which the mixin is being, the overridden object supplied as the first
-argument to the createMixin method will then be populated with a reference to
-the overridden function. The overridden method can then be invoked using the
-native JavaScript apply function or the native JavaScript call
-function.</p><p> For example:</p><div class="code-editor" id="s559"> <textarea id="s559-textarea" style="display: none;" name="code-13">raptor.defineMixin(
-    'some.namespace.MyMixin',
-    function(raptor, target, overridden)
-    {
-        return {
-            myMixinMethod: function(arg1, arg2, ...) {
-                //Invoke the method that was overridden by this mixin method using the same arguments that were used to invoke this method
-                overridden.myMixinMethod.apply(this, arguments);
+        
+            message: "Hello World",
+            
+            createSomeObject: function() {
+                return new MyClass();
             }
         };
-    }
-);</textarea></div></div></div></div></div><div class="section section-level-0"><h2 id="Enums">Enums</h2><div class="bd"><p>Similar to Java enums, RaptorJS enums provide a way to define constants. Each
-enum value is an instance of a JavaScript class that can have a constructor,
-methods, and
-properties.</p><div class="section section-level-1"><h2 id="Defining_an_Enum">Defining an Enum</h2><div class="bd">Use the following method to define an enum. <p>raptor.defineEnum(enumName, enumValues, factoryFunction);</p><p>The enumValues argument can be an array of strings that define the constant
-fields, or it can be a map. If the enumValues argument is a map, the keys
-correspond to the names of the constant fields and the value should be an array
-of arguments to pass to the constructor and a factoryFunction must be provided
-and it must define the
-class.</p></div></div><div class="section section-level-1"><h2 id="Example_Enum_Definitions">Example Enum Definitions</h2><div class="bd"><p><b>Simple enum</b></p><div class="code-editor" id="s560"> <textarea id="s560-textarea" style="display: none;" name="code-14">raptor.defineEnum(
-    'some.namespace.Day',
-    [
-        "SUN",
-        "MON",
-        "TUE",
-        "WED",
-        "THU",
-        "FRI",
-        "SAT"
-    ]
-);</textarea></div><p><b>Complex enum with a constructor, properties and methods</b></p><div class="code-editor" id="s561"> <textarea id="s561-textarea" style="display: none;" name="code-15">raptor.defineEnum(
-    'some.namespace.Day',
-    {
-        SUN: [false, "Sunday"],
-        MON: [true, "Monday"],
-        TUE: [true, "Tuesday"],
-        WED: [true, "Wednesday"],
-        THU: [true, "Thursday"],
-        FRI: [true, "Friday"],
-        SAT: [false, "Saturday"]
-    },
-    function(raptor, type) {
-        return {
-            init: function(isWeekday, longName) {
-                this._isWeekday = isWeekday;
-                this._longName = longName;
-            },
-             
-            getLongName: function() {
-                return this._longName;
-            },
-             
-            isWeekday: function() {
-                return this._isWeekday;
-            }
-        }
-    }
-);</textarea></div></div></div><div class="section section-level-1"><h2 id="Enum_Methods">Enum Methods</h2><div class="bd"><p>Every enum class supports the following methods.</p><ul><li>valueOf(name) - Returns the constant field with the same name (case sensitive)</li></ul><p>Every enum field supports the following methods.</p><ul><li>name() - Returns the name of the enum</li><li>ordinal() - Returns the positional value of the enum (NOTE: This should only be
-used for an array of enum strings. Order is undefined for maps but it will work
-correctly in most
-browsers.)</li><li>toString() - Returns the name of the enum unless it has been overridden</li><li>compareTo(other) - Compares one enum field to another based on the ordinal value</li></ul></div></div><div class="section section-level-1"><h2 id="Enum_Usage">Enum Usage</h2><div class="bd"><p>Once you define an enum, the enum constants can be accessed as static
-properties of the class as shown in the following
-example.</p><div class="code-editor" id="s562"> <textarea id="s562-textarea" style="display: none;" name="code-16">var Day = raptor.require('some.namespace.Day');
-if (day === Day.FRI) {
-    alert("It is " + day.getLongName() + "!");
-}</textarea></div></div></div></div></div></div></div><div class="docs-footer"></div></div><div style="clear: both"></div><div class="footer footer-single-line"><div class="container"><div class="bd"><span class="powered-by">Powered by <a href="../" class="raptorjs">RaptorJS</a> </span> &nbsp; | &nbsp; <a href="../license/">License</a>&nbsp; | &nbsp; <a href="../credits/">Credits</a><span class="back-to-top"><a href="#title">Back to Top</a></span></div></div></div></div><script type="text/javascript" src="../static/core-body-f1e2805e.js"></script>
+    });</textarea></div> </div></td></tr></table></div><script type="text/javascript" src="../static/core-body-f1e2805e.js"></script>
 <script type="text/javascript" src="../static/jquery-body-371da524.js"></script>
 <script type="text/javascript" src="../static/widgets-body-06552a07.js"></script>
-<script type="text/javascript" src="../static/modules-classes-body-27a3f194.js"></script>
+<script type="text/javascript" src="../static/modules-classes-body-d4ec3fec.js"></script>
 <script type="text/javascript" src="../static/bootstrap-body-34d7fcf3.js"></script>
 <script type="text/javascript" src="../static/code-editor-body-a2bab28c.js"></script><script type="text/javascript">$rwidgets(
-["components.nav.Nav.NavItemWidget","s521",0,0,0,0],
-["components.nav.Nav.NavItemWidget","s522",0,0,0,0,
-["components.nav.Nav.NavItemWidget","s523",0,0,0,0],
-["components.nav.Nav.NavItemWidget","s524",0,0,0,0],
-["components.nav.Nav.NavItemWidget","s525",0,0,0,0],
-["components.nav.Nav.NavItemWidget","s526",0,0,0,0],
-["components.nav.Nav.NavItemWidget","s527",0,0,0,0],
-["components.nav.Nav.NavItemWidget","s528",0,0,0,0],
-["components.nav.Nav.NavItemWidget","s529",0,0,0,0],
-["components.nav.Nav.NavItemWidget","s530",0,0,0,0],
-["components.nav.Nav.NavItemWidget","s531",0,0,0,0],
-["components.nav.Nav.NavItemWidget","s532",0,0,0,0],
-["components.nav.Nav.NavItemWidget","s533",0,0,0,0],
-["components.nav.Nav.NavItemWidget","s534",0,0,0,0],
-["components.nav.Nav.NavItemWidget","s535",0,0,0,0],
-["components.nav.Nav.NavItemWidget","s536",0,0,0,0]],
-["components.nav.Nav.NavItemWidget","s537",0,0,0,0,
-["components.nav.Nav.NavItemWidget","s538",0,0,0,0],
-["components.nav.Nav.NavItemWidget","s539",0,0,0,0],
-["components.nav.Nav.NavItemWidget","s540",0,0,0,0],
-["components.nav.Nav.NavItemWidget","s541",0,0,0,0],
-["components.nav.Nav.NavItemWidget","s542",0,0,0,0],
-["components.nav.Nav.NavItemWidget","s543",0,0,0,0],
-["components.nav.Nav.NavItemWidget","s544",0,0,0,0]],
-["components.nav.Nav.NavItemWidget","s545",0,0,0,0,
-["components.nav.Nav.NavItemWidget","s546",0,0,0,0],
-["components.nav.Nav.NavItemWidget","s547",0,0,0,0],
-["components.nav.Nav.NavItemWidget","s548",0,0,0,0],
-["components.nav.Nav.NavItemWidget","s549",0,0,0,0],
-["components.nav.Nav.NavItemWidget","s550",0,0,0,0]],
-["components.editors.CodeEditor.CodeEditorWidget","s551",0,0,{"mode":"javascript","autoResize":true,"readOnly":true,"indentUnit":4},0],
-["components.editors.CodeEditor.CodeEditorWidget","s552",0,0,{"mode":"javascript","autoResize":true,"readOnly":true,"indentUnit":4},0],
-["components.editors.CodeEditor.CodeEditorWidget","s553",0,0,{"mode":"javascript","autoResize":true,"readOnly":true,"indentUnit":4},0],
-["components.editors.CodeEditor.CodeEditorWidget","s554",0,0,{"mode":"javascript","autoResize":true,"readOnly":true,"indentUnit":4},0],
-["components.editors.CodeEditor.CodeEditorWidget","s555",0,0,{"mode":"javascript","autoResize":true,"readOnly":true,"indentUnit":4},0],
-["components.editors.CodeEditor.CodeEditorWidget","s556",0,0,{"mode":"javascript","autoResize":true,"readOnly":true,"indentUnit":4},0],
-["components.editors.CodeEditor.CodeEditorWidget","s557",0,0,{"mode":"javascript","autoResize":true,"readOnly":true,"indentUnit":4},0],
-["components.editors.CodeEditor.CodeEditorWidget","s558",0,0,{"mode":"javascript","autoResize":true,"readOnly":true,"indentUnit":4},0],
-["components.editors.CodeEditor.CodeEditorWidget","s559",0,0,{"mode":"javascript","autoResize":true,"readOnly":true,"indentUnit":4},0],
-["components.editors.CodeEditor.CodeEditorWidget","s560",0,0,{"mode":"javascript","autoResize":true,"readOnly":true,"indentUnit":4},0],
-["components.editors.CodeEditor.CodeEditorWidget","s561",0,0,{"mode":"javascript","autoResize":true,"readOnly":true,"indentUnit":4},0],
-["components.editors.CodeEditor.CodeEditorWidget","s562",0,0,{"mode":"javascript","autoResize":true,"readOnly":true,"indentUnit":4},0]);</script></body></html>
+["components.nav.Nav.NavItemWidget","s593",0,0,0,0],
+["components.nav.Nav.NavItemWidget","s594",0,0,0,0,
+["components.nav.Nav.NavItemWidget","s595",0,0,0,0],
+["components.nav.Nav.NavItemWidget","s596",0,0,0,0],
+["components.nav.Nav.NavItemWidget","s597",0,0,0,0],
+["components.nav.Nav.NavItemWidget","s598",0,0,0,0],
+["components.nav.Nav.NavItemWidget","s599",0,0,0,0],
+["components.nav.Nav.NavItemWidget","s600",0,0,0,0],
+["components.nav.Nav.NavItemWidget","s601",0,0,0,0],
+["components.nav.Nav.NavItemWidget","s602",0,0,0,0],
+["components.nav.Nav.NavItemWidget","s603",0,0,0,0],
+["components.nav.Nav.NavItemWidget","s604",0,0,0,0],
+["components.nav.Nav.NavItemWidget","s605",0,0,0,0],
+["components.nav.Nav.NavItemWidget","s606",0,0,0,0],
+["components.nav.Nav.NavItemWidget","s607",0,0,0,0],
+["components.nav.Nav.NavItemWidget","s608",0,0,0,0]],
+["components.nav.Nav.NavItemWidget","s609",0,0,0,0,
+["components.nav.Nav.NavItemWidget","s610",0,0,0,0],
+["components.nav.Nav.NavItemWidget","s611",0,0,0,0],
+["components.nav.Nav.NavItemWidget","s612",0,0,0,0],
+["components.nav.Nav.NavItemWidget","s613",0,0,0,0],
+["components.nav.Nav.NavItemWidget","s614",0,0,0,0],
+["components.nav.Nav.NavItemWidget","s615",0,0,0,0],
+["components.nav.Nav.NavItemWidget","s616",0,0,0,0]],
+["components.nav.Nav.NavItemWidget","s617",0,0,0,0,
+["components.nav.Nav.NavItemWidget","s618",0,0,0,0],
+["components.nav.Nav.NavItemWidget","s619",0,0,0,0],
+["components.nav.Nav.NavItemWidget","s620",0,0,0,0],
+["components.nav.Nav.NavItemWidget","s621",0,0,0,0],
+["components.nav.Nav.NavItemWidget","s622",0,0,0,0]],
+["components.editors.CodeEditor.CodeEditorWidget","s623",0,0,{"mode":"javascript","autoResize":true,"readOnly":true,"indentUnit":4},0]);</script></body></html>

@@ -4,32 +4,125 @@
     xmlns:optimizer="optimizer"
     xmlns:w="widgets"
     xmlns:docs="docs"
+    docs:functions="url"
     params="includes,samples">
 
     <optimizer:page name="${data.pageName}" base-path="${data.pageOutputDir}">
         <includes>
             <module name="docs-global"/>
             <module name="components/nav/TopNavDefault"/>
-            <module name="components/footers/FooterDefault"/>
-            <module name="components/docs/Docs"/>
+            <module name="components/icons/Icon"/>
             <module name="components/editors/CodeEditor"/>
+            <module name="components/editors/CodeEditor/mode-javascript"/>
             <css path="index.css"/>
+
         </includes>
     </optimizer:page>
     
-    
     <html html:doctype="html">
         <head>
-            <title>RaptorJS: Modules & Classes</title>
+            <title>RaptorJS: Module Loader</title>
             <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
             <optimizer:slot name="head"/>
             <docs:google-analytics/>
         </head>
         <body data-spy="scroll">
-            <docs:top-nav activeItem="modules-classes"/>
+            <docs:top-nav activeItem="module-loader"/>
             <div class="container">
-                <c:include template="content/modules-classes"/>
+                <div class="top">
+
+                    <div class="desc">
+                        <h1>Modules, Classes, Mixins and Enums</h1>
+                        <p>
+                            RaptorJS provides a simple library for
+                            defining namespaced modules, classes, mixins and enums.
+                            This library uses a clean and easy-to-understand
+                            syntax that is close to pure JavaScript, but
+                            fills gaps in the existing JavaScript language.
+                            Now you can start creating modular code
+                            that is easy to maintain without waiting for
+                            a new version of JavaScript or switching to an
+                            alternate language.
+                        </p>
+                    </div>
+                    
+                    <div class="features">
+                        <h2>Features</h2>
+                        <ul>
+                            <li>Makes JavaScript Better</li>    
+                            <li>Clean Syntax</li>
+                            <li>Lightweight Library</li>
+                            <li>Class Inheritance</li>
+                            <li>Code Reuse across Client and Server</li>
+                            <li>Lazy Initialization</li>
+                            <li>Cross-platform</li>
+                            <li>Supports Parallel Downloading</li>
+                        </ul>
+                    </div>
+                </div>
+
+
+                <table class="sections">
+                    <tr>
+                        <td class="section" style="width: 40%;">
+                            <div class="content">
+                                <h3>
+                                    <a href="${url('modules-classes/get-started')}">Get Started</a>
+                                </h3>
+                                <div class="bd">
+                                    <p>
+                                        Get started using RaptorJS modules, classes, mixins and enums.
+                                    </p>
+                                    <div class="continue">
+                                        <a href="${url('/modules-classes/get-started')}">Continue Reading ${entity:raquo}</a>
+                                    </div>
+                                </div>
+
+                                <h3>
+                                    <a href="${url('/modules-classes/developer-guide')}">Developer Guide</a>
+                                </h3>
+                                <div class="bd">
+                                    <p>
+                                        An in-depth look at using the RaptorJS library for
+                                        defining modules, classes, mixins and enums.
+                                    </p>
+                                    <div class="continue">
+                                        <a href="${url('/modules-classes/developer-guide')}">Continue Reading ${entity:raquo}</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </td>
+                        <td class="section" style="width: 60%;">
+                            <div class="content">
+                                <docs:code-editor 
+                                    autoResize="true"
+                                    indentUnit="4"
+                                    readOnly="true"
+                                    mode="javascript">
+                                <![CDATA[
+                                raptor.define(
+                                    'some.namespace.my-module', 
+                                    function() {
+                                        var MyClass = raptor.require('some.namespace.MyClass');
+                                        
+                                        return {
+                                        
+                                            message: "Hello World",
+                                            
+                                            createSomeObject: function() {
+                                                return new MyClass();
+                                            }
+                                        };
+                                    });
+                                ]]>
+                                </docs:code-editor>   
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+
             </div>
+            
             
             <optimizer:slot name="body"/>
             
