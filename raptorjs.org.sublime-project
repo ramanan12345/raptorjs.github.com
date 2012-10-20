@@ -92,6 +92,15 @@
 		{
 			"cmd":
 			[
+				"${project_path}/src/publish-dev",
+				"page=/modules-classes/developer-guide"
+			],
+			"name": "Publish (dev) - modules-classes/developer-guide",
+			"working_dir": "${project_path}/src"
+		},
+		{
+			"cmd":
+			[
 				"${project_path}/publish-to-github"
 			],
 			"name": "Publish to Github",
@@ -193,6 +202,7 @@
 			"Publish (dev) - index",
 			"Publish (dev) - module-loader",
 			"Publish (dev) - modules-classes",
+			"Publish (dev) - modules-classes/developer-guide",
 			"Publish (dev) - optimizer",
 			"Publish (dev) - optimizer-get-started",
 			"Publish (dev) - optimizer-developer-guide",

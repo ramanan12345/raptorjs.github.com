@@ -1,41 +1,278 @@
-<!DOCTYPE html><html><head><title>RaptorJS: Get Started using the Asynchronous Module Loader</title><meta http-equiv="content-type" content="text/html; charset=UTF-8"></meta><link rel="stylesheet" type="text/css" href="../../static/modules-classes-get-started-head-d2a7b186.css">
-<link rel="stylesheet" type="text/css" href="../../static/bootstrap-head-90c3692d.css">
-<link rel="stylesheet" type="text/css" href="../../static/code-editor-head-6a226e30.css"><script type="text/javascript">var
+<!DOCTYPE html><html><head><title>RaptorJS: Get Started using Modules, Classes, Mixis and Enums</title><meta http-equiv="content-type" content="text/html; charset=UTF-8"></meta><link rel="stylesheet" type="text/css" href="../../static/FontAwesome-font-awesome.less-4dca126b.css">
+<link rel="stylesheet" type="text/css" href="../../static/Bootstrap-bootstrap-less-tooltip.less-cce5977e.css">
+<link rel="stylesheet" type="text/css" href="../../static/Bootstrap-bootstrap-less-popovers.less-aaa2fb6a.css">
+<link rel="stylesheet" type="text/css" href="../../static/components-overlays-Popover-Popover.less-ef41d211.css">
+<link rel="stylesheet" type="text/css" href="../../static/Bootstrap-bootstrap-less-reset.less-8b2863da.css">
+<link rel="stylesheet" type="text/css" href="../../static/Bootstrap-bootstrap-less-scaffolding.less-bf5091ca.css">
+<link rel="stylesheet" type="text/css" href="../../static/Bootstrap-bootstrap-less-util.less-76335526.css">
+<link rel="stylesheet" type="text/css" href="../../static/Bootstrap-bootstrap-less-layouts.less-802df0dc.css">
+<link rel="stylesheet" type="text/css" href="../../static/Bootstrap-bootstrap-less-type.less-50053849.css">
+<link rel="stylesheet" type="text/css" href="../../static/Bootstrap-bootstrap-less-tables.less-ff9f78de.css">
+<link rel="stylesheet" type="text/css" href="../../src/components/footers/FooterDefault/FooterDefault.css">
+<link rel="stylesheet" type="text/css" href="../../src/components/footers/FooterSingleLine/FooterSingleLine.css">
+<link rel="stylesheet" type="text/css" href="../../src/components/footers/Footer/Footer.css">
+<link rel="stylesheet" type="text/css" href="../../src/components/notifications/Message/Message.css">
+<link rel="stylesheet" type="text/css" href="../../src/modules/docs-global/global.css">
+<link rel="stylesheet" type="text/css" href="../../static/Bootstrap-bootstrap-less-navbar.less-3fddebba.css">
+<link rel="stylesheet" type="text/css" href="../../static/Bootstrap-bootstrap-less-dropdowns.less-3d3a4763.css">
+<link rel="stylesheet" type="text/css" href="../../src/components/nav/NavBar/NavBar.css">
+<link rel="stylesheet" type="text/css" href="../../static/Bootstrap-bootstrap-less-navs.less-bcafff4f.css">
+<link rel="stylesheet" type="text/css" href="../../src/components/nav/Nav/Nav.css">
+<link rel="stylesheet" type="text/css" href="../../src/components/nav/NavDivider/NavDivider.css">
+<link rel="stylesheet" type="text/css" href="../../src/components/nav/TopNavDefault/TopNavDefault.css">
+<link rel="stylesheet" type="text/css" href="../../src/components/docs/Section/Section.css">
+<link rel="stylesheet" type="text/css" href="../../src/modules/CodeMirror/CodeMirror-2.33/lib/codemirror.css">
+<link rel="stylesheet" type="text/css" href="../../src/components/editors/CodeEditor/CodeEditor.css">
+<link rel="stylesheet" type="text/css" href="../../src/components/docs/Docs/Docs.css">
+<link rel="stylesheet" type="text/css" href="../../src/pages/modules-classes/get-started/index.css"><script type="text/javascript">var
 _gaq=_gaq||[];_gaq.push(["_setAccount","UA-33982282-1"]);_gaq.push(["_trackPageview"]);(function(){var
 a=document.createElement("script");a.type="text/javascript";a.async=!0;a.src=("https:"==document.location.protocol?"https://ssl":"http://www")+".google-analytics.com/ga.js";var
-b=document.getElementsByTagName("script")[0];b.parentNode.insertBefore(a,b)})();</script></head><body><div class="navbar navbar-fixed-top"><div class="navbar-inner"><div class="container"><a class="brand" href="../../">RaptorJS</a><ul class="nav"><li class="divider-vertical"></li><li id="s563"><a href="../../get-started/">Get Started</a></li><li class="divider-vertical"></li><li id="s564" class="dropdown"><a data-toggle="dropdown" class="dropdown-toggle">Learn<b class="caret"></b></a><ul class="dropdown-menu"><li id="s565"><a href="../../">Overview</a></li><li id="s566"><a href="../../get-started/">Get Started</a></li><li id="s567"><a href="../../tutorial/">Tutorial</a></li><li id="s568"><a href="../../api/">API Reference</a></li><li id="s569"><a href="../../faq/">FAQ</a></li><li class="divider"></li><li id="s570"><a href="../../modules-classes/">Modules and Classes</a></li><li id="s571"><a href="../../packaging/">Packaging and Extensions</a></li><li id="s572"><a href="../../module-loader/">Module Loader</a></li><li id="s573"><a href="../../optimizer/">Optimizer</a></li><li id="s574"><a href="../../raptor-templates/">Raptor Templates</a></li><li id="s575"><a href="../../widgets/">Widgets Framework</a></li><li id="s576"><a href="../../logging/">Logging</a></li><li id="s577"><a href="../../resource-search-path/">Resource Search Path</a></li><li id="s578"><a href="../../cross-environment/">Cross Environment Support</a></li></ul></li><li class="divider-vertical"></li><li id="s579" class="dropdown"><a data-toggle="dropdown" class="dropdown-toggle">Community<b class="caret"></b></a><ul class="dropdown-menu"><li id="s580"><a href="https://github.com/raptorjs/raptorjs">Source code</a></li><li id="s581"><a href="https://github.com/raptorjs/raptorjs/issues">Issue Tracker</a></li><li id="s582"><a href="../../contribute/">Contribute</a></li><li id="s583"><a href="../../contributors/">Contributors</a></li><li class="divider"></li><li id="s584"><a href="http://groups.google.com/group/raptorjs">Discussion Forum</a></li><li class="divider"></li><li id="s585"><a href="http://twitter.com/raptorjs">Twitter (@raptorjs)</a></li><li id="s586"><a href="http://twitter.com/raptorjs">Google+</a></li></ul></li><li class="divider-vertical"></li><li id="s587" class="dropdown"><a data-toggle="dropdown" class="dropdown-toggle">About<b class="caret"></b></a><ul class="dropdown-menu"><li id="s588"><a href="https://github.com/raptorjs/raptorjs/wiki/Release-Notes">Release Notes</a></li><li id="s589"><a href="../../design-philosophy/">Design Philosophy</a></li><li id="s590"><a href="../../license/">License</a></li><li id="s591"><a href="../../credits/">Credits</a></li><li id="s592"><a href="../../creators/">Creators</a></li></ul></li><li class="divider-vertical"></li></ul></div></div></div><div class="container"><div class="docs"><div class="bd"><div class="toc nav" id="docsNav"><ul class="toc"><li class="toc toc-level-0"><a href="#Overview">Overview</a><ul class="toc"></ul></li></ul></div><div class="docs-content"><h1 id="title">RaptorJS: Get Started using the Asynchronous Module Loader</h1><div class="message message-warning"><div class="icon"><i class="icon-warning-sign" style="font-size: 30px;"></i></div><div class="bd">Documentation In-Progress</div></div><div class="section section-level-0"><h2 id="Overview">Overview</h2><div class="bd"><p> </p></div></div></div></div><div class="docs-footer"></div></div><div style="clear: both"></div><div class="footer footer-single-line"><div class="container"><div class="bd"><span class="powered-by">Powered by <a href="../../" class="raptorjs">RaptorJS</a> </span> &nbsp; | &nbsp; <a href="../../license/">License</a>&nbsp; | &nbsp; <a href="../../credits/">Credits</a><span class="back-to-top"><a href="#title">Back to Top</a></span></div></div></div></div><script type="text/javascript" src="../../static/core-body-f1e2805e.js"></script>
-<script type="text/javascript" src="../../static/jquery-body-371da524.js"></script>
-<script type="text/javascript" src="../../static/widgets-body-06552a07.js"></script>
-<script type="text/javascript" src="../../static/modules-classes-get-started-body-27a3f194.js"></script>
-<script type="text/javascript" src="../../static/bootstrap-body-34d7fcf3.js"></script>
-<script type="text/javascript" src="../../static/code-editor-body-a2bab28c.js"></script><script type="text/javascript">$rwidgets(
-["components.nav.Nav.NavItemWidget","s563",0,0,0,0],
-["components.nav.Nav.NavItemWidget","s564",0,0,0,0,
-["components.nav.Nav.NavItemWidget","s565",0,0,0,0],
-["components.nav.Nav.NavItemWidget","s566",0,0,0,0],
-["components.nav.Nav.NavItemWidget","s567",0,0,0,0],
-["components.nav.Nav.NavItemWidget","s568",0,0,0,0],
-["components.nav.Nav.NavItemWidget","s569",0,0,0,0],
-["components.nav.Nav.NavItemWidget","s570",0,0,0,0],
-["components.nav.Nav.NavItemWidget","s571",0,0,0,0],
-["components.nav.Nav.NavItemWidget","s572",0,0,0,0],
-["components.nav.Nav.NavItemWidget","s573",0,0,0,0],
-["components.nav.Nav.NavItemWidget","s574",0,0,0,0],
-["components.nav.Nav.NavItemWidget","s575",0,0,0,0],
-["components.nav.Nav.NavItemWidget","s576",0,0,0,0],
-["components.nav.Nav.NavItemWidget","s577",0,0,0,0],
-["components.nav.Nav.NavItemWidget","s578",0,0,0,0]],
-["components.nav.Nav.NavItemWidget","s579",0,0,0,0,
-["components.nav.Nav.NavItemWidget","s580",0,0,0,0],
-["components.nav.Nav.NavItemWidget","s581",0,0,0,0],
-["components.nav.Nav.NavItemWidget","s582",0,0,0,0],
-["components.nav.Nav.NavItemWidget","s583",0,0,0,0],
-["components.nav.Nav.NavItemWidget","s584",0,0,0,0],
-["components.nav.Nav.NavItemWidget","s585",0,0,0,0],
-["components.nav.Nav.NavItemWidget","s586",0,0,0,0]],
-["components.nav.Nav.NavItemWidget","s587",0,0,0,0,
-["components.nav.Nav.NavItemWidget","s588",0,0,0,0],
-["components.nav.Nav.NavItemWidget","s589",0,0,0,0],
-["components.nav.Nav.NavItemWidget","s590",0,0,0,0],
-["components.nav.Nav.NavItemWidget","s591",0,0,0,0],
-["components.nav.Nav.NavItemWidget","s592",0,0,0,0]]);</script></body></html>
+b=document.getElementsByTagName("script")[0];b.parentNode.insertBefore(a,b)})();</script></head><body><div class="navbar navbar-fixed-top"><div class="navbar-inner"><div class="container"><a class="brand" href="../../index.html">RaptorJS</a><ul class="nav"><li class="divider-vertical"></li><li id="s0"><a href="../../get-started/index.html">Get Started</a></li><li class="divider-vertical"></li><li id="s1" class="dropdown"><a data-toggle="dropdown" class="dropdown-toggle">Learn<b class="caret"></b></a><ul class="dropdown-menu"><li id="s2"><a href="../../index.html">Overview</a></li><li id="s3"><a href="../../get-started/index.html">Get Started</a></li><li id="s4"><a href="../../tutorial/index.html">Tutorial</a></li><li id="s5"><a href="../../api/index.html">API Reference</a></li><li id="s6"><a href="../../faq/index.html">FAQ</a></li><li class="divider"></li><li id="s7"><a href="../../modules-classes/index.html">Modules and Classes</a></li><li id="s8"><a href="../../packaging/index.html">Packaging and Extensions</a></li><li id="s9"><a href="../../module-loader/index.html">Module Loader</a></li><li id="s10"><a href="../../optimizer/index.html">Optimizer</a></li><li id="s11"><a href="../../raptor-templates/index.html">Raptor Templates</a></li><li id="s12"><a href="../../widgets/index.html">Widgets Framework</a></li><li id="s13"><a href="../../logging/index.html">Logging</a></li><li id="s14"><a href="../../resource-search-path/index.html">Resource Search Path</a></li><li id="s15"><a href="../../cross-environment/index.html">Cross Environment Support</a></li></ul></li><li class="divider-vertical"></li><li id="s16" class="dropdown"><a data-toggle="dropdown" class="dropdown-toggle">Community<b class="caret"></b></a><ul class="dropdown-menu"><li id="s17"><a href="https://github.com/raptorjs/raptorjs">Source code</a></li><li id="s18"><a href="https://github.com/raptorjs/raptorjs/issues">Issue Tracker</a></li><li id="s19"><a href="../../contribute/index.html">Contribute</a></li><li id="s20"><a href="../../contributors/index.html">Contributors</a></li><li class="divider"></li><li id="s21"><a href="http://groups.google.com/group/raptorjs">Discussion Forum</a></li><li class="divider"></li><li id="s22"><a href="http://twitter.com/raptorjs">Twitter (@raptorjs)</a></li><li id="s23"><a href="http://twitter.com/raptorjs">Google+</a></li></ul></li><li class="divider-vertical"></li><li id="s24" class="dropdown"><a data-toggle="dropdown" class="dropdown-toggle">About<b class="caret"></b></a><ul class="dropdown-menu"><li id="s25"><a href="https://github.com/raptorjs/raptorjs/wiki/Release-Notes">Release Notes</a></li><li id="s26"><a href="../../design-philosophy/index.html">Design Philosophy</a></li><li id="s27"><a href="../../license/index.html">License</a></li><li id="s28"><a href="../../credits/index.html">Credits</a></li><li id="s29"><a href="../../creators/index.html">Creators</a></li></ul></li><li class="divider-vertical"></li></ul></div></div></div><div class="container"><div class="docs"><div class="bd"><div class="toc nav" id="docsNav"><ul class="toc"><li class="toc toc-level-0"><a href="#Introduction">Introduction</a><ul class="toc"></ul></li><li class="toc toc-level-0"><a href="#Basic_Usage">Basic Usage</a><ul class="toc"></ul></li><li class="toc toc-level-0"><a href="#Modules">Modules</a><ul class="toc"><li class="toc toc-level-1"><a href="#Defining_a_Module">Defining a Module</a><ul class="toc"></ul></li><li class="toc toc-level-1"><a href="#Using_a_Module">Using a Module</a><ul class="toc"></ul></li></ul></li><li class="toc toc-level-0"><a href="#Classes">Classes</a><ul class="toc"><li class="toc toc-level-1"><a href="#Defining_a_Class">Defining a Class</a><ul class="toc"></ul></li><li class="toc toc-level-1"><a href="#Creating_an_Instance_of_a_Class">Creating an Instance of a Class</a><ul class="toc"></ul></li><li class="toc toc-level-1"><a href="#Inheritance">Inheritance</a><ul class="toc"></ul></li></ul></li><li class="toc toc-level-0"><a href="#Mixins">Mixins</a><ul class="toc"><li class="toc toc-level-1"><a href="#Defining_a_Mixin">Defining a Mixin</a><ul class="toc"></ul></li><li class="toc toc-level-1"><a href="#Applying_Mixins">Applying Mixins</a><ul class="toc"></ul></li></ul></li><li class="toc toc-level-0"><a href="#Enums">Enums</a><ul class="toc"><li class="toc toc-level-1"><a href="#Defining_an_Enum">Defining an Enum</a><ul class="toc"></ul></li><li class="toc toc-level-1"><a href="#Enum_Methods">Enum Methods</a><ul class="toc"></ul></li><li class="toc toc-level-1"><a href="#Enum_Usage">Enum Usage</a><ul class="toc"></ul></li></ul></li><li class="toc toc-level-0"><a href="#Anonymous_Objects">Anonymous Objects</a><ul class="toc"></ul></li><li class="toc toc-level-0"><a href="#Logging">Logging</a><ul class="toc"></ul></li></ul></div><div class="docs-content"><h1 id="title">Getting Started with Modules, Classes, Mixins and Enums</h1><div class="message message-warning"><div class="icon"><i class="icon-warning-sign" style="font-size: 30px;"></i></div><div class="bd">Documentation In-Progress</div></div><div class="section section-level-0"><h2 id="Introduction">Introduction</h2><div class="bd"><p>Out of the box, JavaScript lacks basic support for namespaces, and defining and
+using "classes" is not always elegant. Because JavaScript is a very dynamic
+language many libraries and frameworks have been developed to address some of
+these shortcomings—each with their own benefits and disadvantages. RaptorJS
+aims to solve many of the problems in existing solutions through a
+<i>simple</i>, yet powerful new syntax.</p></div></div><div class="section section-level-0"><h2 id="Basic_Usage">Basic Usage</h2><div class="bd"><p>The basic pattern for defining RaptorJS objects is to associate a <i>factory function</i> with a <i>string</i> ID. The job of the factory function is return the initialized object when it
+is first
+required.</p></div></div><div class="section section-level-0"><h2 id="Modules">Modules</h2><div class="bd"><div class="section section-level-1"><h2 id="Defining_a_Module">Defining a Module</h2><div class="bd"><p>A JavaScript object/module can be associated with a name as shown in the
+following example:
+</p><div class="code-editor" id="s30"> <textarea id="s30-textarea" style="display: none;" name="code-0">raptor.define(
+    'some.namespace.myModule', 
+    function() { //This function is only executed *once* (the first time this module is required)
+        return { //Return the module definition
+            sayHello: function() {
+                console.log("Hello World!");
+            }
+        }
+    });</textarea></div></div></div><div class="section section-level-1"><h2 id="Using_a_Module">Using a Module</h2><div class="bd"><p>The following code illustrates how to utilize another module/class/mixin/enum
+by obtaining a reference to it using the
+<code>raptor.require</code> method:</p><div class="code-editor" id="s31"> <textarea id="s31-textarea" style="display: none;" name="code-1">var myModule = raptor.require('some.namespace.myModule');
+//Do something with "myModule"...</textarea></div><div class="message message-info"><div class="icon"><i class="icon-info-sign" style="font-size: 30px;"></i></div><div class="bd"><p>NOTE: When using <code>raptor.require(moduleName)</code>, the code for the requested module must be available. Asynchronous module
+loading (loading a module asynchronously from a server) is provided by the
+<a href="../../module-loader/index.html">RaptorJS Asynchronous Module Loader</a>.</p></div></div></div></div></div></div><div class="section section-level-0"><h2 id="Classes">Classes</h2><div class="bd"><div class="section section-level-1"><h2 id="Defining_a_Class">Defining a Class</h2><div class="bd"><p>A class can be defined by creating a factory function that returns a
+constructor function (with a
+<code>prototype</code> property) as shown in the following example:</p><div class="code-editor" id="s32"> <textarea id="s32-textarea" style="display: none;" name="code-2">raptor.define(
+    'some.namespace.MyClass', 
+    function() {
+        var MyClass = function(message) { //Constructor function
+            this.message = message;
+        }
+
+        MyClass.prototype = {
+            sayHello: function() {
+                console.log(this.message);
+            }
+        };
+
+        return MyClass;
+    });</textarea></div></div></div><div class="section section-level-1"><h2 id="Creating_an_Instance_of_a_Class">Creating an Instance of a Class</h2><div class="bd"><p>An instance of a class can be created as shown in the following example:</p><div class="code-editor" id="s33"> <textarea id="s33-textarea" style="display: none;" name="code-3">var MyClass = raptor.require("some.namespace.MyClass");
+var myInstance = new MyClass();</textarea></div></div></div><div class="section section-level-1"><h2 id="Inheritance">Inheritance</h2><div class="bd"><p>How about class inheritance? A class can be declared to extend another class by
+providing the name of the superclass as the second argument to the
+<code>raptor.define</code> method. For example:</p><div class="code-editor" id="s34"> <textarea id="s34-textarea" style="display: none;" name="code-4">raptor.define(
+    'some.namespace.Dog', 
+    'some.namespace.Animal', //Name of the superclass
+    function() {
+        var Dog = function(breed) {
+            Dog.superclass.constructor.call(this, "dog"); //Invoke the constructor of the superclass
+            this.breed = breed;
+        }
+
+        Dog.prototype = {
+            eat: function(food) {
+                Dog.superclass.eat.call(this, food); //Invoke the "eat" method in the superclass
+                this.bark();
+            }
+        };
+
+        return Dog;
+    });</textarea></div><div class="message message-info"><div class="icon"><i class="icon-info-sign" style="font-size: 30px;"></i></div><div class="bd"><p>NOTE: When defining a class that extends another class, the returned
+constructor function is populated with a "superclass" property that is a
+reference to the prototype of the superclass. In addition, the prototype of a
+class is always populated with a "constructor" property, which is a reference
+to the constructor function for the class associated with the prototype
+object.</p></div></div></div></div></div></div><div class="section section-level-0"><h2 id="Mixins">Mixins</h2><div class="bd"><div class="section section-level-1"><h2 id="Defining_a_Mixin">Defining a Mixin</h2><div class="bd"><p>RaptorJS supports mixins as well. Mixins can be defined using the <code>raptor.defineMixin</code> method as shown in the following example:</p><div class="code-editor" id="s35"> <textarea id="s35-textarea" style="display: none;" name="code-5">raptor.defineMixin(
+    'some.namespace.CircleMixin', 
+    function() {
+        return { //Return the mixin object
+            getArea: function() {
+                return Math.PI * this.radius * this.radius;
+            },
+            grow: function() {
+                this.radius++;
+            },
+            shrink: function() {
+                this.radius--;
+            }
+        };
+    });</textarea></div></div></div><div class="section section-level-1"><h2 id="Applying_Mixins">Applying Mixins</h2><div class="bd"><p>Mixins can be applied declaratively as part of an object definition as shown in
+the following
+example</p><div class="code-editor" id="s36"> <textarea id="s36-textarea" style="display: none;" name="code-6">raptor.define(
+    'some.namespace.CircleButton', 
+    {
+        mixins: ['some.namespace.CircleMixin']
+    },
+    function() {
+        return {
+            //...
+        };
+    });</textarea></div><p>Alternatively, mixins can be applied using the <code>raptor.extend</code> method as shown in the following example:</p><div class="code-editor" id="s37"> <textarea id="s37-textarea" style="display: none;" name="code-7">raptor.extend(
+    'some.namespace.CircleButton',
+    'some.namespace.CircleMixin');</textarea></div><div class="message message-info"><div class="icon"><i class="icon-info-sign" style="font-size: 30px;"></i></div><div class="bd"><p>When using the <code>raptor.extend</code> method, the mixins will be lazily applied to the target object if the target
+object has not already been initialized as a result of being previously
+required.</p></div></div><p>Anonymous mixins can be applied to a target object as shown in the following
+example:</p><div class="code-editor" id="s38"> <textarea id="s38-textarea" style="display: none;" name="code-8">raptor.extend(
+    'some.namespace.CircleButton', 
+    function() {
+        return {
+            getArea: function() {
+                return Math.PI * this.radius * this.radius;
+            },
+            grow: function() {
+                this.radius++;
+            },
+            shrink: function() {
+                this.radius--;
+            }
+        };
+    });</textarea></div></div></div></div></div><div class="section section-level-0"><h2 id="Enums">Enums</h2><div class="bd"><div class="section section-level-1"><h2 id="Defining_an_Enum">Defining an Enum</h2><div class="bd"><p>An enum type can be defined as shown in the following example:</p><div class="code-editor" id="s39"> <textarea id="s39-textarea" style="display: none;" name="code-9">raptor.defineEnum(
+    'some.namespace.Day',
+    [
+        "SUN",
+        "MON",
+        "TUE",
+        "WED",
+        "THU",
+        "FRI",
+        "SAT"
+    ]
+);</textarea></div><p>Enum values as complex objects can be defined as shown in the following example:</p><div class="code-editor" id="s40"> <textarea id="s40-textarea" style="display: none;" name="code-10">raptor.defineEnum(
+    'some.namespace.Color', 
+    [
+        'RED',
+        'GREEN',
+        'BLUE'
+    ]);</textarea></div></div></div><div class="section section-level-1"><h2 id="Enum_Methods">Enum Methods</h2><div class="bd"><p>Every enum class supports the following methods.</p><ul><li>valueOf(name) - Returns the constant field with the same name (case sensitive)</li></ul><p>Every enum field supports the following methods.</p><ul><li>name() - Returns the name of the enum</li><li>ordinal() - Returns the positional value of the enum (NOTE: This should only be
+used for an array of enum strings. Order is undefined for maps but it will work
+correctly in most
+browsers.)</li><li>toString() - Returns the name of the enum unless it has been overridden</li><li>compareTo(other) - Compares one enum field to another based on the ordinal value</li></ul></div></div><div class="section section-level-1"><h2 id="Enum_Usage">Enum Usage</h2><div class="bd"><p>Once you define an enum, the enum constants can be accessed as static
+properties of the class as shown in the following
+example.</p><div class="code-editor" id="s41"> <textarea id="s41-textarea" style="display: none;" name="code-11">var Day = raptor.require('some.namespace.Day');
+if (day === Day.FRI) {
+    alert("It is " + day.getLongName() + "!");
+}</textarea></div></div></div></div></div><div class="section section-level-0"><h2 id="Anonymous_Objects">Anonymous Objects</h2><div class="bd"><p>Anonymous (unnamed objects) can be defined by omitting the name argument. For
+example:</p><div class="code-editor" id="s42"> <textarea id="s42-textarea" style="display: none;" name="code-12">var myModule = raptor.define(
+    function() { //This function is only executed *once* (the first time this module is required)
+        return { //Return the module definition
+            sayHello: function() {
+                console.log("Hello World!");
+            }
+        }
+    });
+//Do something with myModule...</textarea></div></div></div><div class="section section-level-0"><h2 id="Logging">Logging</h2><div class="bd"><p>For convenience, all objects defined using RaptorJS will be populated with a
+"logger" function that can be used to log messages at various log levels
+(debug, info, warn, error, etc.). Whether or not anything actually shows will
+depend on how the loggers are configured. Output messages will be prefixed with
+the log level and the name of the object that logged the message. Loggers
+should be configured when RaptorJS is first initialized. For
+example:</p><p><div class="code-editor" id="s43"> <textarea id="s43-textarea" style="display: none;" name="code-13">require("raptor").create({ //Initialize RaptorJS
+    logging: {
+        loggers: { //Configure the loggers to control the logging output
+            'ROOT': {level: 'WARN'},
+            'some.namespace': {level: 'DEBUG'}
+        }
+    }
+});
+
+//...
+
+raptor.define(
+    'some.namespace.myModule', 
+    function() { //This function is only executed *once* (the first time this module is required)
+        return { //Return the module definition
+            sayHello: function() {
+                this.logger().debug("Hello World!");
+                /*
+                 * Output:
+                 * DEBUG some.namespace.myModule: Hello World!
+                 */
+            }
+        }
+    });</textarea></div></p><p>For more details on logging, see <a href="../../logging/index.html">RaptorJS Logging</a>.</p></div></div></div></div><div class="docs-footer"></div></div><div style="clear: both"></div><div class="footer footer-single-line"><div class="container"><div class="bd"><span class="powered-by">Powered by <a href="../../index.html" class="raptorjs">RaptorJS</a> </span> &nbsp; | &nbsp; <a href="../../license/index.html">License</a>&nbsp; | &nbsp; <a href="../../credits/index.html">Credits</a><span class="back-to-top"><a href="#title">Back to Top</a></span></div></div></div></div><script type="text/javascript" src="../../../../../ebay/github/Raptor/RaptorJSOpenSource/src/main/resources/META-INF/resources/raptor_modules/bootstrap/bootstrap_browser.js"></script>
+<script type="text/javascript" src="../../../../../ebay/github/Raptor/RaptorJSOpenSource/src/main/resources/META-INF/resources/raptor_modules/ecma/es5/es5.js"></script>
+<script type="text/javascript" src="../../../../../ebay/github/Raptor/RaptorJSOpenSource/src/main/resources/META-INF/resources/raptor_modules/raptorBuilder/raptorBuilder.js"></script>
+<script type="text/javascript" src="../../../../../ebay/github/Raptor/RaptorJSOpenSource/src/main/resources/META-INF/resources/raptor_modules/logging/logging_stubs.js"></script>
+<script type="text/javascript" src="../../../../../ebay/github/Raptor/RaptorJSOpenSource/src/main/resources/META-INF/resources/raptor_modules/strings/strings.js"></script>
+<script type="text/javascript" src="../../../../../ebay/github/Raptor/RaptorJSOpenSource/src/main/resources/META-INF/resources/raptor_modules/strings/StringBuilder.js"></script>
+<script type="text/javascript" src="../../../../../ebay/github/Raptor/RaptorJSOpenSource/src/main/resources/META-INF/resources/raptor_modules/objects/objects.js"></script>
+<script type="text/javascript" src="../../../../../ebay/github/Raptor/RaptorJSOpenSource/src/main/resources/META-INF/resources/raptor_modules/logging/ConsoleLogger.js"></script>
+<script type="text/javascript" src="../../../../../ebay/github/Raptor/RaptorJSOpenSource/src/main/resources/META-INF/resources/raptor_modules/logging/logging.js"></script>
+<script type="text/javascript" src="../../../../../ebay/github/Raptor/RaptorJSOpenSource/src/main/resources/META-INF/resources/raptor_modules/logging/LogHelper.js"></script>
+<script type="text/javascript" src="../../../../../ebay/github/Raptor/RaptorJSOpenSource/src/main/resources/META-INF/resources/raptor_modules/errors/errors.js"></script>
+<script type="text/javascript" src="../../../../../ebay/github/Raptor/RaptorJSOpenSource/src/main/resources/META-INF/resources/raptor_modules/oop/oop.js"></script>
+<script type="text/javascript" src="../../static/init-raptor-b8b82f45.js"></script>
+<script type="text/javascript" src="../../src/modules/jQuery/jquery-1.7.1.js"></script>
+<script type="text/javascript" src="../../../../../ebay/github/Raptor/RaptorJSOpenSource/src/main/resources/META-INF/resources/raptor_modules/widgets/widgets.js"></script>
+<script type="text/javascript" src="../../../../../ebay/github/Raptor/RaptorJSOpenSource/src/main/resources/META-INF/resources/raptor_modules/listeners/listeners.js"></script>
+<script type="text/javascript" src="../../../../../ebay/github/Raptor/RaptorJSOpenSource/src/main/resources/META-INF/resources/raptor_modules/pubsub/pubsub.js"></script>
+<script type="text/javascript" src="../../../../../ebay/github/Raptor/RaptorJSOpenSource/src/main/resources/META-INF/resources/raptor_modules/widgets/widgets_browser.js"></script>
+<script type="text/javascript" src="../../../../../ebay/github/Raptor/RaptorJSOpenSource/src/main/resources/META-INF/resources/raptor_modules/widgets/Widget.js"></script>
+<script type="text/javascript" src="../../../../../ebay/github/Raptor/RaptorJSOpenSource/src/main/resources/META-INF/resources/raptor_modules/widgets/widgets_jquery.js"></script>
+<script type="text/javascript" src="../../../../../ebay/github/Raptor/RaptorJSOpenSource/src/main/resources/META-INF/resources/raptor_modules/widgets/Widget_jquery.js"></script>
+<script type="text/javascript" src="../../src/modules/Bootstrap/bootstrap/js/bootstrap-tooltip.js"></script>
+<script type="text/javascript" src="../../src/modules/Bootstrap/bootstrap/js/bootstrap-popover.js"></script>
+<script type="text/javascript" src="../../src/components/overlays/Popover/PopoverWidget.js"></script>
+<script type="text/javascript" src="../../src/modules/Bootstrap/bootstrap/js/bootstrap-dropdown.js"></script>
+<script type="text/javascript" src="../../src/modules/Bootstrap/bootstrap/js/bootstrap-tab.js"></script>
+<script type="text/javascript" src="../../src/components/nav/NavItem/NavItemWidget.js"></script>
+<script type="text/javascript" src="../../src/modules/Bootstrap/bootstrap/js/bootstrap-scrollspy.js"></script>
+<script type="text/javascript" src="../../src/modules/jquery-scrollTo/jquery.scrollTo-1.4.2.js"></script>
+<script type="text/javascript" src="../../src/modules/CodeMirror/CodeMirror-2.33/lib/codemirror.js"></script>
+<script type="text/javascript" src="../../src/modules/CodeMirror/CodeMirror-2.33/lib/util/formatting.js"></script>
+<script type="text/javascript" src="../../src/components/editors/CodeEditor/CodeEditorWidget.js"></script>
+<script type="text/javascript" src="../../src/modules/CodeMirror/CodeMirror-2.33/mode/javascript/javascript.js"></script>
+<script type="text/javascript" src="../../src/modules/CodeMirror/CodeMirror-2.33/mode/xml/xml.js"></script>
+<script type="text/javascript" src="../../src/components/docs/Docs/DocsWidget.js"></script><script type="text/javascript">$rwidgets(
+["components.nav.Nav.NavItemWidget","s0",0,0,0,0],
+["components.nav.Nav.NavItemWidget","s1",0,0,0,0,
+["components.nav.Nav.NavItemWidget","s2",0,0,0,0],
+["components.nav.Nav.NavItemWidget","s3",0,0,0,0],
+["components.nav.Nav.NavItemWidget","s4",0,0,0,0],
+["components.nav.Nav.NavItemWidget","s5",0,0,0,0],
+["components.nav.Nav.NavItemWidget","s6",0,0,0,0],
+["components.nav.Nav.NavItemWidget","s7",0,0,0,0],
+["components.nav.Nav.NavItemWidget","s8",0,0,0,0],
+["components.nav.Nav.NavItemWidget","s9",0,0,0,0],
+["components.nav.Nav.NavItemWidget","s10",0,0,0,0],
+["components.nav.Nav.NavItemWidget","s11",0,0,0,0],
+["components.nav.Nav.NavItemWidget","s12",0,0,0,0],
+["components.nav.Nav.NavItemWidget","s13",0,0,0,0],
+["components.nav.Nav.NavItemWidget","s14",0,0,0,0],
+["components.nav.Nav.NavItemWidget","s15",0,0,0,0]],
+["components.nav.Nav.NavItemWidget","s16",0,0,0,0,
+["components.nav.Nav.NavItemWidget","s17",0,0,0,0],
+["components.nav.Nav.NavItemWidget","s18",0,0,0,0],
+["components.nav.Nav.NavItemWidget","s19",0,0,0,0],
+["components.nav.Nav.NavItemWidget","s20",0,0,0,0],
+["components.nav.Nav.NavItemWidget","s21",0,0,0,0],
+["components.nav.Nav.NavItemWidget","s22",0,0,0,0],
+["components.nav.Nav.NavItemWidget","s23",0,0,0,0]],
+["components.nav.Nav.NavItemWidget","s24",0,0,0,0,
+["components.nav.Nav.NavItemWidget","s25",0,0,0,0],
+["components.nav.Nav.NavItemWidget","s26",0,0,0,0],
+["components.nav.Nav.NavItemWidget","s27",0,0,0,0],
+["components.nav.Nav.NavItemWidget","s28",0,0,0,0],
+["components.nav.Nav.NavItemWidget","s29",0,0,0,0]],
+["components.editors.CodeEditor.CodeEditorWidget","s30",0,0,{"mode":"javascript","autoResize":true,"readOnly":true,"indentUnit":4},0],
+["components.editors.CodeEditor.CodeEditorWidget","s31",0,0,{"mode":"javascript","autoResize":true,"readOnly":true,"indentUnit":4},0],
+["components.editors.CodeEditor.CodeEditorWidget","s32",0,0,{"mode":"javascript","autoResize":true,"readOnly":true,"indentUnit":4},0],
+["components.editors.CodeEditor.CodeEditorWidget","s33",0,0,{"mode":"javascript","autoResize":true,"readOnly":true,"indentUnit":4},0],
+["components.editors.CodeEditor.CodeEditorWidget","s34",0,0,{"mode":"javascript","autoResize":true,"readOnly":true,"indentUnit":4},0],
+["components.editors.CodeEditor.CodeEditorWidget","s35",0,0,{"mode":"javascript","autoResize":true,"readOnly":true,"indentUnit":4},0],
+["components.editors.CodeEditor.CodeEditorWidget","s36",0,0,{"mode":"javascript","autoResize":true,"readOnly":true,"indentUnit":4},0],
+["components.editors.CodeEditor.CodeEditorWidget","s37",0,0,{"mode":"javascript","autoResize":true,"readOnly":true,"indentUnit":4},0],
+["components.editors.CodeEditor.CodeEditorWidget","s38",0,0,{"mode":"javascript","autoResize":true,"readOnly":true,"indentUnit":4},0],
+["components.editors.CodeEditor.CodeEditorWidget","s39",0,0,{"mode":"javascript","autoResize":true,"readOnly":true,"indentUnit":4},0],
+["components.editors.CodeEditor.CodeEditorWidget","s40",0,0,{"mode":"javascript","autoResize":true,"readOnly":true,"indentUnit":4},0],
+["components.editors.CodeEditor.CodeEditorWidget","s41",0,0,{"mode":"javascript","autoResize":true,"readOnly":true,"indentUnit":4},0],
+["components.editors.CodeEditor.CodeEditorWidget","s42",0,0,{"mode":"javascript","autoResize":true,"readOnly":true,"indentUnit":4},0],
+["components.editors.CodeEditor.CodeEditorWidget","s43",0,0,{"mode":"javascript","autoResize":true,"readOnly":true,"indentUnit":4},0]);</script></body></html>
