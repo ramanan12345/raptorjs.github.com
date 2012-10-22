@@ -1,5 +1,7 @@
 {
-    "includes": [
-        "GreetingTag.js"
-    ]
+    "raptor": {
+        "includes": [
+            "GreetingTag.js"
+        ]
+    }
 }

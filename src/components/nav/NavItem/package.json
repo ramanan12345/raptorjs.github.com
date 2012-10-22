@@ -1,6 +1,8 @@
 {
-    "includes": [
-        {"module": "widgets"},
-        "NavItemWidget.js"
-    ]
+    "raptor": {
+        "includes": [
+            {"module": "widgets"},
+            "NavItemWidget.js"
+        ]
+    }
 }

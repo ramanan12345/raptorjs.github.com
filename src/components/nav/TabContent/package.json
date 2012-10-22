@@ -1,7 +1,9 @@
 {
-    "includes": [
-        {"module": "widgets"},
-        {"module": "Bootstrap"},
-        "TabContent.css"
-    ]
+    "raptor": {
+        "includes": [
+            {"module": "widgets"},
+            {"module": "Bootstrap"},
+            "TabContent.css"
+        ]
+    }
 }

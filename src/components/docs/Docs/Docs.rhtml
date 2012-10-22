@@ -3,7 +3,8 @@
     xmlns:w="widgets"
     xmlns:docs="docs"
     name="components/docs/Docs"
-    params="heading,content,rootSection,returnLabel,returnHref">
+    params="heading,content,rootSection,returnLabel,returnHref"
+    docs:functions="url">
     
     <c:def function="toc(parentSection)">
         <ul class="toc">
@@ -22,15 +23,28 @@
                 </div>
 
                 <c:invoke function="toc(rootSection)"/>
+
+                <div class="docs-nav-footer">
+                    <span class="powered-by">
+                        Powered by <a href="${url('/')}" class="raptorjs">RaptorJS</a> 
+                    </span>
+                    
+                    <div>
+                        <a href="${url('/license')}">License</a>${entity:nbsp} | ${entity:nbsp}
+                        <a href="${url('/credits')}">Credits</a>
+                    </div>
+                </div>
+                    
+
             </div>
             <div class="docs-content">
                 <h1 id="title">${heading}</h1>
                 ${xml:content}
             </div>
         </div>
-        <div class="docs-footer"/>
+        <div class="docs-footer-padding"/>
     </div>
     
-    <docs:footer type="single-line"/>
+    
 
 </c:template>

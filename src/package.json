@@ -11,13 +11,17 @@
         }
     ],
     
-    "raptor-search-path": [
-        {"dir": "modules"}
-    ],
+    "raptor": {
+        "search-path": [
+            {"dir": "modules"}
+        ],
+        
+        "taglibs": [
+            "taglibs/docs/docs.rtld",
+            "taglibs/templates/templates.rtld",
+            "taglibs/test/test.rtld"
+        ]
+    }
     
-    "raptor-taglibs": [
-        "taglibs/docs/docs.rtld",
-        "taglibs/templates/templates.rtld",
-        "taglibs/test/test.rtld"
-    ]
+    
 }

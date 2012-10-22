@@ -1,8 +1,10 @@
 {
-    "includes": [
-        {
-            "path": "TemplatesTopNav.less", 
-            "imports": ["/style/variables.less"]
-        }
-    ]
+    "raptor": {
+        "includes": [
+            {
+                "path": "TemplatesTopNav.less", 
+                "imports": ["/style/variables.less"]
+            }
+        ]
+    }
 }

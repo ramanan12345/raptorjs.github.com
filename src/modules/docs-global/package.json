@@ -1,18 +1,20 @@
 {
-    "includes": [
-        { "module": "core" },
-        { "type": "init-raptor" },
-        { "module": "jQuery" },
-        { "module": "components/icons/Icon" },
-        { "module": "components/overlays/Popover" },
-        { "module": "Bootstrap/reset" },
-        { "module": "Bootstrap/scaffolding" },
-        { "module": "Bootstrap/util" },
-        { "module": "Bootstrap/layouts" },
-        { "module": "Bootstrap/type" },
-        { "module": "Bootstrap/tables" },
-        { "module": "components/footers/Footer" },
-        { "module": "components/notifications/Message" },
-        "global.css"
-     ]
+    "raptor": {
+        "includes": [
+            { "module": "core" },
+            { "type": "init-raptor" },
+            { "module": "jQuery" },
+            { "module": "components/icons/Icon" },
+            { "module": "components/overlays/Popover" },
+            { "module": "Bootstrap/reset" },
+            { "module": "Bootstrap/scaffolding" },
+            { "module": "Bootstrap/util" },
+            { "module": "Bootstrap/layouts" },
+            { "module": "Bootstrap/type" },
+            { "module": "Bootstrap/tables" },
+            { "module": "components/footers/Footer" },
+            { "module": "components/notifications/Message" },
+            "global.css"
+         ]
+     }
 }

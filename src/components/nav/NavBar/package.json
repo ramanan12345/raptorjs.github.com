@@ -1,8 +1,10 @@
 {
-    "includes": [
-        {"module": "widgets"},
-        {"module": "Bootstrap/navbar"},
-        {"module": "Bootstrap/dropdowns"},
-        "NavBar.css"
-    ]
+    "raptor": {
+        "includes": [
+            {"module": "widgets"},
+            {"module": "Bootstrap/navbar"},
+            {"module": "Bootstrap/dropdowns"},
+            "NavBar.css"
+        ]
+    }
 }

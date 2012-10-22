@@ -1,5 +1,7 @@
 {
-    "includes": [
-        "FooterSingleLine.css"
-    ]
+    "raptor": {
+        "includes": [
+            "FooterSingleLine.css"
+        ]
+    }
 }

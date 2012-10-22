@@ -1,10 +1,12 @@
 {
     "type": "raptor-module",
     "name": "CodeMirror/mode-htmlmixed",
-    "includes": [
-        {"module": "CodeMirror/mode-css"},
-        {"module": "CodeMirror/mode-xml"},
-        {"module": "CodeMirror/mode-javascript"},
-        {"path": "CodeMirror-2.33/mode/htmlmixed/htmlmixed.js"}
-    ]
+    "raptor": {
+        "includes": [
+            {"module": "CodeMirror/mode-css"},
+            {"module": "CodeMirror/mode-xml"},
+            {"module": "CodeMirror/mode-javascript"},
+            {"path": "CodeMirror-2.33/mode/htmlmixed/htmlmixed.js"}
+        ]
+    }
 }

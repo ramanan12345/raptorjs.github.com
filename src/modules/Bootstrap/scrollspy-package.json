@@ -1,5 +1,7 @@
 {
-    "includes": [
-        "bootstrap/js/bootstrap-scrollspy.js"
-    ]
+    "raptor": {
+        "includes": [
+            "bootstrap/js/bootstrap-scrollspy.js"
+        ]
+    }
 }

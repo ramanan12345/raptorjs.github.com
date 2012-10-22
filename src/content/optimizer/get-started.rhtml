@@ -63,22 +63,27 @@
             <docs:section heading="Package Files">
                 <p>
                     At a minimum, a package needs to describe what is included in the package.
-                    This is done by adding a "includes" property to a package.json file that is
+                    This is done by adding a "raptor" » "includes" property to a package.json file that is
                     an array of resources that should be included as part of the package. 
                     A simple <code>package.json</code> is shown below:
                 </p>
-<docs:code-editor 
-    mode="javascript"
-    readOnly="true" 
-    c:parse-body-text="false"
-><![CDATA[{
-    "includes": [
-        "my-widget.js",
-        "my-css-stylesheet.css",
-        "my-less-stylesheet.less",
-        "my-template.rhtml"
-    ]
-}]]></docs:code-editor>
+                <docs:code-editor 
+                    mode="javascript"
+                    readOnly="true" 
+                    c:parse-body-text="false">
+                <![CDATA[
+                {
+                    "raptor": {
+                        "includes": [
+                            "my-widget.js",
+                            "my-css-stylesheet.css",
+                            "my-less-stylesheet.less",
+                            "my-template.rhtml"
+                        ]
+                    }
+                }
+                ]]>
+                </docs:code-editor>
                 <p>
                     The above <code>package.json</code> file includes four resources. The RaptorJS Packaging System
                     is flexible enough to support any type of resource, including resources that need to be compiled
@@ -95,20 +100,25 @@
                     A module dependency can be added using adding <code>{ "module": "&lt;module-name>" }</code>
                     entries as shown in the following example:
                 </p>
-<docs:code-editor 
-    mode="javascript"
-    readOnly="true" 
-    c:parse-body-text="false"
-><![CDATA[{
-    "includes": [
-        { "module": "widgets" },
-        { "module": "templating" },
-        "my-widget.js",
-        "my-css-stylesheet.css",
-        "my-less-stylesheet.less",
-        "my-template.rhtml"
-    ]
-}]]></docs:code-editor>
+                <docs:code-editor 
+                    mode="javascript"
+                    readOnly="true" 
+                    c:parse-body-text="false">
+                <![CDATA[
+                {
+                    "raptor": {
+                        "includes": [
+                            { "module": "widgets" },
+                            { "module": "templating" },
+                            "my-widget.js",
+                            "my-css-stylesheet.css",
+                            "my-less-stylesheet.less",
+                            "my-template.rhtml"
+                        ]
+                    }
+                }
+                ]]>
+                </docs:code-editor>
             </docs:section>
 
             <docs:section heading="Resource Slotting">
@@ -127,13 +137,14 @@
                     readOnly="true" 
                     c:parse-body-text="false">
                 <![CDATA[
-
                 {
-                    "includes": [
-                        ...
-                        { "path": "my-widget.js", "slot": "my-custom-slot" }
-                        ...
-                    ]
+                    "raptor": {
+                        "includes": [
+                            ...
+                            { "path": "my-widget.js", "slot": "my-custom-slot" }
+                            ...
+                        ]
+                    }
                 }
 
                 ]]>

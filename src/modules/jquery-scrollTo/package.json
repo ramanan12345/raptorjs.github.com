@@ -1,5 +1,7 @@
 {
-    "includes": [
-        "jquery.scrollTo-1.4.2.js"
-    ]
+    "raptor": {
+        "includes": [
+            "jquery.scrollTo-1.4.2.js"
+        ]
+    }
 }

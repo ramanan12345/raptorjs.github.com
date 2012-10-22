@@ -1,7 +1,9 @@
 {
-    "includes": [
-        { "module": "components/footers/FooterDefault" },
-        { "module": "components/footers/FooterSingleLine" },
-        "Footer.css"
-    ]
+    "raptor": {
+        "includes": [
+            { "module": "components/footers/FooterDefault" },
+            { "module": "components/footers/FooterSingleLine" },
+            "Footer.css"
+        ]
+    }
 }

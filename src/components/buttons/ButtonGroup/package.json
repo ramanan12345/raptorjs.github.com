@@ -1,6 +1,8 @@
 {
-    "includes": [
-        {"module": "widgets"},
-        {"module": "Bootstrap/button-groups"}
-    ]
+    "raptor": {
+        "includes": [
+            {"module": "widgets"},
+            {"module": "Bootstrap/button-groups"}
+        ]
+    }
 }

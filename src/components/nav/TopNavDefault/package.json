@@ -1,8 +1,10 @@
 {
-    "includes": [
-        { "module": "components/nav/NavBar" },
-        { "module": "components/nav/Nav" },
-        { "module": "components/nav/NavDivider" },
-        "TopNavDefault.css"
-    ]
+    "raptor": {
+        "includes": [
+            { "module": "components/nav/NavBar" },
+            { "module": "components/nav/Nav" },
+            { "module": "components/nav/NavDivider" },
+            "TopNavDefault.css"
+        ]
+    }
 }

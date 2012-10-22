@@ -16,6 +16,9 @@ BODY > DIV.container {
 }
 
 
+.docs .nav {
+    margin-bottom: 0px;
+}
 
 .docs > .bd > .docs-content {
     margin-left: 290px;
@@ -44,7 +47,6 @@ BODY > DIV.container {
     border-right: 1px solid #C0C0C0;
     position: fixed;
     overflow-y: auto;
-    margin-bottom: 20px;
 }
 
 .return {
@@ -61,7 +63,12 @@ BODY > DIV.container {
     padding-left: 10px;
 }
 
-.docs-footer {
+.docs-nav-footer {
+    border-top: 1px solid #C0C0C0;
+    margin-top: 20px;
+    padding-top: 10px;
+}
+.docs-footer-padding {
     clear: both;
     height: 800px;
     border-top: 1px solid #C0C0C0;

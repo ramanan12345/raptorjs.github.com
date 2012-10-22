@@ -1,8 +1,10 @@
 {
-    "includes": [
-        {"module": "widgets"},
-        {"module": "CodeMirror"},
-        "CodeEditorWidget.js",
-        "CodeEditor.css"
-    ]
+    "raptor": {
+        "includes": [
+            {"module": "widgets"},
+            {"module": "CodeMirror"},
+            "CodeEditorWidget.js",
+            "CodeEditor.css"
+        ]
+    }
 }

@@ -1,9 +1,11 @@
 {
-    "includes": [
-        "bootstrap/js/bootstrap-dropdown.js",
-        {
-            "path": "bootstrap/less/dropdowns.less", 
-            "imports": ["/style/variables.less", "bootstrap/less/mixins.less"]
-        }
-    ]
+    "raptor": {
+        "includes": [
+            "bootstrap/js/bootstrap-dropdown.js",
+            {
+                "path": "bootstrap/less/dropdowns.less", 
+                "imports": ["/style/variables.less", "bootstrap/less/mixins.less"]
+            }
+        ]
+    }
 }

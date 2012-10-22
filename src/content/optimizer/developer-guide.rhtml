@@ -159,17 +159,17 @@
                     readOnly="true" 
                     c:parse-body-text="false">
                 <![CDATA[
-
                 {
-                    "includes": [
-                        {"module": "widgets"},
-                        {"module": "pubsub"},
-                        {"module": "components/buttons/Button"},
-                        "page.js",
-                        "page.css"
-                    ]
+                    "raptor": {
+                        "includes": [
+                            {"module": "widgets"},
+                            {"module": "pubsub"},
+                            {"module": "components/buttons/Button"},
+                            "page.js",
+                            "page.css"
+                        ]
+                    }
                 }
-
                 ]]>
                 </docs:code-editor>
                 <p>
@@ -276,10 +276,12 @@
                         c:parse-body-text="false"
                     ><![CDATA[
                     {
-                        "includes": [
-                            ...
-                            { "path": "my-library.js", "slot": "head" }
-                        ]
+                        "raptor": {
+                            "includes": [
+                                ...
+                                { "path": "my-library.js", "slot": "head" }
+                            ]
+                        }
                     }
 
                     ]]>
@@ -457,15 +459,15 @@
                     readOnly="true" 
                     c:parse-body-text="false">
                 <![CDATA[
-
                 {
-                    "includes": [
-                        ...
-                        { "module": "my-module", "async": true }
-                        ...
-                    ]
+                    "raptor": {
+                        "includes": [
+                            ...
+                            { "module": "my-module", "async": true }
+                            ...
+                        ]
+                    }
                 }
-                
                 ]]>
                 </docs:code-editor>
             </docs:section>

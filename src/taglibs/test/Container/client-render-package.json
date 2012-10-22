@@ -1,6 +1,8 @@
 {
-    "includes": [
-        "Container.rhtml",
-        "ContainerTag.js"
-    ]
+    "raptor": {
+        "includes": [
+            "Container.rhtml",
+            "ContainerTag.js"
+        ]
+    }
 }

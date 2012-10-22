@@ -1,6 +1,8 @@
 {
-    "includes": [
-        "Button.rhtml",
-        "ButtonTag.js"
-    ]
+    "raptor": {
+        "includes": [
+            "Button.rhtml",
+            "ButtonTag.js"
+        ]
+    }
 }

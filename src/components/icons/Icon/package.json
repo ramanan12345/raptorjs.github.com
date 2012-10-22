@@ -1,5 +1,7 @@
 {
-    "includes": [
-        {"module": "FontAwesome"}
-    ]
+    "raptor": {
+        "includes": [
+            {"module": "FontAwesome"}
+        ]
+    }
 }

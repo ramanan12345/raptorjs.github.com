@@ -1,5 +1,7 @@
 {
-    "includes": [
-        "TabTag.js"
-    ]
+    "raptor": {
+        "includes": [
+            "TabTag.js"
+        ]
+    }
 }

@@ -1,5 +1,7 @@
 {
-    "includes": [
-        "bootstrap/js/bootstrap-tab.js"
-    ]
+    "raptor": {
+        "includes": [
+            "bootstrap/js/bootstrap-tab.js"
+        ]
+    }
 }

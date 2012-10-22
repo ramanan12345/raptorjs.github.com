@@ -1,6 +1,8 @@
 {
-    "includes": [
-        "Tabs.rhtml",
-        "TabsTag.js"
-    ]
+    "raptor": {
+        "includes": [
+            "Tabs.rhtml",
+            "TabsTag.js"
+        ]
+    }
 }

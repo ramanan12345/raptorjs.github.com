@@ -1,5 +1,7 @@
 {
-    "includes": [
-        {"type": "resource", "path": "Tab.rtld"}
-    ]
+    "raptor": {
+        "includes": [
+            {"type": "resource", "path": "Tab.rtld"}
+        ]
+    }
 }

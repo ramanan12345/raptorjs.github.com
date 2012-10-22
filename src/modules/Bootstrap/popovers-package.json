@@ -1,10 +1,12 @@
 {
-    "includes": [
-        { "module": "Bootstrap/tooltips" },
-        {
-            "path": "bootstrap/less/popovers.less", 
-            "imports": ["/style/variables.less", "bootstrap/less/mixins.less"]
-        },
-        "bootstrap/js/bootstrap-popover.js"
-    ]
+    "raptor": {
+        "includes": [
+            { "module": "Bootstrap/tooltips" },
+            {
+                "path": "bootstrap/less/popovers.less", 
+                "imports": ["/style/variables.less", "bootstrap/less/mixins.less"]
+            },
+            "bootstrap/js/bootstrap-popover.js"
+        ]
+    }
 }

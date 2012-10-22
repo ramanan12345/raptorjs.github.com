@@ -1,5 +1,7 @@
 {
-    "includes": [
-        {"module": "CodeMirror/mode-javascript"}
-    ]
+    "raptor": {
+        "includes": [
+            {"module": "CodeMirror/mode-javascript"}
+        ]
+    }
 }

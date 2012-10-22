@@ -1,5 +1,7 @@
 {
-    "includes": [
-        "font-awesome.less"
-    ]
+    "raptor": {
+        "includes": [
+            "font-awesome.less"
+        ]
+    }
 }

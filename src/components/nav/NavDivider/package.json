@@ -1,5 +1,7 @@
 {
-    "includes": [
-        "NavDivider.css"
-    ]
+    "raptor": {
+        "includes": [
+            "NavDivider.css"
+        ]
+    }
 }

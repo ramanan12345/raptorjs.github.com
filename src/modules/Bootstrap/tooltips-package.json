@@ -1,9 +1,11 @@
 {
-    "includes": [
-        {
-            "path": "bootstrap/less/tooltip.less", 
-            "imports": ["/style/variables.less", "bootstrap/less/mixins.less"]
-        },
-        "bootstrap/js/bootstrap-tooltip.js"
-    ]
+    "raptor": {
+        "includes": [
+            {
+                "path": "bootstrap/less/tooltip.less", 
+                "imports": ["/style/variables.less", "bootstrap/less/mixins.less"]
+            },
+            "bootstrap/js/bootstrap-tooltip.js"
+        ]
+    }
 }

@@ -1,8 +1,10 @@
 {
-    "includes": [
-        {
-            "path": "bootstrap/less/type.less", 
-            "imports": ["/style/variables.less", "bootstrap/less/mixins.less"]
-        }
-    ]
+    "raptor": {
+        "includes": [
+            {
+                "path": "bootstrap/less/type.less", 
+                "imports": ["/style/variables.less", "bootstrap/less/mixins.less"]
+            }
+        ]
+    }
 }

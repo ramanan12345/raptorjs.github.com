@@ -1,7 +1,9 @@
 {
     "type": "raptor-module",
     "name": "CodeMirror/mode-javascript",
-    "includes": [
-        {"path": "CodeMirror-2.33/mode/javascript/javascript.js"}
-    ]
+    "raptor": {
+        "includes": [
+            {"path": "CodeMirror-2.33/mode/javascript/javascript.js"}
+        ]
+    }
 }

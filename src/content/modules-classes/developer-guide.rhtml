@@ -31,8 +31,21 @@
                 The basic pattern for defining RaptorJS objects is to associate a  
                 <i>factory function</i> with a
                 <i>string</i> ID. The job of the factory function
-                is return the initialized object when it is first
+                is to return the initialized object when it is first
                 required.
+            </p>
+            <p>
+                To "require" an object using RaptorJS, the <code>raptor.require(id)</code>
+                method should be used. The <code>raptor.require(id)</code> will
+                initialize the required object if it had not previously required. An object
+                is initialized by invoking the factory function to get back the final object.
+                The initialized object is then cached so that it can simply be returned for subsequent requires
+                of the same object ID.
+            </p>
+            <p>
+                On the server-side, if <code>raptor.require(id)</code> is invoked
+                and the object has not been registered then RaptorJS goes through a resolving
+                phase to find and load the requested object from disk.
             </p>
         </docs:section>
         <docs:section heading="Modules">
@@ -153,7 +166,7 @@
 
                         Dog.prototype = {
                             eat: function(food) {
-                                Dog.superclass.eat.call(this, food); //Invoke the "eat" method in the superclass
+                                Dog.superclass.eat.apply(this, food); //Invoke the "eat" method in the superclass
                                 this.bark();
                             },
 

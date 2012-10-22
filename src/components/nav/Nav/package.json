@@ -1,9 +1,11 @@
 {
-    "includes": [
-        {"module": "widgets"},
-        {"module": "Bootstrap/navs"},
-        {"module": "Bootstrap/tabs"},
-        {"module": "components/nav/NavItem"},
-        "Nav.css"
-    ]
+    "raptor": {
+        "includes": [
+            {"module": "widgets"},
+            {"module": "Bootstrap/navs"},
+            {"module": "Bootstrap/tabs"},
+            {"module": "components/nav/NavItem"},
+            "Nav.css"
+        ]
+    }
 }

@@ -1,5 +1,7 @@
 {
-    "includes": [
-        {"module": "CodeMirror/mode-htmlmixed"}
-    ]
+    "raptor": {
+        "includes": [
+            {"module": "CodeMirror/mode-htmlmixed"}
+        ]
+    }
 }
