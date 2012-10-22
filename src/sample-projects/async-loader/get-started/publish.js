@@ -1,5 +1,5 @@
 
-console.log('Generating Static Files for RaptorJS Async Loader demo...');
+console.log('Generating static files for RaptorJS Async Loader demo...');
 
 require('raptor').create({
     logging: {
@@ -20,14 +20,18 @@ var files = raptor.require('files'),
 
 try
 {
+    var outputFile = new File(require('path').join(__dirname, 'test-page.html'));
+
     if (files.exists('static')) {
         files.remove('static');    
     }
 
+    if (outputFile.exists()) {
+        outputFile.remove();
+    }
+
     resources.addSearchPathDir(__dirname);
     resources.addSearchPathDir(require('path').join(__dirname, 'modules'));
-
-    var outputFile = new File(require('path').join(__dirname, 'test-page.html'));
 
     var pageOutput = templating.renderToString('/pages/test-page/test-page.rhtml', {
         outputDir: __dirname

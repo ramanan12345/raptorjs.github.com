@@ -3,7 +3,7 @@
 <link rel="stylesheet" type="text/css" href="../static/code-editor-head-6a226e30.css"><script type="text/javascript">var
 _gaq=_gaq||[];_gaq.push(["_setAccount","UA-33982282-1"]);_gaq.push(["_trackPageview"]);(function(){var
 a=document.createElement("script");a.type="text/javascript";a.async=!0;a.src=("https:"==document.location.protocol?"https://ssl":"http://www")+".google-analytics.com/ga.js";var
-b=document.getElementsByTagName("script")[0];b.parentNode.insertBefore(a,b)})();</script></head><body><div class="navbar navbar-fixed-top"><div class="navbar-inner"><div class="container"><a class="brand" href="../">RaptorJS</a><ul class="nav"><li class="divider-vertical"></li><li id="s1135"><a href="../get-started/">Get Started</a></li><li class="divider-vertical"></li><li id="s1136" class="dropdown"><a data-toggle="dropdown" class="dropdown-toggle">Learn<b class="caret"></b></a><ul class="dropdown-menu"><li id="s1137"><a href="../">Overview</a></li><li id="s1138"><a href="../get-started/">Get Started</a></li><li id="s1139"><a href="../tutorial/">Tutorial</a></li><li id="s1140"><a href="../api/">API Reference</a></li><li id="s1141"><a href="../faq/">FAQ</a></li><li class="divider"></li><li id="s1142"><a href="../modules-classes/">Modules and Classes</a></li><li id="s1143"><a href="../packaging/">Packaging and Extensions</a></li><li id="s1144"><a href="../module-loader/">Module Loader</a></li><li id="s1145"><a href="../optimizer/">Optimizer</a></li><li id="s1146"><a href="../raptor-templates/">Raptor Templates</a></li><li id="s1147" class="active nav-item-active"><a href="../widgets/">Widgets Framework</a></li><li id="s1148"><a href="../logging/">Logging</a></li><li id="s1149"><a href="../resource-search-path/">Resource Search Path</a></li><li id="s1150"><a href="../cross-environment/">Cross Environment Support</a></li></ul></li><li class="divider-vertical"></li><li id="s1151" class="dropdown"><a data-toggle="dropdown" class="dropdown-toggle">Community<b class="caret"></b></a><ul class="dropdown-menu"><li id="s1152"><a href="https://github.com/raptorjs/raptorjs">Source code</a></li><li id="s1153"><a href="https://github.com/raptorjs/raptorjs/issues">Issue Tracker</a></li><li id="s1154"><a href="../contribute/">Contribute</a></li><li id="s1155"><a href="../contributors/">Contributors</a></li><li class="divider"></li><li id="s1156"><a href="http://groups.google.com/group/raptorjs">Discussion Forum</a></li><li class="divider"></li><li id="s1157"><a href="http://twitter.com/raptorjs">Twitter (@raptorjs)</a></li><li id="s1158"><a href="http://twitter.com/raptorjs">Google+</a></li></ul></li><li class="divider-vertical"></li><li id="s1159" class="dropdown"><a data-toggle="dropdown" class="dropdown-toggle">About<b class="caret"></b></a><ul class="dropdown-menu"><li id="s1160"><a href="https://github.com/raptorjs/raptorjs/wiki/Release-Notes">Release Notes</a></li><li id="s1161"><a href="../design-philosophy/">Design Philosophy</a></li><li id="s1162"><a href="../license/">License</a></li><li id="s1163"><a href="../credits/">Credits</a></li><li id="s1164"><a href="../creators/">Creators</a></li></ul></li><li class="divider-vertical"></li></ul></div></div></div><div class="container"><div class="docs"><div class="bd"><div class="toc nav" id="docsNav"><ul class="toc"><li class="toc toc-level-0"><a href="#Overview">Overview</a><ul class="toc"></ul></li><li class="toc toc-level-0"><a href="#Widget_Life_Cycle">Widget Life Cycle</a><ul class="toc"></ul></li><li class="toc toc-level-0"><a href="#Initialization">Initialization</a><ul class="toc"></ul></li><li class="toc toc-level-0"><a href="#Widget_JSP_Tags">Widget JSP Tags</a><ul class="toc"></ul></li><li class="toc toc-level-0"><a href="#Widget_JSP_Tag_File">Widget JSP Tag File</a><ul class="toc"></ul></li><li class="toc toc-level-0"><a href="#Widget_JavaScript_Classes">Widget JavaScript Classes</a><ul class="toc"></ul></li><li class="toc toc-level-0"><a href="#Widget_DOM_Elements">Widget DOM Elements</a><ul class="toc"></ul></li><li class="toc toc-level-0"><a href="#DOM_Events">DOM Events</a><ul class="toc"></ul></li><li class="toc toc-level-0"><a href="#Custom_Widget_Events">Custom Widget Events</a><ul class="toc"></ul></li><li class="toc toc-level-0"><a href="#ParentChild_Communication">Parent/Child Communication</a><ul class="toc"></ul></li><li class="toc toc-level-0"><a href="#Widget_Directory_Structures">Widget Directory Structures</a><ul class="toc"></ul></li><li class="toc toc-level-0"><a href="#Including_Widget_Resources">Including Widget Resources</a><ul class="toc"></ul></li></ul><div class="docs-nav-footer"><ul><li><span class="powered-by">Powered by <a href="../" class="raptorjs">RaptorJS</a></span></li><li><a href="../license/">License</a></li><li><a href="../credits/">Credits</a></li></ul></div></div><div class="docs-content"><h1 id="title">Widgets</h1><div class="section section-level-0"><h2 id="Overview">Overview</h2><div class="bd"><p>Widgets are JavaScript classes that get instantiated on the client and are
+b=document.getElementsByTagName("script")[0];b.parentNode.insertBefore(a,b)})();</script></head><body><div class="navbar navbar-fixed-top"><div class="navbar-inner"><div class="container"><a class="brand" href="../">RaptorJS</a><ul class="nav"><li class="divider-vertical"></li><li id="s1141"><a href="../get-started/">Get Started</a></li><li class="divider-vertical"></li><li id="s1142" class="dropdown"><a data-toggle="dropdown" class="dropdown-toggle">Learn<b class="caret"></b></a><ul class="dropdown-menu"><li id="s1143"><a href="../">Overview</a></li><li id="s1144"><a href="../get-started/">Get Started</a></li><li id="s1145"><a href="../tutorial/">Tutorial</a></li><li id="s1146"><a href="../api/">API Reference</a></li><li id="s1147"><a href="../faq/">FAQ</a></li><li class="divider"></li><li id="s1148"><a href="../modules-classes/">Modules and Classes</a></li><li id="s1149"><a href="../packaging/">Packaging and Extensions</a></li><li id="s1150"><a href="../module-loader/">Module Loader</a></li><li id="s1151"><a href="../optimizer/">Optimizer</a></li><li id="s1152"><a href="../raptor-templates/">Raptor Templates</a></li><li id="s1153" class="active nav-item-active"><a href="../widgets/">Widgets Framework</a></li><li id="s1154"><a href="../logging/">Logging</a></li><li id="s1155"><a href="../resource-search-path/">Resource Search Path</a></li><li id="s1156"><a href="../cross-environment/">Cross Environment Support</a></li></ul></li><li class="divider-vertical"></li><li id="s1157" class="dropdown"><a data-toggle="dropdown" class="dropdown-toggle">Community<b class="caret"></b></a><ul class="dropdown-menu"><li id="s1158"><a href="https://github.com/raptorjs/raptorjs">Source code</a></li><li id="s1159"><a href="https://github.com/raptorjs/raptorjs/issues">Issue Tracker</a></li><li id="s1160"><a href="../contribute/">Contribute</a></li><li id="s1161"><a href="../contributors/">Contributors</a></li><li class="divider"></li><li id="s1162"><a href="http://groups.google.com/group/raptorjs">Discussion Forum</a></li><li class="divider"></li><li id="s1163"><a href="http://twitter.com/raptorjs">Twitter (@raptorjs)</a></li><li id="s1164"><a href="http://twitter.com/raptorjs">Google+</a></li></ul></li><li class="divider-vertical"></li><li id="s1165" class="dropdown"><a data-toggle="dropdown" class="dropdown-toggle">About<b class="caret"></b></a><ul class="dropdown-menu"><li id="s1166"><a href="https://github.com/raptorjs/raptorjs/wiki/Release-Notes">Release Notes</a></li><li id="s1167"><a href="../design-philosophy/">Design Philosophy</a></li><li id="s1168"><a href="../license/">License</a></li><li id="s1169"><a href="../credits/">Credits</a></li><li id="s1170"><a href="../creators/">Creators</a></li></ul></li><li class="divider-vertical"></li></ul></div></div></div><div class="container"><div class="docs"><div class="bd"><div class="toc nav" id="docsNav"><ul class="toc"><li class="toc toc-level-0"><a href="#Overview">Overview</a><ul class="toc"></ul></li><li class="toc toc-level-0"><a href="#Widget_Life_Cycle">Widget Life Cycle</a><ul class="toc"></ul></li><li class="toc toc-level-0"><a href="#Initialization">Initialization</a><ul class="toc"></ul></li><li class="toc toc-level-0"><a href="#Widget_JSP_Tags">Widget JSP Tags</a><ul class="toc"></ul></li><li class="toc toc-level-0"><a href="#Widget_JSP_Tag_File">Widget JSP Tag File</a><ul class="toc"></ul></li><li class="toc toc-level-0"><a href="#Widget_JavaScript_Classes">Widget JavaScript Classes</a><ul class="toc"></ul></li><li class="toc toc-level-0"><a href="#Widget_DOM_Elements">Widget DOM Elements</a><ul class="toc"></ul></li><li class="toc toc-level-0"><a href="#DOM_Events">DOM Events</a><ul class="toc"></ul></li><li class="toc toc-level-0"><a href="#Custom_Widget_Events">Custom Widget Events</a><ul class="toc"></ul></li><li class="toc toc-level-0"><a href="#ParentChild_Communication">Parent/Child Communication</a><ul class="toc"></ul></li><li class="toc toc-level-0"><a href="#Widget_Directory_Structures">Widget Directory Structures</a><ul class="toc"></ul></li><li class="toc toc-level-0"><a href="#Including_Widget_Resources">Including Widget Resources</a><ul class="toc"></ul></li></ul><div class="docs-nav-footer"><ul><li><span class="powered-by">Powered by <a href="../" class="raptorjs">RaptorJS</a></span></li><li><a href="../license/">License</a></li><li><a href="../credits/">Credits</a></li></ul></div></div><div class="docs-content"><h1 id="title">Widgets</h1><div class="section section-level-0"><h2 id="Overview">Overview</h2><div class="bd"><p>Widgets are JavaScript classes that get instantiated on the client and are
 bound to a DOM node. Widgets can have children and the widget tree is
 automatically constructed by the Raptor framework based on how the widgets were
 rendered to HTML. Raptor manages the life cycle of the widgets and
@@ -51,13 +51,13 @@ browser. Unnecessary data being serialized will result in poor
 performance.</p><p>The resulting widget configuration is passed to the constructor of the widget
 in the browser as a native JavaScript object with properties that correspond to
 the properties passed in via the
-<code>&lt;r:property&gt;</code> tags.</p><h4>Example Widget Config</h4><div class="code-editor" id="s1165"> <textarea id="s1165-textarea" style="display: none;" name="code-123">&lt;r:widgetConfig>
+<code>&lt;r:property&gt;</code> tags.</p><h4>Example Widget Config</h4><div class="code-editor" id="s1171"> <textarea id="s1171-textarea" style="display: none;" name="code-129">&lt;r:widgetConfig>
 &lt;r:property name="modal" value="${modal}"/>
 &lt;r:property name="autoShow" value="${autoShow}"/>
 &lt;/r:widgetConfig></textarea></div><p>Given the above widget config definition, the generated JavaScript config
 object can be accessed in the constructor for the widget as shown in the
 following
-example:</p><div class="code-editor" id="s1166"> <textarea id="s1166-textarea" style="display: none;" name="code-124">raptor.defineClass('containers.DialogWidget', function(raptor) {
+example:</p><div class="code-editor" id="s1172"> <textarea id="s1172-textarea" style="display: none;" name="code-130">raptor.defineClass('containers.DialogWidget', function(raptor) {
     return {
         //...                    
         init: function(widgetConfig) {
@@ -73,7 +73,7 @@ values of the attributes should be used to control the HTML output and they may
 also be used to control the widget config. A JSP tag file should only a single
 <code>&lt;r:widget&gt;</code> tag as the root element.</p><p>Every widget should support an <code>id</code> attribute that allows the parent widget to assign an ID to the child widget.
 The value of the
-<code>id</code> attribute should be assigned to the <code>id</code> attribute of the <code>&lt;r:widget&gt;</code> tag.</p><h3>Example Widget JSP Tag File</h3><div class="code-editor" id="s1167"> <textarea id="s1167-textarea" style="display: none;" name="code-125">&lt;%@ tag description="Raptor Dialog Widget" pageEncoding="UTF-8" %>
+<code>id</code> attribute should be assigned to the <code>id</code> attribute of the <code>&lt;r:widget&gt;</code> tag.</p><h3>Example Widget JSP Tag File</h3><div class="code-editor" id="s1173"> <textarea id="s1173-textarea" style="display: none;" name="code-131">&lt;%@ tag description="Raptor Dialog Widget" pageEncoding="UTF-8" %>
  
 &lt;%@ taglib prefix="r" uri="http://ebay.com/raptor" %>
 &lt;%@ taglib prefix="rui" uri="http://ebay.com/raptor/ui" %>
@@ -105,7 +105,7 @@ The value of the
         &lt;r:property name="autoShow" value="${autoShow}"/>
     &lt;/r:widgetConfig>
      
-&lt;/r:widget></textarea></div><h3>Example of Using a Widget Tag</h3><div class="code-editor" id="s1168"> <textarea id="s1168-textarea" style="display: none;" name="code-126">&lt;rui:raptorDialog id="myDialog" modal="true" autoShow="false"/></textarea></div><p>If an "id" attribute is provided when using a widget then the parent widget can
+&lt;/r:widget></textarea></div><h3>Example of Using a Widget Tag</h3><div class="code-editor" id="s1174"> <textarea id="s1174-textarea" style="display: none;" name="code-132">&lt;rui:raptorDialog id="myDialog" modal="true" autoShow="false"/></textarea></div><p>If an "id" attribute is provided when using a widget then the parent widget can
 access the child widget using the provided ID as shown in the
 <a href="#Widgets-ParentChildCommunication">Parent/Child Communication</a> section.</p></div></div><div class="section section-level-0"><h2 id="Widget_JavaScript_Classes">Widget JavaScript Classes</h2><div class="bd"><p>The <code>jsType</code> attributed specified for a <code>&lt;r:widget&gt;</code> tag is used by the RaptorJS "widgets" module to create an instance of a widget
 class for the specified type in the browser. The widget JavaScript class should
@@ -114,7 +114,7 @@ be specified as a standard RaptorJS class using the
 widget's children have been fully initialized and not until the "dom ready"
 event has been fired. In addition, the JavaScript object for the widget config
 is passed to the constructor function as the first
-argumen.</p><h3>Example Widget JavaScript Class</h3><div class="code-editor" id="s1169"> <textarea id="s1169-textarea" style="display: none;" name="code-127"></textarea></div> raptor.defineClass( 'input.buttons.ButtonWidget', function(raptor) { return {
+argumen.</p><h3>Example Widget JavaScript Class</h3><div class="code-editor" id="s1175"> <textarea id="s1175-textarea" style="display: none;" name="code-133"></textarea></div> raptor.defineClass( 'input.buttons.ButtonWidget', function(raptor) { return {
 init: function(widgetConfig) { var _this = this;
 this.$('#button').click(function() { _this.publish('click', _this); //Publish a
 custom click event }); }, setLabel: function(label) {
@@ -139,7 +139,7 @@ can use any of the following
 approaches.</p><ul><li>Accessing the widget's root DOM element wrapped as a jQuery object: <ul><li>$(this.getEl())</li><li>this.$()</li></ul></li><li>Accessing a widget's DOM element by ID wrapped as a jQuery object: <ul><li>$(this.getEl("myEl"))</li><li>this.$("#myEl")</li></ul></li><li>Executing a jQuery selector scoped to the widget's root DOM element: <ul><li>$("LI.color", this.getEl())</li><li>this.$("LI.color")</li></ul></li><li>Executing a jQuery selector scoped to a widget's DOM element: <ul><li>$("LI.color", this.getEl("colorsUL"))</li><li>this.$("LI.color", "colorsUL")</li><li>this.$("#colorsUL LI.color")</li></ul></li></ul><p>Every widget is augmented with a Raptor "$" function that serves as proxy to
 the actual jQuery "$" function. The Raptor $ function handles executing
 selectors scoped to various widget DOM elements and it resolves widget element
-IDs.</p><h3>Examples of Working with Widget DOM Elements</h3><div class="code-editor" id="s1170"> <textarea id="s1170-textarea" style="display: none;" name="code-128">&lt;r:widget id="${id}" jsClass="example.ColorsWidget">
+IDs.</p><h3>Examples of Working with Widget DOM Elements</h3><div class="code-editor" id="s1176"> <textarea id="s1176-textarea" style="display: none;" name="code-134">&lt;r:widget id="${id}" jsClass="example.ColorsWidget">
     &lt;div id="${widget.elId}">
         &lt;ul id="${widget.elId('colorsUL')}">
             &lt;li class="color">red&lt;/li>
@@ -147,7 +147,7 @@ IDs.</p><h3>Examples of Working with Widget DOM Elements</h3><div class="code-ed
             &lt;li class="color">blue&lt;/li>
         &lt;/ul>
     &lt;/div>
-&lt;/r:widget></textarea></div><div class="code-editor" id="s1171"> <textarea id="s1171-textarea" style="display: none;" name="code-129">raptor.defineClass('example.ColorsWidget', function() {
+&lt;/r:widget></textarea></div><div class="code-editor" id="s1177"> <textarea id="s1177-textarea" style="display: none;" name="code-135">raptor.defineClass('example.ColorsWidget', function() {
     return {
         init: function(config) {
             this.$("#colorsUL li.color").each(function(i) {
@@ -158,7 +158,7 @@ IDs.</p><h3>Examples of Working with Widget DOM Elements</h3><div class="code-ed
     };
 });</textarea></div></div></div><div class="section section-level-0"><h2 id="DOM_Events">DOM Events</h2><div class="bd"><p>Attach all DOM event listeners using the jQuery function or the Raptor jQuery
 proxy function. For
-example:</p><div class="code-editor" id="s1172"> <textarea id="s1172-textarea" style="display: none;" name="code-130">//Using the Raptor jQuery proxy function
+example:</p><div class="code-editor" id="s1178"> <textarea id="s1178-textarea" style="display: none;" name="code-136">//Using the Raptor jQuery proxy function
 this.$("#button").click(function() {
     //...
 });
@@ -171,7 +171,7 @@ $(this.getEl("button")).click(function() {
 publishes. Custom events are separate from DOM events and custom events allow
 information to be shared with other widgets without exposing the underlying DOM
 structure of a widget. Every widget instance supports the following
-methods.</p><div class="code-editor" id="s1173"> <textarea id="s1173-textarea" style="display: none;" name="code-131">1) eventHandle subscribe(eventName, callbackFunction, thisObj, autoRemove)
+methods.</p><div class="code-editor" id="s1179"> <textarea id="s1179-textarea" style="display: none;" name="code-137">1) eventHandle subscribe(eventName, callbackFunction, thisObj, autoRemove)
 2) eventHandle subscribe(eventCallbacks, thisObj, autoRemove)
 3) publish(eventName, eventArgs)</textarea></div><p>Method #2 can be used to subscribe to multiple events at once. The <em>eventCallbacks</em> parameter should be an object with properties whose names are the event names
 and the value is the callback function to use for the corresponding
@@ -188,7 +188,7 @@ allowed to be
 published.&nbsp;</p><p>If a widget tries to publish an event that is not declared then an exception
 will be thrown. Similarly, if an attempt is made to subscribe to an event for a
 widget that is not supported then an exception will be
-thrown.</p><h3>Examples of Working with Custom Widget Events</h3><h5>Publishing widget events</h5><div class="code-editor" id="s1174"> <textarea id="s1174-textarea" style="display: none;" name="code-132">raptor.defineClass(
+thrown.</p><h3>Examples of Working with Custom Widget Events</h3><h5>Publishing widget events</h5><div class="code-editor" id="s1180"> <textarea id="s1180-textarea" style="display: none;" name="code-138">raptor.defineClass(
     'MyWidget',
     function() {
         return {
@@ -205,7 +205,7 @@ thrown.</p><h3>Examples of Working with Custom Widget Events</h3><h5>Publishing 
                 });
             }
         }
-    });</textarea></div><h5>Subscribing to widget events</h5><div class="code-editor" id="s1175"> <textarea id="s1175-textarea" style="display: none;" name="code-133">var dialogWidget = this.getChild("myDialog");
+    });</textarea></div><h5>Subscribing to widget events</h5><div class="code-editor" id="s1181"> <textarea id="s1181-textarea" style="display: none;" name="code-139">var dialogWidget = this.getChild("myDialog");
  
 //Subscribing to a single event
 var eventHandle = dialogWidget.subscribe('show', function(eventArgs) {
@@ -234,7 +234,7 @@ to a child widget, that child can be accessed by the assigned child ID. An ID
 can be assigned to a child widget by providing an "id" attribute. Each widget
 instance is augmented with the following
 methods:</p><ul><li><code>getParent()</code>&nbsp;&ndash; Returns the parent widget</li><li><code>getChild(childId)</code>&nbsp;&ndash; Returns the child widget with the specified ID</li><li><p class="p1"><code>getChildren()</code>&nbsp;&ndash; Returns an array of the children widgets in the order they were
-added</p></li></ul><h3>Example of Parent/Child Communication</h3><p>Given the following widget JSP tag file:</p><h5>registrationForm.tag</h5><div class="code-editor" id="s1176"> <textarea id="s1176-textarea" style="display: none;" name="code-134">&lt;%@ tag description="eBay Registration Form" pageEncoding="UTF-8" %>
+added</p></li></ul><h3>Example of Parent/Child Communication</h3><p>Given the following widget JSP tag file:</p><h5>registrationForm.tag</h5><div class="code-editor" id="s1182"> <textarea id="s1182-textarea" style="display: none;" name="code-140">&lt;%@ tag description="eBay Registration Form" pageEncoding="UTF-8" %>
 &lt;%@ taglib prefix="r" uri="http://ebay.com/raptor" %>
 &lt;%@ taglib prefix="rui" uri="http://ebay.com/raptor/ui" %>
 &lt;%@ attribute name="id" description="widget ID" %>
@@ -247,7 +247,7 @@ added</p></li></ul><h3>Example of Parent/Child Communication</h3><p>Given the fo
      
 &lt;/r:widget></textarea></div><p>Each instance of <code>users.RegistrationFormWidget</code> can access the child button widget as shown in the following JavaScript for
 the
-<code>users.RegistrationFormWidget</code> class.</p><h5>RegistrationFormWidget.js</h5><div class="code-editor" id="s1177"> <textarea id="s1177-textarea" style="display: none;" name="code-135">raptor.defineClass(
+<code>users.RegistrationFormWidget</code> class.</p><h5>RegistrationFormWidget.js</h5><div class="code-editor" id="s1183"> <textarea id="s1183-textarea" style="display: none;" name="code-141">raptor.defineClass(
     'users.RegistrationFormWidget',
     function() {
         return {
@@ -266,19 +266,13 @@ the
 tag files. Use the following placement for the widget's JavaScript
 file.</p><ul><li>"war" bundles:&nbsp; <code>/src/main/webapp/js/widgets</code></li><li>All other types of bundles (similar for CSS resources except that the <code>css</code> folder should be used instead of <code>js</code>): <code>/src/main/resources/META-INF/resources/js/widgets</code></li></ul></div></div><div class="section section-level-0"><h2 id="Including_Widget_Resources">Including Widget Resources</h2><div class="bd"><p>In order for Raptor to find the widget resources you must first update the <code>X-Raptor-Resource-Search-Path</code> header&nbsp;in the OSGi manifest <code>(META-INF/MANIFEST.MF</code>) for the bundle to include the base folders for the widget's JavaScript and
 CSS resources as part of the
-header.</p><div class="code-editor" id="s1178"> <textarea id="s1178-textarea" style="display: none;" name="code-136">X-Raptor-Resource-Search-Path: /js/widgets,/css/widgets</textarea></div><div class="code-editor" id="s1179"> <textarea id="s1179-textarea" style="display: none;" name="code-137">X-Raptor-Resource-Search-Path: /META-INF/resources/js/widgets,/META-INF/resources/css/widgets</textarea></div></div></div></div></div><div class="docs-footer-padding"></div></div></div><script type="text/javascript" src="../static/core-body-2834a6ab.js"></script>
+header.</p><div class="code-editor" id="s1184"> <textarea id="s1184-textarea" style="display: none;" name="code-142">X-Raptor-Resource-Search-Path: /js/widgets,/css/widgets</textarea></div><div class="code-editor" id="s1185"> <textarea id="s1185-textarea" style="display: none;" name="code-143">X-Raptor-Resource-Search-Path: /META-INF/resources/js/widgets,/META-INF/resources/css/widgets</textarea></div></div></div></div></div><div class="docs-footer-padding"></div></div></div><script type="text/javascript" src="../static/core-body-2834a6ab.js"></script>
 <script type="text/javascript" src="../static/jquery-body-371da524.js"></script>
 <script type="text/javascript" src="../static/widgets-body-06552a07.js"></script>
 <script type="text/javascript" src="../static/bootstrap-body-34d7fcf3.js"></script>
 <script type="text/javascript" src="../static/code-editor-body-a2bab28c.js"></script><script type="text/javascript">$rwidgets(
-["components.nav.Nav.NavItemWidget","s1135",0,0,0,0],
-["components.nav.Nav.NavItemWidget","s1136",0,0,0,0,
-["components.nav.Nav.NavItemWidget","s1137",0,0,0,0],
-["components.nav.Nav.NavItemWidget","s1138",0,0,0,0],
-["components.nav.Nav.NavItemWidget","s1139",0,0,0,0],
-["components.nav.Nav.NavItemWidget","s1140",0,0,0,0],
 ["components.nav.Nav.NavItemWidget","s1141",0,0,0,0],
-["components.nav.Nav.NavItemWidget","s1142",0,0,0,0],
+["components.nav.Nav.NavItemWidget","s1142",0,0,0,0,
 ["components.nav.Nav.NavItemWidget","s1143",0,0,0,0],
 ["components.nav.Nav.NavItemWidget","s1144",0,0,0,0],
 ["components.nav.Nav.NavItemWidget","s1145",0,0,0,0],
@@ -286,33 +280,39 @@ header.</p><div class="code-editor" id="s1178"> <textarea id="s1178-textarea" st
 ["components.nav.Nav.NavItemWidget","s1147",0,0,0,0],
 ["components.nav.Nav.NavItemWidget","s1148",0,0,0,0],
 ["components.nav.Nav.NavItemWidget","s1149",0,0,0,0],
-["components.nav.Nav.NavItemWidget","s1150",0,0,0,0]],
-["components.nav.Nav.NavItemWidget","s1151",0,0,0,0,
+["components.nav.Nav.NavItemWidget","s1150",0,0,0,0],
+["components.nav.Nav.NavItemWidget","s1151",0,0,0,0],
 ["components.nav.Nav.NavItemWidget","s1152",0,0,0,0],
 ["components.nav.Nav.NavItemWidget","s1153",0,0,0,0],
 ["components.nav.Nav.NavItemWidget","s1154",0,0,0,0],
 ["components.nav.Nav.NavItemWidget","s1155",0,0,0,0],
-["components.nav.Nav.NavItemWidget","s1156",0,0,0,0],
-["components.nav.Nav.NavItemWidget","s1157",0,0,0,0],
-["components.nav.Nav.NavItemWidget","s1158",0,0,0,0]],
-["components.nav.Nav.NavItemWidget","s1159",0,0,0,0,
+["components.nav.Nav.NavItemWidget","s1156",0,0,0,0]],
+["components.nav.Nav.NavItemWidget","s1157",0,0,0,0,
+["components.nav.Nav.NavItemWidget","s1158",0,0,0,0],
+["components.nav.Nav.NavItemWidget","s1159",0,0,0,0],
 ["components.nav.Nav.NavItemWidget","s1160",0,0,0,0],
 ["components.nav.Nav.NavItemWidget","s1161",0,0,0,0],
 ["components.nav.Nav.NavItemWidget","s1162",0,0,0,0],
 ["components.nav.Nav.NavItemWidget","s1163",0,0,0,0],
 ["components.nav.Nav.NavItemWidget","s1164",0,0,0,0]],
-["components.editors.CodeEditor.CodeEditorWidget","s1165",0,0,{"mode":"xml","autoResize":true,"readOnly":true},0],
-["components.editors.CodeEditor.CodeEditorWidget","s1166",0,0,{"mode":"javascript","autoResize":true,"readOnly":true},0],
-["components.editors.CodeEditor.CodeEditorWidget","s1167",0,0,{"mode":"xml","autoResize":true,"readOnly":true},0],
-["components.editors.CodeEditor.CodeEditorWidget","s1168",0,0,{"mode":"xml","autoResize":true,"readOnly":true},0],
-["components.editors.CodeEditor.CodeEditorWidget","s1169",0,0,{"mode":"javascript","autoResize":true,"readOnly":true},0],
-["components.editors.CodeEditor.CodeEditorWidget","s1170",0,0,{"mode":"xml","autoResize":true,"readOnly":true},0],
-["components.editors.CodeEditor.CodeEditorWidget","s1171",0,0,{"mode":"javascript","autoResize":true,"readOnly":true},0],
+["components.nav.Nav.NavItemWidget","s1165",0,0,0,0,
+["components.nav.Nav.NavItemWidget","s1166",0,0,0,0],
+["components.nav.Nav.NavItemWidget","s1167",0,0,0,0],
+["components.nav.Nav.NavItemWidget","s1168",0,0,0,0],
+["components.nav.Nav.NavItemWidget","s1169",0,0,0,0],
+["components.nav.Nav.NavItemWidget","s1170",0,0,0,0]],
+["components.editors.CodeEditor.CodeEditorWidget","s1171",0,0,{"mode":"xml","autoResize":true,"readOnly":true},0],
 ["components.editors.CodeEditor.CodeEditorWidget","s1172",0,0,{"mode":"javascript","autoResize":true,"readOnly":true},0],
-["components.editors.CodeEditor.CodeEditorWidget","s1173",0,0,{"mode":"text","autoResize":true,"readOnly":true},0],
-["components.editors.CodeEditor.CodeEditorWidget","s1174",0,0,{"mode":"javascript","autoResize":true,"readOnly":true},0],
+["components.editors.CodeEditor.CodeEditorWidget","s1173",0,0,{"mode":"xml","autoResize":true,"readOnly":true},0],
+["components.editors.CodeEditor.CodeEditorWidget","s1174",0,0,{"mode":"xml","autoResize":true,"readOnly":true},0],
 ["components.editors.CodeEditor.CodeEditorWidget","s1175",0,0,{"mode":"javascript","autoResize":true,"readOnly":true},0],
 ["components.editors.CodeEditor.CodeEditorWidget","s1176",0,0,{"mode":"xml","autoResize":true,"readOnly":true},0],
 ["components.editors.CodeEditor.CodeEditorWidget","s1177",0,0,{"mode":"javascript","autoResize":true,"readOnly":true},0],
-["components.editors.CodeEditor.CodeEditorWidget","s1178",0,0,{"mode":"text","autoResize":true,"readOnly":true},0],
-["components.editors.CodeEditor.CodeEditorWidget","s1179",0,0,{"mode":"text","autoResize":true,"readOnly":true},0]);</script></body></html>
+["components.editors.CodeEditor.CodeEditorWidget","s1178",0,0,{"mode":"javascript","autoResize":true,"readOnly":true},0],
+["components.editors.CodeEditor.CodeEditorWidget","s1179",0,0,{"mode":"text","autoResize":true,"readOnly":true},0],
+["components.editors.CodeEditor.CodeEditorWidget","s1180",0,0,{"mode":"javascript","autoResize":true,"readOnly":true},0],
+["components.editors.CodeEditor.CodeEditorWidget","s1181",0,0,{"mode":"javascript","autoResize":true,"readOnly":true},0],
+["components.editors.CodeEditor.CodeEditorWidget","s1182",0,0,{"mode":"xml","autoResize":true,"readOnly":true},0],
+["components.editors.CodeEditor.CodeEditorWidget","s1183",0,0,{"mode":"javascript","autoResize":true,"readOnly":true},0],
+["components.editors.CodeEditor.CodeEditorWidget","s1184",0,0,{"mode":"text","autoResize":true,"readOnly":true},0],
+["components.editors.CodeEditor.CodeEditorWidget","s1185",0,0,{"mode":"text","autoResize":true,"readOnly":true},0]);</script></body></html>

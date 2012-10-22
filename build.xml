@@ -3,10 +3,12 @@
     <target name="sample-projects">
     	<delete dir="sample-projects" />
     	
+    	
     	<delete dir="src/sample-projects/optimizer/get-started/static"/>
     	<zip destfile="sample-projects/optimizer-get-started.zip" basedir="src/sample-projects/optimizer/get-started"/>
     	
     	<delete dir="src/sample-projects/async-loader/get-started/static"/>
+    	<delete file="src/sample-projects/async-loader/get-started/test-page.html"/>
     	<zip destfile="sample-projects/async-loader-get-started.zip" basedir="src/sample-projects/async-loader/get-started"/>
     </target>
 

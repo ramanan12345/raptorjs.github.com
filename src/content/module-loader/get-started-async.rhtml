@@ -39,9 +39,14 @@
                 <a href="${url('/optimizer/taglib')}">
                     RaptorJS Optimizer Taglib
                 </a>
-                to begin using the RaptorJS loader. However,
+                to begin using the RaptorJS Async Loader. However,
                 Raptor Templates is not a requirement for using
                 the RaptorJS Async Loader (but it does make things a lot easier out-of-the-box).
+            </p>
+            <p>
+                For this guide, we are going to create a page that includes a module named "module-a" synchronously (as part of the initial page load).
+                In addition, the page will asynchronously download a module named "module-b" when a button is clicked. Both "module-a" and "module-b"
+                will consist of both JavaScript and CSS resources.
             </p>
         </docs:section>
 
@@ -51,6 +56,17 @@
                 <a href="${url('/sample-projects/async-loader-get-started.zip')}">
                     <nobr>
                         RaptorJS Async Loader: Get Started - Sample Code    
+                    </nobr>
+                </a>
+            </p>
+        </docs:section>
+
+        <docs:section heading="View Live Code">
+            <p>
+                To view a live of demo of the application you will be creating using this guide, use the following link:
+                <a href="${url('/src/sample-projects/async-loader/get-started/test-page.html')}">
+                    <nobr>
+                        RaptorJS Async Loader: Get Started - Live Demo
                     </nobr>
                 </a>
             </p>
@@ -126,6 +142,192 @@
             
         </docs:section>
         
+        <docs:section heading="HTML Page Template">
+            <p>
+                Below is the page template ("test-page.rhtml") that we will use for this guide:
+            </p>
+            <docs:code-editor 
+                mode="xml"
+                readOnly="true" 
+                c:parse-body-text="false">
+
+            <![CDATA[
+            <c:template
+                xmlns:c="core"
+                xmlns:html="html"
+                xmlns:optimizer="optimizer">
+                
+                <optimizer:page name="test-page" base-path="${data.outputDir}">
+                    <includes>
+                        <!-- Include the core RaptorJS module: -->
+                        <module name="core"/>
+
+                        <!-- Include the code to initialize RaptorJS: -->
+                        <init-raptor/>
+
+                        <!-- Include test page JS and CSS files: -->
+                        <js path="test-page.js"/>
+                        <css path="test-page.css"/>
+
+                        <!-- "module-a" will be included as part of the initial page load (not asynchronous) -->
+                        <module name="module-a"/>
+
+                        <!-- "module-b" is marked as asynchronous -->
+                        <module name="module-b" async="true"/>
+
+                        <!-- Required for asynchronous module loading: -->
+                        <module name="loader.require"/>
+                    </includes>
+                </optimizer:page>
+                
+                <html html:doctype="html">
+                    <head>
+                        <title>Async Module Loading Test Page</title>
+                        <optimizer:slot name="head"/>
+                    </head>
+                    <body>
+                        <!-- When clicked, the following button will invoke TestPage.loadModuleBAsync 
+                             defined in "test-page.js" -->
+                        <button type="button" onclick="TestPage.loadModuleBAsync()">
+                            Load "module-b" Asynchrously
+                        </button>
+
+                        <optimizer:slot name="body"/>
+                    </body>
+                </html>
+
+            </c:template>
+            ]]>
+            </docs:code-editor>
+            <p>
+                You will notice that "module-b" is marked as asynchronous for the page includes in the above template.
+            </p>
+        </docs:section>
+
+        <docs:section heading="Downloading Modules Asynchronously">
+            <p>
+                The following code is used to download "module-b" asynchronously and
+                then invoke a method on the loaded module:
+
+            </p>
+            <docs:code-editor 
+                mode="javascript"
+                readOnly="true" 
+                c:parse-body-text="false">
+
+            <![CDATA[
+            raptor.require('module-b', function(moduleB) {
+                moduleB.sayHello();
+            });
+            ]]>
+            </docs:code-editor>
+            <p>
+                The source code for "module-b" is the following:
+            </p>
+            <docs:code-editor 
+                mode="javascript"
+                readOnly="true" 
+                c:parse-body-text="false">
+            <![CDATA[
+            raptor.define(
+                "module-b",
+                function(raptor) {
+                    return {
+                        sayHello: function(to) {
+                            var div = document.createElement('div');
+                            div.className = 'module-b';
+                            div.innerHTML = 'Hello from "module-b"!';
+                            document.body.appendChild(div);
+                        }
+                    };
+                });
+            ]]>
+            </docs:code-editor>
+            <docs:message type="info">
+                <p>
+                    If you would like to download multiple modules
+                    asynchronously then simply provide an array of module IDs
+                    as shown in the following example:
+                </p>
+                <docs:code-editor 
+                    mode="javascript"
+                    readOnly="true" 
+                    c:parse-body-text="false">
+
+                <![CDATA[
+                raptor.require(
+                    ['module-a', 'module-b'], 
+                    function(moduleA, moduleB) {
+                        //Do something with the loaded modules...
+                    });
+                ]]>
+                </docs:code-editor>
+                <p>
+                    In addition, you can also choose to use <code>raptor.require</code>
+                    to access the modules after they have been loaded:
+                </p>
+                <docs:code-editor 
+                    mode="javascript"
+                    readOnly="true" 
+                    c:parse-body-text="false">
+
+                <![CDATA[
+                raptor.require(
+                    ['module-a', 'module-b'], 
+                    function() {
+                        var moduleA = raptor.require('module-a');
+                        var moduleB = raptor.require('module-b');
+                        //Do something with the loaded modules...
+                    });
+                ]]>
+                </docs:code-editor>
+            </docs:message>
+        </docs:section>
+        <docs:section heading="Rendering the Page">
+            <p>
+                The sample project includes a script named "publish.js" that renders the
+                "test-page.rhtml" template shown above and saves the generated HTML
+                string to "test-page.html" in the root directory. In the process of
+                rendering the page, the RaptorJS Optimizer Taglib will write the optimized
+                resource bundles to disk (along with the metadata required by the 
+                RaptorJS Async Loader).
+            </p>
+            <p>
+                To run the "publish.js" script, use the following command:
+            </p>
+<pre class="sh" xml:space="preserve">
+$ node publish.js
+</pre>
+            <p>
+                You should then see output to the following:
+            </p>
+<pre class="sh" xml:space="preserve">
+Generating staticfiles for RaptorJS Async Loader demo...
+INFO optimizer.BundlesFileWriter: Writing bundle file to "static/test-page-async-body-45012617.js"...
+INFO optimizer.BundlesFileWriter: Writing bundle file to "static/test-page-async-head-981b6ffe.css"...
+INFO optimizer.BundlesFileWriter: Writing bundle file to "static/test-page-body-db70adfb.js"...
+INFO optimizer.BundlesFileWriter: Writing bundle file to "static/test-page-head-d3ec3774.css"...
+Test page written to "test-page.html"
+</pre>
+            <p>
+                For this sample project, the generated metadata will look like the following:
+            </p>
+            <docs:code-editor 
+                mode="javascript"
+                readOnly="true" 
+                c:parse-body-text="false">
+
+            <![CDATA[
+            $rloaderMeta = {
+                "module-b": {
+                    "css": ["static/test-page-async-head-981b6ffe.css"],
+                    "js":  ["static/test-page-async-body-45012617.js"]
+                }
+            };
+            ]]>
+            </docs:code-editor>
+
+        </docs:section>
         
     </docs:docs>
     
