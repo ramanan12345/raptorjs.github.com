@@ -84,6 +84,15 @@
 			"cmd":
 			[
 				"${project_path}/src/publish-dev",
+				"page=/module-loader/get-started-async"
+			],
+			"name": "Publish (dev) - module-loader-get-started-async",
+			"working_dir": "${project_path}/src"
+		},
+		{
+			"cmd":
+			[
+				"${project_path}/src/publish-dev",
 				"page=/modules-classes"
 			],
 			"name": "Publish (dev) - modules-classes",
@@ -175,6 +184,16 @@
 			"name": "test",
 			"working_dir": "${project_path}/node_modules/raptor/test"
 		}
+		,
+		{
+			"cmd":
+			[
+				"node",
+				"publish.js"
+			],
+			"name": "sample-projects/async-loader/get-started-async/publish.js",
+			"working_dir": "${project_path}/src/sample-projects/async-loader/get-started-async"
+		}
 	],
 	"folders":
 	[
@@ -204,6 +223,7 @@
 			"Publish (dev)",
 			"Publish (dev) - index",
 			"Publish (dev) - module-loader",
+			"Publish (dev) - module-loader-get-started-async",
 			"Publish (dev) - modules-classes",
 			"Publish (dev) - modules-classes/developer-guide",
 			"Publish (dev) - optimizer",
@@ -211,7 +231,8 @@
 			"Publish (dev) - optimizer-developer-guide",
 			"Publish (dev) - raptor-templates",
 			"Publish (dev) - raptor-templates-developer-guide",
-			"Publish to Github"
+			"Publish to Github",
+			"sample-projects/async-loader/get-started/publish.js"
 		]
 	}
 }

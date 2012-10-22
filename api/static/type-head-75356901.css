@@ -71,7 +71,7 @@ pre.sh_sourceCode .sh_attribute { color: darkgreen; }
  */
 
 .jstree-classic li, 
-.jstree-classic ins { background-image:url(d_49c060c0.png); background-repeat:no-repeat; background-color:transparent; }
+.jstree-classic ins { background-image:url(/static/d_49c060c0.png); background-repeat:no-repeat; background-color:transparent; }
 .jstree-classic li { background-position:-90px 0; background-repeat:repeat-y;  }
 .jstree-classic li.jstree-last { background:transparent; }
 .jstree-classic .jstree-open > ins { background-position:-72px 0; }
@@ -82,7 +82,7 @@ pre.sh_sourceCode .sh_attribute { color: darkgreen; }
 .jstree-classic .jstree-clicked { background:navy; border:1px solid navy; padding:0 2px 0 1px; color:white; }
 .jstree-classic a .jstree-icon { background-position:-56px -19px; }
 .jstree-classic .jstree-open > a .jstree-icon { background-position:-56px -36px; }
-.jstree-classic a.jstree-loading .jstree-icon { background:url(throbber_dcabdd74.gif) center center no-repeat !important; }
+.jstree-classic a.jstree-loading .jstree-icon { background:url(/static/throbber_dcabdd74.gif) center center no-repeat !important; }
 
 .jstree-classic.jstree-focused { background:white; }
 
@@ -105,9 +105,9 @@ pre.sh_sourceCode .sh_attribute { color: darkgreen; }
 .jstree-classic .jstree-undetermined > a > .jstree-checkbox:hover { background-position:-20px -37px; }
 
 #vakata-dragged.jstree-classic ins { background:transparent !important; }
-#vakata-dragged.jstree-classic .jstree-ok { background:url(d_49c060c0.png) -2px -53px no-repeat !important; }
-#vakata-dragged.jstree-classic .jstree-invalid { background:url(d_49c060c0.png) -18px -53px no-repeat !important; }
-#jstree-marker.jstree-classic { background:url(d_49c060c0.png) -41px -57px no-repeat !important; text-indent:-100px; }
+#vakata-dragged.jstree-classic .jstree-ok { background:url(/static/d_49c060c0.png) -2px -53px no-repeat !important; }
+#vakata-dragged.jstree-classic .jstree-invalid { background:url(/static/d_49c060c0.png) -18px -53px no-repeat !important; }
+#jstree-marker.jstree-classic { background:url(/static/d_49c060c0.png) -41px -57px no-repeat !important; text-indent:-100px; }
 
 .jstree-classic a.jstree-search { color:aqua; }
 .jstree-classic .jstree-locked a { color:silver; cursor:default; }
@@ -128,7 +128,7 @@ pre.sh_sourceCode .sh_attribute { color: darkgreen; }
 .jstree-classic ins,
 #vakata-dragged.jstree-classic .jstree-invalid, 
 #vakata-dragged.jstree-classic .jstree-ok, 
-#jstree-marker.jstree-classic { _background-image:url(d_e39eaf23.gif); }
+#jstree-marker.jstree-classic { _background-image:url(/static/d_e39eaf23.gif); }
 .jstree-classic .jstree-open ins { _background-position:-72px 0; }
 .jstree-classic .jstree-closed ins { _background-position:-54px 0; }
 .jstree-classic .jstree-leaf ins { _background-position:-36px 0; }

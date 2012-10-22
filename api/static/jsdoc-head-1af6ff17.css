@@ -159,37 +159,37 @@ H3 {
 }
 
 #navTree LI.object > A > INS {
-    background-image: url(object_e9c0cbc3.png);
+    background-image: url(/static/object_e9c0cbc3.png);
     background-position: 0 0;
 }
 
 #navTree LI.package > A > INS {
-    background-image: url(package_aaa6b1e3.png);
+    background-image: url(/static/package_aaa6b1e3.png);
     background-position: 0 0;
 }
 
 #navTree LI.raptor-module > A > INS, #navTree LI.module > A > INS {
-    background-image: url(module_32a11932.png);
+    background-image: url(/static/module_32a11932.png);
     background-position: 0 0;
 }
 
 #navTree LI.raptor-class > A > INS, #navTree LI.class > A > INS {
-    background-image: url(class_10005711.gif);
+    background-image: url(/static/class_10005711.gif);
     background-position: 0 0;
 }
 
 #navTree LI.raptor-mixin > A > INS, #navTree LI.mixin > A > INS {
-    background-image: url(mixin_f6dafe2d.png);
+    background-image: url(/static/mixin_f6dafe2d.png);
     background-position: 0 0;
 }
 
 #navTree LI.global > A > INS {
-    background-image: url(global_fded976b.png);
+    background-image: url(/static/global_fded976b.png);
     background-position: 0 0;
 }
 
 #navTree LI > UL > LI.extension > A > INS {
-    background-image: url(extension_7fd5328c.png) !important;
+    background-image: url(/static/extension_7fd5328c.png) !important;
     background-position: 0 0;
 }
 
@@ -206,27 +206,27 @@ H3 {
     width: 16px;
 }
 .ac-icon-module, .ac-icon-raptor-module {
-    background-image: url(module_32a11932.png);
+    background-image: url(/static/module_32a11932.png);
 }
 .ac-icon-class, .ac-icon-raptor-class {
-    background-image: url(class_10005711.gif);
+    background-image: url(/static/class_10005711.gif);
 }
 .ac-icon-extension {
-    background-image: url(extension_7fd5328c.png);
+    background-image: url(/static/extension_7fd5328c.png);
 }
 .ac-icon-mixin {
-    background-image: url(mixin_f6dafe2d.png);
+    background-image: url(/static/mixin_f6dafe2d.png);
 }
 .ac-icon-function {
-    background-image: url(function_ebbbf5b9.png);
+    background-image: url(/static/function_ebbbf5b9.png);
 }
 
 .ac-icon-property {
-    background-image: url(property_82878662.png);
+    background-image: url(/static/property_82878662.png);
 }
 
 .ac-icon-object {
-    background-image: url(object_e9c0cbc3.png);
+    background-image: url(/static/object_e9c0cbc3.png);
 }
 
 
@@ -271,7 +271,7 @@ H3 {
     padding: 2px;
 }
 .expand-collapse-icon {
-    background-image: url(expand-icon_9f8de69c.png);
+    background-image: url(/static/expand-icon_9f8de69c.png);
     height: 16px;
     margin: auto;
     width: 16px;
@@ -281,7 +281,7 @@ BUTTON > .expand-collapse-icon {
     margin: 0 4px 0 0;
 }
 .expanded .expand-collapse-icon, .expand-collapse-icon.expanded {
-    background-image: url(collapse-icon_7ca47097.png);
+    background-image: url(/static/collapse-icon_7ca47097.png);
 }
 
 H3 {
@@ -368,7 +368,7 @@ H3 {
     display: inline-block;
     width: 16px;
     height: 16px;
-    background-image: url(link_f519f050.png);
+    background-image: url(/static/link_f519f050.png);
 }
 
 .mixin-icon {
@@ -376,7 +376,7 @@ H3 {
     display: inline-block;
     width: 16px;
     height: 16px;
-    background-image: url(mixin_7fd5328c.png);
+    background-image: url(/static/mixin_7fd5328c.png);
 }
 
 .defined-in {

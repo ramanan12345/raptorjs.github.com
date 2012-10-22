@@ -1,0 +1,28 @@
+<c:template
+    xmlns:c="core"
+    xmlns:optimizer="optimizer">
+    
+    <optimizer:page name="test-page" base-path="${data.outputDir}">
+        <includes>
+            <module name="core"/>
+            <init-raptor/>
+            <js path="test-page.js"/>
+            <css path="test-page.css"/>
+            <module name="module-a"/>
+            <module name="module-b" async="true"/>
+            <module name="loader.require"/>
+            <loader-metadata/>
+        </includes>
+    </optimizer:page>
+    
+    <html>
+        <head>
+            <title>Async Module Loading Test Page</title>
+            <optimizer:slot name="head"/>
+        </head>
+        <body>
+            <button type="button" onclick="TestPage.loadModuleBAsync()">Load "module-b" Asynchrously</button>
+            <optimizer:slot name="body"/>
+        </body>
+    </html>
+</c:template>

@@ -25,14 +25,19 @@
                 <c:invoke function="toc(rootSection)"/>
 
                 <div class="docs-nav-footer">
-                    <span class="powered-by">
-                        Powered by <a href="${url('/')}" class="raptorjs">RaptorJS</a> 
-                    </span>
-                    
-                    <div>
-                        <a href="${url('/license')}">License</a>${entity:nbsp} | ${entity:nbsp}
-                        <a href="${url('/credits')}">Credits</a>
-                    </div>
+                    <ul>
+                        <li>
+                            <span class="powered-by">
+                                Powered by <a href="${url('/')}" class="raptorjs">RaptorJS</a>
+                            </span>
+                        </li>
+                        <li>
+                            <a href="${url('/license')}">License</a>
+                        </li>
+                        <li>
+                            <a href="${url('/credits')}">Credits</a>
+                        </li>
+                    </ul>
                 </div>
                     
 

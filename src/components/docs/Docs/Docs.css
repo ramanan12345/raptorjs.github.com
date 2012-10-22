@@ -68,6 +68,11 @@ BODY > DIV.container {
     margin-top: 20px;
     padding-top: 10px;
 }
+
+.docs-nav-footer > UL {
+    margin-left: 0px;
+}
+
 .docs-footer-padding {
     clear: both;
     height: 800px;

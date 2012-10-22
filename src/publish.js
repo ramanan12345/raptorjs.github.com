@@ -120,29 +120,6 @@ Publisher.prototype = {
     },
 
     writePage: function(templateFile, outputFile, name, relativePath) {
-
-        // var packageFile = new File(templateFile.getParentFile(), "index-package.json");
-        // var packageXmlFile = new File(templateFile.getParentFile(), "index-package.xml");
-        // packageFile.remove();
-        // packageXmlFile.remove();
-
-        // var packageManifest = eval('(' + packageFile.readAsString() + ')');
-        // var outputXml = '    <optimizer:page name="${data.pageName}" base-path="${data.pageOutputDir}">\n        <includes>\n';
-        // raptor.forEach(packageManifest.includes, function(include) {
-        //     if (typeof include === 'string') {
-        //         var ext = include.substring(include.lastIndexOf('.')+1);
-        //         outputXml += '            <' + ext + ' path="' + include + '"/>\n';
-        //     }
-        //     else if (include.module) {
-        //         outputXml += '            <module name="' + include.module + '"/>\n';
-        //     }
-        //     else {
-        //         throw raptor.createError(new Error('Invalid include: ' + JSON.stringify(include)));
-        //     }
-        // })
-        // outputXml += '        </includes>\n    </optimizer:page>';
-        // new File(templateFile.getParentFile(), "index-package.xml").writeAsString(outputXml);
-
         console.error('Writing page "' + (relativePath || "/") + '" to "' + outputFile + '"...');
         this.currentOutputDir = outputFile.getParentFile();
 
