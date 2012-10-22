@@ -310,7 +310,7 @@ INFO optimizer.BundlesFileWriter: Writing bundle file to "static/test-page-head-
 Test page written to "test-page.html"
 </pre>
             <p>
-                For this sample project, the generated metadata will look like the following:
+                For this sample project, the generated async loader metadata will look like the following:
             </p>
             <docs:code-editor 
                 mode="javascript"
@@ -325,6 +325,10 @@ Test page written to "test-page.html"
                 }
             };
             ]]>
+            <p>
+                The above code shows the URLs that will be downloaded
+                when "module-b" is required asynchrously.
+            </p>
             </docs:code-editor>
 
         </docs:section>
