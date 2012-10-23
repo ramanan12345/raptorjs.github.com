@@ -54,19 +54,9 @@
         <bundle name="widgets">
             <module name="widgets" recursive="true"/>
         </bundle>
-        <bundle name="bootstrap">
-            <module name="components/icons/Icon"/>
-            <module name="Bootstrap/reset" recursive="true"/>
-            <module name="Bootstrap/scaffolding" recursive="true"/>
-            <module name="Bootstrap/layouts" recursive="true"/>
-            <module name="Bootstrap/type" recursive="true"/>
-            <module name="Bootstrap/dropdowns" recursive="true"/>
-            
-            <module name="Bootstrap/buttons" recursive="true"/>
-            <module name="Bootstrap/button-groups" recursive="true"/>
-            
-            <module name="Bootstrap/navs" recursive="true"/>
-            <module name="Bootstrap/navbar" recursive="true"/>
+
+        <bundle name="docs">
+            <module name="docs-global"/>
         </bundle>
         <bundle name="code-editor">
             <module name="components/editors/CodeEditor" recursive="true"/>
