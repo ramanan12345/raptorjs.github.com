@@ -4,35 +4,107 @@
     xmlns:optimizer="optimizer"
     xmlns:w="widgets"
     xmlns:docs="docs"
-    params="includes,samples"
-    docs:functions="url">
+    docs:functions="url"
+    params="includes,samples">
 
     <optimizer:page name="${data.pageName}" base-path="${data.pageOutputDir}">
         <includes>
             <module name="docs-global"/>
             <module name="components/nav/TopNavDefault"/>
-            <module name="components/docs/Docs"/>
             <module name="components/icons/Icon"/>
+            <module name="components/editors/CodeEditor"/>
+            <module name="components/editors/CodeEditor/mode-javascript"/>
             <css path="index.css"/>
-        </includes>
-    </optimizer:page>    
 
+        </includes>
+    </optimizer:page>
     
     <html html:doctype="html">
         <head>
-            <title>RaptorJS: Packaging ${entity:amp} Extensions</title>
+            <title>RaptorJS: Packaging &amp; Extensions</title>
             <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
             <meta name="viewport" content="width=device-width, initial-scale=1.0" />
             <optimizer:slot name="head"/>
             <docs:google-analytics/>
         </head>
-        <body>
-            <docs:top-nav activeItem="packaging"/>
-            
-            
+        <body data-spy="scroll">
+            <docs:top-nav activeItem="module-loader"/>
             <div class="container">
-                <c:include template="content/packaging"/>
+                <div class="feature-portal-top">
+
+                    <div class="feature-portal-desc">
+                        <h1>Packaging &amp; Extensions</h1>
+                        <p>
+                            RaptorJS provides a simple library for
+                            defining namespaced modules, classes, mixins and enums.
+                            This library uses a clean and easy-to-understand
+                            syntax that is close to pure JavaScript, but
+                            fills gaps in the existing JavaScript language.
+                            Now you can start creating modular code
+                            that is easy to maintain without waiting for
+                            a new version of JavaScript or switching to an
+                            alternate language.
+                        </p>
+                    </div>
+                    
+                    <div class="feature-portal-features">
+                        <h2>Features</h2>
+                        <ul>
+                            <li>Makes JavaScript Better</li>    
+                            <li>Clean Syntax</li>
+                            <li>Lightweight Library</li>
+                            <li>Class Inheritance</li>
+                            <li>Code Reuse across Client and Server</li>
+                            <li>Lazy Initialization</li>
+                            <li>Supports Parallel Downloading</li>
+                            <li>Cross-platform</li>
+                            <li>Decoupled from a Module Loader</li>
+                        </ul>
+                    </div>
+                </div>
+
+
+                <docs:feature-portal-section 
+                    title="Developer Guide"
+                    url="${url('/modules-classes/developer-guide')}"
+                    size="40">
+
+                    An in-depth look at using the RaptorJS library for
+                                        defining modules, classes, mixins and enums.
+
+                </docs:feature-portal-section>
+
+                <docs:feature-portal-section 
+                    size="60">
+
+                    <docs:code-editor 
+                        autoResize="true"
+                        indentUnit="4"
+                        readOnly="true"
+                        mode="javascript">
+                    <![CDATA[
+                    raptor.define(
+                        'some.namespace.myModule', 
+                        function() {
+                            var MyClass = raptor.require('some.namespace.MyClass');
+                            
+                            return {
+                            
+                                message: "Hello World",
+                                
+                                createSomeObject: function() {
+                                    return new MyClass();
+                                }
+                            };
+                        });
+                    ]]>
+                    </docs:code-editor>   
+
+                </docs:feature-portal-section>
+
+
             </div>
+            
             
             <optimizer:slot name="body"/>
             

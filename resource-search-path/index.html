@@ -1,40 +1,40 @@
-<!DOCTYPE html><html><head><title>RaptorJS: Resource Search Path</title><meta http-equiv="content-type" content="text/html; charset=UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><link rel="stylesheet" type="text/css" href="../static/resource-search-path-head-1ef75bc4.css">
-<link rel="stylesheet" type="text/css" href="../static/docs-head-99cdd772.css">
+<!DOCTYPE html><html><head><title>RaptorJS: Resource Search Path</title><meta http-equiv="content-type" content="text/html; charset=UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><link rel="stylesheet" type="text/css" href="../static/resource-search-path-head-d0426be0.css">
+<link rel="stylesheet" type="text/css" href="../static/docs-head-92a77b85.css">
 <link rel="stylesheet" type="text/css" href="../static/code-editor-head-6a226e30.css"><script type="text/javascript">var
 _gaq=_gaq||[];_gaq.push(["_setAccount","UA-33982282-1"]);_gaq.push(["_trackPageview"]);(function(){var
 a=document.createElement("script");a.type="text/javascript";a.async=!0;a.src=("https:"==document.location.protocol?"https://ssl":"http://www")+".google-analytics.com/ga.js";var
-b=document.getElementsByTagName("script")[0];b.parentNode.insertBefore(a,b)})();</script></head><body><div class="navbar navbar-fixed-top"><div class="navbar-inner"><div class="container"><a class="brand" href="../">RaptorJS</a><ul class="nav"><li class="divider-vertical"></li><li id="s1083"><a href="../get-started/">Get Started</a></li><li class="divider-vertical"></li><li id="s1084" class="dropdown"><a data-toggle="dropdown" class="dropdown-toggle">Learn<b class="caret"></b></a><ul class="dropdown-menu"><li id="s1085"><a href="../">Overview</a></li><li id="s1086"><a href="../get-started/">Get Started</a></li><li id="s1087"><a href="../tutorial/">Tutorial</a></li><li id="s1088"><a href="../api/">API Reference</a></li><li id="s1089"><a href="../faq/">FAQ</a></li><li class="divider"></li><li id="s1090"><a href="../modules-classes/">Modules and Classes</a></li><li id="s1091"><a href="../packaging/">Packaging and Extensions</a></li><li id="s1092"><a href="../module-loader/">Module Loader</a></li><li id="s1093"><a href="../optimizer/">Optimizer</a></li><li id="s1094"><a href="../raptor-templates/">Raptor Templates</a></li><li id="s1095"><a href="../widgets/">Widgets Framework</a></li><li id="s1096"><a href="../logging/">Logging</a></li><li id="s1097" class="active nav-item-active"><a href="../resource-search-path/">Resource Search Path</a></li><li id="s1098"><a href="../cross-environment/">Cross Environment Support</a></li></ul></li><li class="divider-vertical"></li><li id="s1099" class="dropdown"><a data-toggle="dropdown" class="dropdown-toggle">Community<b class="caret"></b></a><ul class="dropdown-menu"><li id="s1100"><a href="https://github.com/raptorjs/raptorjs">Source code</a></li><li id="s1101"><a href="https://github.com/raptorjs/raptorjs/issues">Issue Tracker</a></li><li id="s1102"><a href="../contribute/">Contribute</a></li><li id="s1103"><a href="../contributors/">Contributors</a></li><li class="divider"></li><li id="s1104"><a href="http://groups.google.com/group/raptorjs">Discussion Forum</a></li><li class="divider"></li><li id="s1105"><a href="http://twitter.com/raptorjs">Twitter (@raptorjs)</a></li><li id="s1106"><a href="http://twitter.com/raptorjs">Google+</a></li></ul></li><li class="divider-vertical"></li><li id="s1107" class="dropdown"><a data-toggle="dropdown" class="dropdown-toggle">About<b class="caret"></b></a><ul class="dropdown-menu"><li id="s1108"><a href="https://github.com/raptorjs/raptorjs/wiki/Release-Notes">Release Notes</a></li><li id="s1109"><a href="../design-philosophy/">Design Philosophy</a></li><li id="s1110"><a href="../license/">License</a></li><li id="s1111"><a href="../credits/">Credits</a></li><li id="s1112"><a href="../creators/">Creators</a></li></ul></li><li class="divider-vertical"></li></ul></div></div></div><div class="container"><div class="docs"><div class="bd"><div class="toc nav" id="docsNav"><ul class="toc"><li class="toc toc-level-0"><a href="#Overview">Overview</a><ul class="toc"></ul></li></ul><div class="docs-nav-footer"><ul><li><span class="powered-by">Powered by <a href="../" class="raptorjs">RaptorJS</a></span></li><li><a href="../license/">License</a></li><li><a href="../credits/">Credits</a></li></ul></div></div><div class="docs-content"><h1 id="title">Resource Search Path</h1><div class="message message-warning"><div class="icon"><i class="icon-warning-sign" style="font-size: 30px;"></i></div><div class="bd">Documentation In-Progress</div></div><div class="section section-level-0"><h2 id="Overview">Overview</h2><div class="bd"><p></p></div></div></div></div><div class="docs-footer-padding"></div></div></div><script type="text/javascript" src="../static/core-body-2834a6ab.js"></script>
+b=document.getElementsByTagName("script")[0];b.parentNode.insertBefore(a,b)})();</script></head><body><div class="navbar navbar-fixed-top"><div class="navbar-inner"><div class="container"><a class="brand" href="../">RaptorJS</a><ul class="nav"><li class="divider-vertical"></li><li id="s1114"><a href="../get-started/">Get Started</a></li><li class="divider-vertical"></li><li id="s1115" class="dropdown"><a data-toggle="dropdown" class="dropdown-toggle">Learn<b class="caret"></b></a><ul class="dropdown-menu"><li id="s1116"><a href="../">Overview</a></li><li id="s1117"><a href="../get-started/">Get Started</a></li><li id="s1118"><a href="../tutorial/">Tutorial</a></li><li id="s1119"><a href="../api/">API Reference</a></li><li id="s1120"><a href="../faq/">FAQ</a></li><li class="divider"></li><li id="s1121"><a href="../modules-classes/">Modules and Classes</a></li><li id="s1122"><a href="../packaging/">Packaging and Extensions</a></li><li id="s1123"><a href="../module-loader/">Module Loader</a></li><li id="s1124"><a href="../optimizer/">Optimizer</a></li><li id="s1125"><a href="../raptor-templates/">Raptor Templates</a></li><li id="s1126"><a href="../widgets/">Widgets Framework</a></li><li id="s1127"><a href="../logging/">Logging</a></li><li id="s1128" class="active nav-item-active"><a href="../resource-search-path/">Resource Search Path</a></li><li id="s1129"><a href="../cross-environment/">Cross Environment Support</a></li></ul></li><li class="divider-vertical"></li><li id="s1130" class="dropdown"><a data-toggle="dropdown" class="dropdown-toggle">Community<b class="caret"></b></a><ul class="dropdown-menu"><li id="s1131"><a href="https://github.com/raptorjs/raptorjs">Source code</a></li><li id="s1132"><a href="https://github.com/raptorjs/raptorjs/issues">Issue Tracker</a></li><li id="s1133"><a href="../contribute/">Contribute</a></li><li id="s1134"><a href="../contributors/">Contributors</a></li><li class="divider"></li><li id="s1135"><a href="http://groups.google.com/group/raptorjs">Discussion Forum</a></li><li class="divider"></li><li id="s1136"><a href="http://twitter.com/raptorjs">Twitter (@raptorjs)</a></li><li id="s1137"><a href="http://twitter.com/raptorjs">Google+</a></li></ul></li><li class="divider-vertical"></li><li id="s1138" class="dropdown"><a data-toggle="dropdown" class="dropdown-toggle">About<b class="caret"></b></a><ul class="dropdown-menu"><li id="s1139"><a href="https://github.com/raptorjs/raptorjs/wiki/Release-Notes">Release Notes</a></li><li id="s1140"><a href="../design-philosophy/">Design Philosophy</a></li><li id="s1141"><a href="../license/">License</a></li><li id="s1142"><a href="../credits/">Credits</a></li><li id="s1143"><a href="../creators/">Creators</a></li></ul></li><li class="divider-vertical"></li></ul></div></div></div><div class="container"><div class="docs"><div class="bd"><div class="toc nav" id="docsNav"><ul class="toc"><li class="toc toc-level-0"><a href="#Overview">Overview</a><ul class="toc"></ul></li></ul><div class="docs-nav-footer"><ul><li><span class="powered-by">Powered by <a href="../" class="raptorjs">RaptorJS</a></span></li><li><a href="../license/">License</a></li><li><a href="../credits/">Credits</a></li></ul></div></div><div class="docs-content"><h1 id="title">Resource Search Path</h1><div class="message message-warning"><div class="icon"><i class="icon-warning-sign" style="font-size: 30px;"></i></div><div class="bd">Documentation In-Progress</div></div><div class="section section-level-0"><h2 id="Overview">Overview</h2><div class="bd"><p></p></div></div></div></div><div class="docs-footer-padding"></div></div></div><script type="text/javascript" src="../static/core-body-2834a6ab.js"></script>
 <script type="text/javascript" src="../static/jquery-body-371da524.js"></script>
 <script type="text/javascript" src="../static/widgets-body-06552a07.js"></script>
 <script type="text/javascript" src="../static/resource-search-path-body-ee9bc3d9.js"></script>
 <script type="text/javascript" src="../static/code-editor-body-a2bab28c.js"></script><script type="text/javascript">$rwidgets(
-["components.nav.Nav.NavItemWidget","s1083",0,0,0,0],
-["components.nav.Nav.NavItemWidget","s1084",0,0,0,0,
-["components.nav.Nav.NavItemWidget","s1085",0,0,0,0],
-["components.nav.Nav.NavItemWidget","s1086",0,0,0,0],
-["components.nav.Nav.NavItemWidget","s1087",0,0,0,0],
-["components.nav.Nav.NavItemWidget","s1088",0,0,0,0],
-["components.nav.Nav.NavItemWidget","s1089",0,0,0,0],
-["components.nav.Nav.NavItemWidget","s1090",0,0,0,0],
-["components.nav.Nav.NavItemWidget","s1091",0,0,0,0],
-["components.nav.Nav.NavItemWidget","s1092",0,0,0,0],
-["components.nav.Nav.NavItemWidget","s1093",0,0,0,0],
-["components.nav.Nav.NavItemWidget","s1094",0,0,0,0],
-["components.nav.Nav.NavItemWidget","s1095",0,0,0,0],
-["components.nav.Nav.NavItemWidget","s1096",0,0,0,0],
-["components.nav.Nav.NavItemWidget","s1097",0,0,0,0],
-["components.nav.Nav.NavItemWidget","s1098",0,0,0,0]],
-["components.nav.Nav.NavItemWidget","s1099",0,0,0,0,
-["components.nav.Nav.NavItemWidget","s1100",0,0,0,0],
-["components.nav.Nav.NavItemWidget","s1101",0,0,0,0],
-["components.nav.Nav.NavItemWidget","s1102",0,0,0,0],
-["components.nav.Nav.NavItemWidget","s1103",0,0,0,0],
-["components.nav.Nav.NavItemWidget","s1104",0,0,0,0],
-["components.nav.Nav.NavItemWidget","s1105",0,0,0,0],
-["components.nav.Nav.NavItemWidget","s1106",0,0,0,0]],
-["components.nav.Nav.NavItemWidget","s1107",0,0,0,0,
-["components.nav.Nav.NavItemWidget","s1108",0,0,0,0],
-["components.nav.Nav.NavItemWidget","s1109",0,0,0,0],
-["components.nav.Nav.NavItemWidget","s1110",0,0,0,0],
-["components.nav.Nav.NavItemWidget","s1111",0,0,0,0],
-["components.nav.Nav.NavItemWidget","s1112",0,0,0,0]]);</script></body></html>
+["components.nav.Nav.NavItemWidget","s1114",0,0,0,0],
+["components.nav.Nav.NavItemWidget","s1115",0,0,0,0,
+["components.nav.Nav.NavItemWidget","s1116",0,0,0,0],
+["components.nav.Nav.NavItemWidget","s1117",0,0,0,0],
+["components.nav.Nav.NavItemWidget","s1118",0,0,0,0],
+["components.nav.Nav.NavItemWidget","s1119",0,0,0,0],
+["components.nav.Nav.NavItemWidget","s1120",0,0,0,0],
+["components.nav.Nav.NavItemWidget","s1121",0,0,0,0],
+["components.nav.Nav.NavItemWidget","s1122",0,0,0,0],
+["components.nav.Nav.NavItemWidget","s1123",0,0,0,0],
+["components.nav.Nav.NavItemWidget","s1124",0,0,0,0],
+["components.nav.Nav.NavItemWidget","s1125",0,0,0,0],
+["components.nav.Nav.NavItemWidget","s1126",0,0,0,0],
+["components.nav.Nav.NavItemWidget","s1127",0,0,0,0],
+["components.nav.Nav.NavItemWidget","s1128",0,0,0,0],
+["components.nav.Nav.NavItemWidget","s1129",0,0,0,0]],
+["components.nav.Nav.NavItemWidget","s1130",0,0,0,0,
+["components.nav.Nav.NavItemWidget","s1131",0,0,0,0],
+["components.nav.Nav.NavItemWidget","s1132",0,0,0,0],
+["components.nav.Nav.NavItemWidget","s1133",0,0,0,0],
+["components.nav.Nav.NavItemWidget","s1134",0,0,0,0],
+["components.nav.Nav.NavItemWidget","s1135",0,0,0,0],
+["components.nav.Nav.NavItemWidget","s1136",0,0,0,0],
+["components.nav.Nav.NavItemWidget","s1137",0,0,0,0]],
+["components.nav.Nav.NavItemWidget","s1138",0,0,0,0,
+["components.nav.Nav.NavItemWidget","s1139",0,0,0,0],
+["components.nav.Nav.NavItemWidget","s1140",0,0,0,0],
+["components.nav.Nav.NavItemWidget","s1141",0,0,0,0],
+["components.nav.Nav.NavItemWidget","s1142",0,0,0,0],
+["components.nav.Nav.NavItemWidget","s1143",0,0,0,0]]);</script></body></html>
