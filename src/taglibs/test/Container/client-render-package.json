@@ -1,6 +1,6 @@
 {
     "raptor": {
-        "includes": [
+        "dependencies": [
             "Container.rhtml",
             "ContainerTag.js"
         ]

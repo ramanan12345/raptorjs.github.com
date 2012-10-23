@@ -1,6 +1,6 @@
 {
     "raptor": {
-        "includes": [
+        "dependencies": [
             "Tabs.rhtml",
             "TabsTag.js"
         ]

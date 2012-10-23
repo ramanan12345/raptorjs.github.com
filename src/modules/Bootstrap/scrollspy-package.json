@@ -1,6 +1,6 @@
 {
     "raptor": {
-        "includes": [
+        "dependencies": [
             "bootstrap/js/bootstrap-scrollspy.js"
         ]
     }

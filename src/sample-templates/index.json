@@ -48,7 +48,7 @@
     },
     {
         "label": "Includes",
-        "path": "includes",
+        "path": "dependencies",
         "templates": ["include-target.rhtml"]
     },
     {

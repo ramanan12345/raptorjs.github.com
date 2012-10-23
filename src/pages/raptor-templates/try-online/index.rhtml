@@ -8,7 +8,7 @@
     params="includes,samples">
 
     <optimizer:page name="${data.pageName}" base-path="${data.pageOutputDir}">
-        <includes>
+        <dependencies>
             <module name="docs-global"/>
             <module name="templating"/>
             <module name="templating.compiler"/>
@@ -20,7 +20,7 @@
             <module name="components/templates/TemplatesTopNav"/>
             <module name="components/templates/TemplateTestbed"/>
             <css path="index.css"/>
-        </includes>
+        </dependencies>
     </optimizer:page>
     
     

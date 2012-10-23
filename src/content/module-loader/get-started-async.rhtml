@@ -158,7 +158,7 @@
                 xmlns:optimizer="optimizer">
                 
                 <optimizer:page name="test-page" base-path="${data.outputDir}">
-                    <includes>
+                    <dependencies>
                         <!-- Include the core RaptorJS module: -->
                         <module name="core"/>
 
@@ -177,7 +177,7 @@
 
                         <!-- Required for asynchronous module loading: -->
                         <module name="loader.require"/>
-                    </includes>
+                    </dependencies>
                 </optimizer:page>
                 
                 <html html:doctype="html">

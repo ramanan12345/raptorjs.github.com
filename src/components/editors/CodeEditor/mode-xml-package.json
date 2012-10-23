@@ -1,6 +1,6 @@
 {
     "raptor": {
-        "includes": [
+        "dependencies": [
             {"module": "CodeMirror/mode-xml"}
         ]
     }

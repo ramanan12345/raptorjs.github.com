@@ -45,7 +45,7 @@ etc.</p><div class="section section-level-1"><h2 id="Declaring_Page_Dependencies
 page's
 <code>package.json</code> file. A sample <code>package.json</code> file is shown below:</p><div class="code-editor" id="s672"> <textarea id="s672-textarea" style="display: none;" name="code-31">{
     "raptor": {
-        "includes": [
+        "dependencies": [
             {"module": "widgets"},
             {"module": "pubsub"},
             {"module": "components/buttons/Button"},
@@ -77,13 +77,13 @@ following:</p><div class="code-editor" id="s673"> <textarea id="s673-textarea" s
     xmlns:optimizer="optimizer">
  
     &lt;optimizer:page>
-        &lt;includes>
+        &lt;dependencies>
             &lt;module name="module-a"/>
             &lt;module name="module-b"/>
             &lt;css path="test-page.css"/>
             &lt;css path="test-page.css"/>
             &lt;js path="test-page.js"/>
-        &lt;/includes>
+        &lt;/dependencies>
     &lt;/optimizer:page>
     
     &lt;html>
@@ -104,7 +104,7 @@ easily be overridden at the resource level by adding a "slot" property to the
 resource include. For
 example:</p><div class="code-editor" id="s674"> <textarea id="s674-textarea" style="display: none;" name="code-33">{
     "raptor": {
-        "includes": [
+        "dependencies": [
             ...
             { "path": "my-library.js", "slot": "head" }
         ]
@@ -175,7 +175,7 @@ asynchronously.</p><div class="section section-level-1"><h2 id="Asynchronous_Mod
 to "true" for an include. For
 example:</p><div class="code-editor" id="s678"> <textarea id="s678-textarea" style="display: none;" name="code-37">{
     "raptor": {
-        "includes": [
+        "dependencies": [
             ...
             { "module": "my-module", "async": true }
             ...

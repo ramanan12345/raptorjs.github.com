@@ -1,6 +1,6 @@
 {
     "raptor": {
-        "includes": [
+        "dependencies": [
             {"module": "widgets"},
             {"module": "CodeMirror"},
             "CodeEditorWidget.js",

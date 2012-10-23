@@ -2,7 +2,7 @@
     "type": "raptor-module",
     "name": "jQuery",
     "raptor": {
-        "includes": [
+        "dependencies": [
             {"path": "jquery-1.7.1.js"}
         ]
     }

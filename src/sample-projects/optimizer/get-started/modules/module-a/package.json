@@ -1,5 +1,5 @@
 {
-    "includes": [
+    "dependencies": [
         "module-a.js",
         "module-a.css"
     ]

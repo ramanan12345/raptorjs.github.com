@@ -8,13 +8,13 @@
     docs:functions="url">
 
     <optimizer:page name="${data.pageName}" base-path="${data.pageOutputDir}">
-        <includes>
+        <dependencies>
             <module name="docs-global"/>
             <module name="components/nav/TopNavDefault"/>
             <module name="components/docs/Docs"/>
             <module name="components/icons/Icon"/>
             <css path="index.css"/>
-        </includes>
+        </dependencies>
     </optimizer:page>
 
     

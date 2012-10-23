@@ -161,7 +161,7 @@
                 <![CDATA[
                 {
                     "raptor": {
-                        "includes": [
+                        "dependencies": [
                             {"module": "widgets"},
                             {"module": "pubsub"},
                             {"module": "components/buttons/Button"},
@@ -231,13 +231,13 @@
                         xmlns:optimizer="optimizer">
                      
                         <optimizer:page>
-                            <includes>
+                            <dependencies>
                                 <module name="module-a"/>
                                 <module name="module-b"/>
                                 <css path="test-page.css"/>
                                 <css path="test-page.css"/>
                                 <js path="test-page.js"/>
-                            </includes>
+                            </dependencies>
                         </optimizer:page>
                         
                         <html>
@@ -277,7 +277,7 @@
                     ><![CDATA[
                     {
                         "raptor": {
-                            "includes": [
+                            "dependencies": [
                                 ...
                                 { "path": "my-library.js", "slot": "head" }
                             ]
@@ -461,7 +461,7 @@
                 <![CDATA[
                 {
                     "raptor": {
-                        "includes": [
+                        "dependencies": [
                             ...
                             { "module": "my-module", "async": true }
                             ...

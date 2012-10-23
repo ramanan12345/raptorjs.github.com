@@ -1,6 +1,6 @@
 {
     "raptor": {
-        "includes": [
+        "dependencies": [
             { "module": "core" },
             { "type": "init-raptor" },
             { "module": "jQuery" },

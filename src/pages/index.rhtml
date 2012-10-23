@@ -8,7 +8,7 @@
     docs:functions="url">
     
     <optimizer:page name="index" base-path="${data.pageOutputDir}">
-        <includes>
+        <dependencies>
             <module name="docs-global"/>
             <module name="components/buttons/Button"/>
             <module name="components/overlays/Popover"/>
@@ -17,7 +17,7 @@
             <module name="components/social/TwitterFollow"/>
             <module name="components/social/GooglePlusOne"/>
             <css path="index.css"/>
-        </includes>
+        </dependencies>
     </optimizer:page>
     
     <c:def function="learnMore(href)">

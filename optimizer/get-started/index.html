@@ -30,12 +30,12 @@ location:
 <code><nobr>&lt;modules-dir>/test/hello/package.json</nobr></code>. In order for the RaptorJS Optimizer to be able to find your modules, you need
 to add the root directory containing your modules to the
 <a href="../../resource-search-path/"><nobr>RaptorJS Resource Search Path</nobr></a> as shown in the following code:</p><div class="code-editor" id="s715"> <textarea id="s715-textarea" style="display: none;" name="code-44">raptor.require("resources").addSearchPathDir("/path/to/modules");</textarea></div></div></div><div class="section section-level-1"><h2 id="Package_Files">Package Files</h2><div class="bd"><p>At a minimum, a package needs to describe what is included in the package. This
-is done by adding a "raptor" » "includes" property to a package.json file that
-is an array of resources that should be included as part of the package. A
+is done by adding a "raptor" » "dependencies" property to a package.json file
+that is an array of resources that should be included as part of the package. A
 simple
 <code>package.json</code> is shown below:</p><div class="code-editor" id="s716"> <textarea id="s716-textarea" style="display: none;" name="code-45">{
     "raptor": {
-        "includes": [
+        "dependencies": [
             "my-widget.js",
             "my-css-stylesheet.css",
             "my-less-stylesheet.less",
@@ -51,7 +51,7 @@ treated as paths relative to the location of the containing
 at least one of the resource search path entries defined for your
 application.</p><p>In addition to declaring which resources are included as part of a package, a <code>package.json</code> file can also declare that it depends on another module (i.e., another <code>package.json</code> file). A module dependency can be added using adding <code>{ "module": "&lt;module-name>" }</code> entries as shown in the following example:</p><div class="code-editor" id="s717"> <textarea id="s717-textarea" style="display: none;" name="code-46">{
     "raptor": {
-        "includes": [
+        "dependencies": [
             { "module": "widgets" },
             { "module": "templating" },
             "my-widget.js",
@@ -70,7 +70,7 @@ illustrates how to retarget a resource for a custom slot for a resource
 included inside a
 <code>package.json</code> file:</p><div class="code-editor" id="s718"> <textarea id="s718-textarea" style="display: none;" name="code-47">{
     "raptor": {
-        "includes": [
+        "dependencies": [
             ...
             { "path": "my-widget.js", "slot": "my-custom-slot" }
             ...
@@ -205,13 +205,13 @@ Templates:</p><div class="code-editor" id="s725"> <textarea id="s725-textarea" s
     xmlns:optimizer="optimizer">
     
     &lt;optimizer:page name="test-page">
-        &lt;includes>
+        &lt;dependencies>
             &lt;module name="module-a"/>
             &lt;module name="module-b"/>
             &lt;css path="test-page.css"/>
             &lt;css path="test-page.css"/>
             &lt;js path="test-page.js"/>
-        &lt;/includes>
+        &lt;/dependencies>
     &lt;/optimizer:page>
     
     &lt;html>

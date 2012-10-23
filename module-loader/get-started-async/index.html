@@ -30,7 +30,7 @@ prefer.</p><ul><li><b>/path/to/my-app/</b><ul><li><b>modules/</b><ul><li><b>modu
     xmlns:optimizer="optimizer">
     
     &lt;optimizer:page name="test-page" base-path="${data.outputDir}">
-        &lt;includes>
+        &lt;dependencies>
             &lt;!-- Include the core RaptorJS module: -->
             &lt;module name="core"/>
 
@@ -49,7 +49,7 @@ prefer.</p><ul><li><b>/path/to/my-app/</b><ul><li><b>modules/</b><ul><li><b>modu
 
             &lt;!-- Required for asynchronous module loading: -->
             &lt;module name="loader.require"/>
-        &lt;/includes>
+        &lt;/dependencies>
     &lt;/optimizer:page>
     
     &lt;html html:doctype="html">

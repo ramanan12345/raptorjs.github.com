@@ -4,7 +4,7 @@
     xmlns:optimizer="optimizer">
     
     <optimizer:page name="test-page" base-path="${data.outputDir}">
-        <includes>
+        <dependencies>
             <module name="core"/>
             <init-raptor/>
             <js path="test-page.js"/>
@@ -14,7 +14,7 @@
 
             <!-- Required for asynchronous module loading -->
             <module name="loader.require"/>
-        </includes>
+        </dependencies>
     </optimizer:page>
     
     <html html:doctype="html">

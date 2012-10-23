@@ -1,6 +1,6 @@
 {
     "raptor": {
-        "includes": [
+        "dependencies": [
             "test.rtld",
             "taglibs/test/Button/compile-time",
             "taglibs/test/Container/compile-time",

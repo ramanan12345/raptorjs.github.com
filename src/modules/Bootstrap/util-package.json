@@ -1,6 +1,6 @@
 {
     "raptor": {
-        "includes": [
+        "dependencies": [
             {
                 "path": "bootstrap/less/util.less", 
                 "imports": ["/style/variables.less", "bootstrap/less/mixins.less"]

@@ -1,6 +1,6 @@
 {
     "raptor": {
-        "includes": [
+        "dependencies": [
             { "module": "Bootstrap/tooltips" },
             {
                 "path": "bootstrap/less/popovers.less", 

@@ -1,6 +1,6 @@
 {
     "raptor": {
-        "includes": [
+        "dependencies": [
             {"module": "widgets"},
             "TwitterFollow.css"
         ],
@@ -8,13 +8,13 @@
         "extensions": [
             {
                 "name": "development",
-                "includes": [
+                "dependencies": [
                     "TwitterFollowWidget_dev.js"
                 ]
             },
             {
                 "name": "production",
-                "includes": [
+                "dependencies": [
                     "TwitterFollowWidget.js"
                 ]
             }

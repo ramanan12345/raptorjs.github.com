@@ -1,6 +1,6 @@
 {
     "raptor": {
-        "includes": [
+        "dependencies": [
             {"type": "resource", "path": "Tab.rtld"}
         ]
     }

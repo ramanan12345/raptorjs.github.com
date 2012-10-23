@@ -1,6 +1,6 @@
 {
     "raptor": {
-        "includes": [
+        "dependencies": [
             {"module": "widgets"},
             "ErrorsWidget.js",
             "Errors.css",

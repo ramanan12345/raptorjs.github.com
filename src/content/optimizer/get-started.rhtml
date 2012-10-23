@@ -74,7 +74,7 @@
             <docs:section heading="Package Files">
                 <p>
                     At a minimum, a package needs to describe what is included in the package.
-                    This is done by adding a "raptor" » "includes" property to a package.json file that is
+                    This is done by adding a "raptor" » "dependencies" property to a package.json file that is
                     an array of resources that should be included as part of the package. 
                     A simple <code>package.json</code> is shown below:
                 </p>
@@ -85,7 +85,7 @@
                 <![CDATA[
                 {
                     "raptor": {
-                        "includes": [
+                        "dependencies": [
                             "my-widget.js",
                             "my-css-stylesheet.css",
                             "my-less-stylesheet.less",
@@ -118,7 +118,7 @@
                 <![CDATA[
                 {
                     "raptor": {
-                        "includes": [
+                        "dependencies": [
                             { "module": "widgets" },
                             { "module": "templating" },
                             "my-widget.js",
@@ -150,7 +150,7 @@
                 <![CDATA[
                 {
                     "raptor": {
-                        "includes": [
+                        "dependencies": [
                             ...
                             { "path": "my-widget.js", "slot": "my-custom-slot" }
                             ...
@@ -526,13 +526,13 @@ $ node run-optimizer.js
                 xmlns:optimizer="optimizer">
                 
                 <optimizer:page name="test-page">
-                    <includes>
+                    <dependencies>
                         <module name="module-a"/>
                         <module name="module-b"/>
                         <css path="test-page.css"/>
                         <css path="test-page.css"/>
                         <js path="test-page.js"/>
-                    </includes>
+                    </dependencies>
                 </optimizer:page>
                 
                 <html>
