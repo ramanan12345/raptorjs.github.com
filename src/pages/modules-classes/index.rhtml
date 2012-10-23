@@ -23,15 +23,16 @@
         <head>
             <title>RaptorJS: Module Loader</title>
             <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+            <meta name="viewport" content="width=device-width, initial-scale=1.0" />
             <optimizer:slot name="head"/>
             <docs:google-analytics/>
         </head>
         <body data-spy="scroll">
             <docs:top-nav activeItem="module-loader"/>
             <div class="container">
-                <div class="top">
+                <div class="feature-portal-top">
 
-                    <div class="desc">
+                    <div class="feature-portal-desc">
                         <h1>Modules, Classes, Mixins and Enums</h1>
                         <p>
                             RaptorJS provides a simple library for
@@ -46,7 +47,7 @@
                         </p>
                     </div>
                     
-                    <div class="features">
+                    <div class="feature-portal-features">
                         <h2>Features</h2>
                         <ul>
                             <li>Makes JavaScript Better</li>    
@@ -63,52 +64,44 @@
                 </div>
 
 
-                <table class="sections">
-                    <tr>
-                        <td class="section" style="width: 40%;">
-                            <div class="content">
-                                <h3>
-                                    <a href="${url('/modules-classes/developer-guide')}">Developer Guide</a>
-                                </h3>
-                                <div class="bd">
-                                    <p>
-                                        An in-depth look at using the RaptorJS library for
+                <docs:feature-portal-section 
+                    title="Developer Guide"
+                    url="${url('/modules-classes/developer-guide')}"
+                    size="40">
+
+                    An in-depth look at using the RaptorJS library for
                                         defining modules, classes, mixins and enums.
-                                    </p>
-                                    <div class="continue">
-                                        <a href="${url('/modules-classes/developer-guide')}">Continue Reading ${entity:raquo}</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </td>
-                        <td class="section" style="width: 60%;">
-                            <div class="content">
-                                <docs:code-editor 
-                                    autoResize="true"
-                                    indentUnit="4"
-                                    readOnly="true"
-                                    mode="javascript">
-                                <![CDATA[
-                                raptor.define(
-                                    'some.namespace.myModule', 
-                                    function() {
-                                        var MyClass = raptor.require('some.namespace.MyClass');
-                                        
-                                        return {
-                                        
-                                            message: "Hello World",
-                                            
-                                            createSomeObject: function() {
-                                                return new MyClass();
-                                            }
-                                        };
-                                    });
-                                ]]>
-                                </docs:code-editor>   
-                            </div>
-                        </td>
-                    </tr>
-                </table>
+
+                </docs:feature-portal-section>
+
+                <docs:feature-portal-section 
+                    size="60">
+
+                    <docs:code-editor 
+                        autoResize="true"
+                        indentUnit="4"
+                        readOnly="true"
+                        mode="javascript">
+                    <![CDATA[
+                    raptor.define(
+                        'some.namespace.myModule', 
+                        function() {
+                            var MyClass = raptor.require('some.namespace.MyClass');
+                            
+                            return {
+                            
+                                message: "Hello World",
+                                
+                                createSomeObject: function() {
+                                    return new MyClass();
+                                }
+                            };
+                        });
+                    ]]>
+                    </docs:code-editor>   
+
+                </docs:feature-portal-section>
+
 
             </div>
             

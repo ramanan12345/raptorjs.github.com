@@ -12,6 +12,7 @@ raptor.define(
                     title: input.title,
                     url: input.url,
                     size: input.size,
+                    className: input['class'],
                     body: context.captureString(function() {
                         input.invokeBody();
                     })

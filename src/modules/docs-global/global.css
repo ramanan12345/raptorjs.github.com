@@ -65,6 +65,14 @@ PRE.code, PRE.sh {
     width: 33%;
 }
 
+.feature-portal-section-40 {
+    width: 40%;
+}
+
+.feature-portal-section-60 {
+    width: 60%;
+}
+
 .feature-portal-section .continue {
     text-align: right;
     right: 0px;
@@ -152,7 +160,7 @@ PRE.code, PRE.sh {
         float: none;
     }
 
-    .feature-portal-section-small {
+    .feature-portal-section-small, .feature-portal-section-40, .feature-portal-section-60 {
         width: auto;
     }
 

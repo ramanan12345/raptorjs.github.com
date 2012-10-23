@@ -16,20 +16,20 @@
         </includes>
     </optimizer:page>
     
-    
     <html html:doctype="html">
         <head>
             <title>RaptorJS: Raptor Templates</title>
             <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+            <meta name="viewport" content="width=device-width, initial-scale=1.0" />
             <optimizer:slot name="head"/>
             <docs:google-analytics/>
         </head>
         <body data-spy="scroll">
-            <docs:top-nav activeItem="raptor-templates"/>
+            <docs:top-nav activeItem="module-loader"/>
             <div class="container">
-                <div class="top">
+                <div class="feature-portal-top">
 
-                    <div class="desc">
+                    <div class="feature-portal-desc">
                         <h1>Raptor Templates</h1>
                         <p>
                             Raptor Templates is an amazing new templating language
@@ -49,7 +49,8 @@
                             alternative that puts you in control!
                         </p>
                     </div>
-                    <div class="features">
+                    
+                    <div class="feature-portal-features">
                         <h2>Features</h2>
                         <ul>
                             <li>Not Dogmatic</li>
@@ -68,61 +69,42 @@
                             <li>Safe and Secure</li>
                         </ul>
                     </div>
-                    
-                    
                 </div>
-                <div style="clear: both;"/>
-                <div class="start-here"/>
-                <table class="sections">
-                    <tr>
-                        <td class="section">
-                            <div class="content">
-                                <h3>
-                                    <a href="${url('/raptor-templates/try-online')}">Try Online</a>
-                                </h3>
-                                <div class="bd">
-                                    <p>
-                                        Edit Raptor Templates in your browser with instant results!
-                                    </p>
-                                    <div class="continue">
-                                        <a href="${url('/raptor-templates/try-online')}">Try Online ${entity:raquo}</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </td>
-                        <td class="section">
-                            <div class="content">
-                                <h3>
-                                    <a href="${url('/raptor-templates/get-started')}">Get Started</a>
-                                </h3>
-                                <div class="bd">
-                                    <p>
-                                        Learn how to quickly start using Raptor Templates in your application
-                                    </p>
-                                    <div class="continue">
-                                        <a href="${url('/raptor-templates/get-started')}">Get Started ${entity:raquo}</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </td>
-                        <td class="section">
-                            <div class="content">
-                                <h3>
-                                    <a href="${url('/raptor-templates/developer-guide')}">Developer Guide</a>
-                                </h3>
-                                <div class="bd">
-                                    <p>
-                                        An in-depth look at utilizing and
-                                        extending Raptor Templates.
-                                    </p>
-                                    <div class="continue">
-                                        <a href="${url('/raptor-templates/developer-guide')}">Developer Guide ${entity:raquo}</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </td>
-                    </tr>
-                </table>
+                
+                <div class="sections">
+                    <div class="start-here"/>
+                    
+                    <docs:feature-portal-section 
+                        class="section-try-online"
+                        title="Try Online"
+                        url="${url('/raptor-templates/try-online')}"
+                        size="small">
+
+                        Edit Raptor Templates in your browser with instant results!
+
+                    </docs:feature-portal-section>
+
+                    <docs:feature-portal-section 
+                        title="Get Started"
+                        url="${url('/raptor-templates/get-started')}"
+                        size="small">
+
+                        Learn how to quickly start using Raptor Templates in your application
+
+                    </docs:feature-portal-section>
+
+
+                    <docs:feature-portal-section 
+                        title="Developer Guide"
+                        url="${url('/raptor-templates/developer-guide')}"
+                        size="small">
+
+                        An in-depth look at utilizing and
+                        extending Raptor Templates.
+
+                    </docs:feature-portal-section>
+                </div>
+
             </div>
             
             

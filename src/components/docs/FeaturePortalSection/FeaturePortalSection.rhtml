@@ -1,10 +1,10 @@
 <c:template
     xmlns:c="core"
-    params="url,title,size,body">
+    params="url,title,size,className,body">
     
-    <div class="feature-portal-section {?size;feature-portal-section-$size}">
+    <div class="feature-portal-section {?size;feature-portal-section-$size} {?className;$className}">
         <div class="content">
-            <h3>
+            <h3 c:if="title">
                 <a href="$url">$title</a>
             </h3>
             <div class="bd">
