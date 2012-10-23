@@ -66,6 +66,15 @@
 			"cmd":
 			[
 				"${project_path}/src/publish-dev",
+				"page=/raptor-templates/try-online"
+			],
+			"name": "Publish (dev) - raptor-templates-try-online",
+			"working_dir": "${project_path}/src"
+		},
+		{
+			"cmd":
+			[
+				"${project_path}/src/publish-dev",
 				"page=/"
 			],
 			"name": "Publish (dev) - index",
@@ -226,6 +235,7 @@
 			"Publish (dev) - module-loader-get-started-async",
 			"Publish (dev) - modules-classes",
 			"Publish (dev) - modules-classes/developer-guide",
+			"Publish (dev) - raptor-templates-try-online",
 			"Publish (dev) - optimizer",
 			"Publish (dev) - optimizer-get-started",
 			"Publish (dev) - optimizer-developer-guide",

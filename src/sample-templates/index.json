@@ -57,7 +57,16 @@
     },
     {
         "label": "Macros",
-        "path": "macros"
+        "samples": [
+            {
+                "label": "Simple Macro",
+                "path": "macros"
+            },
+            {
+                "label": "Nested Content",
+                "path": "macros-nested-content"
+            }
+        ]
     },
     {
         "label": "Attributes",
@@ -92,7 +101,7 @@
     {
         "label": "Whitespace",
         "path": "whitespace",
-        showCompilerOptions: true
+        "showCompilerOptions": true
     },
     {
         "label": "Taglibs",
