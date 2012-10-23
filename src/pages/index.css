@@ -188,7 +188,7 @@
 }
 
 .feature-section.packaging {
-    width: 60%;
+    width: 59%;
     clear: none !important;
 }
 
@@ -283,6 +283,7 @@
     clear: both;
     padding-top: 16px;
     text-align: right;
+    margin-right: 8px;
 }
 
 @media (max-width: 979px) {
