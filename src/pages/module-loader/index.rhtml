@@ -20,15 +20,16 @@
         <head>
             <title>RaptorJS: Module Loader</title>
             <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+            <meta name="viewport" content="width=device-width, initial-scale=1.0" />
             <optimizer:slot name="head"/>
             <docs:google-analytics/>
         </head>
         <body data-spy="scroll">
             <docs:top-nav activeItem="module-loader"/>
             <div class="container">
-                <div class="top">
+                <div class="feature-portal-top">
 
-                    <div class="desc">
+                    <div class="feature-portal-desc">
                         <h1>RaptorJS Module Loader</h1>
                         <p>
                             For server-side JavaScript environment, RaptorJS provides
@@ -40,11 +41,9 @@
                             module loader that uses output from the RaptorJS
                             Optimizer to optimally download modules asynchronously. 
                         </p>
-
-
                     </div>
                     
-                    <div class="features">
+                    <div class="feature-portal-features">
                         <h2>Features</h2>
                         <ul>
                             <li>Supports Node and Rhino on the server</li>
@@ -62,58 +61,36 @@
                         </ul>
                     </div>
                 </div>
-
-
                 
+                <docs:feature-portal-section 
+                    title="Get Started: Async Loader"
+                    url="${url('/module-loader/get-started-async')}"
+                    size="small">
 
-                <div class="section">
-                    <div class="content">
-                        <h3>
-                            <a href="${url('/module-loader/get-started-async')}">Get Started: Async Loader</a>
-                        </h3>
-                        <div class="bd">
-                            <p>
-                                Learn how to easily start utilizing the RaptorJS asynchronous module loader
-                                to lazily load modules for a web page.
-                            </p>
-                            <div class="continue">
-                                <a href="${url('/module-loader/get-started-async')}">Continue Reading ${entity:raquo}</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="section">
-                    <div class="content">
-                        <h3>
-                            <a href="${url('/module-loader/get-started-node')}">Get Started: Node</a>
-                        </h3>
-                        <div class="bd">
-                            <p>
-                                Learn how to start loading RaptorJS JavaScript modules
-                                in a server-side <a href="http://nodejs.org/">Node</a> runtime environment.
-                            </p>
-                            <div class="continue">
-                                <a href="${url('/module-loader/get-started-node')}">Continue Reading ${entity:raquo}</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="section">
-                    <div class="content">
-                        <h3>
-                            <a href="${url('/module-loader/developer-guide')}">Developer Guide</a>
-                        </h3>
-                        <div class="bd">
-                            <p>
-                                An in-depth look at utilizing and
-                                adapting the RaptorJS Optimizer to meet your needs.
-                            </p>
-                            <div class="continue">
-                                <a href="${url('/module-loader/developer-guide')}">Continue Reading ${entity:raquo}</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                    Learn how to easily start utilizing the RaptorJS asynchronous module loader
+                    to lazily load modules for a web page.
+
+                </docs:feature-portal-section>
+
+                <docs:feature-portal-section 
+                    title="Get Started: Node"
+                    url="${url('/module-loader/get-started-node')}"
+                    size="small">
+
+                    Learn how to start loading RaptorJS JavaScript modules
+                    in a server-side <a href="http://nodejs.org/">Node</a> runtime environment.
+
+                </docs:feature-portal-section>
+
+                <docs:feature-portal-section 
+                    title="Developer Guide"
+                    url="${url('/module-loader/developer-guide')}"
+                    size="small">
+
+                    An in-depth look at utilizing and
+                    adapting the RaptorJS Optimizer to meet your needs.
+
+                </docs:feature-portal-section>
 
             </div>
             

@@ -8,7 +8,6 @@
 
 #bodyContent {
     margin-top: 0px;
-    width: 960px;
     margin-left: auto;
     margin-right: auto;
     position: relative;
@@ -52,7 +51,6 @@
     padding-top: 15px;
 /*     border: 1px solid #C0C0C0; */
     position: relative;
-    width: 960px;
     margin-left: auto;
     margin-right: auto;
 }
@@ -303,4 +301,125 @@
     clear: both;
     padding-top: 16px;
     text-align: right;
+}
+
+@media (max-width: 979px) {
+    #header {
+        margin-top: -18px;
+    }
+}
+
+@media (max-width: 959px) {
+
+    .fork {
+        display: none;
+    }
+
+    .features-row {
+        clear: none;
+        padding-bottom: 20px;
+        padding-top: 20px;
+    }
+
+    .feature-section {
+        width: 33%;
+        margin-bottom: 16px;
+    }
+
+    .feature-section:first-child > .content {
+        margin-left: 8px;
+    }
+
+    .feature-section:last-child > .content {
+        margin-right: 8px;
+    }
+
+    .intro {
+        /*text-shadow: 5px 5px 10px black;*/
+        /*text-shadow: 0 -1px 1px rgba(0,0,0,0.5);*/
+        font-family: 'Telex', sans-serif;
+        /*font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;*/
+        font-size: 26px;
+        line-height: 32px;
+        font-weight: bold;
+        text-shadow: ;
+        color: #369BD7;
+        padding: 10px;
+        margin-bottom: 16px;
+        text-align: center;
+        width: 60%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .feature-section.why, .feature-section.packaging {
+        clear: both;
+        width: auto;
+        float: none;
+    }
+}
+
+
+@media (max-width: 820px) {
+
+
+    .feature-section {
+        width: 50%;
+    }
+
+    
+    
+
+
+}
+
+@media (max-width: 767px) {
+    body {
+        padding-left: 0;
+        padding-right: 0;
+    }
+
+    .navbar-fixed-top, .navbar-fixed-bottom {
+        margin-left: 0px;
+        margin-right: 0px;
+    }
+
+    .main-content {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+    .main-content .social {
+        float: none;
+    }
+
+    .intro {
+        font-family: 'Telex', sans-serif;
+        font-size: 20px;
+        line-height: 26px;
+        width: 60%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+
+
+}
+
+@media (max-width: 480px) {
+    .intro {
+        width: 90%;
+    }
+
+    .features-row {
+        padding: 0;
+    }
+    .feature-section, .feature-section.why, .feature-section.packaging {
+        width: auto;
+        float: none;
+    }
+    .feature-section > .content > .bd > .padding {
+        min-height: auto;
+    }
+
 }

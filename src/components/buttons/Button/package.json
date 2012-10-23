@@ -2,7 +2,6 @@
     "raptor": {
         "includes": [
             {"module": "widgets"},
-            {"module": "Bootstrap/buttons"},
             "ButtonWidget.js",
             "Button.css"
         ]

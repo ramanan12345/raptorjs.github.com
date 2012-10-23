@@ -1,8 +1,7 @@
 {
     "raptor": {
         "includes": [
-            {"module": "widgets"},
-            {"module": "Bootstrap/button-groups"}
+            {"module": "widgets"}
         ]
     }
 }
