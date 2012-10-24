@@ -4,34 +4,109 @@
     xmlns:optimizer="optimizer"
     xmlns:w="widgets"
     xmlns:docs="docs"
-    params="includes,samples"
-    docs:functions="url">
+    docs:functions="url"
+    params="includes,samples">
 
     <optimizer:page name="${data.pageName}" base-path="${data.pageOutputDir}">
         <dependencies>
             <module name="docs-global"/>
             <module name="components/nav/TopNavDefault"/>
-            <module name="components/docs/Docs"/>
             <module name="components/icons/Icon"/>
+            <module name="components/editors/CodeEditor"/>
+            <module name="components/editors/CodeEditor/mode-javascript"/>
             <css path="index.css"/>
+
         </dependencies>
     </optimizer:page>
     
-    
     <html html:doctype="html">
         <head>
-            <title>RaptorJS: Widgets</title>
+            <title>RaptorJS: Widget Framework</title>
             <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
             <meta name="viewport" content="width=device-width, initial-scale=1.0" />
             <optimizer:slot name="head"/>
             <docs:google-analytics/>
         </head>
-        <body>
+        <body data-spy="scroll">
             <docs:top-nav activeItem="widgets"/>
-            
-            
             <div class="container">
-                <c:include template="content/widgets"/>
+                <div class="feature-portal-top">
+
+                    <div class="feature-portal-desc">
+                        <h1>Widget Framework</h1>
+                        <p>
+                            RaptorJS extends the popular <code>package.json</code>
+                            format so that it is better suited for packaging up code to be delivered
+                            to a browser <i>and</i> be loaded on the server. 
+                            RaptorJS packages allows developers to make dependencies explicit—including
+                            which dependencies are environment-specific.
+                        </p>
+                        <p>
+                            RaptorJS packages can be created for JavaScript modules and UI components. 
+                            RaptorJS imposes no requirements on the code that is packaged so developers
+                            can continue to write code however they prefer. RaptorJS packages
+                            are extensible and support any type of dependency (
+                                JavaScript, CSS, 
+                                <a href="http://lesscss.org/">
+                                    LESS
+                                </a>, 
+                                <a href="${url('/raptor-templates')}">
+                                    Raptor Templates
+                                </a>, etc.
+                            ).
+                        </p>
+                        <p>
+                            RaptorJS packages can be loaded on the server using the
+                            <a href="${url('/module-loader')}">
+                                <nobr>RaptorJS JavaScript Module Loader</nobr>
+                            </a>. 
+                            The <a href="${url('/optimizer')}">
+                                <nobr>RaptorJS Optimizer</nobr>
+                            </a> uses RaptorJS packages to determine
+                            which resources need to be optimized for delivery
+                            to web browsers and the
+                            <a href="${url('/module-loader/get-started-async')}">
+                                <nobr>RaptorJS Async Loader</nobr>
+                            </a>
+                             uses information from packages to optimally download
+                             packages asynchronously.
+                        </p>
+                    </div>
+                    
+                    <div class="feature-portal-features">
+                        <h2>Features</h2>
+                        <ul>
+                            <li>Make Dependencies Explicit</li>
+                            <li>Supports Environment-Specific Dependencies</li>
+                            <li>Source Code Agnostic</li>
+                            <li>Simple Format</li>
+                            <li>Dependency Order Preserved</li>
+                            <li>Package Anything</li>
+                            <li><code>package.json</code> Compatible</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <docs:feature-portal-section 
+                    title="Get Started"
+                    url="${url('/widgets/get-started')}"
+                    size="small">
+
+                    Quickly learn the basics of the RaptorJS Widget Framework
+
+                </docs:feature-portal-section>
+
+                <docs:feature-portal-section 
+                    title="Developer Guide"
+                    url="${url('/widgets/developer-guide')}"
+                    size="small">
+
+                    An in-depth look at using the RaptorJS Widget Framework
+                    to build web applications.
+
+                </docs:feature-portal-section>
+
+
             </div>
             
             <optimizer:slot name="body"/>
