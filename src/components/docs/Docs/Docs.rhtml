@@ -45,13 +45,6 @@
             <div class="docs-content">
                 <h1 id="title">${heading}</h1>
                 ${xml:content}
-
-
-                <c:if test="disqusId">
-                    <h2>Discussion</h2>
-                    <docs:disqus id="$disqusId" title="$heading" short-name="raptor-js"/>
-                </c:if>
-                
             </div>
         </div>
         <div class="docs-footer-padding"/>

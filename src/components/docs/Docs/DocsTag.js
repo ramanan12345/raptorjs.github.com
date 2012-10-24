@@ -40,17 +40,29 @@ raptor.define(
                     arrays.pop(sectionStack);
                 }
                 
+                var disqusId = input['disqus-id'];
                 var sb = strings.createStringBuilder();
                 context.swapWriter(
                     sb,
                     function() {
                         input.invokeBody();
+
+                        if (disqusId) {
+                            raptor.require('templating').render('components/docs/Docs/Docs_discussion-section', {
+                                heading: input.heading,
+                                disqusId: disqusId
+                            }, context);
+                        }
                     });
                 
+                var rootSection = sectionStack[0];
+
+                
+
                 raptor.require('templating').render('components/docs/Docs', {
                     heading: input.heading,
                     content: sb.toString(),
-                    rootSection: sectionStack[0],
+                    rootSection: rootSection,
                     returnLabel: input['return-label'],
                     returnHref: input['return-href'],
                     disqusId: input['disqus-id']

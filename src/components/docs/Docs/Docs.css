@@ -144,6 +144,25 @@ LI.toc-level-3 {
     padding-top: 0;
 }
 
+.discussion-padding {
+    height: 20px;
+    background-image: -moz-linear-gradient(top, #FFF, #EEE);
+    background-image: -ms-linear-gradient(top, #FFF, #EEE);
+    background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#FFF), to(#EEE));
+    background-image: -webkit-linear-gradient(top, #FFF, #EEE);
+    background-image: -o-linear-gradient(top, #FFF, #EEE);
+    background-image: linear-gradient(top, #FFF, #EEE);
+    background-repeat: repeat-x;
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#3771df', endColorstr='#3996dd', GradientType=0);
+}
+
+H2.discussion {
+    font-size: 24px;
+    padding-top: 10px;
+    margin-top: 0px;
+    border-top: 2px solid Black;
+}
+
 
 @media (max-width: 979px) {
     #docsNav {
