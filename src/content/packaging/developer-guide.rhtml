@@ -107,7 +107,7 @@
                 ]]>
                 </docs:code-editor>
             </docs:section>
-            <docs:section heading="Dependencies Format">
+            <docs:section heading="Dependencies Format" anchor-name="DependenciesFormat">
                 <p>
                     Dependencies are provided as an array to maintain order.
                     Each dependency may be a complex JSON <code>object</code> or a simple
@@ -177,33 +177,77 @@
                 <p>
                     Extensions are provided as an array of objects using the
                     <code>extensions</code> property as a property of the top-level <code>raptor</code> object.
-                    Each extension supports two properties:
+                    Each extension supports the following properties:
                 </p>
                 <ul>
                     <li>
                         <b>name</b>: The name of the extension. The name of the extension is arbitrary, but
                                      there are a few well-defined names such as "server", "browser", "node", "rhino", etc.
+                                     The dependencies associated with an extension will only be included
+                                     if an extension with the provided name is <a href="#EnablingExtensions">enabled</a>.
                                      For more details on extension names see 
                                      <a href="#ExtensionNames">
                                         Extension Names below
-                                     </a>
+                                     </a>.
                     </li>
                     <li>
-                        
+                        <b>dependencies</b>: An array of dependencies. See 
+                                    <a href="#DependenciesFormat">
+                                        Dependencies Format
+                                     </a> above for details.
+                    </li>
+                    <li>
+                        <b>condition</b>: A JavaScript that will be evaluated at runtime to determine
+                                          if the dependencies for the extension should be included.
+                                          See 
+                                          <a href="#ExtensionConditions">
+                                            Extension Conditions
+                                        </a> below for details.
                     </li>
                 </ul>
-                <docs:section heading="Extension Conditions">
+                <docs:section heading="Extension Conditions" anchor-name="ExtensionConditions">
                     <p>
                         An extension definition can also include a <code>condition</code>
                         property that defines a JavaScript expression that is evaluated
                         at runtime to determine whether or not the dependencies for the
-                        extension should be included.
+                        extension should be included. An example extension with with
+                        a condition is shown below:
+                    </p>
+                    <docs:code-editor 
+                        autoResize="true"
+                        indentUnit="4"
+                        readOnly="true"
+                        mode="javascript">
+                    <![CDATA[
+                    {
+                        
+                        "raptor": {
+                            
+                            "extensions": [
+                                {
+                                    "name": "my-extension",
+                                    "condition": "!extensions.contains('jquery')",
+                                    "dependencies": [
+                                        "no-jquery.js"
+                                    ]
+                                }
+                            ]
+                        }   
+                    }
+                    ]]>
+                    </docs:code-editor>
+                    <p>
+                        When using extension conditions, <code>extensions</code> is an object
+                        that represents the list of enabled extensions.
                     </p>
                 </docs:section>
             </docs:section>
 
             
         </docs:section>
+
+        
+        
 
         <docs:section heading="Module Dependencies">
             <p>
@@ -232,6 +276,11 @@
             <docs:section heading="Extension Names" anchor-name="ExtensionNames">
                 <p>
                     
+                </p>
+            </docs:section>
+
+            <docs:section heading="Enabling Extensions" anchor-name="EnablingExtensions">
+                <p>
                 </p>
             </docs:section>
         </docs:section>
