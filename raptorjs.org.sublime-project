@@ -146,6 +146,33 @@
 		{
 			"cmd":
 			[
+				"${project_path}/src/publish-dev",
+				"page=/widgets"
+			],
+			"name": "Publish (dev) - widgets",
+			"working_dir": "${project_path}/src"
+		},
+		{
+			"cmd":
+			[
+				"${project_path}/src/publish-dev",
+				"page=/widgets/developer-guide"
+			],
+			"name": "Publish (dev) - widgets/developer-guide",
+			"working_dir": "${project_path}/src"
+		},
+		{
+			"cmd":
+			[
+				"${project_path}/src/publish-dev",
+				"page=/widgets/get-started"
+			],
+			"name": "Publish (dev) - widgets/get-started",
+			"working_dir": "${project_path}/src"
+		},
+		{
+			"cmd":
+			[
 				"${project_path}/publish-to-github"
 			],
 			"name": "Publish to Github",
@@ -271,6 +298,9 @@
 			"Publish (dev) - packaging/get-started",
 			"Publish (dev) - raptor-templates",
 			"Publish (dev) - raptor-templates-developer-guide",
+			"Publish (dev) - widgets",
+			"Publish (dev) - widgets/developer-guide",
+			"Publish (dev) - widgets/get-started",
 			"Publish to Github",
 			"sample-projects/async-loader/get-started/publish.js"
 		]

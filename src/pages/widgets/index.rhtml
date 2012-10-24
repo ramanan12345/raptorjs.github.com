@@ -35,54 +35,39 @@
                     <div class="feature-portal-desc">
                         <h1>Widget Framework</h1>
                         <p>
-                            RaptorJS extends the popular <code>package.json</code>
-                            format so that it is better suited for packaging up code to be delivered
-                            to a browser <i>and</i> be loaded on the server. 
-                            RaptorJS packages allows developers to make dependencies explicit—including
-                            which dependencies are environment-specific.
+                            The RaptorJS Widget Framework takes care of automatically
+                            initializing JavaScript widgets for rendered UI components—even for UI 
+                            components rendered on the server. Initialized JavaScript widgets 
+                            will be automatically bound to their associated DOM node and also be
+                            passed widget configuration data.
                         </p>
                         <p>
-                            RaptorJS packages can be created for JavaScript modules and UI components. 
-                            RaptorJS imposes no requirements on the code that is packaged so developers
-                            can continue to write code however they prefer. RaptorJS packages
-                            are extensible and support any type of dependency (
-                                JavaScript, CSS, 
-                                <a href="http://lesscss.org/">
-                                    LESS
-                                </a>, 
-                                <a href="${url('/raptor-templates')}">
-                                    Raptor Templates
-                                </a>, etc.
-                            ).
+                            The RaptorJS Widget framework provides all of this functionality without 
+                            requiring that the front-end developer utlizing a UI component write even 
+                            a single of JavaScript code.  RaptorJS UI components can be easily embedded 
+                            in HTML templates.
                         </p>
                         <p>
-                            RaptorJS packages can be loaded on the server using the
-                            <a href="${url('/module-loader')}">
-                                <nobr>RaptorJS JavaScript Module Loader</nobr>
-                            </a>. 
-                            The <a href="${url('/optimizer')}">
-                                <nobr>RaptorJS Optimizer</nobr>
-                            </a> uses RaptorJS packages to determine
-                            which resources need to be optimized for delivery
-                            to web browsers and the
-                            <a href="${url('/module-loader/get-started-async')}">
-                                <nobr>RaptorJS Async Loader</nobr>
-                            </a>
-                             uses information from packages to optimally download
-                             packages asynchronously.
+                            The RaptorJS Widget Framework encourages best practices by allowing
+                            UI component developers to encapsulate presentation and logic, and
+                            developers have full control over how a widget is implemented. Lastly,
+                            for optimal performance, the RaptorJS Widget Framework does not rely on 
+                            querying the DOM to find widgets.
                         </p>
                     </div>
                     
                     <div class="feature-portal-features">
                         <h2>Features</h2>
                         <ul>
-                            <li>Make Dependencies Explicit</li>
-                            <li>Supports Environment-Specific Dependencies</li>
-                            <li>Source Code Agnostic</li>
-                            <li>Simple Format</li>
-                            <li>Dependency Order Preserved</li>
-                            <li>Package Anything</li>
-                            <li><code>package.json</code> Compatible</li>
+                            <li>Simple</li>
+                            <li>Lightweight JavaScript API</li>
+                            <li>UI Components are Encapsulated</li>
+                            <li>RaptorJS Automatically Initializes Widgets</li>
+                            <li>Template Bindings for Raptor Templates</li>
+                            <li>Utilize UI Components without Writing JavaScript</li>
+                            <li>Widget Configs Serialized as JSON</li>
+                            <li>Use with any Library such as jQuery o</li>
+                            <li>Encourages Best Practices for Building UI Components</li>
                         </ul>
                     </div>
                 </div>
