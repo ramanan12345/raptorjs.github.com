@@ -17,33 +17,33 @@
     
     <div class="docs">
         <div class="bd">
-            <div class="toc nav" id="docsNav">
-                <div c:if="returnLabel and returnHref" class="return">
-                    ${entity:laquo} Return to <a href="$returnHref">$returnLabel</a>
-                </div>
-
-                <c:invoke function="toc(rootSection)"/>
-
-                <div class="docs-nav-footer">
-                    <ul>
-                        <li>
-                            <span class="powered-by">
-                                Powered by <a href="${url('/')}" class="raptorjs">RaptorJS</a>
-                            </span>
-                        </li>
-                        <li>
-                            <a href="${url('/license')}">License</a>
-                        </li>
-                        <li>
-                            <a href="${url('/credits')}">Credits</a>
-                        </li>
-                    </ul>
-                </div>
-                    
-
-            </div>
             <div class="docs-content">
                 <h1 id="title">${heading}</h1>
+
+                <div class="toc nav" id="docsNav">
+                    <div c:if="returnLabel and returnHref" class="return">
+                        ${entity:laquo} Return to <a href="$returnHref">$returnLabel</a>
+                    </div>
+
+                    <c:invoke function="toc(rootSection)"/>
+
+                    <div class="docs-nav-footer">
+                        <ul>
+                            <li>
+                                <span class="powered-by">
+                                    Powered by <a href="${url('/')}" class="raptorjs">RaptorJS</a>
+                                </span>
+                            </li>
+                            <li>
+                                <a href="${url('/license')}">License</a>
+                            </li>
+                            <li>
+                                <a href="${url('/credits')}">Credits</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                
                 ${xml:content}
             </div>
         </div>

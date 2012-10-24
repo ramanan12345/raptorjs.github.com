@@ -4,7 +4,7 @@ BODY > DIV.container {
 
 
 .docs-content > H1 {
-    padding-top: 40px;
+    padding-top: 60px;
 }
 
 .docs-content H2 {
@@ -54,12 +54,16 @@ BODY > DIV.container {
     margin-bottom: 10px;
 }
 
-.docs > .bd > .toc  UL.toc {
+DIV.toc > UL.toc {
+    margin-left: 0;
+}
+
+.docs > .bd > .docs-content > .toc  UL.toc {
     margin: 0;
     padding: 0;
 }
 
-.docs > .bd > .toc > UL.toc UL.toc UL.toc {
+.docs > .bd > .docs-content > .toc > UL.toc UL.toc UL.toc {
     margin-left: 6px;
     padding-left: 10px;
 }
@@ -80,6 +84,8 @@ BODY > DIV.container {
     border-top: 1px solid #C0C0C0;
     margin-top: 40px;
 }
+
+
 
 .toc LI {
     list-style: none outside none;
@@ -175,7 +181,11 @@ H2.discussion {
     }
 
     .navbar {
-        margin-left: 270px;
+        margin-left: 270px !important;
+    }
+
+    .docs-content > H1 {
+        padding-top: 10px;
     }
 }
 
@@ -203,6 +213,10 @@ H2.discussion {
 
     .docs-nav-footer {
         display: none;
+    }
+
+    .navbar {
+        margin-left: 0 !important;
     }
 }
 
