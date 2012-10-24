@@ -69,7 +69,7 @@
     font-family: 'Arial', 'Helvetica', sans-serif;
 }
 
-.intro {
+H1.intro {
     /*text-shadow: 5px 5px 10px black;*/
     /*text-shadow: 0 -1px 1px rgba(0,0,0,0.5);*/
     font-family: 'Telex', sans-serif;
@@ -80,6 +80,8 @@
     text-shadow: ;
     color: #369BD7;
     padding: 10px;
+    margin: 0;
+    padding: 0;
     margin-bottom: 16px;
     text-align: center;
 }
@@ -314,7 +316,7 @@
         display: none;
     }
 
-    .intro {
+    H1.intro {
         /*text-shadow: 5px 5px 10px black;*/
         /*text-shadow: 0 -1px 1px rgba(0,0,0,0.5);*/
         font-family: 'Telex', sans-serif;
@@ -370,7 +372,7 @@
         float: none;
     }
 
-    .intro {
+    H1.intro {
         font-family: 'Telex', sans-serif;
         font-size: 20px;
         line-height: 26px;
@@ -394,7 +396,7 @@
 }
 
 @media (max-width: 540px) {
-    .intro {
+    H1.intro {
         width: 90%;
     }
 
