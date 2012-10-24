@@ -290,6 +290,15 @@
     margin-right: 8px;
 }
 
+.hiring {
+    padding: 5px;
+    background-color: #FFC;
+    border: 1px solid #C0C0C0;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    text-align: center;
+}
+
 @media (max-width: 979px) {
     #header {
         margin-top: -18px;
