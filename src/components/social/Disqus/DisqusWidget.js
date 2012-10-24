@@ -1,5 +1,4 @@
 raptor.define(
-raptor.define(
     "components.social.Disqus.DisqusWidget",
     function(raptor) {
         var DisqusWidget = function(config) {
@@ -12,7 +11,8 @@ raptor.define(
                 window.disqus_title = config.title;
             }
             
-            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+            var dsq = document.createElement('script'); 
+            dsq.type = 'text/javascript'; dsq.async = true;
             dsq.src = 'http://' + config.shortName + '.disqus.com/embed.js';
             (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
         };
