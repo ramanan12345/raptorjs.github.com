@@ -190,4 +190,10 @@ LI.toc-level-3 {
     }
 }
 
+@media (min-width: 920px) {
+    .docs-content {
+        width: 920px;
+    }
+}
+
 

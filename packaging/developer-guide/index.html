@@ -1,45 +1,175 @@
- <!DOCTYPE html><html><head><title>RaptorJS: Packaging &amp; Extensions</title><meta http-equiv="content-type" content="text/html; charset=UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><link rel="stylesheet" type="text/css" href="../../static/packaging-developer-guide-head-d0426be0.css">
-<link rel="stylesheet" type="text/css" href="../../static/docs-head-92a77b85.css">
-<link rel="stylesheet" type="text/css" href="../../static/code-editor-head-6a226e30.css"><script type="text/javascript">var
+ <!DOCTYPE html><html><head><title>RaptorJS: Packaging &amp; Extensions</title><meta http-equiv="content-type" content="text/html; charset=UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><link rel="stylesheet" type="text/css" href="../../static/FontAwesome-font-awesome.less-4dca126b.css">
+<link rel="stylesheet" type="text/css" href="../../static/Bootstrap-bootstrap-less-tooltip.less-cce5977e.css">
+<link rel="stylesheet" type="text/css" href="../../static/Bootstrap-bootstrap-less-popovers.less-aaa2fb6a.css">
+<link rel="stylesheet" type="text/css" href="../../static/components-overlays-Popover-Popover.less-ef41d211.css">
+<link rel="stylesheet" type="text/css" href="../../static/Bootstrap-bootstrap-less-reset.less-8b2863da.css">
+<link rel="stylesheet" type="text/css" href="../../static/Bootstrap-bootstrap-less-dropdowns.less-3d3a4763.css">
+<link rel="stylesheet" type="text/css" href="../../static/Bootstrap-bootstrap-less-buttons.less-f425bc5c.css">
+<link rel="stylesheet" type="text/css" href="../../static/Bootstrap-bootstrap-less-button-groups.less-57bc57fc.css">
+<link rel="stylesheet" type="text/css" href="../../static/Bootstrap-bootstrap-less-navbar.less-3fddebba.css">
+<link rel="stylesheet" type="text/css" href="../../static/Bootstrap-bootstrap-less-scaffolding.less-bf5091ca.css">
+<link rel="stylesheet" type="text/css" href="../../static/Bootstrap-bootstrap-less-util.less-76335526.css">
+<link rel="stylesheet" type="text/css" href="../../static/Bootstrap-bootstrap-less-layouts.less-802df0dc.css">
+<link rel="stylesheet" type="text/css" href="../../static/Bootstrap-bootstrap-less-type.less-50053849.css">
+<link rel="stylesheet" type="text/css" href="../../static/Bootstrap-bootstrap-less-tables.less-ff9f78de.css">
+<link rel="stylesheet" type="text/css" href="../../static/Bootstrap-bootstrap-less-responsive-utilities.less-39bb94a4.css">
+<link rel="stylesheet" type="text/css" href="../../static/Bootstrap-bootstrap-less-responsive-767px-max.less-51dc8b45.css">
+<link rel="stylesheet" type="text/css" href="../../static/Bootstrap-bootstrap-less-responsive-768px-979px.less-10934762.css">
+<link rel="stylesheet" type="text/css" href="../../static/Bootstrap-bootstrap-less-responsive-1200px-min.less-c68bacd4.css">
+<link rel="stylesheet" type="text/css" href="../../static/Bootstrap-bootstrap-less-responsive-navbar.less-4eda28b0.css">
+<link rel="stylesheet" type="text/css" href="../../src/components/footers/FooterDefault/FooterDefault.css">
+<link rel="stylesheet" type="text/css" href="../../src/components/footers/FooterSingleLine/FooterSingleLine.css">
+<link rel="stylesheet" type="text/css" href="../../src/components/footers/Footer/Footer.css">
+<link rel="stylesheet" type="text/css" href="../../src/components/notifications/Message/Message.css">
+<link rel="stylesheet" type="text/css" href="../../src/components/docs/FeaturePortalSection/FeaturePortalSection.css">
+<link rel="stylesheet" type="text/css" href="../../src/modules/docs-global/global.css">
+<link rel="stylesheet" type="text/css" href="../../src/components/nav/NavBar/NavBar.css">
+<link rel="stylesheet" type="text/css" href="../../static/Bootstrap-bootstrap-less-navs.less-bcafff4f.css">
+<link rel="stylesheet" type="text/css" href="../../src/components/nav/Nav/Nav.css">
+<link rel="stylesheet" type="text/css" href="../../src/components/nav/NavDivider/NavDivider.css">
+<link rel="stylesheet" type="text/css" href="../../src/components/nav/TopNavDefault/TopNavDefault.css">
+<link rel="stylesheet" type="text/css" href="../../src/components/docs/Section/Section.css">
+<link rel="stylesheet" type="text/css" href="../../src/modules/CodeMirror/CodeMirror-2.33/lib/codemirror.css">
+<link rel="stylesheet" type="text/css" href="../../src/components/editors/CodeEditor/CodeEditor.css">
+<link rel="stylesheet" type="text/css" href="../../src/components/docs/Docs/Docs.css">
+<link rel="stylesheet" type="text/css" href="../../src/pages/packaging/developer-guide/index.css"><script type="text/javascript">var
 _gaq=_gaq||[];_gaq.push(["_setAccount","UA-33982282-1"]);_gaq.push(["_trackPageview"]);(function(){var
 a=document.createElement("script");a.type="text/javascript";a.async=!0;a.src=("https:"==document.location.protocol?"https://ssl":"http://www")+".google-analytics.com/ga.js";var
-b=document.getElementsByTagName("script")[0];b.parentNode.insertBefore(a,b)})();</script></head><body><div class="navbar navbar-fixed-top"><div class="navbar-inner"><div class="container"><a class="brand" href="../../">RaptorJS</a><ul class="nav"><li class="divider-vertical"></li><li id="s791"><a href="../../get-started/">Get Started</a></li><li class="divider-vertical"></li><li id="s792" class="dropdown"><a data-toggle="dropdown" class="dropdown-toggle">Learn<b class="caret"></b></a><ul class="dropdown-menu"><li id="s793"><a href="../../">Overview</a></li><li id="s794"><a href="../../get-started/">Get Started</a></li><li id="s795"><a href="../../tutorial/">Tutorial</a></li><li id="s796"><a href="../../api/">API Reference</a></li><li id="s797"><a href="../../faq/">FAQ</a></li><li class="divider"></li><li id="s798"><a href="../../modules-classes/">Modules and Classes</a></li><li id="s799" class="active nav-item-active"><a href="../../packaging/">Packaging and Extensions</a></li><li id="s800"><a href="../../module-loader/">Module Loader</a></li><li id="s801"><a href="../../optimizer/">Optimizer</a></li><li id="s802"><a href="../../raptor-templates/">Raptor Templates</a></li><li id="s803"><a href="../../widgets/">Widgets Framework</a></li><li id="s804"><a href="../../logging/">Logging</a></li><li id="s805"><a href="../../resource-search-path/">Resource Search Path</a></li><li id="s806"><a href="../../cross-environment/">Cross Environment Support</a></li></ul></li><li class="divider-vertical"></li><li id="s807" class="dropdown"><a data-toggle="dropdown" class="dropdown-toggle">Community<b class="caret"></b></a><ul class="dropdown-menu"><li id="s808"><a href="https://github.com/raptorjs/raptorjs">Source code</a></li><li id="s809"><a href="https://github.com/raptorjs/raptorjs/issues">Issue Tracker</a></li><li id="s810"><a href="../../contribute/">Contribute</a></li><li id="s811"><a href="../../contributors/">Contributors</a></li><li class="divider"></li><li id="s812"><a href="http://groups.google.com/group/raptorjs">Discussion Forum</a></li><li class="divider"></li><li id="s813"><a href="http://twitter.com/raptorjs">Twitter (@raptorjs)</a></li><li id="s814"><a href="http://twitter.com/raptorjs">Google+</a></li></ul></li><li class="divider-vertical"></li><li id="s815" class="dropdown"><a data-toggle="dropdown" class="dropdown-toggle">About<b class="caret"></b></a><ul class="dropdown-menu"><li id="s816"><a href="https://github.com/raptorjs/raptorjs/wiki/Release-Notes">Release Notes</a></li><li id="s817"><a href="../../design-philosophy/">Design Philosophy</a></li><li id="s818"><a href="../../license/">License</a></li><li id="s819"><a href="../../credits/">Credits</a></li><li id="s820"><a href="../../creators/">Creators</a></li></ul></li><li class="divider-vertical"></li></ul></div></div></div><div class="container"><div class="docs"><div class="bd"><div class="toc nav" id="docsNav"><ul class="toc"><li class="toc toc-level-0"><a href="#Overview">Overview</a><ul class="toc"></ul></li><li class="toc toc-level-0"><a href="#Package_Dependencies">Package Dependencies</a><ul class="toc"><li class="toc toc-level-1"><a href="#RegisteringIncludeTypes">Registering Include Types</a><ul class="toc"></ul></li></ul></li></ul><div class="docs-nav-footer"><ul><li><span class="powered-by">Powered by <a href="../../" class="raptorjs">RaptorJS</a></span></li><li><a href="../../license/">License</a></li><li><a href="../../credits/">Credits</a></li></ul></div></div><div class="docs-content"><h1 id="title">Packaging &amp; Extensions</h1><div class="message message-warning"><div class="icon"><i class="icon-warning-sign" style="font-size: 30px;"></i></div><div class="bd">Documentation In-Progress</div></div><div class="section section-level-0"><h2 id="Overview">Overview</h2><div class="bd"><p>For server-side JavaScript environment, RaptorJS provides a cross-platform
-module loader that reads modules package files to determine which code to load
-for a particular module. In addition, the RaptorJS Optimizer reads package
-files to determine which code to deliver to a particular client while also
-optimizing the output JavaScript and CSS bundles.
-</p></div></div><div class="section section-level-0"><h2 id="Package_Dependencies">Package Dependencies</h2><div class="bd"><div class="section section-level-1"><h2 id="RegisteringIncludeTypes">Registering Include Types</h2><div class="bd"></div></div></div></div></div></div><div class="docs-footer-padding"></div></div></div><script type="text/javascript" src="../../static/core-body-2834a6ab.js"></script>
-<script type="text/javascript" src="../../static/jquery-body-371da524.js"></script>
-<script type="text/javascript" src="../../static/widgets-body-06552a07.js"></script>
-<script type="text/javascript" src="../../static/packaging-developer-guide-body-ee9bc3d9.js"></script>
-<script type="text/javascript" src="../../static/code-editor-body-a2bab28c.js"></script><script type="text/javascript">$rwidgets(
-["components.nav.Nav.NavItemWidget","s791",0,0,0,0],
-["components.nav.Nav.NavItemWidget","s792",0,0,0,0,
-["components.nav.Nav.NavItemWidget","s793",0,0,0,0],
-["components.nav.Nav.NavItemWidget","s794",0,0,0,0],
-["components.nav.Nav.NavItemWidget","s795",0,0,0,0],
-["components.nav.Nav.NavItemWidget","s796",0,0,0,0],
-["components.nav.Nav.NavItemWidget","s797",0,0,0,0],
-["components.nav.Nav.NavItemWidget","s798",0,0,0,0],
-["components.nav.Nav.NavItemWidget","s799",0,0,0,0],
-["components.nav.Nav.NavItemWidget","s800",0,0,0,0],
-["components.nav.Nav.NavItemWidget","s801",0,0,0,0],
-["components.nav.Nav.NavItemWidget","s802",0,0,0,0],
-["components.nav.Nav.NavItemWidget","s803",0,0,0,0],
-["components.nav.Nav.NavItemWidget","s804",0,0,0,0],
-["components.nav.Nav.NavItemWidget","s805",0,0,0,0],
-["components.nav.Nav.NavItemWidget","s806",0,0,0,0]],
-["components.nav.Nav.NavItemWidget","s807",0,0,0,0,
-["components.nav.Nav.NavItemWidget","s808",0,0,0,0],
-["components.nav.Nav.NavItemWidget","s809",0,0,0,0],
-["components.nav.Nav.NavItemWidget","s810",0,0,0,0],
-["components.nav.Nav.NavItemWidget","s811",0,0,0,0],
-["components.nav.Nav.NavItemWidget","s812",0,0,0,0],
-["components.nav.Nav.NavItemWidget","s813",0,0,0,0],
-["components.nav.Nav.NavItemWidget","s814",0,0,0,0]],
-["components.nav.Nav.NavItemWidget","s815",0,0,0,0,
-["components.nav.Nav.NavItemWidget","s816",0,0,0,0],
-["components.nav.Nav.NavItemWidget","s817",0,0,0,0],
-["components.nav.Nav.NavItemWidget","s818",0,0,0,0],
-["components.nav.Nav.NavItemWidget","s819",0,0,0,0],
-["components.nav.Nav.NavItemWidget","s820",0,0,0,0]]);</script></body></html>
+b=document.getElementsByTagName("script")[0];b.parentNode.insertBefore(a,b)})();</script></head><body><div class="navbar navbar-fixed-top"><div class="navbar-inner"><div class="container"><a class="brand" href="../../index.html">RaptorJS</a><ul class="nav"><li class="divider-vertical"></li><li id="s0"><a href="../../get-started/index.html">Get Started</a></li><li class="divider-vertical"></li><li id="s1" class="dropdown"><a data-toggle="dropdown" class="dropdown-toggle">Learn<b class="caret"></b></a><ul class="dropdown-menu"><li id="s2"><a href="../../index.html">Overview</a></li><li id="s3"><a href="../../get-started/index.html">Get Started</a></li><li id="s4"><a href="../../tutorial/index.html">Tutorial</a></li><li id="s5"><a href="../../api/index.html">API Reference</a></li><li id="s6"><a href="../../faq/index.html">FAQ</a></li><li class="divider"></li><li id="s7"><a href="../../modules-classes/index.html">Modules and Classes</a></li><li id="s8"><a href="../../packaging/index.html">Packaging and Extensions</a></li><li id="s9"><a href="../../module-loader/index.html">Module Loader</a></li><li id="s10"><a href="../../optimizer/index.html">Optimizer</a></li><li id="s11"><a href="../../raptor-templates/index.html">Raptor Templates</a></li><li id="s12"><a href="../../widgets/index.html">Widgets Framework</a></li><li id="s13"><a href="../../logging/index.html">Logging</a></li><li id="s14"><a href="../../resource-search-path/index.html">Resource Search Path</a></li><li id="s15"><a href="../../cross-environment/index.html">Cross Environment Support</a></li></ul></li><li class="divider-vertical"></li><li id="s16" class="dropdown"><a data-toggle="dropdown" class="dropdown-toggle">Community<b class="caret"></b></a><ul class="dropdown-menu"><li id="s17"><a href="https://github.com/raptorjs/raptorjs">Source code</a></li><li id="s18"><a href="https://github.com/raptorjs/raptorjs/issues">Issue Tracker</a></li><li id="s19"><a href="../../contribute/index.html">Contribute</a></li><li id="s20"><a href="../../contributors/index.html">Contributors</a></li><li class="divider"></li><li id="s21"><a href="http://groups.google.com/group/raptorjs">Discussion Forum</a></li><li class="divider"></li><li id="s22"><a href="http://twitter.com/raptorjs">Twitter (@raptorjs)</a></li><li id="s23"><a href="http://twitter.com/raptorjs">Google+</a></li></ul></li><li class="divider-vertical"></li><li id="s24" class="dropdown"><a data-toggle="dropdown" class="dropdown-toggle">About<b class="caret"></b></a><ul class="dropdown-menu"><li id="s25"><a href="https://github.com/raptorjs/raptorjs/wiki/Release-Notes">Release Notes</a></li><li id="s26"><a href="../../design-philosophy/index.html">Design Philosophy</a></li><li id="s27"><a href="../../license/index.html">License</a></li><li id="s28"><a href="../../credits/index.html">Credits</a></li><li id="s29"><a href="../../creators/index.html">Creators</a></li></ul></li><li class="divider-vertical"></li></ul></div></div></div><div class="container"><div class="docs"><div class="bd"><div class="toc nav" id="docsNav"><ul class="toc"><li class="toc toc-level-0"><a href="#Overview">Overview</a><ul class="toc"></ul></li><li class="toc toc-level-0"><a href="#Package_Format">Package Format</a><ul class="toc"><li class="toc toc-level-1"><a href="#Sample_RaptorJS_Package">Sample RaptorJS Package</a><ul class="toc"></ul></li><li class="toc toc-level-1"><a href="#Dependencies_Format">Dependencies Format</a><ul class="toc"></ul></li><li class="toc toc-level-1"><a href="#Extensions_Format">Extensions Format</a><ul class="toc"><li class="toc toc-level-2"><a href="#Extension_Conditions">Extension Conditions</a><ul class="toc"></ul></li></ul></li></ul></li><li class="toc toc-level-0"><a href="#Module_Dependencies">Module Dependencies</a><ul class="toc"></ul></li><li class="toc toc-level-0"><a href="#Extensions">Extensions</a><ul class="toc"><li class="toc toc-level-1"><a href="#ExtensionNames">Extension Names</a><ul class="toc"></ul></li></ul></li><li class="toc toc-level-0"><a href="#Package_Dependency_Types">Package Dependency Types</a><ul class="toc"><li class="toc toc-level-1"><a href="#RegisteringDependencyTypes">Registering Dependency Types</a><ul class="toc"></ul></li></ul></li></ul><div class="docs-nav-footer"><ul><li><span class="powered-by">Powered by <a href="../../index.html" class="raptorjs">RaptorJS</a></span></li><li><a href="../../license/index.html">License</a></li><li><a href="../../credits/index.html">Credits</a></li></ul></div></div><div class="docs-content"><h1 id="title">Packaging and Extensions</h1><div class="message message-warning"><div class="icon"><i class="icon-warning-sign" style="font-size: 30px;"></i></div><div class="bd">Documentation In-Progress</div></div><div class="section section-level-0"><h2 id="Overview">Overview</h2><div class="bd"><p>RaptorJS extends the popular <code>package.json</code> format so that it is better suited for packaging up code to be delivered to a
+browser
+<i>and</i> be loaded on the server. RaptorJS packages allows developers to make
+dependencies explicit—including which dependencies are
+environment-specific.</p><p>RaptorJS packages can be created for JavaScript modules and UI components.
+RaptorJS imposes no requirements on the code that is packaged so developers can
+continue to write code however they prefer. RaptorJS packages are extensible
+and support any type of dependency ( JavaScript, CSS,
+<a href="http://lesscss.org/">LESS</a>, <a href="../../raptor-templates/index.html">Raptor Templates</a>, etc. ).</p><p>RaptorJS packages can be loaded on the server using the <a href="../../module-loader/index.html"><nobr>RaptorJS JavaScript Module Loader</nobr></a>. The <a href="../../optimizer/index.html"><nobr>RaptorJS Optimizer</nobr></a> uses RaptorJS packages to determine which resources need to be optimized for
+delivery to web browsers and the
+<a href="../../module-loader/get-started-async/index.html"><nobr>RaptorJS Async Loader</nobr></a> uses information from packages to optimally download packages asynchronously.</p></div></div><div class="section section-level-0"><h2 id="Package_Format">Package Format</h2><div class="bd"><p>The RaptorJS package format loosely follows the <a href="http://wiki.commonjs.org/wiki/Packages/1.0#Package_Descriptor_File">CommonJS Packages 1.0 Specification</a> format in a compatible way. The only difference between a RaptorJS package and
+a standard CommonJS package is that a RaptorJS package introduces a new
+top-level
+<code>raptor</code> property. The value of the <code>raptor</code> property is an object that may contain two nested properties:</p><ul><li><b>dependencies</b>: An array of RaptorJS dependencies.</li><li><b>extensions</b>: An array of named extensions, each which contains additional
+environment-specific
+dependencies.</li></ul><div class="section section-level-1"><h2 id="Sample_RaptorJS_Package">Sample RaptorJS Package</h2><div class="bd"><p>A sample RaptorJS package is shown below:</p><div class="code-editor" id="s30"> <textarea id="s30-textarea" style="display: none;" name="code-0">{
+    "name": "my-module",
+    "version": "1.0",
+    "description": "My amazing module.",
+    "raptor": {
+        "dependencies": [
+            { "module": "another-module" },
+            "my-module-common.js",
+        ],
+        "extensions": [
+            {
+                "name": "server",
+                "dependencies": [
+                    "my-module-server.js"
+                ]
+            },
+            {
+                "name": "browser",
+                "dependencies": [
+                    "my-module.less"
+                ]
+            }
+        ]
+    }   
+}</textarea></div></div></div><div class="section section-level-1"><h2 id="Dependencies_Format">Dependencies Format</h2><div class="bd"><p>Dependencies are provided as an array to maintain order. Each dependency may be
+a complex JSON
+<code>object</code> or a simple JSON <code>string</code>. When a dependency is provided as an <code>object</code>, the <code>type</code> property is used to determine the dependency type. For example:</p><div class="code-editor" id="s31"> <textarea id="s31-textarea" style="display: none;" name="code-1">"dependencies": [
+    { "type": "module", "name": "my-module" },
+    { "type": "js", "path": "widget.js" }
+]</textarea></div><p>RaptorJS packages support a short-hand for resource dependencies by allowing
+the dependency to be provided as a simple
+<code>string</code> path. When a <code>string</code> dependency is encountered the file extension is used to determine the type.
+For
+example:</p><div class="code-editor" id="s32"> <textarea id="s32-textarea" style="display: none;" name="code-2">"dependencies": [
+    "widget.js"
+]</textarea></div><p>If a <code>string</code> dependency does not have a file extension then it is treated as a module name.
+For
+example:</p><div class="code-editor" id="s33"> <textarea id="s33-textarea" style="display: none;" name="code-3">"dependencies": [
+    "my-module"
+]</textarea></div><p>Lastly, a few additional short-hand dependencies are supported as shown below:</p><ul><li><b>Module</b>: <code>{ "module": "my-module" }</code></li><li><b>Resource</b>: <code>{ "path": "widget.js" }</code></li></ul></div></div><div class="section section-level-1"><h2 id="Extensions_Format">Extensions Format</h2><div class="bd"><p>Extensions are provided as an array of objects using the <code>extensions</code> property as a property of the top-level <code>raptor</code> object. Each extension supports two properties:</p><ul><li><b>name</b>: The name of the extension. The name of the extension is arbitrary, but there
+are a few well-defined names such as "server", "browser", "node", "rhino", etc.
+For more details on extension names see
+<a href="#ExtensionNames">Extension Names below</a></li><li></li></ul><div class="section section-level-2"><h2 id="Extension_Conditions">Extension Conditions</h2><div class="bd"><p>An extension definition can also include a <code>condition</code> property that defines a JavaScript expression that is evaluated at runtime to
+determine whether or not the dependencies for the extension should be
+included.</p></div></div></div></div></div></div><div class="section section-level-0"><h2 id="Module_Dependencies">Module Dependencies</h2><div class="bd"><p>RaptorJS packages allow module dependencies to be declared. Every RaptorJS
+module is expected to have a corresponding
+<code>package.json</code> file that describes the dependencies for the module. RaptorJS resolves a
+module name to a
+<code>package.json</code> file based on the name of the module. That is, the <code>package.json</code> is expected to be located in a directory based on the module name. RaptorJS
+will try a few different possible resource paths when trying to resolve a
+module name to a
+<code>package.json</code> file. The possible locations for a module's <code>package.json</code> file are described below:</p><ol><li></li></ol></div></div><div class="section section-level-0"><h2 id="Extensions">Extensions</h2><div class="bd"><p></p><div class="section section-level-1"><h2 id="ExtensionNames">Extension Names</h2><div class="bd"><p></p></div></div></div></div><div class="section section-level-0"><h2 id="Package_Dependency_Types">Package Dependency Types</h2><div class="bd"><div class="section section-level-1"><h2 id="RegisteringDependencyTypes">Registering Dependency Types</h2><div class="bd"></div></div></div></div><div id="disqus_thread"></div></div></div><div class="docs-footer-padding"></div></div></div><script type="text/javascript" src="../../../../../ebay/github/Raptor/RaptorJSOpenSource/src/main/resources/META-INF/resources/raptor_modules/bootstrap/bootstrap_browser.js"></script>
+<script type="text/javascript" src="../../../../../ebay/github/Raptor/RaptorJSOpenSource/src/main/resources/META-INF/resources/raptor_modules/ecma/es5/es5.js"></script>
+<script type="text/javascript" src="../../../../../ebay/github/Raptor/RaptorJSOpenSource/src/main/resources/META-INF/resources/raptor_modules/raptorBuilder/raptorBuilder.js"></script>
+<script type="text/javascript" src="../../../../../ebay/github/Raptor/RaptorJSOpenSource/src/main/resources/META-INF/resources/raptor_modules/logging/logging_stubs.js"></script>
+<script type="text/javascript" src="../../../../../ebay/github/Raptor/RaptorJSOpenSource/src/main/resources/META-INF/resources/raptor_modules/strings/strings.js"></script>
+<script type="text/javascript" src="../../../../../ebay/github/Raptor/RaptorJSOpenSource/src/main/resources/META-INF/resources/raptor_modules/strings/StringBuilder.js"></script>
+<script type="text/javascript" src="../../../../../ebay/github/Raptor/RaptorJSOpenSource/src/main/resources/META-INF/resources/raptor_modules/objects/objects.js"></script>
+<script type="text/javascript" src="../../../../../ebay/github/Raptor/RaptorJSOpenSource/src/main/resources/META-INF/resources/raptor_modules/logging/ConsoleLogger.js"></script>
+<script type="text/javascript" src="../../../../../ebay/github/Raptor/RaptorJSOpenSource/src/main/resources/META-INF/resources/raptor_modules/logging/logging.js"></script>
+<script type="text/javascript" src="../../../../../ebay/github/Raptor/RaptorJSOpenSource/src/main/resources/META-INF/resources/raptor_modules/logging/LogHelper.js"></script>
+<script type="text/javascript" src="../../../../../ebay/github/Raptor/RaptorJSOpenSource/src/main/resources/META-INF/resources/raptor_modules/errors/errors.js"></script>
+<script type="text/javascript" src="../../../../../ebay/github/Raptor/RaptorJSOpenSource/src/main/resources/META-INF/resources/raptor_modules/oop/oop.js"></script>
+<script type="text/javascript" src="../../static/init-raptor-b8b82f45.js"></script>
+<script type="text/javascript" src="../../src/modules/jQuery/jquery-1.7.1.js"></script>
+<script type="text/javascript" src="../../../../../ebay/github/Raptor/RaptorJSOpenSource/src/main/resources/META-INF/resources/raptor_modules/widgets/widgets.js"></script>
+<script type="text/javascript" src="../../../../../ebay/github/Raptor/RaptorJSOpenSource/src/main/resources/META-INF/resources/raptor_modules/listeners/listeners.js"></script>
+<script type="text/javascript" src="../../../../../ebay/github/Raptor/RaptorJSOpenSource/src/main/resources/META-INF/resources/raptor_modules/pubsub/pubsub.js"></script>
+<script type="text/javascript" src="../../../../../ebay/github/Raptor/RaptorJSOpenSource/src/main/resources/META-INF/resources/raptor_modules/widgets/widgets_browser.js"></script>
+<script type="text/javascript" src="../../../../../ebay/github/Raptor/RaptorJSOpenSource/src/main/resources/META-INF/resources/raptor_modules/widgets/Widget.js"></script>
+<script type="text/javascript" src="../../../../../ebay/github/Raptor/RaptorJSOpenSource/src/main/resources/META-INF/resources/raptor_modules/widgets/widgets_jquery.js"></script>
+<script type="text/javascript" src="../../../../../ebay/github/Raptor/RaptorJSOpenSource/src/main/resources/META-INF/resources/raptor_modules/widgets/Widget_jquery.js"></script>
+<script type="text/javascript" src="../../src/modules/Bootstrap/bootstrap/js/bootstrap-tooltip.js"></script>
+<script type="text/javascript" src="../../src/modules/Bootstrap/bootstrap/js/bootstrap-popover.js"></script>
+<script type="text/javascript" src="../../src/components/overlays/Popover/PopoverWidget.js"></script>
+<script type="text/javascript" src="../../src/modules/Bootstrap/bootstrap/js/bootstrap-dropdown.js"></script>
+<script type="text/javascript" src="../../src/modules/Bootstrap/bootstrap/js/bootstrap-button.js"></script>
+<script type="text/javascript" src="../../src/components/social/Disqus/DisqusWidget_dev.js"></script>
+<script type="text/javascript" src="../../src/modules/Bootstrap/bootstrap/js/bootstrap-tab.js"></script>
+<script type="text/javascript" src="../../src/components/nav/NavItem/NavItemWidget.js"></script>
+<script type="text/javascript" src="../../src/modules/Bootstrap/bootstrap/js/bootstrap-scrollspy.js"></script>
+<script type="text/javascript" src="../../src/modules/jquery-scrollTo/jquery.scrollTo-1.4.2.js"></script>
+<script type="text/javascript" src="../../src/modules/CodeMirror/CodeMirror-2.33/lib/codemirror.js"></script>
+<script type="text/javascript" src="../../src/modules/CodeMirror/CodeMirror-2.33/lib/util/formatting.js"></script>
+<script type="text/javascript" src="../../src/components/editors/CodeEditor/CodeEditorWidget.js"></script>
+<script type="text/javascript" src="../../src/modules/CodeMirror/CodeMirror-2.33/mode/javascript/javascript.js"></script>
+<script type="text/javascript" src="../../src/modules/CodeMirror/CodeMirror-2.33/mode/xml/xml.js"></script>
+<script type="text/javascript" src="../../src/components/docs/Docs/DocsWidget.js"></script><script type="text/javascript">$rwidgets(
+["components.nav.Nav.NavItemWidget","s0",0,0,0,0],
+["components.nav.Nav.NavItemWidget","s1",0,0,0,0,
+["components.nav.Nav.NavItemWidget","s2",0,0,0,0],
+["components.nav.Nav.NavItemWidget","s3",0,0,0,0],
+["components.nav.Nav.NavItemWidget","s4",0,0,0,0],
+["components.nav.Nav.NavItemWidget","s5",0,0,0,0],
+["components.nav.Nav.NavItemWidget","s6",0,0,0,0],
+["components.nav.Nav.NavItemWidget","s7",0,0,0,0],
+["components.nav.Nav.NavItemWidget","s8",0,0,0,0],
+["components.nav.Nav.NavItemWidget","s9",0,0,0,0],
+["components.nav.Nav.NavItemWidget","s10",0,0,0,0],
+["components.nav.Nav.NavItemWidget","s11",0,0,0,0],
+["components.nav.Nav.NavItemWidget","s12",0,0,0,0],
+["components.nav.Nav.NavItemWidget","s13",0,0,0,0],
+["components.nav.Nav.NavItemWidget","s14",0,0,0,0],
+["components.nav.Nav.NavItemWidget","s15",0,0,0,0]],
+["components.nav.Nav.NavItemWidget","s16",0,0,0,0,
+["components.nav.Nav.NavItemWidget","s17",0,0,0,0],
+["components.nav.Nav.NavItemWidget","s18",0,0,0,0],
+["components.nav.Nav.NavItemWidget","s19",0,0,0,0],
+["components.nav.Nav.NavItemWidget","s20",0,0,0,0],
+["components.nav.Nav.NavItemWidget","s21",0,0,0,0],
+["components.nav.Nav.NavItemWidget","s22",0,0,0,0],
+["components.nav.Nav.NavItemWidget","s23",0,0,0,0]],
+["components.nav.Nav.NavItemWidget","s24",0,0,0,0,
+["components.nav.Nav.NavItemWidget","s25",0,0,0,0],
+["components.nav.Nav.NavItemWidget","s26",0,0,0,0],
+["components.nav.Nav.NavItemWidget","s27",0,0,0,0],
+["components.nav.Nav.NavItemWidget","s28",0,0,0,0],
+["components.nav.Nav.NavItemWidget","s29",0,0,0,0]],
+["components.editors.CodeEditor.CodeEditorWidget","s30",0,0,{"mode":"javascript","autoResize":true,"readOnly":true,"indentUnit":4},0],
+["components.editors.CodeEditor.CodeEditorWidget","s31",0,0,{"mode":"javascript","autoResize":true,"readOnly":true,"indentUnit":4},0],
+["components.editors.CodeEditor.CodeEditorWidget","s32",0,0,{"mode":"javascript","autoResize":true,"readOnly":true,"indentUnit":4},0],
+["components.editors.CodeEditor.CodeEditorWidget","s33",0,0,{"mode":"javascript","autoResize":true,"readOnly":true,"indentUnit":4},0],
+["components.social.Disqus.DisqusWidget","disqus_thread",0,0,{"shortName":"raptor-js","id":"packaging-developer-guide","title":"Packaging and Extensions"},0]);</script></body></html>

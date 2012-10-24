@@ -3,7 +3,7 @@
     xmlns:w="widgets"
     xmlns:docs="docs"
     name="components/docs/Docs"
-    params="heading,content,rootSection,returnLabel,returnHref"
+    params="heading,content,rootSection,returnLabel,returnHref,disqusId"
     docs:functions="url">
     
     <c:def function="toc(parentSection)">
@@ -45,6 +45,8 @@
             <div class="docs-content">
                 <h1 id="title">${heading}</h1>
                 ${xml:content}
+
+                <docs:disqus c:if="disqusId" id="$disqusId" title="$heading" short-name="raptor-js"/>
             </div>
         </div>
         <div class="docs-footer-padding"/>
