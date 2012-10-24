@@ -119,6 +119,15 @@
 		{
 			"cmd":
 			[
+				"${project_path}/src/publish-dev",
+				"page=/packaging"
+			],
+			"name": "Publish (dev) - packaging",
+			"working_dir": "${project_path}/src"
+		},
+		{
+			"cmd":
+			[
 				"${project_path}/publish-to-github"
 			],
 			"name": "Publish to Github",
@@ -239,6 +248,7 @@
 			"Publish (dev) - optimizer",
 			"Publish (dev) - optimizer-get-started",
 			"Publish (dev) - optimizer-developer-guide",
+			"Publish (dev) - packaging",
 			"Publish (dev) - raptor-templates",
 			"Publish (dev) - raptor-templates-developer-guide",
 			"Publish to Github",

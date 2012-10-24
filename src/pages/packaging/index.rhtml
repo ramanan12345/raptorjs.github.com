@@ -28,7 +28,7 @@
             <docs:google-analytics/>
         </head>
         <body data-spy="scroll">
-            <docs:top-nav activeItem="module-loader"/>
+            <docs:top-nav activeItem="packaging"/>
             <div class="container">
                 <div class="feature-portal-top">
 
@@ -36,24 +36,53 @@
                         <h1>Packaging &amp; Extensions</h1>
                         <p>
                             RaptorJS extends the popular <code>package.json</code>
-                            format so that it is well-suited for packaging up code to be delivered
-                            to a browser and loaded on the server. RaptorJS packages
-                            allows dependencies to be 
+                            format so that it is better suited for packaging up code to be delivered
+                            to a browser <i>and</i> be loaded on the server. 
+                            RaptorJS packages allows developers to make dependencies explicit—including
+                            which dependencies are environment-specific.
+                        </p>
+                        <p>
+                            RaptorJS packages can be created for JavaScript modules and UI components. 
+                            RaptorJS imposes no requirements on the code that is packaged so developers
+                            can continue to write code however they prefer. RaptorJS packages
+                            are extensible and support any type of dependency (
+                                JavaScript, CSS, 
+                                <a href="http://lesscss.org/">
+                                    LESS
+                                </a>, 
+                                <a href="${url('/raptor-templates')}">
+                                    Raptor Templates
+                                </a>, etc.
+                            ).
+                        </p>
+                        <p>
+                            RaptorJS packages can be loaded on the server using the
+                            <a href="${url('/module-loader')}">
+                                <nobr>RaptorJS JavaScript Module Loader</nobr>
+                            </a>. 
+                            The <a href="${url('/optimizer')}">
+                                <nobr>RaptorJS Optimizer</nobr>
+                            </a> uses RaptorJS packages to determine
+                            which resources need to be optimized for delivery
+                            to web browsers and the
+                            <a href="${url('/module-loader/get-started-async')}">
+                                <nobr>RaptorJS Async Loader</nobr>
+                            </a>
+                             uses information from packages to optimally download
+                             packages asynchronously.
                         </p>
                     </div>
                     
                     <div class="feature-portal-features">
                         <h2>Features</h2>
                         <ul>
-                            <li>Makes JavaScript Better</li>    
-                            <li>Clean Syntax</li>
-                            <li>Lightweight Library</li>
-                            <li>Class Inheritance</li>
-                            <li>Code Reuse across Client and Server</li>
-                            <li>Lazy Initialization</li>
-                            <li>Supports Parallel Downloading</li>
-                            <li>Cross-platform</li>
-                            <li>Decoupled from a Module Loader</li>
+                            <li>Make Dependencies Explicit</li>
+                            <li>Supports Environment-Specific Dependencies</li>
+                            <li>Source Code Agnostic</li>
+                            <li>Simple Format</li>
+                            <li>Dependency Order Preserved</li>
+                            <li>Package Anything</li>
+                            <li>Namespaced Package Properties</li>
                         </ul>
                     </div>
                 </div>
@@ -61,11 +90,10 @@
 
                 <docs:feature-portal-section 
                     title="Developer Guide"
-                    url="${url('/modules-classes/developer-guide')}"
+                    url="${url('/packaging/developer-guide')}"
                     size="40">
 
-                    An in-depth look at using the RaptorJS library for
-                                        defining modules, classes, mixins and enums.
+                    An in-depth look at the RaptorJS packaging system.
 
                 </docs:feature-portal-section>
 
@@ -78,20 +106,31 @@
                         readOnly="true"
                         mode="javascript">
                     <![CDATA[
-                    raptor.define(
-                        'some.namespace.myModule', 
-                        function() {
-                            var MyClass = raptor.require('some.namespace.MyClass');
-                            
-                            return {
-                            
-                                message: "Hello World",
-                                
-                                createSomeObject: function() {
-                                    return new MyClass();
+                    {
+                        "name": "my-module",
+                        "version": "1.0",
+                        "description": "My amazing module.",
+                        "raptor": {
+                            "dependencies": [
+                                { "module": "another-module" },
+                                "my-module-common.js",
+                            ],
+                            "extensions": [
+                                {
+                                    "name": "server",
+                                    "dependencies": [
+                                        "my-module-server.js"
+                                    ]
+                                },
+                                {
+                                    "name": "browser",
+                                    "dependencies": [
+                                        "my-module.less"
+                                    ]
                                 }
-                            };
-                        });
+                            ]
+                        }   
+                    }
                     ]]>
                     </docs:code-editor>   
 
