@@ -238,8 +238,21 @@
                     </docs:code-editor>
                     <p>
                         When using extension conditions, <code>extensions</code> is an object
-                        that represents the list of enabled extensions.
+                        that represents the list of enabled extensions. For more details, see the API docs for
+                        <a href="http://raptorjs.org/api/packaging.ExtensionCollection/">
+                            packaging.ExtensionCollection
+                        </a>.
                     </p>
+                    <p>
+                        Any valid JavaScript expression is allowed, but the JavaSript expression should only
+                        make use of the provided <code>extensions</code> object.
+                    </p>
+                    <docs:message type="info">
+                        <p>
+                            If an extension condition is provided, then the extension name is not used
+                            to determine if the extension is enabled (only the condition is used).
+                        </p>
+                    </docs:message>
                 </docs:section>
             </docs:section>
 
@@ -257,37 +270,173 @@
                 resolves a module name to a <code>package.json</code> file
                 based on the name of the module. That is, the <code>package.json</code>
                 is expected to be located in a directory based on the module name.
-                RaptorJS will try a few different possible resource paths when
-                trying to resolve a module name to a <code>package.json</code> file.
-                The possible locations for a module's <code>package.json</code> file
-                are described below:
             </p>
-            <ol>
-                <li>
-                    
-                </li>
-            </ol>
+            <docs:section heading="Resolving Module package.json Files">
+                <p>
+                    RaptorJS will try a few different possible resource paths when
+                    trying to resolve a module name to a <code>package.json</code> file.
+                    For a sample module named "some.namespace.my-module", the possible locations for a module's <code>package.json</code> file
+                    are shown below:
+                </p>
+                <ol>
+                    <li>
+                        /some/namespace/my-module/package.json
+                    </li>
+                    <li>
+                        /some/namespace/my-module/my-module-package.json
+                    </li>
+                </ol>
+            </docs:section>
+            <docs:section heading="Module Path Mappings">
+                <p>
+                    To bypass the default module package resolution steps, a module name can be
+                    mapped to a <code>package.json</code> file by adding the mapping to a top-level
+                    <code>package.json</code> file. For example:
+                </p>
+                <docs:code-editor 
+                    autoResize="true"
+                    indentUnit="4"
+                    readOnly="true"
+                    mode="javascript">
+                <![CDATA[
+                {
+                    "raptor": {
+
+                        "module-mappings": {
+                            "my-module": "/some/path/to-module-package.json",
+                            ...
+                        }
+                    }
+                }
+                ]]>
+                </docs:code-editor>
+                
+            </docs:section>
+
+            
+
         </docs:section>
 
         <docs:section heading="Extensions">
             <p>
-                
+                Extensions represent conditional environment-specific
+                dependencies. If a condition is not provided for an extension
+                then the extension name is used to determine if the dependencies
+                for the extension should be included. If an extension name
+                is marked as enabled then the dependencies associated with the
+                extension will be enabled, otherwise they will be ignored.
             </p>
             <docs:section heading="Extension Names" anchor-name="ExtensionNames">
                 <p>
-                    
+                    Extension names are arbitrary strings. An application
+                    can choose to enable any set of arbitrary extension names. For example,
+                    an application might decide to introduce an extension
+                    named "tablet" to define dependencies that are specific
+                    to table devices.
                 </p>
+                <p>
+                    There are, however, well-known extension names for the various environments:
+                </p>
+                <ul>
+                    <li>
+                        <b>server</b> - Enabled for any server-side JavaScript environment (e.g. Node and Rhino)
+                    </li>
+                    <li>
+                        <b>node</b> - Enabled for Node only
+                    </li>
+                    <li>
+                        <b>rhino</b> - Enabled for Rhino only
+                    </li>
+                    <li>
+                        <b>browser</b> - Enabled for the browser only
+                    </li>
+                    <li>
+                        <b>jquery</b> - Enabled for environments that have jQuery loaded
+                    </li>
+                    <li>
+                        <b>development</b> - Enabled for development (i.e. non-production) environments only
+                    </li>
+                </ul>
             </docs:section>
 
             <docs:section heading="Enabling Extensions" anchor-name="EnablingExtensions">
                 <p>
+                    RaptorJS package files are read by the server-side 
+                    <a href="${url('/module-loader')}">
+                        <nobr>RaptorJS JavaScript Module Loader</nobr>
+                    </a> and  the <a href="${url('/optimizer')}">
+                        <nobr>RaptorJS Optimizer</nobr>
+                    </a>. To enable extensions for the server-side
+                    RaptorJS JavaScript Module Loader, two options are
+                    supported:
                 </p>
+                <ol>
+                    <li>
+                        <docs:code-editor 
+                            autoResize="true"
+                            indentUnit="4"
+                            readOnly="true"
+                            mode="javascript">
+                        <![CDATA[
+                        raptor.require('packaging').enableExtension('myExtension');
+                        ]]>
+                        </docs:code-editor>
+                    </li>
+                    <li>
+                        Alternatively, RaptorJS can be initialized with the enabled extensions:
+                        <docs:code-editor 
+                            autoResize="true"
+                            indentUnit="4"
+                            readOnly="true"
+                            mode="javascript">
+                        <![CDATA[
+                        createRaptor({
+                            'packaging': {
+                                'enabledExtensions': ['myExtension']
+                            }
+                        });
+                        ]]>
+                        </docs:code-editor>
+                    </li>
+                </ol>
             </docs:section>
         </docs:section>
 
         <docs:section heading="Package Dependency Types">
+            <p>
+                RaptorJS relies on registered handlers for package dependency types
+                to determine how to handle dependencies. A dependency can
+                either be a resource dependency (i.e., either a JavaScript or CSS resource
+                or a resource that compiles into either JavaScript or CSS) or a package
+                dependencncy (i.e., a dependency that resolves into another <code>package.json</code> file).
+            </p>
+            <p>
+                Resource dependency handlers must implement the <code>getContentType</code> method and the
+                <code>getCode</code> method. If the content type for a resource dependency
+                is "application/javascript" then the <code>getCode</code> method will be used
+                to load the dependency into a server-side JavaScript environment if necessary
+                unless the <code>load</code> method is implemented.
+            </p>
+            <p>
+                For examples of dependency handlers, please see the API docs for the
+                <a href="http://raptorjs.org/api/packaging/">
+                    packaging
+                </a> module.
+            </p>
             <docs:section heading="Registering Dependency Types" anchor-name="RegisteringDependencyTypes">
-                
+                <p>
+                    Dependency type handlers can be registered inside any top-level <code>package.json</code>
+                    file (i.e., any <code>package.json</code> file that is at the root of a
+                        <a href="${url('/resource-search-path')}">
+                            Resource Search Path
+                        </a> entry.
+                    ). The "dependency-types" property is used to register dependency type handlers.
+                    For an example, please see the the core RaptorJS <code>package.json</code> file for the RaptorJS
+                    library:
+                    <a href="http://raptorjs.org/api/source/package.json/">
+                        http://raptorjs.org/api/source/package.json/
+                    </a>
+                </p>
             </docs:section>
         </docs:section>
         
