@@ -180,9 +180,6 @@ H2.discussion {
 }
 
 @media (max-width: 768px) {
-    .navbar {
-        margin-left: -20px;
-    }
 
     #docsNav {
         left: auto;
@@ -194,7 +191,7 @@ H2.discussion {
         box-sizing: border-box;         /* Opera/IE 8+ */
         padding: 10px;
         background-color: #EEE;
-        border-right: 1px solid #C0C0C0;
+        border: 1px solid #C0C0C0;
         position: static;
         overflow-y: auto;
     }
