@@ -35,7 +35,7 @@
 <link rel="stylesheet" type="text/css" href="../../src/pages/raptor-templates/developer-guide/index.css"><script type="text/javascript">var
 _gaq=_gaq||[];_gaq.push(["_setAccount","UA-33982282-1"]);_gaq.push(["_trackPageview"]);(function(){var
 a=document.createElement("script");a.type="text/javascript";a.async=!0;a.src=("https:"==document.location.protocol?"https://ssl":"http://www")+".google-analytics.com/ga.js";var
-b=document.getElementsByTagName("script")[0];b.parentNode.insertBefore(a,b)})();</script></head><body data-spy="scroll"><div class="navbar navbar-fixed-top"><div class="navbar-inner"><div class="container"><a class="brand" href="../../index.html">RaptorJS</a><ul class="nav"><li class="divider-vertical"></li><li id="s882"><a href="../../get-started/index.html">Get Started</a></li><li class="divider-vertical"></li><li id="s883" class="dropdown"><a data-toggle="dropdown" class="dropdown-toggle">Learn<b class="caret"></b></a><ul class="dropdown-menu"><li id="s884"><a href="../../index.html">Overview</a></li><li id="s885"><a href="../../get-started/index.html">Get Started</a></li><li id="s886"><a href="../../tutorial/index.html">Tutorial</a></li><li id="s887"><a href="../../api/index.html">API Reference</a></li><li id="s888"><a href="../../faq/index.html">FAQ</a></li><li class="divider"></li><li id="s889"><a href="../../modules-classes/index.html">Modules and Classes</a></li><li id="s890"><a href="../../packaging/index.html">Packaging and Extensions</a></li><li id="s891"><a href="../../module-loader/index.html">Module Loader</a></li><li id="s892"><a href="../../optimizer/index.html">Optimizer</a></li><li id="s893"><a href="../../raptor-templates/index.html">Raptor Templates</a></li><li id="s894"><a href="../../widgets/index.html">Widgets Framework</a></li><li id="s895"><a href="../../logging/index.html">Logging</a></li><li id="s896"><a href="../../resource-search-path/index.html">Resource Search Path</a></li><li id="s897"><a href="../../cross-environment/index.html">Cross Environment Support</a></li></ul></li><li class="divider-vertical"></li><li id="s898" class="dropdown"><a data-toggle="dropdown" class="dropdown-toggle">Community<b class="caret"></b></a><ul class="dropdown-menu"><li id="s899"><a href="https://github.com/raptorjs/raptorjs">Source code</a></li><li id="s900"><a href="https://github.com/raptorjs/raptorjs/issues">Issue Tracker</a></li><li id="s901"><a href="../../contribute/index.html">Contribute</a></li><li id="s902"><a href="../../contributors/index.html">Contributors</a></li><li class="divider"></li><li id="s903"><a href="http://groups.google.com/group/raptorjs">Discussion Forum</a></li><li class="divider"></li><li id="s904"><a href="http://twitter.com/raptorjs">Twitter (@raptorjs)</a></li><li id="s905"><a href="http://twitter.com/raptorjs">Google+</a></li></ul></li><li class="divider-vertical"></li><li id="s906" class="dropdown"><a data-toggle="dropdown" class="dropdown-toggle">About<b class="caret"></b></a><ul class="dropdown-menu"><li id="s907"><a href="https://github.com/raptorjs/raptorjs/wiki/Release-Notes">Release Notes</a></li><li id="s908"><a href="../../design-philosophy/index.html">Design Philosophy</a></li><li id="s909"><a href="../../license/index.html">License</a></li><li id="s910"><a href="../../credits/index.html">Credits</a></li><li id="s911"><a href="../../creators/index.html">Creators</a></li></ul></li><li class="divider-vertical"></li></ul></div></div></div><div class="container"><div class="docs"><div class="bd"><div class="toc nav" id="docsNav"><div class="return">&laquo; Return to <a href="../../raptor-templates/index.html">Raptor Templates</a></div><ul class="toc"><li class="toc toc-level-0"><a href="#Overview">Overview</a><ul class="toc"></ul></li><li class="toc toc-level-0"><a href="#Features_at_a_Glance">Features at a Glance</a><ul class="toc"></ul></li><li class="toc toc-level-0"><a href="#Introduction">Introduction</a><ul class="toc"><li class="toc toc-level-1"><a href="#Sample_Template">Sample Template</a><ul class="toc"></ul></li><li class="toc toc-level-1"><a href="#Template_Rendering">Template Rendering</a><ul class="toc"></ul></li><li class="toc toc-level-1"><a href="#Template_Directives_Overview">Template Directives Overview</a><ul class="toc"></ul></li><li class="toc toc-level-1"><a href="#Extensibility">Extensibility</a><ul class="toc"></ul></li></ul></li><li class="toc toc-level-0"><a href="#Expressions">Expressions</a><ul class="toc"><li class="toc toc-level-1"><a href="#Helper_Functions">Helper Functions</a><ul class="toc"></ul></li><li class="toc toc-level-1"><a href="#Expression_Escape_Sequences">Expression Escape Sequences</a><ul class="toc"></ul></li><li class="toc toc-level-1"><a href="#Expression_Handlers">Expression Handlers</a><ul class="toc"></ul></li></ul></li><li class="toc toc-level-0"><a href="#Template_Directives">Template Directives</a><ul class="toc"><li class="toc toc-level-1"><a href="#Template">Template</a><ul class="toc"><li class="toc toc-level-2"><a href="#ctemplate">&lt;c:template></a><ul class="toc"></ul></li><li class="toc toc-level-2"><a href="#cinclude">&lt;c:include></a><ul class="toc"></ul></li></ul></li><li class="toc toc-level-1"><a href="#Text_Replacement">Text Replacement</a><ul class="toc"><li class="toc toc-level-2"><a href="#XML_Escaping">XML Escaping</a><ul class="toc"></ul></li></ul></li><li class="toc toc-level-1"><a href="#Conditionals">Conditionals</a><ul class="toc"><li class="toc toc-level-2"><a href="#if_elseif_else">if...else-if...else</a><ul class="toc"></ul></li><li class="toc toc-level-2"><a href="#ChooseWhenOtherwise">choose…when…otherwise</a><ul class="toc"></ul></li><li class="toc toc-level-2"><a href="#Shorthand_conditionals">Shorthand conditionals</a><ul class="toc"></ul></li></ul></li><li class="toc toc-level-1"><a href="#Looping">Looping</a><ul class="toc"><li class="toc toc-level-2"><a href="#for">for</a><ul class="toc"><li class="toc toc-level-3"><a href="#Loop_status_variable">Loop status variable</a><ul class="toc"></ul></li><li class="toc toc-level-3"><a href="#Separator">Separator</a><ul class="toc"></ul></li></ul></li></ul></li><li class="toc toc-level-1"><a href="#Macros">Macros</a><ul class="toc"><li class="toc toc-level-2"><a href="#def">def</a><ul class="toc"></ul></li><li class="toc toc-level-2"><a href="#invoke">invoke</a><ul class="toc"></ul></li></ul></li><li class="toc toc-level-1"><a href="#Structure_Manipulation">Structure Manipulation</a><ul class="toc"><li class="toc toc-level-2"><a href="#attrs">attrs</a><ul class="toc"></ul></li><li class="toc toc-level-2"><a href="#content">content</a><ul class="toc"></ul></li><li class="toc toc-level-2"><a href="#replace">replace</a><ul class="toc"></ul></li><li class="toc toc-level-2"><a href="#strip">strip</a><ul class="toc"></ul></li></ul></li></ul></li><li class="toc toc-level-0"><a href="#Taglibs">Taglibs</a><ul class="toc"><li class="toc toc-level-1"><a href="#Runtime_Tag_Handlers">Runtime Tag Handlers</a><ul class="toc"></ul></li><li class="toc toc-level-1"><a href="#CompileTime_Tag_Handlers">Compile-Time Tag Handlers</a><ul class="toc"></ul></li><li class="toc toc-level-1"><a href="#CompileTime_Transformers">Compile-Time Transformers</a><ul class="toc"></ul></li><li class="toc toc-level-1"><a href="#TaglibHelperFunctions">Helper Functions</a><ul class="toc"></ul></li></ul></li><li class="toc toc-level-0"><a href="#JavaScript_API">JavaScript API</a><ul class="toc"><li class="toc toc-level-1"><a href="#Template_Rendering">Template Rendering</a><ul class="toc"><li class="toc toc-level-2"><a href="#Rendering_to_a_String">Rendering to a String</a><ul class="toc"></ul></li><li class="toc toc-level-2"><a href="#Rendering_to_a_Context">Rendering to a Context</a><ul class="toc"></ul></li></ul></li><li class="toc toc-level-1"><a href="#Template_Compilation">Template Compilation</a><ul class="toc"><li class="toc toc-level-2"><a href="#Compiling_a_Template">Compiling a Template</a><ul class="toc"></ul></li><li class="toc toc-level-2"><a href="#Loading_a_Compiled_Template">Loading a Compiled Template</a><ul class="toc"></ul></li></ul></li></ul></li><li class="toc toc-level-0"><a href="#Performance">Performance</a><ul class="toc"><li class="toc toc-level-1"><a href="#Sample_Compiled_Template">Sample Compiled Template</a><ul class="toc"></ul></li></ul></li><li class="toc toc-level-0"><a href="#Advanced">Advanced</a><ul class="toc"><li class="toc toc-level-1"><a href="#Creating_Taglibs">Creating Taglibs</a><ul class="toc"></ul></li><li class="toc toc-level-1"><a href="#Raptor_Templates_Compilation">Raptor Templates Compilation</a><ul class="toc"></ul></li></ul></li></ul><div class="docs-nav-footer"><ul><li><span class="powered-by">Powered by <a href="../../index.html" class="raptorjs">RaptorJS</a></span></li><li><a href="../../license/index.html">License</a></li><li><a href="../../credits/index.html">Credits</a></li></ul></div></div><div class="docs-content"><h1 id="title">Raptor Templates: Developer Guide</h1><div class="message message-warning"><div class="icon"><i class="icon-warning-sign" style="font-size: 30px;"></i></div><div class="bd">Documentation In-Progress</div></div><div class="section section-level-0"><h2 id="Overview">Overview</h2><div class="bd"><div class="try-it"><h1><i class="icon-play-circle icon-large"></i> <a href="../../raptor-templates/try-online/index.html" target="_blank">Try Raptor Templates Online</a></h1><div class="desc">Edit Raptor Templates in your browser with instant results!</div></div><p>The Raptor Templating Language is heavily inspired by <a href="http://genshi.edgewall.org/wiki/Documentation/xml-templates.html">Genshi XML Template Language</a> (an XML-based templating language for Python) with the good parts of JSP mixed
+b=document.getElementsByTagName("script")[0];b.parentNode.insertBefore(a,b)})();</script></head><body data-spy="scroll"><div class="navbar navbar-fixed-top"><div class="navbar-inner"><div class="container"><a class="brand" href="../../index.html">RaptorJS</a><ul class="nav"><li class="divider-vertical"></li><li id="s886"><a href="../../get-started/index.html">Get Started</a></li><li class="divider-vertical"></li><li id="s887" class="dropdown"><a data-toggle="dropdown" class="dropdown-toggle">Learn<b class="caret"></b></a><ul class="dropdown-menu"><li id="s888"><a href="../../index.html">Overview</a></li><li id="s889"><a href="../../get-started/index.html">Get Started</a></li><li id="s890"><a href="../../tutorial/index.html">Tutorial</a></li><li id="s891"><a href="../../api/index.html">API Reference</a></li><li id="s892"><a href="../../faq/index.html">FAQ</a></li><li class="divider"></li><li id="s893"><a href="../../modules-classes/index.html">Modules and Classes</a></li><li id="s894"><a href="../../packaging/index.html">Packaging and Extensions</a></li><li id="s895"><a href="../../module-loader/index.html">Module Loader</a></li><li id="s896"><a href="../../optimizer/index.html">Optimizer</a></li><li id="s897"><a href="../../raptor-templates/index.html">Raptor Templates</a></li><li id="s898"><a href="../../widgets/index.html">Widgets Framework</a></li><li id="s899"><a href="../../logging/index.html">Logging</a></li><li id="s900"><a href="../../resource-search-path/index.html">Resource Search Path</a></li><li id="s901"><a href="../../cross-environment/index.html">Cross Environment Support</a></li></ul></li><li class="divider-vertical"></li><li id="s902" class="dropdown"><a data-toggle="dropdown" class="dropdown-toggle">Community<b class="caret"></b></a><ul class="dropdown-menu"><li id="s903"><a href="https://github.com/raptorjs/raptorjs">Source code</a></li><li id="s904"><a href="https://github.com/raptorjs/raptorjs/issues">Issue Tracker</a></li><li id="s905"><a href="../../contribute/index.html">Contribute</a></li><li id="s906"><a href="../../contributors/index.html">Contributors</a></li><li class="divider"></li><li id="s907"><a href="http://groups.google.com/group/raptorjs">Discussion Forum</a></li><li class="divider"></li><li id="s908"><a href="http://twitter.com/raptorjs">Twitter (@raptorjs)</a></li><li id="s909"><a href="http://twitter.com/raptorjs">Google+</a></li></ul></li><li class="divider-vertical"></li><li id="s910" class="dropdown"><a data-toggle="dropdown" class="dropdown-toggle">About<b class="caret"></b></a><ul class="dropdown-menu"><li id="s911"><a href="https://github.com/raptorjs/raptorjs/wiki/Release-Notes">Release Notes</a></li><li id="s912"><a href="../../design-philosophy/index.html">Design Philosophy</a></li><li id="s913"><a href="../../license/index.html">License</a></li><li id="s914"><a href="../../credits/index.html">Credits</a></li><li id="s915"><a href="../../creators/index.html">Creators</a></li></ul></li><li class="divider-vertical"></li></ul></div></div></div><div class="container"><div class="docs"><div class="bd"><div class="toc nav" id="docsNav"><div class="return">&laquo; Return to <a href="../../raptor-templates/index.html">Raptor Templates</a></div><ul class="toc"><li class="toc toc-level-0"><a href="#Overview">Overview</a><ul class="toc"></ul></li><li class="toc toc-level-0"><a href="#Features_at_a_Glance">Features at a Glance</a><ul class="toc"></ul></li><li class="toc toc-level-0"><a href="#Introduction">Introduction</a><ul class="toc"><li class="toc toc-level-1"><a href="#Sample_Template">Sample Template</a><ul class="toc"></ul></li><li class="toc toc-level-1"><a href="#Template_Rendering">Template Rendering</a><ul class="toc"></ul></li><li class="toc toc-level-1"><a href="#Template_Directives_Overview">Template Directives Overview</a><ul class="toc"></ul></li><li class="toc toc-level-1"><a href="#Extensibility">Extensibility</a><ul class="toc"></ul></li></ul></li><li class="toc toc-level-0"><a href="#Expressions">Expressions</a><ul class="toc"><li class="toc toc-level-1"><a href="#Helper_Functions">Helper Functions</a><ul class="toc"></ul></li><li class="toc toc-level-1"><a href="#Expression_Escape_Sequences">Expression Escape Sequences</a><ul class="toc"></ul></li><li class="toc toc-level-1"><a href="#Expression_Handlers">Expression Handlers</a><ul class="toc"></ul></li></ul></li><li class="toc toc-level-0"><a href="#Template_Directives">Template Directives</a><ul class="toc"><li class="toc toc-level-1"><a href="#Template">Template</a><ul class="toc"><li class="toc toc-level-2"><a href="#ctemplate">&lt;c:template></a><ul class="toc"></ul></li><li class="toc toc-level-2"><a href="#cinclude">&lt;c:include></a><ul class="toc"></ul></li></ul></li><li class="toc toc-level-1"><a href="#Text_Replacement">Text Replacement</a><ul class="toc"><li class="toc toc-level-2"><a href="#XML_Escaping">XML Escaping</a><ul class="toc"></ul></li></ul></li><li class="toc toc-level-1"><a href="#Conditionals">Conditionals</a><ul class="toc"><li class="toc toc-level-2"><a href="#if_elseif_else">if...else-if...else</a><ul class="toc"></ul></li><li class="toc toc-level-2"><a href="#ChooseWhenOtherwise">choose…when…otherwise</a><ul class="toc"></ul></li><li class="toc toc-level-2"><a href="#Shorthand_conditionals">Shorthand conditionals</a><ul class="toc"></ul></li></ul></li><li class="toc toc-level-1"><a href="#Looping">Looping</a><ul class="toc"><li class="toc toc-level-2"><a href="#for">for</a><ul class="toc"><li class="toc toc-level-3"><a href="#Loop_status_variable">Loop status variable</a><ul class="toc"></ul></li><li class="toc toc-level-3"><a href="#Separator">Separator</a><ul class="toc"></ul></li></ul></li></ul></li><li class="toc toc-level-1"><a href="#Macros">Macros</a><ul class="toc"><li class="toc toc-level-2"><a href="#def">def</a><ul class="toc"></ul></li><li class="toc toc-level-2"><a href="#invoke">invoke</a><ul class="toc"></ul></li></ul></li><li class="toc toc-level-1"><a href="#Structure_Manipulation">Structure Manipulation</a><ul class="toc"><li class="toc toc-level-2"><a href="#attrs">attrs</a><ul class="toc"></ul></li><li class="toc toc-level-2"><a href="#content">content</a><ul class="toc"></ul></li><li class="toc toc-level-2"><a href="#replace">replace</a><ul class="toc"></ul></li><li class="toc toc-level-2"><a href="#strip">strip</a><ul class="toc"></ul></li></ul></li></ul></li><li class="toc toc-level-0"><a href="#Taglibs">Taglibs</a><ul class="toc"><li class="toc toc-level-1"><a href="#Runtime_Tag_Handlers">Runtime Tag Handlers</a><ul class="toc"></ul></li><li class="toc toc-level-1"><a href="#CompileTime_Tag_Handlers">Compile-Time Tag Handlers</a><ul class="toc"></ul></li><li class="toc toc-level-1"><a href="#CompileTime_Transformers">Compile-Time Transformers</a><ul class="toc"></ul></li><li class="toc toc-level-1"><a href="#TaglibHelperFunctions">Helper Functions</a><ul class="toc"></ul></li></ul></li><li class="toc toc-level-0"><a href="#JavaScript_API">JavaScript API</a><ul class="toc"><li class="toc toc-level-1"><a href="#Template_Rendering">Template Rendering</a><ul class="toc"><li class="toc toc-level-2"><a href="#Rendering_to_a_String">Rendering to a String</a><ul class="toc"></ul></li><li class="toc toc-level-2"><a href="#Rendering_to_a_Context">Rendering to a Context</a><ul class="toc"></ul></li></ul></li><li class="toc toc-level-1"><a href="#Template_Compilation">Template Compilation</a><ul class="toc"><li class="toc toc-level-2"><a href="#Compiling_a_Template">Compiling a Template</a><ul class="toc"></ul></li><li class="toc toc-level-2"><a href="#Loading_a_Compiled_Template">Loading a Compiled Template</a><ul class="toc"></ul></li></ul></li></ul></li><li class="toc toc-level-0"><a href="#Performance">Performance</a><ul class="toc"><li class="toc toc-level-1"><a href="#Sample_Compiled_Template">Sample Compiled Template</a><ul class="toc"></ul></li></ul></li><li class="toc toc-level-0"><a href="#Advanced">Advanced</a><ul class="toc"><li class="toc toc-level-1"><a href="#Creating_Taglibs">Creating Taglibs</a><ul class="toc"></ul></li><li class="toc toc-level-1"><a href="#Raptor_Templates_Compilation">Raptor Templates Compilation</a><ul class="toc"></ul></li></ul></li></ul><div class="docs-nav-footer"><ul><li><span class="powered-by">Powered by <a href="../../index.html" class="raptorjs">RaptorJS</a></span></li><li><a href="../../license/index.html">License</a></li><li><a href="../../credits/index.html">Credits</a></li></ul></div></div><div class="docs-content"><h1 id="title">Raptor Templates: Developer Guide</h1><div class="message message-warning"><div class="icon"><i class="icon-warning-sign" style="font-size: 30px;"></i></div><div class="bd">Documentation In-Progress</div></div><div class="section section-level-0"><h2 id="Overview">Overview</h2><div class="bd"><div class="try-it"><h1><i class="icon-play-circle icon-large"></i> <a href="../../raptor-templates/try-online/index.html" target="_blank">Try Raptor Templates Online</a></h1><div class="desc">Edit Raptor Templates in your browser with instant results!</div></div><p>The Raptor Templating Language is heavily inspired by <a href="http://genshi.edgewall.org/wiki/Documentation/xml-templates.html">Genshi XML Template Language</a> (an XML-based templating language for Python) with the good parts of JSP mixed
 in. The Raptor Templating Language borrows most of the same features from
 Genshi and includes a JavaScript compiler so that a template can be compiled to
 native JavaScript code. The templating language is XML-based so that the XML
@@ -53,7 +53,7 @@ handlers</li><li>Custom helper functions</li><li>Custom compile-time template tr
 and in all web browsers
 </li><li>XML-based <ul><li>Smarter compiler that leverages the structure of HTML documents</li><li>Easy to validate</li><li>Extensible</li><li>Easily parseable with any off-the-shelf XML parser</li></ul></li><li>Designed with readability and code maintenance in mind</li><li>Optimized compiled output <ul><li>Templates are compiled to native JavaScript functions</li><li>Compiled code generated with minification in mind</li><li>Smart compiler and optimizer</li></ul></li><li>Optimized runtime <ul><li>Lightweight runtime</li><li>Optimized for performance and scalability</li></ul></li><li>Leverages the full power of JavaScript <ul><li>All expressions are JavaScript expressions (<code>eval</code> is <i>never</i> used)</li><li>Templates and macros compile down to native JavaScript functions</li><li>Conditional directives compile down to native JavaScript if-statements and
 similar for most other
-directives</li><li>Function closures utilized for scoped variables and nesting</li></ul></li><li><span class="popover-target" id="s912" title="Smart Whitespace Removal" data-content="&lt;p&gt;The compiler understands that whitespace inside &lt;code&gt;&amp;lt;textarea&amp;gt;&lt;/code&gt; and &lt;code&gt;&amp;lt;textarea&amp;gt;&lt;/code&gt; tags should be preserved.&lt;/p&gt;&lt;p&gt;Since templats are XML-based, the compiler knows that extra whitespace between XML elements can be removed and that extra whitespace in body text can be removed.&lt;/p&gt;">Smart whitespace removal</span></li><li>Helpful error messages that provide friendly messages and line/column numbers.</li><li>Compiled code is nicely formatted and easy to debug</li></ul> </div></div><div class="section section-level-0"><h2 id="Introduction">Introduction</h2><div class="bd"><p>All Raptor templates are required to be well-formed XML. This constraint allows
+directives</li><li>Function closures utilized for scoped variables and nesting</li></ul></li><li><span class="popover-target" id="s916" title="Smart Whitespace Removal" data-content="&lt;p&gt;The compiler understands that whitespace inside &lt;code&gt;&amp;lt;textarea&amp;gt;&lt;/code&gt; and &lt;code&gt;&amp;lt;textarea&amp;gt;&lt;/code&gt; tags should be preserved.&lt;/p&gt;&lt;p&gt;Since templats are XML-based, the compiler knows that extra whitespace between XML elements can be removed and that extra whitespace in body text can be removed.&lt;/p&gt;">Smart whitespace removal</span></li><li>Helpful error messages that provide friendly messages and line/column numbers.</li><li>Compiled code is nicely formatted and easy to debug</li></ul> </div></div><div class="section section-level-0"><h2 id="Introduction">Introduction</h2><div class="bd"><p>All Raptor templates are required to be well-formed XML. This constraint allows
 the template language to use the structure of the XML document to its
 advantage. For example, a template directive that controls structural logic can
 be applied as an attribute of the element that it controls. In addition, unlike
@@ -66,7 +66,7 @@ applications.</p><p>The Raptor Templating Language aims to be easy to understand
 concepts that front-end developers are already familiar with such as XML/HTML
 and JavaScript. While the Raptor Templating Language introduces a new grammar
 on top of XHTML, it is not an entirely new language which reduces the learning
-curve.</p><div class="section section-level-1"><h2 id="Sample_Template">Sample Template</h2><div class="bd"><p>Below is a sample Raptor HTML template:</p><div class="code-editor" id="s913"> <textarea id="s913-textarea" style="display: none;" name="code-61">&lt;c:template
+curve.</p><div class="section section-level-1"><h2 id="Sample_Template">Sample Template</h2><div class="bd"><p>Below is a sample Raptor HTML template:</p><div class="code-editor" id="s917"> <textarea id="s917-textarea" style="display: none;" name="code-65">&lt;c:template
     xmlns:c="core"
     name="demo"
     params="colors">
@@ -85,16 +85,16 @@ curve.</p><div class="section section-level-1"><h2 id="Sample_Template">Sample T
      
 &lt;/c:template></textarea></div><p></p></div></div><div class="section section-level-1"><h2 id="Template_Rendering">Template Rendering</h2><div class="bd"><p>To produce output, a compiled template is invoked with the provided user data
 that is required by the
-template.</p><p>For example, given the following input data:</p><div class="code-editor" id="s914"> <textarea id="s914-textarea" style="display: none;" name="code-62">{
+template.</p><p>For example, given the following input data:</p><div class="code-editor" id="s918"> <textarea id="s918-textarea" style="display: none;" name="code-66">{
     colors: ["red", "green", "blue"]
-}</textarea></div><p>The output of rendering the above sample template would be the following:</p><div class="code-editor" id="s915"> <textarea id="s915-textarea" style="display: none;" name="code-63">&lt;ul>&lt;li>red&lt;/li>&lt;li>green&lt;/li>&lt;li>blue&lt;/li>&lt;/ul></textarea></div><p>For comparison, given the following input data consisting of an empty array of
-colors:</p><div class="code-editor" id="s916"> <textarea id="s916-textarea" style="display: none;" name="code-64">{
+}</textarea></div><p>The output of rendering the above sample template would be the following:</p><div class="code-editor" id="s919"> <textarea id="s919-textarea" style="display: none;" name="code-67">&lt;ul>&lt;li>red&lt;/li>&lt;li>green&lt;/li>&lt;li>blue&lt;/li>&lt;/ul></textarea></div><p>For comparison, given the following input data consisting of an empty array of
+colors:</p><div class="code-editor" id="s920"> <textarea id="s920-textarea" style="display: none;" name="code-68">{
     colors: []
-}</textarea></div><p>The output would be the following:</p><div class="code-editor" id="s917"> <textarea id="s917-textarea" style="display: none;" name="code-65">&lt;div>No colors!&lt;/div></textarea></div></div></div><div class="section section-level-1"><h2 id="Template_Directives_Overview">Template Directives Overview</h2><div class="bd"><p>Almost all of the Raptor templating directives can be used as either an
+}</textarea></div><p>The output would be the following:</p><div class="code-editor" id="s921"> <textarea id="s921-textarea" style="display: none;" name="code-69">&lt;div>No colors!&lt;/div></textarea></div></div></div><div class="section section-level-1"><h2 id="Template_Directives_Overview">Template Directives Overview</h2><div class="bd"><p>Almost all of the Raptor templating directives can be used as either an
 attribute or as an element. The template included above can be rewritten to
 apply template directives as elements instead of as attributes to produce the
 equivalent output. For
-example:</p><table class="table table-bordered"><thead><tr><th>Applying directives using attributes</th><th>Applying directives using elements</th></tr></thead><tbody><tr><td style="width: 50%"><div class="code-editor" id="s918"> <textarea id="s918-textarea" style="display: none;" name="code-66">&lt;c:template
+example:</p><table class="table table-bordered"><thead><tr><th>Applying directives using attributes</th><th>Applying directives using elements</th></tr></thead><tbody><tr><td style="width: 50%"><div class="code-editor" id="s922"> <textarea id="s922-textarea" style="display: none;" name="code-70">&lt;c:template
     xmlns:c="core"
     name="demo"
     params="colors">
@@ -111,7 +111,7 @@ example:</p><table class="table table-bordered"><thead><tr><th>Applying directiv
         No colors!
     &lt;/div>
      
-&lt;/c:template></textarea></div></td><td style="width: 50%"><div class="code-editor" id="s919"> <textarea id="s919-textarea" style="display: none;" name="code-67">&lt;c:template
+&lt;/c:template></textarea></div></td><td style="width: 50%"><div class="code-editor" id="s923"> <textarea id="s923-textarea" style="display: none;" name="code-71">&lt;c:template
     xmlns:c="core"
     name="demo"
     params="colors">
@@ -151,13 +151,13 @@ provided by taglibs as local variables to avoid the use of global functions.
 See
 <a href="#TaglibHelperFunctions"><nobr>Taglibs &raquo; Helper Functions</nobr> </a> for more details.</p></div></div><div class="section section-level-1"><h2 id="Expression_Escape_Sequences">Expression Escape Sequences</h2><div class="bd"><p>If the text "${" is intended to be part of the output then the "$" character
 must be escaped using a backslash as shown in the following
-code:</p><div class="code-editor" id="s920"> <textarea id="s920-textarea" style="display: none;" name="code-68">\${test} &lt;!-- Output: ${test} --></textarea></div><p>In the unlikely case that "\${" was intended to be part of the output then the
+code:</p><div class="code-editor" id="s924"> <textarea id="s924-textarea" style="display: none;" name="code-72">\${test} &lt;!-- Output: ${test} --></textarea></div><p>In the unlikely case that "\${" was intended to be part of the output then the
 backslash must be escaped by another backslash as shown in the following
-code:</p><div class="code-editor" id="s921"> <textarea id="s921-textarea" style="display: none;" name="code-69">\\${test} &lt;!-- Output: \${test} --></textarea></div></div></div><div class="section section-level-1"><h2 id="Expression_Handlers">Expression Handlers</h2><div class="bd"><p></p></div></div></div></div><div class="section section-level-0"><h2 id="Template_Directives">Template Directives</h2><div class="bd"><div class="section section-level-1"><h2 id="Template">Template</h2><div class="bd"><div class="section section-level-2"><h2 id="ctemplate">&lt;c:template></h2><div class="bd"><p>The root element of all templates should be a &lt;c:template> tag. This tag
+code:</p><div class="code-editor" id="s925"> <textarea id="s925-textarea" style="display: none;" name="code-73">\\${test} &lt;!-- Output: \${test} --></textarea></div></div></div><div class="section section-level-1"><h2 id="Expression_Handlers">Expression Handlers</h2><div class="bd"><p></p></div></div></div></div><div class="section section-level-0"><h2 id="Template_Directives">Template Directives</h2><div class="bd"><div class="section section-level-1"><h2 id="Template">Template</h2><div class="bd"><div class="section section-level-2"><h2 id="ctemplate">&lt;c:template></h2><div class="bd"><p>The root element of all templates should be a &lt;c:template> tag. This tag
 defines the name of the template and the input parameters for the template. In
 addition, XML namespaces corresponding to taglibs should be attached to the
 root
-element.</p><div class="code-editor" id="s922"> <textarea id="s922-textarea" style="display: none;" name="code-70">&lt;c:template
+element.</p><div class="code-editor" id="s926"> <textarea id="s926-textarea" style="display: none;" name="code-74">&lt;c:template
     xmlns:c="http://raptorjs.org/templates/core"
     name="greeting"
     params="name,count">
@@ -166,7 +166,7 @@ element.</p><div class="code-editor" id="s922"> <textarea id="s922-textarea" sty
 long taglib URI. For example, the short name for
 "http://raptorjs.org/templates/core" is "core". Therefore, the following will
 work as
-well:</p><div class="code-editor" id="s923"> <textarea id="s923-textarea" style="display: none;" name="code-71">&lt;c:template
+well:</p><div class="code-editor" id="s927"> <textarea id="s927-textarea" style="display: none;" name="code-75">&lt;c:template
     xmlns:c="core"
     name="greeting"
     params="name,count">
@@ -179,7 +179,7 @@ consist of a comma-separated list of variable
 names.</p><div class="message message-info"><div class="icon"><i class="icon-info-sign" style="font-size: 30px;"></i></div><div class="bd"><p>The "params" attribute is used to create local variables that can be easily
 accessed throughout the HTML template. Alternatively, properties of the data
 object can be accessed directly. The following are
-equivalent:</p><table class="table table-bordered"><thead><tr><th>With params</th><th>Without params</th></tr></thead><tbody><tr><td style="width: 50%"><div class="code-editor" id="s924"> <textarea id="s924-textarea" style="display: none;" name="code-72">&lt;c:template
+equivalent:</p><table class="table table-bordered"><thead><tr><th>With params</th><th>Without params</th></tr></thead><tbody><tr><td style="width: 50%"><div class="code-editor" id="s928"> <textarea id="s928-textarea" style="display: none;" name="code-76">&lt;c:template
     xmlns:c="core"
     name="greeting"
     params="name,count">
@@ -187,7 +187,7 @@ equivalent:</p><table class="table table-bordered"><thead><tr><th>With params</t
     Hello $name! 
     You have $count new messages.
   
-&lt;/c:template></textarea></div></td><td style="width: 50%"><div class="code-editor" id="s925"> <textarea id="s925-textarea" style="display: none;" name="code-73">&lt;c:template
+&lt;/c:template></textarea></div></td><td style="width: 50%"><div class="code-editor" id="s929"> <textarea id="s929-textarea" style="display: none;" name="code-77">&lt;c:template
     xmlns:c="core"
     name="greeting">
   
@@ -201,14 +201,14 @@ developers to understand what input is expected for a
 template.</p></div></div></div></div><div class="section section-level-2"><h2 id="cinclude">&lt;c:include></h2><div class="bd"><p>Another template can easily be included using the &lt;c:include> directive. The
 "template" attribute is required to specify name of the template to include and
 all other attributes are used as arguments to the
-template.</p><div class="code-editor" id="s926"> <textarea id="s926-textarea" style="display: none;" name="code-74">&lt;c:include template="myTemplate" someArg="${someVar}" anotherArg="Hello"/></textarea></div><p>As shown in the above example, attributes are used to define the template data
+template.</p><div class="code-editor" id="s930"> <textarea id="s930-textarea" style="display: none;" name="code-78">&lt;c:include template="myTemplate" someArg="${someVar}" anotherArg="Hello"/></textarea></div><p>As shown in the above example, attributes are used to define the template data
 for the included template. Alternatively, the
 <code>template-data</code> attribute can be used to pass along a complete data object to use for the
 included template as shown in the following
-example:</p><div class="code-editor" id="s927"> <textarea id="s927-textarea" style="display: none;" name="code-75">&lt;c:include template="myTemplate" template-data="includeData"/></textarea></div><p>In the above example, <code>includeData</code> is an expression that resolves to a JavaScript object. The resolved JavaScript
+example:</p><div class="code-editor" id="s931"> <textarea id="s931-textarea" style="display: none;" name="code-79">&lt;c:include template="myTemplate" template-data="includeData"/></textarea></div><p>In the above example, <code>includeData</code> is an expression that resolves to a JavaScript object. The resolved JavaScript
 object will then be used as the
 <code>data</code> object for the included template.</p></div></div></div></div><div class="section section-level-1"><h2 id="Text_Replacement">Text Replacement</h2><div class="bd"><p>Dynamic text should be of the form &lt;variable-name> or
-${{entity:lt}javascript-expression>}:</p><div class="code-editor" id="s928"> <textarea id="s928-textarea" style="display: none;" name="code-76">&lt;div>
+${{entity:lt}javascript-expression>}:</p><div class="code-editor" id="s932"> <textarea id="s932-textarea" style="display: none;" name="code-80">&lt;div>
     Hello $name!
 &lt;/div>
 &lt;div>
@@ -216,15 +216,15 @@ ${{entity:lt}javascript-expression>}:</p><div class="code-editor" id="s928"> <te
 &lt;/div>
 &lt;img src="$imgUrl"/></textarea></div><div class="section section-level-2"><h2 id="XML_Escaping">XML Escaping</h2><div class="bd"><p>By default, special XML characters in the output of an expression are always
 escaped to prevent
-<a href="http://en.wikipedia.org/wiki/Cross-site_scripting">cross-site scripting (XSS)</a> attacks. For example, given the following template:</p><div class="code-editor" id="s929"> <textarea id="s929-textarea" style="display: none;" name="code-77">Hello $name</textarea></div></div></div><p>And the following data:</p><div class="code-editor" id="s930"> <textarea id="s930-textarea" style="display: none;" name="code-78">{
+<a href="http://en.wikipedia.org/wiki/Cross-site_scripting">cross-site scripting (XSS)</a> attacks. For example, given the following template:</p><div class="code-editor" id="s933"> <textarea id="s933-textarea" style="display: none;" name="code-81">Hello $name</textarea></div></div></div><p>And the following data:</p><div class="code-editor" id="s934"> <textarea id="s934-textarea" style="display: none;" name="code-82">{
     "name": "&lt;script>alert('Hello World')&lt;/script>"
-}</textarea></div><p>The output would be the following:</p><div class="code-editor" id="s931"> <textarea id="s931-textarea" style="display: none;" name="code-79">Hello &amp;lt;script&amp;gt;alert('Hello World')&amp;lt;/script&amp;gt;!</textarea></div><p>In this example, the browser would not interpret the script tag since the XML
+}</textarea></div><p>The output would be the following:</p><div class="code-editor" id="s935"> <textarea id="s935-textarea" style="display: none;" name="code-83">Hello &amp;lt;script&amp;gt;alert('Hello World')&amp;lt;/script&amp;gt;!</textarea></div><p>In this example, the browser would not interpret the script tag since the XML
 characters had been
 escaped.</p><p>To disable XML escaping, the expression should be of the form ${xml:<span>&lt;</span>javascript-expression>}. The "xml" expression handler lets the compiler know
 that XML is expected and that the XML characters should not be
 escaped.</p></div></div><div class="section section-level-1"><h2 id="Conditionals">Conditionals</h2><div class="bd"><p></p><div class="section section-level-2"><h2 id="if_elseif_else">if...else-if...else</h2><div class="bd"><p>Any element or fragment of HTML can be made conditional using the c:if,
 c:else-if or c:else
-directive.</p><table class="table table-bordered"><thead><tr><th>Applied as an attribute</th><th>Applied as an element</th></tr></thead><tbody><tr><td style="width: 50%"><div class="code-editor" id="s932"> <textarea id="s932-textarea" style="display: none;" name="code-80">&lt;!--Simple if-->
+directive.</p><table class="table table-bordered"><thead><tr><th>Applied as an attribute</th><th>Applied as an element</th></tr></thead><tbody><tr><td style="width: 50%"><div class="code-editor" id="s936"> <textarea id="s936-textarea" style="display: none;" name="code-84">&lt;!--Simple if-->
 &lt;div c:if="someCondition">
     Hello World
 &lt;/div>
@@ -241,7 +241,7 @@ directive.</p><table class="table table-bordered"><thead><tr><th>Applied as an a
 &lt;/div>
 &lt;div c:else="">
     Something else
-&lt;/div></textarea></div></td><td style="width: 50%"><div class="code-editor" id="s933"> <textarea id="s933-textarea" style="display: none;" name="code-81">&lt;!--Simple if-->
+&lt;/div></textarea></div></td><td style="width: 50%"><div class="code-editor" id="s937"> <textarea id="s937-textarea" style="display: none;" name="code-85">&lt;!--Simple if-->
 &lt;c:if test="someCondition">
     &lt;div>
         Hello World
@@ -272,7 +272,7 @@ directive.</p><table class="table table-bordered"><thead><tr><th>Applied as an a
 c:otherwise provides advanced conditional processing for rendering one of
 several alternatives. The first matching c:when branch is rendered, or, if no
 c:when branch matches, the c:otherwise branch is
-rendered.</p><table class="table table-bordered"><thead><tr><th>Applied as an attribute</th><th>Applied as an element</th></tr></thead><tbody><tr><td style="width: 50%"><div class="code-editor" id="s934"> <textarea id="s934-textarea" style="display: none;" name="code-82">&lt;c:choose>
+rendered.</p><table class="table table-bordered"><thead><tr><th>Applied as an attribute</th><th>Applied as an element</th></tr></thead><tbody><tr><td style="width: 50%"><div class="code-editor" id="s938"> <textarea id="s938-textarea" style="display: none;" name="code-86">&lt;c:choose>
     &lt;c:when test="myVar === 'A'">
         &lt;div>A&lt;/div>
     &lt;/c:when>
@@ -282,7 +282,7 @@ rendered.</p><table class="table table-bordered"><thead><tr><th>Applied as an at
     &lt;c:otherwise>
         &lt;div>Something else&lt;/div>
     &lt;/c:otherwise>
-&lt;c:choose></textarea></div></td><td style="width: 50%"><div class="code-editor" id="s935"> <textarea id="s935-textarea" style="display: none;" name="code-83">&lt;c:choose>
+&lt;c:choose></textarea></div></td><td style="width: 50%"><div class="code-editor" id="s939"> <textarea id="s939-textarea" style="display: none;" name="code-87">&lt;c:choose>
     &lt;div c:when="myVar === 'A'">
         A
     &lt;/div>
@@ -292,36 +292,36 @@ rendered.</p><table class="table table-bordered"><thead><tr><th>Applied as an at
     &lt;div c:otherwise="">
         Something else
     &lt;/div>
-&lt;c:choose></textarea></div></td></tr></tbody></table><p>Given a value of "A" for "myVar", the output would be the following:</p><div class="code-editor" id="s936"> <textarea id="s936-textarea" style="display: none;" name="code-84">&lt;div>A&lt;/div></textarea></div><p>Given a value of "C" for "myVar", the output would be the following:</p><div class="code-editor" id="s937"> <textarea id="s937-textarea" style="display: none;" name="code-85">&lt;div>Something else&lt;/div></textarea></div></div></div><div class="section section-level-2"><h2 id="Shorthand_conditionals">Shorthand conditionals</h2><div class="bd"><p>Shorthand conditionals allow for conditional values inside attributes or
+&lt;c:choose></textarea></div></td></tr></tbody></table><p>Given a value of "A" for "myVar", the output would be the following:</p><div class="code-editor" id="s940"> <textarea id="s940-textarea" style="display: none;" name="code-88">&lt;div>A&lt;/div></textarea></div><p>Given a value of "C" for "myVar", the output would be the following:</p><div class="code-editor" id="s941"> <textarea id="s941-textarea" style="display: none;" name="code-89">&lt;div>Something else&lt;/div></textarea></div></div></div><div class="section section-level-2"><h2 id="Shorthand_conditionals">Shorthand conditionals</h2><div class="bd"><p>Shorthand conditionals allow for conditional values inside attributes or
 wherever expressions are allowed. Shorthand conditionals are of the following
-form:<br><code>{?&lt;expression>;&lt;true-template>[;&lt;false-template>]}</code></p><p>For example:</p><div class="code-editor" id="s938"> <textarea id="s938-textarea" style="display: none;" name="code-86">&lt;div class="{?active;tab-active}">Hello&lt;/div></textarea></div><p>With a value of <code>true</code> for <code>active</code>, the output would be the following:</p><div class="code-editor" id="s939"> <textarea id="s939-textarea" style="display: none;" name="code-87">&lt;div class="tab-active">Hello&lt;/div></textarea></div><p>With a value of <code>false</code> for <code>active</code>, the output would be the following:</p><div class="code-editor" id="s940"> <textarea id="s940-textarea" style="display: none;" name="code-88">&lt;div>Hello&lt;/div></textarea></div><div class="message message-info"><div class="icon"><i class="icon-info-sign" style="font-size: 30px;"></i></div><div class="bd"><p>If the expression inside an attribute evalutes to <code>null</code> or an empty string then the attribute is not included in the output.</p></div></div><p>As shown in the previous example, the "else" block for shorthand conditionals
+form:<br><code>{?&lt;expression>;&lt;true-template>[;&lt;false-template>]}</code></p><p>For example:</p><div class="code-editor" id="s942"> <textarea id="s942-textarea" style="display: none;" name="code-90">&lt;div class="{?active;tab-active}">Hello&lt;/div></textarea></div><p>With a value of <code>true</code> for <code>active</code>, the output would be the following:</p><div class="code-editor" id="s943"> <textarea id="s943-textarea" style="display: none;" name="code-91">&lt;div class="tab-active">Hello&lt;/div></textarea></div><p>With a value of <code>false</code> for <code>active</code>, the output would be the following:</p><div class="code-editor" id="s944"> <textarea id="s944-textarea" style="display: none;" name="code-92">&lt;div>Hello&lt;/div></textarea></div><div class="message message-info"><div class="icon"><i class="icon-info-sign" style="font-size: 30px;"></i></div><div class="bd"><p>If the expression inside an attribute evalutes to <code>null</code> or an empty string then the attribute is not included in the output.</p></div></div><p>As shown in the previous example, the "else" block for shorthand conditionals
 is optional. The usage of an else block is shown
-below:</p><div class="code-editor" id="s941"> <textarea id="s941-textarea" style="display: none;" name="code-89">&lt;div class="{?active;tab-active;tab-inactive}">Hello&lt;/div></textarea></div><p>With a value of <code>false</code> for <code>active</code>, the output would be the following:</p><div class="code-editor" id="s942"> <textarea id="s942-textarea" style="display: none;" name="code-90">&lt;div class="tab-inactive">Hello&lt;/div></textarea></div></div></div></div></div><div class="section section-level-1"><h2 id="Looping">Looping</h2><div class="bd"><div class="section section-level-2"><h2 id="for">for</h2><div class="bd"><p>Any element can be repeated for every item in an array using the c:for
+below:</p><div class="code-editor" id="s945"> <textarea id="s945-textarea" style="display: none;" name="code-93">&lt;div class="{?active;tab-active;tab-inactive}">Hello&lt;/div></textarea></div><p>With a value of <code>false</code> for <code>active</code>, the output would be the following:</p><div class="code-editor" id="s946"> <textarea id="s946-textarea" style="display: none;" name="code-94">&lt;div class="tab-inactive">Hello&lt;/div></textarea></div></div></div></div></div><div class="section section-level-1"><h2 id="Looping">Looping</h2><div class="bd"><div class="section section-level-2"><h2 id="for">for</h2><div class="bd"><p>Any element can be repeated for every item in an array using the c:for
 directive. The directive can be applied as an element or as an
-attribute.</p><table class="table table-bordered"><thead><tr><th>Applied as an attribute</th><th>Applied as an element</th></tr></thead><tbody><tr><td style="width: 50%"><div class="code-editor" id="s943"> <textarea id="s943-textarea" style="display: none;" name="code-91">&lt;ul>
+attribute.</p><table class="table table-bordered"><thead><tr><th>Applied as an attribute</th><th>Applied as an element</th></tr></thead><tbody><tr><td style="width: 50%"><div class="code-editor" id="s947"> <textarea id="s947-textarea" style="display: none;" name="code-95">&lt;ul>
     &lt;li c:for="item in items">${item}&lt;/li>
-&lt;/ul></textarea></div></td><td style="width: 50%"><div class="code-editor" id="s944"> <textarea id="s944-textarea" style="display: none;" name="code-92">&lt;ul>
+&lt;/ul></textarea></div></td><td style="width: 50%"><div class="code-editor" id="s948"> <textarea id="s948-textarea" style="display: none;" name="code-96">&lt;ul>
     &lt;c:for each="item in items">
         &lt;li>${item}&lt;/li>
     &lt;/c:for>
-&lt;/ul></textarea></div></td></tr></tbody></table><p>Given a value of <code>["red", "green", "blue"]</code> for <code>items</code>, the output would be the following:</p><div class="code-editor" id="s945"> <textarea id="s945-textarea" style="display: none;" name="code-93">&lt;ul>
+&lt;/ul></textarea></div></td></tr></tbody></table><p>Given a value of <code>["red", "green", "blue"]</code> for <code>items</code>, the output would be the following:</p><div class="code-editor" id="s949"> <textarea id="s949-textarea" style="display: none;" name="code-97">&lt;ul>
     &lt;li>red&lt;/li>
     &lt;li>green&lt;/li>
     &lt;li>blue&lt;/li>
 &lt;/ul></textarea></div><div class="section section-level-3"><h2 id="Loop_status_variable">Loop status variable</h2><div class="bd"><p>If while looping you need access to additional information about the status of
 the looping then the "status-var" attribute can be specified to introduce a new
 variable. The loop status variable supports the following
-methods:</p><ul><li>getLength()</li><li>isLast()</li><li>isFirst()</li><li>getIndex()</li></ul><table class="table table-bordered"><thead><tr><th>Applied as an attribute</th><th>Applied as an element</th></tr></thead><tbody><tr><td style="width: 50%"><div class="code-editor" id="s946"> <textarea id="s946-textarea" style="display: none;" name="code-94">&lt;ul>
+methods:</p><ul><li>getLength()</li><li>isLast()</li><li>isFirst()</li><li>getIndex()</li></ul><table class="table table-bordered"><thead><tr><th>Applied as an attribute</th><th>Applied as an element</th></tr></thead><tbody><tr><td style="width: 50%"><div class="code-editor" id="s950"> <textarea id="s950-textarea" style="display: none;" name="code-98">&lt;ul>
     &lt;li c:for="item in items; status-var=loopStatus">
         ${loopStatus.getIndex()+1}) ${item}
     &lt;/li>
-&lt;/ul></textarea></div></td><td style="width: 50%"><div class="code-editor" id="s947"> <textarea id="s947-textarea" style="display: none;" name="code-95">&lt;ul>
+&lt;/ul></textarea></div></td><td style="width: 50%"><div class="code-editor" id="s951"> <textarea id="s951-textarea" style="display: none;" name="code-99">&lt;ul>
     &lt;c:for each="item in items" status-var="loopStatus">
         &lt;li>
             ${loopStatus.getIndex()+1}) ${item}
         &lt;/li>
     &lt;/c:for>
-&lt;/ul></textarea></div></td></tr></tbody></table><p>Given a value of <code>["red", "green", "blue"]</code> for items, the output would be the following:</p><div class="code-editor" id="s948"> <textarea id="s948-textarea" style="display: none;" name="code-96">&lt;ul>
+&lt;/ul></textarea></div></td></tr></tbody></table><p>Given a value of <code>["red", "green", "blue"]</code> for items, the output would be the following:</p><div class="code-editor" id="s952"> <textarea id="s952-textarea" style="display: none;" name="code-100">&lt;ul>
     &lt;li>
         1) red
     &lt;/li>
@@ -333,23 +333,23 @@ methods:</p><ul><li>getLength()</li><li>isLast()</li><li>isFirst()</li><li>getIn
     &lt;/li>
 &lt;/ul></textarea></div></div></div><div class="section section-level-3"><h2 id="Separator">Separator</h2><div class="bd"><p>When looping over an array of items, a separator can be defined. The separator
 will automatically be written to the output after each
-iteration.</p><table class="table table-bordered"><thead><tr><th>Applied as an attribute</th><th>Applied as an element</th></tr></thead><tbody><tr><td style="width: 50%"><div class="code-editor" id="s949"> <textarea id="s949-textarea" style="display: none;" name="code-97">&lt;span c:for="item in items; separator=', '">
+iteration.</p><table class="table table-bordered"><thead><tr><th>Applied as an attribute</th><th>Applied as an element</th></tr></thead><tbody><tr><td style="width: 50%"><div class="code-editor" id="s953"> <textarea id="s953-textarea" style="display: none;" name="code-101">&lt;span c:for="item in items; separator=', '">
    ${item}
-&lt;/span></textarea></div></td><td style="width: 50%"><div class="code-editor" id="s950"> <textarea id="s950-textarea" style="display: none;" name="code-98">&lt;c:for each="item in items" separator=", ">
+&lt;/span></textarea></div></td><td style="width: 50%"><div class="code-editor" id="s954"> <textarea id="s954-textarea" style="display: none;" name="code-102">&lt;c:for each="item in items" separator=", ">
     &lt;span>
         ${item}
     &lt;/span>
-&lt;/c:for></textarea></div></td></tr></tbody></table><p>Given a value of <code>["red", "green", "blue"]</code> for items, the output would be the following:</p><div class="code-editor" id="s951"> <textarea id="s951-textarea" style="display: none;" name="code-99">&lt;span>red&lt;span>, &lt;span>green&lt;/span>, &lt;span>blue&lt;/span></textarea></div></div></div></div></div></div></div><div class="section section-level-1"><h2 id="Macros">Macros</h2><div class="bd"><p>Macros allow for reusable fragments within an HTML template. Macros can also be
+&lt;/c:for></textarea></div></td></tr></tbody></table><p>Given a value of <code>["red", "green", "blue"]</code> for items, the output would be the following:</p><div class="code-editor" id="s955"> <textarea id="s955-textarea" style="display: none;" name="code-103">&lt;span>red&lt;span>, &lt;span>green&lt;/span>, &lt;span>blue&lt;/span></textarea></div></div></div></div></div></div></div><div class="section section-level-1"><h2 id="Macros">Macros</h2><div class="bd"><p>Macros allow for reusable fragments within an HTML template. Macros can also be
 parameterized. A macro can be defined using the &lt;c:de> directive and a macro
 when defining a
 macro.</p><div class="section section-level-2"><h2 id="def">def</h2><div class="bd"><p>The &lt;c:def> directive can be used to define a reusable function within a
-template.</p><div class="code-editor" id="s952"> <textarea id="s952-textarea" style="display: none;" name="code-100">&lt;c:def function="greeting(name, count)">
+template.</p><div class="code-editor" id="s956"> <textarea id="s956-textarea" style="display: none;" name="code-104">&lt;c:def function="greeting(name, count)">
     Hello $name! You have $count new messages.
 &lt;/c:def></textarea></div><p>The above macro can then be invoked as part of any expression. Alternatively,
 the
 <a href="#invoke">&lt;c:invoke></a> directive can be used invoke a macro function using named attributes. The
 following sample template shows how to use macro functions inside
-expressions:</p><div class="code-editor" id="s953"> <textarea id="s953-textarea" style="display: none;" name="code-101">&lt;c:def function="greeting(name, count)">
+expressions:</p><div class="code-editor" id="s957"> <textarea id="s957-textarea" style="display: none;" name="code-105">&lt;c:def function="greeting(name, count)">
     Hello $name! You have $count new messages.
 &lt;/c:def>
 
@@ -358,7 +358,7 @@ expressions:</p><div class="code-editor" id="s953"> <textarea id="s953-textarea"
 &lt;/p>
 &lt;p>
     ${greeting("Frank", 20)}
-&lt;/p></textarea></div><p>The output for the above template would be the following:</p><div class="code-editor" id="s954"> <textarea id="s954-textarea" style="display: none;" name="code-102">&lt;p>
+&lt;/p></textarea></div><p>The output for the above template would be the following:</p><div class="code-editor" id="s958"> <textarea id="s958-textarea" style="display: none;" name="code-106">&lt;p>
     Hello John! You have 10 new messages.
 &lt;/p>
 &lt;p>
@@ -368,13 +368,13 @@ expressions:</p><div class="code-editor" id="s953"> <textarea id="s953-textarea"
 &lt;c:invoke> directive allows arguments to be passed using element attributes,
 but that format is only supported for functions that were previously defined
 using the &lt;c:def>
-directive.</p><div class="code-editor" id="s955"> <textarea id="s955-textarea" style="display: none;" name="code-103">&lt;c:def function="greeting(name, count)">
+directive.</p><div class="code-editor" id="s959"> <textarea id="s959-textarea" style="display: none;" name="code-107">&lt;c:def function="greeting(name, count)">
     Hello ${name}! You have ${count} new messages.
 &lt;/c:def>
  
 &lt;c:invoke function="greeting" name="John" count="${10}"/>
 &lt;c:invoke function="greeting('Frank', 20)"/> 
-</textarea></div><p>The output for the above template would be the following:</p><div class="code-editor" id="s956"><h2 class="code-editor-title">Output</h2> <textarea id="s956-textarea" style="display: none;" name="code-104">&lt;p>
+</textarea></div><p>The output for the above template would be the following:</p><div class="code-editor" id="s960"><h2 class="code-editor-title">Output</h2> <textarea id="s960-textarea" style="display: none;" name="code-108">&lt;p>
     Hello John! You have 10 new messages.
 &lt;/p>
 &lt;p>
@@ -382,46 +382,46 @@ directive.</p><div class="code-editor" id="s955"> <textarea id="s955-textarea" s
 &lt;/p></textarea></div><div class="message message-info"><div class="icon"><i class="icon-info-sign" style="font-size: 30px;"></i></div><div class="bd"><p>NOTE: By default, the arguments will be of type "string" when using
 &lt;c:invoke>. However, argument attributes support JavaScript expressions
 which allow for other types of arguments.
-Example:</p><div class="code-editor" id="s957"> <textarea id="s957-textarea" style="display: none;" name="code-105">count="10" &lt;!-- string argument -->
+Example:</p><div class="code-editor" id="s961"> <textarea id="s961-textarea" style="display: none;" name="code-109">count="10" &lt;!-- string argument -->
 count="${10}"  &lt;!-- number argument --></textarea></div></div></div></div></div></div></div><div class="section section-level-1"><h2 id="Structure_Manipulation">Structure Manipulation</h2><div class="bd"><p></p><div class="section section-level-2"><h2 id="attrs">attrs</h2><div class="bd"><p>The <code>c:attrs</code> attribute allows attributes to be dynamically added to an element at runtime.
 The value of the c:attrs attribute should be an expression that resolves to an
 object with properties that correspond to the dynamic attributes. For
-example:</p><div class="code-editor" id="s958"> <textarea id="s958-textarea" style="display: none;" name="code-106">&lt;div c:attrs="myAttrs">
+example:</p><div class="code-editor" id="s962"> <textarea id="s962-textarea" style="display: none;" name="code-110">&lt;div c:attrs="myAttrs">
     Hello World!
-&lt;/div></textarea></div><p>Given a value of <code>{style: "background-color: #FF0000;", "class": "my-div"}</code> for the <code>myAttrs</code> variable, the output would then be the following:</p><div class="code-editor" id="s959"> <textarea id="s959-textarea" style="display: none;" name="code-107">&lt;div style="background-color: #FF0000;" class="my-div">
+&lt;/div></textarea></div><p>Given a value of <code>{style: "background-color: #FF0000;", "class": "my-div"}</code> for the <code>myAttrs</code> variable, the output would then be the following:</p><div class="code-editor" id="s963"> <textarea id="s963-textarea" style="display: none;" name="code-111">&lt;div style="background-color: #FF0000;" class="my-div">
     Hello World!
 &lt;/div></textarea></div></div></div><div class="section section-level-2"><h2 id="content">content</h2><div class="bd"><p>This directive replaces any nested content with the result of evaluating the
-expression:</p><div class="code-editor" id="s960"> <textarea id="s960-textarea" style="display: none;" name="code-108">&lt;ul>
+expression:</p><div class="code-editor" id="s964"> <textarea id="s964-textarea" style="display: none;" name="code-112">&lt;ul>
     &lt;li c:content="myExpr">Hello&lt;/li>
-&lt;/ul></textarea></div><p>Given a value of <code>"Bye!"</code> for the value of <code>myExpr</code>, the output of the above template would be the following:</p><div class="code-editor" id="s961"> <textarea id="s961-textarea" style="display: none;" name="code-109">&lt;ul>
+&lt;/ul></textarea></div><p>Given a value of <code>"Bye!"</code> for the value of <code>myExpr</code>, the output of the above template would be the following:</p><div class="code-editor" id="s965"> <textarea id="s965-textarea" style="display: none;" name="code-113">&lt;ul>
     &lt;li>Bye!&lt;/li>
 &lt;/ul></textarea></div></div></div><div class="section section-level-2"><h2 id="replace">replace</h2><div class="bd"><p>This directive replaces the element itself with the result of evaluating the
-expression:</p><div class="code-editor" id="s962"> <textarea id="s962-textarea" style="display: none;" name="code-110">&lt;div>
+expression:</p><div class="code-editor" id="s966"> <textarea id="s966-textarea" style="display: none;" name="code-114">&lt;div>
     &lt;span c:replace="myExpr">Hello&lt;/span>
 &lt;/div></textarea></div><p>Given a value of "Bye!" for the value of "myExpr", the output of the above
 template would be the following:
-</p><div class="code-editor" id="s963"> <textarea id="s963-textarea" style="display: none;" name="code-111">&lt;div>
+</p><div class="code-editor" id="s967"> <textarea id="s967-textarea" style="display: none;" name="code-115">&lt;div>
     Bye!
 &lt;/div></textarea></div></div></div><div class="section section-level-2"><h2 id="strip">strip</h2><div class="bd"><p>This directive conditionally strips the top-level element from the output. If
 the expression provided as the attribute value evaluates to true then the
 element is stripped from the
-output:</p><div class="code-editor" id="s964"> <textarea id="s964-textarea" style="display: none;" name="code-112">&lt;div>
+output:</p><div class="code-editor" id="s968"> <textarea id="s968-textarea" style="display: none;" name="code-116">&lt;div>
     &lt;span c:strip="true">&lt;b>Hello&lt;/b>&lt;/span>
-&lt;/div></textarea></div><div class="code-editor" id="s965"><h2 class="code-editor-title">Output</h2> <textarea id="s965-textarea" style="display: none;" name="code-113">&lt;div>
+&lt;/div></textarea></div><div class="code-editor" id="s969"><h2 class="code-editor-title">Output</h2> <textarea id="s969-textarea" style="display: none;" name="code-117">&lt;div>
     &lt;b>Hello&lt;/b>
 &lt;/div></textarea></div></div></div></div></div></div></div><div class="section section-level-0"><h2 id="Taglibs">Taglibs</h2><div class="bd"><p></p><div class="section section-level-1"><h2 id="Runtime_Tag_Handlers">Runtime Tag Handlers</h2><div class="bd"><p>Tag handlers allow templates to be extended by allowing the rendering of an
 element template to be controlled by an external class/component. Handlers are
 given a reference to their body fragment so that they can control how to handle
 the rendering of their body content. In addition, a handler can introduce
 scoped variables that are available to the nested body content
-only.</p><p>For example, the &lt;test:greeting> handler might be used as follows:</p> <div class="code-editor" id="s966"> <textarea id="s966-textarea" style="display: none;" name="code-114">&lt;c:template
+only.</p><p>For example, the &lt;test:greeting> handler might be used as follows:</p> <div class="code-editor" id="s970"> <textarea id="s970-textarea" style="display: none;" name="code-118">&lt;c:template
     xmlns:c="core"
     xmlns:test="test"
     name="simple-handlers">
      
     &lt;test:greeting name="World"/>
      
-&lt;/c:template></textarea></div><div class="code-editor" id="s967"><h2 class="code-editor-title">Tag Handler Implementation</h2> <textarea id="s967-textarea" style="display: none;" name="code-115">raptor.defineClass(
+&lt;/c:template></textarea></div><div class="code-editor" id="s971"><h2 class="code-editor-title">Tag Handler Implementation</h2> <textarea id="s971-textarea" style="display: none;" name="code-119">raptor.defineClass(
     'taglibs.test.GreetingHandler',
     function(raptor) {
         return {
@@ -429,9 +429,9 @@ only.</p><p>For example, the &lt;test:greeting> handler might be used as follows
                 context.write("Hello " + input.name + "!");
             }
         }
-    });</textarea></div><div class="code-editor" id="s968"><h2 class="code-editor-title">Output</h2> <textarea id="s968-textarea" style="display: none;" name="code-116">Hello World!</textarea></div><p>The following Taglib fragment shows how to associate a custom tag with a
+    });</textarea></div><div class="code-editor" id="s972"><h2 class="code-editor-title">Output</h2> <textarea id="s972-textarea" style="display: none;" name="code-120">Hello World!</textarea></div><p>The following Taglib fragment shows how to associate a custom tag with a
 runtime tag handler
-class:</p><div class="code-editor" id="s969"> <textarea id="s969-textarea" style="display: none;" name="code-117">&lt;tag>
+class:</p><div class="code-editor" id="s973"> <textarea id="s973-textarea" style="display: none;" name="code-121">&lt;tag>
     &lt;name>greeting&lt;/name>
     &lt;handler-class>taglibs.test.GreetingHandler&lt;/handler-class>
     &lt;attribute name="name" type="string"/>
@@ -443,7 +443,7 @@ method—<code>doGenerateCode</code>. As part of compilation process, a tree of 
 template and to generate code, the
 <code>generateCode</code> method of the root node is invoked which recursively invoke the <code>generateCode</code> method for all child nodes.</p><p>The following Taglib fragment shows how to associate a custom tag with a node
 compiler
-class:</p> <div class="code-editor" id="s970"> <textarea id="s970-textarea" style="display: none;" name="code-118">&lt;tag>
+class:</p> <div class="code-editor" id="s974"> <textarea id="s974-textarea" style="display: none;" name="code-122">&lt;tag>
     &lt;name>if&lt;/name> 
     &lt;node-class>templating.taglibs.core.IfNode&lt;/node-class>
     &lt;attribute name="test" type="expression"/>
@@ -460,19 +460,19 @@ please see the following sub-pages
 template that imports the functions. Imported helper functions be used inside
 any JavaScript
 expression.</p><p>The following code shows how to import and use functions inside a Raptor
-Template:</p><div class="code-editor" id="s971"> <textarea id="s971-textarea" style="display: none;" name="code-119">&lt;c:template
+Template:</p><div class="code-editor" id="s975"> <textarea id="s975-textarea" style="display: none;" name="code-123">&lt;c:template
     xmlns:test="test"
     xmlns:c="core"
     test:functions="reverse">
     
     &lt;div>${reverse('reverse test')}&lt;/div>
     
-&lt;/c:template></textarea></div><p>The output for the above rendered template would be the following:</p><div class="code-editor" id="s972"> <textarea id="s972-textarea" style="display: none;" name="code-120">&lt;div>tset esrever&lt;/div></textarea></div><p>Helper functions can be registered as part of a taglib as shown in the
+&lt;/c:template></textarea></div><p>The output for the above rendered template would be the following:</p><div class="code-editor" id="s976"> <textarea id="s976-textarea" style="display: none;" name="code-124">&lt;div>tset esrever&lt;/div></textarea></div><p>Helper functions can be registered as part of a taglib as shown in the
 following taglib code
-fragment:</p><div class="code-editor" id="s973"> <textarea id="s973-textarea" style="display: none;" name="code-121">&lt;function name="reverse" class="taglibs.test.TestFunctions"/></textarea></div><p>The above fragment registers a helper function and tells the Raptor Template
+fragment:</p><div class="code-editor" id="s977"> <textarea id="s977-textarea" style="display: none;" name="code-125">&lt;function name="reverse" class="taglibs.test.TestFunctions"/></textarea></div><p>The above fragment registers a helper function and tells the Raptor Template
 compiler where the implementation for the function can be found. The sample
 code below illustrates how to implement helper
-functions:</p><div class="code-editor" id="s974"> <textarea id="s974-textarea" style="display: none;" name="code-122">raptor.define(
+functions:</p><div class="code-editor" id="s978"> <textarea id="s978-textarea" style="display: none;" name="code-126">raptor.define(
     "taglibs.test.TestFunctions",
     function() {
         return {
@@ -484,7 +484,7 @@ functions:</p><div class="code-editor" id="s974"> <textarea id="s974-textarea" s
                 return out;
             }
         }
-    });</textarea></div><p>For more details on creating taglibs, please see the following sub-page: </p><ul><li><a href="../../raptor-templates/taglibs/index.html">Advanced &raquo; Creating Taglibs</a></li></ul> </div></div></div></div><div class="section section-level-0"><h2 id="JavaScript_API">JavaScript API</h2><div class="bd"><p></p><div class="section section-level-1"><h2 id="Template_Rendering">Template Rendering</h2><div class="bd"><p></p><div class="section section-level-2"><h2 id="Rendering_to_a_String">Rendering to a String</h2><div class="bd"><p>The <code>template.renderToString(templateName, template-data)</code> method can be used to render a template to a string.</p><div class="code-editor" id="s975"> <textarea id="s975-textarea" style="display: none;" name="code-123">var templating = raptor.require("templating");
+    });</textarea></div><p>For more details on creating taglibs, please see the following sub-page: </p><ul><li><a href="../../raptor-templates/taglibs/index.html">Advanced &raquo; Creating Taglibs</a></li></ul> </div></div></div></div><div class="section section-level-0"><h2 id="JavaScript_API">JavaScript API</h2><div class="bd"><p></p><div class="section section-level-1"><h2 id="Template_Rendering">Template Rendering</h2><div class="bd"><p></p><div class="section section-level-2"><h2 id="Rendering_to_a_String">Rendering to a String</h2><div class="bd"><p>The <code>template.renderToString(templateName, template-data)</code> method can be used to render a template to a string.</p><div class="code-editor" id="s979"> <textarea id="s979-textarea" style="display: none;" name="code-127">var templating = raptor.require("templating");
 var output = templating.renderToString("test/Person", {person: person});</textarea></div><div class="message message-info"><div class="icon"><i class="icon-info-sign" style="font-size: 30px;"></i></div><div class="bd"><p>NOTE: On the server, if the template cannot be found then the templating module
 will convert the template name to a path and try to load the template. The
 templating module actually checks two paths as illustrated by the
@@ -492,12 +492,12 @@ following:</p> Input template name: <code>"test/Person"</code><br> Paths checked
 template can be added to an existing "context". A context is an object that
 gets created every time a template is rendered if a context is not provided. At
 a minimum, a context should contain a
-<code>write(str)</code> method that is used to add output to an output buffer and a <code>getOutput()</code> method that is used to get the string output.</p><p>The following code illustrates how to render a template to an existing context:</p><div class="code-editor" id="s976"> <textarea id="s976-textarea" style="display: none;" name="code-124">var templating = raptor.require("templating");
+<code>write(str)</code> method that is used to add output to an output buffer and a <code>getOutput()</code> method that is used to get the string output.</p><p>The following code illustrates how to render a template to an existing context:</p><div class="code-editor" id="s980"> <textarea id="s980-textarea" style="display: none;" name="code-128">var templating = raptor.require("templating");
 var context = templating.createContext();
 templating.render("test/Person", {person: person}, context);
 var output = context.getOutput();</textarea></div></div></div></div></div><div class="section section-level-1"><h2 id="Template_Compilation">Template Compilation</h2><div class="bd"><p></p><div class="section section-level-2"><h2 id="Compiling_a_Template">Compiling a Template</h2><div class="bd"><p>If you prefer to only compile a code to JavaScript then the following code can
 be
-used:</p><div class="code-editor" id="s977"> <textarea id="s977-textarea" style="display: none;" name="code-125">var compiler = raptor.require("templating.compiler");
+used:</p><div class="code-editor" id="s981"> <textarea id="s981-textarea" style="display: none;" name="code-129">var compiler = raptor.require("templating.compiler");
 var compilerOptions = {
     preserveWhitespace: true
 };
@@ -509,7 +509,7 @@ var jsSource = compiler.compile('&lt;c:template \
         &lt;/c:template>', 
         compilerOptions);</textarea></div><div class="message message-info"><div class="icon"><i class="icon-info-sign" style="font-size: 30px;"></i></div><div class="bd">The the <code>compilerOptions</code> argument is optional but allows additional options to be passed to the
 compiler to control the compiled output. The default options are the following:
-<div class="code-editor" id="s978"> <textarea id="s978-textarea" style="display: none;" name="code-126">{
+<div class="code-editor" id="s982"> <textarea id="s982-textarea" style="display: none;" name="code-130">{
     minify: false,
     preserveWhitespace: {
         'pre': true,
@@ -542,7 +542,7 @@ minimum.</p><p>The rendering time of Raptor Templates is kept to a minimum by fi
 compiler. In addition, developers have complete flexibility to control how the
 compiled output is generated to allow for the most demanding performance
 constraints.
-</p><div class="section section-level-1"><h2 id="Sample_Compiled_Template">Sample Compiled Template</h2><div class="bd"><div class="code-editor" id="s979"><h2 class="code-editor-title">Input Template</h2> <textarea id="s979-textarea" style="display: none;" name="code-127">&lt;c:template 
+</p><div class="section section-level-1"><h2 id="Sample_Compiled_Template">Sample Compiled Template</h2><div class="bd"><div class="code-editor" id="s983"><h2 class="code-editor-title">Input Template</h2> <textarea id="s983-textarea" style="display: none;" name="code-131">&lt;c:template 
     xmlns:c="core" 
     params="name,colors">
     
@@ -559,7 +559,7 @@ constraints.
         &lt;/div>
     &lt;/c:choose>
     
-&lt;/c:template></textarea></div><div class="code-editor" id="s980"><h2 class="code-editor-title">Unminified Compiled Output</h2> <textarea id="s980-textarea" style="display: none;" name="code-128">$rset("rhtml", "test", function(helpers){
+&lt;/c:template></textarea></div><div class="code-editor" id="s984"><h2 class="code-editor-title">Unminified Compiled Output</h2> <textarea id="s984-textarea" style="display: none;" name="code-132">$rset("rhtml", "test", function(helpers){
   var empty=helpers.e,
       notEmpty=helpers.ne,
       escapeXml=helpers.x,
@@ -586,7 +586,7 @@ constraints.
     }
 
   }
-});</textarea></div><div class="code-editor" id="s981"><h2 class="code-editor-title">Minified Compiled Output</h2> <textarea id="s981-textarea" style="display: none;" name="code-129">$rset("rhtml","test",function(a){var e=a.ne,c=a.x,f=a.f;return function(a,b){var g=a.name,d=a.colors;b.w("Hello ").w(c(g)).w("!");e(d)?(b.w("&lt;ul>"),f(d,function(a){b.w("&lt;li>").w(c(a)).w("&lt;/li>")}),b.w("&lt;/ul>")):b.w("&lt;div>No colors!&lt;/div>")}});</textarea></div><table class="sizes table table-bordered"><thead><tr><th></th><th>Uncompressed</th><th>Gzipped</th></tr></thead><tbody><tr><td>Original Size:</td><td>454 bytes</td><td>248 bytes</td></tr><tr><td>Compiled Size:</td><td>243 bytes</td><td>178 bytes</td></tr></tbody></table> Saved 46.48% off the original size (28.23% off the gzipped size)</div></div></div></div><div class="section section-level-0"><h2 id="Advanced">Advanced</h2><div class="bd"><p></p><div class="section section-level-1"><h2 id="Creating_Taglibs">Creating Taglibs</h2><div class="bd"><p>Please see the sub-page, <a href="../../raptor-templates/taglibs/index.html">Creating Taglibs</a>, for more details.</p></div></div><div class="section section-level-1"><h2 id="Raptor_Templates_Compilation">Raptor Templates Compilation</h2><div class="bd"><p>Please see the sub-page, <a href="../../raptor-templates/compilation/index.html">Raptor Templates Compilation</a>, for more details.</p></div></div></div></div></div></div><div class="docs-footer-padding"></div></div></div><script type="text/javascript" src="../../../../../ebay/github/Raptor/RaptorJSOpenSource/src/main/resources/META-INF/resources/raptor_modules/bootstrap/bootstrap_browser.js"></script>
+});</textarea></div><div class="code-editor" id="s985"><h2 class="code-editor-title">Minified Compiled Output</h2> <textarea id="s985-textarea" style="display: none;" name="code-133">$rset("rhtml","test",function(a){var e=a.ne,c=a.x,f=a.f;return function(a,b){var g=a.name,d=a.colors;b.w("Hello ").w(c(g)).w("!");e(d)?(b.w("&lt;ul>"),f(d,function(a){b.w("&lt;li>").w(c(a)).w("&lt;/li>")}),b.w("&lt;/ul>")):b.w("&lt;div>No colors!&lt;/div>")}});</textarea></div><table class="sizes table table-bordered"><thead><tr><th></th><th>Uncompressed</th><th>Gzipped</th></tr></thead><tbody><tr><td>Original Size:</td><td>454 bytes</td><td>248 bytes</td></tr><tr><td>Compiled Size:</td><td>243 bytes</td><td>178 bytes</td></tr></tbody></table> Saved 46.48% off the original size (28.23% off the gzipped size)</div></div></div></div><div class="section section-level-0"><h2 id="Advanced">Advanced</h2><div class="bd"><p></p><div class="section section-level-1"><h2 id="Creating_Taglibs">Creating Taglibs</h2><div class="bd"><p>Please see the sub-page, <a href="../../raptor-templates/taglibs/index.html">Creating Taglibs</a>, for more details.</p></div></div><div class="section section-level-1"><h2 id="Raptor_Templates_Compilation">Raptor Templates Compilation</h2><div class="bd"><p>Please see the sub-page, <a href="../../raptor-templates/compilation/index.html">Raptor Templates Compilation</a>, for more details.</p></div></div></div></div></div></div><div class="docs-footer-padding"></div></div></div><script type="text/javascript" src="../../../../../ebay/github/Raptor/RaptorJSOpenSource/src/main/resources/META-INF/resources/raptor_modules/bootstrap/bootstrap_browser.js"></script>
 <script type="text/javascript" src="../../../../../ebay/github/Raptor/RaptorJSOpenSource/src/main/resources/META-INF/resources/raptor_modules/ecma/es5/es5.js"></script>
 <script type="text/javascript" src="../../../../../ebay/github/Raptor/RaptorJSOpenSource/src/main/resources/META-INF/resources/raptor_modules/raptorBuilder/raptorBuilder.js"></script>
 <script type="text/javascript" src="../../../../../ebay/github/Raptor/RaptorJSOpenSource/src/main/resources/META-INF/resources/raptor_modules/logging/logging_stubs.js"></script>
@@ -612,6 +612,7 @@ constraints.
 <script type="text/javascript" src="../../src/components/overlays/Popover/PopoverWidget.js"></script>
 <script type="text/javascript" src="../../src/modules/Bootstrap/bootstrap/js/bootstrap-dropdown.js"></script>
 <script type="text/javascript" src="../../src/modules/Bootstrap/bootstrap/js/bootstrap-button.js"></script>
+<script type="text/javascript" src="../../src/components/social/Disqus/DisqusWidget_dev.js"></script>
 <script type="text/javascript" src="../../src/modules/Bootstrap/bootstrap/js/bootstrap-tab.js"></script>
 <script type="text/javascript" src="../../src/components/nav/NavItem/NavItemWidget.js"></script>
 <script type="text/javascript" src="../../src/modules/Bootstrap/bootstrap/js/bootstrap-scrollspy.js"></script>
@@ -622,12 +623,8 @@ constraints.
 <script type="text/javascript" src="../../src/modules/CodeMirror/CodeMirror-2.33/mode/javascript/javascript.js"></script>
 <script type="text/javascript" src="../../src/modules/CodeMirror/CodeMirror-2.33/mode/xml/xml.js"></script>
 <script type="text/javascript" src="../../src/components/docs/Docs/DocsWidget.js"></script><script type="text/javascript">$rwidgets(
-["components.nav.Nav.NavItemWidget","s882",0,0,0,0],
-["components.nav.Nav.NavItemWidget","s883",0,0,0,0,
-["components.nav.Nav.NavItemWidget","s884",0,0,0,0],
-["components.nav.Nav.NavItemWidget","s885",0,0,0,0],
 ["components.nav.Nav.NavItemWidget","s886",0,0,0,0],
-["components.nav.Nav.NavItemWidget","s887",0,0,0,0],
+["components.nav.Nav.NavItemWidget","s887",0,0,0,0,
 ["components.nav.Nav.NavItemWidget","s888",0,0,0,0],
 ["components.nav.Nav.NavItemWidget","s889",0,0,0,0],
 ["components.nav.Nav.NavItemWidget","s890",0,0,0,0],
@@ -637,30 +634,30 @@ constraints.
 ["components.nav.Nav.NavItemWidget","s894",0,0,0,0],
 ["components.nav.Nav.NavItemWidget","s895",0,0,0,0],
 ["components.nav.Nav.NavItemWidget","s896",0,0,0,0],
-["components.nav.Nav.NavItemWidget","s897",0,0,0,0]],
-["components.nav.Nav.NavItemWidget","s898",0,0,0,0,
+["components.nav.Nav.NavItemWidget","s897",0,0,0,0],
+["components.nav.Nav.NavItemWidget","s898",0,0,0,0],
 ["components.nav.Nav.NavItemWidget","s899",0,0,0,0],
 ["components.nav.Nav.NavItemWidget","s900",0,0,0,0],
-["components.nav.Nav.NavItemWidget","s901",0,0,0,0],
-["components.nav.Nav.NavItemWidget","s902",0,0,0,0],
+["components.nav.Nav.NavItemWidget","s901",0,0,0,0]],
+["components.nav.Nav.NavItemWidget","s902",0,0,0,0,
 ["components.nav.Nav.NavItemWidget","s903",0,0,0,0],
 ["components.nav.Nav.NavItemWidget","s904",0,0,0,0],
-["components.nav.Nav.NavItemWidget","s905",0,0,0,0]],
-["components.nav.Nav.NavItemWidget","s906",0,0,0,0,
+["components.nav.Nav.NavItemWidget","s905",0,0,0,0],
+["components.nav.Nav.NavItemWidget","s906",0,0,0,0],
 ["components.nav.Nav.NavItemWidget","s907",0,0,0,0],
 ["components.nav.Nav.NavItemWidget","s908",0,0,0,0],
-["components.nav.Nav.NavItemWidget","s909",0,0,0,0],
-["components.nav.Nav.NavItemWidget","s910",0,0,0,0],
-["components.nav.Nav.NavItemWidget","s911",0,0,0,0]],
-["components.overlays.Popover.PopoverWidget","s912",0,0,{},0],
-["components.editors.CodeEditor.CodeEditorWidget","s913",0,0,{"mode":"xml","autoResize":true,"readOnly":true},0],
-["components.editors.CodeEditor.CodeEditorWidget","s914",0,0,{"mode":"javascript","autoResize":true,"readOnly":true},0],
-["components.editors.CodeEditor.CodeEditorWidget","s915",0,0,{"mode":"xml","autoResize":true,"readOnly":true},0],
-["components.editors.CodeEditor.CodeEditorWidget","s916",0,0,{"mode":"javascript","autoResize":true,"readOnly":true},0],
+["components.nav.Nav.NavItemWidget","s909",0,0,0,0]],
+["components.nav.Nav.NavItemWidget","s910",0,0,0,0,
+["components.nav.Nav.NavItemWidget","s911",0,0,0,0],
+["components.nav.Nav.NavItemWidget","s912",0,0,0,0],
+["components.nav.Nav.NavItemWidget","s913",0,0,0,0],
+["components.nav.Nav.NavItemWidget","s914",0,0,0,0],
+["components.nav.Nav.NavItemWidget","s915",0,0,0,0]],
+["components.overlays.Popover.PopoverWidget","s916",0,0,{},0],
 ["components.editors.CodeEditor.CodeEditorWidget","s917",0,0,{"mode":"xml","autoResize":true,"readOnly":true},0],
-["components.editors.CodeEditor.CodeEditorWidget","s918",0,0,{"mode":"xml","autoResize":true,"readOnly":true},0],
+["components.editors.CodeEditor.CodeEditorWidget","s918",0,0,{"mode":"javascript","autoResize":true,"readOnly":true},0],
 ["components.editors.CodeEditor.CodeEditorWidget","s919",0,0,{"mode":"xml","autoResize":true,"readOnly":true},0],
-["components.editors.CodeEditor.CodeEditorWidget","s920",0,0,{"mode":"xml","autoResize":true,"readOnly":true},0],
+["components.editors.CodeEditor.CodeEditorWidget","s920",0,0,{"mode":"javascript","autoResize":true,"readOnly":true},0],
 ["components.editors.CodeEditor.CodeEditorWidget","s921",0,0,{"mode":"xml","autoResize":true,"readOnly":true},0],
 ["components.editors.CodeEditor.CodeEditorWidget","s922",0,0,{"mode":"xml","autoResize":true,"readOnly":true},0],
 ["components.editors.CodeEditor.CodeEditorWidget","s923",0,0,{"mode":"xml","autoResize":true,"readOnly":true},0],
@@ -670,11 +667,11 @@ constraints.
 ["components.editors.CodeEditor.CodeEditorWidget","s927",0,0,{"mode":"xml","autoResize":true,"readOnly":true},0],
 ["components.editors.CodeEditor.CodeEditorWidget","s928",0,0,{"mode":"xml","autoResize":true,"readOnly":true},0],
 ["components.editors.CodeEditor.CodeEditorWidget","s929",0,0,{"mode":"xml","autoResize":true,"readOnly":true},0],
-["components.editors.CodeEditor.CodeEditorWidget","s930",0,0,{"mode":"javascript","autoResize":true,"readOnly":true},0],
+["components.editors.CodeEditor.CodeEditorWidget","s930",0,0,{"mode":"xml","autoResize":true,"readOnly":true},0],
 ["components.editors.CodeEditor.CodeEditorWidget","s931",0,0,{"mode":"xml","autoResize":true,"readOnly":true},0],
 ["components.editors.CodeEditor.CodeEditorWidget","s932",0,0,{"mode":"xml","autoResize":true,"readOnly":true},0],
 ["components.editors.CodeEditor.CodeEditorWidget","s933",0,0,{"mode":"xml","autoResize":true,"readOnly":true},0],
-["components.editors.CodeEditor.CodeEditorWidget","s934",0,0,{"mode":"xml","autoResize":true,"readOnly":true},0],
+["components.editors.CodeEditor.CodeEditorWidget","s934",0,0,{"mode":"javascript","autoResize":true,"readOnly":true},0],
 ["components.editors.CodeEditor.CodeEditorWidget","s935",0,0,{"mode":"xml","autoResize":true,"readOnly":true},0],
 ["components.editors.CodeEditor.CodeEditorWidget","s936",0,0,{"mode":"xml","autoResize":true,"readOnly":true},0],
 ["components.editors.CodeEditor.CodeEditorWidget","s937",0,0,{"mode":"xml","autoResize":true,"readOnly":true},0],
@@ -707,18 +704,22 @@ constraints.
 ["components.editors.CodeEditor.CodeEditorWidget","s964",0,0,{"mode":"xml","autoResize":true,"readOnly":true},0],
 ["components.editors.CodeEditor.CodeEditorWidget","s965",0,0,{"mode":"xml","autoResize":true,"readOnly":true},0],
 ["components.editors.CodeEditor.CodeEditorWidget","s966",0,0,{"mode":"xml","autoResize":true,"readOnly":true},0],
-["components.editors.CodeEditor.CodeEditorWidget","s967",0,0,{"mode":"javascript","autoResize":true,"readOnly":true},0],
+["components.editors.CodeEditor.CodeEditorWidget","s967",0,0,{"mode":"xml","autoResize":true,"readOnly":true},0],
 ["components.editors.CodeEditor.CodeEditorWidget","s968",0,0,{"mode":"xml","autoResize":true,"readOnly":true},0],
 ["components.editors.CodeEditor.CodeEditorWidget","s969",0,0,{"mode":"xml","autoResize":true,"readOnly":true},0],
 ["components.editors.CodeEditor.CodeEditorWidget","s970",0,0,{"mode":"xml","autoResize":true,"readOnly":true},0],
-["components.editors.CodeEditor.CodeEditorWidget","s971",0,0,{"mode":"xml","autoResize":true,"readOnly":true},0],
+["components.editors.CodeEditor.CodeEditorWidget","s971",0,0,{"mode":"javascript","autoResize":true,"readOnly":true},0],
 ["components.editors.CodeEditor.CodeEditorWidget","s972",0,0,{"mode":"xml","autoResize":true,"readOnly":true},0],
 ["components.editors.CodeEditor.CodeEditorWidget","s973",0,0,{"mode":"xml","autoResize":true,"readOnly":true},0],
-["components.editors.CodeEditor.CodeEditorWidget","s974",0,0,{"mode":"javascript","autoResize":true,"readOnly":true},0],
-["components.editors.CodeEditor.CodeEditorWidget","s975",0,0,{"mode":"javascript","autoResize":true,"readOnly":true},0],
-["components.editors.CodeEditor.CodeEditorWidget","s976",0,0,{"mode":"javascript","autoResize":true,"readOnly":true},0],
-["components.editors.CodeEditor.CodeEditorWidget","s977",0,0,{"mode":"javascript","autoResize":true,"readOnly":true},0],
+["components.editors.CodeEditor.CodeEditorWidget","s974",0,0,{"mode":"xml","autoResize":true,"readOnly":true},0],
+["components.editors.CodeEditor.CodeEditorWidget","s975",0,0,{"mode":"xml","autoResize":true,"readOnly":true},0],
+["components.editors.CodeEditor.CodeEditorWidget","s976",0,0,{"mode":"xml","autoResize":true,"readOnly":true},0],
+["components.editors.CodeEditor.CodeEditorWidget","s977",0,0,{"mode":"xml","autoResize":true,"readOnly":true},0],
 ["components.editors.CodeEditor.CodeEditorWidget","s978",0,0,{"mode":"javascript","autoResize":true,"readOnly":true},0],
-["components.editors.CodeEditor.CodeEditorWidget","s979",0,0,{"mode":"xml","autoResize":true,"readOnly":true},0],
+["components.editors.CodeEditor.CodeEditorWidget","s979",0,0,{"mode":"javascript","autoResize":true,"readOnly":true},0],
 ["components.editors.CodeEditor.CodeEditorWidget","s980",0,0,{"mode":"javascript","autoResize":true,"readOnly":true},0],
-["components.editors.CodeEditor.CodeEditorWidget","s981",0,0,{"mode":"javascript","autoResize":true,"readOnly":true},0]);</script></body></html>
+["components.editors.CodeEditor.CodeEditorWidget","s981",0,0,{"mode":"javascript","autoResize":true,"readOnly":true},0],
+["components.editors.CodeEditor.CodeEditorWidget","s982",0,0,{"mode":"javascript","autoResize":true,"readOnly":true},0],
+["components.editors.CodeEditor.CodeEditorWidget","s983",0,0,{"mode":"xml","autoResize":true,"readOnly":true},0],
+["components.editors.CodeEditor.CodeEditorWidget","s984",0,0,{"mode":"javascript","autoResize":true,"readOnly":true},0],
+["components.editors.CodeEditor.CodeEditorWidget","s985",0,0,{"mode":"javascript","autoResize":true,"readOnly":true},0]);</script></body></html>
