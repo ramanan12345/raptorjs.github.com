@@ -1,17 +1,17 @@
 <c:template xmlns:c="core" params="settings">
     
     <ul>
-        <li c:for-each-property="setting in settings">
-            <b>${setting.name}</b>:
-            ${setting.value}
+        <li c:for="(name,value) in settings">
+            <b>$name</b>:
+            $value
         </li>
     </ul>
     
     <ul>
-        <c:for each-property="setting in settings">
+        <c:for each="(name,value) in settings">
             <li>
-                <b>${setting.name}</b>:
-                ${setting.value}
+                <b>$name</b>:
+                value
             </li>
         </c:for>
     </ul>

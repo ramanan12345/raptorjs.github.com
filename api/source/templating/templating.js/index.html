@@ -37,18 +37,6 @@ raptor.define('templating', function(raptor) {
         Context = raptor.require("templating.Context"),
         templating,
         helpers,
-        properties = function(o) {
-            var entries = [];
-            for (var k in o)
-            {
-                if (o.hasOwnProperty(k))
-                {
-                    entries.push({name: k, value: o[k]});
-                }
-            }
-
-            return entries;
-        },
         _getFunction = function(className, name, helpers) {
             var Clazz = raptor.require(className),
                 helper = Clazz[name] || (Clazz.prototype &amp;&amp; Clazz.prototype[name]);
@@ -310,16 +298,13 @@ raptor.define('templating', function(raptor) {
                 if (!o) {
                     return;
                 }
-                raptor.forEach(properties(o), func);
-
-            },
-
-            fpv: function(o, func) {
-                if (!o) {
-                    return;
+                for (var k in o)
+                {
+                    if (o.hasOwnProperty(k))
+                    {
+                        func(k, o[k]);
+                    }
                 }
-                this.fv(properties(o), func);
-
             },
             
             e: function(o) {
@@ -356,5 +341,5 @@ raptor.define('templating', function(raptor) {
 <script type="text/javascript" src="static/jquery-body-371da524.js"></script>
 <script type="text/javascript" src="static/type-body-9211db3c.js"></script>
 <script type="text/javascript" src="static/widgets-body-06552a07.js"></script>
-<script type="text/javascript" src="static/jsdoc-body-e2414bd1.js"></script><script type="text/javascript">$rwidgets(
+<script type="text/javascript" src="static/jsdoc-body-c314769d.js"></script><script type="text/javascript">$rwidgets(
 ["components.jsdoc.Nav.NavWidget","s0",0,0,{},0]);</script><script type="text/javascript">sh_highlightDocument();</script></body></body>
