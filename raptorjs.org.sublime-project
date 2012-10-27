@@ -84,6 +84,15 @@
 			"cmd":
 			[
 				"${project_path}/src/publish-dev",
+				"page=/get-started"
+			],
+			"name": "Publish (dev) - get-started",
+			"working_dir": "${project_path}/src"
+		},
+		{
+			"cmd":
+			[
+				"${project_path}/src/publish-dev",
 				"page=/module-loader"
 			],
 			"name": "Publish (dev) - module-loader",
@@ -285,6 +294,7 @@
 			"jsdoc (dev)",
 			"Publish (dev)",
 			"Publish (dev) - index",
+			"Publish (dev) - get-started",
 			"Publish (dev) - module-loader",
 			"Publish (dev) - module-loader-get-started-async",
 			"Publish (dev) - modules-classes",

@@ -14,16 +14,10 @@ through the
 not yet installed node then head over to the
 <a href="http://nodejs.org/">Node website</a> and download and install the appropriate version of Node. </div></div><div class="section section-level-0"><h2 id="Creating_a_Node_Project">Creating a Node Project</h2><div class="bd">npm makes it easy to create a Node project that includes the module for
 RaptorJS. Follow the steps below to start using RaptorJS in a Node application:
-<pre class="sh">
-$ mkdir hello-world              
-</pre> In the newly created directory, you will need to create a <code>package.json</code> file. This file will be used describe dependencies and additional metadata. To
+<pre class="sh" c:trim-body-indent="true">$ mkdir hello-world</pre> In the newly created directory, you will need to create a <code>package.json</code> file. This file will be used describe dependencies and additional metadata. To
 initialize a new package.json file use the following command and follow the
 prompts (use
-<code>index.js</code> as the main script): <pre class="sh">
-$ npm init
-</pre> Now the <code>raptor</code> module can be added as a project dependency using the following command: <pre class="sh">
-$ npm install raptor --save
-</pre> Now create a simple <code>index.js</code> file with the following contents: <div class="code-editor" id="s240"> <textarea id="s240-textarea" style="display: none;" name="code-0">require("raptor").create({ //Initialize RaptorJS
+<code>index.js</code> as the main script): <pre class="sh" c:trim-body-indent="true">$ npm init</pre> Now the <code>raptor</code> module can be added as a project dependency using the following command: <pre class="sh" c:trim-body-indent="true">$ npm install raptor --save</pre><p>Now create a simple <code>index.js</code> file with the following contents: </p><div class="code-editor" id="s240"> <textarea id="s240-textarea" style="display: none;" name="code-0">require("raptor").create({ //Initialize RaptorJS
     logging: {
         loggers: { //Configure the loggers to control the logging output
             'ROOT': {level: 'WARN'},
@@ -41,7 +35,7 @@ var resources = raptor.require('resources');
 resources.getSearchPath().addDir(__dirname);
 
 raptor.require("hello").greet("World"); //Load the RaptorJS "hello" module
-                                        //and invoke the "greet" method</textarea></div> Now create the <code>hello.js</code> file which will contain the definition for the <code>hello</code> module: <div class="code-editor" id="s241"> <textarea id="s241-textarea" style="display: none;" name="code-1">raptor.define(
+                                        //and invoke the "greet" method</textarea></div><p>Now create the <code>hello.js</code> file which will contain the definition for the <code>hello</code> module: </p><div class="code-editor" id="s241"> <textarea id="s241-textarea" style="display: none;" name="code-1">raptor.define(
     "hello",
     function() { //This function will be invoked only once
                  //when the module is first required
@@ -53,11 +47,7 @@ raptor.require("hello").greet("World"); //Load the RaptorJS "hello" module
                 this.logger().debug("Hello " + name + "!");
             }
         }
-    });</textarea></div> Test out the application!: <pre class="sh">
-$ node index.js
-</pre> You should see the following in the console: <pre class="sh">
-DEBUG hello: Hello World!
-</pre> Not very exciting, but at least we know that RaptorJS is working in a Node
+    });</textarea></div> Test out the application!: <pre class="sh" c:trim-body-indent="true">$ node index.js</pre> You should see the following in the console: <pre class="sh" c:trim-body-indent="true">DEBUG hello: Hello World!</pre> Not very exciting, but at least we know that RaptorJS is working in a Node
 environment.</div></div><div class="section section-level-0"><h2 id="More_Reading">More Reading</h2><div class="bd"><p>Now that you have Node configured and RaptorJS running in server-side
 environment, you are now more ready to start learning about the other libraries
 and tools provided by RaptorJS. To continue learning about RaptorJS, please use

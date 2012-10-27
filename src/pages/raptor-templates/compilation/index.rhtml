@@ -4,7 +4,8 @@
     xmlns:optimizer="optimizer"
     xmlns:w="widgets"
     xmlns:docs="docs"
-    params="includes,samples">
+    params="includes,samples"
+    docs:functions="url">
 
     <optimizer:page name="${data.pageName}" base-path="${data.pageOutputDir}">
         <dependencies>
@@ -28,7 +29,15 @@
         <body data-spy="scroll">
             <docs:top-nav/>
             <div class="container">
-                <c:include template="content/raptor-templates/compilation"/>
+                <docs:docs heading="Raptor Templates: Compilation" return-label="Raptor Templates" return-href="${url('/raptor-templates')}" disqus-id="raptor-templates-compilation">
+                    <docs:message type="warning">
+                        Documentation In-Progress
+                    </docs:message>
+                    
+                    <docs:section heading="Overview">
+                    </docs:section>
+                    
+                </docs:docs>
             </div>
             <optimizer:slot name="body"/>
             

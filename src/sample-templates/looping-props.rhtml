@@ -1,0 +1,19 @@
+<c:template xmlns:c="core" params="settings">
+    
+    <ul>
+        <li c:for-each-property="setting in settings">
+            <b>${setting.name}</b>:
+            ${setting.value}
+        </li>
+    </ul>
+    
+    <ul>
+        <c:for each-property="setting in settings">
+            <li>
+                <b>${setting.name}</b>:
+                ${setting.value}
+            </li>
+        </c:for>
+    </ul>
+    
+</c:template>

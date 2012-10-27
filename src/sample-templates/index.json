@@ -17,6 +17,10 @@
             {
                 "label": "Loop Separator",
                 "path": "looping-separator"
+            },
+            {
+                "label": "Property Looping",
+                "path": "looping-props"
             }
         ]
         

@@ -45,10 +45,11 @@ raptor.defineClass(
         ForNode.prototype = {
             doGenerateCode: function(template) {
                 var each = this.getProperty("each"),
+                    eachProp = this.getProperty("each-property"),
                     separator = this.getProperty("separator"),
                     statusVar = this.getProperty("status-var") || this.getProperty("varStatus");
                 
-                if (!each) {
+                if (!each &amp;&amp; !eachProp) {
                     this.addError('"each" attribute is required');
                     this.generateCodeForChildren(template);
                     return;
@@ -57,7 +58,7 @@ raptor.defineClass(
                 var parts;
                 try
                 {
-                    parts = parseForEach(each);
+                    parts = parseForEach(each || eachProp);
                 }
                 catch(e) {
                     this.addError(e.message);
@@ -70,14 +71,16 @@ raptor.defineClass(
                 if (separator &amp;&amp; !statusVar) {
                     statusVar = "__loop";
                 }
-                
+                var funcName;
+
                 var forEachParams;
                 if (statusVar) {
                     forEachParams = [varName, statusVar];
                     
-                    
+                    funcName = eachProp ? template.getStaticHelperFunction("forEachPropWithStatusVar", "fpv") : 
+                                          template.getStaticHelperFunction("forEachWithStatusVar", "fv");
                     template
-                        .statement(template.getStaticHelperFunction("forEachWithStatusVar", "fv") + '(' + items + ', function(' + forEachParams.join(",") + ') {') 
+                        .statement(funcName + '(' + items + ', function(' + forEachParams.join(",") + ') {') 
                         .indent(function() {
                             this.generateCodeForChildren(template);
                             if (separator) {
@@ -113,8 +116,11 @@ raptor.defineClass(
                     else {
                         forEachParams = [varName];
                         
+                        funcName = eachProp ? template.getStaticHelperFunction("forEachProp", "fp") : 
+                                              template.getStaticHelperFunction("forEach", "f");
+
                         template
-                            .statement(template.getStaticHelperFunction("forEach", "f") + '(' + items + ', function(' + forEachParams.join(",") + ') {') 
+                            .statement(funcName + '(' + items + ', function(' + forEachParams.join(",") + ') {') 
                             .indent(function() {
                                 this.generateCodeForChildren(template);    
                             }, this)
@@ -132,5 +138,5 @@ raptor.defineClass(
 <script type="text/javascript" src="static/jquery-body-371da524.js"></script>
 <script type="text/javascript" src="static/type-body-9211db3c.js"></script>
 <script type="text/javascript" src="static/widgets-body-06552a07.js"></script>
-<script type="text/javascript" src="static/jsdoc-body-668b129e.js"></script><script type="text/javascript">$rwidgets(
+<script type="text/javascript" src="static/jsdoc-body-e2414bd1.js"></script><script type="text/javascript">$rwidgets(
 ["components.jsdoc.Nav.NavWidget","s0",0,0,{},0]);</script><script type="text/javascript">sh_highlightDocument();</script></body></body>
