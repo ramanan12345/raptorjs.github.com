@@ -54,23 +54,21 @@ raptor.extend('loader', function(raptor) {
                 _this = this;
             
             var success = function() {
-                if (complete == false)
-                {                    
+                if (complete === false) {                    
                     complete = true;
                     _this.logger().debug('Downloaded "' + src + '"...');
                     callback.success();
                 }
-            }
+            };
             
             var error = function() {
-                if (complete == false)
-                {                    
+                if (complete === false) {                    
                     complete = true;
-                    _this.logger().error('Failed: "' + src + '": ' + errorThrown);
+                    _this.logger().error('Failed: "' + src);
                     //Let the loader module know that the resource was failed to be included
                     callback.error();
                 }
-            }
+            };
             
             extend(attributes, {
                 type: 'text/javascript',
@@ -200,5 +198,5 @@ raptor.extend('loader', function(raptor) {
 <script type="text/javascript" src="static/jquery-body-371da524.js"></script>
 <script type="text/javascript" src="static/type-body-9211db3c.js"></script>
 <script type="text/javascript" src="static/widgets-body-06552a07.js"></script>
-<script type="text/javascript" src="static/jsdoc-body-0ce1244e.js"></script><script type="text/javascript">$rwidgets(
+<script type="text/javascript" src="static/jsdoc-body-df49d0ab.js"></script><script type="text/javascript">$rwidgets(
 ["components.jsdoc.Nav.NavWidget","s0",0,0,{},0]);</script><script type="text/javascript">sh_highlightDocument();</script></body></body>

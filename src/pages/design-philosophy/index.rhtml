@@ -29,7 +29,19 @@
         <body data-spy="scroll">
             <docs:top-nav activeItem="design-philosophy"/>
             <div class="container">
-                <c:include template="content/design-philosophy"/>
+                <docs:docs heading="Design Philosophy" disqus-id="design-philosophy">
+
+                    <docs:section heading="Overview">
+                        <p>
+                            As an eBay project, RaptorJS has been designed to perform extremely well by keeping the code
+                            small and efficient, as well as supporting the industries best practices. 
+                            In addition, we believe that developers should have the freedom to use any JavaScript library
+                            and framework that they want so RaptorJS was designed to work alongside other technologies
+                            to simplify development further.
+                        </p>
+                    </docs:section>
+                    
+                </docs:docs>
             </div>
             
             <docs:footer/>
