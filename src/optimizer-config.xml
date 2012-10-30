@@ -22,6 +22,7 @@
         <bundling-enabled>false</bundling-enabled>
         <in-place-deployment-enabled>true</in-place-deployment-enabled>
         <minify-js>false</minify-js>
+        <minify-css>false</minify-css>
         <checksums-enabled>false</checksums-enabled>        
     </profile>
     
@@ -33,6 +34,7 @@
         <in-place-deployment-enabled>false</in-place-deployment-enabled>
         <!-- <url-prefix>/static/</url-prefix> -->
         <minify-js>true</minify-js>
+        <minify-css>true</minify-css>
         <raptor-config>
         {
         }
