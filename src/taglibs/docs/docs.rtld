@@ -12,6 +12,7 @@
     
     <import-taglib path="/components/docs/Docs/Docs.rtld"/>
     <import-taglib path="/components/docs/FeaturePortalSection/FeaturePortalSection.rtld"/>
+    <import-taglib path="/components/docs/ProjectDirStructure/ProjectDirStructure.rtld"/>
     <import-taglib path="/components/docs/Section/Section.rtld"/>
     
     <import-taglib path="/components/editors/CodeEditor/CodeEditor.rtld"/>

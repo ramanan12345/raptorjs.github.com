@@ -4,8 +4,17 @@
     	<delete dir="sample-projects" />
     	
     	
-    	<delete dir="src/sample-projects/optimizer/get-started/static"/>
-    	<zip destfile="sample-projects/optimizer-get-started.zip" basedir="src/sample-projects/optimizer/get-started"/>
+    	<delete dir="src/sample-projects/optimizer/get-started-raptor-templates/static"/>
+    	<delete file="src/sample-projects/optimizer/get-started-raptor-templates/test-page.html"/>
+    	<zip destfile="sample-projects/optimizer-get-started-raptor-templates.zip" basedir="src/sample-projects/optimizer/get-started-raptor-templates"/>
+    	
+    	<delete dir="src/sample-projects/optimizer/get-started-cli/static"/>
+    	<delete file="src/sample-projects/optimizer/get-started-cli/test-page.html"/>
+        <zip destfile="sample-projects/optimizer-get-started-cli.zip" basedir="src/sample-projects/optimizer/get-started-cli"/>
+    	
+    	<delete dir="src/sample-projects/optimizer/get-started-javascript-api/static"/>
+    	
+        <zip destfile="sample-projects/optimizer-get-started-javascript-api.zip" basedir="src/sample-projects/optimizer/get-started-javascript-api"/>
     	
     	<delete dir="src/sample-projects/async-loader/get-started/static"/>
     	<delete file="src/sample-projects/async-loader/get-started/test-page.html"/>

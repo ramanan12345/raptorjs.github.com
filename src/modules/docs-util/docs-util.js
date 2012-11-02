@@ -31,6 +31,10 @@ raptor.define(
             
             imageUrl: function(url) {
                 return this.url(url);      
+            },
+
+            getSrcDir: function() {
+                return this.publisher.srcDir;
             }
 
         }

@@ -64,7 +64,7 @@ var Publisher = function(config) {
 
     this.outputDir = files.resolveRelativeFile(__dirname, "..");
     this.currentOutputDir = null;
-
+    this.srcDir = new File(__dirname);
     this.templateContext = templating.createContext();
 };
 

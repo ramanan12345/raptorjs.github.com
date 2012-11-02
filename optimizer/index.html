@@ -1,8 +1,8 @@
 <!DOCTYPE html><html><head><title>RaptorJS: Optimizer</title><meta http-equiv="content-type" content="text/html; charset=UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><link rel="stylesheet" type="text/css" href="../static/optimizer-head-9aa073eb.css">
-<link rel="stylesheet" type="text/css" href="../static/docs-head-93fbeae6.css"><script type="text/javascript">var
+<link rel="stylesheet" type="text/css" href="../static/docs-head-caed8dce.css"><script type="text/javascript">var
 _gaq=_gaq||[];_gaq.push(["_setAccount","UA-33982282-1"]);_gaq.push(["_trackPageview"]);(function(){var
 a=document.createElement("script");a.type="text/javascript";a.async=!0;a.src=("https:"==document.location.protocol?"https://ssl":"http://www")+".google-analytics.com/ga.js";var
-b=document.getElementsByTagName("script")[0];b.parentNode.insertBefore(a,b)})();</script></head><body data-spy="scroll"><div class="navbar navbar-fixed-top"><div class="navbar-inner"><div class="container"><a class="brand" href="../">RaptorJS</a><ul class="nav"><li class="divider-vertical"></li><li id="s695"><a href="../get-started/">Get Started</a></li><li class="divider-vertical"></li><li id="s696" class="dropdown"><a data-toggle="dropdown" class="dropdown-toggle">Learn<b class="caret"></b></a><ul class="dropdown-menu"><li id="s697"><a href="../">Overview</a></li><li id="s698"><a href="../get-started/">Get Started</a></li><li id="s699"><a href="../tutorial/">Tutorial</a></li><li id="s700"><a href="../api/">API Reference</a></li><li id="s701"><a href="../faq/">FAQ</a></li><li class="divider"></li><li id="s702"><a href="../modules-classes/">Modules and Classes</a></li><li id="s703"><a href="../packaging/">Packaging and Extensions</a></li><li id="s704"><a href="../module-loader/">Module Loader</a></li><li id="s705" class="active nav-item-active"><a href="../optimizer/">Optimizer</a></li><li id="s706"><a href="../raptor-templates/">Raptor Templates</a></li><li id="s707"><a href="../widgets/">Widget Framework</a></li><li id="s708"><a href="../logging/">Logging</a></li><li id="s709"><a href="../resource-search-path/">Resource Search Path</a></li><li id="s710"><a href="../cross-environment/">Cross Environment Support</a></li></ul></li><li class="divider-vertical"></li><li id="s711" class="dropdown"><a data-toggle="dropdown" class="dropdown-toggle">Community<b class="caret"></b></a><ul class="dropdown-menu"><li id="s712"><a href="https://github.com/raptorjs/raptorjs">Source code</a></li><li id="s713"><a href="https://github.com/raptorjs/raptorjs/issues">Issue Tracker</a></li><li id="s714"><a href="../contribute/">Contribute</a></li><li id="s715"><a href="../contributors/">Contributors</a></li><li class="divider"></li><li id="s716"><a href="http://groups.google.com/group/raptorjs">Discussion Forum</a></li><li class="divider"></li><li id="s717"><a href="http://twitter.com/raptorjs">Twitter (@raptorjs)</a></li><li id="s718"><a href="http://twitter.com/raptorjs">Google+</a></li></ul></li><li class="divider-vertical"></li><li id="s719" class="dropdown"><a data-toggle="dropdown" class="dropdown-toggle">About<b class="caret"></b></a><ul class="dropdown-menu"><li id="s720"><a href="https://github.com/raptorjs/raptorjs/wiki/Release-Notes">Release Notes</a></li><li id="s721"><a href="../design-philosophy/">Design Philosophy</a></li><li id="s722"><a href="../license/">License</a></li><li id="s723"><a href="../credits/">Credits</a></li><li id="s724"><a href="../creators/">Creators</a></li></ul></li><li class="divider-vertical"></li></ul></div></div></div><div class="container"><div class="feature-portal-top"><div class="feature-portal-desc"><h1>RaptorJS Optimizer</h1><p>The RaptorJS Optimizer is a server-side tool that can be be used to build
+b=document.getElementsByTagName("script")[0];b.parentNode.insertBefore(a,b)})();</script></head><body data-spy="scroll"><div class="navbar navbar-fixed-top"><div class="navbar-inner"><div class="container"><a class="brand" href="../">RaptorJS</a><ul class="nav"><li class="divider-vertical"></li><li id="s768"><a href="../get-started/">Get Started</a></li><li class="divider-vertical"></li><li id="s769" class="dropdown"><a data-toggle="dropdown" class="dropdown-toggle">Learn<b class="caret"></b></a><ul class="dropdown-menu"><li id="s770"><a href="../">Overview</a></li><li id="s771"><a href="../get-started/">Get Started</a></li><li id="s772"><a href="../tutorial/">Tutorial</a></li><li id="s773"><a href="../api/">API Reference</a></li><li id="s774"><a href="../faq/">FAQ</a></li><li class="divider"></li><li id="s775"><a href="../modules-classes/">Modules and Classes</a></li><li id="s776"><a href="../packaging/">Packaging and Extensions</a></li><li id="s777"><a href="../module-loader/">Module Loader</a></li><li id="s778" class="active nav-item-active"><a href="../optimizer/">Optimizer</a></li><li id="s779"><a href="../raptor-templates/">Raptor Templates</a></li><li id="s780"><a href="../widgets/">Widget Framework</a></li><li id="s781"><a href="../logging/">Logging</a></li><li id="s782"><a href="../resource-search-path/">Resource Search Path</a></li><li id="s783"><a href="../cross-environment/">Cross Environment Support</a></li></ul></li><li class="divider-vertical"></li><li id="s784" class="dropdown"><a data-toggle="dropdown" class="dropdown-toggle">Community<b class="caret"></b></a><ul class="dropdown-menu"><li id="s785"><a href="https://github.com/raptorjs/raptorjs">Source code</a></li><li id="s786"><a href="https://github.com/raptorjs/raptorjs/issues">Issue Tracker</a></li><li id="s787"><a href="../contribute/">Contribute</a></li><li id="s788"><a href="../contributors/">Contributors</a></li><li class="divider"></li><li id="s789"><a href="http://groups.google.com/group/raptorjs">Discussion Forum</a></li><li class="divider"></li><li id="s790"><a href="http://twitter.com/raptorjs">Twitter (@raptorjs)</a></li><li id="s791"><a href="http://twitter.com/raptorjs">Google+</a></li></ul></li><li class="divider-vertical"></li><li id="s792" class="dropdown"><a data-toggle="dropdown" class="dropdown-toggle">About<b class="caret"></b></a><ul class="dropdown-menu"><li id="s793"><a href="https://github.com/raptorjs/raptorjs/wiki/Release-Notes">Release Notes</a></li><li id="s794"><a href="../design-philosophy/">Design Philosophy</a></li><li id="s795"><a href="../license/">License</a></li><li id="s796"><a href="../credits/">Credits</a></li><li id="s797"><a href="../creators/">Creators</a></li></ul></li><li class="divider-vertical"></li></ul></div></div></div><div class="container"><div class="feature-portal-top"><div class="feature-portal-desc"><h1>RaptorJS Optimizer</h1><p>The RaptorJS Optimizer is a server-side tool that can be be used to build
 optimized web pages by bundling, compiling and minifying page dependencies.
 This tool makes managing complex JavaScript and CSS dependencies almost
 effortless while helping you produce extremely optimized web pages.
@@ -18,39 +18,44 @@ you full control over how resources are combined and where to include resources
 on your HTML pages. Its ease-of-use and flexibility make it perfect for any
 size application. Best of all, the RaptorJS Optimizer is designed so that it
 can easily be used at runtime—freeing you from yet another build
-tool.</p></div><div class="feature-portal-features"><h2>Features</h2><ul><li>Source Code Agnostic</li><li>Custom Resource Compilers</li><li>Reduces the Number of HTTP Requests</li><li>Generates Optimized Bundles</li><li>Generates HTML to Include Bundles</li><li>Optimized Asynchronous Module Loader</li><li>Consistent Bundles Across Pages</li><li><i>All</i> URLs Include Checksums</li><li>CDN Support</li><li>Utilizes <a href="../packaging/">RaptorJS Packaging</a></li><li>Supports In-place Deployment</li><li>Easily Configurable</li><li>Custom Filters for Minification, etc.</li><li>Simple JavaScript API</li></ul></div></div><div class="feature-portal-section feature-portal-section-small "><div class="content"><h3><a href="../optimizer/get-started/">Get Started</a></h3><div class="bd"><p>Learn how to easily start benefiting from the RaptorJS Optimizer in your web
-application.</p></div></div></div><div class="feature-portal-section feature-portal-section-small "><div class="content"><h3><a href="../optimizer/developer-guide/">Developer Guide</a></h3><div class="bd"><p>An in-depth look at utilizing and adapting the RaptorJS Optimizer to meet your
+tool.</p></div><div class="feature-portal-features"><h2>Features</h2><ul><li>Source Code Agnostic</li><li>Custom Resource Compilers</li><li>Reduces the Number of HTTP Requests</li><li>Generates Optimized Bundles</li><li>Generates HTML to Include Bundles</li><li>Optimized Asynchronous Module Loader</li><li>Consistent Bundles Across Pages</li><li><i>All</i> URLs Include Checksums</li><li>CDN Support</li><li>Utilizes <a href="../packaging/">RaptorJS Packaging</a></li><li>Supports In-place Deployment</li><li>Easily Configurable</li><li>Custom Filters for Minification, etc.</li><li>Simple JavaScript API</li></ul></div></div><div class="feature-portal-section feature-portal-section-small "><div class="content"><h3><a href="../optimizer/get-started-raptor-templates/">Get Started with the Optimizer Taglib</a></h3><div class="bd"><p>Learn how to easily start benefiting from the RaptorJS Optimizer by utilizing
+the RaptorJS Optimizer Taglib in your Raptor
+Templates.</p></div></div></div><div class="feature-portal-section feature-portal-section-small "><div class="content"><h3><a href="../optimizer/get-started-cli/">Get Started with the Optimizer CLI</a></h3><div class="bd"><p>Learn how to use the RaptorJS Optimizer command line interface to generate
+optimized resource bundles for your web application from the command
+line.</p></div></div></div><div class="feature-portal-section feature-portal-section-small "><div class="content"><h3><a href="../optimizer/get-started-javascript-api/">Get Started with the Optimizer JS API</a></h3><div class="bd"><p>Learn how to use the simple JavaScript API offered by the RaptorJS Optimizer so
+that you can programmatically have full control over the optimization
+process.</p></div></div></div><div class="feature-portal-section feature-portal-section-small "><div class="content"><h3><a href="../optimizer/developer-guide/">Developer Guide</a></h3><div class="bd"><p>An in-depth look at utilizing and adapting the RaptorJS Optimizer to meet your
 needs.</p></div></div></div></div><script type="text/javascript" src="../static/core-body-2834a6ab.js"></script>
 <script type="text/javascript" src="../static/jquery-body-371da524.js"></script>
 <script type="text/javascript" src="../static/widgets-body-06552a07.js"></script>
 <script type="text/javascript" src="../static/optimizer-body-588b3e79.js"></script><script type="text/javascript">$rwidgets(
-["components.nav.Nav.NavItemWidget","s695",0,0,0,0],
-["components.nav.Nav.NavItemWidget","s696",0,0,0,0,
-["components.nav.Nav.NavItemWidget","s697",0,0,0,0],
-["components.nav.Nav.NavItemWidget","s698",0,0,0,0],
-["components.nav.Nav.NavItemWidget","s699",0,0,0,0],
-["components.nav.Nav.NavItemWidget","s700",0,0,0,0],
-["components.nav.Nav.NavItemWidget","s701",0,0,0,0],
-["components.nav.Nav.NavItemWidget","s702",0,0,0,0],
-["components.nav.Nav.NavItemWidget","s703",0,0,0,0],
-["components.nav.Nav.NavItemWidget","s704",0,0,0,0],
-["components.nav.Nav.NavItemWidget","s705",0,0,0,0],
-["components.nav.Nav.NavItemWidget","s706",0,0,0,0],
-["components.nav.Nav.NavItemWidget","s707",0,0,0,0],
-["components.nav.Nav.NavItemWidget","s708",0,0,0,0],
-["components.nav.Nav.NavItemWidget","s709",0,0,0,0],
-["components.nav.Nav.NavItemWidget","s710",0,0,0,0]],
-["components.nav.Nav.NavItemWidget","s711",0,0,0,0,
-["components.nav.Nav.NavItemWidget","s712",0,0,0,0],
-["components.nav.Nav.NavItemWidget","s713",0,0,0,0],
-["components.nav.Nav.NavItemWidget","s714",0,0,0,0],
-["components.nav.Nav.NavItemWidget","s715",0,0,0,0],
-["components.nav.Nav.NavItemWidget","s716",0,0,0,0],
-["components.nav.Nav.NavItemWidget","s717",0,0,0,0],
-["components.nav.Nav.NavItemWidget","s718",0,0,0,0]],
-["components.nav.Nav.NavItemWidget","s719",0,0,0,0,
-["components.nav.Nav.NavItemWidget","s720",0,0,0,0],
-["components.nav.Nav.NavItemWidget","s721",0,0,0,0],
-["components.nav.Nav.NavItemWidget","s722",0,0,0,0],
-["components.nav.Nav.NavItemWidget","s723",0,0,0,0],
-["components.nav.Nav.NavItemWidget","s724",0,0,0,0]]);</script></body></html>
+["components.nav.Nav.NavItemWidget","s768",0,0,0,0],
+["components.nav.Nav.NavItemWidget","s769",0,0,0,0,
+["components.nav.Nav.NavItemWidget","s770",0,0,0,0],
+["components.nav.Nav.NavItemWidget","s771",0,0,0,0],
+["components.nav.Nav.NavItemWidget","s772",0,0,0,0],
+["components.nav.Nav.NavItemWidget","s773",0,0,0,0],
+["components.nav.Nav.NavItemWidget","s774",0,0,0,0],
+["components.nav.Nav.NavItemWidget","s775",0,0,0,0],
+["components.nav.Nav.NavItemWidget","s776",0,0,0,0],
+["components.nav.Nav.NavItemWidget","s777",0,0,0,0],
+["components.nav.Nav.NavItemWidget","s778",0,0,0,0],
+["components.nav.Nav.NavItemWidget","s779",0,0,0,0],
+["components.nav.Nav.NavItemWidget","s780",0,0,0,0],
+["components.nav.Nav.NavItemWidget","s781",0,0,0,0],
+["components.nav.Nav.NavItemWidget","s782",0,0,0,0],
+["components.nav.Nav.NavItemWidget","s783",0,0,0,0]],
+["components.nav.Nav.NavItemWidget","s784",0,0,0,0,
+["components.nav.Nav.NavItemWidget","s785",0,0,0,0],
+["components.nav.Nav.NavItemWidget","s786",0,0,0,0],
+["components.nav.Nav.NavItemWidget","s787",0,0,0,0],
+["components.nav.Nav.NavItemWidget","s788",0,0,0,0],
+["components.nav.Nav.NavItemWidget","s789",0,0,0,0],
+["components.nav.Nav.NavItemWidget","s790",0,0,0,0],
+["components.nav.Nav.NavItemWidget","s791",0,0,0,0]],
+["components.nav.Nav.NavItemWidget","s792",0,0,0,0,
+["components.nav.Nav.NavItemWidget","s793",0,0,0,0],
+["components.nav.Nav.NavItemWidget","s794",0,0,0,0],
+["components.nav.Nav.NavItemWidget","s795",0,0,0,0],
+["components.nav.Nav.NavItemWidget","s796",0,0,0,0],
+["components.nav.Nav.NavItemWidget","s797",0,0,0,0]]);</script></body></html>

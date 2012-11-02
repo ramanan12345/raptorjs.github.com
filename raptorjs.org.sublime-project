@@ -30,9 +30,27 @@
 			"cmd":
 			[
 				"${project_path}/src/publish-dev",
-				"page=/optimizer/get-started"
+				"page=/optimizer/get-started-raptor-templates"
 			],
-			"name": "Publish (dev) - optimizer-get-started",
+			"name": "Publish (dev) - optimizer-get-started-raptor-templates",
+			"working_dir": "${project_path}/src"
+		},
+		{
+			"cmd":
+			[
+				"${project_path}/src/publish-dev",
+				"page=/optimizer/get-started-cli"
+			],
+			"name": "Publish (dev) - optimizer-get-started-cli",
+			"working_dir": "${project_path}/src"
+		},
+		{
+			"cmd":
+			[
+				"${project_path}/src/publish-dev",
+				"page=/optimizer/get-started-javascript-api"
+			],
+			"name": "Publish (dev) - optimizer-get-started-javascript-api",
 			"working_dir": "${project_path}/src"
 		},
 		{
@@ -264,8 +282,7 @@
 			],
 			"name": "test",
 			"working_dir": "${project_path}/node_modules/raptor/test"
-		}
-		,
+		},
 		{
 			"cmd":
 			[
@@ -311,7 +328,9 @@
 			"Publish (dev) - modules-classes/developer-guide",
 			"Publish (dev) - raptor-templates-try-online",
 			"Publish (dev) - optimizer",
-			"Publish (dev) - optimizer-get-started",
+			"Publish (dev) - optimizer-get-started-cli",
+			"Publish (dev) - optimizer-get-started-javascript-api",
+			"Publish (dev) - optimizer-get-started-raptor-templates",
 			"Publish (dev) - optimizer-developer-guide",
 			"Publish (dev) - packaging",
 			"Publish (dev) - packaging/developer-guide",

@@ -1,5 +1,5 @@
 <!DOCTYPE html><html><head><title>RaptorJS: Get Started</title><meta http-equiv="content-type" content="text/html; charset=UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><link rel="stylesheet" type="text/css" href="../static/get-started-head-d2689e79.css">
-<link rel="stylesheet" type="text/css" href="../static/docs-head-93fbeae6.css">
+<link rel="stylesheet" type="text/css" href="../static/docs-head-caed8dce.css">
 <link rel="stylesheet" type="text/css" href="../static/code-editor-head-f1386401.css"><script type="text/javascript">var
 _gaq=_gaq||[];_gaq.push(["_setAccount","UA-33982282-1"]);_gaq.push(["_trackPageview"]);(function(){var
 a=document.createElement("script");a.type="text/javascript";a.async=!0;a.src=("https:"==document.location.protocol?"https://ssl":"http://www")+".google-analytics.com/ga.js";var
@@ -14,10 +14,10 @@ through the
 not yet installed node then head over to the
 <a href="http://nodejs.org/">Node website</a> and download and install the appropriate version of Node. </div></div><div class="section section-level-0"><h2 id="Creating_a_Node_Project">Creating a Node Project</h2><div class="bd">npm makes it easy to create a Node project that includes the module for
 RaptorJS. Follow the steps below to start using RaptorJS in a Node application:
-<pre class="sh" c:trim-body-indent="true">$ mkdir hello-world</pre> In the newly created directory, you will need to create a <code>package.json</code> file. This file will be used describe dependencies and additional metadata. To
+<pre class="sh">$ mkdir hello-world</pre> In the newly created directory, you will need to create a <code>package.json</code> file. This file will be used describe dependencies and additional metadata. To
 initialize a new package.json file use the following command and follow the
 prompts (use
-<code>index.js</code> as the main script): <pre class="sh" c:trim-body-indent="true">$ npm init</pre> Now the <code>raptor</code> module can be added as a project dependency using the following command: <pre class="sh" c:trim-body-indent="true">$ npm install raptor --save</pre><p>Now create a simple <code>index.js</code> file with the following contents: </p><div class="code-editor" id="s240"> <textarea id="s240-textarea" style="display: none;" name="code-0">require("raptor").create({ //Initialize RaptorJS
+<code>index.js</code> as the main script): <pre class="sh">$ npm init</pre> Now the <code>raptor</code> module can be added as a project dependency using the following command: <pre class="sh">$ npm install raptor --save</pre><p>Now create a simple <code>index.js</code> file with the following contents: </p><div class="code-editor" id="s240"> <textarea id="s240-textarea" style="display: none;" name="code-0">require("raptor").create({ //Initialize RaptorJS
     logging: {
         loggers: { //Configure the loggers to control the logging output
             'ROOT': {level: 'WARN'},
@@ -47,7 +47,7 @@ raptor.require("hello").greet("World"); //Load the RaptorJS "hello" module
                 this.logger().debug("Hello " + name + "!");
             }
         }
-    });</textarea></div> Test out the application!: <pre class="sh" c:trim-body-indent="true">$ node index.js</pre> You should see the following in the console: <pre class="sh" c:trim-body-indent="true">DEBUG hello: Hello World!</pre> Not very exciting, but at least we know that RaptorJS is working in a Node
+    });</textarea></div> Test out the application!: <pre class="sh">$ node index.js</pre> You should see the following in the console: <pre class="sh">DEBUG hello: Hello World!</pre> Not very exciting, but at least we know that RaptorJS is working in a Node
 environment.</div></div><div class="section section-level-0"><h2 id="More_Reading">More Reading</h2><div class="bd"><p>Now that you have Node configured and RaptorJS running in server-side
 environment, you are now more ready to start learning about the other libraries
 and tools provided by RaptorJS. To continue learning about RaptorJS, please use

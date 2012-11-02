@@ -16,17 +16,18 @@ var optimizedPage = JSON.parse(optimizedPageJSON);
  * with the generated slot HTML.
  */
 var pageHtmlPath = "pages/test-page/test-page.html";
+var outputPath = "test-page.html";
 var pageHtml = files.readAsString(pageHtmlPath);
 
 /*
  * Use a regular expression to find the slots and inject the slot HTML
  */
-var outputHtml = pageHtml.replace(/<!--\s*slot: ([\w]*)\s*-->.*?<!--\s*\/slot\s*-->/g, function(matches, slotName) {
-    return '<!-- slot: ' + slotName + ' -->' + optimizedPage[slotName] + '<!-- /slot -->'
+var outputHtml = pageHtml.replace(/<!--\s*slot: ([\w]*)\s*-->/g, function(matches, slotName) {
+    return optimizedPage[slotName];
 });
 
 /*
  * Write back the optimized page to disk
  */
-console.log('Writing updated page with optimizer-generated HTML to "' + pageHtmlPath + '"...');
-files.writeAsString(pageHtmlPath, outputHtml);
+console.log('Writing updated page with optimizer-generated HTML to "' + outputPath + '"...');
+files.writeAsString(outputPath, outputHtml);

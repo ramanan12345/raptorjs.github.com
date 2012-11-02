@@ -1,9 +1,9 @@
  <!DOCTYPE html><html><head><title>RaptorJS: Get Started using Packaging &amp; Extensions</title><meta http-equiv="content-type" content="text/html; charset=UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><link rel="stylesheet" type="text/css" href="../../static/packaging-get-started-head-d2689e79.css">
-<link rel="stylesheet" type="text/css" href="../../static/docs-head-93fbeae6.css">
+<link rel="stylesheet" type="text/css" href="../../static/docs-head-caed8dce.css">
 <link rel="stylesheet" type="text/css" href="../../static/code-editor-head-f1386401.css"><script type="text/javascript">var
 _gaq=_gaq||[];_gaq.push(["_setAccount","UA-33982282-1"]);_gaq.push(["_trackPageview"]);(function(){var
 a=document.createElement("script");a.type="text/javascript";a.async=!0;a.src=("https:"==document.location.protocol?"https://ssl":"http://www")+".google-analytics.com/ga.js";var
-b=document.getElementsByTagName("script")[0];b.parentNode.insertBefore(a,b)})();</script></head><body><div class="navbar navbar-fixed-top"><div class="navbar-inner"><div class="container"><a class="brand" href="../../">RaptorJS</a><ul class="nav"><li class="divider-vertical"></li><li id="s796"><a href="../../get-started/">Get Started</a></li><li class="divider-vertical"></li><li id="s797" class="dropdown"><a data-toggle="dropdown" class="dropdown-toggle">Learn<b class="caret"></b></a><ul class="dropdown-menu"><li id="s798"><a href="../../">Overview</a></li><li id="s799"><a href="../../get-started/">Get Started</a></li><li id="s800"><a href="../../tutorial/">Tutorial</a></li><li id="s801"><a href="../../api/">API Reference</a></li><li id="s802"><a href="../../faq/">FAQ</a></li><li class="divider"></li><li id="s803"><a href="../../modules-classes/">Modules and Classes</a></li><li id="s804"><a href="../../packaging/">Packaging and Extensions</a></li><li id="s805"><a href="../../module-loader/">Module Loader</a></li><li id="s806"><a href="../../optimizer/">Optimizer</a></li><li id="s807"><a href="../../raptor-templates/">Raptor Templates</a></li><li id="s808"><a href="../../widgets/">Widget Framework</a></li><li id="s809"><a href="../../logging/">Logging</a></li><li id="s810"><a href="../../resource-search-path/">Resource Search Path</a></li><li id="s811"><a href="../../cross-environment/">Cross Environment Support</a></li></ul></li><li class="divider-vertical"></li><li id="s812" class="dropdown"><a data-toggle="dropdown" class="dropdown-toggle">Community<b class="caret"></b></a><ul class="dropdown-menu"><li id="s813"><a href="https://github.com/raptorjs/raptorjs">Source code</a></li><li id="s814"><a href="https://github.com/raptorjs/raptorjs/issues">Issue Tracker</a></li><li id="s815"><a href="../../contribute/">Contribute</a></li><li id="s816"><a href="../../contributors/">Contributors</a></li><li class="divider"></li><li id="s817"><a href="http://groups.google.com/group/raptorjs">Discussion Forum</a></li><li class="divider"></li><li id="s818"><a href="http://twitter.com/raptorjs">Twitter (@raptorjs)</a></li><li id="s819"><a href="http://twitter.com/raptorjs">Google+</a></li></ul></li><li class="divider-vertical"></li><li id="s820" class="dropdown"><a data-toggle="dropdown" class="dropdown-toggle">About<b class="caret"></b></a><ul class="dropdown-menu"><li id="s821"><a href="https://github.com/raptorjs/raptorjs/wiki/Release-Notes">Release Notes</a></li><li id="s822"><a href="../../design-philosophy/">Design Philosophy</a></li><li id="s823"><a href="../../license/">License</a></li><li id="s824"><a href="../../credits/">Credits</a></li><li id="s825"><a href="../../creators/">Creators</a></li></ul></li><li class="divider-vertical"></li></ul></div></div></div><div class="container"><div class="docs"><div class="bd"><div class="docs-content"><h1 id="title">Get Started using RaptorJS Packaging and Extensions</h1><div class="toc nav" id="docsNav"><ul class="toc"><li class="toc toc-level-0"><a href="#Overview">Overview</a><ul class="toc"></ul></li><li class="toc toc-level-0"><a href="#Sample_RaptorJS_Package">Sample RaptorJS Package</a><ul class="toc"></ul></li><li class="toc toc-level-0"><a href="#Package_Extensions">Package Extensions</a><ul class="toc"></ul></li><li class="toc toc-level-0"><a href="#Module_Packages">Module Packages</a><ul class="toc"><li class="toc toc-level-1"><a href="#Loading_Modules_on_the_Server">Loading Modules on the Server</a><ul class="toc"></ul></li><li class="toc toc-level-1"><a href="#Delivering_Modules_to_the_Client">Delivering Modules to the Client</a><ul class="toc"></ul></li><li class="toc toc-level-1"><a href="#More_Reading">More Reading</a><ul class="toc"></ul></li></ul></li><li class="toc toc-level-0"><a href="#Discussion">Discussion</a><ul class="toc"></ul></li></ul><div class="docs-nav-footer"><ul><li><span class="powered-by">Powered by <a href="../../" class="raptorjs">RaptorJS</a></span></li><li><a href="../../license/">License</a></li><li><a href="../../credits/">Credits</a></li></ul></div></div><div class="message message-warning"><div class="icon"><i class="icon-warning-sign" style="font-size: 30px;"></i></div><div class="bd">Documentation In-Progress</div></div><div class="section section-level-0"><h2 id="Overview">Overview</h2><div class="bd"><p>RaptorJS extends the popular <code>package.json</code> format so that it is better suited for packaging up code to be delivered to a
+b=document.getElementsByTagName("script")[0];b.parentNode.insertBefore(a,b)})();</script></head><body><div class="navbar navbar-fixed-top"><div class="navbar-inner"><div class="container"><a class="brand" href="../../">RaptorJS</a><ul class="nav"><li class="divider-vertical"></li><li id="s877"><a href="../../get-started/">Get Started</a></li><li class="divider-vertical"></li><li id="s878" class="dropdown"><a data-toggle="dropdown" class="dropdown-toggle">Learn<b class="caret"></b></a><ul class="dropdown-menu"><li id="s879"><a href="../../">Overview</a></li><li id="s880"><a href="../../get-started/">Get Started</a></li><li id="s881"><a href="../../tutorial/">Tutorial</a></li><li id="s882"><a href="../../api/">API Reference</a></li><li id="s883"><a href="../../faq/">FAQ</a></li><li class="divider"></li><li id="s884"><a href="../../modules-classes/">Modules and Classes</a></li><li id="s885"><a href="../../packaging/">Packaging and Extensions</a></li><li id="s886"><a href="../../module-loader/">Module Loader</a></li><li id="s887"><a href="../../optimizer/">Optimizer</a></li><li id="s888"><a href="../../raptor-templates/">Raptor Templates</a></li><li id="s889"><a href="../../widgets/">Widget Framework</a></li><li id="s890"><a href="../../logging/">Logging</a></li><li id="s891"><a href="../../resource-search-path/">Resource Search Path</a></li><li id="s892"><a href="../../cross-environment/">Cross Environment Support</a></li></ul></li><li class="divider-vertical"></li><li id="s893" class="dropdown"><a data-toggle="dropdown" class="dropdown-toggle">Community<b class="caret"></b></a><ul class="dropdown-menu"><li id="s894"><a href="https://github.com/raptorjs/raptorjs">Source code</a></li><li id="s895"><a href="https://github.com/raptorjs/raptorjs/issues">Issue Tracker</a></li><li id="s896"><a href="../../contribute/">Contribute</a></li><li id="s897"><a href="../../contributors/">Contributors</a></li><li class="divider"></li><li id="s898"><a href="http://groups.google.com/group/raptorjs">Discussion Forum</a></li><li class="divider"></li><li id="s899"><a href="http://twitter.com/raptorjs">Twitter (@raptorjs)</a></li><li id="s900"><a href="http://twitter.com/raptorjs">Google+</a></li></ul></li><li class="divider-vertical"></li><li id="s901" class="dropdown"><a data-toggle="dropdown" class="dropdown-toggle">About<b class="caret"></b></a><ul class="dropdown-menu"><li id="s902"><a href="https://github.com/raptorjs/raptorjs/wiki/Release-Notes">Release Notes</a></li><li id="s903"><a href="../../design-philosophy/">Design Philosophy</a></li><li id="s904"><a href="../../license/">License</a></li><li id="s905"><a href="../../credits/">Credits</a></li><li id="s906"><a href="../../creators/">Creators</a></li></ul></li><li class="divider-vertical"></li></ul></div></div></div><div class="container"><div class="docs"><div class="bd"><div class="docs-content"><h1 id="title">Get Started using RaptorJS Packaging and Extensions</h1><div class="toc nav" id="docsNav"><ul class="toc"><li class="toc toc-level-0"><a href="#Overview">Overview</a><ul class="toc"></ul></li><li class="toc toc-level-0"><a href="#Sample_RaptorJS_Package">Sample RaptorJS Package</a><ul class="toc"></ul></li><li class="toc toc-level-0"><a href="#Package_Extensions">Package Extensions</a><ul class="toc"></ul></li><li class="toc toc-level-0"><a href="#Module_Packages">Module Packages</a><ul class="toc"><li class="toc toc-level-1"><a href="#Loading_Modules_on_the_Server">Loading Modules on the Server</a><ul class="toc"></ul></li><li class="toc toc-level-1"><a href="#Delivering_Modules_to_the_Client">Delivering Modules to the Client</a><ul class="toc"></ul></li><li class="toc toc-level-1"><a href="#More_Reading">More Reading</a><ul class="toc"></ul></li></ul></li><li class="toc toc-level-0"><a href="#Discussion">Discussion</a><ul class="toc"></ul></li></ul><div class="docs-nav-footer"><ul><li><span class="powered-by">Powered by <a href="../../" class="raptorjs">RaptorJS</a></span></li><li><a href="../../license/">License</a></li><li><a href="../../credits/">Credits</a></li></ul></div></div><div class="message message-warning"><div class="icon"><i class="icon-warning-sign" style="font-size: 30px;"></i></div><div class="bd">Documentation In-Progress</div></div><div class="section section-level-0"><h2 id="Overview">Overview</h2><div class="bd"><p>RaptorJS extends the popular <code>package.json</code> format so that it is better suited for packaging up code to be delivered to a
 browser
 <i>and</i> be loaded on the server. RaptorJS packages allows developers to make
 dependencies explicit—including which dependencies are
@@ -13,7 +13,7 @@ continue to write code however they prefer. RaptorJS packages are extensible
 and support any type of dependency ( JavaScript, CSS,
 <a href="http://lesscss.org/">LESS</a>, <a href="../../raptor-templates/">Raptor Templates</a>, etc. ).</p><p>RaptorJS packages can be loaded on the server using the <a href="../../module-loader/"><nobr>RaptorJS JavaScript Module Loader</nobr></a>. The <a href="../../optimizer/"><nobr>RaptorJS Optimizer</nobr></a> uses RaptorJS packages to determine which resources need to be optimized for
 delivery to web browsers and the
-<a href="../../module-loader/get-started-async/"><nobr>RaptorJS Async Loader</nobr></a> uses information from packages to optimally download packages asynchronously.</p></div></div><div class="section section-level-0"><h2 id="Sample_RaptorJS_Package">Sample RaptorJS Package</h2><div class="bd"><div class="code-editor" id="s826"> <textarea id="s826-textarea" style="display: none;" name="code-65">{
+<a href="../../module-loader/get-started-async/"><nobr>RaptorJS Async Loader</nobr></a> uses information from packages to optimally download packages asynchronously.</p></div></div><div class="section section-level-0"><h2 id="Sample_RaptorJS_Package">Sample RaptorJS Package</h2><div class="bd"><div class="code-editor" id="s907"> <textarea id="s907-textarea" style="display: none;" name="code-86">{
     "name": "some/namespace/my-module",
     "version": "1.0",
     "description": "My amazing module.",
@@ -68,35 +68,35 @@ using the following link:
 <script type="text/javascript" src="../../static/widgets-body-06552a07.js"></script>
 <script type="text/javascript" src="../../static/packaging-get-started-body-8c9140a9.js"></script>
 <script type="text/javascript" src="../../static/code-editor-body-a2bab28c.js"></script><script type="text/javascript">$rwidgets(
-["components.nav.Nav.NavItemWidget","s796",0,0,0,0],
-["components.nav.Nav.NavItemWidget","s797",0,0,0,0,
-["components.nav.Nav.NavItemWidget","s798",0,0,0,0],
-["components.nav.Nav.NavItemWidget","s799",0,0,0,0],
-["components.nav.Nav.NavItemWidget","s800",0,0,0,0],
-["components.nav.Nav.NavItemWidget","s801",0,0,0,0],
-["components.nav.Nav.NavItemWidget","s802",0,0,0,0],
-["components.nav.Nav.NavItemWidget","s803",0,0,0,0],
-["components.nav.Nav.NavItemWidget","s804",0,0,0,0],
-["components.nav.Nav.NavItemWidget","s805",0,0,0,0],
-["components.nav.Nav.NavItemWidget","s806",0,0,0,0],
-["components.nav.Nav.NavItemWidget","s807",0,0,0,0],
-["components.nav.Nav.NavItemWidget","s808",0,0,0,0],
-["components.nav.Nav.NavItemWidget","s809",0,0,0,0],
-["components.nav.Nav.NavItemWidget","s810",0,0,0,0],
-["components.nav.Nav.NavItemWidget","s811",0,0,0,0]],
-["components.nav.Nav.NavItemWidget","s812",0,0,0,0,
-["components.nav.Nav.NavItemWidget","s813",0,0,0,0],
-["components.nav.Nav.NavItemWidget","s814",0,0,0,0],
-["components.nav.Nav.NavItemWidget","s815",0,0,0,0],
-["components.nav.Nav.NavItemWidget","s816",0,0,0,0],
-["components.nav.Nav.NavItemWidget","s817",0,0,0,0],
-["components.nav.Nav.NavItemWidget","s818",0,0,0,0],
-["components.nav.Nav.NavItemWidget","s819",0,0,0,0]],
-["components.nav.Nav.NavItemWidget","s820",0,0,0,0,
-["components.nav.Nav.NavItemWidget","s821",0,0,0,0],
-["components.nav.Nav.NavItemWidget","s822",0,0,0,0],
-["components.nav.Nav.NavItemWidget","s823",0,0,0,0],
-["components.nav.Nav.NavItemWidget","s824",0,0,0,0],
-["components.nav.Nav.NavItemWidget","s825",0,0,0,0]],
-["components.editors.CodeEditor.CodeEditorWidget","s826",0,0,{"mode":"javascript","autoResize":true,"readOnly":true,"indentUnit":4},0],
+["components.nav.Nav.NavItemWidget","s877",0,0,0,0],
+["components.nav.Nav.NavItemWidget","s878",0,0,0,0,
+["components.nav.Nav.NavItemWidget","s879",0,0,0,0],
+["components.nav.Nav.NavItemWidget","s880",0,0,0,0],
+["components.nav.Nav.NavItemWidget","s881",0,0,0,0],
+["components.nav.Nav.NavItemWidget","s882",0,0,0,0],
+["components.nav.Nav.NavItemWidget","s883",0,0,0,0],
+["components.nav.Nav.NavItemWidget","s884",0,0,0,0],
+["components.nav.Nav.NavItemWidget","s885",0,0,0,0],
+["components.nav.Nav.NavItemWidget","s886",0,0,0,0],
+["components.nav.Nav.NavItemWidget","s887",0,0,0,0],
+["components.nav.Nav.NavItemWidget","s888",0,0,0,0],
+["components.nav.Nav.NavItemWidget","s889",0,0,0,0],
+["components.nav.Nav.NavItemWidget","s890",0,0,0,0],
+["components.nav.Nav.NavItemWidget","s891",0,0,0,0],
+["components.nav.Nav.NavItemWidget","s892",0,0,0,0]],
+["components.nav.Nav.NavItemWidget","s893",0,0,0,0,
+["components.nav.Nav.NavItemWidget","s894",0,0,0,0],
+["components.nav.Nav.NavItemWidget","s895",0,0,0,0],
+["components.nav.Nav.NavItemWidget","s896",0,0,0,0],
+["components.nav.Nav.NavItemWidget","s897",0,0,0,0],
+["components.nav.Nav.NavItemWidget","s898",0,0,0,0],
+["components.nav.Nav.NavItemWidget","s899",0,0,0,0],
+["components.nav.Nav.NavItemWidget","s900",0,0,0,0]],
+["components.nav.Nav.NavItemWidget","s901",0,0,0,0,
+["components.nav.Nav.NavItemWidget","s902",0,0,0,0],
+["components.nav.Nav.NavItemWidget","s903",0,0,0,0],
+["components.nav.Nav.NavItemWidget","s904",0,0,0,0],
+["components.nav.Nav.NavItemWidget","s905",0,0,0,0],
+["components.nav.Nav.NavItemWidget","s906",0,0,0,0]],
+["components.editors.CodeEditor.CodeEditorWidget","s907",0,0,{"mode":"javascript","autoResize":true,"readOnly":true,"indentUnit":4},0],
 ["components.social.Disqus.DisqusWidget","disqus_thread",0,0,{"shortName":"raptor-js","id":"packaging-get-started","title":"Get Started using RaptorJS Packaging and Extensions"},0]);</script></body></html>

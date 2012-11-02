@@ -10,6 +10,7 @@ PRE.code, PRE.sh {
     background-color: #222;
     color: #F5F5F5;
     overflow-x: auto;
+    text-shadow: none;
 }
 
 .feature-portal-top {
