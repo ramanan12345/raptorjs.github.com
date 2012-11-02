@@ -1,7 +1,10 @@
 rm -rf static
-raptor-optimizer --name test-page \
+raptor-optimizer \
+    /css/global.css \
+    ./pages/test-page/package.json \
+    module-c \
+    --name test-page \
     --source modules \
-    --dependencies /css/global.css,./pages/test-page/package.json,module-c \
     --out static \
     --minify
 node update-html.js
