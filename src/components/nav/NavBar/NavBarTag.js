@@ -1,4 +1,4 @@
-raptor.define(
+define(
     "components.nav.NavBar.NavBarTag",
     function(raptor) {
         var NavBarTag = function() {
@@ -18,7 +18,7 @@ raptor.define(
                 
                 rootAttrs["class"] = classParts.join(" ");
 
-                raptor.require('templating').render('components/nav/NavBar', {
+                require('raptor/templating').render('components/nav/NavBar', {
                     rootAttrs: rootAttrs,
                     brand: input.brand,
                     brandHref: input.brandHref,

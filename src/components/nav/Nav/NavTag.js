@@ -1,4 +1,4 @@
-raptor.define(
+define(
     "components.nav.Nav.NavTag",
     function(raptor) {
         var NavTag = function() {
@@ -24,7 +24,7 @@ raptor.define(
 
                 var navItems = [];
                 
-                raptor.require('templating').render('components/nav/Nav', {
+                require('raptor/templating').render('components/nav/Nav', {
                     navItems: navItems,
                     rootAttrs: rootAttrs,
                     invokeBody: input.invokeBody,

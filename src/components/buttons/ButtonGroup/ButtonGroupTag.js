@@ -1,4 +1,4 @@
-raptor.define(
+define(
     "components.buttons.ButtonGroup.ButtonGroupTag",
     function(raptor) {
         var ButtonGroupTag = function() {
@@ -14,7 +14,7 @@ raptor.define(
                     rootAttrs["data-toggle"] = "buttons-" + input.toggle;
                 }
                 
-                raptor.require('templating').render('components/buttons/ButtonGroup', {
+                require('raptor/templating').render('components/buttons/ButtonGroup', {
                     tag: input, 
                     rootAttrs: rootAttrs
                 }, context);

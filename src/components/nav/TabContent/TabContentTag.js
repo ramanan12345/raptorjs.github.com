@@ -1,4 +1,4 @@
-raptor.define(
+define(
     "components.nav.TabContent.TabContentTag",
     function(raptor) {
         var TabContentTag = function() {
@@ -7,7 +7,7 @@ raptor.define(
         
         TabContentTag.prototype = {
             process: function(input, context) {
-                raptor.require('templating').render('components/nav/TabContent', {
+                require('raptor/templating').render('components/nav/TabContent', {
                     tag: input
                 }, context);
             }

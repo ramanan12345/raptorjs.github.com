@@ -2036,7 +2036,7 @@ $rload(function(raptor) {
          * In addition, the "modifiers" parameter can be a string that specifies the name of the superclass
          * <h2>Examples: Simple module object</h2>
          * <js>
-         * raptor.define(
+         * define(
          *     'some.namespace.myModule',
          *     function() {
          *         return {
@@ -2049,7 +2049,7 @@ $rload(function(raptor) {
          * 
          * <h2>Examples: Class with prototype</h2>
          * <js>
-         * raptor.define(
+         * define(
          *     'some.namespace.MyClass',
          *     function() {
          *         var MyClass = function() {
@@ -2066,7 +2066,7 @@ $rload(function(raptor) {
          * 
          * <h2>Examples: Class with inheritance</h2>
          * <js>
-         * raptor.define(
+         * define(
          *     'some.namespace.MyClass',
          *     'some.namespace.MySuperClass', //or: { superclass: 'some.namespace.MySuperClass' }
          *     function() {
@@ -2465,7 +2465,7 @@ raptor.defineEnum(
 
     raptor.defineModule = oop.define;
     
-    raptor.define("raptor", raptor);
+    define("raptor", raptor);
 });
 $rcreate({});
 window.TestPage = {
@@ -3046,7 +3046,7 @@ $rload(function(raptor) {
  * 
  * 
  */
-raptor.define('loader', function(raptor) {
+define('loader', function(raptor) {
     "use strict";
     
     var included = {},

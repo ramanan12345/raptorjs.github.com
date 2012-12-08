@@ -1,4 +1,4 @@
-raptor.define(
+define(
     "components.templates.Errors.ErrorsTag",
     function(raptor) {
         var ErrorsTag = function() {
@@ -9,7 +9,7 @@ raptor.define(
             process: function(input, context) {
                 var widgetConfig = {};
                 
-                raptor.require('templating').render('components/templates/Errors', {
+                require('raptor/templating').render('components/templates/Errors', {
                     widgetConfig: widgetConfig,
                     widgetArgs: input.widgetArgs
                 }, context);

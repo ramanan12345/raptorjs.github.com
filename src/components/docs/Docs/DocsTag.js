@@ -1,8 +1,8 @@
-raptor.define(
+define(
     "components.docs.Docs.DocsTag",
     function(raptor) {
-        var strings = raptor.require('strings'),
-            arrays = raptor.require('arrays');
+        var strings = require('raptor/strings'),
+            arrays = require('raptor/arrays');
         
         var DocsTag = function() {
             
@@ -48,7 +48,7 @@ raptor.define(
                         input.invokeBody();
 
                         if (disqusId) {
-                            raptor.require('templating').render('components/docs/Docs/Docs_discussion-section', {
+                            require('raptor/templating').render('components/docs/Docs/Docs_discussion-section', {
                                 heading: input.heading,
                                 disqusId: disqusId
                             }, context);
@@ -59,7 +59,7 @@ raptor.define(
 
                 
 
-                raptor.require('templating').render('components/docs/Docs', {
+                require('raptor/templating').render('components/docs/Docs', {
                     heading: input.heading,
                     content: sb.toString(),
                     rootSection: rootSection,

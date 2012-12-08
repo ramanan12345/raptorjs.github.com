@@ -1,4 +1,4 @@
-raptor.define(
+define(
     "components.overlays.Popover.PopoverWidget",
     function(raptor) {
         return {

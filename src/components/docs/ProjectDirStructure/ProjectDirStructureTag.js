@@ -1,10 +1,10 @@
-raptor.define(
+define(
     "components.docs.ProjectDirStructure.ProjectDirStructureTag",
     function(raptor) {
         
-        var File = raptor.require('files').File,
+        var File = require('raptor/files/File'),
             githubUrl = "https://github.com/raptorjs/raptorjs.github.com/blob/master/src",
-            startsWith = raptor.require('strings').startsWith;
+            startsWith = require('raptor/strings').startsWith;
         
         var FileNode = function(file) {
             this.file = file;
@@ -17,7 +17,7 @@ raptor.define(
 
                 var label;
                 if (!this.parentNode) {
-                    label = this._relPath(raptor.require('docs-util').getSrcDir());
+                    label = this._relPath(require('docs-util').getSrcDir());
                 }
                 else {
                     label = this._relPath(this.parentNode.file).substring(1);
@@ -31,7 +31,7 @@ raptor.define(
             },
             
             getHref: function() {
-                var relPath = this._relPath(raptor.require('docs-util').getSrcDir());
+                var relPath = this._relPath(require('docs-util').getSrcDir());
                 return githubUrl + relPath;
             },
             
@@ -47,7 +47,7 @@ raptor.define(
         
         ProjectDirStructureTag.prototype = {
             process: function(input, context) {
-                var srcDir = raptor.require('docs-util').getSrcDir();
+                var srcDir = require('docs-util').getSrcDir();
                 var projectDir = new File(srcDir, input.dir);
                 var excludeFile = new File(projectDir, ".exclude");
 
@@ -89,7 +89,7 @@ raptor.define(
                 
                 var rootNode = walkDir(projectDir);
                 
-                raptor.require('templating').render('components/docs/ProjectDirStructure', {
+                require('raptor/templating').render('components/docs/ProjectDirStructure', {
                     rootNode: rootNode
                 }, context);
                 

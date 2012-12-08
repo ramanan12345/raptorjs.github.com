@@ -1,4 +1,4 @@
-raptor.define(
+define(
     "components.editors.CodeEditor.CodeEditorTag",
     function(raptor) {
         var CodeEditorTag = function() {
@@ -73,7 +73,7 @@ raptor.define(
                 
                 
                     
-                raptor.require('templating').render('components/editors/CodeEditor', {
+                require('raptor/templating').render('components/editors/CodeEditor', {
                     tag: input, 
                     widgetConfig: widgetConfig,
                     widgetArgs: input.widgetArgs,

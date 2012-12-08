@@ -1,6 +1,6 @@
-require("raptor").create();
+require('raptor');
 
-var files = raptor.require('files');
+var files = require('raptor/files');
 
 /*
  * Read the JSON output file produced by the optimizer. This file

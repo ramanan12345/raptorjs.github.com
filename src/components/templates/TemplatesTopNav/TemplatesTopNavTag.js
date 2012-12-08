@@ -1,4 +1,4 @@
-raptor.define(
+define(
     "components.templates.TemplatesTopNav.TemplatesTopNavTag",
     function(raptor) {
         var TopNavTag = function() {
@@ -8,7 +8,7 @@ raptor.define(
         TopNavTag.prototype = {
             process: function(input, context) {
                 
-                raptor.require('templating').render('components/templates/TemplatesTopNav', {
+                require('raptor/templating').render('components/templates/TemplatesTopNav', {
                     activeItem: input.activeItem
                 }, context);
             }

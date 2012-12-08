@@ -1,4 +1,4 @@
-raptor.define(
+define(
     "components.social.GooglePlusOne.GooglePlusOneTag",
     function(raptor) {
         var GooglePlusOneTag = function() {
@@ -7,7 +7,7 @@ raptor.define(
         
         GooglePlusOneTag.prototype = {
             process: function(input, context) {
-                raptor.require('templating').render('components/social/GooglePlusOne', {
+                require('raptor/templating').render('components/social/GooglePlusOne', {
                     width: input.width || 300
                 }, context);
             }

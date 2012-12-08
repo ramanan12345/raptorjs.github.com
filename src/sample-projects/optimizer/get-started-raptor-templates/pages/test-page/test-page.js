@@ -1,4 +1,4 @@
-raptor.define(
+define(
     'test-page',
     function() {
         return {

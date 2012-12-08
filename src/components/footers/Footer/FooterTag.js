@@ -1,4 +1,4 @@
-raptor.define(
+define(
     "components.footers.Footer.FooterTag",
     function(raptor) {
         var FooterDefaultTag = function() {
@@ -8,7 +8,7 @@ raptor.define(
         FooterDefaultTag.prototype = {
             process: function(input, context) {
                 
-                raptor.require('templating').render('components/footers/Footer', {
+                require('raptor/templating').render('components/footers/Footer', {
                     type: input.type 
                 }, context);
             }

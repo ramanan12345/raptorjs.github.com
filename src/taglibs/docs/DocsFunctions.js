@@ -1,7 +1,7 @@
-raptor.define(
+define(
     "taglibs.docs.DocsFunctions",
     function(raptor) {
-        var docsUtil = raptor.require('docs-util');
+        var docsUtil = require('docs-util');
         
         return {
             

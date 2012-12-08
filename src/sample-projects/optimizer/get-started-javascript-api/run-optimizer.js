@@ -1,23 +1,23 @@
-require('raptor').create({
-    logging: {
-        loggers: {
-            'ROOT': {level: 'WARN'},
-            'optimizer': {level: 'INFO'}
-        }
+require('raptor');
+
+require('raptor/logging').configure({
+    loggers: {
+        'ROOT': {level: 'WARN'},
+        'optimizer': {level: 'INFO'}
     }
 });
 
-var files = raptor.require('files');
+var files = require('raptor/files');
 
 if (files.exists('static')) {
     files.remove('static');    
 }
 
-raptor.require('resources').addSearchPathDir(require('path').join(__dirname, 'modules'));
+require('raptor/resources').addSearchPathDir(require('path').join(__dirname, 'modules'));
 
-var optimizedPage = raptor.require('optimizer').optimizePage({
+var optimizedPage = require('raptor/optimizer').optimizePage({
     name: 'test-page',
     packageFile: require('path').join(__dirname, 'pages/test-page/package.json')
 });
 
-console.log(raptor.require('debug').prettyPrint(optimizedPage));
+console.log(require('raptor/debug').prettyPrint(optimizedPage));

@@ -1,7 +1,7 @@
-raptor.define(
+define(
     "components.icons.Icon.IconTag",
     function(raptor) {
-        var strings = raptor.require("strings");
+        var strings = require('raptor/strings');
         
         var IconTag = function() {
             
@@ -26,7 +26,7 @@ raptor.define(
                     
                 }
                 
-                raptor.require('templating').render('components/icons/Icon', {
+                require('raptor/templating').render('components/icons/Icon', {
                     className: classParts.join(" "),
                     rootAttrs: rootAttrs
                 }, context);

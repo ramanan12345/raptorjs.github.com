@@ -1,7 +1,7 @@
 raptor.defineClass(
     'taglibs.test.Tabs.TabsTag',
     function(raptor) {
-        var templating = raptor.require("templating");
+        var templating = require('raptor/templating');
         
         var TabsTag = function() {
             

@@ -1,4 +1,4 @@
-raptor.define(
+define(
     "components.social.Disqus.DisqusTag",
     function(raptor) {
         var DisqusTag = function() {
@@ -19,7 +19,7 @@ raptor.define(
                     widgetConfig.title = input.title;
                 }
                 
-                raptor.require('templating').render('components/social/Disqus', {
+                require('raptor/templating').render('components/social/Disqus', {
                     widgetConfig: widgetConfig
                 }, context);
             }

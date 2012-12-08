@@ -375,7 +375,7 @@
                             c:parse-body-text="false">
                         <![CDATA[
 
-                        raptor.require('optimizer').configure('path/to/optimizer-config.xml', params);
+                        require('raptor/optimizer').configure('path/to/optimizer-config.xml', params);
 
                         ]]>
                         </docs:code-editor>
@@ -408,14 +408,13 @@
                                 </bundle>
 
                                 <bundle name="core">
-                                    <module name="core" recursive="true"/>
-                                    <init-raptor/>
-                                    <module name="listeners" recursive="true"/>
-                                    <module name="widgets" recursive="true"/>
+                                    <module name="raptor" recursive="true"/>
+                                    <module name="raptor/listeners" recursive="true"/>
+                                    <module name="raptor/widgets" recursive="true"/>
                                 </bundle>
                                 
                                 <bundle name="templating">
-                                    <module name="templating" recursive="true"/>
+                                    <module name="raptor/templating" recursive="true"/>
                                 </bundle>
 
                             </bundles>
@@ -450,7 +449,7 @@
                             c:parse-body-text="false">
                         <![CDATA[
                         
-                        raptor.require("my-module", function(myModule) {
+                        require("my-module", function(myModule) {
                             //Do something with "my-module" now that it has loaded
                         });
 
@@ -605,7 +604,7 @@
                                 c:parse-body-text="false">
                             <![CDATA[
 
-                            var optimizer = raptor.require('optimizer');
+                            var optimizer = require('raptor/optimizer');
 
                             var optimizedPage = optimizer.optimizePage({
                                 name: 'my-page',

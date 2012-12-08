@@ -1,4 +1,4 @@
-raptor.define(
+define(
     "components.docs.FeaturePortalSection.FeaturePortalSectionTag",
     function(raptor) {
         var FeaturePortalSectionTag = function() {
@@ -8,7 +8,7 @@ raptor.define(
         FeaturePortalSectionTag.prototype = {
             process: function(input, context) {
                 
-                raptor.require('templating').render('components/docs/FeaturePortalSection', {
+                require('raptor/templating').render('components/docs/FeaturePortalSection', {
                     title: input.title,
                     url: input.url,
                     size: input.size,

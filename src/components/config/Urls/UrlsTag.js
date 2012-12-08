@@ -1,4 +1,4 @@
-raptor.define(
+define(
     "components.config.Urls.UrlsTag",
     function(raptor) {
         var UrlsTag = function() {

@@ -1,4 +1,4 @@
-raptor.define(
+define(
     "components.overlays.Popover.PopoverTag",
     function(raptor) {
         var PopoverTag = function() {
@@ -39,7 +39,7 @@ raptor.define(
                     widgetConfig.delay = input.delay;
                 }
                 
-                raptor.require('templating').render('components/overlays/Popover', {
+                require('raptor/templating').render('components/overlays/Popover', {
                     tag: input, 
                     linkText: input['link-text'],
                     rootAttrs: rootAttrs,

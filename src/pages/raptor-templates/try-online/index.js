@@ -1,5 +1,6 @@
 exports.controller = function() {
-    var resources = raptor.require('resources');
+    var resources = require('raptor/resources'),
+        raptor = require('raptor');
     
     var samples = eval('(' + resources.findResource('/sample-templates/index.json').readAsString() + ')');
     

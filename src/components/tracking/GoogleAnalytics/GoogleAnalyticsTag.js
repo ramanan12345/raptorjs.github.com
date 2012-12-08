@@ -1,4 +1,4 @@
-raptor.define(
+define(
     "components.tracking.GoogleAnalytics.GoogleAnalyticsTag",
     function(raptor) {
         var TwitterFollowTag = function() {
@@ -7,7 +7,7 @@ raptor.define(
         
         TwitterFollowTag.prototype = {
             process: function(input, context) {
-                raptor.require('templating').render('components/tracking/GoogleAnalytics', {}, context);
+                require('raptor/templating').render('components/tracking/GoogleAnalytics', {}, context);
             }
         };
         

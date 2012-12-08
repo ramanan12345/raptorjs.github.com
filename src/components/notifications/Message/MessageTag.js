@@ -1,4 +1,4 @@
-raptor.define(
+define(
     "components.notifications.Message.MessageTag",
     function(raptor) {
         var MessageTag = function() {
@@ -7,7 +7,7 @@ raptor.define(
         
         MessageTag.prototype = {
             process: function(input, context) {
-                raptor.require('templating').render('components/notifications/Message', {
+                require('raptor/templating').render('components/notifications/Message', {
                     tag: input, 
                     type: input.type,
                     message: input.message

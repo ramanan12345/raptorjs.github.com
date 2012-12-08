@@ -1,4 +1,4 @@
-raptor.define(
+define(
     "components.docs.Section.SectionTag",
     function(raptor) {
         var SectionTag = function() {
@@ -12,7 +12,7 @@ raptor.define(
                     section.heading = input.navHeading || input.heading;
                     section.anchorName = input.anchorName;
                     
-                    raptor.require('templating').render('components/docs/Section', {
+                    require('raptor/templating').render('components/docs/Section', {
                         heading: input.heading,
                         level: section.level,
                         anchorName: section.getAnchorName(),

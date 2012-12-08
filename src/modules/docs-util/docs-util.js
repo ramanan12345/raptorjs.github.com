@@ -1,4 +1,4 @@
-raptor.define(
+define(
     'docs-util',
     function() {
         return {

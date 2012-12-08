@@ -1,4 +1,4 @@
-raptor.define(
+define(
     "components.templates.Errors.ErrorsWidget",
     function(raptor) {
         var ErrorsWidget = function(config) {
@@ -32,7 +32,7 @@ raptor.define(
                     var ul = this.getEl('ul');
                     raptor.forEach(errors, function(error) {
                         var li = document.createElement('LI');
-                        li.innerHTML = raptor.require('templating').renderToString('components/templates/Errors-error', {message: error.message});
+                        li.innerHTML = require('raptor/templating').renderToString('components/templates/Errors-error', {message: error.message});
                         ul.appendChild(li);
                     }, this);
                     

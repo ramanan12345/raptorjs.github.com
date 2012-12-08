@@ -1,4 +1,4 @@
-raptor.define(
+define(
     "components.nav.NavDivider.NavDividerTag",
     function(raptor) {
         var NavDividerTag = function() {
@@ -17,7 +17,7 @@ raptor.define(
                     className = "divider-vertical"
                 }
                 
-                raptor.require('templating').render('components/nav/NavDivider', {
+                require('raptor/templating').render('components/nav/NavDivider', {
                         navItem: input,
                         className: className
                     }, context);

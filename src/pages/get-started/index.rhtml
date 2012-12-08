@@ -80,25 +80,18 @@
                             readOnly="true"
                             mode="javascript">
                         <![CDATA[
-                        require("raptor").create({ //Initialize RaptorJS
-                            logging: {
-                                loggers: { //Configure the loggers to control the logging output
-                                    'ROOT': {level: 'WARN'},
-                                    'hello': {level: 'DEBUG'}
-                                }
-                            }
-                        });
+                        require("raptor"); //Initialize RaptorJS on the server and enable AMD
 
                         /*
                          * Tell RaptorJS where it can find modules
                          * and other resources by adding the current
                          * directory to the resource search path.
                          */
-                        var resources = raptor.require('resources'); 
-                        resources.getSearchPath().addDir(__dirname);
+                        var resources = require('raptor/resources'); 
+                        resources.addSearchPathDir(__dirname);
 
-                        raptor.require("hello").greet("World"); //Load the RaptorJS "hello" module
-                                                                //and invoke the "greet" method
+                        require("hello").greet("World"); //Load the RaptorJS "hello" module
+                                                         //and invoke the "greet" method
                         ]]>
                         </docs:code-editor>
                         <p>
@@ -108,9 +101,9 @@
                             readOnly="true"
                             mode="javascript">
                         <![CDATA[
-                        raptor.define(
+                        define(
                             "hello",
-                            function() { //This function will be invoked only once
+                            function(require, module, exports) { //This function will be invoked only once
                                          //when the module is first required
                                          
                                 return { //The return value of the factory function will be

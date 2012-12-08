@@ -1,4 +1,4 @@
-raptor.define(
+define(
     'taglibs.test.TestFunctions',
     {
         upperCase: function(o) {

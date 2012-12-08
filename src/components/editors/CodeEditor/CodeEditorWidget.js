@@ -1,4 +1,4 @@
-raptor.define(
+define(
     "components.editors.CodeEditor.CodeEditorWidget",
     function(raptor) {
         var CodeEditorWidget = function(config) {

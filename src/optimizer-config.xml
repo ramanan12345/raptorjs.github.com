@@ -49,8 +49,7 @@
             <module name="jQuery" recursive="true"/>
         </bundle>
         <bundle name="core">
-            <module name="core" recursive="true"/>
-            <init-raptor/>
+            <module name="raptor" recursive="true"/>
             <module name="listeners" recursive="true"/>
         </bundle>
         <bundle name="widgets">

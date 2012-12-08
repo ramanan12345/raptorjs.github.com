@@ -1,4 +1,4 @@
-raptor.define(
+define(
     "components.buttons.Button.ButtonWidget",
     function(raptor) {
         var ButtonWidget = function(config) {

@@ -1,4 +1,4 @@
-raptor.define(
+define(
     "components.nav.NavItem.NavItemTag",
     function(raptor) {
         var NavItemTag = function() {
@@ -61,7 +61,7 @@ raptor.define(
                     }    
                 }
                 
-                raptor.require('templating').render('components/nav/NavItem', {
+                require('raptor/templating').render('components/nav/NavItem', {
                         nav: nav,
                         navItem: input,
                         isDropdownMenu: isDropdownMenu,

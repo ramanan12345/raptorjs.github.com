@@ -1,21 +1,20 @@
-require("raptor").createRaptor({
-    logging: {
-        loggers: {
-            'ROOT': {level: 'WARN'},
-            'oop-server': {level: 'WARN'},
-            'resources': {level: 'WARN'},
-            'optimizer': {level: 'WARN'}
-        }
+var raptor = require('raptor');
+require('raptor/logging').configure({
+    loggers: {
+        'ROOT': {level: 'WARN'},
+        'oop-server': {level: 'WARN'},
+        'resources': {level: 'WARN'},
+        'optimizer': {level: 'WARN'}
     }
 });
 
-raptor.require('resources').getSearchPath().addDir(__dirname);
+require('raptor/resources').getSearchPath().addDir(__dirname);
 
-var templating = raptor.require('templating'),
-    logger = raptor.require('logging').logger('publish'),
-    strings = raptor.require('strings'),
-    files = raptor.require('files'),
-    File = raptor.require('files').File,
+var templating = require('raptor/templating'),
+    logger = require('raptor/logging').logger('publish'),
+    strings = require('raptor/strings'),
+    files = require('raptor/files'),
+    File = require('raptor/files/File'),
     cwd = process.cwd(),
     resolveFile = function(path, basePath) {
         if (!path) {
@@ -71,7 +70,7 @@ var Publisher = function(config) {
 Publisher.prototype = {
     publish: function() {
 
-        raptor.require('docs-util').publisher = this;
+        require('docs-util').publisher = this;
 
         var baseDir = files.joinPaths(__dirname, "pages"); 
         
@@ -105,7 +104,7 @@ Publisher.prototype = {
             handlePage.call(this, templateFile);
         }
         else {
-            raptor.require('files.walker').walk(
+            require('raptor/files/walker').walk(
                 baseDir, 
                 function(file) {
                     if (file.isFile() && file.getExtension() === "rhtml") {
@@ -114,7 +113,7 @@ Publisher.prototype = {
                 },
                 this);
 
-            raptor.require('docs-util').publisher = null;
+            require('docs-util').publisher = null;
         }
         
     },
@@ -145,7 +144,7 @@ Publisher.prototype = {
 exports.publish = function(config) {
     try
     {
-        raptor.require('optimizer').configure(new File(__dirname, "optimizer-config.xml"), config);
+        require('raptor/optimizer').configure(new File(__dirname, "optimizer-config.xml"), config);
         raptor.extend(config, args);
         
         var publisher = new Publisher(config);

@@ -1,4 +1,4 @@
-raptor.define(
+define(
     "components.buttons.Button.ButtonTag",
     function(raptor) {
         var ButtonTag = function() {
@@ -45,7 +45,7 @@ raptor.define(
                     widgetConfig.toggled = true;
                 }
 
-                raptor.require('templating').render('components/buttons/Button', {
+                require('raptor/templating').render('components/buttons/Button', {
                     tag: input, 
                     label: input.label,
                     rootAttrs: rootAttrs,

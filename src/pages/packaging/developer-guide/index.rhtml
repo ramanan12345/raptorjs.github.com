@@ -301,7 +301,7 @@
                             <p>
                                 RaptorJS will try a few different possible resource paths when
                                 trying to resolve a module name to a <code>package.json</code> file.
-                                For a sample module named "some.namespace.my-module", the possible locations for a module's <code>package.json</code> file
+                                For a sample module named "some/namespace/my-module", the possible locations for a module's <code>package.json</code> file
                                 are shown below:
                             </p>
                             <ol>
@@ -404,7 +404,7 @@
                                         readOnly="true"
                                         mode="javascript">
                                     <![CDATA[
-                                    raptor.require('packaging').enableExtension('myExtension');
+                                    require('raptor/packaging').enableExtension('myExtension');
                                     ]]>
                                     </docs:code-editor>
                                 </li>

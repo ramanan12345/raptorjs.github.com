@@ -1548,29 +1548,32 @@ count="${10}"  <!-- number argument -->]]></docs:code-editor>
     mode="xml"
     readOnly="true" 
     c:parse-body-text="false"
-><![CDATA[<function name="reverse" class="taglibs.test.TestFunctions"/>]]></docs:code-editor>
+><![CDATA[<function name="reverse" class="taglibs/test/TestFunctions"/>]]></docs:code-editor>
                             <p>
                                 The above fragment registers a helper function and tells the Raptor Template compiler
                                 where the implementation for the function can be found. The sample code
                                 below illustrates how to implement helper functions:
                             </p>
-<docs:code-editor 
-    mode="javascript"
-    readOnly="true" 
-    c:parse-body-text="false"
-><![CDATA[raptor.define(
-    "taglibs.test.TestFunctions",
-    function() {
-        return {
-            reverse: function(str) {
-                var out = "";
-                for (var i=str.length-1; i>=0; i--) {
-                    out += str.charAt(i); 
-                }
-                return out;
-            }
-        }
-    });]]></docs:code-editor>
+                            <docs:code-editor 
+                                mode="javascript"
+                                readOnly="true" 
+                                c:parse-body-text="false">
+                            <![CDATA[
+                            define(
+                                "taglibs/test/TestFunctions",
+                                function() {
+                                    return {
+                                        reverse: function(str) {
+                                            var out = "";
+                                            for (var i=str.length-1; i>=0; i--) {
+                                                out += str.charAt(i); 
+                                            }
+                                            return out;
+                                        }
+                                    }
+                                });
+                            ]]>
+                            </docs:code-editor>
                             <p>
                                 
                                 For more details on creating taglibs, please see the following sub-page:                   
@@ -1597,7 +1600,7 @@ count="${10}"  <!-- number argument -->]]></docs:code-editor>
     mode="javascript"
     readOnly="true" 
     c:parse-body-text="false"
-><![CDATA[var templating = raptor.require("templating");
+><![CDATA[var templating = require('raptor/templating');
 var output = templating.renderToString("test/Person", {person: person});]]></docs:code-editor>
                                 <docs:message type="info">
                                     <p>
@@ -1633,7 +1636,7 @@ var output = templating.renderToString("test/Person", {person: person});]]></doc
     mode="javascript"
     readOnly="true" 
     c:parse-body-text="false"
-><![CDATA[var templating = raptor.require("templating");
+><![CDATA[var templating = require('raptor/templating');
 var context = templating.createContext();
 templating.render("test/Person", {person: person}, context);
 var output = context.getOutput();]]></docs:code-editor>
@@ -1654,7 +1657,7 @@ var output = context.getOutput();]]></docs:code-editor>
     mode="javascript"
     readOnly="true" 
     c:parse-body-text="false"
-><![CDATA[var compiler = raptor.require("templating.compiler");
+><![CDATA[var compiler = require('raptor/templating/compiler');
 var compilerOptions = {
     preserveWhitespace: true
 };

@@ -1,20 +1,19 @@
-
 console.log('Generating static files for RaptorJS Async Loader demo...');
 
-require('raptor').create({
-    logging: {
-        loggers: {
-            'ROOT': {level: 'WARN'},
-            'optimizer': {level: 'INFO'}
-        }
+require('raptor');
+
+require('raptor/logging').configure({
+    loggers: {
+        'ROOT': {level: 'WARN'},
+        'optimizer': {level: 'INFO'}
     }
 });
 
-var files = raptor.require('files'),
-    File = files.File,
-    resources = raptor.require('resources'),
-    templating = raptor.require('templating'),
-    optimizer = raptor.require('optimizer');
+var files = require('raptor/files'),
+    File = require('raptor/files/File'),
+    resources = require('raptor/resources'),
+    templating = require('raptor/templating'),
+    optimizer = require('raptor/optimizer');
 
 
 
@@ -42,5 +41,5 @@ try
     console.log('Test page written to "' + outputFile + '"');
 }
 catch(e) {
-    raptor.require('logging').logger('publish.js').error(e);
+    require('raptor/logging').logger('publish.js').error(e);
 }

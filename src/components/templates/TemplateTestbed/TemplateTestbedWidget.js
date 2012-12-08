@@ -1,7 +1,7 @@
-raptor.define(
+define(
     "components.templates.TemplateTestbed.TemplateTestbedWidget",
     function(raptor) {
-        var stringify = raptor.require('json.stringify').stringify;
+        var stringify = require('raptor/json/stringify');
         
         var TemplateTestbedWidget = function(config) {
             this.samples = config.samples;
@@ -15,13 +15,13 @@ raptor.define(
             this.renderRequired = true;
             this.optionsVisible = false;
             
-            raptor.require('pubsub').subscribe({
+            require('raptor/pubsub').subscribe({
                 "toggleAutoFormatHtml": function() {
                     this.toggleAutoFormatHtml();
                 }
             }, this)
             
-            this.defaultOptionsJson = stringify(raptor.require('templating.compiler').defaultOptions);
+            this.defaultOptionsJson = stringify(require('raptor/templating/compiler').defaultOptions);
             
             this.loadSample(0);
             
@@ -71,7 +71,7 @@ raptor.define(
                 }
             }, this);
             
-            raptor.require('pubsub').subscribe('loadSample', function(eventArgs) {
+            require('raptor/pubsub').subscribe('loadSample', function(eventArgs) {
                 this.loadSample(eventArgs.sampleIndex);
             }, this);
         };
@@ -121,7 +121,7 @@ raptor.define(
                 
                 if (!sample.templatesLoaded) {
                     raptor.forEach(sample.templates, function(template) {
-                        raptor.require('templating.compiler').compileAndLoad(template.source, template.path);
+                        require('raptor/templating/compiler').compileAndLoad(template.source, template.path);
                     }, this);
                     sample.templatesLoaded = true;
                 }
@@ -165,7 +165,7 @@ raptor.define(
                 this.templateName = null;
                 
                 var templateSrc = this.templateEditor.getValue();
-                var compiler = raptor.require('templating.compiler');
+                var compiler = require('raptor/templating/compiler');
                 
                 var compiledSrc;
                 
@@ -174,10 +174,10 @@ raptor.define(
                 
                 try
                 {
-                    templateDom = raptor.require('xml.dom').createParser().parse(templateSrc);
+                    templateDom = require('raptor/xml/dom').createParser().parse(templateSrc);
                 }
                 catch(e) {
-                    this.handleEditorException(this.templateErrors, "Invalid XML");
+                    this.handleEditorException(this.templateErrors, "Invalid XML: " + e);
                 }
                 
                 if (templateDom) {
@@ -204,7 +204,7 @@ raptor.define(
                 if (compiledSrc) {
                     this.compiledEditor.setValue(compiledSrc);
                     
-                    raptor.require('templating').unload(templateName);
+                    require('raptor/templating').unload(templateName);
 
                     try
                     {
@@ -253,7 +253,7 @@ raptor.define(
                 if (this.templateData && this.templateName && this.compilerOptions) {
                     try
                     {
-                        var output = raptor.require('templating').renderToString(this.templateName, this.templateData);
+                        var output = require('raptor/templating').renderToString(this.templateName, this.templateData);
                         this.outputEditor.setValue(output);
                         this.$("#htmlViewer").html(output);
                     }

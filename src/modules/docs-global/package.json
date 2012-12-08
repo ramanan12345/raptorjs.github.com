@@ -1,8 +1,7 @@
 {
     "raptor": {
         "dependencies": [
-            { "module": "core" },
-            { "type": "init-raptor" },
+            { "module": "raptor" },
             { "module": "jQuery" },
             { "module": "components/icons/Icon" },
             { "module": "components/overlays/Popover" },

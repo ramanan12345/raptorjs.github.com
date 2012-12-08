@@ -1,8 +1,8 @@
 {
     "raptor": {
         "dependencies": [
-            {"module": "widgets"},
-            {"module": "json.stringify"},
+            {"module": "raptor/widgets"},
+            {"module": "raptor/json/stringify"},
             { "module": "components/editors/CodeEditor" },
             { "module": "components/editors/CodeEditor/mode-javascript" },
             { "module": "components/editors/CodeEditor/mode-htmlmixed" },

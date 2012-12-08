@@ -1,4 +1,4 @@
-raptor.define(
+define(
     "components.social.TwitterFollow.TwitterFollowTag",
     function(raptor) {
         var TwitterFollowTag = function() {
@@ -12,7 +12,7 @@ raptor.define(
                     rootAttrs['data-size'] = 'large';
                 }
                 
-                raptor.require('templating').render('components/social/TwitterFollow', {
+                require('raptor/templating').render('components/social/TwitterFollow', {
                     username: input.username, 
                     showCount: input.showCount !== false,
                     rootAttrs: rootAttrs

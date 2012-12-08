@@ -299,13 +299,7 @@
 			"path": "src"
 		},
 		{
-			"path": "/Users/psteeleidem/development/ebay/github/Raptor/RaptorJSOpenSource/src/main/resources/META-INF/resources/raptor_modules"
-		},
-		{
-			"path": "/Users/psteeleidem/development/ebay/github/Raptor/RaptorJSOpenSource/test"
-		},
-		{
-			"path": "/Users/psteeleidem/development/ebay/github/Raptor/RaptorJSOpenSource/tools"
+			"path": "/Users/psteeleidem/development/github/patrick-steele-idem/raptorjs/lib/raptor"
 		}
 	],
 	"settings":

@@ -1,4 +1,4 @@
-raptor.define(
+define(
     "components.nav.TabPane.TabPaneTag",
     function(raptor) {
         var TabPaneTag = function() {
@@ -36,7 +36,7 @@ raptor.define(
                 
                 
                 
-                raptor.require('templating').render('components/nav/TabPane', {
+                require('raptor/templating').render('components/nav/TabPane', {
                     tag: input,
                     rootAttrs: rootAttrs
                 }, context);

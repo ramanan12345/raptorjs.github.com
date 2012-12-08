@@ -1,4 +1,4 @@
-raptor.define(
+define(
     "components.nav.Nav.NavItemWidget",
     function(raptor) {
         var NavItemWidget = function(config) {

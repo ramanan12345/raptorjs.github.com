@@ -1,4 +1,4 @@
-raptor.define(
+define(
     "module-a",
     function(raptor) {
         return {

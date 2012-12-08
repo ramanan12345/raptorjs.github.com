@@ -1,15 +1,15 @@
-require('raptor').create({
-    logging: {
-        loggers: {
-            'ROOT': {level: 'WARN'},
-            'optimizer': {level: 'INFO'}
-        }
+require('raptor');
+
+require('raptor/logging').configure({
+    loggers: {
+        'ROOT': {level: 'WARN'},
+        'optimizer': {level: 'INFO'}
     }
 });
 
-var files = raptor.require('files'),
-    templating = raptor.require('templating'),
-    resources = raptor.require('resources');
+var files = require('raptor/files'),
+    templating = require('raptor/templating'),
+    resources = require('raptor/resources');
 
 //Cleanup from previous runs: Remove the output directory for optimized resource bundles
 if (files.exists('static')) {

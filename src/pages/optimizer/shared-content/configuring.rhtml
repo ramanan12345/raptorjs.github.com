@@ -47,7 +47,7 @@
                         c:parse-body-text="false">
                     <![CDATA[
 
-                    raptor.require('optimizer').configure('path/to/optimizer-config.xml', {
+                    require('raptor/optimizer').configure('path/to/optimizer-config.xml', {
                         profile: "production"
                     })
 
@@ -85,14 +85,13 @@
                     </bundle>
 
                     <bundle name="core">
-                        <module name="core" recursive="true"/>
-                        <init-raptor/>
-                        <module name="listeners" recursive="true"/>
-                        <module name="widgets" recursive="true"/>
+                        <module name="raptor" recursive="true"/>
+                        <module name="raptor/listeners" recursive="true"/>
+                        <module name="raptor/widgets" recursive="true"/>
                     </bundle>
                     
                     <bundle name="templating">
-                        <module name="templating" recursive="true"/>
+                        <module name="raptor/templating" recursive="true"/>
                     </bundle>
 
                 </bundles>
@@ -142,14 +141,13 @@
                     </bundle>
 
                     <bundle name="core">
-                        <module name="core" recursive="true"/>
-                        <init-raptor/>
-                        <module name="listeners" recursive="true"/>
-                        <module name="widgets" recursive="true"/>
+                        <module name="raptor" recursive="true"/>
+                        <module name="raptor/listeners" recursive="true"/>
+                        <module name="raptor/widgets" recursive="true"/>
                     </bundle>
                     
                     <bundle name="templating">
-                        <module name="templating" recursive="true"/>
+                        <module name="raptor/templating" recursive="true"/>
                     </bundle>
 
                 </bundles>

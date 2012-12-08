@@ -1,4 +1,4 @@
-raptor.define(
+define(
     "components.templates.TemplateTestbed.TemplateTestbedTag",
     function(raptor) {
         var TemplateTestbedTag = function() {
@@ -14,7 +14,7 @@ raptor.define(
                     input.samples[0].active = true;
                 }
                 
-                raptor.require('templating').render('components/templates/TemplateTestbed', {
+                require('raptor/templating').render('components/templates/TemplateTestbed', {
                     widgetConfig: widgetConfig,
                     samples: input.samples
                 }, context);

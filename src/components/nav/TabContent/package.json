@@ -1,7 +1,7 @@
 {
     "raptor": {
         "dependencies": [
-            {"module": "widgets"},
+            {"module": "raptor/widgets"},
             {"module": "Bootstrap"},
             "TabContent.css"
         ]

@@ -83,13 +83,12 @@
                         readOnly="true"
                         mode="javascript">
                     <![CDATA[
-                    raptor.define(
-                        'some.namespace.myModule', 
+                    define(
+                        'some/namespace/my-module', 
                         function() {
-                            var MyClass = raptor.require('some.namespace.MyClass');
+                            var MyClass = require('some/namespace/MyClass');
                             
                             return {
-                            
                                 message: "Hello World",
                                 
                                 createSomeObject: function() {

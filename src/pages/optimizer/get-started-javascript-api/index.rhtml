@@ -77,11 +77,11 @@
                                 c:parse-body-text="false">
                             <![CDATA[
 
-                            require('raptor').create();
+                            require('raptor'); //Initialize RaptorJS on the server and enable AMD
 
-                            var files = raptor.require('files'),
-                                resources = raptor.require('resources'),
-                                optimizer = raptor.require('optimizer');
+                            var files = require('raptor/files'),
+                                resources = require('raptor/resources'),
+                                optimizer = require('raptor/optimizer');
 
                             resources.addSearchPathDir(files.joinPaths(__dirname, 'modules'));
 

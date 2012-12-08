@@ -184,10 +184,7 @@
                             <optimizer:page name="test-page" base-path="${data.outputDir}">
                                 <dependencies>
                                     <!-- Include the core RaptorJS module: -->
-                                    <module name="core"/>
-
-                                    <!-- Include the code to initialize RaptorJS: -->
-                                    <init-raptor/>
+                                    <module name="raptor"/>
 
                                     <!-- Include test page JS and CSS files: -->
                                     <js path="test-page.js"/>
@@ -240,7 +237,7 @@
                             c:parse-body-text="false">
 
                         <![CDATA[
-                        raptor.require('module-b', function(moduleB) {
+                        require.load('module-b', function(moduleB) {
                             moduleB.sayHello();
                         });
                         ]]>
@@ -253,9 +250,9 @@
                             readOnly="true" 
                             c:parse-body-text="false">
                         <![CDATA[
-                        raptor.define(
+                        define(
                             "module-b",
-                            function(raptor) {
+                            function(require, module, exports) {
                                 return {
                                     sayHello: function(to) {
                                         var div = document.createElement('div');
@@ -279,7 +276,7 @@
                                 c:parse-body-text="false">
 
                             <![CDATA[
-                            raptor.require(
+                            require.load(
                                 ['module-a', 'module-b'], 
                                 function(moduleA, moduleB) {
                                     //Do something with the loaded modules...
@@ -296,11 +293,11 @@
                                 c:parse-body-text="false">
 
                             <![CDATA[
-                            raptor.require(
+                            require.load(
                                 ['module-a', 'module-b'], 
                                 function() {
-                                    var moduleA = raptor.require('module-a');
-                                    var moduleB = raptor.require('module-b');
+                                    var moduleA = require('module-a');
+                                    var moduleB = require('module-b');
                                     //Do something with the loaded modules...
                                 });
                             ]]>
