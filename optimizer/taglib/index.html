@@ -1,14 +1,14 @@
-<!DOCTYPE html><html><head><title>RaptorJS Optimizer: Taglib</title><meta http-equiv="content-type" content="text/html; charset=UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><link rel="stylesheet" type="text/css" href="../../static/optimizer-taglib-head-6cbddaf0.css">
-<link rel="stylesheet" type="text/css" href="../../static/docs-head-caed8dce.css">
-<link rel="stylesheet" type="text/css" href="../../static/code-editor-head-f1386401.css"><script type="text/javascript">var
+<!DOCTYPE html><html><head><title>RaptorJS Optimizer: Taglib</title><meta http-equiv="content-type" content="text/html; charset=UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><link rel="stylesheet" type="text/css" href="../../static/optimizer-taglib-6cbddaf0.css">
+<link rel="stylesheet" type="text/css" href="../../static/docs-caed8dce.css">
+<link rel="stylesheet" type="text/css" href="../../static/code-editor-f1386401.css"><script type="text/javascript">var
 _gaq=_gaq||[];_gaq.push(["_setAccount","UA-33982282-1"]);_gaq.push(["_trackPageview"]);(function(){var
 a=document.createElement("script");a.type="text/javascript";a.async=!0;a.src=("https:"==document.location.protocol?"https://ssl":"http://www")+".google-analytics.com/ga.js";var
-b=document.getElementsByTagName("script")[0];b.parentNode.insertBefore(a,b)})();</script></head><body><div class="navbar navbar-fixed-top"><div class="navbar-inner"><div class="container"><a class="brand" href="../../">RaptorJS</a><ul class="nav"><li class="divider-vertical"></li><li id="s806"><a href="../../get-started/">Get Started</a></li><li class="divider-vertical"></li><li id="s807" class="dropdown"><a data-toggle="dropdown" class="dropdown-toggle">Learn<b class="caret"></b></a><ul class="dropdown-menu"><li id="s808"><a href="../../">Overview</a></li><li id="s809"><a href="../../get-started/">Get Started</a></li><li id="s810"><a href="../../tutorial/">Tutorial</a></li><li id="s811"><a href="../../api/">API Reference</a></li><li id="s812"><a href="../../faq/">FAQ</a></li><li class="divider"></li><li id="s813"><a href="../../modules-classes/">Modules and Classes</a></li><li id="s814"><a href="../../packaging/">Packaging and Extensions</a></li><li id="s815"><a href="../../module-loader/">Module Loader</a></li><li id="s816"><a href="../../optimizer/">Optimizer</a></li><li id="s817"><a href="../../raptor-templates/">Raptor Templates</a></li><li id="s818"><a href="../../widgets/">Widget Framework</a></li><li id="s819"><a href="../../logging/">Logging</a></li><li id="s820"><a href="../../resource-search-path/">Resource Search Path</a></li><li id="s821"><a href="../../cross-environment/">Cross Environment Support</a></li></ul></li><li class="divider-vertical"></li><li id="s822" class="dropdown"><a data-toggle="dropdown" class="dropdown-toggle">Community<b class="caret"></b></a><ul class="dropdown-menu"><li id="s823"><a href="https://github.com/raptorjs/raptorjs">Source code</a></li><li id="s824"><a href="https://github.com/raptorjs/raptorjs/issues">Issue Tracker</a></li><li id="s825"><a href="../../contribute/">Contribute</a></li><li id="s826"><a href="../../contributors/">Contributors</a></li><li class="divider"></li><li id="s827"><a href="http://groups.google.com/group/raptorjs">Discussion Forum</a></li><li class="divider"></li><li id="s828"><a href="http://twitter.com/raptorjs">Twitter (@raptorjs)</a></li><li id="s829"><a href="http://twitter.com/raptorjs">Google+</a></li></ul></li><li class="divider-vertical"></li><li id="s830" class="dropdown"><a data-toggle="dropdown" class="dropdown-toggle">About<b class="caret"></b></a><ul class="dropdown-menu"><li id="s831"><a href="https://github.com/raptorjs/raptorjs/wiki/Release-Notes">Release Notes</a></li><li id="s832"><a href="../../design-philosophy/">Design Philosophy</a></li><li id="s833"><a href="../../license/">License</a></li><li id="s834"><a href="../../credits/">Credits</a></li><li id="s835"><a href="../../creators/">Creators</a></li></ul></li><li class="divider-vertical"></li></ul></div></div></div><div class="container"><div class="docs"><div class="bd"><div class="docs-content"><h1 id="title">RaptorJS Optmizer: Taglib</h1><div class="toc nav" id="docsNav"><ul class="toc"><li class="toc toc-level-0"><a href="#Overview">Overview</a><ul class="toc"></ul></li><li class="toc toc-level-0"><a href="#Declaring_Page_Dependencies">Declaring Page Dependencies</a><ul class="toc"></ul></li><li class="toc toc-level-0"><a href="#OptimizerTaglibDefiningSlots">Defining Slots</a><ul class="toc"></ul></li><li class="toc toc-level-0"><a href="#OptimizerTaglibEnablingExtensions">Enabling Extensions</a><ul class="toc"></ul></li><li class="toc toc-level-0"><a href="#Discussion">Discussion</a><ul class="toc"></ul></li></ul><div class="docs-nav-footer"><ul><li><span class="powered-by">Powered by <a href="../../" class="raptorjs">RaptorJS</a></span></li><li><a href="../../license/">License</a></li><li><a href="../../credits/">Credits</a></li></ul></div></div><div class="message message-warning"><div class="icon"><i class="icon-warning-sign" style="font-size: 30px;"></i></div><div class="bd">Documentation In-Progress</div></div><div class="section section-level-0"><h2 id="Overview">Overview</h2><div class="bd"><p>A custom Raptor Templates Taglib is provided to make optimizing pages with the
+b=document.getElementsByTagName("script")[0];b.parentNode.insertBefore(a,b)})();</script></head><body><div class="navbar navbar-fixed-top"><div class="navbar-inner"><div class="container"><a class="brand" href="../../">RaptorJS</a><ul class="nav"><li class="divider-vertical"></li><li id="s803"><a href="../../get-started/">Get Started</a></li><li class="divider-vertical"></li><li id="s804" class="dropdown"><a data-toggle="dropdown" class="dropdown-toggle">Learn<b class="caret"></b></a><ul class="dropdown-menu"><li id="s805"><a href="../../">Overview</a></li><li id="s806"><a href="../../get-started/">Get Started</a></li><li id="s807"><a href="../../tutorial/">Tutorial</a></li><li id="s808"><a href="../../api/">API Reference</a></li><li id="s809"><a href="../../faq/">FAQ</a></li><li class="divider"></li><li id="s810"><a href="../../modules-classes/">Modules and Classes</a></li><li id="s811"><a href="../../packaging/">Packaging and Extensions</a></li><li id="s812"><a href="../../module-loader/">Module Loader</a></li><li id="s813"><a href="../../optimizer/">Optimizer</a></li><li id="s814"><a href="../../raptor-templates/">Raptor Templates</a></li><li id="s815"><a href="../../widgets/">Widget Framework</a></li><li id="s816"><a href="../../logging/">Logging</a></li><li id="s817"><a href="../../resource-search-path/">Resource Search Path</a></li><li id="s818"><a href="../../cross-environment/">Cross Environment Support</a></li></ul></li><li class="divider-vertical"></li><li id="s819" class="dropdown"><a data-toggle="dropdown" class="dropdown-toggle">Community<b class="caret"></b></a><ul class="dropdown-menu"><li id="s820"><a href="https://github.com/raptorjs/raptorjs">Source code</a></li><li id="s821"><a href="https://github.com/raptorjs/raptorjs/issues">Issue Tracker</a></li><li id="s822"><a href="../../contribute/">Contribute</a></li><li id="s823"><a href="../../contributors/">Contributors</a></li><li class="divider"></li><li id="s824"><a href="http://groups.google.com/group/raptorjs">Discussion Forum</a></li><li class="divider"></li><li id="s825"><a href="http://twitter.com/raptorjs">Twitter (@raptorjs)</a></li><li id="s826"><a href="http://twitter.com/raptorjs">Google+</a></li></ul></li><li class="divider-vertical"></li><li id="s827" class="dropdown"><a data-toggle="dropdown" class="dropdown-toggle">About<b class="caret"></b></a><ul class="dropdown-menu"><li id="s828"><a href="https://github.com/raptorjs/raptorjs/wiki/Release-Notes">Release Notes</a></li><li id="s829"><a href="../../design-philosophy/">Design Philosophy</a></li><li id="s830"><a href="../../license/">License</a></li><li id="s831"><a href="../../credits/">Credits</a></li><li id="s832"><a href="../../creators/">Creators</a></li></ul></li><li class="divider-vertical"></li></ul></div></div></div><div class="container"><div class="docs"><div class="bd"><div class="docs-content"><h1 id="title">RaptorJS Optmizer: Taglib</h1><div class="toc nav" id="docsNav"><ul class="toc"><li class="toc toc-level-0"><a href="#Overview">Overview</a><ul class="toc"></ul></li><li class="toc toc-level-0"><a href="#Declaring_Page_Dependencies">Declaring Page Dependencies</a><ul class="toc"></ul></li><li class="toc toc-level-0"><a href="#OptimizerTaglibDefiningSlots">Defining Slots</a><ul class="toc"></ul></li><li class="toc toc-level-0"><a href="#OptimizerTaglibEnablingExtensions">Enabling Extensions</a><ul class="toc"></ul></li><li class="toc toc-level-0"><a href="#Discussion">Discussion</a><ul class="toc"></ul></li></ul><div class="docs-nav-footer"><ul><li><span class="powered-by">Powered by <a href="../../" class="raptorjs">RaptorJS</a></span></li><li><a href="../../license/">License</a></li><li><a href="../../credits/">Credits</a></li></ul></div></div><div class="message message-warning"><div class="icon"><i class="icon-warning-sign" style="font-size: 30px;"></i></div><div class="bd">Documentation In-Progress</div></div><div class="section section-level-0"><h2 id="Overview">Overview</h2><div class="bd"><p>A custom Raptor Templates Taglib is provided to make optimizing pages with the
 RaptorJS Optimizer almost effortless. Below is a sample page built using Raptor
 Templates:</p></div></div><div class="section section-level-0"><h2 id="Declaring_Page_Dependencies">Declaring Page Dependencies</h2><div class="bd"><p>The <code>&lt;optimizer:page></code> tag can be used to associate a rendering context with a optimizer page. The
 only required attribute for the
 <code>&lt;optimizer:page></code> tag is the <code>package</code> attribute. The <code>package</code> attribute should be used to specify a relative path to a <code>package.json</code> file that describes the dependencies for a page as shown in the following
-example:</p><div class="code-editor" id="s836"> <textarea id="s836-textarea" style="display: none;" name="code-75">&lt;c:template
+example:</p><div class="code-editor" id="s833"> <textarea id="s833-textarea" style="display: none;" name="code-72">&lt;c:template
     xmlns:c="core"
     xmlns:optimizer="optimizer">
     
@@ -37,26 +37,29 @@ are generated for the first time. The above example code illustrates declaring
 resource slots using the
 <code>&lt;optimizer:slot></code> tag as described in the subsequent section.</p></div></div><div class="section section-level-0"><h2 id="OptimizerTaglibDefiningSlots">Defining Slots</h2><div class="bd"><p>The <code>&lt;optimizer:slot></code> tag can be used to define a slot for a page. When rendered, the <code>&lt;optimizer:slot></code> tag will render the dependency HTML corresponding to the specified slot name.
 For
-example:</p><div class="code-editor" id="s837"> <textarea id="s837-textarea" style="display: none;" name="code-76">&lt;optimizer:slot name="head"/></textarea></div></div></div><div class="section section-level-0"><h2 id="OptimizerTaglibEnablingExtensions">Enabling Extensions</h2><div class="bd"><p>The <code>&lt;optimizer:enable-extension></code> tag can be used to enable an extension for the current request. The only
+example:</p><div class="code-editor" id="s834"> <textarea id="s834-textarea" style="display: none;" name="code-73">&lt;optimizer:slot name="head"/></textarea></div></div></div><div class="section section-level-0"><h2 id="OptimizerTaglibEnablingExtensions">Enabling Extensions</h2><div class="bd"><p>The <code>&lt;optimizer:enable-extension></code> tag can be used to enable an extension for the current request. The only
 required attribute is the "name" attribute which defines the name of the
-example.</p><p>The following code illustrates how to enable an extension:</p><div class="code-editor" id="s838"> <textarea id="s838-textarea" style="display: none;" name="code-77">&lt;optimizer:enable-extension name="ipad"/></textarea></div><p>In the above example, an extension named "ipad" is enabled. Any package that
+example.</p><p>The following code illustrates how to enable an extension:</p><div class="code-editor" id="s835"> <textarea id="s835-textarea" style="display: none;" name="code-74">&lt;optimizer:enable-extension name="ipad"/></textarea></div><p>In the above example, an extension named "ipad" is enabled. Any package that
 contains an extension named "ipad" will have the dependencies that are part of
 that extension included in the optimized
-page.</p><div class="message message-warning"><div class="icon"><i class="icon-warning-sign" style="font-size: 30px;"></i></div><div class="bd">All extensions must be enabled <i>before</i> the &lt;optimizer:page ...> tag is rendered.</div></div></div></div><div class="section section-level-0"><h2 id="Discussion">Discussion</h2><div class="bd"><div id="disqus_thread"></div></div></div></div></div><div class="docs-footer-padding"></div></div></div><script type="text/javascript" src="../../static/core-body-2834a6ab.js"></script>
-<script type="text/javascript" src="../../static/jquery-body-371da524.js"></script>
-<script type="text/javascript" src="../../static/widgets-body-06552a07.js"></script>
-<script type="text/javascript" src="../../static/optimizer-taglib-body-8c9140a9.js"></script>
-<script type="text/javascript" src="../../static/code-editor-body-a2bab28c.js"></script><script type="text/javascript">$rwidgets(
-["components.editors.CodeEditor.CodeEditorWidget","s798",0,0,{"mode":"javascript","autoResize":true,"readOnly":true},0],
-["components.editors.CodeEditor.CodeEditorWidget","s799",0,0,{"mode":"xml","autoResize":true,"readOnly":true},0],
-["components.editors.CodeEditor.CodeEditorWidget","s800",0,0,{"mode":"xml","autoResize":true,"readOnly":true},0],
-["components.editors.CodeEditor.CodeEditorWidget","s801",0,0,{"mode":"xml","autoResize":true,"readOnly":true},0],
+page.</p><div class="message message-warning"><div class="icon"><i class="icon-warning-sign" style="font-size: 30px;"></i></div><div class="bd">All extensions must be enabled <i>before</i> the &lt;optimizer:page ...> tag is rendered.</div></div></div></div><div class="section section-level-0"><h2 id="Discussion">Discussion</h2><div class="bd"><div id="disqus_thread"></div></div></div></div></div><div class="docs-footer-padding"></div></div></div><script type="text/javascript" src="../../static/core-1c8603d5.js"></script>
+<script type="text/javascript" src="../../static/jquery-371da524.js"></script>
+<script type="text/javascript" src="../../static/widgets-6666ff75.js"></script>
+<script type="text/javascript" src="../../static/optimizer-taglib-4d576e16.js"></script>
+<script type="text/javascript" src="../../static/code-editor-91e15d7e.js"></script><script type="text/javascript">$rwidgets(
+["components.editors.CodeEditor.CodeEditorWidget","s795",0,0,{"mode":"javascript","autoResize":true,"readOnly":true},0],
+["components.editors.CodeEditor.CodeEditorWidget","s796",0,0,{"mode":"xml","autoResize":true,"readOnly":true},0],
+["components.editors.CodeEditor.CodeEditorWidget","s797",0,0,{"mode":"xml","autoResize":true,"readOnly":true},0],
+["components.editors.CodeEditor.CodeEditorWidget","s798",0,0,{"mode":"xml","autoResize":true,"readOnly":true},0],
+["components.editors.CodeEditor.CodeEditorWidget","s799",0,0,{"mode":"javascript","autoResize":true,"readOnly":true},0],
+["components.editors.CodeEditor.CodeEditorWidget","s800",0,0,{"mode":"javascript","autoResize":true,"readOnly":true},0],
+["components.editors.CodeEditor.CodeEditorWidget","s801",0,0,{"mode":"javascript","autoResize":true,"readOnly":true},0],
 ["components.editors.CodeEditor.CodeEditorWidget","s802",0,0,{"mode":"javascript","autoResize":true,"readOnly":true},0],
-["components.editors.CodeEditor.CodeEditorWidget","s803",0,0,{"mode":"javascript","autoResize":true,"readOnly":true},0],
-["components.editors.CodeEditor.CodeEditorWidget","s804",0,0,{"mode":"javascript","autoResize":true,"readOnly":true},0],
-["components.editors.CodeEditor.CodeEditorWidget","s805",0,0,{"mode":"javascript","autoResize":true,"readOnly":true},0],
+["components.nav.Nav.NavItemWidget","s803",0,0,0,0],
+["components.nav.Nav.NavItemWidget","s804",0,0,0,0,
+["components.nav.Nav.NavItemWidget","s805",0,0,0,0],
 ["components.nav.Nav.NavItemWidget","s806",0,0,0,0],
-["components.nav.Nav.NavItemWidget","s807",0,0,0,0,
+["components.nav.Nav.NavItemWidget","s807",0,0,0,0],
 ["components.nav.Nav.NavItemWidget","s808",0,0,0,0],
 ["components.nav.Nav.NavItemWidget","s809",0,0,0,0],
 ["components.nav.Nav.NavItemWidget","s810",0,0,0,0],
@@ -67,25 +70,22 @@ page.</p><div class="message message-warning"><div class="icon"><i class="icon-w
 ["components.nav.Nav.NavItemWidget","s815",0,0,0,0],
 ["components.nav.Nav.NavItemWidget","s816",0,0,0,0],
 ["components.nav.Nav.NavItemWidget","s817",0,0,0,0],
-["components.nav.Nav.NavItemWidget","s818",0,0,0,0],
-["components.nav.Nav.NavItemWidget","s819",0,0,0,0],
+["components.nav.Nav.NavItemWidget","s818",0,0,0,0]],
+["components.nav.Nav.NavItemWidget","s819",0,0,0,0,
 ["components.nav.Nav.NavItemWidget","s820",0,0,0,0],
-["components.nav.Nav.NavItemWidget","s821",0,0,0,0]],
-["components.nav.Nav.NavItemWidget","s822",0,0,0,0,
+["components.nav.Nav.NavItemWidget","s821",0,0,0,0],
+["components.nav.Nav.NavItemWidget","s822",0,0,0,0],
 ["components.nav.Nav.NavItemWidget","s823",0,0,0,0],
 ["components.nav.Nav.NavItemWidget","s824",0,0,0,0],
 ["components.nav.Nav.NavItemWidget","s825",0,0,0,0],
-["components.nav.Nav.NavItemWidget","s826",0,0,0,0],
-["components.nav.Nav.NavItemWidget","s827",0,0,0,0],
+["components.nav.Nav.NavItemWidget","s826",0,0,0,0]],
+["components.nav.Nav.NavItemWidget","s827",0,0,0,0,
 ["components.nav.Nav.NavItemWidget","s828",0,0,0,0],
-["components.nav.Nav.NavItemWidget","s829",0,0,0,0]],
-["components.nav.Nav.NavItemWidget","s830",0,0,0,0,
+["components.nav.Nav.NavItemWidget","s829",0,0,0,0],
+["components.nav.Nav.NavItemWidget","s830",0,0,0,0],
 ["components.nav.Nav.NavItemWidget","s831",0,0,0,0],
-["components.nav.Nav.NavItemWidget","s832",0,0,0,0],
-["components.nav.Nav.NavItemWidget","s833",0,0,0,0],
-["components.nav.Nav.NavItemWidget","s834",0,0,0,0],
-["components.nav.Nav.NavItemWidget","s835",0,0,0,0]],
-["components.editors.CodeEditor.CodeEditorWidget","s836",0,0,{"mode":"xml","autoResize":true,"readOnly":true},0],
-["components.editors.CodeEditor.CodeEditorWidget","s837",0,0,{"mode":"xml","autoResize":true,"readOnly":true},0],
-["components.editors.CodeEditor.CodeEditorWidget","s838",0,0,{"mode":"xml","autoResize":true,"readOnly":true},0],
+["components.nav.Nav.NavItemWidget","s832",0,0,0,0]],
+["components.editors.CodeEditor.CodeEditorWidget","s833",0,0,{"mode":"xml","autoResize":true,"readOnly":true},0],
+["components.editors.CodeEditor.CodeEditorWidget","s834",0,0,{"mode":"xml","autoResize":true,"readOnly":true},0],
+["components.editors.CodeEditor.CodeEditorWidget","s835",0,0,{"mode":"xml","autoResize":true,"readOnly":true},0],
 ["components.social.Disqus.DisqusWidget","disqus_thread",0,0,{"shortName":"raptor-js","id":"optimizer-taglib","title":"RaptorJS Optmizer: Taglib"},0]);</script></body></html>

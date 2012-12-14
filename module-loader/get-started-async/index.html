@@ -1,6 +1,6 @@
-<!DOCTYPE html><html><head><title>RaptorJS: Get Started using the Asynchronous Module Loader</title><meta http-equiv="content-type" content="text/html; charset=UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><link rel="stylesheet" type="text/css" href="../../static/module-loader-get-started-async-head-6cbddaf0.css">
-<link rel="stylesheet" type="text/css" href="../../static/docs-head-caed8dce.css">
-<link rel="stylesheet" type="text/css" href="../../static/code-editor-head-f1386401.css"><script type="text/javascript">var
+<!DOCTYPE html><html><head><title>RaptorJS: Get Started using the Asynchronous Module Loader</title><meta http-equiv="content-type" content="text/html; charset=UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><link rel="stylesheet" type="text/css" href="../../static/module-loader-get-started-async-6cbddaf0.css">
+<link rel="stylesheet" type="text/css" href="../../static/docs-caed8dce.css">
+<link rel="stylesheet" type="text/css" href="../../static/code-editor-f1386401.css"><script type="text/javascript">var
 _gaq=_gaq||[];_gaq.push(["_setAccount","UA-33982282-1"]);_gaq.push(["_trackPageview"]);(function(){var
 a=document.createElement("script");a.type="text/javascript";a.async=!0;a.src=("https:"==document.location.protocol?"https://ssl":"http://www")+".google-analytics.com/ga.js";var
 b=document.getElementsByTagName("script")[0];b.parentNode.insertBefore(a,b)})();</script></head><body><div class="navbar navbar-fixed-top"><div class="navbar-inner"><div class="container"><a class="brand" href="../../">RaptorJS</a><ul class="nav"><li class="divider-vertical"></li><li id="s398"><a href="../../get-started/">Get Started</a></li><li class="divider-vertical"></li><li id="s399" class="dropdown"><a data-toggle="dropdown" class="dropdown-toggle">Learn<b class="caret"></b></a><ul class="dropdown-menu"><li id="s400"><a href="../../">Overview</a></li><li id="s401"><a href="../../get-started/">Get Started</a></li><li id="s402"><a href="../../tutorial/">Tutorial</a></li><li id="s403"><a href="../../api/">API Reference</a></li><li id="s404"><a href="../../faq/">FAQ</a></li><li class="divider"></li><li id="s405"><a href="../../modules-classes/">Modules and Classes</a></li><li id="s406"><a href="../../packaging/">Packaging and Extensions</a></li><li id="s407"><a href="../../module-loader/">Module Loader</a></li><li id="s408"><a href="../../optimizer/">Optimizer</a></li><li id="s409"><a href="../../raptor-templates/">Raptor Templates</a></li><li id="s410"><a href="../../widgets/">Widget Framework</a></li><li id="s411"><a href="../../logging/">Logging</a></li><li id="s412"><a href="../../resource-search-path/">Resource Search Path</a></li><li id="s413"><a href="../../cross-environment/">Cross Environment Support</a></li></ul></li><li class="divider-vertical"></li><li id="s414" class="dropdown"><a data-toggle="dropdown" class="dropdown-toggle">Community<b class="caret"></b></a><ul class="dropdown-menu"><li id="s415"><a href="https://github.com/raptorjs/raptorjs">Source code</a></li><li id="s416"><a href="https://github.com/raptorjs/raptorjs/issues">Issue Tracker</a></li><li id="s417"><a href="../../contribute/">Contribute</a></li><li id="s418"><a href="../../contributors/">Contributors</a></li><li class="divider"></li><li id="s419"><a href="http://groups.google.com/group/raptorjs">Discussion Forum</a></li><li class="divider"></li><li id="s420"><a href="http://twitter.com/raptorjs">Twitter (@raptorjs)</a></li><li id="s421"><a href="http://twitter.com/raptorjs">Google+</a></li></ul></li><li class="divider-vertical"></li><li id="s422" class="dropdown"><a data-toggle="dropdown" class="dropdown-toggle">About<b class="caret"></b></a><ul class="dropdown-menu"><li id="s423"><a href="https://github.com/raptorjs/raptorjs/wiki/Release-Notes">Release Notes</a></li><li id="s424"><a href="../../design-philosophy/">Design Philosophy</a></li><li id="s425"><a href="../../license/">License</a></li><li id="s426"><a href="../../credits/">Credits</a></li><li id="s427"><a href="../../creators/">Creators</a></li></ul></li><li class="divider-vertical"></li></ul></div></div></div><div class="container"><div class="docs"><div class="bd"><div class="docs-content"><h1 id="title">RaptorJS: Get Started using the Asynchronous Module Loader</h1><div class="toc nav" id="docsNav"><ul class="toc"><li class="toc toc-level-0"><a href="#Overview">Overview</a><ul class="toc"></ul></li><li class="toc toc-level-0"><a href="#Sample_Code">Sample Code</a><ul class="toc"></ul></li><li class="toc toc-level-0"><a href="#View_Live_Code">View Live Code</a><ul class="toc"></ul></li><li class="toc toc-level-0"><a href="#Directory_Structure">Directory Structure</a><ul class="toc"></ul></li><li class="toc toc-level-0"><a href="#HTML_Page_Template">HTML Page Template</a><ul class="toc"></ul></li><li class="toc toc-level-0"><a href="#Downloading_Modules_Asynchronously">Downloading Modules Asynchronously</a><ul class="toc"></ul></li><li class="toc toc-level-0"><a href="#Rendering_the_Page">Rendering the Page</a><ul class="toc"></ul></li><li class="toc toc-level-0"><a href="#Discussion">Discussion</a><ul class="toc"></ul></li></ul><div class="docs-nav-footer"><ul><li><span class="powered-by">Powered by <a href="../../" class="raptorjs">RaptorJS</a></span></li><li><a href="../../license/">License</a></li><li><a href="../../credits/">Credits</a></li></ul></div></div><div class="message message-warning"><div class="icon"><i class="icon-warning-sign" style="font-size: 30px;"></i></div><div class="bd">Documentation In-Progress</div></div><div class="section section-level-0"><h2 id="Overview">Overview</h2><div class="bd"><p>The RaptorJS Asynchronous Loader is a lightweight module that allows JavaScript
@@ -32,10 +32,7 @@ prefer.</p><ul><li><b>/path/to/my-app/</b><ul><li><b>modules/</b><ul><li><b>modu
     &lt;optimizer:page name="test-page" base-path="${data.outputDir}">
         &lt;dependencies>
             &lt;!-- Include the core RaptorJS module: -->
-            &lt;module name="core"/>
-
-            &lt;!-- Include the code to initialize RaptorJS: -->
-            &lt;init-raptor/>
+            &lt;module name="raptor"/>
 
             &lt;!-- Include test page JS and CSS files: -->
             &lt;js path="test-page.js"/>
@@ -72,11 +69,11 @@ prefer.</p><ul><li><b>/path/to/my-app/</b><ul><li><b>modules/</b><ul><li><b>modu
 in the above
 template.</p></div></div><div class="section section-level-0"><h2 id="Downloading_Modules_Asynchronously">Downloading Modules Asynchronously</h2><div class="bd"><p>The following code is used to download "module-b" asynchronously and then
 invoke a method on the loaded
-module:</p><div class="code-editor" id="s429"> <textarea id="s429-textarea" style="display: none;" name="code-3">raptor.require('module-b', function(moduleB) {
+module:</p><div class="code-editor" id="s429"> <textarea id="s429-textarea" style="display: none;" name="code-3">require.load('module-b', function(moduleB) {
     moduleB.sayHello();
-});</textarea></div><p>The source code for "module-b" is the following:</p><div class="code-editor" id="s430"> <textarea id="s430-textarea" style="display: none;" name="code-4">raptor.define(
+});</textarea></div><p>The source code for "module-b" is the following:</p><div class="code-editor" id="s430"> <textarea id="s430-textarea" style="display: none;" name="code-4">define(
     "module-b",
-    function(raptor) {
+    function(require, module, exports) {
         return {
             sayHello: function(to) {
                 var div = document.createElement('div');
@@ -87,15 +84,15 @@ module:</p><div class="code-editor" id="s429"> <textarea id="s429-textarea" styl
         };
     });</textarea></div><div class="message message-info"><div class="icon"><i class="icon-info-sign" style="font-size: 30px;"></i></div><div class="bd"><p>If you would like to download multiple modules asynchronously then simply
 provide an array of module IDs as shown in the following
-example:</p><div class="code-editor" id="s431"> <textarea id="s431-textarea" style="display: none;" name="code-5">raptor.require(
+example:</p><div class="code-editor" id="s431"> <textarea id="s431-textarea" style="display: none;" name="code-5">require.load(
     ['module-a', 'module-b'], 
     function(moduleA, moduleB) {
         //Do something with the loaded modules...
-    });</textarea></div><p>In addition, you can also choose to use <code>raptor.require</code> to access the modules after they have been loaded:</p><div class="code-editor" id="s432"> <textarea id="s432-textarea" style="display: none;" name="code-6">raptor.require(
+    });</textarea></div><p>In addition, you can also choose to use <code>raptor.require</code> to access the modules after they have been loaded:</p><div class="code-editor" id="s432"> <textarea id="s432-textarea" style="display: none;" name="code-6">require.load(
     ['module-a', 'module-b'], 
     function() {
-        var moduleA = raptor.require('module-a');
-        var moduleB = raptor.require('module-b');
+        var moduleA = require('module-a');
+        var moduleB = require('module-b');
         //Do something with the loaded modules...
     });</textarea></div></div></div></div></div><div class="section section-level-0"><h2 id="Rendering_the_Page">Rendering the Page</h2><div class="bd"><p>The sample project includes a script named "publish.js" that renders the
 "test-page.rhtml" template shown above and saves the generated HTML string to
@@ -115,11 +112,11 @@ following:</p><div class="code-editor" id="s433"> <textarea id="s433-textarea" s
     }
 };</textarea></div><p>The above code shows the URLs that will be downloaded when "module-b" is
 required
-asynchrously.</p></div></div><div class="section section-level-0"><h2 id="Discussion">Discussion</h2><div class="bd"><div id="disqus_thread"></div></div></div></div></div><div class="docs-footer-padding"></div></div></div><script type="text/javascript" src="../../static/core-body-2834a6ab.js"></script>
-<script type="text/javascript" src="../../static/jquery-body-371da524.js"></script>
-<script type="text/javascript" src="../../static/widgets-body-06552a07.js"></script>
-<script type="text/javascript" src="../../static/module-loader-get-started-async-body-8c9140a9.js"></script>
-<script type="text/javascript" src="../../static/code-editor-body-a2bab28c.js"></script><script type="text/javascript">$rwidgets(
+asynchrously.</p></div></div><div class="section section-level-0"><h2 id="Discussion">Discussion</h2><div class="bd"><div id="disqus_thread"></div></div></div></div></div><div class="docs-footer-padding"></div></div></div><script type="text/javascript" src="../../static/core-1c8603d5.js"></script>
+<script type="text/javascript" src="../../static/jquery-371da524.js"></script>
+<script type="text/javascript" src="../../static/widgets-6666ff75.js"></script>
+<script type="text/javascript" src="../../static/module-loader-get-started-async-4d576e16.js"></script>
+<script type="text/javascript" src="../../static/code-editor-91e15d7e.js"></script><script type="text/javascript">$rwidgets(
 ["components.nav.Nav.NavItemWidget","s398",0,0,0,0],
 ["components.nav.Nav.NavItemWidget","s399",0,0,0,0,
 ["components.nav.Nav.NavItemWidget","s400",0,0,0,0],

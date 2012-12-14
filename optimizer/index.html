@@ -1,8 +1,8 @@
-<!DOCTYPE html><html><head><title>RaptorJS: Optimizer</title><meta http-equiv="content-type" content="text/html; charset=UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><link rel="stylesheet" type="text/css" href="../static/optimizer-head-9aa073eb.css">
-<link rel="stylesheet" type="text/css" href="../static/docs-head-caed8dce.css"><script type="text/javascript">var
+<!DOCTYPE html><html><head><title>RaptorJS: Optimizer</title><meta http-equiv="content-type" content="text/html; charset=UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><link rel="stylesheet" type="text/css" href="../static/optimizer-9aa073eb.css">
+<link rel="stylesheet" type="text/css" href="../static/docs-caed8dce.css"><script type="text/javascript">var
 _gaq=_gaq||[];_gaq.push(["_setAccount","UA-33982282-1"]);_gaq.push(["_trackPageview"]);(function(){var
 a=document.createElement("script");a.type="text/javascript";a.async=!0;a.src=("https:"==document.location.protocol?"https://ssl":"http://www")+".google-analytics.com/ga.js";var
-b=document.getElementsByTagName("script")[0];b.parentNode.insertBefore(a,b)})();</script></head><body data-spy="scroll"><div class="navbar navbar-fixed-top"><div class="navbar-inner"><div class="container"><a class="brand" href="../">RaptorJS</a><ul class="nav"><li class="divider-vertical"></li><li id="s768"><a href="../get-started/">Get Started</a></li><li class="divider-vertical"></li><li id="s769" class="dropdown"><a data-toggle="dropdown" class="dropdown-toggle">Learn<b class="caret"></b></a><ul class="dropdown-menu"><li id="s770"><a href="../">Overview</a></li><li id="s771"><a href="../get-started/">Get Started</a></li><li id="s772"><a href="../tutorial/">Tutorial</a></li><li id="s773"><a href="../api/">API Reference</a></li><li id="s774"><a href="../faq/">FAQ</a></li><li class="divider"></li><li id="s775"><a href="../modules-classes/">Modules and Classes</a></li><li id="s776"><a href="../packaging/">Packaging and Extensions</a></li><li id="s777"><a href="../module-loader/">Module Loader</a></li><li id="s778" class="active nav-item-active"><a href="../optimizer/">Optimizer</a></li><li id="s779"><a href="../raptor-templates/">Raptor Templates</a></li><li id="s780"><a href="../widgets/">Widget Framework</a></li><li id="s781"><a href="../logging/">Logging</a></li><li id="s782"><a href="../resource-search-path/">Resource Search Path</a></li><li id="s783"><a href="../cross-environment/">Cross Environment Support</a></li></ul></li><li class="divider-vertical"></li><li id="s784" class="dropdown"><a data-toggle="dropdown" class="dropdown-toggle">Community<b class="caret"></b></a><ul class="dropdown-menu"><li id="s785"><a href="https://github.com/raptorjs/raptorjs">Source code</a></li><li id="s786"><a href="https://github.com/raptorjs/raptorjs/issues">Issue Tracker</a></li><li id="s787"><a href="../contribute/">Contribute</a></li><li id="s788"><a href="../contributors/">Contributors</a></li><li class="divider"></li><li id="s789"><a href="http://groups.google.com/group/raptorjs">Discussion Forum</a></li><li class="divider"></li><li id="s790"><a href="http://twitter.com/raptorjs">Twitter (@raptorjs)</a></li><li id="s791"><a href="http://twitter.com/raptorjs">Google+</a></li></ul></li><li class="divider-vertical"></li><li id="s792" class="dropdown"><a data-toggle="dropdown" class="dropdown-toggle">About<b class="caret"></b></a><ul class="dropdown-menu"><li id="s793"><a href="https://github.com/raptorjs/raptorjs/wiki/Release-Notes">Release Notes</a></li><li id="s794"><a href="../design-philosophy/">Design Philosophy</a></li><li id="s795"><a href="../license/">License</a></li><li id="s796"><a href="../credits/">Credits</a></li><li id="s797"><a href="../creators/">Creators</a></li></ul></li><li class="divider-vertical"></li></ul></div></div></div><div class="container"><div class="feature-portal-top"><div class="feature-portal-desc"><h1>RaptorJS Optimizer</h1><p>The RaptorJS Optimizer is a server-side tool that can be be used to build
+b=document.getElementsByTagName("script")[0];b.parentNode.insertBefore(a,b)})();</script></head><body data-spy="scroll"><div class="navbar navbar-fixed-top"><div class="navbar-inner"><div class="container"><a class="brand" href="../">RaptorJS</a><ul class="nav"><li class="divider-vertical"></li><li id="s765"><a href="../get-started/">Get Started</a></li><li class="divider-vertical"></li><li id="s766" class="dropdown"><a data-toggle="dropdown" class="dropdown-toggle">Learn<b class="caret"></b></a><ul class="dropdown-menu"><li id="s767"><a href="../">Overview</a></li><li id="s768"><a href="../get-started/">Get Started</a></li><li id="s769"><a href="../tutorial/">Tutorial</a></li><li id="s770"><a href="../api/">API Reference</a></li><li id="s771"><a href="../faq/">FAQ</a></li><li class="divider"></li><li id="s772"><a href="../modules-classes/">Modules and Classes</a></li><li id="s773"><a href="../packaging/">Packaging and Extensions</a></li><li id="s774"><a href="../module-loader/">Module Loader</a></li><li id="s775" class="active nav-item-active"><a href="../optimizer/">Optimizer</a></li><li id="s776"><a href="../raptor-templates/">Raptor Templates</a></li><li id="s777"><a href="../widgets/">Widget Framework</a></li><li id="s778"><a href="../logging/">Logging</a></li><li id="s779"><a href="../resource-search-path/">Resource Search Path</a></li><li id="s780"><a href="../cross-environment/">Cross Environment Support</a></li></ul></li><li class="divider-vertical"></li><li id="s781" class="dropdown"><a data-toggle="dropdown" class="dropdown-toggle">Community<b class="caret"></b></a><ul class="dropdown-menu"><li id="s782"><a href="https://github.com/raptorjs/raptorjs">Source code</a></li><li id="s783"><a href="https://github.com/raptorjs/raptorjs/issues">Issue Tracker</a></li><li id="s784"><a href="../contribute/">Contribute</a></li><li id="s785"><a href="../contributors/">Contributors</a></li><li class="divider"></li><li id="s786"><a href="http://groups.google.com/group/raptorjs">Discussion Forum</a></li><li class="divider"></li><li id="s787"><a href="http://twitter.com/raptorjs">Twitter (@raptorjs)</a></li><li id="s788"><a href="http://twitter.com/raptorjs">Google+</a></li></ul></li><li class="divider-vertical"></li><li id="s789" class="dropdown"><a data-toggle="dropdown" class="dropdown-toggle">About<b class="caret"></b></a><ul class="dropdown-menu"><li id="s790"><a href="https://github.com/raptorjs/raptorjs/wiki/Release-Notes">Release Notes</a></li><li id="s791"><a href="../design-philosophy/">Design Philosophy</a></li><li id="s792"><a href="../license/">License</a></li><li id="s793"><a href="../credits/">Credits</a></li><li id="s794"><a href="../creators/">Creators</a></li></ul></li><li class="divider-vertical"></li></ul></div></div></div><div class="container"><div class="feature-portal-top"><div class="feature-portal-desc"><h1>RaptorJS Optimizer</h1><p>The RaptorJS Optimizer is a server-side tool that can be be used to build
 optimized web pages by bundling, compiling and minifying page dependencies.
 This tool makes managing complex JavaScript and CSS dependencies almost
 effortless while helping you produce extremely optimized web pages.
@@ -25,12 +25,15 @@ optimized resource bundles for your web application from the command
 line.</p></div></div></div><div class="feature-portal-section feature-portal-section-small "><div class="content"><h3><a href="../optimizer/get-started-javascript-api/">Get Started with the Optimizer JS API</a></h3><div class="bd"><p>Learn how to use the simple JavaScript API offered by the RaptorJS Optimizer so
 that you can programmatically have full control over the optimization
 process.</p></div></div></div><div class="feature-portal-section feature-portal-section-small "><div class="content"><h3><a href="../optimizer/developer-guide/">Developer Guide</a></h3><div class="bd"><p>An in-depth look at utilizing and adapting the RaptorJS Optimizer to meet your
-needs.</p></div></div></div></div><script type="text/javascript" src="../static/core-body-2834a6ab.js"></script>
-<script type="text/javascript" src="../static/jquery-body-371da524.js"></script>
-<script type="text/javascript" src="../static/widgets-body-06552a07.js"></script>
-<script type="text/javascript" src="../static/optimizer-body-588b3e79.js"></script><script type="text/javascript">$rwidgets(
+needs.</p></div></div></div></div><script type="text/javascript" src="../static/core-1c8603d5.js"></script>
+<script type="text/javascript" src="../static/jquery-371da524.js"></script>
+<script type="text/javascript" src="../static/widgets-6666ff75.js"></script>
+<script type="text/javascript" src="../static/optimizer-a8bdfb0b.js"></script><script type="text/javascript">$rwidgets(
+["components.nav.Nav.NavItemWidget","s765",0,0,0,0],
+["components.nav.Nav.NavItemWidget","s766",0,0,0,0,
+["components.nav.Nav.NavItemWidget","s767",0,0,0,0],
 ["components.nav.Nav.NavItemWidget","s768",0,0,0,0],
-["components.nav.Nav.NavItemWidget","s769",0,0,0,0,
+["components.nav.Nav.NavItemWidget","s769",0,0,0,0],
 ["components.nav.Nav.NavItemWidget","s770",0,0,0,0],
 ["components.nav.Nav.NavItemWidget","s771",0,0,0,0],
 ["components.nav.Nav.NavItemWidget","s772",0,0,0,0],
@@ -41,21 +44,18 @@ needs.</p></div></div></div></div><script type="text/javascript" src="../static/
 ["components.nav.Nav.NavItemWidget","s777",0,0,0,0],
 ["components.nav.Nav.NavItemWidget","s778",0,0,0,0],
 ["components.nav.Nav.NavItemWidget","s779",0,0,0,0],
-["components.nav.Nav.NavItemWidget","s780",0,0,0,0],
-["components.nav.Nav.NavItemWidget","s781",0,0,0,0],
+["components.nav.Nav.NavItemWidget","s780",0,0,0,0]],
+["components.nav.Nav.NavItemWidget","s781",0,0,0,0,
 ["components.nav.Nav.NavItemWidget","s782",0,0,0,0],
-["components.nav.Nav.NavItemWidget","s783",0,0,0,0]],
-["components.nav.Nav.NavItemWidget","s784",0,0,0,0,
+["components.nav.Nav.NavItemWidget","s783",0,0,0,0],
+["components.nav.Nav.NavItemWidget","s784",0,0,0,0],
 ["components.nav.Nav.NavItemWidget","s785",0,0,0,0],
 ["components.nav.Nav.NavItemWidget","s786",0,0,0,0],
 ["components.nav.Nav.NavItemWidget","s787",0,0,0,0],
-["components.nav.Nav.NavItemWidget","s788",0,0,0,0],
-["components.nav.Nav.NavItemWidget","s789",0,0,0,0],
+["components.nav.Nav.NavItemWidget","s788",0,0,0,0]],
+["components.nav.Nav.NavItemWidget","s789",0,0,0,0,
 ["components.nav.Nav.NavItemWidget","s790",0,0,0,0],
-["components.nav.Nav.NavItemWidget","s791",0,0,0,0]],
-["components.nav.Nav.NavItemWidget","s792",0,0,0,0,
+["components.nav.Nav.NavItemWidget","s791",0,0,0,0],
+["components.nav.Nav.NavItemWidget","s792",0,0,0,0],
 ["components.nav.Nav.NavItemWidget","s793",0,0,0,0],
-["components.nav.Nav.NavItemWidget","s794",0,0,0,0],
-["components.nav.Nav.NavItemWidget","s795",0,0,0,0],
-["components.nav.Nav.NavItemWidget","s796",0,0,0,0],
-["components.nav.Nav.NavItemWidget","s797",0,0,0,0]]);</script></body></html>
+["components.nav.Nav.NavItemWidget","s794",0,0,0,0]]);</script></body></html>

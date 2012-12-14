@@ -80,15 +80,21 @@
                             readOnly="true"
                             mode="javascript">
                         <![CDATA[
-                        require("raptor"); //Initialize RaptorJS on the server and enable AMD
-
+                        require("raptor"); // Initialize RaptorJS on the server and enable AMD
+                                           // so that other AMD modules can be discovered and
+                                           // loaded on the server
+                                           
+                        require("raptor/logging").configure({ //Configure the loggers to control the logging output
+                                'ROOT': {level: 'WARN'},
+                                'hello': {level: 'DEBUG'}
+                            });
+                        
                         /*
                          * Tell RaptorJS where it can find modules
                          * and other resources by adding the current
                          * directory to the resource search path.
                          */
-                        var resources = require('raptor/resources'); 
-                        resources.addSearchPathDir(__dirname);
+                        require('raptor/resources').addSearchPathDir(__dirname);
 
                         require("hello").greet("World"); //Load the RaptorJS "hello" module
                                                          //and invoke the "greet" method
@@ -105,12 +111,14 @@
                             "hello",
                             function(require, module, exports) { //This function will be invoked only once
                                          //when the module is first required
-                                         
+                                
+                                var logger = module.logger(); //Obtaining a logger for the module being defined
+                                
                                 return { //The return value of the factory function will be
                                          //registered as the implementation for the module
                                           
                                     greet: function(name) {
-                                        this.logger().debug("Hello " + name + "!");
+                                        logger.debug("Hello " + name + "!");
                                     }
                                 }
                             });
@@ -120,7 +128,8 @@
                         <pre class="sh" xml:space="preserve" c:trim-body-indent="true">
                         $ node index.js
                         </pre>
-                                    You should see the following in the console:
+                        
+                        You should see the following in the console:
                         <pre class="sh" xml:space="preserve" c:trim-body-indent="true">
                         DEBUG hello: Hello World!
                         </pre>

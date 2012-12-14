@@ -50,10 +50,10 @@
         </bundle>
         <bundle name="core">
             <module name="raptor" recursive="true"/>
-            <module name="listeners" recursive="true"/>
+            <module name="raptor/listeners" recursive="true"/>
         </bundle>
         <bundle name="widgets">
-            <module name="widgets" recursive="true"/>
+            <module name="raptor/widgets" recursive="true"/>
         </bundle>
 
         <bundle name="docs">
@@ -67,11 +67,11 @@
         </bundle>
         
         <bundle name="templating">
-            <module name="templating" recursive="true"/>
+            <module name="raptor/templating" recursive="true"/>
         </bundle>
         
         <bundle name="templating-compiler">
-            <module name="templating.compiler" recursive="true"/>
+            <module name="raptor/templating/compiler" recursive="true"/>
         </bundle>
     </bundles>
     
