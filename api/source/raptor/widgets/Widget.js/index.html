@@ -1,0 +1,329 @@
+<!DOCTYPE html><html><head><base href="../../../.."></base><title>Source for /raptor/widgets/Widget.js — RaptorJS API</title><meta http-equiv="content-type" content="text/html; charset=UTF-8"><link rel="stylesheet" type="text/css" href="static/jsdoc-ab9a77f4.css">
+<link rel="stylesheet" type="text/css" href="static/type-d7a17c6c.css"></head></html><body><body><div id="nav"><div class="nav jstree-classic" style="visibility: hidden;" id="s0"><div id="search-form"><div class="body"><input type="text" id="searchInput" size="20" value="Search API docs" autocomplete="off" class="ac_input"></div></div><div id="navTree" class="jstree-no-dots"><ul><li id="nav_package_json" class="package"><a href="./source/package.json/">package.json</a> </li><li id="nav_raptor" class="raptor-module"><a href="./raptor/">raptor</a><ul><li id="nav_raptor_package_json" class="package"><a href="./source/raptor/package.json/">package.json</a> </li><li id="nav_raptor_arrays" class="raptor-module"><a href="./raptor/arrays/">arrays</a><ul><li id="nav_raptor_arrays_package_json" class="package"><a href="./source/raptor/arrays/package.json/">package.json</a> </li></ul> </li><li id="nav_raptor_config" class="raptor-module"><a href="./raptor/config/">config</a><ul><li id="nav_raptor_config_package_json" class="package"><a href="./source/raptor/config/package.json/">package.json</a> </li><li id="nav_raptor_config_Config" class="class"><a href="./raptor/config/Config/">configConfig</a> </li></ul> </li><li id="nav_raptor_console" class="folder"><a href="#">console</a><ul><li id="nav_raptor_console_package_json" class="package"><a href="./source/raptor/console/package.json/">package.json</a> </li></ul> </li><li id="nav_raptor_css-minifier" class="raptor-module"><a href="./raptor/css-minifier/">css-minifier</a><ul><li id="nav_raptor_css-minifier_package_json" class="package"><a href="./source/raptor/css-minifier/package.json/">package.json</a> </li><li id="nav_raptor_css-minifier_Node" class="object extension"><a href="./raptor/css-minifier_Node/">Node Extension</a> </li></ul> </li><li id="nav_raptor_css-parser" class="raptor-module"><a href="./raptor/css-parser/">css-parser</a> </li><li id="nav_raptor_debug" class="raptor-module"><a href="./raptor/debug/">debug</a><ul><li id="nav_raptor_debug_package_json" class="package"><a href="./source/raptor/debug/package.json/">package.json</a> </li></ul> </li><li id="nav_raptor_ecma" class="folder"><a href="#">ecma</a><ul><li id="nav_raptor_ecma_es5" class="folder"><a href="#">es5</a><ul><li id="nav_raptor_ecma_es5_package_json" class="package"><a href="./source/raptor/ecma/es5/package.json/">package.json</a> </li></ul> </li><li id="nav_raptor_ecma_JSON" class="folder"><a href="#">JSON</a><ul><li id="nav_raptor_ecma_JSON_package_json" class="package"><a href="./source/raptor/ecma/JSON/package.json/">package.json</a> </li></ul> </li></ul> </li><li id="nav_raptor_file-watcher" class="raptor-module"><a href="./raptor/file-watcher/">file-watcher</a><ul><li id="nav_raptor_file-watcher_package_json" class="package"><a href="./source/raptor/file-watcher/package.json/">package.json</a> </li></ul> </li><li id="nav_raptor_files" class="raptor-module"><a href="./raptor/files/">files</a><ul><li id="nav_raptor_files_package_json" class="package"><a href="./source/raptor/files/package.json/">package.json</a> </li><li id="nav_raptor_files_Node" class="object extension"><a href="./raptor/files_Node/">Node Extension</a> </li><li id="nav_raptor_files_Rhino" class="object extension"><a href="./raptor/files_Rhino/">Rhino Extension</a> </li><li id="nav_raptor_files_walker" class="raptor-module"><a href="./raptor/files/walker/">walker</a><ul><li id="nav_raptor_files_walker_package_json" class="package"><a href="./source/raptor/files/walker/package.json/">package.json</a> </li><li id="nav_raptor_files_walker_DirWalker" class="raptor-class"><a href="./raptor/files/walker/DirWalker/">DirWalker</a> </li></ul> </li><li id="nav_raptor_files_File" class="raptor-class"><a href="./raptor/files/File/">File</a> </li><li id="nav_raptor_files_File_Node" class="raptor-class"><a href="./raptor/files/File_Node/">File (Node Extension)</a> </li><li id="nav_raptor_files_File_Rhino" class="raptor-class"><a href="./raptor/files/File_Rhino/">File (Rhino Extension)</a> </li></ul> </li><li id="nav_raptor_java" class="raptor-module"><a href="./raptor/java/">java</a><ul><li id="nav_raptor_java_package_json" class="package"><a href="./source/raptor/java/package.json/">package.json</a> </li></ul> </li><li id="nav_raptor_js-minifier" class="raptor-module"><a href="./raptor/js-minifier/">js-minifier</a><ul><li id="nav_raptor_js-minifier_package_json" class="package"><a href="./source/raptor/js-minifier/package.json/">package.json</a> </li><li id="nav_raptor_js-minifier_Node" class="object extension"><a href="./raptor/js-minifier_Node/">Node Extension</a> </li></ul> </li><li id="nav_raptor_jsdoc" class="raptor-module"><a href="./raptor/jsdoc/">jsdoc</a><ul><li id="nav_raptor_jsdoc_package_json" class="package"><a href="./source/raptor/jsdoc/package.json/">package.json</a> </li><li id="nav_raptor_jsdoc_raptor-plugin" class="raptor-module"><a href="./raptor/jsdoc/raptor-plugin/">raptor-plugin</a> </li><li id="nav_raptor_jsdoc_ASTWalker" class="raptor-class"><a href="./raptor/jsdoc/ASTWalker/">ASTWalker</a> </li><li id="nav_raptor_jsdoc_BorrowTag" class="raptor-class"><a href="./raptor/jsdoc/BorrowTag/">BorrowTag</a> </li><li id="nav_raptor_jsdoc_Comment" class="raptor-class"><a href="./raptor/jsdoc/Comment/">Comment</a> </li><li id="nav_raptor_jsdoc_CommentParser" class="raptor-class"><a href="./raptor/jsdoc/CommentParser/">CommentParser</a> </li><li id="nav_raptor_jsdoc_Environment" class="raptor-class"><a href="./raptor/jsdoc/Environment/">Environment</a> </li><li id="nav_raptor_jsdoc_ParamTag" class="raptor-class"><a href="./raptor/jsdoc/ParamTag/">ParamTag</a> </li><li id="nav_raptor_jsdoc_ReturnTag" class="raptor-class"><a href="./raptor/jsdoc/ReturnTag/">ReturnTag</a> </li><li id="nav_raptor_jsdoc_SymbolSet" class="raptor-class"><a href="./raptor/jsdoc/SymbolSet/">SymbolSet</a> </li><li id="nav_raptor_jsdoc_Tag" class="raptor-class"><a href="./raptor/jsdoc/Tag/">Tag</a> </li><li id="nav_raptor_jsdoc_Type" class="raptor-class"><a href="./raptor/jsdoc/Type/">Type</a> </li></ul> </li><li id="nav_raptor_json" class="raptor-module"><a href="./raptor/json/">json</a><ul><li id="nav_raptor_json_package_json" class="package"><a href="./source/raptor/json/package.json/">package.json</a> </li><li id="nav_raptor_json_jQuery_Parse" class="object extension"><a href="./raptor/json_jQuery_Parse/">jQuery Parse Extension</a> </li><li id="nav_raptor_json_Raptor_Parse" class="object extension"><a href="./raptor/json_Raptor_Parse/">Raptor Parse Extension</a> </li><li id="nav_raptor_json_Raptor_Stringify" class="object extension"><a href="./raptor/json_Raptor_Stringify/">Raptor Stringify Extension</a> </li><li id="nav_raptor_json_parse" class="raptor-module"><a href="./raptor/json/parse/">parse</a><ul><li id="nav_raptor_json_parse_package_json" class="package"><a href="./source/raptor/json/parse/package.json/">package.json</a> </li></ul> </li><li id="nav_raptor_json_stringify" class="raptor-module"><a href="./raptor/json/stringify/">stringify</a><ul><li id="nav_raptor_json_stringify_package_json" class="package"><a href="./source/raptor/json/stringify/package.json/">package.json</a> </li></ul> </li></ul> </li><li id="nav_raptor_listeners" class="raptor-module"><a href="./raptor/listeners/">listeners</a><ul><li id="nav_raptor_listeners_package_json" class="package"><a href="./source/raptor/listeners/package.json/">package.json</a> </li><li id="nav_raptor_listeners_ListenerHandle" class="object"><a href="./raptor/listeners/ListenerHandle/">ListenerHandle</a> </li><li id="nav_raptor_listeners_Listeners" class="class"><a href="./raptor/listeners/Listeners/">Listeners</a> </li><li id="nav_raptor_listeners_Message" class="class"><a href="./raptor/listeners/Message/">Message</a> </li><li id="nav_raptor_listeners_Observable" class="class"><a href="./raptor/listeners/Observable/">Observable</a> </li><li id="nav_raptor_listeners_ObservableListenerHandle" class="object"><a href="./raptor/listeners/ObservableListenerHandle/">ObservableListenerHandle</a> </li></ul> </li><li id="nav_raptor_loader" class="raptor-module"><a href="./raptor/loader/">loader</a><ul><li id="nav_raptor_loader_package_json" class="package"><a href="./source/raptor/loader/package.json/">package.json</a> </li><li id="nav_raptor_loader_Browser" class="object extension"><a href="./raptor/loader_Browser/">Browser Extension</a> </li><li id="nav_raptor_loader_jQuery" class="object extension"><a href="./raptor/loader_jQuery/">jQuery Extension</a> </li><li id="nav_raptor_loader_Module_Loader" class="object extension"><a href="./raptor/loader_Module_Loader/">Module Loader Extension</a> </li><li id="nav_raptor_loader_Raptor" class="object extension"><a href="./raptor/loader_Raptor/">Raptor Extension</a> </li><li id="nav_raptor_loader_require" class="folder"><a href="#">require</a><ul><li id="nav_raptor_loader_require_package_json" class="package"><a href="./source/raptor/loader/require/package.json/">package.json</a> </li></ul> </li></ul> </li><li id="nav_raptor_locale" class="folder"><a href="#">locale</a><ul><li id="nav_raptor_locale_formatting" class="folder"><a href="#">formatting</a><ul><li id="nav_raptor_locale_formatting_numbers" class="raptor-module"><a href="./raptor/locale/formatting/numbers/">numbers</a><ul><li id="nav_raptor_locale_formatting_numbers_package_json" class="package"><a href="./source/raptor/locale/formatting/numbers/package.json/">package.json</a> </li><li id="nav_raptor_locale_formatting_numbers_NumberFormatter" class="class"><a href="./raptor/locale/formatting/numbers/NumberFormatter/">NumberFormatter</a> </li></ul> </li></ul> </li></ul> </li><li id="nav_raptor_logging" class="raptor-module"><a href="./raptor/logging/">logging</a><ul><li id="nav_raptor_logging_package_json" class="package"><a href="./source/raptor/logging/package.json/">package.json</a> </li><li id="nav_raptor_logging_Console" class="object extension"><a href="./raptor/logging_Console/">Console Extension</a> </li><li id="nav_raptor_logging_ConsoleLogger" class="raptor-class"><a href="./raptor/logging/ConsoleLogger/">ConsoleLogger</a> </li><li id="nav_raptor_logging_voidLogger" class="object"><a href="./raptor/logging/voidLogger/">voidLogger</a> </li></ul> </li><li id="nav_raptor_lookup" class="raptor-module"><a href="./raptor/lookup/">lookup</a><ul><li id="nav_raptor_lookup_package_json" class="package"><a href="./source/raptor/lookup/package.json/">package.json</a> </li></ul> </li><li id="nav_raptor_mime" class="raptor-module"><a href="./raptor/mime/">mime</a><ul><li id="nav_raptor_mime_package_json" class="package"><a href="./source/raptor/mime/package.json/">package.json</a> </li><li id="nav_raptor_mime_Node" class="object extension"><a href="./raptor/mime_Node/">Node Extension</a> </li></ul> </li><li id="nav_raptor_objects" class="raptor-module"><a href="./raptor/objects/">objects</a><ul><li id="nav_raptor_objects_package_json" class="package"><a href="./source/raptor/objects/package.json/">package.json</a> </li></ul> </li><li id="nav_raptor_optimizer" class="raptor-module"><a href="./raptor/optimizer/">optimizer</a><ul><li id="nav_raptor_optimizer_cli" class="raptor-module"><a href="./raptor/optimizer/cli/">cli</a><ul><li id="nav_raptor_optimizer_cli_package_json" class="package"><a href="./source/raptor/optimizer/cli/package.json/">package.json</a> </li></ul> </li><li id="nav_raptor_optimizer_MinifyCSSFilter" class="raptor-module"><a href="./raptor/optimizer/MinifyCSSFilter/">MinifyCSSFilter</a> </li><li id="nav_raptor_optimizer_MinifyJSFilter" class="raptor-module"><a href="./raptor/optimizer/MinifyJSFilter/">MinifyJSFilter</a> </li><li id="nav_raptor_optimizer_ResolveCSSUrlsFilter" class="raptor-module"><a href="./raptor/optimizer/ResolveCSSUrlsFilter/">ResolveCSSUrlsFilter</a> </li><li id="nav_raptor_optimizer_Bundle" class="raptor-class"><a href="./raptor/optimizer/Bundle/">Bundle</a> </li><li id="nav_raptor_optimizer_BundleConfig" class="raptor-class"><a href="./raptor/optimizer/BundleConfig/">BundleConfig</a> </li><li id="nav_raptor_optimizer_BundleMappings" class="raptor-class"><a href="./raptor/optimizer/BundleMappings/">BundleMappings</a> </li><li id="nav_raptor_optimizer_BundleSetConfig" class="raptor-class"><a href="./raptor/optimizer/BundleSetConfig/">BundleSetConfig</a> </li><li id="nav_raptor_optimizer_BundlesFileWriter" class="raptor-class"><a href="./raptor/optimizer/BundlesFileWriter/">BundlesFileWriter</a> </li><li id="nav_raptor_optimizer_BundlesWriter" class="raptor-class"><a href="./raptor/optimizer/BundlesWriter/">BundlesWriter</a> </li><li id="nav_raptor_optimizer_BundleUrlBuilder" class="raptor-class"><a href="./raptor/optimizer/BundleUrlBuilder/">BundleUrlBuilder</a> </li><li id="nav_raptor_optimizer_Cache" class="raptor-class"><a href="./raptor/optimizer/Cache/">Cache</a> </li><li id="nav_raptor_optimizer_Config" class="raptor-class"><a href="./raptor/optimizer/Config/">Config</a> </li><li id="nav_raptor_optimizer_ConfigXmlParser" class="raptor-class"><a href="./raptor/optimizer/ConfigXmlParser/">ConfigXmlParser</a> </li><li id="nav_raptor_optimizer_HtmlInjector" class="raptor-class"><a href="./raptor/optimizer/HtmlInjector/">HtmlInjector</a> </li><li id="nav_raptor_optimizer_OptimizedPage" class="raptor-class"><a href="./raptor/optimizer/OptimizedPage/">OptimizedPage</a> </li><li id="nav_raptor_optimizer_PageBundles" class="raptor-class"><a href="./raptor/optimizer/PageBundles/">PageBundles</a><ul><li id="nav_raptor_optimizer_PageBundles_AsyncRequire" class="class"><a href="./raptor/optimizer/PageBundles/AsyncRequire/">AsyncRequire</a> </li></ul> </li><li id="nav_raptor_optimizer_PageConfig" class="raptor-class"><a href="./raptor/optimizer/PageConfig/">PageConfig</a> </li><li id="nav_raptor_optimizer_PageOptimizer" class="raptor-class"><a href="./raptor/optimizer/PageOptimizer/">PageOptimizer</a> </li></ul> </li><li id="nav_raptor_packaging" class="raptor-module"><a href="./raptor/packaging/">packaging</a><ul><li id="nav_raptor_packaging_package_json" class="package"><a href="./source/raptor/packaging/package.json/">package.json</a> </li><li id="nav_raptor_packaging_Rhino" class="object extension"><a href="./raptor/packaging_Rhino/">Rhino Extension</a> </li><li id="nav_raptor_packaging_Dependency" class="raptor-class"><a href="./raptor/packaging/Dependency/">Dependency</a> </li><li id="nav_raptor_packaging_Dependency_4cc" class="raptor-class"><a href="./raptor/packaging/Dependency_4cc/">Dependency_4cc</a> </li><li id="nav_raptor_packaging_Dependency_css" class="raptor-class"><a href="./raptor/packaging/Dependency_css/">Dependency_css</a> </li><li id="nav_raptor_packaging_Dependency_dust" class="raptor-class"><a href="./raptor/packaging/Dependency_dust/">Dependency_dust</a> </li><li id="nav_raptor_packaging_Dependency_js" class="raptor-class"><a href="./raptor/packaging/Dependency_js/">Dependency_js</a> </li><li id="nav_raptor_packaging_Dependency_less" class="raptor-class"><a href="./raptor/packaging/Dependency_less/">Dependency_less</a> </li><li id="nav_raptor_packaging_Dependency_loader-metadata" class="raptor-class"><a href="./raptor/packaging/Dependency_loader-metadata/">Dependency_loader-metadata</a> </li><li id="nav_raptor_packaging_Dependency_module" class="raptor-class"><a href="./raptor/packaging/Dependency_module/">Dependency_module</a> </li><li id="nav_raptor_packaging_Dependency_package" class="raptor-class"><a href="./raptor/packaging/Dependency_package/">Dependency_package</a> </li><li id="nav_raptor_packaging_Dependency_resource" class="raptor-class"><a href="./raptor/packaging/Dependency_resource/">Dependency_resource</a> </li><li id="nav_raptor_packaging_Dependency_rhtml" class="raptor-class"><a href="./raptor/packaging/Dependency_rhtml/">Dependency_rhtml</a> </li><li id="nav_raptor_packaging_Dependency_rtld" class="raptor-class"><a href="./raptor/packaging/Dependency_rtld/">Dependency_rtld</a> </li><li id="nav_raptor_packaging_ExtensionCollection" class="raptor-class"><a href="./raptor/packaging/ExtensionCollection/">ExtensionCollection</a> </li><li id="nav_raptor_packaging_PackageLoader" class="raptor-class"><a href="./raptor/packaging/PackageLoader/">PackageLoader</a> </li><li id="nav_raptor_packaging_PackageManifest" class="raptor-class"><a href="./raptor/packaging/PackageManifest/">PackageManifest</a> </li></ul> </li><li id="nav_raptor_paths" class="raptor-module"><a href="./raptor/paths/">paths</a><ul><li id="nav_raptor_paths_package_json" class="package"><a href="./source/raptor/paths/package.json/">package.json</a> </li></ul> </li><li id="nav_raptor_process" class="raptor-module"><a href="./raptor/process/">process</a><ul><li id="nav_raptor_process_package_json" class="package"><a href="./source/raptor/process/package.json/">package.json</a> </li><li id="nav_raptor_process__Node" class="object extension"><a href="./raptor/process__Node/"> Node Extension</a> </li></ul> </li><li id="nav_raptor_pubsub" class="raptor-module"><a href="./raptor/pubsub/">pubsub</a><ul><li id="nav_raptor_pubsub_package_json" class="package"><a href="./source/raptor/pubsub/package.json/">package.json</a> </li><li id="nav_raptor_pubsub_Channel" class="raptor-class"><a href="./raptor/pubsub/Channel/">Channel</a> </li><li id="nav_raptor_pubsub_Message" class="raptor-class"><a href="./raptor/pubsub/Message/">Message</a> </li></ul> </li><li id="nav_raptor_regexp" class="raptor-module"><a href="./raptor/regexp/">regexp</a><ul><li id="nav_raptor_regexp_package_json" class="package"><a href="./source/raptor/regexp/package.json/">package.json</a> </li></ul> </li><li id="nav_raptor_resources" class="raptor-module"><a href="./raptor/resources/">resources</a><ul><li id="nav_raptor_resources_package_json" class="package"><a href="./source/raptor/resources/package.json/">package.json</a> </li><li id="nav_raptor_resources_Server" class="object extension"><a href="./raptor/resources_Server/">Server Extension</a> </li><li id="nav_raptor_resources_walker" class="raptor-module"><a href="./raptor/resources/walker/">walker</a><ul><li id="nav_raptor_resources_walker_package_json" class="package"><a href="./source/raptor/resources/walker/package.json/">package.json</a> </li><li id="nav_raptor_resources_walker_DirWalker" class="raptor-class"><a href="./raptor/resources/walker/DirWalker/">DirWalker</a> </li></ul> </li><li id="nav_raptor_resources_BrowserResource" class="raptor-class"><a href="./raptor/resources/BrowserResource/">BrowserResource</a> </li><li id="nav_raptor_resources_DirSearchPathEntry" class="raptor-class"><a href="./raptor/resources/DirSearchPathEntry/">DirSearchPathEntry</a> </li><li id="nav_raptor_resources_FileResource" class="raptor-class"><a href="./raptor/resources/FileResource/">FileResource</a> </li><li id="nav_raptor_resources_MissingResource" class="raptor-class"><a href="./raptor/resources/MissingResource/">MissingResource</a> </li><li id="nav_raptor_resources_Resource" class="raptor-class"><a href="./raptor/resources/Resource/">Resource</a> </li><li id="nav_raptor_resources_RhinoResMgrSearchPathEntryAdapter" class="raptor-class"><a href="./raptor/resources/RhinoResMgrSearchPathEntryAdapter/">RhinoResMgrSearchPathEntryAdapter</a> </li><li id="nav_raptor_resources_RhinoResourceAdapter" class="raptor-class"><a href="./raptor/resources/RhinoResourceAdapter/">RhinoResourceAdapter</a><ul><li id="nav_raptor_resources_RhinoResourceAdapter_Watcher" class="class"><a href="./raptor/resources/RhinoResourceAdapter/Watcher/">Watcher</a> </li></ul> </li><li id="nav_raptor_resources_RhinoSearchPathEntryAdapter" class="raptor-class"><a href="./raptor/resources/RhinoSearchPathEntryAdapter/">RhinoSearchPathEntryAdapter</a> </li><li id="nav_raptor_resources_SearchPath" class="raptor-class"><a href="./raptor/resources/SearchPath/">SearchPath</a> </li><li id="nav_raptor_resources_SearchPathEntry" class="raptor-class"><a href="./raptor/resources/SearchPathEntry/">SearchPathEntry</a> </li></ul> </li><li id="nav_raptor_runtime" class="raptor-module"><a href="./raptor/runtime/">runtime</a><ul><li id="nav_raptor_runtime_package_json" class="package"><a href="./source/raptor/runtime/package.json/">package.json</a> </li></ul> </li><li id="nav_raptor_stacktraces" class="folder"><a href="#">stacktraces</a><ul><li id="nav_raptor_stacktraces_package_json" class="package"><a href="./source/raptor/stacktraces/package.json/">package.json</a> </li></ul> </li><li id="nav_raptor_stacktraces_Browser" class="raptor-module"><a href="./raptor/stacktraces_Browser/">stacktraces (Browser Extension)</a> </li><li id="nav_raptor_stacktraces_Node" class="raptor-module"><a href="./raptor/stacktraces_Node/">stacktraces (Node Extension)</a> </li><li id="nav_raptor_stacktraces_Rhino" class="raptor-module"><a href="./raptor/stacktraces_Rhino/">stacktraces (Rhino Extension)</a> </li><li id="nav_raptor_strings" class="raptor-module"><a href="./raptor/strings/">strings</a><ul><li id="nav_raptor_strings_package_json" class="package"><a href="./source/raptor/strings/package.json/">package.json</a> </li><li id="nav_raptor_strings_StringBuilder" class="raptor-class"><a href="./raptor/strings/StringBuilder/">StringBuilder</a> </li></ul> </li><li id="nav_raptor_templating" class="raptor-module"><a href="./raptor/templating/">templating</a><ul><li id="nav_raptor_templating_package_json" class="package"><a href="./source/raptor/templating/package.json/">package.json</a> </li><li id="nav_raptor_templating_Rhino" class="object extension"><a href="./raptor/templating_Rhino/">Rhino Extension</a> </li><li id="nav_raptor_templating_Server" class="object extension"><a href="./raptor/templating_Server/">Server Extension</a> </li><li id="nav_raptor_templating_compiler" class="raptor-module"><a href="./raptor/templating/compiler/">compiler</a><ul><li id="nav_raptor_templating_compiler_package_json" class="package"><a href="./source/raptor/templating/compiler/package.json/">package.json</a> </li><li id="nav_raptor_templating_compiler_Rhino" class="object extension"><a href="./raptor/templating/compiler_Rhino/">Rhino Extension</a> </li><li id="nav_raptor_templating_compiler_Server" class="object extension"><a href="./raptor/templating/compiler_Server/">Server Extension</a> </li><li id="nav_raptor_templating_compiler_AttributeSplitter" class="raptor-class"><a href="./raptor/templating/compiler/AttributeSplitter/">AttributeSplitter</a> </li><li id="nav_raptor_templating_compiler_ElementNode" class="raptor-class"><a href="./raptor/templating/compiler/ElementNode/">ElementNode</a> </li><li id="nav_raptor_templating_compiler_Expression" class="raptor-class"><a href="./raptor/templating/compiler/Expression/">Expression</a> </li><li id="nav_raptor_templating_compiler_ExpressionParser" class="raptor-class"><a href="./raptor/templating/compiler/ExpressionParser/">ExpressionParser</a><ul><li id="nav_raptor_templating_compiler_ExpressionParser_ExpressionParserHelper" class="raptor-class"><a href="./raptor/templating/compiler/ExpressionParser/ExpressionParserHelper/">ExpressionParserHelper</a> </li></ul> </li><li id="nav_raptor_templating_compiler_Node" class="raptor-class"><a href="./raptor/templating/compiler/Node/">Node</a> </li><li id="nav_raptor_templating_compiler_ParseTreeBuilder" class="raptor-class"><a href="./raptor/templating/compiler/ParseTreeBuilder/">ParseTreeBuilder</a> </li><li id="nav_raptor_templating_compiler_Taglib" class="raptor-class"><a href="./raptor/templating/compiler/Taglib/">Taglib</a> </li><li id="nav_raptor_templating_compiler_TaglibCollection" class="raptor-class"><a href="./raptor/templating/compiler/TaglibCollection/">TaglibCollection</a><ul><li id="nav_raptor_templating_compiler_TaglibCollection_Imports" class="class"><a href="./raptor/templating/compiler/TaglibCollection/Imports/">Imports</a> </li></ul> </li><li id="nav_raptor_templating_compiler_TaglibXmlLoader" class="raptor-class"><a href="./raptor/templating/compiler/TaglibXmlLoader/">TaglibXmlLoader</a><ul><li id="nav_raptor_templating_compiler_TaglibXmlLoader_Attribute" class="raptor-class"><a href="./raptor/templating/compiler/TaglibXmlLoader/Attribute/">Attribute</a> </li><li id="nav_raptor_templating_compiler_TaglibXmlLoader_Function" class="raptor-class"><a href="./raptor/templating/compiler/TaglibXmlLoader/Function/">Function</a> </li><li id="nav_raptor_templating_compiler_TaglibXmlLoader_ImportedVariable" class="raptor-class"><a href="./raptor/templating/compiler/TaglibXmlLoader/ImportedVariable/">ImportedVariable</a> </li><li id="nav_raptor_templating_compiler_TaglibXmlLoader_NestedVariable" class="raptor-class"><a href="./raptor/templating/compiler/TaglibXmlLoader/NestedVariable/">NestedVariable</a> </li><li id="nav_raptor_templating_compiler_TaglibXmlLoader_Tag" class="raptor-class"><a href="./raptor/templating/compiler/TaglibXmlLoader/Tag/">Tag</a> </li><li id="nav_raptor_templating_compiler_TaglibXmlLoader_Transformer" class="raptor-class"><a href="./raptor/templating/compiler/TaglibXmlLoader/Transformer/">Transformer</a> </li></ul> </li><li id="nav_raptor_templating_compiler_TemplateBuilder" class="raptor-class"><a href="./raptor/templating/compiler/TemplateBuilder/">TemplateBuilder</a><ul><li id="nav_raptor_templating_compiler_TemplateBuilder_CodeWriter" class="class"><a href="./raptor/templating/compiler/TemplateBuilder/CodeWriter/">CodeWriter</a> </li></ul> </li><li id="nav_raptor_templating_compiler_TemplateCompiler" class="raptor-class"><a href="./raptor/templating/compiler/TemplateCompiler/">TemplateCompiler</a> </li><li id="nav_raptor_templating_compiler_TextNode" class="raptor-class"><a href="./raptor/templating/compiler/TextNode/">TextNode</a> </li><li id="nav_raptor_templating_compiler_TypeConverter" class="raptor-class"><a href="./raptor/templating/compiler/TypeConverter/">TypeConverter</a> </li></ul> </li><li id="nav_raptor_templating_taglibs" class="folder"><a href="#">taglibs</a><ul><li id="nav_raptor_templating_taglibs_core" class="folder"><a href="#">core</a><ul><li id="nav_raptor_templating_taglibs_core_compile-time-package_json" class="package"><a href="./source/raptor/templating/taglibs/core/compile-time-package.json/">compile-time-package.json</a> </li><li id="nav_raptor_templating_taglibs_core_AssignNode" class="raptor-class"><a href="./raptor/templating/taglibs/core/AssignNode/">AssignNode</a> </li><li id="nav_raptor_templating_taglibs_core_ChooseNode" class="raptor-class"><a href="./raptor/templating/taglibs/core/ChooseNode/">ChooseNode</a> </li><li id="nav_raptor_templating_taglibs_core_CoreTagTransformer" class="raptor-class"><a href="./raptor/templating/taglibs/core/CoreTagTransformer/">CoreTagTransformer</a> </li><li id="nav_raptor_templating_taglibs_core_CoreTextTransformer" class="raptor-class"><a href="./raptor/templating/taglibs/core/CoreTextTransformer/">CoreTextTransformer</a> </li><li id="nav_raptor_templating_taglibs_core_DefNode" class="raptor-class"><a href="./raptor/templating/taglibs/core/DefNode/">DefNode</a> </li><li id="nav_raptor_templating_taglibs_core_ElseIfNode" class="raptor-class"><a href="./raptor/templating/taglibs/core/ElseIfNode/">ElseIfNode</a> </li><li id="nav_raptor_templating_taglibs_core_ElseNode" class="raptor-class"><a href="./raptor/templating/taglibs/core/ElseNode/">ElseNode</a> </li><li id="nav_raptor_templating_taglibs_core_ElseTagTransformer" class="raptor-class"><a href="./raptor/templating/taglibs/core/ElseTagTransformer/">ElseTagTransformer</a> </li><li id="nav_raptor_templating_taglibs_core_ForNode" class="raptor-class"><a href="./raptor/templating/taglibs/core/ForNode/">ForNode</a> </li><li id="nav_raptor_templating_taglibs_core_IfNode" class="raptor-class"><a href="./raptor/templating/taglibs/core/IfNode/">IfNode</a> </li><li id="nav_raptor_templating_taglibs_core_IncludeNode" class="raptor-class"><a href="./raptor/templating/taglibs/core/IncludeNode/">IncludeNode</a> </li><li id="nav_raptor_templating_taglibs_core_InvokeNode" class="raptor-class"><a href="./raptor/templating/taglibs/core/InvokeNode/">InvokeNode</a> </li><li id="nav_raptor_templating_taglibs_core_OtherwiseNode" class="raptor-class"><a href="./raptor/templating/taglibs/core/OtherwiseNode/">OtherwiseNode</a> </li><li id="nav_raptor_templating_taglibs_core_ScriptletNode" class="raptor-class"><a href="./raptor/templating/taglibs/core/ScriptletNode/">ScriptletNode</a> </li><li id="nav_raptor_templating_taglibs_core_TagHandlerNode" class="raptor-class"><a href="./raptor/templating/taglibs/core/TagHandlerNode/">TagHandlerNode</a> </li><li id="nav_raptor_templating_taglibs_core_TemplateNode" class="raptor-class"><a href="./raptor/templating/taglibs/core/TemplateNode/">TemplateNode</a> </li><li id="nav_raptor_templating_taglibs_core_VarNode" class="raptor-class"><a href="./raptor/templating/taglibs/core/VarNode/">VarNode</a> </li><li id="nav_raptor_templating_taglibs_core_WhenNode" class="raptor-class"><a href="./raptor/templating/taglibs/core/WhenNode/">WhenNode</a> </li><li id="nav_raptor_templating_taglibs_core_WithNode" class="raptor-class"><a href="./raptor/templating/taglibs/core/WithNode/">WithNode</a> </li><li id="nav_raptor_templating_taglibs_core_WriteNode" class="raptor-class"><a href="./raptor/templating/taglibs/core/WriteNode/">WriteNode</a> </li></ul> </li><li id="nav_raptor_templating_taglibs_html" class="folder"><a href="#">html</a><ul><li id="nav_raptor_templating_taglibs_html_compile-time-package_json" class="package"><a href="./source/raptor/templating/taglibs/html/compile-time-package.json/">compile-time-package.json</a> </li><li id="nav_raptor_templating_taglibs_html_DocTypeNode" class="raptor-class"><a href="./raptor/templating/taglibs/html/DocTypeNode/">DocTypeNode</a> </li><li id="nav_raptor_templating_taglibs_html_HtmlTagTransformer" class="raptor-class"><a href="./raptor/templating/taglibs/html/HtmlTagTransformer/">HtmlTagTransformer</a> </li></ul> </li><li id="nav_raptor_templating_taglibs_optimizer" class="folder"><a href="#">optimizer</a><ul><li id="nav_raptor_templating_taglibs_optimizer_DisableExtensionTag" class="raptor-module"><a href="./raptor/templating/taglibs/optimizer/DisableExtensionTag/">DisableExtensionTag</a> </li><li id="nav_raptor_templating_taglibs_optimizer_EnableExtensionTag" class="raptor-module"><a href="./raptor/templating/taglibs/optimizer/EnableExtensionTag/">EnableExtensionTag</a> </li><li id="nav_raptor_templating_taglibs_optimizer_PageTag" class="raptor-module"><a href="./raptor/templating/taglibs/optimizer/PageTag/">PageTag</a> </li><li id="nav_raptor_templating_taglibs_optimizer_PageTagTransformer" class="raptor-module"><a href="./raptor/templating/taglibs/optimizer/PageTagTransformer/">PageTagTransformer</a> </li><li id="nav_raptor_templating_taglibs_optimizer_SlotTag" class="raptor-module"><a href="./raptor/templating/taglibs/optimizer/SlotTag/">SlotTag</a> </li></ul> </li><li id="nav_raptor_templating_taglibs_widgets" class="folder"><a href="#">widgets</a><ul><li id="nav_raptor_templating_taglibs_widgets_compile-time-package_json" class="package"><a href="./source/raptor/templating/taglibs/widgets/compile-time-package.json/">compile-time-package.json</a> </li><li id="nav_raptor_templating_taglibs_widgets_InitWidgetsTag" class="raptor-class"><a href="./raptor/templating/taglibs/widgets/InitWidgetsTag/">InitWidgetsTag</a> </li><li id="nav_raptor_templating_taglibs_widgets_WidgetsTagTransformer" class="raptor-class"><a href="./raptor/templating/taglibs/widgets/WidgetsTagTransformer/">WidgetsTagTransformer</a> </li><li id="nav_raptor_templating_taglibs_widgets_WidgetTag" class="raptor-class"><a href="./raptor/templating/taglibs/widgets/WidgetTag/">WidgetTag</a> </li></ul> </li></ul> </li><li id="nav_raptor_templating_Context" class="raptor-class"><a href="./raptor/templating/Context/">Context</a> </li></ul> </li><li id="nav_raptor_widgets" class="raptor-module"><a href="./raptor/widgets/">widgets</a><ul><li id="nav_raptor_widgets_package_json" class="package"><a href="./source/raptor/widgets/package.json/">package.json</a> </li><li id="nav_raptor_widgets_Browser" class="object extension"><a href="./raptor/widgets_Browser/">Browser Extension</a> </li><li id="nav_raptor_widgets_Rhino" class="object extension"><a href="./raptor/widgets_Rhino/">Rhino Extension</a> </li><li id="nav_raptor_widgets_Server" class="object extension"><a href="./raptor/widgets_Server/">Server Extension</a> </li><li id="nav_raptor_widgets_Widget" class="raptor-module"><a href="./raptor/widgets/Widget/">Widget</a><ul><li id="nav_raptor_widgets_Widget_jQuery" class="object extension"><a href="./raptor/widgets/Widget_jQuery/">jQuery Extension</a> </li></ul> </li><li id="nav_raptor_widgets_WidgetDef" class="class"><a href="./raptor/widgets/WidgetDef/">WidgetDef</a> </li></ul> </li><li id="nav_raptor_xml" class="folder"><a href="#">xml</a><ul><li id="nav_raptor_xml_dom" class="raptor-module"><a href="./raptor/xml/dom/">dom</a><ul><li id="nav_raptor_xml_dom_package_json" class="package"><a href="./source/raptor/xml/dom/package.json/">package.json</a> </li><li id="nav_raptor_xml_dom_DomParser_jQuery" class="raptor-class"><a href="./raptor/xml/dom/DomParser_jQuery/">DomParser (jQuery Extension)</a> </li></ul> </li><li id="nav_raptor_xml_dom-to-sax" class="raptor-module"><a href="./raptor/xml/dom-to-sax/">dom-to-sax</a><ul><li id="nav_raptor_xml_dom-to-sax_package_json" class="package"><a href="./source/raptor/xml/dom-to-sax/package.json/">package.json</a> </li><li id="nav_raptor_xml_dom-to-sax_Attribute" class="class"><a href="./raptor/xml/dom-to-sax/Attribute/">Attribute</a> </li><li id="nav_raptor_xml_dom-to-sax_Element" class="class"><a href="./raptor/xml/dom-to-sax/Element/">Element</a> </li></ul> </li><li id="nav_raptor_xml_sax" class="raptor-module"><a href="./raptor/xml/sax/">sax</a><ul><li id="nav_raptor_xml_sax_package_json" class="package"><a href="./source/raptor/xml/sax/package.json/">package.json</a> </li><li id="nav_raptor_xml_sax_object-mapper" class="raptor-module"><a href="./raptor/xml/sax/object-mapper/">object-mapper</a><ul><li id="nav_raptor_xml_sax_object-mapper_package_json" class="package"><a href="./source/raptor/xml/sax/object-mapper/package.json/">package.json</a> </li><li id="nav_raptor_xml_sax_object-mapper_Reader" class="class"><a href="./raptor/xml/sax/object-mapper/Reader/">Reader</a> </li></ul> </li><li id="nav_raptor_xml_sax_BaseSaxParser" class="raptor-class"><a href="./raptor/xml/sax/BaseSaxParser/">BaseSaxParser</a> </li><li id="nav_raptor_xml_sax_SaxParserDom" class="raptor-class"><a href="./raptor/xml/sax/SaxParserDom/">SaxParserDom</a> </li></ul> </li><li id="nav_raptor_xml_utils" class="raptor-module"><a href="./raptor/xml/utils/">utils</a><ul><li id="nav_raptor_xml_utils_package_json" class="package"><a href="./source/raptor/xml/utils/package.json/">package.json</a> </li><li id="nav_raptor_xml_utils_" class="object extension"><a href="./raptor/xml/utils_/">null Extension</a> </li></ul> </li><li id="nav_raptor_xml_Attribute" class="raptor-class"><a href="./raptor/xml/Attribute/">Attribute</a> </li><li id="nav_raptor_xml_Element" class="raptor-class"><a href="./raptor/xml/Element/">Element</a> </li><li id="nav_raptor_xml_SaxParser_Node" class="raptor-class"><a href="./raptor/xml/SaxParser_Node/">SaxParser (Node Extension)</a><ul><li id="nav_raptor_xml_SaxParser_Node_Attribute" class="class"><a href="./raptor/xml/SaxParser_Node/Attribute/">Attribute (Node Extension)</a> </li><li id="nav_raptor_xml_SaxParser_Node_Element" class="class"><a href="./raptor/xml/SaxParser_Node/Element/">Element (Node Extension)</a> </li></ul> </li><li id="nav_raptor_xml_SaxParser_Rhino" class="raptor-class"><a href="./raptor/xml/SaxParser_Rhino/">SaxParser (Rhino Extension)</a><ul><li id="nav_raptor_xml_SaxParser_Rhino_Attribute" class="class"><a href="./raptor/xml/SaxParser_Rhino/Attribute/">Attribute (Rhino Extension)</a> </li><li id="nav_raptor_xml_SaxParser_Rhino_Element" class="class"><a href="./raptor/xml/SaxParser_Rhino/Element/">Element (Rhino Extension)</a> </li></ul> </li></ul> </li><li id="nav_raptor_configConfig" class="class"><a href="./raptor/configConfig/">configConfig</a> </li><li id="nav_raptor_loaderTransaction" class="object"><a href="./raptor/loaderTransaction/">loaderTransaction</a> </li></ul> </li><li id="nav_JSON" class="object"><a href="./JSON/">JSON</a> </li><li id="nav_global" class="global"><a href="./global/">Global</a> </li></ul></div></div></div><div id="main"><div class="header"><h1><a href="./"><span class="title">RaptorJS API Docs</span></a><span class="version">2.0.0</span><div class="powered-by">Powered by <a href="http://raptorjs.org/">RaptorJS</a></div></h1></div><div id="mainContent"><h1>/raptor/widgets/Widget.js</h1><pre class="code sh_javascript_dom">/*
+ * Copyright 2011 eBay Software Foundation
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *    http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+/**
+ * Mixins applied to the prototypes of all widget instances
+ * @mixin
+ * 
+ * @borrows raptor/listeners/Observable#publish as #publish
+ * @borrows raptor/listeners/Observable#subscribe as #subscribe
+ */
+define(
+    'raptor/widgets/Widget',
+    ['raptor'],
+    function(raptor, require) {
+        "use strict";
+        
+        var forEach = raptor.forEach,
+            listeners = require('raptor/listeners'),
+            _destroy = function(widget, removeNode, recursive) {
+                var message = {
+                        widget: widget
+                    },
+                    rootEl;
+                
+                widget.publish('beforeDestroy', message);
+                
+                //Have the widget unsubscribe from any messages that is currently subscribed to
+                listeners.unsubscribeFromAll(widget);
+                
+                widget.__destroyed = true;
+                
+                if (removeNode) {
+                    //Remove the widget's DOM nodes from the DOM tree if the root element is known
+                    rootEl = widget.getRootEl();
+                    if (rootEl) {
+                        rootEl.parentNode.removeChild(rootEl);
+                    }
+                }
+                
+                if (recursive) {
+                    forEach(widget.getChildren(), function(childWidget) {
+                        _destroy(childWidget, removeNode &amp;&amp; !rootEl, true);
+                    });
+                }
+                
+                widget.publish('destroy', message);
+            };
+        
+        return {
+            
+            /**
+             * 
+             */
+            _isWidget: true,
+            
+            /**
+             * 
+             * @returns
+             */
+            _init: function(events) {
+                this._children = [];
+                this._childrenById = {};
+                this._events = events;
+            },
+            
+            /**
+             * 
+             * @returns
+             */
+            getObservable: function() {
+                return this._observable || (this._observable = listeners.createObservable());
+            },
+            
+            /**
+             * 
+             * @param allowedMessages
+             * @param createFuncs
+             * @returns
+             */
+            registerMessages: function(allowedMessages, createFuncs) {
+                this.getObservable().registerMessages.apply(this, arguments);
+            },
+            
+            /**
+             * 
+             * @param message
+             * @param props
+             * @returns
+             */
+            publish: function(message, props) {
+                var ob = this.getObservable();
+                ob.publish.apply(ob, arguments);
+                var pubsubEvent;
+                
+                if (this._events &amp;&amp; (pubsubEvent = this._events[message])) {
+                    
+                    if (pubsubEvent.props) {
+                        props = raptor.extend(props || {}, pubsubEvent.props); 
+                    }
+                    require('raptor/pubsub').publish(pubsubEvent.target, props);
+                    
+                }
+            },
+            
+            /**
+             * 
+             * @param message
+             * @param callback
+             * @param thisObj
+             * @returns
+             */
+            subscribe: function(message, callback, thisObj) {
+                var ob = this.getObservable();
+                return ob.subscribe.apply(ob, arguments);
+            },
+            
+            /**
+             * Returns the DOM element ID corresponding to the provided
+             * widget element ID. 
+             * 
+             * @param {string} widgetElId The widget element ID.
+             * @returns {string} The DOM element ID corresponding tothe provided widget element ID
+             */
+            getElId: function(widgetElId) {
+                return widgetElId ? this._id + "-" + widgetElId : this._id;
+            },
+            
+            /**
+             * Returns the root element ID for the widget. 
+             *
+             * @returns
+             */
+            getRootElId: function() {
+                return this.getElId();
+            },
+    
+            /**
+             * Returns a raw DOM element for the given widget element ID. If no
+             * widget element ID is provided then
+             * @param widgetElId
+             * @returns {DOMElement} The DOM element
+             */
+            getEl: function(widgetElId) {
+                return document.getElementById(this.getElId(widgetElId));
+            },
+            
+            /**
+             * Returns the root DOM element for a widget (or null if not found).
+             * 
+             * @returns {DOMElement} The root DOM element for the widget
+             */
+            getRootEl: function() {
+                return this.getEl();
+            },
+    
+            /**
+             * 
+             * Returns a single nested widget instance with the specified ID. 
+             * 
+             * NOTE: If multiple nested widgets exist with the specified ID then
+             *       an exception will be thrown.
+             *       
+             * @param nestedWidgetId
+             * @returns {object} The child instance widget or null if one is not found.
+             */
+            getWidget: function(nestedWidgetId) {
+                var doc = this._doc;
+                return doc ? doc.getWidget(nestedWidgetId) : null;
+            },
+            
+            /**
+             * Returns an array of nested widgets with the specified widget ID.
+             * @param nestedWidgetId
+             * @returns {array} An array of nested widgets (or an empty array if none are found)
+             */
+            getWidgets: function(nestedWidgetId) {
+                var doc = this._doc;
+                return doc ? doc.getWidgets(nestedWidgetId) : null;
+            },
+            
+            /**
+             * 
+             * @deprecated Use {@Link raptor/widgets/Widget#getWidget} instead
+             */
+            getChild: function(nestedWidgetId) {
+                return this.getWidget(nestedWidgetId);
+            },
+            
+            /**
+             * @deprecated Use {@Link raptor/widgets/Widget#getWidgets} instead
+             */
+            getChildren: function(nestedWidgetId) {
+                return this.getWidget(nestedWidgetId);
+            },
+            
+            /**
+             * Returns the document associated with this widget. The widget document will contain
+             * all widgets with an assigned ID declared in the same template.
+             * 
+             * @returns 
+             */
+            getDoc: function() {
+                return this._doc;
+            },
+            
+            /**
+             * 
+             * Returns the parent widget instance for this widget.
+             * 
+             * @returns {raptor/widgets/Widget} The parent widget for this widget or null if this widget does not have a parent.
+             *
+             * @deprecated Do not use this method
+             */
+            getParent: function() {
+                return this._parentWidget;
+            },
+            
+            /**
+             * @deprecated Use getWidget instead
+             * 
+             * @param nestedWidgetId
+             * @returns
+             */
+            getChildWidget: function(nestedWidgetId) {
+                return this.getChild(nestedWidgetId);
+            },
+            
+            /**
+             * @deprecated Use getWidgets instead
+             * @param childWidgetsId
+             * @returns
+             */
+            getChildWidgets: function(childWidgetsId) {
+                return this.getChildren.apply(this, arguments);
+            },
+            
+            /**
+             * @deprecated Use getParent instead
+             * @returns
+             */
+            getParentWidget: function() {
+                return this._parentWidget;
+            },
+            
+            /**
+             * Destroys a widget.
+             * 
+             * If the root element is specified for the widget then the widget will
+             * be removed from the DOM. In addition, all of the descendent widgets
+             * will be destroyed as well.
+             * 
+             * The "beforeDestroy" message will be published by the widget before
+             * the widget is actually destroyed.
+             * 
+             * The "destroy" message will be published after the widget
+             * has been destroyed.
+             * 
+             * NOTE: The widget will automatically be unsubscribed from all messages
+             *       that it has subscribed to.
+             * 
+             */
+            destroy: function(options) {
+                
+                _destroy(this, true, true);
+            },
+            
+            /**
+             * Returns true if this widget has been destroyed.
+             * 
+             * A widget is considered destroyed if the "destroy" method
+             * was invoked on the widget or one of its ancestor widgets.
+             * 
+             * @returns {boolean} True if this widget has been destroyed. False, otherwise.
+             */
+            isDestroyed: function() {
+                return this.__destroyed;
+            }
+            
+            /**
+             * Sends a notification to subscribers using the provided name and arguments.
+             * 
+             * This method is slightly different from the {@Link raptor/widgets/Widget#publish}
+             * in that the variable arguments will be passed directly to the subscribers.
+             * &lt;b>This method will be removed in the future.&lt;/b> 
+             * 
+             * @function
+             * @name notify
+             * @param name {String} The message name
+             * @param ...args {Object} A variable set of arguments
+             * @memberOf raptor/widgets/Widget
+             * 
+             * @deprecated Use {@Link raptor/widgets/Widget#publish} instead
+             */
+            
+            /**
+             * Subscribes to one or more events. 
+             * 
+             * This method has been deprecated and is a synonym for the {@Link raptor/widgets/Widget#subscribe} method
+             * to maintain backwards compatibility.
+             * &lt;b>This method will be removed in the future.&lt;/b>
+             * 
+             * @function
+             * @name on
+             * @memberOf raptor/widgets/Widget
+             * @deprecated Use {@Link raptor/widgets/Widget#subscribe} instead
+             */
+            
+            
+        };
+    });</pre> </div></div><div id="footer"><div class="fineprint" style="clear:both">&copy; Documentation generated by <a href="http://raptorjs.org/jsdoc" target="_blank">Raptor JSDoc</a></div></div><script type="text/javascript" src="static/core-1c8603d5.js"></script>
+<script type="text/javascript" src="static/jquery-371da524.js"></script>
+<script type="text/javascript" src="static/jsdoc-749f3813.js"></script>
+<script type="text/javascript" src="static/widgets-6666ff75.js"></script>
+<script type="text/javascript" src="static/type-b348694c.js"></script><script type="text/javascript">$rwidgets(
+["components.jsdoc.Nav.NavWidget","s0",0,0,{},0]);</script><script type="text/javascript">sh_highlightDocument();</script></body></body>
