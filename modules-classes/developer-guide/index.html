@@ -31,7 +31,7 @@ following example:
         }
     });</textarea></div></div></div><div class="section section-level-1"><h2 id="Using_a_Module">Using a Module</h2><div class="bd"><p>The following code illustrates how to utilize another module/class/mixin/enum
 by obtaining a reference to it using the
-<code>raptor.require</code> method:</p><div class="code-editor" id="s525"> <textarea id="s525-textarea" style="display: none;" name="code-9">var myModule = require('some/namespace/my-module');
+<code>require</code> function:</p><div class="code-editor" id="s525"> <textarea id="s525-textarea" style="display: none;" name="code-9">var myModule = require('some/namespace/my-module');
 myModule.sayHello();</textarea></div><div class="message message-info"><div class="icon"><i class="icon-info-sign" style="font-size: 30px;"></i></div><div class="bd"><p>NOTE: When using <code>require(moduleName)</code>, the code for the requested module must be available. Asynchronous module
 loading (loading a module asynchronously from a server) is provided by the
 <a href="../../module-loader/">RaptorJS Asynchronous Module Loader</a>.</p></div></div></div></div></div></div><div class="section section-level-0"><h2 id="Classes">Classes</h2><div class="bd"><div class="section section-level-1"><h2 id="Defining_a_Class">Defining a Class</h2><div class="bd"><p>A class can be defined by creating a factory function that returns a

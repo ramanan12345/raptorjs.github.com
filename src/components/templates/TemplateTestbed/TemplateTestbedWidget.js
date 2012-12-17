@@ -1,6 +1,7 @@
 define(
     "components.templates.TemplateTestbed.TemplateTestbedWidget",
-    function(raptor) {
+    ['raptor'],
+    function(raptor, require) {
         var stringify = require('raptor/json/stringify');
         
         var TemplateTestbedWidget = function(config) {
@@ -101,7 +102,7 @@ define(
                     return;
                 }
                 
-                if (raptor.isNumber(index)) { //Check if the index is top-level index
+                if (typeof index === 'number') { //Check if the index is top-level index
                     if (this.topLevelIndex != -1) {
                         $("#subsamples-" + this.topLevelIndex).slideToggle();
                     }

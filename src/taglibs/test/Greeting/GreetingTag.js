@@ -1,4 +1,4 @@
-raptor.defineClass(
+define.Class(
     'taglibs.test.Greeting.GreetingTag',
     function(raptor) {
         var GreetingTag = function() {

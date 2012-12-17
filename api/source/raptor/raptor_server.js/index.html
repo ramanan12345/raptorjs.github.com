@@ -3,8 +3,7 @@
     RHINO = 'rhino';
 
 exports.load = function(raptorEnv) {
-    var raptor = require('./raptor.js'),
-        path = require('path');
+    var raptor = require('./raptor.js');
 
     var oldExists = raptor.exists,
         oldRequire = raptor.require,

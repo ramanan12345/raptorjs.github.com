@@ -1414,8 +1414,8 @@ count="${10}"  <!-- number argument -->]]></docs:code-editor>
     mode="javascript"
     readOnly="true" 
     c:parse-body-text="false"
-><![CDATA[raptor.defineClass(
-    'taglibs.test.GreetingHandler',
+><![CDATA[define.defineClass(
+    'taglibs/test/GreetingHandler',
     function(raptor) {
         return {
             process: function(input, context) {
@@ -1439,7 +1439,7 @@ count="${10}"  <!-- number argument -->]]></docs:code-editor>
     c:parse-body-text="false"
 ><![CDATA[<tag>
     <name>greeting</name>
-    <handler-class>taglibs.test.GreetingHandler</handler-class>
+    <handler-class>taglibs/test/GreetingHandler</handler-class>
     <attribute name="name" type="string"/>
 </tag>]]></docs:code-editor>
                             <p>

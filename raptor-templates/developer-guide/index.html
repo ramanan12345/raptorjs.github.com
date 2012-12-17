@@ -389,8 +389,8 @@ only.</p><p>For example, the &lt;test:greeting> handler might be used as follows
      
     &lt;test:greeting name="World"/>
      
-&lt;/c:template></textarea></div><div class="code-editor" id="s1051"><h2 class="code-editor-title">Tag Handler Implementation</h2> <textarea id="s1051-textarea" style="display: none;" name="code-139">raptor.defineClass(
-    'taglibs.test.GreetingHandler',
+&lt;/c:template></textarea></div><div class="code-editor" id="s1051"><h2 class="code-editor-title">Tag Handler Implementation</h2> <textarea id="s1051-textarea" style="display: none;" name="code-139">define.defineClass(
+    'taglibs/test/GreetingHandler',
     function(raptor) {
         return {
             process: function(input, context) {
@@ -401,7 +401,7 @@ only.</p><p>For example, the &lt;test:greeting> handler might be used as follows
 runtime tag handler
 class:</p><div class="code-editor" id="s1053"> <textarea id="s1053-textarea" style="display: none;" name="code-141">&lt;tag>
     &lt;name>greeting&lt;/name>
-    &lt;handler-class>taglibs.test.GreetingHandler&lt;/handler-class>
+    &lt;handler-class>taglibs/test/GreetingHandler&lt;/handler-class>
     &lt;attribute name="name" type="string"/>
 &lt;/tag></textarea></div><p>For more details on creating taglibs, please see the following sub-page: </p><ul><li><a href="../../raptor-templates/taglibs/">Advanced &raquo; Creating Taglibs</a></li></ul></div></div><div class="section section-level-1"><h2 id="CompileTime_Tag_Handlers">Compile-Time Tag Handlers</h2><div class="bd"><p>Raptor Templates allow custom tags to be handled both at runtime via runtime
 tag handlers and also at compile-time via compile-time tag handlers. Raptor

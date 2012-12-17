@@ -284,7 +284,7 @@
                             ]]>
                             </docs:code-editor>
                             <p>
-                                In addition, you can also choose to use <code>raptor.require</code>
+                                In addition, you can also choose to use the <code>require</code> function
                                 to access the modules after they have been loaded:
                             </p>
                             <docs:code-editor 
@@ -293,7 +293,7 @@
                                 c:parse-body-text="false">
 
                             <![CDATA[
-                            require.load(
+                            require(
                                 ['module-a', 'module-b'], 
                                 function() {
                                     var moduleA = require('module-a');

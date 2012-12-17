@@ -4,11 +4,10 @@
         raptor.global = this;
     }());
 
-    var stacktraces = require('raptor/stacktraces');
-    
     
     
     raptor.createError = function(message, cause) {
+        var stacktraces = raptor.require('raptor/stacktraces');
         var output = '';
         
         var stackTrace = stacktraces.trace(message);

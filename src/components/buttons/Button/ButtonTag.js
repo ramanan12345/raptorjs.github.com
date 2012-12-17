@@ -1,6 +1,7 @@
 define(
     "components.buttons.Button.ButtonTag",
-    function(raptor) {
+    ['raptor'],
+    function(raptor, require) {
         var ButtonTag = function() {
             
         };
