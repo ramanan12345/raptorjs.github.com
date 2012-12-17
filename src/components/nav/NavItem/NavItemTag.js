@@ -1,6 +1,7 @@
 define(
     "components.nav.NavItem.NavItemTag",
-    function(raptor) {
+    ['raptor'],
+    function(raptor, raptor) {
         var NavItemTag = function() {
             
         };

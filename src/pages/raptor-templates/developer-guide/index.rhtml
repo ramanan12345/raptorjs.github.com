@@ -1414,9 +1414,9 @@ count="${10}"  <!-- number argument -->]]></docs:code-editor>
     mode="javascript"
     readOnly="true" 
     c:parse-body-text="false"
-><![CDATA[define.defineClass(
+><![CDATA[define.Class(
     'taglibs/test/GreetingHandler',
-    function(raptor) {
+    function(require) {
         return {
             process: function(input, context) {
                 context.write("Hello " + input.name + "!");

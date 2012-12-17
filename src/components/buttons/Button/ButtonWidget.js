@@ -1,6 +1,7 @@
 define(
     "components.buttons.Button.ButtonWidget",
-    function(raptor) {
+    ['raptor'],
+    function(raptor, raptor) {
         var ButtonWidget = function(config) {
             var _this = this;
             

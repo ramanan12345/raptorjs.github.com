@@ -1,6 +1,6 @@
 define(
     "module-b",
-    function(raptor) {
+    function(require) {
         return {
             sayHello: function(to) {
                 var div = document.createElement('div');

@@ -1,5 +1,6 @@
 define(
     "components.social.Disqus.DisqusWidget",
-    function(raptor) {
-
+    ['raptor'],
+    function(raptor, raptor) {
+        return {};
     });

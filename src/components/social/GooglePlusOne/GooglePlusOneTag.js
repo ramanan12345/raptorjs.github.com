@@ -1,6 +1,7 @@
 define(
     "components.social.GooglePlusOne.GooglePlusOneTag",
-    function(raptor) {
+    ['raptor'],
+    function(raptor, raptor) {
         var GooglePlusOneTag = function() {
             
         };

@@ -1,6 +1,7 @@
 define(
     "components.docs.ProjectDirStructure.ProjectDirStructureTag",
-    function(raptor) {
+    ['raptor'],
+    function(raptor, raptor) {
         
         var File = require('raptor/files/File'),
             githubUrl = "https://github.com/raptorjs/raptorjs.github.com/blob/master/src",

@@ -1,6 +1,7 @@
 define(
     "components.tracking.GoogleAnalytics.GoogleAnalyticsTag",
-    function(raptor) {
+    ['raptor'],
+    function(raptor, raptor) {
         var TwitterFollowTag = function() {
             
         };

@@ -1,6 +1,6 @@
 define(
     "module-a",
-    function(raptor) {
+    function(require) {
         return {
             sayHello: function() {
                 alert('Hello from "module-a"!');

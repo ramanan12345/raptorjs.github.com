@@ -23,7 +23,7 @@ details, see
 following example:
 </p><div class="code-editor" id="s524"> <textarea id="s524-textarea" style="display: none;" name="code-8">define(
     'some/namespace/my-module', 
-    function(raptor) { //This function is only executed *once* (the first time this module is required)
+    function(require, exports, module) { //This function is only executed *once* (the first time this module is required)
         return { //Return the module definition
             sayHello: function() {
                 console.log("Hello World!");
@@ -54,7 +54,7 @@ constructor function (with a
 var myInstance = new MyClass();</textarea></div></div></div><div class="section section-level-1"><h2 id="Inheritance">Inheritance</h2><div class="bd"><p>Prototype-based class inheritance is also supported by RaptorJS when using the <code>define.Class</code> method. The signature for the <code>define.Class</code> method is the following:</p><div class="code-editor" id="s528"> <textarea id="s528-textarea" style="display: none;" name="code-12">define.Class(id, ?superclassId, ?dependencies, factory)</textarea></div><p>Example:</p><div class="code-editor" id="s529"> <textarea id="s529-textarea" style="display: none;" name="code-13">define.Class(
     'some/namespace/Dog', 
     'some/namespace/Animal', //Name of the superclass
-    function(raptor) {
+    function(require, exports, module) {
         var Dog = function(breed) {
             Dog.superclass.constructor.call(this, "dog"); //Invoke the constructor of the superclass
             this.breed = breed;
@@ -79,13 +79,13 @@ example:</p><div class="code-editor" id="s530"> <textarea id="s530-textarea" sty
     {
         superclass: 'some/namespace/Animal' //Name of the superclass
     }, 
-    function(raptor) {
+    function(require, exports, module) {
         ...
     });</textarea></div><p>This allows an anonymous class with a superclass to be define:</p><div class="code-editor" id="s531"> <textarea id="s531-textarea" style="display: none;" name="code-15">define.Class( 
     {
         superclass: 'some/namespace/Animal' //Name of the superclass
     }, 
-    function(raptor) {
+    function(require, exports, module) {
         ...
     });</textarea></div></div></div><div class="message message-info"><div class="icon"><i class="icon-info-sign" style="font-size: 30px;"></i></div><div class="bd"><p>NOTE: When defining a class that extends another class, the returned
 constructor function is populated with a "superclass" property that is a
@@ -215,8 +215,8 @@ define(
     });</textarea></div></p><p>For more details on logging, see <a href="../../logging/">RaptorJS Logging</a>.</p></div></div><div class="section section-level-0"><h2 id="Discussion">Discussion</h2><div class="bd"><div id="disqus_thread"></div></div></div></div></div><div class="docs-footer-padding"></div></div></div><script type="text/javascript" src="../../static/core-1c8603d5.js"></script>
 <script type="text/javascript" src="../../static/jquery-371da524.js"></script>
 <script type="text/javascript" src="../../static/widgets-6666ff75.js"></script>
-<script type="text/javascript" src="../../static/modules-classes-developer-guide-4d576e16.js"></script>
-<script type="text/javascript" src="../../static/code-editor-91e15d7e.js"></script><script type="text/javascript">$rwidgets(
+<script type="text/javascript" src="../../static/modules-classes-developer-guide-de31a680.js"></script>
+<script type="text/javascript" src="../../static/code-editor-78c7d3ab.js"></script><script type="text/javascript">$rwidgets(
 ["components.nav.Nav.NavItemWidget","s494",0,0,0,0],
 ["components.nav.Nav.NavItemWidget","s495",0,0,0,0,
 ["components.nav.Nav.NavItemWidget","s496",0,0,0,0],

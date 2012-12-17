@@ -1,7 +1,7 @@
 define(
     "components.templates.Errors.ErrorsWidget",
     ['raptor'],
-    function(require, raptor) {
+    function(raptor, require) {
         var ErrorsWidget = function(config) {
             this._hasErrors = false;
         };

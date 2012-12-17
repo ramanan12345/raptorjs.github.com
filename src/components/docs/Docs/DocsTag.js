@@ -1,6 +1,7 @@
 define(
     "components.docs.Docs.DocsTag",
-    function(raptor) {
+    ['raptor'],
+    function(raptor, raptor) {
         var strings = require('raptor/strings'),
             arrays = require('raptor/arrays');
         

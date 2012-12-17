@@ -1,6 +1,7 @@
 define(
     "components.nav.Nav.NavItemWidget",
-    function(raptor) {
+    ['raptor'],
+    function(raptor, raptor) {
         var NavItemWidget = function(config) {
             var _this = this; 
             this.$().click(function() {

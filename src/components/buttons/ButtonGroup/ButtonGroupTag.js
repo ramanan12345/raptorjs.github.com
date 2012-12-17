@@ -1,6 +1,7 @@
 define(
     "components.buttons.ButtonGroup.ButtonGroupTag",
-    function(raptor) {
+    ['raptor'],
+    function(raptor, raptor) {
         var ButtonGroupTag = function() {
             
         };

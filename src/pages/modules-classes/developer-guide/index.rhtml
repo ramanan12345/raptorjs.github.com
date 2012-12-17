@@ -93,7 +93,7 @@
                             <![CDATA[
                             define(
                                 'some/namespace/my-module', 
-                                function(raptor) { //This function is only executed *once* (the first time this module is required)
+                                function(require, exports, module) { //This function is only executed *once* (the first time this module is required)
                                     return { //Return the module definition
                                         sayHello: function() {
                                             console.log("Hello World!");
@@ -199,7 +199,7 @@
                             define.Class(
                                 'some/namespace/Dog', 
                                 'some/namespace/Animal', //Name of the superclass
-                                function(raptor) {
+                                function(require, exports, module) {
                                     var Dog = function(breed) {
                                         Dog.superclass.constructor.call(this, "dog"); //Invoke the constructor of the superclass
                                         this.breed = breed;
@@ -236,7 +236,7 @@
                                     {
                                         superclass: 'some/namespace/Animal' //Name of the superclass
                                     }, 
-                                    function(raptor) {
+                                    function(require, exports, module) {
                                         ...
                                     });
                                 ]]>
@@ -254,7 +254,7 @@
                                     {
                                         superclass: 'some/namespace/Animal' //Name of the superclass
                                     }, 
-                                    function(raptor) {
+                                    function(require, exports, module) {
                                         ...
                                     });
                                 ]]>

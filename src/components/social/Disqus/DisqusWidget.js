@@ -1,6 +1,7 @@
 define(
     "components.social.Disqus.DisqusWidget",
-    function(raptor) {
+    ['raptor'],
+    function(raptor, raptor) {
         var DisqusWidget = function(config) {
             window.disqus_shortname = config.shortName; // required: replace example with your forum shortname
             if (config.id) {

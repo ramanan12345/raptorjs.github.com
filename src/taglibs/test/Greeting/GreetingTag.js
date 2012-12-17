@@ -1,6 +1,6 @@
 define.Class(
     'taglibs.test.Greeting.GreetingTag',
-    function(raptor) {
+    function(require) {
         var GreetingTag = function() {
             
         };

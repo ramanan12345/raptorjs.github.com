@@ -1,6 +1,7 @@
 define(
     "components.nav.Nav.NavTag",
-    function(raptor) {
+    ['raptor'],
+    function(raptor, raptor) {
         var NavTag = function() {
             
         };

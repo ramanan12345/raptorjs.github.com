@@ -197,6 +197,10 @@ define(
                             compilerOptions);
                     }
                     catch(e) {
+                        if (window.console) {
+                            console.error(e);
+                        }
+                        
                         this.handleEditorException(this.templateErrors, e);
                     }
                 }

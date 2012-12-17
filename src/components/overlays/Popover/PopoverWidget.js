@@ -1,6 +1,7 @@
 define(
     "components.overlays.Popover.PopoverWidget",
-    function(raptor) {
+    ['raptor'],
+    function(raptor, raptor) {
         return {
             initWidget: function(config) {
                 $('#' + config.elId).popover(config);

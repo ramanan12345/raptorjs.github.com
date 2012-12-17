@@ -1,6 +1,7 @@
 define(
     "components.templates.TemplateTestbed.TemplateTestbedTag",
-    function(raptor) {
+    ['raptor'],
+    function(raptor, raptor) {
         var TemplateTestbedTag = function() {
             
         };

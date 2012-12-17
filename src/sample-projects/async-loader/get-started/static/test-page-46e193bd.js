@@ -2377,7 +2377,7 @@ define('raptor/listeners', ['raptor'], function(raptor, require) {
 });
 
 
-$rloaderMeta={"module-b":{"css":["static/test-page-async-981b6ffe.css"],"js":["static/test-page-async-7af63bf3.js"]}};
+$rloaderMeta={"module-b":{"css":["static/test-page-async-981b6ffe.css"],"js":["static/test-page-async-cf845d25.js"]}};
 /*
  * Copyright 2011 eBay Software Foundation
  *
