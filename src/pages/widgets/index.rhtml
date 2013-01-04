@@ -7,13 +7,13 @@
     docs:functions="url"
     params="includes,samples">
 
-    <optimizer:page name="${data.pageName}" base-path="${data.pageOutputDir}">
+    <optimizer:page name="page-${data.pageName}" base-path="${data.pageOutputDir}">
         <dependencies>
             <module name="docs-global"/>
             <module name="components/nav/TopNavDefault"/>
             <module name="components/icons/Icon"/>
-            <module name="components/editors/CodeEditor"/>
-            <module name="components/editors/CodeEditor/mode-javascript"/>
+            <!-- <module name="components/editors/CodeEditor"/>
+            <module name="components/editors/CodeEditor/mode-javascript"/> -->
             <css path="index.css"/>
 
         </dependencies>

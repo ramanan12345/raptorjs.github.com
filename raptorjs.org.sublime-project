@@ -20,6 +20,15 @@
 		{
 			"cmd":
 			[
+				"${project_path}/src/publish",
+				"page=widgets"
+			],
+			"name": "Publish - widgets",
+			"working_dir": "${project_path}/src"
+		},
+		{
+			"cmd":
+			[
 				"${project_path}/src/publish-dev",
 				"page=optimizer"
 			],
@@ -312,6 +321,8 @@
 			"test - templating",
 			"jsdoc",
 			"jsdoc (dev)",
+			"Publish",
+			"Publish - widgets",
 			"Publish (dev)",
 			"Publish (dev) - index",
 			"Publish (dev) - faq",
