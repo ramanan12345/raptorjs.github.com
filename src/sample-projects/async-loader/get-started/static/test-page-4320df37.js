@@ -1123,9 +1123,8 @@ if (!String.prototype.trim || ws.trim()) {
         separator = "/",
         lookup = {},
         slice = [].slice,
-        relativeRE = /^(\.\.\/|\.\/)/, //Checks if a module ID is a relative module ID (e.g. "./my-module" or "../another-module")
         isArray = Array.isArray, //Helper function to check if an object is an Array object
-        _extend = function(target, source) { //A simple function to copy properties from one project to another
+        extend = function(target, source) { //A simple function to copy properties from one project to another
             if (!target) { //Check if a target was provided, otherwise create a new empty object to return
                 target = {};
             }
@@ -1143,6 +1142,20 @@ if (!String.prototype.trim || ws.trim()) {
         isFunction = function(f) {
             return typeof f == 'function';
         },
+        forEach = function(a, func, thisp) {
+            if (a != null) {
+                (isArray(a) ? a : [a]).forEach(func, thisp);    
+            }
+        },
+        forEachEntry = function(o, fun, thisp) {
+            for (var k in o)
+            {
+                if (o.hasOwnProperty(k))
+                {
+                    fun.call(thisp, k, o[k]);
+                }
+            }
+        },
         /**
          * Creates a module for the first time based on the provided factory function and provided post create functions
          * @param   {String}                   id         The ID of the module being built (not used, but simplifies code for callee)
@@ -1156,7 +1169,7 @@ if (!String.prototype.trim || ws.trim()) {
                 o;
 
             if (postCreate) {
-                raptor.forEach(postCreate, function(func) {
+                forEach(postCreate, function(func) {
                     if ((o = func(instance))) { //Check if the postCreate function produced a new function... 
                         instance = o; //if so, use that instead
                     }
@@ -1180,7 +1193,7 @@ if (!String.prototype.trim || ws.trim()) {
               
             var inherit = isString(superclass) ? _require(superclass) : superclass;
 
-            _extend(clazz,inherit);
+            extend(clazz,inherit);
             
             F.prototype = inherit.prototype; 
             clazz.superclass = F.prototype;
@@ -1188,40 +1201,34 @@ if (!String.prototype.trim || ws.trim()) {
             clazz.prototype = new F();
               
             if (copyProps) {
-                _extend(clazz.prototype, proto);
+                extend(clazz.prototype, proto);
             }
               
             return proto;
-        },
-        _instanceGetClass = function() {
-            return this.constructor;
-        },
-        _getName = function() {
-            return this.__name;
         },
         _makeClass = function(clazz, superclass, name) {
             if (!isFunction(clazz)) {
                 var o = clazz;
                 clazz = o.init || function() {};
-                _extend(clazz.prototype, o);
+                extend(clazz.prototype, o);
             }
             
             if (superclass) {
                 _inherit(clazz, superclass, true);
             }
 
-            clazz.getName = _getName;
-            clazz.__name = name;
+            clazz.getName = function() {
+                return name;
+            };
 
             var proto = clazz.prototype;
             proto.constructor = clazz;
-            proto.getClass = _instanceGetClass;
+            proto.getClass = function() {
+                return clazz;
+            };
             
             return clazz;
         },
-        _enumValueOf = function(name) {
-            return this[name];
-        }, 
         _enumValueOrdinal = function() {
             return this._ordinal;
         }, 
@@ -1231,12 +1238,6 @@ if (!String.prototype.trim || ws.trim()) {
         _enumValueCompareTo = function(other) {
             return this._ordinal - other._ordinal;
         }, 
-        _addEnumValue = function(target, name, EnumCtor) {
-            var enumValue = target[name] = new EnumCtor();
-            enumValue._ordinal = target._count++;
-            enumValue._name = name;
-            return enumValue;
-        },
         /**
          * Normalizes a module ID by resolving relative paths (if baseName is provided)
          * and by converting all dots to forward slashes.
@@ -1255,34 +1256,31 @@ if (!String.prototype.trim || ws.trim()) {
                 id = id.substring(1);
             }
 
-            if (relativeRE.test(id)) {
+            if (id.charAt(0) == '.') {
                 if (!baseName) {
                     return id;
                 }
 
-                var idParts = id.split(separator),
-                    baseNameParts = baseName.split(separator).slice(0, -1);
+                var baseNameParts = baseName.split(separator).slice(0, -1);
 
-                for (var i=0, len=idParts.length, part; i<len; i++) {
-                    part = idParts[i];
-
+                forEach(id.split(separator), function(part, i) {
                     if (part == '..') {
                         baseNameParts.splice(baseNameParts.length-1, 1); //Remove the last element
                     }
                     else if (part != '.') {
                         baseNameParts.push(part);
                     }
-                }
-                
+                });
+
                 return baseNameParts.join(separator);
             }
             else {
                 return id.replace(/\./g, separator);
             }
         },
-        _require = function(id, callback) {
+        _require = function(id, callback, thisObj) {
             if (callback) {
-                return _require('raptor/loader').load(id, callback);
+                return _require('raptor/loader').load(id, callback, thisObj);
             }
 
             if (cache.hasOwnProperty(id)) {
@@ -1319,7 +1317,8 @@ if (!String.prototype.trim || ws.trim()) {
             },
             
             find: function(id) {
-                return this.exists(id) ? this(id) : undefined;
+                
+                return raptor.find(this.normalize(id));
             }
         },
         /**
@@ -1343,10 +1342,10 @@ if (!String.prototype.trim || ws.trim()) {
         },
         _extendDefine = function(define) { 
             //Unfortunately functions cannot have custom prototypes so we much manually copy properties for each new instance
-            return _extend(define, defineProps);
+            return extend(define, defineProps);
         },
         _extendRequire = function(require) {
-            return _extend(require, requireProps);
+            return extend(require, requireProps);
         },
         /**
          * This functions takes in the arguments to define, define.Class and define.extend
@@ -1371,7 +1370,9 @@ if (!String.prototype.trim || ws.trim()) {
                 postCreate, //A function that should be invoked after the object is created for the first time...Used to handle inheritance and to apply an extension
                 factory, //The factory function or object definition (required, always the last argument)
                 require = _extendRequire(function(requestedId, callback) { //This is the "require" function that the user code will see...Need to add the required props
-                    return callback ? require.load(requestedId, callback) : simpleRequire(requestedId, id); //Pass along the requested ID and the base ID to the require implementation
+                    return callback ? 
+                        require.load(requestedId, callback) : 
+                        simpleRequire(requestedId, id); //Pass along the requested ID and the base ID to the require implementation
                 }),
                 module = new Module(require), //Create a module object
                 exports = module.exports, //Use the exports associated with the module object
@@ -1381,7 +1382,7 @@ if (!String.prototype.trim || ws.trim()) {
                     module: module
                 },
                 _gather = function() { //Converts an array of dependency IDs to the actual dependency objects (input array is modified)
-                    dependencies.forEach(function(requestedId, i) {
+                    forEach(dependencies, function(requestedId, i) {
                         var d;
 
                         if (!(d = local[requestedId])) { //See if the requested module is a local module and just use that module if it is
@@ -1414,14 +1415,11 @@ if (!String.prototype.trim || ws.trim()) {
                 else if (isArray(arg)) { //We found an array...The argument must be the array of dependency IDs
                     dependencies = arg;
                 }
-                else if ((superclass = arg.superclass)) { //We found an object with a superclass property... Use that as the superclass
-                    superclass = isString(superclass) ? _normalize(superclass) : superclass; //The superclass can either be a String or a constructor Function
-                }
                 else if (isEnum) {
                     enumValues = arg;
                 }
                 else {
-                    throw new Error('Invalid call to define');
+                    superclass = arg.superclass;
                 }
             }
             
@@ -1438,14 +1436,14 @@ if (!String.prototype.trim || ws.trim()) {
                         factory = factory.apply(raptor, _gather().concat([require, target]));
                     }
                     
-                    _extend(target, factory);
+                    extend(target, factory);
                 };
             }
             else {
                 if (isClass || superclass) {
                     postCreate = function(instance) {
-                        var clazz = _makeClass(instance, superclass, id);
-                        return clazz;  
+                        superclass = isString(superclass) ? require(superclass) : superclass;
+                        return _makeClass(instance, superclass, id);
                     };
                 }
                 else if (isEnum) {
@@ -1455,38 +1453,46 @@ if (!String.prototype.trim || ws.trim()) {
                         factory = null;
                     }
 
-                    postCreate = function(enumClass) {
-                        if (enumClass) {
-                            if (typeof enumClass == 'object') {
-                                enumClass = _makeClass(enumClass, 0, id); // Convert the class object definition to
-                                                                   // a class constructor function
+                    postCreate = function(EnumClass) {
+                        if (EnumClass) {
+                            if (typeof EnumClass == 'object') {
+                                EnumClass = _makeClass(EnumClass, 0, id); // Convert the class object definition to
+                                                                          // a class constructor function
                             }
                         } else {
-                            enumClass = function() {};
+                            EnumClass = function() {};
                         }
 
-                        var proto = enumClass.prototype;
-                        
-
-                        enumClass._count = 0;
+                        var proto = EnumClass.prototype,
+                            count = 0,
+                            _addEnumValue = function(name, EnumCtor) {
+                                return extend(
+                                    EnumClass[name] = new EnumCtor(),
+                                    {
+                                        _ordinal: count++,
+                                        _name: name
+                                    });
+                            }
 
                         if (isArray(enumValues)) {
-                            enumValues.forEach(function(name) {
-                                _addEnumValue(enumClass, name, enumClass);
+                            forEach(enumValues, function(name) {
+                                _addEnumValue(name, EnumClass);
                             });
                         } 
                         else if (enumValues) {
-                            EnumCtor = function() {};
+                            var EnumCtor = function() {};
                             EnumCtor.prototype = proto;
 
-                            raptor.forEachEntry(enumValues, function(name, args) {
-                                enumValue = _addEnumValue(enumClass, name, EnumCtor);
-                                enumClass.apply(enumValue, args || []);
+                            forEachEntry(enumValues, function(name, args) {
+                                EnumClass.apply(_addEnumValue(name, EnumCtor), args || []);
                             });
                         }
 
-                        enumClass.valueOf = _enumValueOf;
-                        _extend(proto, {
+                        EnumClass.valueOf = function(name) {
+                            return EnumClass[name];
+                        };
+
+                        extend(proto, {
                             name : _enumValueName,
                             ordinal : _enumValueOrdinal,
                             compareTo : _enumValueCompareTo
@@ -1496,7 +1502,7 @@ if (!String.prototype.trim || ws.trim()) {
                             proto.toString = _enumValueName;
                         }
 
-                        return enumClass;
+                        return EnumClass;
                     }
                 }
 
@@ -1514,14 +1520,15 @@ if (!String.prototype.trim || ws.trim()) {
             return raptor.define(id, finalFactory, postCreate);
         },
         Module = function(require) {
-            this.require = require;
-            this.exports = {};
-            this._logger = null;
+            var _this = this;
+            _this.require = require;
+            _this.exports = {};
         };
 
     Module.prototype = {
         logger: function() {
-            return this._logger || (this._logger = _require('raptor/logging').logger(this.id));
+            var _this = this;
+            return _this.l || (_this.l = _require('raptor/logging').logger(_this.id));
         }
     };
 
@@ -1535,13 +1542,9 @@ if (!String.prototype.trim || ws.trim()) {
         
         inherit: _inherit,
 
-        extend: _extend,
+        extend: extend,
 
-        forEach: function(a, func, thisp) {
-            if (a != null) {
-                (isArray(a) ? a : [a]).forEach(func, thisp);    
-            }
-        },
+        forEach: forEach,
         
         arrayFromArguments: function(args, startIndex) {
             if (!args) {
@@ -1557,15 +1560,7 @@ if (!String.prototype.trim || ws.trim()) {
             }
         },
         
-        forEachEntry: function(o, fun, thisp) {
-            for (var k in o)
-            {
-                if (o.hasOwnProperty(k))
-                {
-                    fun.call(thisp, k, o[k]);
-                }
-            }
-        },
+        forEachEntry: forEachEntry,
         
         createError: function(message, cause) {
             var error,
@@ -1608,7 +1603,8 @@ if (!String.prototype.trim || ws.trim()) {
                 return _build.apply(raptor, arguments);
             }
 
-            var def = getOrCreateDef(id);
+            var def = getOrCreateDef(id),
+                instance;
             if (factory) {
                 def.factory = factory;    
             }
@@ -1616,9 +1612,7 @@ if (!String.prototype.trim || ws.trim()) {
             if (postCreate) {
                 def.postCreate.push(postCreate);
 
-                var instance = cache[id];
-
-                if (instance) {
+                if ((instance = cache[id])) {
                     postCreate(instance);
                 }
             }
@@ -1628,6 +1622,10 @@ if (!String.prototype.trim || ws.trim()) {
         exists: function(id) {
             return defs.hasOwnProperty(id);
         },
+        
+        find: function(id) {
+            return raptor.exists(id) ? raptor.require(id) : undefined;
+        },
 
         require: _require,
 
@@ -1635,56 +1633,16 @@ if (!String.prototype.trim || ws.trim()) {
 
         _define: _define,
 
-        _extendDefine: _extendDefine
+        props: [requireProps, defineProps]
     };  //End raptor
 
 
-    raptor.define('raptor', raptor);
     
-    /*
-    The below code adds global lookup related functions that can always used
-    look up objects by keys or to look up an array of objects by key. These
-    functions are used by compiled code only and should not be used by
-    user code directly. 
-    TODO: provide a "raptor/lookup" module for user code
-     */
     
-    /**
-     * @param  {String} category The category name for the object being added to the lookup
-     * @param  {String} key      The object key
-     * @param  {Object} data     The object to associate with the key
-     * @return {void}
-     */
-    $rset = function(category, key, data) {
+    var _global;
 
-        var catData = lookup[category];
-        if (!catData) {
-            catData = lookup[category] = {};
-        }
-        if (data !== undefined) {
-            catData[key] = data;    
-        }
-        else {
-            delete catData[key];
-        }
-        
-    };
-
-    $radd = function(category, data) {
-        var catData = lookup[category];
-        if (!catData) {
-            catData = lookup[category] = [];
-        }
-        catData.push(data);
-    };
-
-    $rget = function(category, key) {
-        var catData = lookup[category];
-        return arguments.length === 2 ? catData && catData[key] : catData; 
-    };
-
-    if (typeof exports == 'undefined') {
-        raptor.global = window;
+    if (typeof window != 'undefined') {
+        _global = window;
         
         var defineRequire = defineProps.require = function(id, baseName) {
             return _require(_normalize(id, baseName));
@@ -1702,8 +1660,60 @@ if (!String.prototype.trim || ws.trim()) {
         define.amd = {};
     }
     else {
+        _global = global;
         module.exports = raptor;
     }
+    
+    raptor.define('raptor', raptor);
+    
+    /*
+    The below code adds global lookup related functions that can always used
+    look up objects by keys or to look up an array of objects by key. These
+    functions are used by compiled code only and should not be used by
+    user code directly. 
+    TODO: provide a "raptor/lookup" module for user code
+     */
+    
+
+
+    extend(_global, {
+        /**
+         * @param  {String} category The category name for the object being added to the lookup
+         * @param  {String} key      The object key
+         * @param  {Object} data     The object to associate with the key
+         * @return {void}
+         */
+        $rset: function(category, key, data) {
+
+            var catData = lookup[category];
+            if (!catData) {
+                catData = lookup[category] = {};
+            }
+            if (data !== undefined) {
+                catData[key] = data;    
+            }
+            else {
+                delete catData[key];
+            }
+            
+        },
+
+        $radd: function(category, data) {
+            var catData = lookup[category];
+            if (!catData) {
+                catData = lookup[category] = [];
+            }
+            catData.push(data);
+        },
+
+        $rget: function(category, key) {
+            var catData = lookup[category];
+            return arguments.length == 2 ? catData && catData[key] : catData; 
+        }
+    });
+
+    
+    raptor.global = _global;
 }());
 /*
  * Copyright 2011 eBay Software Foundation
