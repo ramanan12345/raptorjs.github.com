@@ -3,7 +3,7 @@
 <link rel="stylesheet" type="text/css" href="../../static/code-editor-f1386401.css"><script type="text/javascript">var
 _gaq=_gaq||[];_gaq.push(["_setAccount","UA-33982282-1"]);_gaq.push(["_trackPageview"]);(function(){var
 a=document.createElement("script");a.type="text/javascript";a.async=!0;a.src=("https:"==document.location.protocol?"https://ssl":"http://www")+".google-analytics.com/ga.js";var
-b=document.getElementsByTagName("script")[0];b.parentNode.insertBefore(a,b)})();</script></head><body data-spy="scroll"><div class="navbar navbar-fixed-top"><div class="navbar-inner"><div class="container"><a class="brand" href="../../">RaptorJS</a><ul class="nav"><li class="divider-vertical"></li><li id="s494"><a href="../../get-started/">Get Started</a></li><li class="divider-vertical"></li><li id="s495" class="dropdown"><a data-toggle="dropdown" class="dropdown-toggle">Learn<b class="caret"></b></a><ul class="dropdown-menu"><li id="s496"><a href="../../">Overview</a></li><li id="s497"><a href="../../get-started/">Get Started</a></li><li id="s498"><a href="../../tutorial/">Tutorial</a></li><li id="s499"><a href="../../api/">API Reference</a></li><li id="s500"><a href="../../faq/">FAQ</a></li><li class="divider"></li><li id="s501"><a href="../../modules-classes/">Modules and Classes</a></li><li id="s502"><a href="../../packaging/">Packaging and Extensions</a></li><li id="s503"><a href="../../module-loader/">Module Loader</a></li><li id="s504"><a href="../../optimizer/">Optimizer</a></li><li id="s505"><a href="../../raptor-templates/">Raptor Templates</a></li><li id="s506"><a href="../../widgets/">Widget Framework</a></li><li id="s507"><a href="../../logging/">Logging</a></li><li id="s508"><a href="../../resource-search-path/">Resource Search Path</a></li><li id="s509"><a href="../../cross-environment/">Cross Environment Support</a></li></ul></li><li class="divider-vertical"></li><li id="s510" class="dropdown"><a data-toggle="dropdown" class="dropdown-toggle">Community<b class="caret"></b></a><ul class="dropdown-menu"><li id="s511"><a href="https://github.com/raptorjs/raptorjs">Source code</a></li><li id="s512"><a href="https://github.com/raptorjs/raptorjs/issues">Issue Tracker</a></li><li id="s513"><a href="../../contribute/">Contribute</a></li><li id="s514"><a href="../../contributors/">Contributors</a></li><li class="divider"></li><li id="s515"><a href="http://groups.google.com/group/raptorjs">Discussion Forum</a></li><li class="divider"></li><li id="s516"><a href="http://twitter.com/raptorjs">Twitter (@raptorjs)</a></li><li id="s517"><a href="http://twitter.com/raptorjs">Google+</a></li></ul></li><li class="divider-vertical"></li><li id="s518" class="dropdown"><a data-toggle="dropdown" class="dropdown-toggle">About<b class="caret"></b></a><ul class="dropdown-menu"><li id="s519"><a href="https://github.com/raptorjs/raptorjs/wiki/Release-Notes">Release Notes</a></li><li id="s520"><a href="../../design-philosophy/">Design Philosophy</a></li><li id="s521"><a href="../../license/">License</a></li><li id="s522"><a href="../../credits/">Credits</a></li><li id="s523"><a href="../../creators/">Creators</a></li></ul></li><li class="divider-vertical"></li></ul></div></div></div><div class="container"><div class="docs"><div class="bd"><div class="docs-content"><h1 id="title">Getting Started with Modules, Classes, Mixins and Enums</h1><div class="toc nav" id="docsNav"><ul class="toc"><li class="toc toc-level-0"><a href="#Introduction">Introduction</a><ul class="toc"></ul></li><li class="toc toc-level-0"><a href="#Basic_Usage">Basic Usage</a><ul class="toc"></ul></li><li class="toc toc-level-0"><a href="#Modules">Modules</a><ul class="toc"><li class="toc toc-level-1"><a href="#Defining_a_Module">Defining a Module</a><ul class="toc"></ul></li><li class="toc toc-level-1"><a href="#Using_a_Module">Using a Module</a><ul class="toc"></ul></li></ul></li><li class="toc toc-level-0"><a href="#Classes">Classes</a><ul class="toc"><li class="toc toc-level-1"><a href="#Defining_a_Class">Defining a Class</a><ul class="toc"></ul></li><li class="toc toc-level-1"><a href="#Creating_an_Instance_of_a_Class">Creating an Instance of a Class</a><ul class="toc"></ul></li><li class="toc toc-level-1"><a href="#Inheritance">Inheritance</a><ul class="toc"></ul></li></ul></li><li class="toc toc-level-0"><a href="#Mixins">Mixins</a><ul class="toc"><li class="toc toc-level-1"><a href="#Defining_a_Mixin">Defining a Mixin</a><ul class="toc"></ul></li><li class="toc toc-level-1"><a href="#Applying_Mixins_as_part_of_an_Object_Definition">Applying Mixins as part of an Object Definition</a><ul class="toc"></ul></li><li class="toc toc-level-1"><a href="#Applying_Mixins_External_to_an_Object_Definition">Applying Mixins External to an Object Definition</a><ul class="toc"></ul></li></ul></li><li class="toc toc-level-0"><a href="#Enums">Enums</a><ul class="toc"><li class="toc toc-level-1"><a href="#Defining_an_Enum">Defining an Enum</a><ul class="toc"></ul></li><li class="toc toc-level-1"><a href="#Enum_Methods">Enum Methods</a><ul class="toc"></ul></li><li class="toc toc-level-1"><a href="#Enum_Usage">Enum Usage</a><ul class="toc"></ul></li></ul></li><li class="toc toc-level-0"><a href="#Anonymous_Objects">Anonymous Objects</a><ul class="toc"></ul></li><li class="toc toc-level-0"><a href="#Logging">Logging</a><ul class="toc"></ul></li><li class="toc toc-level-0"><a href="#Discussion">Discussion</a><ul class="toc"></ul></li></ul><div class="docs-nav-footer"><ul><li><span class="powered-by">Powered by <a href="../../" class="raptorjs">RaptorJS</a></span></li><li><a href="../../license/">License</a></li><li><a href="../../credits/">Credits</a></li></ul></div></div><div class="message message-warning"><div class="icon"><i class="icon-warning-sign" style="font-size: 30px;"></i></div><div class="bd">Documentation In-Progress</div></div><div class="section section-level-0"><h2 id="Introduction">Introduction</h2><div class="bd"><p>Out of the box, JavaScript lacks basic support for namespaces, and defining and
+b=document.getElementsByTagName("script")[0];b.parentNode.insertBefore(a,b)})();</script></head><body data-spy="scroll"><div class="navbar navbar-fixed-top"><div class="navbar-inner"><div class="container"><a class="brand" href="../../">RaptorJS</a><ul class="nav"><li class="divider-vertical"></li><li id="w494"><a href="../../get-started/">Get Started</a></li><li class="divider-vertical"></li><li id="w495" class="dropdown"><a data-toggle="dropdown" class="dropdown-toggle">Learn<b class="caret"></b></a><ul class="dropdown-menu"><li id="w496"><a href="../../">Overview</a></li><li id="w497"><a href="../../get-started/">Get Started</a></li><li id="w498"><a href="../../tutorial/">Tutorial</a></li><li id="w499"><a href="../../api/">API Reference</a></li><li id="w500"><a href="../../faq/">FAQ</a></li><li class="divider"></li><li id="w501"><a href="../../modules-classes/">Modules and Classes</a></li><li id="w502"><a href="../../packaging/">Packaging and Extensions</a></li><li id="w503"><a href="../../module-loader/">Module Loader</a></li><li id="w504"><a href="../../optimizer/">Optimizer</a></li><li id="w505"><a href="../../raptor-templates/">Raptor Templates</a></li><li id="w506"><a href="../../widgets/">Widget Framework</a></li><li id="w507"><a href="../../logging/">Logging</a></li><li id="w508"><a href="../../resource-search-path/">Resource Search Path</a></li><li id="w509"><a href="../../cross-environment/">Cross Environment Support</a></li></ul></li><li class="divider-vertical"></li><li id="w510" class="dropdown"><a data-toggle="dropdown" class="dropdown-toggle">Community<b class="caret"></b></a><ul class="dropdown-menu"><li id="w511"><a href="https://github.com/raptorjs/raptorjs">Source code</a></li><li id="w512"><a href="https://github.com/raptorjs/raptorjs/issues">Issue Tracker</a></li><li id="w513"><a href="../../contribute/">Contribute</a></li><li id="w514"><a href="../../contributors/">Contributors</a></li><li class="divider"></li><li id="w515"><a href="http://groups.google.com/group/raptorjs">Discussion Forum</a></li><li class="divider"></li><li id="w516"><a href="http://twitter.com/raptorjs">Twitter (@raptorjs)</a></li><li id="w517"><a href="http://twitter.com/raptorjs">Google+</a></li></ul></li><li class="divider-vertical"></li><li id="w518" class="dropdown"><a data-toggle="dropdown" class="dropdown-toggle">About<b class="caret"></b></a><ul class="dropdown-menu"><li id="w519"><a href="https://github.com/raptorjs/raptorjs/wiki/Release-Notes">Release Notes</a></li><li id="w520"><a href="../../design-philosophy/">Design Philosophy</a></li><li id="w521"><a href="../../license/">License</a></li><li id="w522"><a href="../../credits/">Credits</a></li><li id="w523"><a href="../../creators/">Creators</a></li></ul></li><li class="divider-vertical"></li></ul></div></div></div><div class="container"><div class="docs"><div class="bd"><div class="docs-content"><h1 id="title">Getting Started with Modules, Classes, Mixins and Enums</h1><div class="toc nav" id="docsNav"><ul class="toc"><li class="toc toc-level-0"><a href="#Introduction">Introduction</a><ul class="toc"></ul></li><li class="toc toc-level-0"><a href="#Basic_Usage">Basic Usage</a><ul class="toc"></ul></li><li class="toc toc-level-0"><a href="#Modules">Modules</a><ul class="toc"><li class="toc toc-level-1"><a href="#Defining_a_Module">Defining a Module</a><ul class="toc"></ul></li><li class="toc toc-level-1"><a href="#Using_a_Module">Using a Module</a><ul class="toc"></ul></li></ul></li><li class="toc toc-level-0"><a href="#Classes">Classes</a><ul class="toc"><li class="toc toc-level-1"><a href="#Defining_a_Class">Defining a Class</a><ul class="toc"></ul></li><li class="toc toc-level-1"><a href="#Creating_an_Instance_of_a_Class">Creating an Instance of a Class</a><ul class="toc"></ul></li><li class="toc toc-level-1"><a href="#Inheritance">Inheritance</a><ul class="toc"></ul></li></ul></li><li class="toc toc-level-0"><a href="#Mixins">Mixins</a><ul class="toc"><li class="toc toc-level-1"><a href="#Defining_a_Mixin">Defining a Mixin</a><ul class="toc"></ul></li><li class="toc toc-level-1"><a href="#Applying_Mixins_as_part_of_an_Object_Definition">Applying Mixins as part of an Object Definition</a><ul class="toc"></ul></li><li class="toc toc-level-1"><a href="#Applying_Mixins_External_to_an_Object_Definition">Applying Mixins External to an Object Definition</a><ul class="toc"></ul></li></ul></li><li class="toc toc-level-0"><a href="#Enums">Enums</a><ul class="toc"><li class="toc toc-level-1"><a href="#Defining_an_Enum">Defining an Enum</a><ul class="toc"></ul></li><li class="toc toc-level-1"><a href="#Enum_Methods">Enum Methods</a><ul class="toc"></ul></li><li class="toc toc-level-1"><a href="#Enum_Usage">Enum Usage</a><ul class="toc"></ul></li></ul></li><li class="toc toc-level-0"><a href="#Anonymous_Objects">Anonymous Objects</a><ul class="toc"></ul></li><li class="toc toc-level-0"><a href="#Logging">Logging</a><ul class="toc"></ul></li><li class="toc toc-level-0"><a href="#Discussion">Discussion</a><ul class="toc"></ul></li></ul><div class="docs-nav-footer"><ul><li><span class="powered-by">Powered by <a href="../../" class="raptorjs">RaptorJS</a></span></li><li><a href="../../license/">License</a></li><li><a href="../../credits/">Credits</a></li></ul></div></div><div class="message message-warning"><div class="icon"><i class="icon-warning-sign" style="font-size: 30px;"></i></div><div class="bd">Documentation In-Progress</div></div><div class="section section-level-0"><h2 id="Introduction">Introduction</h2><div class="bd"><p>Out of the box, JavaScript lacks basic support for namespaces, and defining and
 using "classes" is not always elegant. Because JavaScript is a very dynamic
 language many libraries and frameworks have been developed to address some of
 these shortcomings—each with their own benefits and disadvantages. RaptorJS
@@ -21,7 +21,7 @@ resolving phase to find and load the requested object from disk. For more
 details, see
 <a href="http://raptorjs.org/api/oop_Server/#_resolve">oop._resolve(id)</a>.</p></div></div><div class="section section-level-0"><h2 id="Modules">Modules</h2><div class="bd"><div class="section section-level-1"><h2 id="Defining_a_Module">Defining a Module</h2><div class="bd"><p>A JavaScript object/module can be associated with a name as shown in the
 following example:
-</p><div class="code-editor" id="s524"> <textarea id="s524-textarea" style="display: none;" name="code-8">define(
+</p><div class="code-editor" id="w524"> <textarea id="w524-textarea" style="display: none;" name="code-8">define(
     'some/namespace/my-module', 
     function(require, exports, module) { //This function is only executed *once* (the first time this module is required)
         return { //Return the module definition
@@ -31,12 +31,12 @@ following example:
         }
     });</textarea></div></div></div><div class="section section-level-1"><h2 id="Using_a_Module">Using a Module</h2><div class="bd"><p>The following code illustrates how to utilize another module/class/mixin/enum
 by obtaining a reference to it using the
-<code>require</code> function:</p><div class="code-editor" id="s525"> <textarea id="s525-textarea" style="display: none;" name="code-9">var myModule = require('some/namespace/my-module');
+<code>require</code> function:</p><div class="code-editor" id="w525"> <textarea id="w525-textarea" style="display: none;" name="code-9">var myModule = require('some/namespace/my-module');
 myModule.sayHello();</textarea></div><div class="message message-info"><div class="icon"><i class="icon-info-sign" style="font-size: 30px;"></i></div><div class="bd"><p>NOTE: When using <code>require(moduleName)</code>, the code for the requested module must be available. Asynchronous module
 loading (loading a module asynchronously from a server) is provided by the
 <a href="../../module-loader/">RaptorJS Asynchronous Module Loader</a>.</p></div></div></div></div></div></div><div class="section section-level-0"><h2 id="Classes">Classes</h2><div class="bd"><div class="section section-level-1"><h2 id="Defining_a_Class">Defining a Class</h2><div class="bd"><p>A class can be defined by creating a factory function that returns a
 constructor function (with a
-<code>prototype</code> property) as shown in the following example:</p><div class="code-editor" id="s526"> <textarea id="s526-textarea" style="display: none;" name="code-10">define(
+<code>prototype</code> property) as shown in the following example:</p><div class="code-editor" id="w526"> <textarea id="w526-textarea" style="display: none;" name="code-10">define(
     'some/namespace/MyClass', 
     function(require, module, exports) {
         var MyClass = function(message) { //Constructor function
@@ -50,8 +50,8 @@ constructor function (with a
         };
 
         return MyClass;
-    });</textarea></div></div></div><div class="section section-level-1"><h2 id="Creating_an_Instance_of_a_Class">Creating an Instance of a Class</h2><div class="bd"><p>An instance of a class can be created as shown in the following example:</p><div class="code-editor" id="s527"> <textarea id="s527-textarea" style="display: none;" name="code-11">var MyClass = require("some/namespace/MyClass");
-var myInstance = new MyClass();</textarea></div></div></div><div class="section section-level-1"><h2 id="Inheritance">Inheritance</h2><div class="bd"><p>Prototype-based class inheritance is also supported by RaptorJS when using the <code>define.Class</code> method. The signature for the <code>define.Class</code> method is the following:</p><div class="code-editor" id="s528"> <textarea id="s528-textarea" style="display: none;" name="code-12">define.Class(id, ?superclassId, ?dependencies, factory)</textarea></div><p>Example:</p><div class="code-editor" id="s529"> <textarea id="s529-textarea" style="display: none;" name="code-13">define.Class(
+    });</textarea></div></div></div><div class="section section-level-1"><h2 id="Creating_an_Instance_of_a_Class">Creating an Instance of a Class</h2><div class="bd"><p>An instance of a class can be created as shown in the following example:</p><div class="code-editor" id="w527"> <textarea id="w527-textarea" style="display: none;" name="code-11">var MyClass = require("some/namespace/MyClass");
+var myInstance = new MyClass();</textarea></div></div></div><div class="section section-level-1"><h2 id="Inheritance">Inheritance</h2><div class="bd"><p>Prototype-based class inheritance is also supported by RaptorJS when using the <code>define.Class</code> method. The signature for the <code>define.Class</code> method is the following:</p><div class="code-editor" id="w528"> <textarea id="w528-textarea" style="display: none;" name="code-12">define.Class(id, ?superclassId, ?dependencies, factory)</textarea></div><p>Example:</p><div class="code-editor" id="w529"> <textarea id="w529-textarea" style="display: none;" name="code-13">define.Class(
     'some/namespace/Dog', 
     'some/namespace/Animal', //Name of the superclass
     function(require, exports, module) {
@@ -74,14 +74,14 @@ var myInstance = new MyClass();</textarea></div></div></div><div class="section 
         return Dog;
     });</textarea></div><div class="message message-info"><div class="icon"><i class="icon-info-sign" style="font-size: 30px;"></i></div><div class="bd"><p>The superclass argument can also be passed as part of a modifiers object as
 shown in the following
-example:</p><div class="code-editor" id="s530"> <textarea id="s530-textarea" style="display: none;" name="code-14">define.Class(
+example:</p><div class="code-editor" id="w530"> <textarea id="w530-textarea" style="display: none;" name="code-14">define.Class(
     'some/namespace/Dog', 
     {
         superclass: 'some/namespace/Animal' //Name of the superclass
     }, 
     function(require, exports, module) {
         ...
-    });</textarea></div><p>This allows an anonymous class with a superclass to be define:</p><div class="code-editor" id="s531"> <textarea id="s531-textarea" style="display: none;" name="code-15">define.Class( 
+    });</textarea></div><p>This allows an anonymous class with a superclass to be define:</p><div class="code-editor" id="w531"> <textarea id="w531-textarea" style="display: none;" name="code-15">define.Class( 
     {
         superclass: 'some/namespace/Animal' //Name of the superclass
     }, 
@@ -94,7 +94,7 @@ class is always populated with a "constructor" property, which is a reference
 to the constructor function for the class associated with the prototype
 object.</p></div></div></div></div></div></div><div class="section section-level-0"><h2 id="Mixins">Mixins</h2><div class="bd"><div class="section section-level-1"><h2 id="Defining_a_Mixin">Defining a Mixin</h2><div class="bd"><p>RaptorJS allows mixins to be applied to an object in two different ways:</p><ol><li>As part of an object definition</li><li>External from the object being defined</li></ol></div></div><div class="section section-level-1"><h2 id="Applying_Mixins_as_part_of_an_Object_Definition">Applying Mixins as part of an Object Definition</h2><div class="bd"><p>Mixins can be applied declaratively as part of an object definition as shown in
 the following
-example</p><div class="code-editor" id="s532"> <textarea id="s532-textarea" style="display: none;" name="code-16">define.Class(
+example</p><div class="code-editor" id="w532"> <textarea id="w532-textarea" style="display: none;" name="code-16">define.Class(
     'some/namespace/CircleButton',
     ['raptor'],
     function(raptor, require) {
@@ -117,7 +117,7 @@ example</p><div class="code-editor" id="s532"> <textarea id="s532-textarea" styl
 first required. The
 <code>define.extend</code> method is used heavily to support cross-environment modules by creating
 environment specific mixins for modules.
-Example:</p><div class="code-editor" id="s533"> <textarea id="s533-textarea" style="display: none;" name="code-17">/**
+Example:</p><div class="code-editor" id="w533"> <textarea id="w533-textarea" style="display: none;" name="code-17">/**
  * Extends the "raptor/files" module with Rhino/Java specific mixins so that the
  * same module can work in multiple server-side JavaScript environments.
  * @extension Rhino
@@ -133,7 +133,7 @@ define.extend(
             }
         }
     }
-);</textarea></div></div></div></div></div><div class="section section-level-0"><h2 id="Enums">Enums</h2><div class="bd"><div class="section section-level-1"><h2 id="Defining_an_Enum">Defining an Enum</h2><div class="bd"><p>An enum type can be defined as shown in the following example:</p><div class="code-editor" id="s534"> <textarea id="s534-textarea" style="display: none;" name="code-18">define.Enum(
+);</textarea></div></div></div></div></div><div class="section section-level-0"><h2 id="Enums">Enums</h2><div class="bd"><div class="section section-level-1"><h2 id="Defining_an_Enum">Defining an Enum</h2><div class="bd"><p>An enum type can be defined as shown in the following example:</p><div class="code-editor" id="w534"> <textarea id="w534-textarea" style="display: none;" name="code-18">define.Enum(
     'some/namespace/Day',
     [
         "SUN",
@@ -144,7 +144,7 @@ define.extend(
         "FRI",
         "SAT"
     ]
-);</textarea></div><p>Enum values as complex objects can be defined as shown in the following example:</p><div class="code-editor" id="s535"> <textarea id="s535-textarea" style="display: none;" name="code-19">define.Enum(
+);</textarea></div><p>Enum values as complex objects can be defined as shown in the following example:</p><div class="code-editor" id="w535"> <textarea id="w535-textarea" style="display: none;" name="code-19">define.Enum(
     'some/namespace/Day',
     {
         SUN: [false, "Sunday"],
@@ -176,11 +176,11 @@ used for an array of enum strings. Order is undefined for maps but it will work
 correctly in most
 browsers.)</li><li>toString() - Returns the name of the enum unless it has been overridden</li><li>compareTo(other) - Compares one enum field to another based on the ordinal value</li></ul></div></div><div class="section section-level-1"><h2 id="Enum_Usage">Enum Usage</h2><div class="bd"><p>Once you define an enum, the enum constants can be accessed as static
 properties of the class as shown in the following
-example.</p><div class="code-editor" id="s536"> <textarea id="s536-textarea" style="display: none;" name="code-20">var Day = require('some/namespace/Day');
+example.</p><div class="code-editor" id="w536"> <textarea id="w536-textarea" style="display: none;" name="code-20">var Day = require('some/namespace/Day');
 if (day === Day.FRI) {
     alert("It is " + day.getLongName() + "!");
 }</textarea></div></div></div></div></div><div class="section section-level-0"><h2 id="Anonymous_Objects">Anonymous Objects</h2><div class="bd"><p>Anonymous (unnamed objects) can be defined by omitting the name argument. For
-example:</p><div class="code-editor" id="s537"> <textarea id="s537-textarea" style="display: none;" name="code-21">var myModule = define(
+example:</p><div class="code-editor" id="w537"> <textarea id="w537-textarea" style="display: none;" name="code-21">var myModule = define(
     function() {
         return {
             sayHello: function() {
@@ -194,7 +194,7 @@ myModule.sayHello();</textarea></div></div></div><div class="section section-lev
 depend on how the loggers are configured. Output messages will be prefixed with
 the log level and the name of the object that logged the message. Loggers
 should be configured when RaptorJS is first initialized. For
-example:</p><p><div class="code-editor" id="s538"> <textarea id="s538-textarea" style="display: none;" name="code-22">require("raptor"); //Initialize RaptorJS on the server and enable AMD
+example:</p><p><div class="code-editor" id="w538"> <textarea id="w538-textarea" style="display: none;" name="code-22">require("raptor"); //Initialize RaptorJS on the server and enable AMD
 
 //...
 
@@ -212,54 +212,54 @@ define(
                  */
             }
         }
-    });</textarea></div></p><p>For more details on logging, see <a href="../../logging/">RaptorJS Logging</a>.</p></div></div><div class="section section-level-0"><h2 id="Discussion">Discussion</h2><div class="bd"><div id="disqus_thread"></div></div></div></div></div><div class="docs-footer-padding"></div></div></div><script type="text/javascript" src="../../static/core-473124cf.js"></script>
+    });</textarea></div></p><p>For more details on logging, see <a href="../../logging/">RaptorJS Logging</a>.</p></div></div><div class="section section-level-0"><h2 id="Discussion">Discussion</h2><div class="bd"><div id="disqus_thread"></div></div></div></div></div><div class="docs-footer-padding"></div></div></div><script type="text/javascript" src="../../static/core-338d88bf.js"></script>
 <script type="text/javascript" src="../../static/jquery-371da524.js"></script>
-<script type="text/javascript" src="../../static/widgets-6666ff75.js"></script>
+<script type="text/javascript" src="../../static/widgets-db399b88.js"></script>
 <script type="text/javascript" src="../../static/modules-classes-developer-guide-de31a680.js"></script>
 <script type="text/javascript" src="../../static/code-editor-78c7d3ab.js"></script><script type="text/javascript">$rwidgets(
-["components.nav.Nav.NavItemWidget","s494",0,0,0,0],
-["components.nav.Nav.NavItemWidget","s495",0,0,0,0,
-["components.nav.Nav.NavItemWidget","s496",0,0,0,0],
-["components.nav.Nav.NavItemWidget","s497",0,0,0,0],
-["components.nav.Nav.NavItemWidget","s498",0,0,0,0],
-["components.nav.Nav.NavItemWidget","s499",0,0,0,0],
-["components.nav.Nav.NavItemWidget","s500",0,0,0,0],
-["components.nav.Nav.NavItemWidget","s501",0,0,0,0],
-["components.nav.Nav.NavItemWidget","s502",0,0,0,0],
-["components.nav.Nav.NavItemWidget","s503",0,0,0,0],
-["components.nav.Nav.NavItemWidget","s504",0,0,0,0],
-["components.nav.Nav.NavItemWidget","s505",0,0,0,0],
-["components.nav.Nav.NavItemWidget","s506",0,0,0,0],
-["components.nav.Nav.NavItemWidget","s507",0,0,0,0],
-["components.nav.Nav.NavItemWidget","s508",0,0,0,0],
-["components.nav.Nav.NavItemWidget","s509",0,0,0,0]],
-["components.nav.Nav.NavItemWidget","s510",0,0,0,0,
-["components.nav.Nav.NavItemWidget","s511",0,0,0,0],
-["components.nav.Nav.NavItemWidget","s512",0,0,0,0],
-["components.nav.Nav.NavItemWidget","s513",0,0,0,0],
-["components.nav.Nav.NavItemWidget","s514",0,0,0,0],
-["components.nav.Nav.NavItemWidget","s515",0,0,0,0],
-["components.nav.Nav.NavItemWidget","s516",0,0,0,0],
-["components.nav.Nav.NavItemWidget","s517",0,0,0,0]],
-["components.nav.Nav.NavItemWidget","s518",0,0,0,0,
-["components.nav.Nav.NavItemWidget","s519",0,0,0,0],
-["components.nav.Nav.NavItemWidget","s520",0,0,0,0],
-["components.nav.Nav.NavItemWidget","s521",0,0,0,0],
-["components.nav.Nav.NavItemWidget","s522",0,0,0,0],
-["components.nav.Nav.NavItemWidget","s523",0,0,0,0]],
-["components.editors.CodeEditor.CodeEditorWidget","s524",0,0,{"mode":"javascript","autoResize":true,"readOnly":true,"indentUnit":4},0],
-["components.editors.CodeEditor.CodeEditorWidget","s525",0,0,{"mode":"javascript","autoResize":true,"readOnly":true,"indentUnit":4},0],
-["components.editors.CodeEditor.CodeEditorWidget","s526",0,0,{"mode":"javascript","autoResize":true,"readOnly":true,"indentUnit":4},0],
-["components.editors.CodeEditor.CodeEditorWidget","s527",0,0,{"mode":"javascript","autoResize":true,"readOnly":true,"indentUnit":4},0],
-["components.editors.CodeEditor.CodeEditorWidget","s528",0,0,{"mode":"javascript","autoResize":true,"readOnly":true,"indentUnit":4},0],
-["components.editors.CodeEditor.CodeEditorWidget","s529",0,0,{"mode":"javascript","autoResize":true,"readOnly":true,"indentUnit":4},0],
-["components.editors.CodeEditor.CodeEditorWidget","s530",0,0,{"mode":"javascript","autoResize":true,"readOnly":true,"indentUnit":4},0],
-["components.editors.CodeEditor.CodeEditorWidget","s531",0,0,{"mode":"javascript","autoResize":true,"readOnly":true,"indentUnit":4},0],
-["components.editors.CodeEditor.CodeEditorWidget","s532",0,0,{"mode":"javascript","autoResize":true,"readOnly":true,"indentUnit":4},0],
-["components.editors.CodeEditor.CodeEditorWidget","s533",0,0,{"mode":"javascript","autoResize":true,"readOnly":true,"indentUnit":4},0],
-["components.editors.CodeEditor.CodeEditorWidget","s534",0,0,{"mode":"javascript","autoResize":true,"readOnly":true,"indentUnit":4},0],
-["components.editors.CodeEditor.CodeEditorWidget","s535",0,0,{"mode":"javascript","autoResize":true,"readOnly":true,"indentUnit":4},0],
-["components.editors.CodeEditor.CodeEditorWidget","s536",0,0,{"mode":"javascript","autoResize":true,"readOnly":true,"indentUnit":4},0],
-["components.editors.CodeEditor.CodeEditorWidget","s537",0,0,{"mode":"javascript","autoResize":true,"readOnly":true,"indentUnit":4},0],
-["components.editors.CodeEditor.CodeEditorWidget","s538",0,0,{"mode":"javascript","autoResize":true,"readOnly":true,"indentUnit":4},0],
-["components.social.Disqus.DisqusWidget","disqus_thread",0,0,{"shortName":"raptor-js","id":"modules-developer-guide","title":"Getting Started with Modules, Classes, Mixins and Enums"},0]);</script></body></html>
+["components.nav.Nav.NavItemWidget","w494",0,0,0,0],
+["components.nav.Nav.NavItemWidget","w495",0,0,0,0,
+["components.nav.Nav.NavItemWidget","w496",0,0,0,0],
+["components.nav.Nav.NavItemWidget","w497",0,0,0,0],
+["components.nav.Nav.NavItemWidget","w498",0,0,0,0],
+["components.nav.Nav.NavItemWidget","w499",0,0,0,0],
+["components.nav.Nav.NavItemWidget","w500",0,0,0,0],
+["components.nav.Nav.NavItemWidget","w501",0,0,0,0],
+["components.nav.Nav.NavItemWidget","w502",0,0,0,0],
+["components.nav.Nav.NavItemWidget","w503",0,0,0,0],
+["components.nav.Nav.NavItemWidget","w504",0,0,0,0],
+["components.nav.Nav.NavItemWidget","w505",0,0,0,0],
+["components.nav.Nav.NavItemWidget","w506",0,0,0,0],
+["components.nav.Nav.NavItemWidget","w507",0,0,0,0],
+["components.nav.Nav.NavItemWidget","w508",0,0,0,0],
+["components.nav.Nav.NavItemWidget","w509",0,0,0,0]],
+["components.nav.Nav.NavItemWidget","w510",0,0,0,0,
+["components.nav.Nav.NavItemWidget","w511",0,0,0,0],
+["components.nav.Nav.NavItemWidget","w512",0,0,0,0],
+["components.nav.Nav.NavItemWidget","w513",0,0,0,0],
+["components.nav.Nav.NavItemWidget","w514",0,0,0,0],
+["components.nav.Nav.NavItemWidget","w515",0,0,0,0],
+["components.nav.Nav.NavItemWidget","w516",0,0,0,0],
+["components.nav.Nav.NavItemWidget","w517",0,0,0,0]],
+["components.nav.Nav.NavItemWidget","w518",0,0,0,0,
+["components.nav.Nav.NavItemWidget","w519",0,0,0,0],
+["components.nav.Nav.NavItemWidget","w520",0,0,0,0],
+["components.nav.Nav.NavItemWidget","w521",0,0,0,0],
+["components.nav.Nav.NavItemWidget","w522",0,0,0,0],
+["components.nav.Nav.NavItemWidget","w523",0,0,0,0]],
+["components.editors.CodeEditor.CodeEditorWidget","w524",{"mode":"javascript","autoResize":true,"readOnly":true,"indentUnit":4},0,0,0],
+["components.editors.CodeEditor.CodeEditorWidget","w525",{"mode":"javascript","autoResize":true,"readOnly":true,"indentUnit":4},0,0,0],
+["components.editors.CodeEditor.CodeEditorWidget","w526",{"mode":"javascript","autoResize":true,"readOnly":true,"indentUnit":4},0,0,0],
+["components.editors.CodeEditor.CodeEditorWidget","w527",{"mode":"javascript","autoResize":true,"readOnly":true,"indentUnit":4},0,0,0],
+["components.editors.CodeEditor.CodeEditorWidget","w528",{"mode":"javascript","autoResize":true,"readOnly":true,"indentUnit":4},0,0,0],
+["components.editors.CodeEditor.CodeEditorWidget","w529",{"mode":"javascript","autoResize":true,"readOnly":true,"indentUnit":4},0,0,0],
+["components.editors.CodeEditor.CodeEditorWidget","w530",{"mode":"javascript","autoResize":true,"readOnly":true,"indentUnit":4},0,0,0],
+["components.editors.CodeEditor.CodeEditorWidget","w531",{"mode":"javascript","autoResize":true,"readOnly":true,"indentUnit":4},0,0,0],
+["components.editors.CodeEditor.CodeEditorWidget","w532",{"mode":"javascript","autoResize":true,"readOnly":true,"indentUnit":4},0,0,0],
+["components.editors.CodeEditor.CodeEditorWidget","w533",{"mode":"javascript","autoResize":true,"readOnly":true,"indentUnit":4},0,0,0],
+["components.editors.CodeEditor.CodeEditorWidget","w534",{"mode":"javascript","autoResize":true,"readOnly":true,"indentUnit":4},0,0,0],
+["components.editors.CodeEditor.CodeEditorWidget","w535",{"mode":"javascript","autoResize":true,"readOnly":true,"indentUnit":4},0,0,0],
+["components.editors.CodeEditor.CodeEditorWidget","w536",{"mode":"javascript","autoResize":true,"readOnly":true,"indentUnit":4},0,0,0],
+["components.editors.CodeEditor.CodeEditorWidget","w537",{"mode":"javascript","autoResize":true,"readOnly":true,"indentUnit":4},0,0,0],
+["components.editors.CodeEditor.CodeEditorWidget","w538",{"mode":"javascript","autoResize":true,"readOnly":true,"indentUnit":4},0,0,0],
+["components.social.Disqus.DisqusWidget","disqus_thread",{"shortName":"raptor-js","id":"modules-developer-guide","title":"Getting Started with Modules, Classes, Mixins and Enums"},0,0,0]);</script></body></html>

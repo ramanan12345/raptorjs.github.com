@@ -3,7 +3,7 @@
 <link rel="stylesheet" type="text/css" href="../../static/code-editor-f1386401.css"><script type="text/javascript">var
 _gaq=_gaq||[];_gaq.push(["_setAccount","UA-33982282-1"]);_gaq.push(["_trackPageview"]);(function(){var
 a=document.createElement("script");a.type="text/javascript";a.async=!0;a.src=("https:"==document.location.protocol?"https://ssl":"http://www")+".google-analytics.com/ga.js";var
-b=document.getElementsByTagName("script")[0];b.parentNode.insertBefore(a,b)})();</script></head><body><div class="navbar navbar-fixed-top"><div class="navbar-inner"><div class="container"><a class="brand" href="../../">RaptorJS</a><ul class="nav"><li class="divider-vertical"></li><li id="s727"><a href="../../get-started/">Get Started</a></li><li class="divider-vertical"></li><li id="s728" class="dropdown"><a data-toggle="dropdown" class="dropdown-toggle">Learn<b class="caret"></b></a><ul class="dropdown-menu"><li id="s729"><a href="../../">Overview</a></li><li id="s730"><a href="../../get-started/">Get Started</a></li><li id="s731"><a href="../../tutorial/">Tutorial</a></li><li id="s732"><a href="../../api/">API Reference</a></li><li id="s733"><a href="../../faq/">FAQ</a></li><li class="divider"></li><li id="s734"><a href="../../modules-classes/">Modules and Classes</a></li><li id="s735"><a href="../../packaging/">Packaging and Extensions</a></li><li id="s736"><a href="../../module-loader/">Module Loader</a></li><li id="s737"><a href="../../optimizer/">Optimizer</a></li><li id="s738"><a href="../../raptor-templates/">Raptor Templates</a></li><li id="s739"><a href="../../widgets/">Widget Framework</a></li><li id="s740"><a href="../../logging/">Logging</a></li><li id="s741"><a href="../../resource-search-path/">Resource Search Path</a></li><li id="s742"><a href="../../cross-environment/">Cross Environment Support</a></li></ul></li><li class="divider-vertical"></li><li id="s743" class="dropdown"><a data-toggle="dropdown" class="dropdown-toggle">Community<b class="caret"></b></a><ul class="dropdown-menu"><li id="s744"><a href="https://github.com/raptorjs/raptorjs">Source code</a></li><li id="s745"><a href="https://github.com/raptorjs/raptorjs/issues">Issue Tracker</a></li><li id="s746"><a href="../../contribute/">Contribute</a></li><li id="s747"><a href="../../contributors/">Contributors</a></li><li class="divider"></li><li id="s748"><a href="http://groups.google.com/group/raptorjs">Discussion Forum</a></li><li class="divider"></li><li id="s749"><a href="http://twitter.com/raptorjs">Twitter (@raptorjs)</a></li><li id="s750"><a href="http://twitter.com/raptorjs">Google+</a></li></ul></li><li class="divider-vertical"></li><li id="s751" class="dropdown"><a data-toggle="dropdown" class="dropdown-toggle">About<b class="caret"></b></a><ul class="dropdown-menu"><li id="s752"><a href="https://github.com/raptorjs/raptorjs/wiki/Release-Notes">Release Notes</a></li><li id="s753"><a href="../../design-philosophy/">Design Philosophy</a></li><li id="s754"><a href="../../license/">License</a></li><li id="s755"><a href="../../credits/">Credits</a></li><li id="s756"><a href="../../creators/">Creators</a></li></ul></li><li class="divider-vertical"></li></ul></div></div></div><div class="container"><div class="docs"><div class="bd"><div class="docs-content"><h1 id="title">RaptorJS Optmizer: Get Started with the Optimizer Taglib</h1><div class="toc nav" id="docsNav"><ul class="toc"><li class="toc toc-level-0"><a href="#Overview">Overview</a><ul class="toc"></ul></li><li class="toc toc-level-0"><a href="#Sample_Code">Sample Code</a><ul class="toc"></ul></li><li class="toc toc-level-0"><a href="#Creating_a_Package">Creating a Package</a><ul class="toc"><li class="toc toc-level-1"><a href="#Module_Directories">Module Directories</a><ul class="toc"></ul></li><li class="toc toc-level-1"><a href="#Package_File_Format">Package File Format</a><ul class="toc"></ul></li></ul></li><li class="toc toc-level-0"><a href="#Optimizing_a_Page_using_the_Optimizer_Taglib">Optimizing a Page using the Optimizer Taglib</a><ul class="toc"><li class="toc toc-level-1"><a href="#Example_Setup">Example Setup</a><ul class="toc"></ul></li><li class="toc toc-level-1"><a href="#Rendering_and_Optimizing_the_Page">Rendering and Optimizing the Page</a><ul class="toc"></ul></li></ul></li><li class="toc toc-level-0"><a href="#Configuring_the_Optimizer">Configuring the Optimizer</a><ul class="toc"><li class="toc toc-level-1"><a href="#Loading_a_Configuration">Loading a Configuration</a><ul class="toc"></ul></li><li class="toc toc-level-1"><a href="#XML_Configuration_File">XML Configuration File</a><ul class="toc"></ul></li><li class="toc toc-level-1"><a href="#variables">XML Configuration Variables</a><ul class="toc"></ul></li></ul></li><li class="toc toc-level-0"><a href="#Discussion">Discussion</a><ul class="toc"></ul></li></ul><div class="docs-nav-footer"><ul><li><span class="powered-by">Powered by <a href="../../" class="raptorjs">RaptorJS</a></span></li><li><a href="../../license/">License</a></li><li><a href="../../credits/">Credits</a></li></ul></div></div><div class="message message-warning"><div class="icon"><i class="icon-warning-sign" style="font-size: 30px;"></i></div><div class="bd">Documentation In-Progress</div></div><div class="section section-level-0"><h2 id="Overview">Overview</h2><div class="bd"><p>Once you have <a href="../../get-started/">Node up-and-running</a>, you can then very quickly start using the RaptorJS Optimizer to generate
+b=document.getElementsByTagName("script")[0];b.parentNode.insertBefore(a,b)})();</script></head><body><div class="navbar navbar-fixed-top"><div class="navbar-inner"><div class="container"><a class="brand" href="../../">RaptorJS</a><ul class="nav"><li class="divider-vertical"></li><li id="w727"><a href="../../get-started/">Get Started</a></li><li class="divider-vertical"></li><li id="w728" class="dropdown"><a data-toggle="dropdown" class="dropdown-toggle">Learn<b class="caret"></b></a><ul class="dropdown-menu"><li id="w729"><a href="../../">Overview</a></li><li id="w730"><a href="../../get-started/">Get Started</a></li><li id="w731"><a href="../../tutorial/">Tutorial</a></li><li id="w732"><a href="../../api/">API Reference</a></li><li id="w733"><a href="../../faq/">FAQ</a></li><li class="divider"></li><li id="w734"><a href="../../modules-classes/">Modules and Classes</a></li><li id="w735"><a href="../../packaging/">Packaging and Extensions</a></li><li id="w736"><a href="../../module-loader/">Module Loader</a></li><li id="w737"><a href="../../optimizer/">Optimizer</a></li><li id="w738"><a href="../../raptor-templates/">Raptor Templates</a></li><li id="w739"><a href="../../widgets/">Widget Framework</a></li><li id="w740"><a href="../../logging/">Logging</a></li><li id="w741"><a href="../../resource-search-path/">Resource Search Path</a></li><li id="w742"><a href="../../cross-environment/">Cross Environment Support</a></li></ul></li><li class="divider-vertical"></li><li id="w743" class="dropdown"><a data-toggle="dropdown" class="dropdown-toggle">Community<b class="caret"></b></a><ul class="dropdown-menu"><li id="w744"><a href="https://github.com/raptorjs/raptorjs">Source code</a></li><li id="w745"><a href="https://github.com/raptorjs/raptorjs/issues">Issue Tracker</a></li><li id="w746"><a href="../../contribute/">Contribute</a></li><li id="w747"><a href="../../contributors/">Contributors</a></li><li class="divider"></li><li id="w748"><a href="http://groups.google.com/group/raptorjs">Discussion Forum</a></li><li class="divider"></li><li id="w749"><a href="http://twitter.com/raptorjs">Twitter (@raptorjs)</a></li><li id="w750"><a href="http://twitter.com/raptorjs">Google+</a></li></ul></li><li class="divider-vertical"></li><li id="w751" class="dropdown"><a data-toggle="dropdown" class="dropdown-toggle">About<b class="caret"></b></a><ul class="dropdown-menu"><li id="w752"><a href="https://github.com/raptorjs/raptorjs/wiki/Release-Notes">Release Notes</a></li><li id="w753"><a href="../../design-philosophy/">Design Philosophy</a></li><li id="w754"><a href="../../license/">License</a></li><li id="w755"><a href="../../credits/">Credits</a></li><li id="w756"><a href="../../creators/">Creators</a></li></ul></li><li class="divider-vertical"></li></ul></div></div></div><div class="container"><div class="docs"><div class="bd"><div class="docs-content"><h1 id="title">RaptorJS Optmizer: Get Started with the Optimizer Taglib</h1><div class="toc nav" id="docsNav"><ul class="toc"><li class="toc toc-level-0"><a href="#Overview">Overview</a><ul class="toc"></ul></li><li class="toc toc-level-0"><a href="#Sample_Code">Sample Code</a><ul class="toc"></ul></li><li class="toc toc-level-0"><a href="#Creating_a_Package">Creating a Package</a><ul class="toc"><li class="toc toc-level-1"><a href="#Module_Directories">Module Directories</a><ul class="toc"></ul></li><li class="toc toc-level-1"><a href="#Package_File_Format">Package File Format</a><ul class="toc"></ul></li></ul></li><li class="toc toc-level-0"><a href="#Optimizing_a_Page_using_the_Optimizer_Taglib">Optimizing a Page using the Optimizer Taglib</a><ul class="toc"><li class="toc toc-level-1"><a href="#Example_Setup">Example Setup</a><ul class="toc"></ul></li><li class="toc toc-level-1"><a href="#Rendering_and_Optimizing_the_Page">Rendering and Optimizing the Page</a><ul class="toc"></ul></li></ul></li><li class="toc toc-level-0"><a href="#Configuring_the_Optimizer">Configuring the Optimizer</a><ul class="toc"><li class="toc toc-level-1"><a href="#Loading_a_Configuration">Loading a Configuration</a><ul class="toc"></ul></li><li class="toc toc-level-1"><a href="#XML_Configuration_File">XML Configuration File</a><ul class="toc"></ul></li><li class="toc toc-level-1"><a href="#variables">XML Configuration Variables</a><ul class="toc"></ul></li></ul></li><li class="toc toc-level-0"><a href="#Discussion">Discussion</a><ul class="toc"></ul></li></ul><div class="docs-nav-footer"><ul><li><span class="powered-by">Powered by <a href="../../" class="raptorjs">RaptorJS</a></span></li><li><a href="../../license/">License</a></li><li><a href="../../credits/">Credits</a></li></ul></div></div><div class="message message-warning"><div class="icon"><i class="icon-warning-sign" style="font-size: 30px;"></i></div><div class="bd">Documentation In-Progress</div></div><div class="section section-level-0"><h2 id="Overview">Overview</h2><div class="bd"><p>Once you have <a href="../../get-started/">Node up-and-running</a>, you can then very quickly start using the RaptorJS Optimizer to generate
 optimized JavaScript and CSS bundles, as well as the HTML markup that is needed
 to include those bundles in your web pages. RaptorJS comes bundled with a
 <code><nobr>raptor-optimizer</nobr></code> executable file that can be used to optimize applications from the command
@@ -35,11 +35,11 @@ example, the corresponding
 location:
 <code><nobr>&lt;modules-dir>/test/hello/package.json</nobr></code>. In order for the RaptorJS Optimizer to be able to find your modules, you need
 to add the root directory containing your modules to the
-<a href="../../resource-search-path/"><nobr>RaptorJS Resource Search Path</nobr></a> as shown in the following code:</p><div class="code-editor" id="s757"> <textarea id="s757-textarea" style="display: none;" name="code-56">require('raptor/resources').addSearchPathDir("/path/to/modules");</textarea></div></div></div><div class="section section-level-1"><h2 id="Package_File_Format">Package File Format</h2><div class="bd"><p>At a minimum, a package needs to describe what is included in the package. This
+<a href="../../resource-search-path/"><nobr>RaptorJS Resource Search Path</nobr></a> as shown in the following code:</p><div class="code-editor" id="w757"> <textarea id="w757-textarea" style="display: none;" name="code-56">require('raptor/resources').addSearchPathDir("/path/to/modules");</textarea></div></div></div><div class="section section-level-1"><h2 id="Package_File_Format">Package File Format</h2><div class="bd"><p>At a minimum, a package needs to describe what is included in the package. This
 is done by adding a "raptor" » "dependencies" property to a package.json file
 that is an array of resources that should be included as part of the package. A
 simple
-<code>package.json</code> is shown below:</p><div class="code-editor" id="s758"> <textarea id="s758-textarea" style="display: none;" name="code-57">{
+<code>package.json</code> is shown below:</p><div class="code-editor" id="w758"> <textarea id="w758-textarea" style="display: none;" name="code-57">{
     "raptor": {
         "dependencies": [
             "my-widget.js",
@@ -55,7 +55,7 @@ into either JavaScript or CSS (such as
 treated as paths relative to the location of the containing
 <code>package.json</code> file. Paths that are prefixed with a forward slash are treated as relative to
 at least one of the resource search path entries defined for your
-application.</p><p>In addition to declaring which resources are included as part of a package, a <code>package.json</code> file can also declare that it depends on another module (i.e., another <code>package.json</code> file). A module dependency can be added using adding <code>{ "module": "&lt;module-name>" }</code> entries as shown in the following example:</p><div class="code-editor" id="s759"> <textarea id="s759-textarea" style="display: none;" name="code-58">{
+application.</p><p>In addition to declaring which resources are included as part of a package, a <code>package.json</code> file can also declare that it depends on another module (i.e., another <code>package.json</code> file). A module dependency can be added using adding <code>{ "module": "&lt;module-name>" }</code> entries as shown in the following example:</p><div class="code-editor" id="w759"> <textarea id="w759-textarea" style="display: none;" name="code-58">{
     "raptor": {
         "dependencies": [
             { "module": "widgets" },
@@ -80,7 +80,7 @@ INFO optimizer.BundlesFileWriter: Writing bundle file to "static/test-page-head-
 Writing optimized page HTML to "test-page.html"...</pre><p>The optimized output page HTML is then written to the root directory as
 "test-page.html". The contents of this generated file will be similar to the
 following (formatted for
-clarity):</p><div class="code-editor" id="s760"> <textarea id="s760-textarea" style="display: none;" name="code-59">&lt;html>
+clarity):</p><div class="code-editor" id="w760"> <textarea id="w760-textarea" style="display: none;" name="code-59">&lt;html>
     &lt;head>
         &lt;title>RaptorJS Optimizer Taglib: Hello World&lt;/title>
         &lt;link rel="stylesheet" type="text/css" href="static/test-page-head-bf4cf798.css">
@@ -98,11 +98,11 @@ easily switch between different configurations for development, production,
 etc. The RaptorJS Optimizer supports an XML configuration file that makes it
 easy to enable or disable minification, to control how modules are bundled, to
 control how resource URLs are generated,
-etc.</p><div class="section section-level-1"><h2 id="Loading_a_Configuration">Loading a Configuration</h2><div class="bd"><p>An optimizer configuration file can be loaded in a number of ways.</p><ul><li><b>From the command line</b>: The optimizer CLI supports a <code>--config</code> option that can be used to load an optimizer configuration file. <pre class="sh" style="clear: both;">$ raptor-optimizer --config path/to/optimizer-config.xml profile=production...</pre><div class="message message-info"><div class="icon"><i class="icon-info-sign" style="font-size: 30px;"></i></div><div class="bd"><p>NOTE: Any options that are not prefixed with <code>-</code> or <code>--</code> are treated as variables in the XML configuration file (see <a href="#variables">XML Configuration Variables</a> below).</p></div></div></li><li><b>In JavaScript</b>: The default optimizer can be configured using the following JavaScript code: <div class="code-editor" id="s761"> <textarea id="s761-textarea" style="display: none;" name="code-60">require('raptor/optimizer').configure('path/to/optimizer-config.xml', {
+etc.</p><div class="section section-level-1"><h2 id="Loading_a_Configuration">Loading a Configuration</h2><div class="bd"><p>An optimizer configuration file can be loaded in a number of ways.</p><ul><li><b>From the command line</b>: The optimizer CLI supports a <code>--config</code> option that can be used to load an optimizer configuration file. <pre class="sh" style="clear: both;">$ raptor-optimizer --config path/to/optimizer-config.xml profile=production...</pre><div class="message message-info"><div class="icon"><i class="icon-info-sign" style="font-size: 30px;"></i></div><div class="bd"><p>NOTE: Any options that are not prefixed with <code>-</code> or <code>--</code> are treated as variables in the XML configuration file (see <a href="#variables">XML Configuration Variables</a> below).</p></div></div></li><li><b>In JavaScript</b>: The default optimizer can be configured using the following JavaScript code: <div class="code-editor" id="w761"> <textarea id="w761-textarea" style="display: none;" name="code-60">require('raptor/optimizer').configure('path/to/optimizer-config.xml', {
     profile: "production"
 })</textarea></div><div class="message message-info"><div class="icon"><i class="icon-info-sign" style="font-size: 30px;"></i></div><div class="bd"><p>NOTE: The properties of the second argument can be used as variables in the XML
 configuration file (see
-<a href="#variables">XML Configuration Variables</a> below).</p></div></div></li></ul></div></div><div class="section section-level-1"><h2 id="XML_Configuration_File">XML Configuration File</h2><div class="bd"><p>A simple configuration file is shown below:</p><div class="code-editor" id="s762"> <textarea id="s762-textarea" style="display: none;" name="code-61">&lt;optimizer-config>
+<a href="#variables">XML Configuration Variables</a> below).</p></div></div></li></ul></div></div><div class="section section-level-1"><h2 id="XML_Configuration_File">XML Configuration File</h2><div class="bd"><p>A simple configuration file is shown below:</p><div class="code-editor" id="w762"> <textarea id="w762-textarea" style="display: none;" name="code-61">&lt;optimizer-config>
 
     &lt;minify-js>${minify}&lt;/minify-js>
     &lt;output-dir>static&lt;/output-dir>
@@ -126,7 +126,7 @@ configuration file (see
 
     &lt;/bundles>
     
-&lt;/optimizer-config></textarea></div><p>A slightly more complex example with profiles and variables is shown below:</p><div class="code-editor" id="s763"> <textarea id="s763-textarea" style="display: none;" name="code-62">&lt;optimizer-config>
+&lt;/optimizer-config></textarea></div><p>A slightly more complex example with profiles and variables is shown below:</p><div class="code-editor" id="w763"> <textarea id="w763-textarea" style="display: none;" name="code-62">&lt;optimizer-config>
 
     &lt;output-dir>static&lt;/output-dir>
 
@@ -193,7 +193,7 @@ name</li><li><b>Output directory</b>: Tell the optimizer where to write bundles 
 size</li></ul><p>For a full list of configuration options that are supported, please see the <a href="../../optimizer/developer-guide/">RaptorJS Optimizer Developer Guide. </a></p></div></div><div class="section section-level-1"><h2 id="variables">XML Configuration Variables</h2><div class="bd"><p>Variables can be used insde the XML configuration file using the
 ${&lt;variable-name>} syntax. Variables can be used in place of hard coded
 values to make the configuration more dynamic. For
-example:</p><div class="code-editor" id="s764"> <textarea id="s764-textarea" style="display: none;" name="code-63">&lt;optimizer-config>
+example:</p><div class="code-editor" id="w764"> <textarea id="w764-textarea" style="display: none;" name="code-63">&lt;optimizer-config>
     ...
     &lt;enable-profile>${profile}&lt;/enable-profile>
     &lt;profile name="production">
@@ -208,47 +208,47 @@ example:</p><div class="code-editor" id="s764"> <textarea id="s764-textarea" sty
     &lt;/profile>
 
     ...
-&lt;/optimizer-config></textarea></div><p>In the above example, a variable is used to control which profile gets enabled.</p></div></div></div></div><div class="section section-level-0"><h2 id="Discussion">Discussion</h2><div class="bd"><div id="disqus_thread"></div></div></div></div></div><div class="docs-footer-padding"></div></div></div><script type="text/javascript" src="../../static/core-473124cf.js"></script>
+&lt;/optimizer-config></textarea></div><p>In the above example, a variable is used to control which profile gets enabled.</p></div></div></div></div><div class="section section-level-0"><h2 id="Discussion">Discussion</h2><div class="bd"><div id="disqus_thread"></div></div></div></div></div><div class="docs-footer-padding"></div></div></div><script type="text/javascript" src="../../static/core-338d88bf.js"></script>
 <script type="text/javascript" src="../../static/jquery-371da524.js"></script>
-<script type="text/javascript" src="../../static/widgets-6666ff75.js"></script>
+<script type="text/javascript" src="../../static/widgets-db399b88.js"></script>
 <script type="text/javascript" src="../../static/optimizer-get-started-raptor-templates-de31a680.js"></script>
 <script type="text/javascript" src="../../static/code-editor-78c7d3ab.js"></script><script type="text/javascript">$rwidgets(
-["components.nav.Nav.NavItemWidget","s727",0,0,0,0],
-["components.nav.Nav.NavItemWidget","s728",0,0,0,0,
-["components.nav.Nav.NavItemWidget","s729",0,0,0,0],
-["components.nav.Nav.NavItemWidget","s730",0,0,0,0],
-["components.nav.Nav.NavItemWidget","s731",0,0,0,0],
-["components.nav.Nav.NavItemWidget","s732",0,0,0,0],
-["components.nav.Nav.NavItemWidget","s733",0,0,0,0],
-["components.nav.Nav.NavItemWidget","s734",0,0,0,0],
-["components.nav.Nav.NavItemWidget","s735",0,0,0,0],
-["components.nav.Nav.NavItemWidget","s736",0,0,0,0],
-["components.nav.Nav.NavItemWidget","s737",0,0,0,0],
-["components.nav.Nav.NavItemWidget","s738",0,0,0,0],
-["components.nav.Nav.NavItemWidget","s739",0,0,0,0],
-["components.nav.Nav.NavItemWidget","s740",0,0,0,0],
-["components.nav.Nav.NavItemWidget","s741",0,0,0,0],
-["components.nav.Nav.NavItemWidget","s742",0,0,0,0]],
-["components.nav.Nav.NavItemWidget","s743",0,0,0,0,
-["components.nav.Nav.NavItemWidget","s744",0,0,0,0],
-["components.nav.Nav.NavItemWidget","s745",0,0,0,0],
-["components.nav.Nav.NavItemWidget","s746",0,0,0,0],
-["components.nav.Nav.NavItemWidget","s747",0,0,0,0],
-["components.nav.Nav.NavItemWidget","s748",0,0,0,0],
-["components.nav.Nav.NavItemWidget","s749",0,0,0,0],
-["components.nav.Nav.NavItemWidget","s750",0,0,0,0]],
-["components.nav.Nav.NavItemWidget","s751",0,0,0,0,
-["components.nav.Nav.NavItemWidget","s752",0,0,0,0],
-["components.nav.Nav.NavItemWidget","s753",0,0,0,0],
-["components.nav.Nav.NavItemWidget","s754",0,0,0,0],
-["components.nav.Nav.NavItemWidget","s755",0,0,0,0],
-["components.nav.Nav.NavItemWidget","s756",0,0,0,0]],
-["components.editors.CodeEditor.CodeEditorWidget","s757",0,0,{"mode":"javascript","autoResize":true,"readOnly":true},0],
-["components.editors.CodeEditor.CodeEditorWidget","s758",0,0,{"mode":"javascript","autoResize":true,"readOnly":true},0],
-["components.editors.CodeEditor.CodeEditorWidget","s759",0,0,{"mode":"javascript","autoResize":true,"readOnly":true},0],
-["components.editors.CodeEditor.CodeEditorWidget","s760",0,0,{"mode":"htmlmixed","autoResize":true,"readOnly":true},0],
-["components.editors.CodeEditor.CodeEditorWidget","s761",0,0,{"mode":"javascript","autoResize":true,"readOnly":true},0],
-["components.editors.CodeEditor.CodeEditorWidget","s762",0,0,{"mode":"xml","autoResize":true,"readOnly":true},0],
-["components.editors.CodeEditor.CodeEditorWidget","s763",0,0,{"mode":"xml","autoResize":true,"readOnly":true},0],
-["components.editors.CodeEditor.CodeEditorWidget","s764",0,0,{"mode":"xml","autoResize":true,"readOnly":true},0],
-["components.social.Disqus.DisqusWidget","disqus_thread",0,0,{"shortName":"raptor-js","id":"optimizer-get-started-raptor-templates","title":"RaptorJS Optmizer: Get Started with the Optimizer Taglib"},0]);</script></body></html>
+["components.nav.Nav.NavItemWidget","w727",0,0,0,0],
+["components.nav.Nav.NavItemWidget","w728",0,0,0,0,
+["components.nav.Nav.NavItemWidget","w729",0,0,0,0],
+["components.nav.Nav.NavItemWidget","w730",0,0,0,0],
+["components.nav.Nav.NavItemWidget","w731",0,0,0,0],
+["components.nav.Nav.NavItemWidget","w732",0,0,0,0],
+["components.nav.Nav.NavItemWidget","w733",0,0,0,0],
+["components.nav.Nav.NavItemWidget","w734",0,0,0,0],
+["components.nav.Nav.NavItemWidget","w735",0,0,0,0],
+["components.nav.Nav.NavItemWidget","w736",0,0,0,0],
+["components.nav.Nav.NavItemWidget","w737",0,0,0,0],
+["components.nav.Nav.NavItemWidget","w738",0,0,0,0],
+["components.nav.Nav.NavItemWidget","w739",0,0,0,0],
+["components.nav.Nav.NavItemWidget","w740",0,0,0,0],
+["components.nav.Nav.NavItemWidget","w741",0,0,0,0],
+["components.nav.Nav.NavItemWidget","w742",0,0,0,0]],
+["components.nav.Nav.NavItemWidget","w743",0,0,0,0,
+["components.nav.Nav.NavItemWidget","w744",0,0,0,0],
+["components.nav.Nav.NavItemWidget","w745",0,0,0,0],
+["components.nav.Nav.NavItemWidget","w746",0,0,0,0],
+["components.nav.Nav.NavItemWidget","w747",0,0,0,0],
+["components.nav.Nav.NavItemWidget","w748",0,0,0,0],
+["components.nav.Nav.NavItemWidget","w749",0,0,0,0],
+["components.nav.Nav.NavItemWidget","w750",0,0,0,0]],
+["components.nav.Nav.NavItemWidget","w751",0,0,0,0,
+["components.nav.Nav.NavItemWidget","w752",0,0,0,0],
+["components.nav.Nav.NavItemWidget","w753",0,0,0,0],
+["components.nav.Nav.NavItemWidget","w754",0,0,0,0],
+["components.nav.Nav.NavItemWidget","w755",0,0,0,0],
+["components.nav.Nav.NavItemWidget","w756",0,0,0,0]],
+["components.editors.CodeEditor.CodeEditorWidget","w757",{"mode":"javascript","autoResize":true,"readOnly":true},0,0,0],
+["components.editors.CodeEditor.CodeEditorWidget","w758",{"mode":"javascript","autoResize":true,"readOnly":true},0,0,0],
+["components.editors.CodeEditor.CodeEditorWidget","w759",{"mode":"javascript","autoResize":true,"readOnly":true},0,0,0],
+["components.editors.CodeEditor.CodeEditorWidget","w760",{"mode":"htmlmixed","autoResize":true,"readOnly":true},0,0,0],
+["components.editors.CodeEditor.CodeEditorWidget","w761",{"mode":"javascript","autoResize":true,"readOnly":true},0,0,0],
+["components.editors.CodeEditor.CodeEditorWidget","w762",{"mode":"xml","autoResize":true,"readOnly":true},0,0,0],
+["components.editors.CodeEditor.CodeEditorWidget","w763",{"mode":"xml","autoResize":true,"readOnly":true},0,0,0],
+["components.editors.CodeEditor.CodeEditorWidget","w764",{"mode":"xml","autoResize":true,"readOnly":true},0,0,0],
+["components.social.Disqus.DisqusWidget","disqus_thread",{"shortName":"raptor-js","id":"optimizer-get-started-raptor-templates","title":"RaptorJS Optmizer: Get Started with the Optimizer Taglib"},0,0,0]);</script></body></html>

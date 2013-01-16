@@ -41,7 +41,7 @@ define(
                     arrays.pop(sectionStack);
                 }
                 
-                var disqusId = input['disqus-id'];
+                var disqusId = input.disqusId;
                 var sb = strings.createStringBuilder();
                 context.swapWriter(
                     sb,
@@ -64,9 +64,9 @@ define(
                     heading: input.heading,
                     content: sb.toString(),
                     rootSection: rootSection,
-                    returnLabel: input['return-label'],
-                    returnHref: input['return-href'],
-                    disqusId: input['disqus-id']
+                    returnLabel: input.returnLabel,
+                    returnHref: input.returnHref,
+                    disqusId: input.disqusId
                 }, context);
             }
         };

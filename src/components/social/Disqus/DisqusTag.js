@@ -9,7 +9,7 @@ define(
         DisqusTag.prototype = {
             process: function(input, context) {
                 var widgetConfig = {
-                    shortName: input['short-name']
+                    shortName: input.shortName
                 };
                 
                 if (input.id) {
