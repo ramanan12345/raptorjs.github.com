@@ -77,7 +77,6 @@ define(
                 require('raptor/templating').render('components/editors/CodeEditor', {
                     tag: input, 
                     widgetConfig: widgetConfig,
-                    widgetArgs: input.widgetArgs,
                     textareaAttrs: textareaAttrs,
                     title: input.title,
                     bodyText: bodyText

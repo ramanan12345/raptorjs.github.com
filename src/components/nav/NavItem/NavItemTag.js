@@ -65,8 +65,7 @@ define(
                 require('raptor/templating').render('components/nav/NavItem', {
                         nav: nav,
                         navItem: input,
-                        isDropdownMenu: isDropdownMenu,
-                        widgetArgs: input.widgetArgs
+                        isDropdownMenu: isDropdownMenu
                     },
                     context);
             }

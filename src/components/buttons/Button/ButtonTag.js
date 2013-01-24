@@ -50,7 +50,6 @@ define(
                     tag: input, 
                     label: input.label,
                     rootAttrs: rootAttrs,
-                    widgetArgs: input.widgetArgs,
                     widgetConfig: widgetConfig,
                     isDropdown: input.dropdown === true,
                     href: input.href

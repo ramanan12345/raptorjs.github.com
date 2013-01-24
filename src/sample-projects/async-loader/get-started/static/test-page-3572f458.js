@@ -1150,6 +1150,8 @@ if (!String.prototype.trim || ws.trim()) {
 }());
 
 (function() {
+    /*jshint strict:false */
+
     var raptor, //The "raptor" module being created
         defs = {}, //Registered module definitions are added to this object
         getOrCreateDef = function(id) { //Returns the module definition entry for the given ID or creates one of one does not exist
@@ -1464,15 +1466,13 @@ if (!String.prototype.trim || ws.trim()) {
 
             if (isExtend) { //If define.extend then we need to register a "post create" function to modify the target module
                 postCreate = function(target) {
-                    if (isFunction(target)) {
-                        target = target.prototype;
-                    }
-                    
                     if (isFunction(factory)) {
                         factory = factory.apply(raptor, _gather().concat([require, target]));
                     }
                     
-                    extend(target, factory);
+                    if (factory) {
+                        extend(isFunction(target) ? target.prototype : target, factory);
+                    }
                 };
             }
             else {
@@ -1508,7 +1508,7 @@ if (!String.prototype.trim || ws.trim()) {
                                         _ordinal: count++,
                                         _name: name
                                     });
-                            }
+                            };
 
                         if (isArray(enumValues)) {
                             forEach(enumValues, function(name) {
@@ -1539,7 +1539,7 @@ if (!String.prototype.trim || ws.trim()) {
                         }
 
                         return EnumClass;
-                    }
+                    };
                 }
 
 
@@ -1548,7 +1548,7 @@ if (!String.prototype.trim || ws.trim()) {
                 finalFactory = isFunction(factory) ?
                     function() {
                         var result = factory.apply(raptor, _gather().concat([require, exports, module]));
-                        return result == undefined ? module.exports : result;
+                        return result === undefined ? module.exports : result;
                     } :
                     factory;
             }
@@ -1684,6 +1684,8 @@ if (!String.prototype.trim || ws.trim()) {
     var _global;
 
     if (typeof window != 'undefined') {
+        /*global require:true */
+
         _global = window;
         
         var defineRequire = defineProps.require = function(id, baseName) {

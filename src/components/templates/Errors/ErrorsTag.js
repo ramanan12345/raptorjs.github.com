@@ -11,8 +11,7 @@ define(
                 var widgetConfig = {};
                 
                 require('raptor/templating').render('components/templates/Errors', {
-                    widgetConfig: widgetConfig,
-                    widgetArgs: input.widgetArgs
+                    widgetConfig: widgetConfig
                 }, context);
             }
         };
