@@ -43,7 +43,11 @@ define(
 
                 var bodyText = '';
 
-                if (input.invokeBody) {
+                if (input.resource) {
+                    var resource = require('raptor/resources').findResource(input.resource);
+                    bodyText = resource.readAsString();
+                }
+                else if (input.invokeBody) {
                     bodyText = context.captureString(function() {
                         input.invokeBody();
                     }, this);

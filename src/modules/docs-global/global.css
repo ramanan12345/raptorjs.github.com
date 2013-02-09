@@ -13,6 +13,20 @@ PRE.code, PRE.sh {
     text-shadow: none;
 }
 
+CODE {
+    background-color: #EEEEEE;
+    border-radius: 3px 3px 3px 3px;
+    padding: 1px;
+    padding-left: 3px;
+    padding-right: 3px;
+    color: #000;
+}
+
+PRE, CODE {
+    font: 13px/16px "source-code-pro",Consolas,monospace;
+    word-spacing: 0;
+}
+
 .feature-portal-top {
     margin-top: 60px;
     margin-bottom: 15px;

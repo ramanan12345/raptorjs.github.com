@@ -25,13 +25,13 @@ define(
                 
                 
                 
-                if (input.dymamicAttributes) {
-                    var className = input.dymamicAttributes["class"];
+                if (input.dynamicAttributes) {
+                    var className = input.dynamicAttributes["class"];
                     if (className) {
-                        delete input.dymamicAttributes["class"];
+                        delete input.dynamicAttributes["class"];
                         classParts.push(className);
                     }
-                    raptor.extend(rootAttrs, input.dymamicAttributes);
+                    raptor.extend(rootAttrs, input.dynamicAttributes);
                 }
                 
                 rootAttrs["class"] = classParts.join(" ");

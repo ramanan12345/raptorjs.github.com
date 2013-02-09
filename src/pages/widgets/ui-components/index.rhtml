@@ -1,0 +1,82 @@
+<c:template
+    xmlns:c="core"
+    xmlns:html="html"
+    xmlns:optimizer="optimizer"
+    xmlns:w="widgets"
+    xmlns:docs="docs"
+    params="includes,samples"
+    docs:functions="url">
+
+    <optimizer:page name="${data.pageName}" base-path="${data.pageOutputDir}">
+        <dependencies>
+            <module name="docs-global"/>
+            <module name="components/nav/TopNavDefault"/>
+            <module name="components/docs/Docs"/>
+            <module name="components/icons/Icon"/>
+            <css path="index.css"/>
+        </dependencies>
+    </optimizer:page>    
+
+    
+    <html html:doctype="html">
+        <head>
+            <title>RaptorJS: Building UI Components</title>
+            <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+            <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+            <optimizer:slot name="head"/>
+            <docs:google-analytics/>
+        </head>
+        <body>
+            <docs:top-nav/>
+            
+            
+            <div class="container">
+                <docs:docs heading="Building UI Components" disqus-id="ui-components">
+
+                    <docs:section heading="Overview">
+                        <p>
+                            
+                            This guide will walk you through the steps to build UI components that
+                            are independently testable and work in multiple environments)
+                        </p>
+                        <p>
+                            The RaptorJS Widgets Framework does not dictate how a client-side
+                            widget should be implemented and there is no complex class
+                            hierarchy (only a few mixins that get applied to all initialized widgets).
+                            UI components that use <a href="${url('/raptor-templates')}">Raptor Templates</a> to render their view
+                            will benefit from the bindings that are provided for the Raptor 
+                            templating language. Bindings for other templating languages (including JSP) are also supported, but 
+                            this guide will focus on using the Widgets Framework with Raptor Templates.
+                        </p>
+                    </docs:section>
+
+                    <docs:section heading="UI Component Parts">
+                        <p>
+                            For this guide we will be creating a simple UI component that consists of the following:
+                            <ul>
+                                <li><b>Renderer:</b> A JavaScript class that controls the rendering of the UI component</li>
+                                <li><b>HTML Template:</b> A Raptor Template that is used to render the HTML</li>
+                                <li><b>Widget:</b> A JavaScript class that provides the client-side functionality including the following:
+                                    <ul>
+                                        <li>DOM Event Handling</li>
+                                        <li>Widget API Methods</li>
+                                        <li>Event-based Communication</li>
+                                    </ul>
+                                </li>
+                                <li><b>CSS:</b> A CSS file to control the appearance of the rendered component</li>
+                                <li><b>Custom Tag Definition:</b> A Raptor Taglib Definition (RTLD) file that declares what attributes are allowed when the UI component is embedded in a Raptor Template</li>
+                                <li><b>package.json:</b> A pacakge file to control how the UI component is packaged up for delivery to the web browser</li>
+                            </ul>
+                        </p>
+                    </docs:section>
+
+                </docs:docs>
+            </div>
+            
+            <optimizer:slot name="body"/>
+            
+            <w:init-widgets/>
+        </body>
+    </html>
+</c:template>
+

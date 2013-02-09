@@ -9,6 +9,7 @@
         <attribute name="lineNumbers" type="boolean"/>
         <attribute name="indentUnit" type="integer"/>
         <attribute name="title" type="string"/>
+        <attribute name="resource" type="string"/>
         
         <!-- Support widget attributes -->
         <attribute name="id" uri="widgets"/>

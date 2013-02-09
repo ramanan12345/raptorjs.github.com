@@ -8,12 +8,14 @@ require('raptor/logging').configure({
     }
 });
 
+var files = require('raptor/files');
+
 require('raptor/resources').getSearchPath().addDir(__dirname);
+require('raptor/templating/compiler').setWorkDir(files.joinPaths(__dirname, "../work"));
 
 var templating = require('raptor/templating'),
     logger = require('raptor/logging').logger('publish'),
     strings = require('raptor/strings'),
-    files = require('raptor/files'),
     File = require('raptor/files/File'),
     cwd = process.cwd(),
     resolveFile = function(path, basePath) {
@@ -148,7 +150,9 @@ exports.publish = function(config) {
         raptor.extend(config, args);
         
         var publisher = new Publisher(config);
+        var start = new Date().getTime();
         publisher.publish();
+        console.log("Publish time: " + (new Date().getTime() - start) + 'ms');
     }
     catch(e) {
         logger.error("Unable to publish docs. Exception: " + e, e);

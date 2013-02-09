@@ -227,7 +227,7 @@
 			"cmd":
 			[
 				"raptor-jsdoc",
-				"src=node_modules/raptor/lib/raptor/raptor_modules/",
+				"src=node_modules/raptor/lib/",
 				"output-dir=api",
 				"profile=production",
 				"include-filename=true",
@@ -242,7 +242,7 @@
 			"cmd":
 			[
 				"raptor-jsdoc",
-				"src=node_modules/raptor/lib/raptor/raptor_modules/",
+				"src=node_modules/raptor/lib/",
 				"output-dir=api",
 				"profile=development",
 				"include-filename=true",
@@ -300,12 +300,24 @@
 			],
 			"name": "sample-projects/async-loader/get-started-async/publish.js",
 			"working_dir": "${project_path}/src/sample-projects/async-loader/get-started-async"
+		},
+		{
+			"cmd":
+			[
+				"node",
+				"publish.js"
+			],
+			"name": "sample-projects/widgets/get-started/publish.js",
+			"working_dir": "${project_path}/src/sample-projects/widgets/get-started"
 		}
 	],
 	"folders":
 	[
 		{
 			"path": "src"
+		},
+		{
+			"path": "work"
 		},
 		{
 			"path": "/Users/psteeleidem/development/ebay/github/Raptor/RaptorJSOpenSource/lib/raptor"
@@ -346,7 +358,8 @@
 			"Publish (dev) - widgets/developer-guide",
 			"Publish (dev) - widgets/get-started",
 			"Publish to Github",
-			"sample-projects/async-loader/get-started/publish.js"
+			"sample-projects/async-loader/get-started/publish.js",
+			"sample-projects/widgets/get-started/publish.js"
 		]
 	}
 }

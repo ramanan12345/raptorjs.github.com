@@ -1,4 +1,4 @@
-define(
+define.Class(
     "components.social.Disqus.DisqusWidget",
     ['raptor'],
     function(raptor, raptor) {
@@ -16,6 +16,10 @@ define(
             dsq.type = 'text/javascript'; dsq.async = true;
             dsq.src = 'http://' + config.shortName + '.disqus.com/embed.js';
             (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        };
+
+        DisqusWidget.prototype = {
+
         };
 
         return DisqusWidget;

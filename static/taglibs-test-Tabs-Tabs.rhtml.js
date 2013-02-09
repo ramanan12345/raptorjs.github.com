@@ -1,12 +1,12 @@
 $rset("rhtml", "taglibs/test/Tabs", function(helpers) {
-  var empty=helpers.e,
-      notEmpty=helpers.ne,
-      forEach=helpers.f,
-      escapeXmlAttr=helpers.xa,
-      escapeXml=helpers.x;
+  var empty = helpers.e,
+      notEmpty = helpers.ne,
+      forEach = helpers.f,
+      escapeXmlAttr = helpers.xa,
+      escapeXml = helpers.x;
 
   return function(data, context) {
-    var tabs=data.tabs;
+    var tabs = data.tabs;
 
     context.w('<div class="tabs"><ul class="nav nav-tabs">');
 
