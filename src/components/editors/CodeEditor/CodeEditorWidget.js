@@ -1,5 +1,5 @@
 define(
-    "components.editors.CodeEditor.CodeEditorWidget",
+    "components/editors/CodeEditor/CodeEditorWidget",
     ['raptor'],
     function(raptor, raptor) {
         var CodeEditorWidget = function(config) {

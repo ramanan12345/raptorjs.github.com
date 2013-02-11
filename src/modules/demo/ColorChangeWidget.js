@@ -7,7 +7,7 @@ define.Class(
                     curColor = 0;
 
                 var $rootEl = $(this.getEl());
-                // Short-hand: var $rootEl = this.$();
+                // jQuery short-hand: var $rootEl = this.$();
 
                 $rootEl.click(function(e) {
                     var nextColor = colors[(curColor++) % colors.length];
