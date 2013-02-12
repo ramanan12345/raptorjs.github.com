@@ -261,6 +261,33 @@
                                 In the above template, the widget of type <code>WidgetB</code> will be initialized before the
                                 widget of type <code>WidgetA</code> is initialized.
                             </p>
+                            <docs:message type="info">
+                                <p>
+                                    By default, all widgets will not be initialized until the "ondomready" event
+                                    has fired. However, a widget can be configured to initialize immediately
+                                    instead of waiting until the "ondomready" event by setting a property
+                                    on the widget class named "initBeforeOnDomReady" with a value
+                                    of <code>true</code> as shown in the following example code:
+                                </p>
+                                <docs:code-editor 
+                                    mode="javascript"
+                                    readOnly="true" 
+                                    c:parse-body-text="false">
+                                <![CDATA[
+                                define.Class(
+                                    "demo/MyWidget",
+                                    function(require) {
+                                        return {
+                                            initBeforeOnDomReady: true,
+
+                                            init: function(widgetConfig) {
+                                                // ...
+                                            }
+                                        }
+                                    });
+                                ]]>
+                                </docs:code-editor>
+                            </docs:message>
                         </docs:section>
 
                         <docs:section heading="Initializing Server-rendered Widgets" anchor-name="ServerInit">
