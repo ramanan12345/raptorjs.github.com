@@ -3,7 +3,7 @@
 <link rel="stylesheet" type="text/css" href="../../static/code-editor-f1386401.css"><script type="text/javascript">var
 _gaq=_gaq||[];_gaq.push(["_setAccount","UA-33982282-1"]);_gaq.push(["_trackPageview"]);(function(){var
 a=document.createElement("script");a.type="text/javascript";a.async=!0;a.src=("https:"==document.location.protocol?"https://ssl":"http://www")+".google-analytics.com/ga.js";var
-b=document.getElementsByTagName("script")[0];b.parentNode.insertBefore(a,b)})();</script></head><body><div class="navbar navbar-fixed-top"><div class="navbar-inner"><div class="container"><a class="brand" href="../../">RaptorJS</a><ul class="nav"><li class="divider-vertical"></li><li id="w1258"><a href="../../get-started/">Get Started</a></li><li class="divider-vertical"></li><li id="w1259" class="dropdown"><a data-toggle="dropdown" class="dropdown-toggle">Learn<b class="caret"></b></a><ul class="dropdown-menu"><li id="w1260"><a href="../../">Overview</a></li><li id="w1261"><a href="../../get-started/">Get Started</a></li><li id="w1262"><a href="../../tutorial/">Tutorial</a></li><li id="w1263"><a href="../../api/">API Reference</a></li><li id="w1264"><a href="../../faq/">FAQ</a></li><li class="divider"></li><li id="w1265"><a href="../../modules-classes/">Modules and Classes</a></li><li id="w1266"><a href="../../packaging/">Packaging and Extensions</a></li><li id="w1267"><a href="../../module-loader/">Module Loader</a></li><li id="w1268"><a href="../../optimizer/">Optimizer</a></li><li id="w1269"><a href="../../raptor-templates/">Raptor Templates</a></li><li id="w1270"><a href="../../widgets/">Widget Framework</a></li><li id="w1271"><a href="../../logging/">Logging</a></li><li id="w1272"><a href="../../resource-search-path/">Resource Search Path</a></li><li id="w1273"><a href="../../cross-environment/">Cross Environment Support</a></li></ul></li><li class="divider-vertical"></li><li id="w1274" class="dropdown"><a data-toggle="dropdown" class="dropdown-toggle">Community<b class="caret"></b></a><ul class="dropdown-menu"><li id="w1275"><a href="https://github.com/raptorjs/raptorjs">Source code</a></li><li id="w1276"><a href="https://github.com/raptorjs/raptorjs/issues">Issue Tracker</a></li><li id="w1277"><a href="../../contribute/">Contribute</a></li><li id="w1278"><a href="../../contributors/">Contributors</a></li><li class="divider"></li><li id="w1279"><a href="http://groups.google.com/group/raptorjs">Discussion Forum</a></li><li class="divider"></li><li id="w1280"><a href="http://twitter.com/raptorjs">Twitter (@raptorjs)</a></li><li id="w1281"><a href="http://twitter.com/raptorjs">Google+</a></li></ul></li><li class="divider-vertical"></li><li id="w1282" class="dropdown"><a data-toggle="dropdown" class="dropdown-toggle">About<b class="caret"></b></a><ul class="dropdown-menu"><li id="w1283"><a href="https://github.com/raptorjs/raptorjs/wiki/Release-Notes">Release Notes</a></li><li id="w1284"><a href="../../design-philosophy/">Design Philosophy</a></li><li id="w1285"><a href="../../license/">License</a></li><li id="w1286"><a href="../../credits/">Credits</a></li><li id="w1287"><a href="../../creators/">Creators</a></li></ul></li><li class="divider-vertical"></li></ul></div></div></div><div class="container"><div class="docs"><div class="bd"><div class="docs-content"><h1 id="title">RaptorJS Widget Framework Developer Guide</h1><div class="toc nav" id="docsNav"><ul class="toc"><li class="toc toc-level-0"><a href="#Overview">Overview</a><ul class="toc"></ul></li><li class="toc toc-level-0"><a href="#Features">Features</a><ul class="toc"></ul></li><li class="toc toc-level-0"><a href="#Simple_Example">Simple Example</a><ul class="toc"></ul></li><li class="toc toc-level-0"><a href="#Widget_Initialization">Widget Initialization</a><ul class="toc"><li class="toc toc-level-1"><a href="#ServerInit">Initializing Server-rendered Widgets</a><ul class="toc"></ul></li><li class="toc toc-level-1"><a href="#Initializing_Clientrendered_Widgets">Initializing Client-rendered Widgets</a><ul class="toc"></ul></li></ul></li><li class="toc toc-level-0"><a href="#WidgetMixins">Widget Mixins</a><ul class="toc"><li class="toc toc-level-1"><a href="#Accessing_Widget_DOM_Nodes">Accessing Widget DOM Nodes</a><ul class="toc"><li class="toc toc-level-2"><a href="#getEl">getEl</a><ul class="toc"></ul></li><li class="toc toc-level-2"><a href="#getElId">getElId</a><ul class="toc"></ul></li></ul></li><li class="toc toc-level-1"><a href="#Accessing_Nested_Widgets">Accessing Nested Widgets</a><ul class="toc"><li class="toc toc-level-2"><a href="#getWidget">getWidget</a><ul class="toc"></ul></li><li class="toc toc-level-2"><a href="#getWidgets">getWidgets</a><ul class="toc"></ul></li></ul></li><li class="toc toc-level-1"><a href="#Widget_Lifecycle_Methods">Widget Lifecycle Methods</a><ul class="toc"><li class="toc toc-level-2"><a href="#destroy">destroy</a><ul class="toc"></ul></li><li class="toc toc-level-2"><a href="#rerender">rerender</a><ul class="toc"></ul></li></ul></li><li class="toc toc-level-1"><a href="#Widget_Event_Handling">Widget Event Handling</a><ul class="toc"><li class="toc toc-level-2"><a href="#publish">publish</a><ul class="toc"></ul></li><li class="toc toc-level-2"><a href="#subscribe">subscribe</a><ul class="toc"></ul></li></ul></li><li class="toc toc-level-1"><a href="#Optional_jQuery_Extensions">Optional jQuery Extensions</a><ul class="toc"><li class="toc toc-level-2"><a href="#">$</a><ul class="toc"></ul></li></ul></li></ul></li><li class="toc toc-level-0"><a href="#PubSubEvents">Pub/Sub Events</a><ul class="toc"></ul></li><li class="toc toc-level-0"><a href="#Raptor_Template_Bindings">Raptor Template Bindings</a><ul class="toc"><li class="toc toc-level-1"><a href="#wwidgetwwidget">w:widget/&lt;w:widget></a><ul class="toc"></ul></li><li class="toc toc-level-1"><a href="#WidgetVar">Scoped "widget" variable</a><ul class="toc"><li class="toc toc-level-2"><a href="#widget_elIdid">widget.elId(?id)</a><ul class="toc"></ul></li></ul></li><li class="toc toc-level-1"><a href="#Widget_Config">Widget Config</a><ul class="toc"></ul></li><li class="toc toc-level-1"><a href="#InitWidgetsTag">&lt;w:init-widgets></a><ul class="toc"></ul></li><li class="toc toc-level-1"><a href="#WidgetId">w:id</a><ul class="toc"></ul></li></ul></li><li class="toc toc-level-0"><a href="#Discussion">Discussion</a><ul class="toc"></ul></li></ul><div class="docs-nav-footer"><ul><li><span class="powered-by">Powered by <a href="../../" class="raptorjs">RaptorJS</a></span></li><li><a href="../../license/">License</a></li><li><a href="../../credits/">Credits</a></li></ul></div></div><div class="message message-warning"><div class="icon"><i class="icon-warning-sign" style="font-size: 30px;"></i></div><div class="bd">Documentation In-Progress.</div></div><div class="section section-level-0"><h2 id="Overview">Overview</h2><div class="bd"><p>The RaptorJS Widget Framework is a lightweight framework that simplifies the
+b=document.getElementsByTagName("script")[0];b.parentNode.insertBefore(a,b)})();</script></head><body><div class="navbar navbar-fixed-top"><div class="navbar-inner"><div class="container"><a class="brand" href="../../">RaptorJS</a><ul class="nav"><li class="divider-vertical"></li><li id="w1258"><a href="../../get-started/">Get Started</a></li><li class="divider-vertical"></li><li id="w1259" class="dropdown"><a data-toggle="dropdown" class="dropdown-toggle">Learn<b class="caret"></b></a><ul class="dropdown-menu"><li id="w1260"><a href="../../">Overview</a></li><li id="w1261"><a href="../../get-started/">Get Started</a></li><li id="w1262"><a href="../../tutorial/">Tutorial</a></li><li id="w1263"><a href="../../api/">API Reference</a></li><li id="w1264"><a href="../../faq/">FAQ</a></li><li class="divider"></li><li id="w1265"><a href="../../modules-classes/">Modules and Classes</a></li><li id="w1266"><a href="../../packaging/">Packaging and Extensions</a></li><li id="w1267"><a href="../../module-loader/">Module Loader</a></li><li id="w1268"><a href="../../optimizer/">Optimizer</a></li><li id="w1269"><a href="../../raptor-templates/">Raptor Templates</a></li><li id="w1270"><a href="../../widgets/">Widget Framework</a></li><li id="w1271"><a href="../../logging/">Logging</a></li><li id="w1272"><a href="../../resource-search-path/">Resource Search Path</a></li><li id="w1273"><a href="../../cross-environment/">Cross Environment Support</a></li></ul></li><li class="divider-vertical"></li><li id="w1274" class="dropdown"><a data-toggle="dropdown" class="dropdown-toggle">Community<b class="caret"></b></a><ul class="dropdown-menu"><li id="w1275"><a href="https://github.com/raptorjs/raptorjs">Source code</a></li><li id="w1276"><a href="https://github.com/raptorjs/raptorjs/issues">Issue Tracker</a></li><li id="w1277"><a href="../../contribute/">Contribute</a></li><li id="w1278"><a href="../../contributors/">Contributors</a></li><li class="divider"></li><li id="w1279"><a href="http://groups.google.com/group/raptorjs">Discussion Forum</a></li><li class="divider"></li><li id="w1280"><a href="http://twitter.com/raptorjs">Twitter (@raptorjs)</a></li><li id="w1281"><a href="http://twitter.com/raptorjs">Google+</a></li></ul></li><li class="divider-vertical"></li><li id="w1282" class="dropdown"><a data-toggle="dropdown" class="dropdown-toggle">About<b class="caret"></b></a><ul class="dropdown-menu"><li id="w1283"><a href="https://github.com/raptorjs/raptorjs/wiki/Release-Notes">Release Notes</a></li><li id="w1284"><a href="../../design-philosophy/">Design Philosophy</a></li><li id="w1285"><a href="../../license/">License</a></li><li id="w1286"><a href="../../credits/">Credits</a></li><li id="w1287"><a href="../../creators/">Creators</a></li></ul></li><li class="divider-vertical"></li></ul></div></div></div><div class="container"><div class="docs"><div class="bd"><div class="docs-content"><h1 id="title">RaptorJS Widget Framework Developer Guide</h1><div class="toc nav" id="docsNav"><ul class="toc"><li class="toc toc-level-0"><a href="#Overview">Overview</a><ul class="toc"></ul></li><li class="toc toc-level-0"><a href="#Features">Features</a><ul class="toc"></ul></li><li class="toc toc-level-0"><a href="#Simple_Example">Simple Example</a><ul class="toc"></ul></li><li class="toc toc-level-0"><a href="#Widget_Initialization">Widget Initialization</a><ul class="toc"><li class="toc toc-level-1"><a href="#ServerInit">Initializing Server-rendered Widgets</a><ul class="toc"></ul></li><li class="toc toc-level-1"><a href="#Initializing_Clientrendered_Widgets">Initializing Client-rendered Widgets</a><ul class="toc"></ul></li></ul></li><li class="toc toc-level-0"><a href="#WidgetMixins">Widget Mixins</a><ul class="toc"><li class="toc toc-level-1"><a href="#Accessing_Widget_DOM_Nodes">Accessing Widget DOM Nodes</a><ul class="toc"><li class="toc toc-level-2"><a href="#getEl">getEl</a><ul class="toc"></ul></li><li class="toc toc-level-2"><a href="#getElId">getElId</a><ul class="toc"></ul></li></ul></li><li class="toc toc-level-1"><a href="#Accessing_Nested_Widgets">Accessing Nested Widgets</a><ul class="toc"><li class="toc toc-level-2"><a href="#getWidget">getWidget</a><ul class="toc"></ul></li><li class="toc toc-level-2"><a href="#getWidgets">getWidgets</a><ul class="toc"></ul></li></ul></li><li class="toc toc-level-1"><a href="#Widget_Lifecycle_Methods">Widget Lifecycle Methods</a><ul class="toc"><li class="toc toc-level-2"><a href="#destroy">destroy</a><ul class="toc"></ul></li><li class="toc toc-level-2"><a href="#rerender">rerender</a><ul class="toc"></ul></li></ul></li><li class="toc toc-level-1"><a href="#Widget_Event_Handling">Widget Event Handling</a><ul class="toc"><li class="toc toc-level-2"><a href="#publish">publish</a><ul class="toc"></ul></li><li class="toc toc-level-2"><a href="#subscribe">subscribe</a><ul class="toc"></ul></li></ul></li><li class="toc toc-level-1"><a href="#Optional_jQuery_Extensions">Optional jQuery Extensions</a><ul class="toc"><li class="toc toc-level-2"><a href="#jQuery">$</a><ul class="toc"></ul></li></ul></li></ul></li><li class="toc toc-level-0"><a href="#PubSub">Pub/Sub Communication</a><ul class="toc"></ul></li><li class="toc toc-level-0"><a href="#Raptor_Template_Bindings">Raptor Template Bindings</a><ul class="toc"><li class="toc toc-level-1"><a href="#wwidgetwwidget">w:widget/&lt;w:widget></a><ul class="toc"></ul></li><li class="toc toc-level-1"><a href="#WidgetVar">Scoped "widget" variable</a><ul class="toc"><li class="toc toc-level-2"><a href="#widget_elIdid">widget.elId(?id)</a><ul class="toc"></ul></li></ul></li><li class="toc toc-level-1"><a href="#Widget_Config">Widget Config</a><ul class="toc"></ul></li><li class="toc toc-level-1"><a href="#InitWidgetsTag">&lt;w:init-widgets></a><ul class="toc"></ul></li><li class="toc toc-level-1"><a href="#WidgetId">w:id</a><ul class="toc"></ul></li><li class="toc toc-level-1"><a href="#EventAttributes">w:event-*</a><ul class="toc"></ul></li></ul></li><li class="toc toc-level-0"><a href="#Discussion">Discussion</a><ul class="toc"></ul></li></ul><div class="docs-nav-footer"><ul><li><span class="powered-by">Powered by <a href="../../" class="raptorjs">RaptorJS</a></span></li><li><a href="../../license/">License</a></li><li><a href="../../credits/">Credits</a></li></ul></div></div><div class="message message-warning"><div class="icon"><i class="icon-warning-sign" style="font-size: 30px;"></i></div><div class="bd">Documentation In-Progress.</div></div><div class="section section-level-0"><h2 id="Overview">Overview</h2><div class="bd"><p>The RaptorJS Widget Framework is a lightweight framework that simplifies the
 creation of web applications built using UI components. The RaptorJS Widget
 Framework provides a mechanism for automatically attaching behavior to DOM
 sub-trees associated with rendered UI components—regardless of whether or not
@@ -11,7 +11,7 @@ the UI component was rendered on the server or in the web browser. Examples of
 UI components with attached behavior include overlays, tab panels, accordion
 containers, buttons, etc. The RaptorJS Widget Framework simplifies the
 initialization of JavaScript applications by managing the lifecycle of widgets
-rendered to the page. In addition, the Widgets Framework provides support for
+rendered to the page. In addition, the Widget Framework provides support for
 inter-widget communication via Pub/Sub messaging and it allows for widgets to
 directly reference nested named
 widgets.</p><p>The RaptorJS Widget Framework does not dictate how a client-side widget be
@@ -83,7 +83,7 @@ clarity:</p><div class="code-editor" id="w1292"> <textarea id="w1292-textarea" s
 guide. In addition, the full collection of mixins that are applied to all
 widgets is described in the
 <a href="#WidgetMixins"> Widget Mixins</a> section below.</p></div></div><div class="section section-level-0"><h2 id="Widget_Initialization">Widget Initialization</h2><div class="bd"><p>The RaptorJS Widget Framework provides the ability to automatically initialize
-widgets associated with rendered UI components—regardless of whether or not te
+widgets associated with rendered UI components—regardless of whether or not the
 UI components were rendered on the server or in the web browser. This is
 described in more detail in the subsequent
 sections.</p><div class="section section-level-1"><h2 id="ServerInit">Initializing Server-rendered Widgets</h2><div class="bd"><p>Initializing widgets associated with UI components rendered on the server is
@@ -157,7 +157,7 @@ properties. For example:
     // ...
 });</textarea></div></p></div></div></div></div><div class="section section-level-1"><h2 id="Optional_jQuery_Extensions">Optional jQuery Extensions</h2><div class="bd"><p>If the <code>jquery</code> extension is enabled when the <code>raptor/widgets</code> module is included then additional mixin methods are added to better integrate
 with
-jQuery.</p><div class="section section-level-2"><h2>$</h2><div class="bd"><p>The <code>$</code> method provides convenience methods for accessing a widget's DOM elements when
+jQuery.</p><div class="section section-level-2"><h2 id="jQuery">$</h2><div class="bd"><p>The <code>$</code> method provides convenience methods for accessing a widget's DOM elements when
 jQuery is available as described
 below:</p><ul><li>Accessing the widget's root DOM element wrapped as a jQuery object: <div class="code-editor" id="w1298"> <textarea id="w1298-textarea" style="display: none;" name="code-163">$(this.getEl())
 this.$()</textarea></div></li><li>Accessing a widget's DOM element by ID wrapped as a jQuery object: <div class="code-editor" id="w1299"> <textarea id="w1299-textarea" style="display: none;" name="code-164">$(this.getEl(id))
@@ -177,13 +177,84 @@ this.$("#&lt;id> &lt;selector>")
 // Examples:
 $("LI.color", this.getEl("colorsUL"))
 this.$("LI.color", "colorsUL")
-this.$("#colorsUL LI.color")</textarea></div></li></ul></div></div></div></div></div></div><div class="section section-level-0"><h2 id="PubSubEvents">Pub/Sub Events</h2><div class="bd"><p></p></div></div><div class="section section-level-0"><h2 id="Raptor_Template_Bindings">Raptor Template Bindings</h2><div class="bd"><p>The Raptor Templating language includes custom tag and attribute handlers that
+this.$("#colorsUL LI.color")</textarea></div></li></ul> <p><h4>Demo</h4><div class="code-editor" id="w1302"><h2 class="code-editor-title">Sample Raptor Template</h2> <textarea id="w1302-textarea" style="display: none;" name="code-167">&lt;div w:widget="demo/JQueryWidget">
+    &lt;ul id="${widget.elId('colorsUL')}">
+        &lt;li data-color="red">Click Me!&lt;/li>
+        &lt;li data-color="green">Click Me!&lt;/li>
+        &lt;li data-color="blue">Click Me!&lt;/li>
+    &lt;/ul>
+&lt;/div></textarea></div><div class="code-editor" id="w1303"><h2 class="code-editor-title">/demo/JQueryWidget.js</h2> <textarea id="w1303-textarea" style="display: none;" name="code-168">define.Class(
+    "demo/JQueryWidget",
+    function(require) {
+        return {
+            init: function(widgetConfig) {
+                this.$("#colorsUL > li").click(function(e) {
+                    var $li = $(e.target),
+                        color = $li.data("color");
+
+                    $li.css('background-color', color)
+                       .text(color);
+
+                });
+            }
+        }
+    });</textarea></div><div id="w1304"><ul id="w1304-colorsUL"><li data-color="red">Click Me!</li><li data-color="green">Click Me!</li><li data-color="blue">Click Me!</li></ul></div></p></div></div></div></div></div></div><div class="section section-level-0"><h2 id="PubSub">Pub/Sub Communication</h2><div class="bd"><p>The RaptorJS Widget Framework makes it easy for widgets to communicate directly
+with each other through the use of the
+<a href="#publish">publish</a> and <a href="#subscribe">subscribe</a> methods supported by all widgets. However, direct widget communication can be
+detrimental because it tends to more tightly couple an application since direct
+references are required. While communication via direct widget references may
+be ideal for certain situations, it is often better to utilize Pub/Sub
+messaging to achieve a more decoupled
+application.</p><p>The RaptorJS Widget Framework allows custom widget events to be mapped
+automatically to Pub/Sub messages. With this approach, subscribers only need to
+subscribe to the Pub/Sub messages and not directly to other widgets. The Widget
+Framework includes bindings for
+<a href="http://raptorjs.org/raptor-templates/">Raptor Templates</a> that allows custom events to be declaratively mapped to Pub/Sub messages in a
+templates that embed other widgets. These mappings can be added through the use
+of the
+<a href="#EventAttributes">w:event-*</a> attributes described later in this guide. This is best illustrated by an
+example:</p><p>A mapping of the custom "click" event is declaratively mapped to a Pub/Sub
+message named "sayHello" as shown in the sample template that embeds a Button
+widget. The
+<a href="#EventAttributes">w:event-*</a> allow additional properties to be added to the Pub/Sub message object through
+the use of
+sub-attributes.</p><div class="code-editor" id="w1305"><h2 class="code-editor-title">Sample Raptor Template</h2> <textarea id="w1305-textarea" style="display: none;" name="code-169">&lt;ui:button label="Say Hello" 
+           w:event-click="sayHello; message='Hello World'" /></textarea></div><p>The implementation for the Button widget includes code that publishes a custom
+"click" event as shown in the following sample
+code:</p><div class="code-editor" id="w1306"><h2 class="code-editor-title">Button Widget Implementation</h2> <textarea id="w1306-textarea" style="display: none;" name="code-170">define.Class(
+    "ui/ButtonWidget",
+    function(require) {
+        return {
+            events: ['click'],
+            init: function(widgetConfig) {
+                var _this = this;
+
+                // Publish a custom "click" event in response
+                // to a DOM "click" event.
+                this.$().click(function() {
+                    _this.publish('click', {
+                        button: _this
+                    });
+                });
+            }
+        }
+    });</textarea></div><p>Internally, when a custom widget event is published, the framework will check
+to see if the custom widget event is mapped to a Pub/Sub event. If so, then in
+addition to publishing the custom event, the Pub/Sub message will be published
+as well. Other widgets that are interested in the published Pub/Sub message can
+subscribe to that message directly using the
+<code>raptor/pubsub</code> moduel.</p><div class="code-editor" id="w1307"><h2 class="code-editor-title">Pub/Sub Subscriber</h2> <textarea id="w1307-textarea" style="display: none;" name="code-171">require('raptor/pubsub').subscribe(
+    'sayHello', 
+    function(eventArgs) {
+        var message = eventArgs.message;
+        alert(message);
+    });</textarea></div><p>For more details on using the <code>w:event-*</code> attributes please see the following section: <a href="#EventAttributes">Raptor Template Bindings » w:event-*</a></p></div></div><div class="section section-level-0"><h2 id="Raptor_Template_Bindings">Raptor Template Bindings</h2><div class="bd"><p>The Raptor Templating language includes custom tag and attribute handlers that
 allow developers to bind widgets to rendered DOM nodes. The long URI for the
 <a href="https://github.com/raptorjs/raptorjs/blob/master/lib/raptor/templating/taglibs/widgets/widgets.rtld" target="_blank">widgets taglib</a> is <code>http://raptorjs.org/templates/widgets</code> and the short name is <code>widgets</code>.</p><div class="section section-level-1"><h2 id="wwidgetwwidget">w:widget/&lt;w:widget></h2><div class="bd"><p>The <code>w:widget</code> attribute and the <code>&lt;w:widget></code> tag can be used to initialize a widget and have it be bound to a rendered DOM
 element as shown in the following sample
-code:</p><table class="table table-bordered"><thead><tr><th><code>w:widget</code> attribute</th><th><code>&lt;w:widget></code> tag</th></tr></thead><tbody><tr><td style="width: 50%"><div class="code-editor" id="w1302"> <textarea id="w1302-textarea" style="display: none;" name="code-167">&lt;div w:widget="demo/MyWidget">
+code:</p><table class="table table-bordered"><thead><tr><th><code>w:widget</code> attribute</th><th><code>&lt;w:widget></code> tag</th></tr></thead><tbody><tr><td style="width: 50%"><div class="code-editor" id="w1308"> <textarea id="w1308-textarea" style="display: none;" name="code-172">&lt;div w:widget="demo/MyWidget">
     My Widget
-&lt;/div></textarea></div></td><td style="width: 50%"><div class="code-editor" id="w1303"> <textarea id="w1303-textarea" style="display: none;" name="code-168">&lt;w:widget js-class="demo/MyWidget">
+&lt;/div></textarea></div></td><td style="width: 50%"><div class="code-editor" id="w1309"> <textarea id="w1309-textarea" style="display: none;" name="code-173">&lt;w:widget js-class="demo/MyWidget">
     &lt;div id="${widget.elId()}">
         My Widget
     &lt;/div>
@@ -209,7 +280,7 @@ nested in the root HTML element of the widget. If the optional
 <code>id</code> argument is provided then the supplied <code>id</code> is prefixed with the ID of the root HTML element. This ensures that the nested
 HTML element will be assigned is also unique and the reverse process can be
 used to look up a nested widget element ID at
-runtime.</p><p><h4>Example:</h4></p><div class="code-editor" id="w1304"><h2 class="code-editor-title">Input Raptor Template</h2> <textarea id="w1304-textarea" style="display: none;" name="code-169">&lt;div w:widget="demo/MyWidget">
+runtime.</p><p><h4>Example:</h4></p><div class="code-editor" id="w1310"><h2 class="code-editor-title">Input Raptor Template</h2> <textarea id="w1310-textarea" style="display: none;" name="code-174">&lt;div w:widget="demo/MyWidget">
     &lt;button id="${widget.elId('btn1')}" type="button">
         Button 1
     &lt;/button>
@@ -217,7 +288,7 @@ runtime.</p><p><h4>Example:</h4></p><div class="code-editor" id="w1304"><h2 clas
     &lt;button id="${widget.elId('btn2')}" type="button">
         Button 2
     &lt;/button>
-&lt;/div></textarea></div><div class="code-editor" id="w1305"><h2 class="code-editor-title">Output HTML</h2> <textarea id="w1305-textarea" style="display: none;" name="code-170">&lt;div id="w0">
+&lt;/div></textarea></div><div class="code-editor" id="w1311"><h2 class="code-editor-title">Output HTML</h2> <textarea id="w1311-textarea" style="display: none;" name="code-175">&lt;div id="w0">
     &lt;button id="w0-btn1" type="button">
         Button 1
     &lt;/button>
@@ -225,7 +296,7 @@ runtime.</p><p><h4>Example:</h4></p><div class="code-editor" id="w1304"><h2 clas
     &lt;button id="w0-btn2" type="button">
         Button 2
     &lt;/button>
-&lt;/div></textarea></div><div class="code-editor" id="w1306"><h2 class="code-editor-title">/demo/MyWidget.js</h2> <textarea id="w1306-textarea" style="display: none;" name="code-171">define.Class(
+&lt;/div></textarea></div><div class="code-editor" id="w1312"><h2 class="code-editor-title">/demo/MyWidget.js</h2> <textarea id="w1312-textarea" style="display: none;" name="code-176">define.Class(
     'demo/MyWidget',
     function(require) {
         return {
@@ -240,19 +311,19 @@ runtime.</p><p><h4>Example:</h4></p><div class="code-editor" id="w1304"><h2 clas
 widget and that widget configuration data is provided at render time. There are
 three options for attaching widget configuration data to a widget and those
 options are as
-follows.</p><ol><li><b>As part of <code>w:widget</code> attribute:</b><div class="code-editor" id="w1307"> <textarea id="w1307-textarea" style="display: none;" name="code-172">&lt;div w:widget="demo/MyWidget; config={message: 'Hello World'}" 
+follows.</p><ol><li><b>As part of <code>w:widget</code> attribute:</b><div class="code-editor" id="w1313"> <textarea id="w1313-textarea" style="display: none;" name="code-177">&lt;div w:widget="demo/MyWidget; config={message: 'Hello World'}" 
      class="my-widget">
     ...
-&lt;/div></textarea></div></li><li><b>As the value of the <code>config</code> attribute for the <code>&lt;w:widget></code> tag:</b><div class="code-editor" id="w1308"> <textarea id="w1308-textarea" style="display: none;" name="code-173">&lt;w:widget js-class="demo/MyWidget" config="{message: 'Hello World'}">
+&lt;/div></textarea></div></li><li><b>As the value of the <code>config</code> attribute for the <code>&lt;w:widget></code> tag:</b><div class="code-editor" id="w1314"> <textarea id="w1314-textarea" style="display: none;" name="code-178">&lt;w:widget js-class="demo/MyWidget" config="{message: 'Hello World'}">
     ...
-&lt;/w:widget></textarea></div></li><li><b>As a <code>widgetConfig</code> property of the input data model for a Raptor template:</b><div class="code-editor" id="w1309"> <textarea id="w1309-textarea" style="display: none;" name="code-174">require('raptor/templating').render(
+&lt;/w:widget></textarea></div></li><li><b>As a <code>widgetConfig</code> property of the input data model for a Raptor template:</b><div class="code-editor" id="w1315"> <textarea id="w1315-textarea" style="display: none;" name="code-179">require('raptor/templating').render(
     'demo/MyTemplate',
     {
         widgetConfig: {
             message: 'Hello World'
         }
     },
-    context);</textarea></div><div class="code-editor" id="w1310"> <textarea id="w1310-textarea" style="display: none;" name="code-175">&lt;c:template name="demo/MyTemplate" xmlns:c="core" xmlns:w="widgets">
+    context);</textarea></div><div class="code-editor" id="w1316"> <textarea id="w1316-textarea" style="display: none;" name="code-180">&lt;c:template name="demo/MyTemplate" xmlns:c="core" xmlns:w="widgets">
 
     &lt;div w:widget="demo/MyWidget" 
          class="my-widget">
@@ -274,7 +345,7 @@ the
 <a href="#ServerInit">Initializing Server-rendered Widgets</a> section above.</p></div></div><div class="section section-level-1"><h2 id="WidgetId">w:id</h2><div class="bd"><p>The <code>w:id</code> attribute can be used to assign a widget ID to a nested widget. The containing
 ancestor widget can use the assigned widget ID to get a reference to the
 instance of nested widget. For
-example:</p><div class="code-editor" id="w1311"> <textarea id="w1311-textarea" style="display: none;" name="code-176">&lt;c:template name="demo/MyTemplate" xmlns:c="core" xmlns:w="widgets">
+example:</p><div class="code-editor" id="w1317"> <textarea id="w1317-textarea" style="display: none;" name="code-181">&lt;c:template name="demo/MyTemplate" xmlns:c="core" xmlns:w="widgets">
 
     &lt;div w:widget="demo/MyWidget">
         &lt;ui:button w:id="resetButton" label="Reset" />
@@ -284,7 +355,7 @@ example:</p><div class="code-editor" id="w1311"> <textarea id="w1311-textarea" s
 &lt;/c:template></textarea></div><p>Assigning a widget ID to a nested widget will result in a property with the
 same being added to the containing widget and the value of that property will
 be a reference to the nested widget. This is illustrated in the sample widget
-implementation:</p><div class="code-editor" id="w1312"><h2 class="code-editor-title">/demo/MyWidget.js</h2> <textarea id="w1312-textarea" style="display: none;" name="code-177">define.Class(
+implementation:</p><div class="code-editor" id="w1318"><h2 class="code-editor-title">/demo/MyWidget.js</h2> <textarea id="w1318-textarea" style="display: none;" name="code-182">define.Class(
     'demo/MyWidget',
     function(require) {
         return {
@@ -298,7 +369,7 @@ implementation:</p><div class="code-editor" id="w1312"><h2 class="code-editor-ti
 property that is an
 <code>Array</code> then the value of the added property will be an <code>Array</code> that contains the widgets with matching IDs. This is demonstrated by the
 following sample
-code:</p><div class="code-editor" id="w1313"><h2 class="code-editor-title">Template With Duplicate Widget IDs</h2> <textarea id="w1313-textarea" style="display: none;" name="code-178">&lt;c:template name="demo/MyTemplate" xmlns:c="core" xmlns:w="widgets">
+code:</p><div class="code-editor" id="w1319"><h2 class="code-editor-title">Template With Duplicate Widget IDs</h2> <textarea id="w1319-textarea" style="display: none;" name="code-183">&lt;c:template name="demo/MyTemplate" xmlns:c="core" xmlns:w="widgets">
 
     &lt;div w:widget="demo/MyWidget">
 
@@ -307,11 +378,22 @@ code:</p><div class="code-editor" id="w1313"><h2 class="code-editor-title">Templ
             c:for="item in items"/>
     &lt;/div>
 
-&lt;/c:template></textarea></div><div class="code-editor" id="w1314"><h2 class="code-editor-title">/demo/MyWidget.js</h2> <textarea id="w1314-textarea" style="display: none;" name="code-179">var buttonWidgets = this.buttons;
-buttonWidgets.forEach(function() { ... });</textarea></div></div></div><div class="message message-info"><div class="icon"><i class="icon-info-sign" style="font-size: 30px;"></i></div><div class="bd"><p>NOTE: The ID assigned using the <code>w:id</code> attribute is scoped within the <code>w:widget</code> tag/attribute in the same template.</p></div></div></div></div></div></div><div class="section section-level-0"><h2 id="Discussion">Discussion</h2><div class="bd"><div id="disqus_thread"></div></div></div></div></div><div class="docs-footer-padding"></div></div></div><script type="text/javascript" src="../../static/core-a4824587.js"></script>
+&lt;/c:template></textarea></div><div class="code-editor" id="w1320"><h2 class="code-editor-title">/demo/MyWidget.js</h2> <textarea id="w1320-textarea" style="display: none;" name="code-184">var buttonWidgets = this.buttons;
+buttonWidgets.forEach(function() { ... });</textarea></div></div></div><div class="message message-info"><div class="icon"><i class="icon-info-sign" style="font-size: 30px;"></i></div><div class="bd"><p>NOTE: The ID assigned using the <code>w:id</code> attribute is scoped within the <code>w:widget</code> tag/attribute in the same template.</p></div></div></div></div><div class="section section-level-1"><h2 id="EventAttributes">w:event-*</h2><div class="bd"><p>The <code>w:event-*</code> attributes can be used to declaratively map custom widget events to Pub/Sub
+messages. In addition, the
+<code>w:event-*</code> attributes allow additional properties to be added to the published Pub/Sub
+message object through the use of sub-attributes. This is illustrated in the
+following
+code:</p><div class="code-editor" id="w1321"> <textarea id="w1321-textarea" style="display: none;" name="code-185">&lt;ui:button label="Say Hello" 
+           w:event-click="sayHello; name='John'; age=50" /></textarea></div><p>When the widget associated with the <code>&lt;ui:button</code> tag publishes the custom "click" event, a Pub/Sub message named "sayHello"
+will also be published wih the following message
+object:</p><div class="code-editor" id="w1322"> <textarea id="w1322-textarea" style="display: none;" name="code-186">{
+    name: 'John',
+    age: 50
+}</textarea></div><p>Please see the <a href="#PubSub">section</a> above for more details on utilizing Pub/Sub communication.</p></div></div></div></div><div class="section section-level-0"><h2 id="Discussion">Discussion</h2><div class="bd"><div id="disqus_thread"></div></div></div></div></div><div class="docs-footer-padding"></div></div></div><script type="text/javascript" src="../../static/core-a4824587.js"></script>
 <script type="text/javascript" src="../../static/jquery-371da524.js"></script>
 <script type="text/javascript" src="../../static/widgets-90546544.js"></script>
-<script type="text/javascript" src="../../static/widgets-developer-guide-6e744059.js"></script>
+<script type="text/javascript" src="../../static/widgets-developer-guide-561d39e3.js"></script>
 <script type="text/javascript" src="../../static/code-editor-d9857e88.js"></script><script type="text/javascript">$rwidgets(
 ["components.nav.Nav.NavItemWidget","w1258",0,0,0,0],
 ["components.nav.Nav.NavItemWidget","w1259",0,0,0,0,
@@ -358,16 +440,24 @@ buttonWidgets.forEach(function() { ... });</textarea></div></div></div><div clas
 ["components/editors/CodeEditor/CodeEditorWidget","w1300",{"mode":"javascript","autoResize":true,"readOnly":true},0,0,0],
 ["components/editors/CodeEditor/CodeEditorWidget","w1301",{"mode":"javascript","autoResize":true,"readOnly":true},0,0,0],
 ["components/editors/CodeEditor/CodeEditorWidget","w1302",{"mode":"xml","autoResize":true,"readOnly":true},0,0,0],
-["components/editors/CodeEditor/CodeEditorWidget","w1303",{"mode":"xml","autoResize":true,"readOnly":true},0,0,0],
-["components/editors/CodeEditor/CodeEditorWidget","w1304",{"mode":"xml","autoResize":true,"readOnly":true},0,0,0],
-["components/editors/CodeEditor/CodeEditorWidget","w1305",{"mode":"htmlmixed","autoResize":true,"readOnly":true},0,0,0],
+["components/editors/CodeEditor/CodeEditorWidget","w1303",{"mode":"javascript","autoResize":true,"readOnly":true},0,0,0],
+["demo/JQueryWidget","w1304",0,0,0,0],
+["components/editors/CodeEditor/CodeEditorWidget","w1305",{"mode":"xml","autoResize":true,"readOnly":true},0,0,0],
 ["components/editors/CodeEditor/CodeEditorWidget","w1306",{"mode":"javascript","autoResize":true,"readOnly":true},0,0,0],
-["components/editors/CodeEditor/CodeEditorWidget","w1307",{"mode":"xml","autoResize":true,"readOnly":true},0,0,0],
+["components/editors/CodeEditor/CodeEditorWidget","w1307",{"mode":"javascript","autoResize":true,"readOnly":true},0,0,0],
 ["components/editors/CodeEditor/CodeEditorWidget","w1308",{"mode":"xml","autoResize":true,"readOnly":true},0,0,0],
-["components/editors/CodeEditor/CodeEditorWidget","w1309",{"mode":"javascript","autoResize":true,"readOnly":true},0,0,0],
+["components/editors/CodeEditor/CodeEditorWidget","w1309",{"mode":"xml","autoResize":true,"readOnly":true},0,0,0],
 ["components/editors/CodeEditor/CodeEditorWidget","w1310",{"mode":"xml","autoResize":true,"readOnly":true},0,0,0],
-["components/editors/CodeEditor/CodeEditorWidget","w1311",{"mode":"xml","autoResize":true,"readOnly":true},0,0,0],
+["components/editors/CodeEditor/CodeEditorWidget","w1311",{"mode":"htmlmixed","autoResize":true,"readOnly":true},0,0,0],
 ["components/editors/CodeEditor/CodeEditorWidget","w1312",{"mode":"javascript","autoResize":true,"readOnly":true},0,0,0],
 ["components/editors/CodeEditor/CodeEditorWidget","w1313",{"mode":"xml","autoResize":true,"readOnly":true},0,0,0],
-["components/editors/CodeEditor/CodeEditorWidget","w1314",{"mode":"javascript","autoResize":true,"readOnly":true},0,0,0],
+["components/editors/CodeEditor/CodeEditorWidget","w1314",{"mode":"xml","autoResize":true,"readOnly":true},0,0,0],
+["components/editors/CodeEditor/CodeEditorWidget","w1315",{"mode":"javascript","autoResize":true,"readOnly":true},0,0,0],
+["components/editors/CodeEditor/CodeEditorWidget","w1316",{"mode":"xml","autoResize":true,"readOnly":true},0,0,0],
+["components/editors/CodeEditor/CodeEditorWidget","w1317",{"mode":"xml","autoResize":true,"readOnly":true},0,0,0],
+["components/editors/CodeEditor/CodeEditorWidget","w1318",{"mode":"javascript","autoResize":true,"readOnly":true},0,0,0],
+["components/editors/CodeEditor/CodeEditorWidget","w1319",{"mode":"xml","autoResize":true,"readOnly":true},0,0,0],
+["components/editors/CodeEditor/CodeEditorWidget","w1320",{"mode":"javascript","autoResize":true,"readOnly":true},0,0,0],
+["components/editors/CodeEditor/CodeEditorWidget","w1321",{"mode":"xml","autoResize":true,"readOnly":true},0,0,0],
+["components/editors/CodeEditor/CodeEditorWidget","w1322",{"mode":"javascript","autoResize":true,"readOnly":true},0,0,0],
 ["components.social.Disqus.DisqusWidget","disqus_thread",{"shortName":"raptor-js","id":"widgets-developer-guide","title":"RaptorJS Widget Framework Developer Guide"},0,0,0]);</script></body></html>

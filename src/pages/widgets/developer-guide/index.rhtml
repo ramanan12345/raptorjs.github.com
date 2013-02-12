@@ -14,6 +14,7 @@
             <module name="components/docs/Docs"/>
             <module name="components/icons/Icon"/>
             <module name="demo/ColorChangeWidget"/>
+            <module name="demo/JQueryWidget"/>
             <css path="index.css"/>
         </dependencies>
     </optimizer:page>    
@@ -49,7 +50,7 @@
                             overlays, tab panels, accordion containers, buttons, etc.
                             The RaptorJS Widget Framework simplifies the initialization
                             of JavaScript applications by managing the lifecycle of widgets rendered to the page.
-                            In addition, the Widgets Framework provides
+                            In addition, the Widget Framework provides
                             support for inter-widget communication via Pub/Sub messaging and
                             it allows for widgets to directly reference nested named widgets.
                         </p>
@@ -179,7 +180,7 @@
                     <docs:section heading="Widget Initialization">
                         <p>
                             The RaptorJS Widget Framework provides the ability to automatically initialize widgets associated
-                            with rendered UI components—regardless of whether or not te UI components were rendered
+                            with rendered UI components—regardless of whether or not the UI components were rendered
                             on the server or in the web browser. This is described in more detail in the subsequent sections.
                         </p>
                         <docs:section heading="Initializing Server-rendered Widgets" anchor-name="ServerInit">
@@ -359,7 +360,7 @@
                                 The following mixin methods provide functionality to publish and subscribe
                                 to <i>custom</i> widget events:
                             </p>
-                            <docs:section heading="publish">
+                            <docs:section heading="publish" anchor-name="publish">
                                 <p>
                                     <b><code>void</code> publish(messageName, props)</b>: 
                                     Publishes a custom widget event with the specified message name and properties. For example:
@@ -396,7 +397,7 @@
                                     </docs:message>
                                 </p>
                             </docs:section>
-                            <docs:section heading="subscribe">
+                            <docs:section heading="subscribe" anchor-name="subscribe">
                                 <p>
                                     <b><code><a href="http://raptorjs.org/api/raptor/listeners/ListenerHandle/">ListenerHandle</a></code> subscribe(messageName, callback, thisObj)</b>: 
                                     Publishs a custom widget event with the specified message name and properties. For example:
@@ -421,7 +422,7 @@
                                 module is included then additional mixin methods are added to better integrate
                                 with jQuery.
                             </p>
-                            <docs:section heading="$">
+                            <docs:section heading="$" anchor-name="jQuery">
                                 <p>
                                     The <code>$</code> method provides convenience methods for accessing a widget's DOM
                                     elements when jQuery is available as described below:
@@ -489,15 +490,139 @@
                                         ]]>
                                         </docs:code-editor>
                                     </li>
-                                </ul>
+                                </ul> 
+                                <p>
+
+                                    <h4>Demo</h4>
+
+                                    <docs:code-editor 
+                                        mode="xml"
+                                        readOnly="true" 
+                                        title="Sample Raptor Template"
+                                        c:parse-body-text="false">
+                                    <![CDATA[
+                                    <div w:widget="demo/JQueryWidget">
+                                        <ul id="${widget.elId('colorsUL')}">
+                                            <li data-color="red">Click Me!</li>
+                                            <li data-color="green">Click Me!</li>
+                                            <li data-color="blue">Click Me!</li>
+                                        </ul>
+                                    </div>
+                                    ]]>
+                                    </docs:code-editor>
+
+                                    <docs:code-editor 
+                                        mode="javascript"
+                                        readOnly="true" 
+                                        title="/demo/JQueryWidget.js"
+                                        resource="/demo/JQueryWidget.js"/>
+
+                                    <div w:widget="demo/JQueryWidget">
+                                        <ul id="${widget.elId('colorsUL')}">
+                                            <li data-color="red">Click Me!</li>
+                                            <li data-color="green">Click Me!</li>
+                                            <li data-color="blue">Click Me!</li>
+                                        </ul>
+                                    </div>
+                                </p>
                             </docs:section>
                         </docs:section>
                     </docs:section>
 
-                    <docs:section heading="Pub/Sub Events" anchor-name="PubSubEvents">
+                    <docs:section heading="Pub/Sub Communication" anchor-name="PubSub">
                         <p>
-                            
+                            The RaptorJS Widget Framework makes it easy for widgets to communicate directly with each other
+                            through the use of the <a href="#publish">publish</a> and <a href="#subscribe">subscribe</a>
+                            methods supported by all widgets. However, direct widget communication can be detrimental because it tends to
+                            more tightly couple an application since direct references are required. While communication via direct widget references
+                            may be ideal for certain situations, it is often better
+                            to utilize Pub/Sub messaging to achieve a more decoupled application.
                         </p>
+                        <p>
+                            The RaptorJS Widget Framework allows custom widget events to be mapped automatically to Pub/Sub messages.
+                            With this approach, subscribers only need to subscribe to the Pub/Sub messages and not directly
+                            to other widgets. The Widget Framework includes bindings for <a href="http://raptorjs.org/raptor-templates/">Raptor Templates</a>
+                            that allows custom events to be declaratively mapped to Pub/Sub messages in a templates that embed
+                            other widgets. These mappings can be added through the use of the <a href="#EventAttributes">w:event-*</a>
+                            attributes described later in this guide. This is best illustrated by an example:
+                        </p>
+                        <p>
+                            A mapping of the custom "click" event is declaratively mapped to a Pub/Sub
+                            message named "sayHello" as shown in the sample template that embeds
+                            a Button widget. The <a href="#EventAttributes">w:event-*</a> allow additional
+                            properties to be added to the Pub/Sub message object through the use
+                            of sub-attributes.
+                        </p>
+                        <docs:code-editor 
+                            mode="xml"
+                            readOnly="true" 
+                            title="Sample Raptor Template"
+                            c:parse-body-text="false">
+                        <![CDATA[
+                        <ui:button label="Say Hello" 
+                                   w:event-click="sayHello; message='Hello World'" />
+                        ]]>
+                        </docs:code-editor>
+                        <p>
+                            The implementation for the Button widget includes code
+                            that publishes a custom "click" event as shown in the following
+                            sample code:
+                        </p>
+                        <docs:code-editor 
+                            mode="javascript"
+                            readOnly="true" 
+                            title="Button Widget Implementation"
+                            c:parse-body-text="false">
+                        <![CDATA[
+                        define.Class(
+                            "ui/ButtonWidget",
+                            function(require) {
+                                return {
+                                    events: ['click'],
+                                    init: function(widgetConfig) {
+                                        var _this = this;
+
+                                        // Publish a custom "click" event in response
+                                        // to a DOM "click" event.
+                                        this.$().click(function() {
+                                            _this.publish('click', {
+                                                button: _this
+                                            });
+                                        });
+                                    }
+                                }
+                            });
+                        ]]>
+                        </docs:code-editor>
+                        <p>
+                            Internally, when a custom widget event is published, the framework
+                            will check to see if the custom widget event is mapped to a Pub/Sub
+                            event. If so, then in addition to publishing the custom event, the
+                            Pub/Sub message will be published as well. Other widgets that are
+                            interested in the published Pub/Sub message can subscribe
+                            to that message directly using the <code>raptor/pubsub</code>
+                            moduel.
+                        </p>
+                        <docs:code-editor 
+                            mode="javascript"
+                            readOnly="true" 
+                            title="Pub/Sub Subscriber"
+                            c:parse-body-text="false">
+                        <![CDATA[
+                        require('raptor/pubsub').subscribe(
+                            'sayHello', 
+                            function(eventArgs) {
+                                var message = eventArgs.message;
+                                alert(message);
+                            });
+                        ]]>
+                        </docs:code-editor>
+                        <p>
+                            For more details on using the <code>w:event-*</code> attributes please see the following
+                            section:
+                            <a href="#EventAttributes">Raptor Template Bindings » w:event-*</a>
+                        </p>
+
                     </docs:section>
 
                         
@@ -869,6 +994,45 @@
                                     within the <code>w:widget</code> tag/attribute in the same template.
                                 </p>
                             </docs:message>
+                        </docs:section>
+
+                        <docs:section heading="w:event-*" anchor-name="EventAttributes">
+                            <p>
+                                The <code>w:event-*</code> attributes can be used to declaratively map
+                                custom widget events to Pub/Sub messages. 
+                                In addition, the <code>w:event-*</code> attributes allow additional properties 
+                                to be added to the published Pub/Sub message object through the use of sub-attributes.
+                                This is illustrated in the following code:
+                            </p>
+                            <docs:code-editor 
+                                mode="xml"
+                                readOnly="true" 
+                                c:parse-body-text="false">
+                            <![CDATA[
+                            <ui:button label="Say Hello" 
+                                       w:event-click="sayHello; name='John'; age=50" />
+                            ]]>
+                            </docs:code-editor>
+                            <p>
+                                When the widget associated with the <code>&lt;ui:button</code> tag
+                                publishes the custom "click" event, a Pub/Sub message named
+                                "sayHello" will also be published wih the following message object:
+                            </p>
+                            <docs:code-editor 
+                                mode="javascript"
+                                readOnly="true" 
+                                c:parse-body-text="false">
+                            <![CDATA[
+                            {
+                                name: 'John',
+                                age: 50
+                            }
+                            ]]>
+                            </docs:code-editor>
+                            <p>
+                                Please see the <a href="#PubSub">section</a> above for more details
+                                on utilizing Pub/Sub communication.
+                            </p>
                         </docs:section>
                         
                     </docs:section>
