@@ -45,13 +45,13 @@
                             simplifies the creation of web applications built using UI components. 
                             The RaptorJS Widget Framework provides a mechanism for automatically attaching
                             behavior to DOM sub-trees associated with rendered UI components—regardless 
-                            of whether or not the UI component was rendered on the server
+                            of whether or not the UI components were rendered on the server
                             or in the web browser. Examples of UI components with attached behavior include
                             overlays, tab panels, accordion containers, buttons, etc.
                             The RaptorJS Widget Framework simplifies the initialization
                             of JavaScript applications by managing the lifecycle of widgets rendered to the page.
                             In addition, the Widget Framework provides
-                            support for inter-widget communication via Pub/Sub messaging and
+                            support for inter-widget communication via custom events and Pub/Sub messaging and
                             it allows for widgets to directly reference nested named widgets.
                         </p>
                         <p>
@@ -61,8 +61,8 @@
                         </p>
                         <p>
                             UI components that use <a href="${url('/raptor-templates')}">Raptor Templates</a> to render their view
-                            will benefit from the bindings that are provided for the Raptor templating language. Raptor Templates
-                            provides bindings to attach widgets to HTML elements. During the rendering of an HTML template,
+                            will benefit from the bindings that allow widgets to be attached to rendered HTML elements. 
+                            During the rendering of an HTML template,
                             the Widget Framework keeps track of which widgets have been rendered and which HTML element
                             each widget is bound to. This allows all of the widgets to be automatically and efficiently be initialized 
                             without having to rely the CPU intensive task of scanning the final DOM tree to discover rendered widgets.
@@ -100,12 +100,13 @@
                             are automatically applied to each widget class
                             to provide common functionality across all widgets and each widget instance is bound to a rendered DOM node. 
                             A typical widget implementation includes code to subscribe to DOM events, manipulate its DOM nodes 
-                            and utilize Pub/Sub to communicate with other widgets on the page. The following
+                            and communicate with other widgets on the page via custom events or Pub/Sub messaging. The following
                             code shows the sample code for a very simple widget:
                         </p>
                         <docs:code-editor 
                             mode="javascript"
                             readOnly="true" 
+                            title="/demo/ColorChangeWidget.js"
                             resource="/demo/ColorChangeWidget.js"/>
                         <p>
                             The following example Raptor template uses the custom <code>w:widget</code> attribute
@@ -131,9 +132,8 @@
                         ]]>
                         </docs:code-editor>
                         <p>
-                            <c:var name="widgetConfig" value="{colors: ['red', 'green', 'blue']}"/> 
-
                             <h4>Demo</h4>
+                            <c:var name="widgetConfig" value="{colors: ['red', 'green', 'blue']}"/> 
                             <button type="button" 
                                 w:widget="demo/ColorChangeWidget; config=widgetConfig">
                                 Click Me!
@@ -141,11 +141,11 @@
                         </p>
                         <p>
                             When the above template is rendered and added to the DOM, a new instance
-                            of <code>demo/ColorChangeWidget</code> will be created and it will be bound to corresponding DOM element
+                            of <code>demo/ColorChangeWidget</code> will be created, and it will be bound to corresponding DOM element
                             that was rendered. Since an <code>id</code> attribute was not assigned to the <code>&lt;button></code> element, a unique
-                            ID will be generated automatically and assigned to the root DOM element and the same DOM element
+                            ID will be generated automatically and assigned to the root DOM element, and the same DOM element
                             ID will be provided to the newly created widget instance so that the two are bound together. 
-                            For example, the output HTML for the previous template will be similar to the following:
+                            For example, the output HTML for the previous template would be similar to the following:
                         </p>
                         <docs:code-editor 
                             mode="xml"
@@ -166,7 +166,8 @@
                             readOnly="true" 
                             c:parse-body-text="false">
                         <![CDATA[
-                        console.log(this.getEl().id); // Will output "w123" for the example rendered widget
+                        // The following will output "w123" for the above widget:
+                        console.log(this.getEl().id); 
                         ]]>
                         </docs:code-editor>
                         <p>
@@ -174,15 +175,94 @@
                             the full collection of mixins that are applied to all widgets is described in
                             the <a href="#WidgetMixins"> Widget Mixins</a> section below.
                         </p>
-
+                        
                     </docs:section>
 
                     <docs:section heading="Widget Initialization">
                         <p>
                             The RaptorJS Widget Framework provides the ability to automatically initialize widgets associated
                             with rendered UI components—regardless of whether or not the UI components were rendered
-                            on the server or in the web browser. This is described in more detail in the subsequent sections.
+                            on the server or in the web browser. A widget is not initialized until all of its nested
+                            widgets have first been initialized. By default, widgets are not initialized until
+                            the "ondomready" event. Widget initialization is described in more detail in the following sections.
                         </p>
+                        <docs:section heading="Widget Constructor">
+                            <p>
+                                Every widget class is expected to be a constructor function that accepts
+                                a single "widget config" argument. The widget config argument is arbitrary
+                                data provided to the widget at render time. For more details on
+                                how to provide widget config data when using    
+                                <a href="http://raptorjs.org/raptor-templates">Raptor Templates</a> please see the
+                                <a href="#WidgetConfig">Raptor Templates » WidgetConfig</a> section below.
+                            </p>
+                            <p>
+                                A sample widget constructor is shown below:
+                            </p>
+                            <docs:code-editor 
+                                mode="javascript"
+                                readOnly="true" 
+                                c:parse-body-text="false">
+                            <![CDATA[
+                            define(
+                                "demo/MyWidget",
+                                function(require) {
+                                    var MyWidget = function(widgetConfig) {
+
+                                    };
+
+                                    MyWidget.prototype = {
+
+                                    };
+
+                                    return MyWidget;
+                                });
+                            ]]>
+                            </docs:code-editor>
+                            <p>
+                                RaptorJS also supports the equivalent shorter syntax shown below:
+                            </p>
+                            <docs:code-editor 
+                                mode="javascript"
+                                readOnly="true" 
+                                c:parse-body-text="false">
+                            <![CDATA[
+                            define.Class(
+                                "demo/MyWidget",
+                                function(require) {
+                                    return {
+                                        init: function(widgetConfig) {
+                                            // ...
+                                        }
+                                    }
+                                });
+                            ]]>
+                            </docs:code-editor>
+
+                        </docs:section>
+
+                        <docs:section heading="Initialization Sequence">
+                            <p>
+                                Nested widgets are always initialized before their ancestors. For example, given
+                                the following template:
+
+                            </p>
+                            <docs:code-editor 
+                                mode="xml"
+                                readOnly="true" 
+                                title="Sample Raptor Template"
+                                c:parse-body-text="false">
+                            <![CDATA[
+                            <div w:widget="WidgetA">
+                                <div w:widget="WidgetB"/>
+                            </div>
+                            ]]>
+                            </docs:code-editor>
+                            <p>
+                                In the above template, the widget of type <code>WidgetB</code> will be initialized before the
+                                widget of type <code>WidgetA</code> is initialized.
+                            </p>
+                        </docs:section>
+
                         <docs:section heading="Initializing Server-rendered Widgets" anchor-name="ServerInit">
                             <p>
                                 Initializing widgets associated with UI components rendered on the server is accomplished
@@ -201,9 +281,9 @@
                             <![CDATA[
                             <script type="text/javascript">
                             $rwidgets(
+                                ["demo/ColorChangeWidget","w32",{"colors":["red","green","blue"]}],
                                 ["components/editors/CodeEditor/CodeEditorWidget","w30",{"mode":"javascript","autoResize":true,"readOnly":true}],
                                 ["components/editors/CodeEditor/CodeEditorWidget","w31",{"mode":"xml","autoResize":true,"readOnly":true}],
-                                ["demo/ColorChangeWidget","w32",{"colors":["red","green","blue"]}],
                                 ...);
                             </script>
                             ]]>
@@ -262,6 +342,7 @@
                                 UI components and rendering them on the client, please see the following documentation: <a href="${url('/widgets/ui-components')}">RaptorJS Widget Framework: UI Components</a>
                             </p>
                         </docs:section>
+                        
                     </docs:section>
 
                     <docs:section heading="Widget Mixins" anchor-name="WidgetMixins">
@@ -800,7 +881,7 @@
                             </docs:section>
                         </docs:section>
 
-                        <docs:section heading="Widget Config">
+                        <docs:section heading="Widget Config" anchor-name="WidgetConfig">
                             <p>
                                 Arbitrary widget configuration data can be provided to the constructor of a widget and that widget
                                 configuration data is provided at render time. There are three options for attaching widget
