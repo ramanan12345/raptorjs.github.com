@@ -210,6 +210,15 @@
 			"cmd":
 			[
 				"${project_path}/src/publish-dev",
+				"page=/widgets/ui-components"
+			],
+			"name": "Publish (dev) - widgets/ui-components",
+			"working_dir": "${project_path}/src"
+		},
+		{
+			"cmd":
+			[
+				"${project_path}/src/publish-dev",
 				"page=/widgets/get-started"
 			],
 			"name": "Publish (dev) - widgets/get-started",
@@ -357,6 +366,7 @@
 			"Publish (dev) - widgets",
 			"Publish (dev) - widgets/developer-guide",
 			"Publish (dev) - widgets/get-started",
+			"Publish (dev) - widgets/ui-components",
 			"Publish to Github",
 			"sample-projects/async-loader/get-started/publish.js",
 			"sample-projects/widgets/get-started/publish.js"

@@ -40,14 +40,25 @@
                             are independently testable and work in multiple environments)
                         </p>
                         <p>
-                            The RaptorJS Widgets Framework does not dictate how a client-side
-                            widget should be implemented and there is no complex class
-                            hierarchy (only a few mixins that get applied to all initialized widgets).
-                            UI components that use <a href="${url('/raptor-templates')}">Raptor Templates</a> to render their view
-                            will benefit from the bindings that are provided for the Raptor 
-                            templating language. Bindings for other templating languages (including JSP) are also supported, but 
-                            this guide will focus on using the Widgets Framework with Raptor Templates.
+                            For this guide, the following technologies will be used:
                         </p>
+                        <ul>
+                            <li>
+                                <a href="http://jquery.com/"><b>jQuery</b></a>: Client-side DOM management and DOM event handling
+                            </li>
+                            <li>
+                                <a href="${url('/widgets')}"><b>RaptorJS Widget Framework</b></a>: Client-side widget initialization and widget communication
+                            </li>
+                            <li>
+                                <a href="${url('/raptor-templates')}"><b>Raptor Templates</b></a>: UI component view rendering
+                            </li>
+                            <li>
+                                <a href="${url('/packaging')}"><b>RaptorJS Packaging</b></a>: Managing UI component dependencies
+                            </li>
+                            <li>
+                                <b>CSS</b>: UI component styling
+                            </li>
+                        </ul>
                     </docs:section>
 
                     <docs:section heading="UI Component Parts">
