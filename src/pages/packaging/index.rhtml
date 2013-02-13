@@ -87,69 +87,71 @@
                     </div>
                 </div>
                 
-                <docs:feature-portal-section 
-                    title="Get Started"
-                    url="${url('/packaging/get-started')}"
-                    size="40">
-
-                    Quickly learn the basics for RaptorJS packaging
-                    and package extensions.
-
-                </docs:feature-portal-section>
-
-                
-
-                <docs:feature-portal-section 
-                    size="60"
-                    float="right">
-
-                    <docs:code-editor 
-                        autoResize="true"
-                        indentUnit="4"
-                        readOnly="true"
-                        mode="javascript">
-                    <![CDATA[
-                    {
-                        "name": "my-module",
-                        "version": "1.0",
-                        "description": "My amazing module.",
-                        "raptor": {
-                            "dependencies": [
-                                { "module": "another-module" },
-                                "my-module-common.js",
-
-                            ],
-                            "extensions": [
-                                {
-                                    "name": "server",
-                                    "dependencies": [
-                                        "my-module-server.js"
-                                    ]
-                                },
-                                {
-                                    "name": "browser",
-                                    "dependencies": [
-                                        "my-module-browser.js",
-                                        "my-module.rhtml",
-                                        "my-module.less"
-                                    ]
-                                }
-                            ]
-                        }   
-                    }
-                    ]]>
-                    </docs:code-editor>   
-
-                </docs:feature-portal-section>
-
-                <docs:feature-portal-section 
-                    title="Developer Guide"
-                    url="${url('/packaging/developer-guide')}"
-                    size="40">
-
-                    An in-depth look at the RaptorJS packaging system.
-
-                </docs:feature-portal-section>
+                <div class="feature-portal-sections">
+                    <docs:feature-portal-section 
+                        title="Get Started"
+                        url="${url('/packaging/get-started')}"
+                        size="40">
+                    
+                        Quickly learn the basics for RaptorJS packaging
+                        and package extensions.
+                    
+                    </docs:feature-portal-section>
+                    
+                    
+                    
+                    <docs:feature-portal-section 
+                        size="60"
+                        float="right">
+                    
+                        <docs:code-editor 
+                            autoResize="true"
+                            indentUnit="4"
+                            readOnly="true"
+                            mode="javascript">
+                        <![CDATA[
+                        {
+                            "name": "my-module",
+                            "version": "1.0",
+                            "description": "My amazing module.",
+                            "raptor": {
+                                "dependencies": [
+                                    { "module": "another-module" },
+                                    "my-module-common.js",
+                    
+                                ],
+                                "extensions": [
+                                    {
+                                        "name": "server",
+                                        "dependencies": [
+                                            "my-module-server.js"
+                                        ]
+                                    },
+                                    {
+                                        "name": "browser",
+                                        "dependencies": [
+                                            "my-module-browser.js",
+                                            "my-module.rhtml",
+                                            "my-module.less"
+                                        ]
+                                    }
+                                ]
+                            }   
+                        }
+                        ]]>
+                        </docs:code-editor>   
+                    
+                    </docs:feature-portal-section>
+                    
+                    <docs:feature-portal-section 
+                        title="Developer Guide"
+                        url="${url('/packaging/developer-guide')}"
+                        size="40">
+                    
+                        An in-depth look at the RaptorJS packaging system.
+                    
+                    </docs:feature-portal-section>
+                </div>
 
 
             </div>

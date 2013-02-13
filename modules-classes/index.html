@@ -1,16 +1,16 @@
 <!DOCTYPE html><html><head><title>RaptorJS: Module Loader</title><meta http-equiv="content-type" content="text/html; charset=UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><link rel="stylesheet" type="text/css" href="../static/modules-classes-bd77b987.css">
-<link rel="stylesheet" type="text/css" href="../static/docs-31f2437d.css">
+<link rel="stylesheet" type="text/css" href="../static/docs-56b64126.css">
 <link rel="stylesheet" type="text/css" href="../static/code-editor-f1386401.css"><script type="text/javascript">var
 _gaq=_gaq||[];_gaq.push(["_setAccount","UA-33982282-1"]);_gaq.push(["_trackPageview"]);(function(){var
 a=document.createElement("script");a.type="text/javascript";a.async=!0;a.src=("https:"==document.location.protocol?"https://ssl":"http://www")+".google-analytics.com/ga.js";var
-b=document.getElementsByTagName("script")[0];b.parentNode.insertBefore(a,b)})();</script></head><body data-spy="scroll"><div class="navbar navbar-fixed-top"><div class="navbar-inner"><div class="container"><a class="brand" href="../">RaptorJS</a><ul class="nav"><li class="divider-vertical"></li><li id="w538"><a href="../get-started/">Get Started</a></li><li class="divider-vertical"></li><li id="w539" class="dropdown"><a data-toggle="dropdown" class="dropdown-toggle">Learn<b class="caret"></b></a><ul class="dropdown-menu"><li id="w540"><a href="../">Overview</a></li><li id="w541"><a href="../get-started/">Get Started</a></li><li id="w542"><a href="../tutorial/">Tutorial</a></li><li id="w543"><a href="../api/">API Reference</a></li><li id="w544"><a href="../faq/">FAQ</a></li><li class="divider"></li><li id="w545" class="active nav-item-active"><a href="../modules-classes/">Modules and Classes</a></li><li id="w546"><a href="../packaging/">Packaging and Extensions</a></li><li id="w547"><a href="../module-loader/">Module Loader</a></li><li id="w548"><a href="../optimizer/">Optimizer</a></li><li id="w549"><a href="../raptor-templates/">Raptor Templates</a></li><li id="w550"><a href="../widgets/">Widget Framework</a></li><li id="w551"><a href="../logging/">Logging</a></li><li id="w552"><a href="../resource-search-path/">Resource Search Path</a></li><li id="w553"><a href="../cross-environment/">Cross Environment Support</a></li></ul></li><li class="divider-vertical"></li><li id="w554" class="dropdown"><a data-toggle="dropdown" class="dropdown-toggle">Community<b class="caret"></b></a><ul class="dropdown-menu"><li id="w555"><a href="https://github.com/raptorjs/raptorjs">Source code</a></li><li id="w556"><a href="https://github.com/raptorjs/raptorjs/issues">Issue Tracker</a></li><li id="w557"><a href="../contribute/">Contribute</a></li><li id="w558"><a href="../contributors/">Contributors</a></li><li class="divider"></li><li id="w559"><a href="http://groups.google.com/group/raptorjs">Discussion Forum</a></li><li class="divider"></li><li id="w560"><a href="http://twitter.com/raptorjs">Twitter (@raptorjs)</a></li><li id="w561"><a href="http://twitter.com/raptorjs">Google+</a></li></ul></li><li class="divider-vertical"></li><li id="w562" class="dropdown"><a data-toggle="dropdown" class="dropdown-toggle">About<b class="caret"></b></a><ul class="dropdown-menu"><li id="w563"><a href="https://github.com/raptorjs/raptorjs/wiki/Release-Notes">Release Notes</a></li><li id="w564"><a href="../design-philosophy/">Design Philosophy</a></li><li id="w565"><a href="../license/">License</a></li><li id="w566"><a href="../credits/">Credits</a></li><li id="w567"><a href="../creators/">Creators</a></li></ul></li><li class="divider-vertical"></li></ul></div></div></div><div class="container"><div class="feature-portal-top"><div class="feature-portal-desc"><h1>Modules, Classes, Mixins and Enums</h1><p>RaptorJS provides a simple library for defining namespaced modules, classes,
+b=document.getElementsByTagName("script")[0];b.parentNode.insertBefore(a,b)})();</script></head><body data-spy="scroll"><div class="navbar navbar-fixed-top"><div class="navbar-inner"><div class="container"><a class="brand" href="../">RaptorJS</a><ul class="nav"><li class="divider-vertical"></li><li id="w539"><a href="../get-started/">Get Started</a></li><li class="divider-vertical"></li><li id="w540" class="dropdown"><a data-toggle="dropdown" class="dropdown-toggle">Learn<b class="caret"></b></a><ul class="dropdown-menu"><li id="w541"><a href="../">Overview</a></li><li id="w542"><a href="../get-started/">Get Started</a></li><li id="w543"><a href="../tutorial/">Tutorial</a></li><li id="w544"><a href="../api/">API Reference</a></li><li id="w545"><a href="../faq/">FAQ</a></li><li class="divider"></li><li id="w546" class="active nav-item-active"><a href="../modules-classes/">Modules and Classes</a></li><li id="w547"><a href="../packaging/">Packaging and Extensions</a></li><li id="w548"><a href="../module-loader/">Module Loader</a></li><li id="w549"><a href="../optimizer/">Optimizer</a></li><li id="w550"><a href="../raptor-templates/">Raptor Templates</a></li><li id="w551"><a href="../widgets/">Widget Framework</a></li><li id="w552"><a href="../logging/">Logging</a></li><li id="w553"><a href="../resource-search-path/">Resource Search Path</a></li><li id="w554"><a href="../cross-environment/">Cross Environment Support</a></li></ul></li><li class="divider-vertical"></li><li id="w555" class="dropdown"><a data-toggle="dropdown" class="dropdown-toggle">Community<b class="caret"></b></a><ul class="dropdown-menu"><li id="w556"><a href="https://github.com/raptorjs/raptorjs">Source code</a></li><li id="w557"><a href="https://github.com/raptorjs/raptorjs/issues">Issue Tracker</a></li><li id="w558"><a href="../contribute/">Contribute</a></li><li id="w559"><a href="../contributors/">Contributors</a></li><li class="divider"></li><li id="w560"><a href="http://groups.google.com/group/raptorjs">Discussion Forum</a></li><li class="divider"></li><li id="w561"><a href="http://twitter.com/raptorjs">Twitter (@raptorjs)</a></li><li id="w562"><a href="http://twitter.com/raptorjs">Google+</a></li></ul></li><li class="divider-vertical"></li><li id="w563" class="dropdown"><a data-toggle="dropdown" class="dropdown-toggle">About<b class="caret"></b></a><ul class="dropdown-menu"><li id="w564"><a href="https://github.com/raptorjs/raptorjs/wiki/Release-Notes">Release Notes</a></li><li id="w565"><a href="../design-philosophy/">Design Philosophy</a></li><li id="w566"><a href="../license/">License</a></li><li id="w567"><a href="../credits/">Credits</a></li><li id="w568"><a href="../creators/">Creators</a></li></ul></li><li class="divider-vertical"></li></ul></div></div></div><div class="container"><div class="feature-portal-top"><div class="feature-portal-desc"><h1>Modules, Classes, Mixins and Enums</h1><p>RaptorJS provides a simple library for defining namespaced modules, classes,
 mixins and enums. This library uses a clean and easy-to-understand syntax that
 is close to pure JavaScript, but fills gaps in the existing JavaScript
 language. Now you can start creating modular code that is easy to maintain
 without waiting for a new version of JavaScript or switching to an alternate
-language.</p></div><div class="feature-portal-features"><h2>Features</h2><ul><li><a href="https://github.com/amdjs/amdjs-api/wiki/AMD">AMD</a>-compliant</li><li>Makes JavaScript Better</li><li>Clean Syntax</li><li>Lightweight AMD Implementation</li><li>Extends AMD with the following: <ul><li>Classes and Class Inheritance</li><li>Enumerations</li><li>Extensions</li></ul></li><li>Code Reuse across Client and Server</li><li>Lazy Initialization</li><li>Supports Parallel Downloading</li><li>Cross-platform</li><li>Decoupled from Async Module Loader</li></ul></div></div><div class="feature-portal-section feature-portal-section-40 "><div class="content"><h3><a href="../modules-classes/developer-guide/">Developer Guide</a></h3><div class="bd"><p>An in-depth look at using the RaptorJS library for defining modules, classes,
+language.</p></div><div class="feature-portal-features"><h2>Features</h2><ul><li><a href="https://github.com/amdjs/amdjs-api/wiki/AMD">AMD</a>-compliant</li><li>Makes JavaScript Better</li><li>Clean Syntax</li><li>Lightweight AMD Implementation</li><li>Extends AMD with the following: <ul><li>Classes and Class Inheritance</li><li>Enumerations</li><li>Extensions</li></ul></li><li>Code Reuse across Client and Server</li><li>Lazy Initialization</li><li>Supports Parallel Downloading</li><li>Cross-platform</li><li>Decoupled from Async Module Loader</li></ul></div></div><div class="feature-portal-sections"><div class="feature-portal-section feature-portal-section-40 "><div class="content"><h3><a href="../modules-classes/developer-guide/">Developer Guide</a></h3><div class="bd"><p>An in-depth look at using the RaptorJS library for defining modules, classes,
 mixins and
-enums.</p></div></div></div><div class="feature-portal-section feature-portal-section-60 "><div class="content"><div class="bd"><p><div class="code-editor" id="w568"> <textarea id="w568-textarea" style="display: none;" name="code-23">define(
+enums.</p></div></div></div><div class="feature-portal-section feature-portal-section-60 "><div class="content"><div class="bd"><p><div class="code-editor" id="w569"> <textarea id="w569-textarea" style="display: none;" name="code-23">define(
     'some/namespace/my-module', 
     function() {
         var MyClass = require('some/namespace/MyClass');
@@ -22,14 +22,13 @@ enums.</p></div></div></div><div class="feature-portal-section feature-portal-se
                 return new MyClass();
             }
         };
-    });</textarea></div> </p></div></div></div></div><script type="text/javascript" src="../static/core-a4824587.js"></script>
+    });</textarea></div> </p></div></div></div></div></div><script type="text/javascript" src="../static/core-a4824587.js"></script>
 <script type="text/javascript" src="../static/jquery-371da524.js"></script>
 <script type="text/javascript" src="../static/widgets-90546544.js"></script>
 <script type="text/javascript" src="../static/modules-classes-d92b6f59.js"></script>
 <script type="text/javascript" src="../static/code-editor-d9857e88.js"></script><script type="text/javascript">$rwidgets(
-["components.nav.Nav.NavItemWidget","w538",0,0,0,0],
-["components.nav.Nav.NavItemWidget","w539",0,0,0,0,
-["components.nav.Nav.NavItemWidget","w540",0,0,0,0],
+["components.nav.Nav.NavItemWidget","w539",0,0,0,0],
+["components.nav.Nav.NavItemWidget","w540",0,0,0,0,
 ["components.nav.Nav.NavItemWidget","w541",0,0,0,0],
 ["components.nav.Nav.NavItemWidget","w542",0,0,0,0],
 ["components.nav.Nav.NavItemWidget","w543",0,0,0,0],
@@ -42,19 +41,20 @@ enums.</p></div></div></div><div class="feature-portal-section feature-portal-se
 ["components.nav.Nav.NavItemWidget","w550",0,0,0,0],
 ["components.nav.Nav.NavItemWidget","w551",0,0,0,0],
 ["components.nav.Nav.NavItemWidget","w552",0,0,0,0],
-["components.nav.Nav.NavItemWidget","w553",0,0,0,0]],
-["components.nav.Nav.NavItemWidget","w554",0,0,0,0,
-["components.nav.Nav.NavItemWidget","w555",0,0,0,0],
+["components.nav.Nav.NavItemWidget","w553",0,0,0,0],
+["components.nav.Nav.NavItemWidget","w554",0,0,0,0]],
+["components.nav.Nav.NavItemWidget","w555",0,0,0,0,
 ["components.nav.Nav.NavItemWidget","w556",0,0,0,0],
 ["components.nav.Nav.NavItemWidget","w557",0,0,0,0],
 ["components.nav.Nav.NavItemWidget","w558",0,0,0,0],
 ["components.nav.Nav.NavItemWidget","w559",0,0,0,0],
 ["components.nav.Nav.NavItemWidget","w560",0,0,0,0],
-["components.nav.Nav.NavItemWidget","w561",0,0,0,0]],
-["components.nav.Nav.NavItemWidget","w562",0,0,0,0,
-["components.nav.Nav.NavItemWidget","w563",0,0,0,0],
+["components.nav.Nav.NavItemWidget","w561",0,0,0,0],
+["components.nav.Nav.NavItemWidget","w562",0,0,0,0]],
+["components.nav.Nav.NavItemWidget","w563",0,0,0,0,
 ["components.nav.Nav.NavItemWidget","w564",0,0,0,0],
 ["components.nav.Nav.NavItemWidget","w565",0,0,0,0],
 ["components.nav.Nav.NavItemWidget","w566",0,0,0,0],
-["components.nav.Nav.NavItemWidget","w567",0,0,0,0]],
-["components/editors/CodeEditor/CodeEditorWidget","w568",{"mode":"javascript","autoResize":true,"readOnly":true,"indentUnit":4},0,0,0]);</script></body></html>
+["components.nav.Nav.NavItemWidget","w567",0,0,0,0],
+["components.nav.Nav.NavItemWidget","w568",0,0,0,0]],
+["components/editors/CodeEditor/CodeEditorWidget","w569",{"mode":"javascript","autoResize":true,"readOnly":true,"indentUnit":4},0,0,0]);</script></body></html>

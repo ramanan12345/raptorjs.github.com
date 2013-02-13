@@ -29,7 +29,6 @@ PRE, CODE {
 
 .feature-portal-top {
     margin-top: 60px;
-    margin-bottom: 15px;
     position: relative;
     margin-left: 10px;
     margin-right: 10px;
@@ -44,15 +43,23 @@ PRE, CODE {
     text-align: justify;
     font-size: 16px;
     border-radius: 20px;
-    margin-right: 41%;
+    float: left;
+    width: 60%;
 
 }
 
 .feature-portal-features {
-    right: 0px;
-    top: 0px;
-    width: 40%;
-    position: absolute;
+    float: left;
+    width: 39%;
+    -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+    -moz-box-sizing: border-box;    /* Firefox, other Gecko */
+    box-sizing: border-box;         /* Opera/IE 8+ */
+    padding-left: 5px;
+}
+
+.feature-portal-sections {
+    clear: both;
+    padding-top: 15px;
 }
 
 .feature-portal-section {

@@ -71,42 +71,44 @@
                 </div>
 
 
-                <docs:feature-portal-section 
-                    title="Developer Guide"
-                    url="${url('/modules-classes/developer-guide')}"
-                    size="40">
-
-                    An in-depth look at using the RaptorJS library for
-                                        defining modules, classes, mixins and enums.
-
-                </docs:feature-portal-section>
-
-                <docs:feature-portal-section 
-                    size="60">
-
-                    <docs:code-editor 
-                        autoResize="true"
-                        indentUnit="4"
-                        readOnly="true"
-                        mode="javascript">
-                    <![CDATA[
-                    define(
-                        'some/namespace/my-module', 
-                        function() {
-                            var MyClass = require('some/namespace/MyClass');
-                            
-                            return {
-                                message: "Hello World",
+                <div class="feature-portal-sections">
+                    <docs:feature-portal-section 
+                        title="Developer Guide"
+                        url="${url('/modules-classes/developer-guide')}"
+                        size="40">
+                    
+                        An in-depth look at using the RaptorJS library for
+                                            defining modules, classes, mixins and enums.
+                    
+                    </docs:feature-portal-section>
+                    
+                    <docs:feature-portal-section 
+                        size="60">
+                    
+                        <docs:code-editor 
+                            autoResize="true"
+                            indentUnit="4"
+                            readOnly="true"
+                            mode="javascript">
+                        <![CDATA[
+                        define(
+                            'some/namespace/my-module', 
+                            function() {
+                                var MyClass = require('some/namespace/MyClass');
                                 
-                                createSomeObject: function() {
-                                    return new MyClass();
-                                }
-                            };
-                        });
-                    ]]>
-                    </docs:code-editor>   
-
-                </docs:feature-portal-section>
+                                return {
+                                    message: "Hello World",
+                                    
+                                    createSomeObject: function() {
+                                        return new MyClass();
+                                    }
+                                };
+                            });
+                        ]]>
+                        </docs:code-editor>   
+                    
+                    </docs:feature-portal-section>
+                </div>
 
 
             </div>

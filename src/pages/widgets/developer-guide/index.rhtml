@@ -293,7 +293,7 @@
                         <docs:section heading="Initializing Server-rendered Widgets" anchor-name="ServerInit">
                             <p>
                                 Initializing widgets associated with UI components rendered on the server is accomplished
-                                by generating JavaScript code that, when invoked in the browser, will
+                                by generating JavaScript code on the server that, when invoked in the browser, will
                                 initialize all of the widgets rendered on the server. When using <a href="http://raptorjs.org/raptor-templates">Raptor Templates</a>, the
                                 <a href="#InitWidgetsTag">&lt;w:init-widgets></a> tag should be used to generate the required JavaScript code
                                 to initialize widgets associated with UI components rendered on the server. Internally, the <code>&lt;w:init-widgets></code> tag uses
@@ -324,17 +324,17 @@
                                 Initializing widgets associated with UI components rendered on the client is accomplished
                                 by tracking rendered widgets in a custom data attribute of the render <a href="http://raptorjs.org/api/raptor/render-context/Context/">context</a>
                                 object. When the rendered UI components are added to the DOM, the widgets registered in the <code>context</code> object are 
-                                then initialized. The <a href="http://raptorjs.org/api/raptor/component-renderer/">raptor/component-renderer</a>
+                                then initialized. The <a href="http://raptorjs.org/api/raptor/component-renderer/"><nobr>raptor/component-renderer</nobr></a>
                                 module should be used to render UI components and then add the rendered HTML to the DOM since it handles
                                 the creation of the <code>context</code> object and provides methods for inserting the resulting HTML
                                 into the DOM. After the
-                                <a href="http://raptorjs.org/api/raptor/component-renderer/">raptor/component-renderer</a> module is used
-                                to insert rendered UI components into the DOM, a Pub/Sub message named <code>raptor/component-renderer/renderedToDOM</code>
+                                <a href="http://raptorjs.org/api/raptor/component-renderer/"><nobr>raptor/component-renderer</nobr></a> module is used
+                                to insert rendered UI components into the DOM, a Pub/Sub message named <code><nobr>raptor/component-renderer/renderedToDOM</nobr></code>
                                 is published and the <a href="http://raptorjs.org/api/raptor/widgets/">raptor/widgets</a> module responds
                                 to this message by initializing all of the widgets associated with the <code>context</code> object used to render the UI components.
                             </p>
                             <p>
-                                The following sample code illustrates how to utilize the <a href="http://raptorjs.org/api/raptor/component-renderer/">raptor/component-renderer</a>
+                                The following sample code illustrates how to utilize the <a href="http://raptorjs.org/api/raptor/component-renderer/"><nobr>raptor/component-renderer</nobr></a>
                                 module to render a UI component in the browser:
                             </p>
                             <docs:code-editor 
@@ -352,7 +352,7 @@
                             ]]>
                             </docs:code-editor>
                             <p>
-                                The <code>raptor/component-renderer</code> will first create a render <a href="http://raptorjs.org/api/raptor/render-context/Context/">context</a>
+                                The <code><nobr>raptor/component-renderer</nobr></code> will first create a render <a href="http://raptorjs.org/api/raptor/render-context/Context/">context</a>
                                 object and then it will invoke the <code>render</code> method of the provided renderer. Two arguments will be passed to the <code>render</code>
                                 method:
                             </p>
@@ -1138,7 +1138,7 @@
                             ]]>
                             </docs:code-editor>
                             <p>
-                                Please see the <a href="#PubSub">section</a> above for more details
+                                Please see the <a href="#PubSub">Pub/Sub Communication</a> section above for more details
                                 on utilizing Pub/Sub communication.
                             </p>
                         </docs:section>
