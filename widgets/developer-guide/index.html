@@ -405,13 +405,13 @@ follows:</p><ol><li><b>As part of <code>w:widget</code> attribute:</b><div class
 
 &lt;/c:template></textarea></div><div class="message message-info"><div class="icon"><i class="icon-info-sign" style="font-size: 30px;"></i></div><div class="bd"><p>NOTE: Using this final approach will only work as expected if there is only a
 single
-<code>w:widget</code> defined in the templates.</p></div></div></li></ol></div></div><div class="section section-level-1"><h2 id="InitWidgetsTag">&lt;w:init-widgets></h2><div class="bd"><p>The <code>&lt;w:init-widgets></code> tag should be used to render the JavaScript code that is used to initialized
+<code>w:widget</code> defined in the templates.</p></div></div></li></ol></div></div><div class="section section-level-1"><h2 id="InitWidgetsTag">&lt;w:init-widgets></h2><div class="bd"><p>The <code><nobr>&lt;w:init-widgets></nobr></code> tag should be used to render the JavaScript code that is used to initialized
 widgets rendered on the server. The
-<code>&lt;w:init-widgets></code> tag uses information stored in the rendering <code>context</code> object to determine which widgets have been rendered. </p><p>By default, the <code>&lt;w:init-widgets></code> tag will write out the surrounding <code>&lt;script></code> tags to enclose the generated JavaScript code but this can be controlled by
+<code><nobr>&lt;w:init-widgets></nobr></code> tag uses information stored in the rendering <code>context</code> object to determine which widgets have been rendered. </p><p>By default, the <code><nobr>&lt;w:init-widgets></nobr></code> tag will write out the surrounding <code>&lt;script></code> tags to enclose the generated JavaScript code but this can be controlled by
 setting the value of the
-<code>include-script-tag</code> attribute to <code>false</code>.</p><p>After the <code>&lt;w:init-widgets></code> tag is rendered, the widgets that have been rendered will be cleared out. This
+<code>include-script-tag</code> attribute to <code>false</code>.</p><p>After the <code><nobr>&lt;w:init-widgets></nobr></code> tag is rendered, the widgets that have been rendered will be cleared out. This
 allows
-<code>&lt;w:init-widgets></code> tag to be used multiple times on the page if necessary. </p><p>The <code>function-name</code> attribute can be used to wrap the widget initialization code in a global
+<code><nobr>&lt;w:init-widgets></nobr></code> tag to be used multiple times on the page if necessary. </p><p>The <code>function-name</code> attribute can be used to wrap the widget initialization code in a global
 function with the specified
 named.</p><p>For more details on what the generated JavaScript code looks like please see
 the
