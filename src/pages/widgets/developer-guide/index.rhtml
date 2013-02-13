@@ -188,6 +188,59 @@
                             the <a href="http://raptorjs.org/api/source/raptor/templating/taglibs/widgets/package.json/"><nobr>raptor/templating/taglibs/widgets</nobr></a>
                             module must be included as well.
                         </p>
+                        <p>
+                            These dependencies can be included as part of a 
+                            <a href="${url('/packaging')}">RaptorJS package.json</a>
+                            file or by using the <a href="${url('/optimizer/get-started-raptor-templates')}">RaptorJS Optimizer Taglib</a>
+                            as shown in the following samples:
+                        </p>
+                        <docs:code-editor 
+                            mode="javascript"
+                            readOnly="true" 
+                            title="Sample package.json"
+                            c:parse-body-text="false">
+                        <![CDATA[
+                        {
+                            "raptor": [
+                                { "module": "raptor/widgets" },
+                                { "module": "raptor/templating/taglibs/widgets" },
+                                ...
+                            ]
+                        }
+                        ]]>
+                        </docs:code-editor>
+
+                        <docs:code-editor 
+                            mode="xml"
+                            readOnly="true" 
+                            title="Optimizer Taglib"
+                            c:parse-body-text="false">
+                        <![CDATA[
+                        <c:template
+                            xmlns:c="core"
+                            xmlns:optimizer="optimizer">
+
+                            <optimizer:page name="demo-page">
+                                <dependencies>
+                                    <module name="raptor"/>
+                                    <module name="raptor/widgets"/>
+                                    <module name="raptor/templating/taglibs/widgets"/>
+                                    <!-- Additional Dependencies... -->
+                                </dependencies>
+                            </optimizer:page>
+
+                            <html>
+                                <head>
+                                    ...
+                                </head>
+                                <body>
+                                    ...
+                                </body>
+                            </html>
+
+                        </c:template>
+                        ]]>
+                        </docs:code-editor>
                     </docs:section>
 
                     <docs:section heading="Widget Initialization">
@@ -922,9 +975,8 @@
 
                         <docs:section heading="Widget Config" anchor-name="WidgetConfig">
                             <p>
-                                Arbitrary widget configuration data can be provided to the constructor of a widget and that widget
-                                configuration data is provided at render time. There are three options for attaching widget
-                                configuration data to a widget and those options are as follows.
+                                Arbitrary widget configuration data determined at render time can be provided to the constructor of a widget. 
+                                There are three options for attaching widget configuration data to a widget and those options are as follows:
                             </p>
                             <ol>
                                 <li>
