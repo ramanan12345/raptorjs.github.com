@@ -178,6 +178,18 @@
                         
                     </docs:section>
 
+                    <docs:section heading="Client-side Dependencies">
+                        <p>
+                            In order to use the RaptorJS Widget Framework, the 
+                            <a href="http://raptorjs.org/api/raptor/widgets/">raptor/widgets</a> module must be included on the page.
+                        </p>
+                        <p>
+                            In addition, when using the <a href="#Taglib">Widgets taglib</a> as part of Raptor templates rendered in the browser, then
+                            the <a href="http://raptorjs.org/api/source/raptor/templating/taglibs/widgets/package.json/"><nobr>raptor/templating/taglibs/widgets</nobr></a>
+                            module must be included as well.
+                        </p>
+                    </docs:section>
+
                     <docs:section heading="Widget Initialization">
                         <p>
                             The RaptorJS Widget Framework provides the ability to automatically initialize widgets associated
@@ -735,7 +747,7 @@
 
                         
 
-                    <docs:section heading="Raptor Template Bindings">
+                    <docs:section heading="Raptor Template Bindings" anchor-name="Taglib">
                         <p>
                             The Raptor Templating language includes custom tag and attribute handlers that
                             allow developers to bind widgets to rendered DOM nodes. The long URI for the 

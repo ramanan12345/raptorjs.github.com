@@ -14,6 +14,8 @@
     
     var legacyNamesRE = /^(arrays|json.*|debug|listeners|loader.*|logging|pubsub|objects|strings|templating.*|widgets)$/,
         normalize = function(id) {
+            console.error(a);
+
             id = raptor.normalize(id);
             return legacyNamesRE.test(id) ? 'raptor/' + id : id;
         },
@@ -186,7 +188,7 @@
         },
         
         isServer: function() {
-            return !isClient;
+            return !this.isClient();
         },
         
         isClient: function() {
