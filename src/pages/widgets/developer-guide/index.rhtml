@@ -184,7 +184,7 @@
                             <a href="http://raptorjs.org/api/raptor/widgets/">raptor/widgets</a> module must be included on the page.
                         </p>
                         <p>
-                            In addition, when using the <a href="#Taglib">Widgets taglib</a> as part of Raptor templates rendered in the browser, then
+                            In addition, when using the <a href="#Taglib">Widgets Taglib</a> as part of Raptor templates rendered in the browser, then
                             the <a href="http://raptorjs.org/api/source/raptor/templating/taglibs/widgets/package.json/"><nobr>raptor/templating/taglibs/widgets</nobr></a>
                             module must be included as well.
                         </p>
@@ -360,8 +360,8 @@
                                 Initializing widgets associated with UI components rendered on the server is accomplished
                                 by generating JavaScript code on the server that, when invoked in the browser, will
                                 initialize all of the widgets rendered on the server. When using <a href="http://raptorjs.org/raptor-templates">Raptor Templates</a>, the
-                                <a href="#InitWidgetsTag">&lt;w:init-widgets></a> tag should be used to generate the required JavaScript code
-                                to initialize widgets associated with UI components rendered on the server. Internally, the <code>&lt;w:init-widgets></code> tag uses
+                                <a href="#InitWidgetsTag"><nobr>&lt;w:init-widgets></nobr></a> tag should be used to generate the required JavaScript code
+                                to initialize widgets associated with UI components rendered on the server. Internally, the <code><nobr>&lt;w:init-widgets></nobr></code> tag uses
                                 the <a href="http://raptorjs.org/api/raptor/widgets_Server/#writeInitWidgetsCode">widgets.writeInitWidgetsCode(...)</a> method
                                 to generate the required JavaScript code. The sample code
                                 below shows what the generated initialization code looks like:
@@ -381,7 +381,7 @@
                             ]]>
                             </docs:code-editor>
                             <p>
-                                Please see the documentation for the <a href="#InitWidgetsTag">&lt;w:init-widgets></a> tag for more details.
+                                Please see the documentation for the <a href="#InitWidgetsTag"><nobr>&lt;w:init-widgets></nobr></a> tag for more details.
                             </p>
                         </docs:section>
                         <docs:section heading="Initializing Client-rendered Widgets">
@@ -774,7 +774,7 @@
                             Pub/Sub message will be published as well. Other widgets that are
                             interested in the published Pub/Sub message can subscribe
                             to that message directly using the <code>raptor/pubsub</code>
-                            moduel.
+                            module.
                         </p>
                         <docs:code-editor 
                             mode="javascript"
@@ -1188,7 +1188,7 @@
                             <p>
                                 When the widget associated with the <code>&lt;ui:button</code> tag
                                 publishes the custom "click" event, a Pub/Sub message named
-                                "sayHello" will also be published wih the following message object:
+                                "sayHello" will also be published with the following message object:
                             </p>
                             <docs:code-editor 
                                 mode="javascript"

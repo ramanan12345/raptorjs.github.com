@@ -83,7 +83,7 @@ clarity:</p><div class="code-editor" id="w1293"> <textarea id="w1293-textarea" s
 console.log(this.getEl().id);</textarea></div><p>How widgets are initialized and bound to DOM nodes is described later in this
 guide. In addition, the full collection of mixins that are applied to all
 widgets is described in the
-<a href="#WidgetMixins"> Widget Mixins</a> section below.</p></div></div><div class="section section-level-0"><h2 id="Clientside_Dependencies">Client-side Dependencies</h2><div class="bd"><p>In order to use the RaptorJS Widget Framework, the <a href="http://raptorjs.org/api/raptor/widgets/">raptor/widgets</a> module must be included on the page.</p><p>In addition, when using the <a href="#Taglib">Widgets taglib</a> as part of Raptor templates rendered in the browser, then the <a href="http://raptorjs.org/api/source/raptor/templating/taglibs/widgets/package.json/"><nobr>raptor/templating/taglibs/widgets</nobr></a> module must be included as well.</p><p>These dependencies can be included as part of a <a href="../../packaging/">RaptorJS package.json</a> file or by using the <a href="../../optimizer/get-started-raptor-templates/">RaptorJS Optimizer Taglib</a> as shown in the following samples:</p><div class="code-editor" id="w1294"><h2 class="code-editor-title">Sample package.json</h2> <textarea id="w1294-textarea" style="display: none;" name="code-158">{
+<a href="#WidgetMixins"> Widget Mixins</a> section below.</p></div></div><div class="section section-level-0"><h2 id="Clientside_Dependencies">Client-side Dependencies</h2><div class="bd"><p>In order to use the RaptorJS Widget Framework, the <a href="http://raptorjs.org/api/raptor/widgets/">raptor/widgets</a> module must be included on the page.</p><p>In addition, when using the <a href="#Taglib">Widgets Taglib</a> as part of Raptor templates rendered in the browser, then the <a href="http://raptorjs.org/api/source/raptor/templating/taglibs/widgets/package.json/"><nobr>raptor/templating/taglibs/widgets</nobr></a> module must be included as well.</p><p>These dependencies can be included as part of a <a href="../../packaging/">RaptorJS package.json</a> file or by using the <a href="../../optimizer/get-started-raptor-templates/">RaptorJS Optimizer Taglib</a> as shown in the following samples:</p><div class="code-editor" id="w1294"><h2 class="code-editor-title">Sample package.json</h2> <textarea id="w1294-textarea" style="display: none;" name="code-158">{
     "raptor": [
         { "module": "raptor/widgets" },
         { "module": "raptor/templating/taglibs/widgets" },
@@ -163,9 +163,9 @@ widget class named "initBeforeOnDomReady" with a value of
 accomplished by generating JavaScript code on the server that, when invoked in
 the browser, will initialize all of the widgets rendered on the server. When
 using
-<a href="http://raptorjs.org/raptor-templates">Raptor Templates</a>, the <a href="#InitWidgetsTag">&lt;w:init-widgets></a> tag should be used to generate the required JavaScript code to initialize
+<a href="http://raptorjs.org/raptor-templates">Raptor Templates</a>, the <a href="#InitWidgetsTag"><nobr>&lt;w:init-widgets></nobr></a> tag should be used to generate the required JavaScript code to initialize
 widgets associated with UI components rendered on the server. Internally, the
-<code>&lt;w:init-widgets></code> tag uses the <a href="http://raptorjs.org/api/raptor/widgets_Server/#writeInitWidgetsCode">widgets.writeInitWidgetsCode(...)</a> method to generate the required JavaScript code. The sample code below shows
+<code><nobr>&lt;w:init-widgets></nobr></code> tag uses the <a href="http://raptorjs.org/api/raptor/widgets_Server/#writeInitWidgetsCode">widgets.writeInitWidgetsCode(...)</a> method to generate the required JavaScript code. The sample code below shows
 what the generated initialization code looks
 like:</p><div class="code-editor" id="w1300"> <textarea id="w1300-textarea" style="display: none;" name="code-164">&lt;script type="text/javascript">
 $rwidgets(
@@ -173,7 +173,7 @@ $rwidgets(
     ["components/editors/CodeEditor/CodeEditorWidget","w30",{"mode":"javascript","autoResize":true,"readOnly":true}],
     ["components/editors/CodeEditor/CodeEditorWidget","w31",{"mode":"xml","autoResize":true,"readOnly":true}],
     ...);
-&lt;/script></textarea></div><p>Please see the documentation for the <a href="#InitWidgetsTag">&lt;w:init-widgets></a> tag for more details.</p></div></div><div class="section section-level-1"><h2 id="Initializing_Clientrendered_Widgets">Initializing Client-rendered Widgets</h2><div class="bd"><p>Initializing widgets associated with UI components rendered on the client is
+&lt;/script></textarea></div><p>Please see the documentation for the <a href="#InitWidgetsTag"><nobr>&lt;w:init-widgets></nobr></a> tag for more details.</p></div></div><div class="section section-level-1"><h2 id="Initializing_Clientrendered_Widgets">Initializing Client-rendered Widgets</h2><div class="bd"><p>Initializing widgets associated with UI components rendered on the client is
 accomplished by tracking rendered widgets in a custom data attribute of the
 render
 <a href="http://raptorjs.org/api/raptor/render-context/Context/">context</a> object. When the rendered UI components are added to the DOM, the widgets
@@ -317,7 +317,7 @@ to see if the custom widget event is mapped to a Pub/Sub event. If so, then in
 addition to publishing the custom event, the Pub/Sub message will be published
 as well. Other widgets that are interested in the published Pub/Sub message can
 subscribe to that message directly using the
-<code>raptor/pubsub</code> moduel.</p><div class="code-editor" id="w1314"><h2 class="code-editor-title">Pub/Sub Subscriber</h2> <textarea id="w1314-textarea" style="display: none;" name="code-177">require('raptor/pubsub').subscribe(
+<code>raptor/pubsub</code> module.</p><div class="code-editor" id="w1314"><h2 class="code-editor-title">Pub/Sub Subscriber</h2> <textarea id="w1314-textarea" style="display: none;" name="code-177">require('raptor/pubsub').subscribe(
     'sayHello', 
     function(eventArgs) {
         var message = eventArgs.message;
@@ -459,7 +459,7 @@ message object through the use of sub-attributes. This is illustrated in the
 following
 code:</p><div class="code-editor" id="w1328"> <textarea id="w1328-textarea" style="display: none;" name="code-191">&lt;ui:button label="Say Hello" 
            w:event-click="sayHello; name='John'; age=50" /></textarea></div><p>When the widget associated with the <code>&lt;ui:button</code> tag publishes the custom "click" event, a Pub/Sub message named "sayHello"
-will also be published wih the following message
+will also be published with the following message
 object:</p><div class="code-editor" id="w1329"> <textarea id="w1329-textarea" style="display: none;" name="code-192">{
     name: 'John',
     age: 50
