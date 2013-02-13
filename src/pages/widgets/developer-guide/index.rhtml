@@ -184,10 +184,19 @@
                             <a href="http://raptorjs.org/api/raptor/widgets/">raptor/widgets</a> module must be included on the page.
                         </p>
                         <p>
-                            In addition, when using the <a href="#Taglib">Widgets Taglib</a> as part of Raptor templates rendered in the browser, then
-                            the <a href="http://raptorjs.org/api/source/raptor/templating/taglibs/widgets/package.json/"><nobr>raptor/templating/taglibs/widgets</nobr></a>
-                            module must be included as well.
+                            To render UI components in the browser, two additional modules must be included:
                         </p>
+                        <ul>
+                            <li>
+                                <a href="http://raptorjs.org/api/raptor/component-renderer/"><nobr><b>raptor/component-renderer</b></nobr></a>:
+                                Required for rendering UI components in the browser, inserting the resulting HTML into the DOM and initializing
+                                the widgets associated with the rendered UI components
+                            </li>
+                            <li>
+                                <a href="http://raptorjs.org/api/source/raptor/templating/taglibs/widgets/package.json/"><nobr><b>raptor/templating/taglibs/widgets</b></nobr></a>:
+                                Required to use custom tag handlers that are part of the <a href="#Taglib">Widgets Taglib</a>
+                            </li>
+                        </ul>
                         <p>
                             These dependencies can be included as part of a 
                             <a href="${url('/packaging')}">RaptorJS package.json</a>
@@ -203,6 +212,7 @@
                         {
                             "raptor": [
                                 { "module": "raptor/widgets" },
+                                { "module": "raptor/component-renderer" },
                                 { "module": "raptor/templating/taglibs/widgets" },
                                 ...
                             ]
@@ -224,6 +234,7 @@
                                 <dependencies>
                                     <module name="raptor"/>
                                     <module name="raptor/widgets"/>
+                                    <module name="raptor/component-renderer"/>
                                     <module name="raptor/templating/taglibs/widgets"/>
                                     <!-- Additional Dependencies... -->
                                 </dependencies>
@@ -431,7 +442,7 @@
                             </ol>
                             <p>
                                 The job of the renderer is to write out its output based on its input to the provided context. For more details on building
-                                UI components and rendering them on the client, please see the following documentation: <a href="${url('/widgets/ui-components')}">RaptorJS Widget Framework: UI Components</a>
+                                UI components and rendering them on the client, please see the following documentation: <a href="${url('/ui-components')}">RaptorJS Widget Framework: UI Components</a>
                             </p>
                         </docs:section>
                         

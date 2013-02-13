@@ -37,7 +37,7 @@
                         <p>
                             
                             This guide will walk you through the steps to build UI components that
-                            are independently testable and work in multiple environments)
+                            are independently testable and can be rendered on the server or in the browser
                         </p>
                         <p>
                             For this guide, the following technologies will be used:
@@ -45,6 +45,9 @@
                         <ul>
                             <li>
                                 <a href="http://jquery.com/"><b>jQuery</b></a>: Client-side DOM management and DOM event handling
+                            </li>
+                            <li>
+                                <b>CSS</b>: UI component styling
                             </li>
                             <li>
                                 <a href="${url('/widgets')}"><b>RaptorJS Widget Framework</b></a>: Client-side widget initialization and widget communication
@@ -56,8 +59,15 @@
                                 <a href="${url('/packaging')}"><b>RaptorJS Packaging</b></a>: Managing UI component dependencies
                             </li>
                             <li>
-                                <b>CSS</b>: UI component styling
+                                <a href="${url('/optimizer')}"><b>RaptorJS Optimizer</b></a>: Delivering JavaScript and CSS code to the browser
                             </li>
+                            <li>
+                                <a href="http://raptorjs.org/api/raptor/component-renderer/"><b>RaptorJS AMD</b></a>: Modules, classes and mixins
+                            </li>
+                            <li>
+                                RaptorJS Module: <a href="${url('/optimizer')}"><b>component/renderer</b></a>: Delivering JavaScript and CSS code to the browser
+                            </li>
+                            
                         </ul>
                     </docs:section>
 

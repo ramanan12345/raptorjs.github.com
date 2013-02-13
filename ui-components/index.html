@@ -1,0 +1,52 @@
+ <!DOCTYPE html><html><head><title>RaptorJS: Building UI Components</title><meta http-equiv="content-type" content="text/html; charset=UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><link rel="stylesheet" type="text/css" href="../static/ui-components-68e9d2c3.css">
+<link rel="stylesheet" type="text/css" href="../static/docs-56b64126.css">
+<link rel="stylesheet" type="text/css" href="../static/code-editor-f1386401.css"><script type="text/javascript">var
+_gaq=_gaq||[];_gaq.push(["_setAccount","UA-33982282-1"]);_gaq.push(["_trackPageview"]);(function(){var
+a=document.createElement("script");a.type="text/javascript";a.async=!0;a.src=("https:"==document.location.protocol?"https://ssl":"http://www")+".google-analytics.com/ga.js";var
+b=document.getElementsByTagName("script")[0];b.parentNode.insertBefore(a,b)})();</script></head><body><div class="navbar navbar-fixed-top"><div class="navbar-inner"><div class="container"><a class="brand" href="../">RaptorJS</a><ul class="nav"><li class="divider-vertical"></li><li id="w1294"><a href="../get-started/">Get Started</a></li><li class="divider-vertical"></li><li id="w1295" class="dropdown"><a data-toggle="dropdown" class="dropdown-toggle">Learn<b class="caret"></b></a><ul class="dropdown-menu"><li id="w1296"><a href="../">Overview</a></li><li id="w1297"><a href="../get-started/">Get Started</a></li><li id="w1298"><a href="../tutorial/">Tutorial</a></li><li id="w1299"><a href="../api/">API Reference</a></li><li id="w1300"><a href="../faq/">FAQ</a></li><li class="divider"></li><li id="w1301"><a href="../modules-classes/">Modules and Classes</a></li><li id="w1302"><a href="../packaging/">Packaging and Extensions</a></li><li id="w1303"><a href="../module-loader/">Module Loader</a></li><li id="w1304"><a href="../optimizer/">Optimizer</a></li><li id="w1305"><a href="../raptor-templates/">Raptor Templates</a></li><li id="w1306"><a href="../widgets/">Widget Framework</a></li><li id="w1307"><a href="../ui-components/">UI Components</a></li><li id="w1308"><a href="../logging/">Logging</a></li><li id="w1309"><a href="../resource-search-path/">Resource Search Path</a></li><li id="w1310"><a href="../cross-environment/">Cross Environment Support</a></li></ul></li><li class="divider-vertical"></li><li id="w1311" class="dropdown"><a data-toggle="dropdown" class="dropdown-toggle">Community<b class="caret"></b></a><ul class="dropdown-menu"><li id="w1312"><a href="https://github.com/raptorjs/raptorjs">Source code</a></li><li id="w1313"><a href="https://github.com/raptorjs/raptorjs/issues">Issue Tracker</a></li><li id="w1314"><a href="../contribute/">Contribute</a></li><li id="w1315"><a href="../contributors/">Contributors</a></li><li class="divider"></li><li id="w1316"><a href="http://groups.google.com/group/raptorjs">Discussion Forum</a></li><li class="divider"></li><li id="w1317"><a href="http://twitter.com/raptorjs">Twitter (@raptorjs)</a></li><li id="w1318"><a href="http://twitter.com/raptorjs">Google+</a></li></ul></li><li class="divider-vertical"></li><li id="w1319" class="dropdown"><a data-toggle="dropdown" class="dropdown-toggle">About<b class="caret"></b></a><ul class="dropdown-menu"><li id="w1320"><a href="https://github.com/raptorjs/raptorjs/wiki/Release-Notes">Release Notes</a></li><li id="w1321"><a href="../design-philosophy/">Design Philosophy</a></li><li id="w1322"><a href="../license/">License</a></li><li id="w1323"><a href="../credits/">Credits</a></li><li id="w1324"><a href="../creators/">Creators</a></li></ul></li><li class="divider-vertical"></li></ul></div></div></div><div class="container"><div class="docs"><div class="bd"><div class="docs-content"><h1 id="title">Building UI Components</h1><div class="toc nav" id="docsNav"><ul class="toc"><li class="toc toc-level-0"><a href="#Overview">Overview</a><ul class="toc"></ul></li><li class="toc toc-level-0"><a href="#UI_Component_Parts">UI Component Parts</a><ul class="toc"></ul></li><li class="toc toc-level-0"><a href="#Discussion">Discussion</a><ul class="toc"></ul></li></ul><div class="docs-nav-footer"><ul><li><span class="powered-by">Powered by <a href="../" class="raptorjs">RaptorJS</a></span></li><li><a href="../license/">License</a></li><li><a href="../credits/">Credits</a></li></ul></div></div><div class="section section-level-0"><h2 id="Overview">Overview</h2><div class="bd"><p>This guide will walk you through the steps to build UI components that are
+independently testable and can be rendered on the server or in the
+browser</p><p>For this guide, the following technologies will be used:</p><ul><li><a href="http://jquery.com/"><b>jQuery</b></a>: Client-side DOM management and DOM event handling</li><li><b>CSS</b>: UI component styling</li><li><a href="../widgets/"><b>RaptorJS Widget Framework</b></a>: Client-side widget initialization and widget communication</li><li><a href="../raptor-templates/"><b>Raptor Templates</b></a>: UI component view rendering</li><li><a href="../packaging/"><b>RaptorJS Packaging</b></a>: Managing UI component dependencies</li><li><a href="../optimizer/"><b>RaptorJS Optimizer</b></a>: Delivering JavaScript and CSS code to the browser</li><li><a href="http://raptorjs.org/api/raptor/component-renderer/"><b>RaptorJS AMD</b></a>: Modules, classes and mixins</li><li>RaptorJS Module: <a href="../optimizer/"><b>component/renderer</b></a>: Delivering JavaScript and CSS code to the browser</li></ul></div></div><div class="section section-level-0"><h2 id="UI_Component_Parts">UI Component Parts</h2><div class="bd"><p>For this guide we will be creating a simple UI component that consists of the
+following:
+<ul><li><b>Renderer:</b> A JavaScript class that controls the rendering of the UI component</li><li><b>HTML Template:</b> A Raptor Template that is used to render the HTML</li><li><b>Widget:</b> A JavaScript class that provides the client-side functionality including the
+following:
+<ul><li>DOM Event Handling</li><li>Widget API Methods</li><li>Event-based Communication</li></ul></li><li><b>CSS:</b> A CSS file to control the appearance of the rendered component</li><li><b>Custom Tag Definition:</b> A Raptor Taglib Definition (RTLD) file that declares what attributes are
+allowed when the UI component is embedded in a Raptor
+Template</li><li><b>package.json:</b> A pacakge file to control how the UI component is packaged up for delivery to
+the web
+browser</li></ul></p></div></div><div class="section section-level-0"><h2 id="Discussion">Discussion</h2><div class="bd"><div id="disqus_thread"></div></div></div></div></div><div class="docs-footer-padding"></div></div></div><script type="text/javascript" src="../static/core-a4824587.js"></script>
+<script type="text/javascript" src="../static/jquery-371da524.js"></script>
+<script type="text/javascript" src="../static/widgets-90546544.js"></script>
+<script type="text/javascript" src="../static/ui-components-0b890bf5.js"></script>
+<script type="text/javascript" src="../static/code-editor-d9857e88.js"></script><script type="text/javascript">$rwidgets(
+["components.nav.Nav.NavItemWidget","w1294",0,0,0,0],
+["components.nav.Nav.NavItemWidget","w1295",0,0,0,0,
+["components.nav.Nav.NavItemWidget","w1296",0,0,0,0],
+["components.nav.Nav.NavItemWidget","w1297",0,0,0,0],
+["components.nav.Nav.NavItemWidget","w1298",0,0,0,0],
+["components.nav.Nav.NavItemWidget","w1299",0,0,0,0],
+["components.nav.Nav.NavItemWidget","w1300",0,0,0,0],
+["components.nav.Nav.NavItemWidget","w1301",0,0,0,0],
+["components.nav.Nav.NavItemWidget","w1302",0,0,0,0],
+["components.nav.Nav.NavItemWidget","w1303",0,0,0,0],
+["components.nav.Nav.NavItemWidget","w1304",0,0,0,0],
+["components.nav.Nav.NavItemWidget","w1305",0,0,0,0],
+["components.nav.Nav.NavItemWidget","w1306",0,0,0,0],
+["components.nav.Nav.NavItemWidget","w1307",0,0,0,0],
+["components.nav.Nav.NavItemWidget","w1308",0,0,0,0],
+["components.nav.Nav.NavItemWidget","w1309",0,0,0,0],
+["components.nav.Nav.NavItemWidget","w1310",0,0,0,0]],
+["components.nav.Nav.NavItemWidget","w1311",0,0,0,0,
+["components.nav.Nav.NavItemWidget","w1312",0,0,0,0],
+["components.nav.Nav.NavItemWidget","w1313",0,0,0,0],
+["components.nav.Nav.NavItemWidget","w1314",0,0,0,0],
+["components.nav.Nav.NavItemWidget","w1315",0,0,0,0],
+["components.nav.Nav.NavItemWidget","w1316",0,0,0,0],
+["components.nav.Nav.NavItemWidget","w1317",0,0,0,0],
+["components.nav.Nav.NavItemWidget","w1318",0,0,0,0]],
+["components.nav.Nav.NavItemWidget","w1319",0,0,0,0,
+["components.nav.Nav.NavItemWidget","w1320",0,0,0,0],
+["components.nav.Nav.NavItemWidget","w1321",0,0,0,0],
+["components.nav.Nav.NavItemWidget","w1322",0,0,0,0],
+["components.nav.Nav.NavItemWidget","w1323",0,0,0,0],
+["components.nav.Nav.NavItemWidget","w1324",0,0,0,0]],
+["components.social.Disqus.DisqusWidget","disqus_thread",{"shortName":"raptor-js","id":"ui-components","title":"Building UI Components"},0,0,0]);</script></body></html>
