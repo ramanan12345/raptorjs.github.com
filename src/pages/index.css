@@ -466,6 +466,7 @@ H1.intro {
     }
     .feature-section > .content > .bd > .padding {
         min-height: auto;
+        padding-bottom: 0px;
     }
 
 }
