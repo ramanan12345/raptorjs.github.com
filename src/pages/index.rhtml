@@ -15,7 +15,9 @@
             <module name="components/nav/TopNavDefault"/>
             <module name="components/footers/FooterDefault"/>
             <module name="components/social/TwitterFollow"/>
+            <module name="components/social/TwitterTweet"/>
             <module name="components/social/GooglePlusOne"/>
+            <module name="components/social/GooglePlusBadge"/>
             <css path="index.css"/>
         </dependencies>
     </optimizer:page>
@@ -28,22 +30,21 @@
 
     <html html:doctype="html">
         <head>
-            <title>RaptorJS — A JavaScript Toolset from eBay</title>
+            <title itemprop="name">RaptorJS — A JavaScript Toolset from eBay</title>
             <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
             <meta name="viewport" content="width=device-width, initial-scale=1.0" />
             
-            <meta name="Description" 
-                content="RaptorJS ia a modular JavaScript Toolset from eBay. It is designed to work alongside existing JavaScript libraries—not replace them. Since it's a toolset and not a framework, feel free to use only what you need." />
+            <meta itemprop="description" name="Description" 
+                content="RaptorJS ia a modular JavaScript Toolset from eBay that makes building web applications easier." />
                     
             <optimizer:slot name="head"/>
             <docs:google-analytics/>
         </head>
-        <body>
+        <body itemscope="${null}" itemtype="http://schema.org/Product">
             <docs:top-nav activeItem="home"/>
             
             <div id="header">
 
-                <div id="clouds" style="background-image: url(${url('images/clouds.png')});"></div>
                 
                 <div class="container main-content">
                     <!-- <div class="hiring">
@@ -51,25 +52,13 @@
                         <a href="http://rfer.us/EBRu47Vff">
                             we are hiring
                         </a>!
-                    </div> -->
-                    
-                    
-                    <div class="social">
-                        <docs:twitter-follow username="raptorjs" showCount="true" size="large"/><br/>
-                        <div class="plusone-container">
-                            <docs:g-plusone width="300"/>
-                        </div>
-                    </div>
-                    
-                    <h1>
-                        RaptorJS
-                    </h1>
-                    <h2>
-                        A Modular JavaScript Toolset from <img src="images/ebay-logo.png" alt="eBay" width="68" height="27"/>
-                    </h2>
-                    
+                    </div> -->                    
+                    <div class="hero">
+                        <img itemprop="image" src="images/raptorjs-logo.png" width="346" height="240" alt="RaptorJS Logo"/>
+                        <h2>
+                            A Modular JavaScript Toolset from <img src="images/ebay-logo.png" alt="eBay" width="79" height="30"/>
+                        </h2>
 
-                    <div>
                         <div class="main-buttons">
                             <docs:button size="large" class="github-button" href="https://github.com/raptorjs/raptorjs">
                                 <docs:icon name="github" size="large"/> 
@@ -78,25 +67,36 @@
                             <docs:button size="large" class="get-started-button" href="${url('/get-started')}">
                                 Get Started <docs:icon name="arrow-right" size="large"/> 
                             </docs:button>
-                        </div>
-                        <div class="version-container">
-                            <span class="lbl">Current Version:</span> 
-                            <span class="version">2.1</span>
-                        </div>
+
+                            <div class="version-container">
+                                <span class="lbl">Current Version:</span> 
+                                <span class="version">2.1</span>
+                            </div>
+                            </div>
                     </div>
                 </div>
             </div>
             
             <div class="container" id="bodyContent">
-                
-                <h1 class="intro">
-                    Designed to work alongside existing JavaScript libraries—not replace them.<br/>
-                    Since it's a toolset and not a framework, feel free to use only what you need.
-                </h1>
+                <div class="social-container">
+                    <div class="social social-g-badge">
+                        <docs:g-badge title="RaptorJS" href="https://plus.google.com/111493691067944627473/"/>
+                    </div>
+                    
+                    <div class="social social-twitter-tweet">
+                        <docs:twitter-tweet via="raptorjs" text="A Modular JavaScript Toolset from eBay" url="http://raptorjs.org/" size="large"/>
+                    </div>
+
+                    <div class="social social-twitter-follow">
+                        <docs:twitter-follow username="raptorjs" showCount="true" size="large"/>
+                    </div>
+
+                    
+                </div>
 
                 <div class="overview">
                     
-                    <div class="feature-section small-tile">
+                    <div class="feature-section small-tile drop-shadow">
                         <div class="content">
                             <img src="objects.png" width="48" height="48"/>
                             <h3><a href="${url('/modules-classes')}">Modules &amp; Classes</a></h3>
@@ -121,7 +121,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="feature-section small-tile">
+                    <div class="feature-section small-tile drop-shadow">
                         <div class="content">
                             <img src="package.png" width="48" height="48"/>
                             <h3><a href="${url('/packaging')}">Packaging &amp; Extensions</a></h3>
@@ -154,7 +154,7 @@
                         </div>
                     </div>
 
-                    <div class="feature-section small-tile">
+                    <div class="feature-section small-tile drop-shadow">
                         <div class="content">
                             <img src="load-package.png" width="48" height="48"/>
                             <h3><a href="${url('/module-loader')}">Module Loader</a></h3>
@@ -172,7 +172,7 @@
                         </div>
                     </div>
 
-                    <div class="feature-section small-tile">
+                    <div class="feature-section small-tile drop-shadow">
                         <div class="content">
                             <img src="lightning.png" width="48" height="48"/>
                             <h3><a href="${url('/optimizer')}">Optimizer</a></h3>
@@ -189,7 +189,7 @@
                         </div>
                     </div>
 
-                    <div class="feature-section small-tile">
+                    <div class="feature-section small-tile drop-shadow">
                         <div class="content">
                             <img src="templates.png" width="48" height="48"/>
                             <h3><a href="${url('/raptor-templates')}">Raptor Templates</a></h3>
@@ -204,7 +204,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="feature-section small-tile">
+                    <div class="feature-section small-tile drop-shadow">
                         <div class="content">
                             <img src="widgets2.png" width="48" height="48"/>
                             <h3><a href="${url('/widgets')}">Widget Framework</a></h3>
@@ -222,7 +222,7 @@
                     </div>
                 </div>
 
-                <div class="feature-section why">
+                <div class="feature-section why drop-shadow">
                     <div class="content">
                         <h3>Why RaptorJS?</h3>
                         <div class="bd">
@@ -257,7 +257,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="feature-section packaging">
+                <div class="feature-section packaging drop-shadow">
                     <div class="content">
                         <h3>Adaptive Packaging</h3>
                         <div class="bd">

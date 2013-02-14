@@ -35,8 +35,10 @@
     
     <import-taglib path="/components/overlays/Popover/Popover.rtld"/>
     
+    <import-taglib path="/components/social/GooglePlusBadge/GooglePlusBadge.rtld"/>
     <import-taglib path="/components/social/GooglePlusOne/GooglePlusOne.rtld"/>
     <import-taglib path="/components/social/TwitterFollow/TwitterFollow.rtld"/>
+    <import-taglib path="/components/social/TwitterTweet/TwitterTweet.rtld"/>
     <import-taglib path="/components/social/Disqus/Disqus.rtld"/>
     
     <import-taglib path="/components/tracking/GoogleAnalytics/GoogleAnalytics.rtld"/>
