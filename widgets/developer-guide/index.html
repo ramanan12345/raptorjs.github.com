@@ -235,8 +235,8 @@ properties. For example:
     // ...
 });</textarea></div></p></div></div></div></div><div class="section section-level-1"><h2 id="Optional_jQuery_Extensions">Optional jQuery Extensions</h2><div class="bd"><p>If the <code>jquery</code> extension is enabled when the <code>raptor/widgets</code> module is included then additional mixin methods are added to better integrate
 with
-jQuery.</p><div class="section section-level-2"><h2 id="jQuery">$</h2><div class="bd"><p>The <code>$</code> (<a href="https://github.com/raptorjs/raptorjs/blob/master/lib/raptor/widgets/Widget_jquery.js">view source</a>) method provides convenience methods for accessing a widget's DOM elements
-when jQuery is available. This mixin method serves as a proxy to jQuery to ease
+jQuery.</p><div class="section section-level-2"><h2 id="jQuery">$</h2><div class="bd"><p>The <code>$</code> method (<a href="https://github.com/raptorjs/raptorjs/blob/master/lib/raptor/widgets/Widget_jquery.js">view source</a>) provides convenience methods for accessing a widget's DOM elements when
+jQuery is available. This mixin method serves as a proxy to jQuery to ease
 building queries based on widget element
 IDs.</p><p>Internally, this jQuery proxy method will resolve widget element IDs to their
 actual DOM element ID by prefixing widget element IDs with the widget ID. For
