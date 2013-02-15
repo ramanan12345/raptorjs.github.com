@@ -608,73 +608,133 @@
                             </p>
                             <docs:section heading="$" anchor-name="jQuery">
                                 <p>
-                                    The <code>$</code> method provides convenience methods for accessing a widget's DOM
-                                    elements when jQuery is available as described below:
+                                    The <code>$</code> (<a href="https://github.com/raptorjs/raptorjs/blob/master/lib/raptor/widgets/Widget_jquery.js">view source</a>) method provides convenience methods for accessing a widget's DOM
+                                    elements when jQuery is available. This mixin method serves
+                                    as a proxy to jQuery to ease building queries based on widget element IDs.
                                 </p>
-                                <ul>
-                                    <li>
-                                        Accessing the widget's root DOM element wrapped as a jQuery object:
-                                        <docs:code-editor 
-                                            mode="javascript"
-                                            readOnly="true" 
-                                            c:parse-body-text="false">
-                                        <![CDATA[
-                                        $(this.getEl())
-                                        this.$()
-                                        ]]>
-                                        </docs:code-editor>
-                                    </li>
-                                    <li>
-                                        Accessing a widget's DOM element by ID wrapped as a jQuery object:
-                                        <docs:code-editor 
-                                            mode="javascript"
-                                            readOnly="true" 
-                                            c:parse-body-text="false">
-                                        <![CDATA[
-                                        $(this.getEl(id))
-                                        this.$("#<id>")
+                                <p>
+                                    Internally, this jQuery proxy method will resolve widget element IDs
+                                    to their actual DOM element ID by prefixing widget element IDs with the 
+                                    widget ID. For example, where <code>this</code> is a widget with an ID of <code>"w123"</code>:
+                                </p>
+                                <docs:code-editor 
+                                    mode="javascript"
+                                    readOnly="true" 
+                                    c:parse-body-text="false">
+                                <![CDATA[
+                                this.$() ➡ $("#w123")
+                                this.$("#myEl") ➡ $("#w123_myEl")
+                                ]]>
+                                </docs:code-editor>
 
-                                        // Examples:
-                                        $(this.getEl("myEl"))
-                                        this.$("#myEl)
-                                        ]]>
-                                        </docs:code-editor>
-                                    </li>
-                                    <li>
-                                        Executing a jQuery selector scoped to the widget's root DOM element:
-                                        <docs:code-editor 
-                                            mode="javascript"
-                                            readOnly="true" 
-                                            c:parse-body-text="false">
-                                        <![CDATA[
-                                        $(selector, this.getEl())
-                                        this.$(selector)
-
-                                        // Examples:
-                                        $("LI.color", this.getEl())
-                                        this.$("LI.color")
-                                        ]]>
-                                        </docs:code-editor>
-                                    </li>
-                                    <li>
-                                        Executing a jQuery selector scoped to a widget's DOM element:
-                                        <docs:code-editor 
-                                            mode="javascript"
-                                            readOnly="true" 
-                                            c:parse-body-text="false">
-                                        <![CDATA[
-                                        $(selector, this.getEl(id))
-                                        this.$(selector, id)
-                                        this.$("#<id> <selector>")
-
-                                        // Examples:
-                                        $("LI.color", this.getEl("colorsUL"))
-                                        this.$("LI.color", "colorsUL")
-                                        this.$("#colorsUL LI.color")
-                                        ]]>
-                                        </docs:code-editor>
-                                    </li>
-                                </ul> 
+                                <p>
+                                    The usage of this mixin method is described below:
+                                </p>
+                                <docs:section heading="$()" anchor-name="Root">
+                                    <p>
+                                        Convenience usage to access the root widget DOM element wrapped as a jQuery object.
+                                        All of the following are equivalent:
+                                    </p>
+                                    <docs:code-editor 
+                                        mode="javascript"
+                                        readOnly="true" 
+                                        c:parse-body-text="false">
+                                    <![CDATA[
+                                    this.$()
+                                    $(this.getEl())
+                                    $("#" + this.getElId())
+                                    ]]>
+                                    </docs:code-editor>
+                                </docs:section>
+                                <docs:section heading="$('#&lt;widget-el-id>')">
+                                    <p>
+                                        Convenience usage to access a nested widget DOM element wrapped as a jQuery object.
+                                        All of the following are equivalent:
+                                    </p>
+                                    <docs:code-editor 
+                                        mode="javascript"
+                                        readOnly="true" 
+                                        c:parse-body-text="false">
+                                    <![CDATA[
+                                    this.$("#myEl)
+                                    $(this.getEl("myEl"))
+                                    $("#" + this.getElId("myEl"))
+                                    ]]>
+                                    </docs:code-editor>
+                                </docs:section>
+                                <docs:section heading="$('&lt;selector>')">
+                                    <p>
+                                        Convenience usage to query nested DOM elements scoped to the root widget DOM element.
+                                        All of the following are equivalent:
+                                    </p>
+                                    <docs:code-editor 
+                                        mode="javascript"
+                                        readOnly="true" 
+                                        c:parse-body-text="false">
+                                    <![CDATA[
+                                    this.$("ul > li")
+                                    $("ul > li", this.getEl())
+                                    $("#" + this.getElId() + " ul > li")
+                                    ]]>
+                                    </docs:code-editor>
+                                </docs:section>
+                                <docs:section heading="$('&lt;selector>', '&lt;widget-el-id>')">
+                                    <p>
+                                        Convenience usage to query nested DOM elements scoped to a nested widget DOM element.
+                                        All of the following are equivalent:
+                                    </p>
+                                    <docs:code-editor 
+                                        mode="javascript"
+                                        readOnly="true" 
+                                        c:parse-body-text="false">
+                                    <![CDATA[
+                                    this.$("li.color", "colorsUL")
+                                    this.$("#colorsUL li.color")
+                                    $("li.color", this.getEl("colorsUL"))
+                                    $("#" + this.getElId("colorsUL") + " li.color")
+                                    ]]>
+                                    </docs:code-editor>
+                                </docs:section>
+                                <docs:section heading="$('#&lt;widget-el-id> &lt;selector>')">
+                                    <p>
+                                        Convenience usage to query nested DOM elements scoped to a nested widget DOM element.
+                                        All of the following are equivalent:
+                                    </p>
+                                    <docs:code-editor 
+                                        mode="javascript"
+                                        readOnly="true" 
+                                        c:parse-body-text="false">
+                                    <![CDATA[
+                                    this.$("#colorsUL li.color")
+                                    this.$("li.color", "colorsUL")
+                                    $("li.color", this.getEl("colorsUL"))
+                                    $("#" + this.getElId("colorsUL") + " li.color")
+                                    ]]>
+                                    </docs:code-editor>
+                                </docs:section>
+                                <docs:section heading="$(callbackFunction)" anchor-name="Root">
+                                    <p>
+                                        Convenience usage to add a listener for the "on DOM ready" event and
+                                        have the <code>this</code> object for the provided callback function
+                                        be the current widget instance.
+                                        All of the following are equivalent:
+                                    </p>
+                                    <docs:code-editor 
+                                        mode="javascript"
+                                        readOnly="true" 
+                                        c:parse-body-text="false">
+                                    <![CDATA[
+                                    this.$(function() { /*...*/ });
+                                    $(function() { /*...*/ }.bind(this));      // Using Function.prototype.bind
+                                    $($.proxy(function() { /*...*/ }, this));
+                                    ]]>
+                                    </docs:code-editor>
+                                    <docs:message type="info">
+                                        NOTE: By default, each widget is not initialized until the "on DOM ready" event
+                                        has fired. Therefore, the only reason for using <code>$(callbackFunction)</code>
+                                        is if the "initBeforeOnDomReady" property is set to <code>true</code>.
+                                    </docs:message>
+                                </docs:section>
                                 <p>
 
                                     <h4>Demo</h4>

@@ -64,8 +64,8 @@ DIV.toc > UL.toc {
 }
 
 .docs > .bd > .docs-content > .toc > UL.toc UL.toc UL.toc {
-    margin-left: 6px;
-    padding-left: 10px;
+    margin-left: 0px;
+    padding-left: 8px;
 }
 
 .docs-nav-footer {
