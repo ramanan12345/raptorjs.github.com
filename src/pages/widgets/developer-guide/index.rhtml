@@ -630,7 +630,7 @@
                                 <p>
                                     The usage of this mixin method is described below:
                                 </p>
-                                <docs:section heading="$()" anchor-name="Root">
+                                <docs:section heading="$()" anchor-name="jQueryProxyRoot">
                                     <p>
                                         Convenience usage to access the root widget DOM element wrapped as a jQuery object.
                                         All of the following are equivalent:
@@ -646,7 +646,7 @@
                                     ]]>
                                     </docs:code-editor>
                                 </docs:section>
-                                <docs:section heading="$('#&lt;widget-el-id>')">
+                                <docs:section heading="$('#&lt;widget-el-id>')" anchor-name="jQueryProxyWidgetEl">
                                     <p>
                                         Convenience usage to access a nested widget DOM element wrapped as a jQuery object.
                                         All of the following are equivalent:
@@ -662,7 +662,7 @@
                                     ]]>
                                     </docs:code-editor>
                                 </docs:section>
-                                <docs:section heading="$('&lt;selector>')">
+                                <docs:section heading="$('&lt;selector>')" anchor-name="jQueryProxyRootScopeSelector">
                                     <p>
                                         Convenience usage to query nested DOM elements scoped to the root widget DOM element.
                                         All of the following are equivalent:
@@ -678,7 +678,7 @@
                                     ]]>
                                     </docs:code-editor>
                                 </docs:section>
-                                <docs:section heading="$('&lt;selector>', '&lt;widget-el-id>')">
+                                <docs:section heading="$('&lt;selector>', '&lt;widget-el-id>')" anchor-name="jQueryProxyWidgetElScopeSelector">
                                     <p>
                                         Convenience usage to query nested DOM elements scoped to a nested widget DOM element.
                                         All of the following are equivalent:
@@ -695,7 +695,7 @@
                                     ]]>
                                     </docs:code-editor>
                                 </docs:section>
-                                <docs:section heading="$('#&lt;widget-el-id> &lt;selector>')">
+                                <docs:section heading="$('#&lt;widget-el-id> &lt;selector>')" anchor-name="jQueryProxyWidgetElScopeSelector2">
                                     <p>
                                         Convenience usage to query nested DOM elements scoped to a nested widget DOM element.
                                         All of the following are equivalent:
@@ -712,7 +712,7 @@
                                     ]]>
                                     </docs:code-editor>
                                 </docs:section>
-                                <docs:section heading="$(callbackFunction)" anchor-name="Root">
+                                <docs:section heading="$(callbackFunction)" anchor-name="jQueryProxyOnDomReady">
                                     <p>
                                         Convenience usage to add a listener for the "on DOM ready" event and
                                         have the <code>this</code> object for the provided callback function
