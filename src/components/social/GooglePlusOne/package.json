@@ -1,8 +1,0 @@
-{
-    "raptor": {
-        "dependencies": [
-            { "module": "google-plus" },
-            "GooglePlusOne.css"
-        ]
-    }
-}

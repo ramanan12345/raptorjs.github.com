@@ -1,7 +1,0 @@
-{
-    "raptor": {
-        "dependencies": [
-            {"type": "resource", "path": "Tab.rtld"}
-        ]
-    }
-}

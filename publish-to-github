@@ -1,2 +1,0 @@
-#!/bin/sh
-ant && (cd src && ./publish) && (cd src/sample-projects/async-loader/get-started && node publish.js) && raptor-jsdoc src=node_modules/raptor/lib output-dir=api profile=production include-filename=false publish=true props=node_modules/raptor/package.json,node_modules/raptor/jsdoc-props.json clean=api && git add --all '**' && git commit -m "Published documentation" && git push origin master

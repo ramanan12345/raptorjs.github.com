@@ -1,0 +1,1 @@
+define("ui/search/SearchResults/SearchResultsRenderer",function(e){var t=e("raptor/templating");return{render:function(e,n){t.render("ui/search/SearchResults",{items:e.searchResultItems,view:e.view||"gallery"},n)}}});

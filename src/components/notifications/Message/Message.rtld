@@ -1,8 +1,0 @@
-<raptor-taglib>
-
-    <tag name="message" handler-class="components.notifications.Message.MessageTag">
-        <attribute name="type" type="string"/>
-        <attribute name="message" type="string"/>
-    </tag>
-    
-</raptor-taglib>
