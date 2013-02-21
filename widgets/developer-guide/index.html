@@ -93,7 +93,8 @@ components</li><li><a href="http://raptorjs.org/api/source/raptor/templating/tag
     ]
 }</textarea></div><div class="code-editor" id="w1365"><h2 class="code-editor-title">Optimizer Taglib</h2> <textarea id="w1365-textarea" style="display: none;" name="code-159">&lt;c:template
     xmlns:c="core"
-    xmlns:optimizer="optimizer">
+    xmlns:optimizer="optimizer"
+    xmlns:w="widgets">
 
     &lt;optimizer:page name="demo-page">
         &lt;dependencies>
@@ -108,9 +109,12 @@ components</li><li><a href="http://raptorjs.org/api/source/raptor/templating/tag
     &lt;html>
         &lt;head>
             ...
+            &lt;optimizer:slot name="head"/>
         &lt;/head>
         &lt;body>
             ...
+            &lt;optimizer:slot name="body"/>
+            &lt;w:init-widgets/>
         &lt;/body>
     &lt;/html>
 
