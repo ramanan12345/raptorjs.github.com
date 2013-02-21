@@ -1,0 +1,1 @@
+$rloaderMeta={"module-b":{"css":["static/module-b.css-981b6ffe.css"],"js":["static/module-b.js-cf845d25.js"]}};

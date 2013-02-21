@@ -1,0 +1,1 @@
+define("ui/demo/WidgetsDemo/WidgetsDemoWidget",function(e){var t=function(e){var t=this.widgets.redGreenBlueButton,n=this.widgets.cyanMagentaYellowButton,r=this.widgets.repeatedButtons;this.$("#changeColorsButton").click(function(){t.nextColor(),n.nextColor(),r.forEach(function(e){e.nextColor()})})};return t.prototype={},t});
