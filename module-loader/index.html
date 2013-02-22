@@ -1,7 +1,7 @@
 <!DOCTYPE html><html><head><title>RaptorJS: Module Loader</title><meta http-equiv="content-type" content="text/html; charset=UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><link rel="stylesheet" type="text/css" href="../static/module-loader-9baf89dd.css">
 <link rel="stylesheet" type="text/css" href="../static/docs-8ce8bbe8.css">
 <script type="text/javascript">var _gaq=_gaq||[];_gaq.push(["_setAccount","UA-33982282-1"]),_gaq.push(["_trackPageview"]),function(){var e=document.createElement("script");e.type="text/javascript",e.async=!0,e.src=("https:"==document.location.protocol?"https://ssl":"http://www")+".google-analytics.com/ga.js";var t=document.getElementsByTagName("script")[0];t.parentNode.insertBefore(e,t)}();
-var __insp=__insp||[];__insp.push(["wid",2568045892]),function(){function e(){var e=document.createElement("script");e.type="text/javascript",e.async=!0,e.id="inspsync",e.src=("https:"==document.location.protocol?"https":"http")+"://www.inspectlet.com/inspectlet-jq.js";var t=document.getElementsByTagName("script")[0];t.parentNode.insertBefore(e,t)}window.attachEvent?window.attachEvent("onload",e):window.addEventListener("load",e,!1)}();</script></head><body data-spy="scroll"><div class="navbar navbar-fixed-top"><div class="navbar-inner"><div class="container"><a class="brand" href="../">RaptorJS</a><ul class="nav"><li class="divider-vertical"></li><li id="w482"><a href="../get-started/">Get Started</a></li><li class="divider-vertical"></li><li id="w483" class="dropdown"><a data-toggle="dropdown" class="dropdown-toggle">Learn<b class="caret"></b></a><ul class="dropdown-menu"><li id="w484"><a href="../">Overview</a></li><li id="w485"><a href="../get-started/">Get Started</a></li><li id="w486"><a href="../tutorial/">Tutorial</a></li><li id="w487"><a href="../api/">API Reference</a></li><li id="w488"><a href="../faq/">FAQ</a></li><li class="divider"></li><li id="w489"><a href="../modules-classes/">Modules and Classes</a></li><li id="w490"><a href="../packaging/">Packaging and Extensions</a></li><li id="w491" class="active nav-item-active"><a href="../module-loader/">Module Loader</a></li><li id="w492"><a href="../optimizer/">Optimizer</a></li><li id="w493"><a href="../raptor-templates/">Raptor Templates</a></li><li id="w494"><a href="../widgets/">Widget Framework</a></li><li class="divider"></li><li id="w495"><a href="../ui-components/">UI Components</a></li><li id="w496"><a href="../logging/">Logging</a></li><li id="w497"><a href="../resource-search-path/">Resource Search Path</a></li><li id="w498"><a href="../cross-environment/">Cross Environment Support</a></li></ul></li><li class="divider-vertical"></li><li id="w499" class="dropdown"><a data-toggle="dropdown" class="dropdown-toggle">Community<b class="caret"></b></a><ul class="dropdown-menu"><li id="w500"><a href="https://github.com/raptorjs/raptorjs">Source code</a></li><li id="w501"><a href="https://github.com/raptorjs/raptorjs/issues">Issue Tracker</a></li><li id="w502"><a href="../contribute/">Contribute</a></li><li id="w503"><a href="../contributors/">Contributors</a></li><li class="divider"></li><li id="w504"><a href="http://groups.google.com/group/raptorjs">Discussion Forum</a></li><li class="divider"></li><li id="w505"><a href="http://twitter.com/raptorjs">Twitter (@raptorjs)</a></li><li id="w506"><a href="https://plus.google.com/111493691067944627473/">Google+</a></li></ul></li><li class="divider-vertical"></li><li id="w507" class="dropdown"><a data-toggle="dropdown" class="dropdown-toggle">About<b class="caret"></b></a><ul class="dropdown-menu"><li id="w508"><a href="https://github.com/raptorjs/raptorjs/wiki/Release-Notes">Release Notes</a></li><li id="w509"><a href="../design-philosophy/">Design Philosophy</a></li><li id="w510"><a href="../license/">License</a></li><li id="w511"><a href="../credits/">Credits</a></li><li id="w512"><a href="../creators/">Creators</a></li></ul></li><li class="divider-vertical"></li></ul></div></div></div><div class="container"><div class="feature-portal-top"><div class="feature-portal-desc"><h1>RaptorJS Module Loader</h1><p>For server-side JavaScript environment, RaptorJS provides a cross-platform
+var __insp=__insp||[];__insp.push(["wid",2568045892]),function(){function e(){var e=document.createElement("script");e.type="text/javascript",e.async=!0,e.id="inspsync",e.src=("https:"==document.location.protocol?"https":"http")+"://www.inspectlet.com/inspectlet-jq.js";var t=document.getElementsByTagName("script")[0];t.parentNode.insertBefore(e,t)}window.attachEvent?window.attachEvent("onload",e):window.addEventListener("load",e,!1)}();</script></head><body data-spy="scroll"><div class="navbar navbar-fixed-top"><div class="navbar-inner"><div class="container"><a class="brand" href="../">RaptorJS</a><ul class="nav"><li class="divider-vertical"></li><li id="w497"><a href="../get-started/">Get Started</a></li><li class="divider-vertical"></li><li id="w498" class="dropdown"><a data-toggle="dropdown" class="dropdown-toggle">Learn<b class="caret"></b></a><ul class="dropdown-menu"><li id="w499"><a href="../">Overview</a></li><li id="w500"><a href="../get-started/">Get Started</a></li><li id="w501"><a href="../tutorial/">Tutorial</a></li><li id="w502"><a href="../api/">API Reference</a></li><li id="w503" target="_blank"><a href="https://github.com/raptorjs/samples">Sample Apps</a></li><li id="w504"><a href="../faq/">FAQ</a></li><li class="divider"></li><li id="w505"><a href="../modules-classes/">Modules and Classes</a></li><li id="w506"><a href="../packaging/">Packaging and Extensions</a></li><li id="w507" class="active nav-item-active"><a href="../module-loader/">Module Loader</a></li><li id="w508"><a href="../optimizer/">Optimizer</a></li><li id="w509"><a href="../raptor-templates/">Raptor Templates</a></li><li id="w510"><a href="../widgets/">Widget Framework</a></li><li class="divider"></li><li id="w511"><a href="../ui-components/">UI Components</a></li><li id="w512"><a href="../logging/">Logging</a></li><li id="w513"><a href="../resource-search-path/">Resource Search Path</a></li><li id="w514"><a href="../cross-environment/">Cross Environment Support</a></li></ul></li><li class="divider-vertical"></li><li id="w515" class="dropdown"><a data-toggle="dropdown" class="dropdown-toggle">Community<b class="caret"></b></a><ul class="dropdown-menu"><li id="w516"><a href="https://github.com/raptorjs/raptorjs">Source code</a></li><li id="w517"><a href="https://github.com/raptorjs/raptorjs/issues">Issue Tracker</a></li><li id="w518"><a href="../contribute/">Contribute</a></li><li id="w519"><a href="../contributors/">Contributors</a></li><li class="divider"></li><li id="w520"><a href="http://groups.google.com/group/raptorjs">Discussion Forum</a></li><li class="divider"></li><li id="w521"><a href="http://twitter.com/raptorjs">Twitter (@raptorjs)</a></li><li id="w522"><a href="https://plus.google.com/111493691067944627473/">Google+</a></li></ul></li><li class="divider-vertical"></li><li id="w523" class="dropdown"><a data-toggle="dropdown" class="dropdown-toggle">About<b class="caret"></b></a><ul class="dropdown-menu"><li id="w524"><a href="https://github.com/raptorjs/raptorjs/wiki/Release-Notes">Release Notes</a></li><li id="w525"><a href="../design-philosophy/">Design Philosophy</a></li><li id="w526"><a href="../license/">License</a></li><li id="w527"><a href="../credits/">Credits</a></li><li id="w528"><a href="../creators/">Creators</a></li></ul></li><li class="divider-vertical"></li></ul></div></div></div><div class="container"><div class="feature-portal-top"><div class="feature-portal-desc"><h1>RaptorJS Module Loader</h1><p>For server-side JavaScript environment, RaptorJS provides a cross-platform
 module loader that reads modules package files to determine which code to load
 for a particular module.
 </p><p>For the client-side, RaptorJS provides an asynchronous module loader that uses
@@ -14,34 +14,35 @@ needs.</p></div></div></div></div></div><script type="text/javascript" src="../s
 <script type="text/javascript" src="../static/jquery-371da524.js"></script>
 <script type="text/javascript" src="../static/widgets-80dede79.js"></script>
 <script type="text/javascript" src="../static/module-loader-d92b6f59.js"></script><script type="text/javascript">$rwidgets(
-["components.nav.Nav.NavItemWidget","w482",0,0,0,0],
-["components.nav.Nav.NavItemWidget","w483",0,0,0,0,
-["components.nav.Nav.NavItemWidget","w484",0,0,0,0],
-["components.nav.Nav.NavItemWidget","w485",0,0,0,0],
-["components.nav.Nav.NavItemWidget","w486",0,0,0,0],
-["components.nav.Nav.NavItemWidget","w487",0,0,0,0],
-["components.nav.Nav.NavItemWidget","w488",0,0,0,0],
-["components.nav.Nav.NavItemWidget","w489",0,0,0,0],
-["components.nav.Nav.NavItemWidget","w490",0,0,0,0],
-["components.nav.Nav.NavItemWidget","w491",0,0,0,0],
-["components.nav.Nav.NavItemWidget","w492",0,0,0,0],
-["components.nav.Nav.NavItemWidget","w493",0,0,0,0],
-["components.nav.Nav.NavItemWidget","w494",0,0,0,0],
-["components.nav.Nav.NavItemWidget","w495",0,0,0,0],
-["components.nav.Nav.NavItemWidget","w496",0,0,0,0],
 ["components.nav.Nav.NavItemWidget","w497",0,0,0,0],
-["components.nav.Nav.NavItemWidget","w498",0,0,0,0]],
-["components.nav.Nav.NavItemWidget","w499",0,0,0,0,
+["components.nav.Nav.NavItemWidget","w498",0,0,0,0,
+["components.nav.Nav.NavItemWidget","w499",0,0,0,0],
 ["components.nav.Nav.NavItemWidget","w500",0,0,0,0],
 ["components.nav.Nav.NavItemWidget","w501",0,0,0,0],
 ["components.nav.Nav.NavItemWidget","w502",0,0,0,0],
 ["components.nav.Nav.NavItemWidget","w503",0,0,0,0],
 ["components.nav.Nav.NavItemWidget","w504",0,0,0,0],
 ["components.nav.Nav.NavItemWidget","w505",0,0,0,0],
-["components.nav.Nav.NavItemWidget","w506",0,0,0,0]],
-["components.nav.Nav.NavItemWidget","w507",0,0,0,0,
+["components.nav.Nav.NavItemWidget","w506",0,0,0,0],
+["components.nav.Nav.NavItemWidget","w507",0,0,0,0],
 ["components.nav.Nav.NavItemWidget","w508",0,0,0,0],
 ["components.nav.Nav.NavItemWidget","w509",0,0,0,0],
 ["components.nav.Nav.NavItemWidget","w510",0,0,0,0],
 ["components.nav.Nav.NavItemWidget","w511",0,0,0,0],
-["components.nav.Nav.NavItemWidget","w512",0,0,0,0]]);</script></body></html>
+["components.nav.Nav.NavItemWidget","w512",0,0,0,0],
+["components.nav.Nav.NavItemWidget","w513",0,0,0,0],
+["components.nav.Nav.NavItemWidget","w514",0,0,0,0]],
+["components.nav.Nav.NavItemWidget","w515",0,0,0,0,
+["components.nav.Nav.NavItemWidget","w516",0,0,0,0],
+["components.nav.Nav.NavItemWidget","w517",0,0,0,0],
+["components.nav.Nav.NavItemWidget","w518",0,0,0,0],
+["components.nav.Nav.NavItemWidget","w519",0,0,0,0],
+["components.nav.Nav.NavItemWidget","w520",0,0,0,0],
+["components.nav.Nav.NavItemWidget","w521",0,0,0,0],
+["components.nav.Nav.NavItemWidget","w522",0,0,0,0]],
+["components.nav.Nav.NavItemWidget","w523",0,0,0,0,
+["components.nav.Nav.NavItemWidget","w524",0,0,0,0],
+["components.nav.Nav.NavItemWidget","w525",0,0,0,0],
+["components.nav.Nav.NavItemWidget","w526",0,0,0,0],
+["components.nav.Nav.NavItemWidget","w527",0,0,0,0],
+["components.nav.Nav.NavItemWidget","w528",0,0,0,0]]);</script></body></html>
