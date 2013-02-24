@@ -1,7 +1,7 @@
 <!DOCTYPE html><html><head><title itemprop="name">RaptorJS: Optimizer</title><link rel="icon" href="../favicon.ico" type="image/x-icon"><link rel="shortcut icon" href="../favicon.ico" type="image/x-icon"><meta http-equiv="content-type" content="text/html; charset=UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><link rel="stylesheet" type="text/css" href="../static/optimizer-9238a178.css">
 <link rel="stylesheet" type="text/css" href="../static/docs-8ce8bbe8.css">
 <script type="text/javascript">var _gaq=_gaq||[];_gaq.push(["_setAccount","UA-33982282-1"]),_gaq.push(["_trackPageview"]),function(){var e=document.createElement("script");e.type="text/javascript",e.async=!0,e.src=("https:"==document.location.protocol?"https://ssl":"http://www")+".google-analytics.com/ga.js";var t=document.getElementsByTagName("script")[0];t.parentNode.insertBefore(e,t)}();
-var __insp=__insp||[];__insp.push(["wid",2568045892]),function(){function e(){var e=document.createElement("script");e.type="text/javascript",e.async=!0,e.id="inspsync",e.src=("https:"==document.location.protocol?"https":"http")+"://www.inspectlet.com/inspectlet-jq.js";var t=document.getElementsByTagName("script")[0];t.parentNode.insertBefore(e,t)}window.attachEvent?window.attachEvent("onload",e):window.addEventListener("load",e,!1)}();</script></head><body data-spy="scroll"><div class="navbar navbar-fixed-top"><div class="navbar-inner"><div class="container"><a class="brand" href="../">RaptorJS</a><ul class="nav"><li class="divider-vertical"></li><li id="w824"><a href="../get-started/">Get Started</a></li><li class="divider-vertical"></li><li id="w825" class="dropdown"><a data-toggle="dropdown" class="dropdown-toggle">Learn<b class="caret"></b></a><ul class="dropdown-menu"><li id="w826"><a href="../">Overview</a></li><li id="w827"><a href="../get-started/">Get Started</a></li><li id="w828"><a href="../tutorial/">Tutorial</a></li><li id="w829"><a href="../api/">API Reference</a></li><li id="w830" target="_blank"><a href="https://github.com/raptorjs/samples">Sample Apps</a></li><li id="w831"><a href="../faq/">FAQ</a></li><li class="divider"></li><li id="w832"><a href="../modules-classes/">Modules and Classes</a></li><li id="w833"><a href="../packaging/">Packaging and Extensions</a></li><li id="w834"><a href="../module-loader/">Module Loader</a></li><li id="w835" class="active nav-item-active"><a href="../optimizer/">Optimizer</a></li><li id="w836"><a href="../raptor-templates/">Raptor Templates</a></li><li id="w837"><a href="../widgets/">Widget Framework</a></li><li class="divider"></li><li id="w838"><a href="../ui-components/">Building UI Components</a></li><li id="w839"><a href="../logging/">Logging</a></li><li id="w840"><a href="../resource-search-path/">Resource Search Path</a></li><li id="w841"><a href="../cross-environment/">Cross Environment Support</a></li></ul></li><li class="divider-vertical"></li><li id="w842" class="dropdown"><a data-toggle="dropdown" class="dropdown-toggle">Community<b class="caret"></b></a><ul class="dropdown-menu"><li id="w843"><a href="https://github.com/raptorjs/raptorjs">Source code</a></li><li id="w844"><a href="https://github.com/raptorjs/raptorjs/issues">Issue Tracker</a></li><li id="w845"><a href="../contribute/">Contribute</a></li><li id="w846"><a href="../contributors/">Contributors</a></li><li class="divider"></li><li id="w847"><a href="http://groups.google.com/group/raptorjs">Discussion Forum</a></li><li class="divider"></li><li id="w848"><a href="http://twitter.com/raptorjs">Twitter (@raptorjs)</a></li><li id="w849"><a href="https://plus.google.com/111493691067944627473/">Google+</a></li></ul></li><li class="divider-vertical"></li><li id="w850" class="dropdown"><a data-toggle="dropdown" class="dropdown-toggle">About<b class="caret"></b></a><ul class="dropdown-menu"><li id="w851"><a href="https://github.com/raptorjs/raptorjs/wiki/Release-Notes">Release Notes</a></li><li id="w852"><a href="../design-philosophy/">Design Philosophy</a></li><li id="w853"><a href="../license/">License</a></li><li id="w854"><a href="../credits/">Credits</a></li><li id="w855"><a href="../creators/">Creators</a></li></ul></li><li class="divider-vertical"></li></ul></div></div></div><div class="container"><div class="feature-portal-top"><div class="feature-portal-desc"><h1>RaptorJS Optimizer</h1><p>The RaptorJS Optimizer is a server-side tool that can be be used to build
+var __insp=__insp||[];__insp.push(["wid",2568045892]),function(){function e(){var e=document.createElement("script");e.type="text/javascript",e.async=!0,e.id="inspsync",e.src=("https:"==document.location.protocol?"https":"http")+"://www.inspectlet.com/inspectlet-jq.js";var t=document.getElementsByTagName("script")[0];t.parentNode.insertBefore(e,t)}window.attachEvent?window.attachEvent("onload",e):window.addEventListener("load",e,!1)}();</script></head><body data-spy="scroll"><div class="navbar navbar-fixed-top"><div class="navbar-inner"><div class="container"><a class="brand" href="../">RaptorJS</a><ul class="nav"><li class="divider-vertical"></li><li id="w829"><a href="../get-started/">Get Started</a></li><li class="divider-vertical"></li><li id="w830" class="dropdown"><a data-toggle="dropdown" class="dropdown-toggle">Learn<b class="caret"></b></a><ul class="dropdown-menu"><li id="w831"><a href="../">Overview</a></li><li id="w832"><a href="../get-started/">Get Started</a></li><li id="w833"><a href="../tutorial/">Tutorial</a></li><li id="w834"><a href="../api/">API Reference</a></li><li id="w835" target="_blank"><a href="https://github.com/raptorjs/samples">Sample Apps</a></li><li id="w836"><a href="../faq/">FAQ</a></li><li class="divider"></li><li id="w837"><a href="../modules-classes/">Modules and Classes</a></li><li id="w838"><a href="../packaging/">Packaging and Extensions</a></li><li id="w839"><a href="../module-loader/">Module Loader</a></li><li id="w840" class="active nav-item-active"><a href="../optimizer/">Optimizer</a></li><li id="w841"><a href="../raptor-templates/">Raptor Templates</a></li><li id="w842"><a href="../widgets/">Widget Framework</a></li><li class="divider"></li><li id="w843"><a href="../ui-components/">Building UI Components</a></li><li id="w844"><a href="../logging/">Logging</a></li><li id="w845"><a href="../resource-search-path/">Resource Search Path</a></li><li id="w846"><a href="../cross-environment/">Cross Environment Support</a></li></ul></li><li class="divider-vertical"></li><li id="w847" class="dropdown"><a data-toggle="dropdown" class="dropdown-toggle">Community<b class="caret"></b></a><ul class="dropdown-menu"><li id="w848"><a href="https://github.com/raptorjs/raptorjs">Source code</a></li><li id="w849"><a href="https://github.com/raptorjs/raptorjs/issues">Issue Tracker</a></li><li id="w850"><a href="../contribute/">Contribute</a></li><li id="w851"><a href="../contributors/">Contributors</a></li><li class="divider"></li><li id="w852"><a href="http://groups.google.com/group/raptorjs">Discussion Forum</a></li><li class="divider"></li><li id="w853"><a href="http://twitter.com/raptorjs">Twitter (@raptorjs)</a></li><li id="w854"><a href="https://plus.google.com/111493691067944627473/">Google+</a></li></ul></li><li class="divider-vertical"></li><li id="w855" class="dropdown"><a data-toggle="dropdown" class="dropdown-toggle">About<b class="caret"></b></a><ul class="dropdown-menu"><li id="w856"><a href="https://github.com/raptorjs/raptorjs/wiki/Release-Notes">Release Notes</a></li><li id="w857"><a href="../design-philosophy/">Design Philosophy</a></li><li id="w858"><a href="../license/">License</a></li><li id="w859"><a href="../credits/">Credits</a></li><li id="w860"><a href="../creators/">Creators</a></li></ul></li><li class="divider-vertical"></li></ul></div></div></div><div class="container"><div class="feature-portal-top"><div class="feature-portal-desc"><h1>RaptorJS Optimizer</h1><p>The RaptorJS Optimizer is a server-side tool that can be be used to build
 optimized web pages by bundling, compiling and minifying page dependencies.
 This tool makes managing complex JavaScript and CSS dependencies almost
 effortless while helping you produce extremely optimized web pages.
@@ -27,14 +27,9 @@ process.</p></div></div></div><div class="feature-portal-section feature-portal-
 needs.</p></div></div></div></div></div><script type="text/javascript" src="../static/core-f5729fb0.js"></script>
 <script type="text/javascript" src="../static/jquery-371da524.js"></script>
 <script type="text/javascript" src="../static/widgets-80dede79.js"></script>
-<script type="text/javascript" src="../static/optimizer-d92b6f59.js"></script><script type="text/javascript">$rwidgets(
-["components.nav.Nav.NavItemWidget","w824",0,0,0,0],
-["components.nav.Nav.NavItemWidget","w825",0,0,0,0,
-["components.nav.Nav.NavItemWidget","w826",0,0,0,0],
-["components.nav.Nav.NavItemWidget","w827",0,0,0,0],
-["components.nav.Nav.NavItemWidget","w828",0,0,0,0],
+<script type="text/javascript" src="../static/optimizer-ecc2ac71.js"></script><script type="text/javascript">$rwidgets(
 ["components.nav.Nav.NavItemWidget","w829",0,0,0,0],
-["components.nav.Nav.NavItemWidget","w830",0,0,0,0],
+["components.nav.Nav.NavItemWidget","w830",0,0,0,0,
 ["components.nav.Nav.NavItemWidget","w831",0,0,0,0],
 ["components.nav.Nav.NavItemWidget","w832",0,0,0,0],
 ["components.nav.Nav.NavItemWidget","w833",0,0,0,0],
@@ -45,18 +40,23 @@ needs.</p></div></div></div></div></div><script type="text/javascript" src="../s
 ["components.nav.Nav.NavItemWidget","w838",0,0,0,0],
 ["components.nav.Nav.NavItemWidget","w839",0,0,0,0],
 ["components.nav.Nav.NavItemWidget","w840",0,0,0,0],
-["components.nav.Nav.NavItemWidget","w841",0,0,0,0]],
-["components.nav.Nav.NavItemWidget","w842",0,0,0,0,
+["components.nav.Nav.NavItemWidget","w841",0,0,0,0],
+["components.nav.Nav.NavItemWidget","w842",0,0,0,0],
 ["components.nav.Nav.NavItemWidget","w843",0,0,0,0],
 ["components.nav.Nav.NavItemWidget","w844",0,0,0,0],
 ["components.nav.Nav.NavItemWidget","w845",0,0,0,0],
-["components.nav.Nav.NavItemWidget","w846",0,0,0,0],
-["components.nav.Nav.NavItemWidget","w847",0,0,0,0],
+["components.nav.Nav.NavItemWidget","w846",0,0,0,0]],
+["components.nav.Nav.NavItemWidget","w847",0,0,0,0,
 ["components.nav.Nav.NavItemWidget","w848",0,0,0,0],
-["components.nav.Nav.NavItemWidget","w849",0,0,0,0]],
-["components.nav.Nav.NavItemWidget","w850",0,0,0,0,
+["components.nav.Nav.NavItemWidget","w849",0,0,0,0],
+["components.nav.Nav.NavItemWidget","w850",0,0,0,0],
 ["components.nav.Nav.NavItemWidget","w851",0,0,0,0],
 ["components.nav.Nav.NavItemWidget","w852",0,0,0,0],
 ["components.nav.Nav.NavItemWidget","w853",0,0,0,0],
-["components.nav.Nav.NavItemWidget","w854",0,0,0,0],
-["components.nav.Nav.NavItemWidget","w855",0,0,0,0]]);</script></body></html>
+["components.nav.Nav.NavItemWidget","w854",0,0,0,0]],
+["components.nav.Nav.NavItemWidget","w855",0,0,0,0,
+["components.nav.Nav.NavItemWidget","w856",0,0,0,0],
+["components.nav.Nav.NavItemWidget","w857",0,0,0,0],
+["components.nav.Nav.NavItemWidget","w858",0,0,0,0],
+["components.nav.Nav.NavItemWidget","w859",0,0,0,0],
+["components.nav.Nav.NavItemWidget","w860",0,0,0,0]]);</script></body></html>
