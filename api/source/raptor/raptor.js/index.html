@@ -228,7 +228,7 @@
          * @param   {String|Array}   id A String module ID or an Array of String module IDs (an Array is only allowed if a callback is provided)
          * @param   {Function} callback A callback function to use for asynchronous loading (optional)
          * @param   {Object}   thisObj  The "this" object to use for the callback function
-         * @return  {Object} The loaded module (if synchronous) or the result of calling {@Link raptor/loader.load}
+         * @return  {Object} The loaded module (if synchronous) or the result of calling {@Link raptor/loader#load}
          */
         _require = function(id, callback, thisObj) {
             if (callback) {
@@ -488,6 +488,9 @@
     };
 
     /**
+     * The core raptor module provides an AMD implementation that can be used
+     * on the server or in the web browser.
+     * 
      * @module
      * @name raptor
      * @raptor

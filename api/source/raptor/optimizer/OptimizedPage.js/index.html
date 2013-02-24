@@ -13,10 +13,39 @@
         };
         
         OptimizedPage.prototype = {
+            /**
+             * Returns the HTML for all slots on the page.
+             *
+             * An object is returned in which property name
+             * is the name of the slot and the value is the corresponding
+             * HTML for the slot.
+             *
+             * &lt;p>
+             * Example output:
+             * &lt;js>
+             * {
+             *   'body': '&lt;script type="text/javascript" src="/static/test-page-body-f01892af.js">&lt;/script>',
+             *   'head': '&lt;link rel="stylesheet" type="text/css" href="/static/test-page-head-bf4cf798.css">'
+             * }
+             * &lt;/js>
+             * 
+             * @return {Object} An object with slot names as property names and slot HTML as property values.
+             */
             getHtmlBySlot: function() {
                 return this.htmlBySlot;
             },
             
+            /**
+             * Returns the HTML for a single slot.
+             * &lt;p>
+             * Example out:
+             * &lt;js>
+             * "&lt;script type="text/javascript" src="/static/test-page-body-f01892af.js">&lt;/script>"
+             * &lt;/js>
+             * 
+             * @param  {String} slotName The name of the slot (e.g. "head" or "body")
+             * @return {String} The HTML for the slot or an empty string if there is no HTML defined for the slot.
+             */
             getHtmlForSlot: function(slotName) {
                 return this.htmlBySlot[slotName] || '';
             },
@@ -25,10 +54,17 @@
                 return this.loaderMetadata;
             },
             
+            /**
+             * Synonym for {@Link raptor/optimizer/OptimizedPage#getHtmlForSlot}
+             */
             getSlotHtml: function(slot) {
                 return this.htmlBySlot[slot];
             },
             
+            /**
+             * Returns the JSON representation of the return value of {@Link #getHtmlBySlot}
+             * @return {String} The JSON output
+             */
             toJSON: function() {
                 return JSON.stringify(this.htmlBySlot);
             },
@@ -54,18 +90,34 @@
                 filesForContentType.push(filePath);
             },
 
+            /**
+             * Returns the URLs of all the optimized JavaScript resources for the page
+             * @return {Array&lt;String>} An array of URLs
+             */
             getJavaScriptUrls: function() {
                 return this.urlsByContentType["application/javascript"] || [];
             },
 
+            /**
+             * Returns the URLs of all the optimized CSS resources for the page
+             * @return {Array&lt;String>} An array of URLs
+             */
             getCSSUrls: function() {
                 return this.urlsByContentType["text/css"] || [];
             },
 
+            /**
+             * Returns the {@Link raptor/files/File} objects for all the optimized JavaScript resources for the page
+             * @return {Array&lt;raptor/files/File>} An array of File objects
+             */
             getJavaScriptFiles: function() {
                 return this.filesByContentType["application/javascript"] || [];
             },
 
+            /**
+             * Returns the {@Link raptor/files/File} objects for all the optimized CSS resources for the page
+             * @return {Array&lt;raptor/files/File>} An array of File objects
+             */
             getCSSFiles: function() {
                 return this.filesByContentType["text/css"] || [];
             }
