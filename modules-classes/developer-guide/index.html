@@ -40,25 +40,26 @@ myModule.sayHello();</textarea></div><p>Asynchronous "requiring" of function is 
 module/class/mixin/enum as shown in the following sample
 code:</p><div class="code-editor" id="w564"> <textarea id="w564-textarea" style="display: none;" name="code-10">var myModule = require('some/namespace/my-module');
 myModule.sayHello();</textarea></div><div class="message message-info"><div class="icon"><i class="icon-info-sign" style="font-size: 30px;"></i></div><div class="bd"><p>NOTE: When using synchronous <code>require(id)</code> function, the code for the requested module must be available. For
-asynchronous loading, please see the next section. Asynchronous module loading
-(loading a module asynchronously from a server) is provided by the
-<a href="../../module-loader/">RaptorJS Asynchronous Module Loader</a>.</p></div></div></div></div><div class="section section-level-1"><h2 id="RequireAsync">require(ids, callback)</h2><div class="bd"><p>The <code>require(ids, callback)</code> function should be used to asynchronously load one or more modules and get a
+asynchronous loading, please see the next
+section.</p></div></div></div></div><div class="section section-level-1"><h2 id="RequireAsync">require(ids, callback)</h2><div class="bd"><p>The <code>require(ids, callback)</code> function should be used to asynchronously load one or more modules and get a
 reference to the loaded modules. The following code illustrates how the
 asynchronous require function can be
 used:</p><div class="code-editor" id="w565"> <textarea id="w565-textarea" style="display: none;" name="code-11">require(['a', 'b', 'c'], function(a, b, c) {
     //Modules a, b and c are ready to be used
-});</textarea></div></div></div><div class="section section-level-1"><h2 id="RequireFind">require.find(id)</h2><div class="bd"><p>The require.find method can be used to get a reference to a module. Unlike the
-require function, require.find will return null if a module with the specified
-ID is not
-found.</p><div class="code-editor" id="w566"> <textarea id="w566-textarea" style="display: none;" name="code-12">var myModule = require.find('my-module');
+});</textarea></div><div class="message message-info"><div class="icon"><i class="icon-info-sign" style="font-size: 30px;"></i></div><div class="bd"><p>Asynchronous module loading (loading a module asynchronously from a server) is
+provided by the
+<a href="../../module-loader/">RaptorJS Asynchronous Module Loader</a>. The <code><a href="">raptor/loader</a></code> module must be included on the page for asynchronous module loading to work.
+In addition, any modules that are to be loaded asynchronously must be added as
+an "async" dependency. Please see the documentation for the
+<a href="../../module-loader/">RaptorJS Asynchronous Module Loader</a> for more details.</p></div></div></div></div><div class="section section-level-1"><h2 id="RequireFind">require.find(id)</h2><div class="bd"><p>The <code>require.find(id)</code> method can be used to get a reference to a module. Unlike the <code>require</code> function, <code>require.find(id)</code> will return null if a module with the specified ID is not found.</p><div class="code-editor" id="w566"> <textarea id="w566-textarea" style="display: none;" name="code-12">var myModule = require.find('my-module');
 if (myModule) {
     // Module found
 }
 else {
     // Module not found
-}</textarea></div></div></div><div class="section section-level-1"><h2 id="RequireExists">require.exists(id)</h2><div class="bd"><p>The require.exists method can be used to check if a module exists with the
-specified module ID. The method will return true of the module exists, false
-otherwise.</p><div class="code-editor" id="w567"> <textarea id="w567-textarea" style="display: none;" name="code-13">if (require.exists('my-module') {
+}</textarea></div></div></div><div class="section section-level-1"><h2 id="RequireExists">require.exists(id)</h2><div class="bd"><p>The <code>require.exists(id)</code> method can be used to check if a module exists with the specified module ID.
+The method will return
+<code>true</code> of the module exists, <code>false</code> otherwise.</p><div class="code-editor" id="w567"> <textarea id="w567-textarea" style="display: none;" name="code-13">if (require.exists('my-module') {
     // Module exists
 }
 else {
