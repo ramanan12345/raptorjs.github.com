@@ -28,7 +28,7 @@
                             queryString = url.substring(queryStart);
                             url = url.substring(0, queryStart);
                         }
-                        
+
                         var resource = resources.resolveResource(dependency.getResource(), url);
                         if (resource &amp;&amp; resource.isFileResource() &amp;&amp; resource.exists()) {
 
