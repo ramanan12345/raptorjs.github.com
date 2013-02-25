@@ -1,1 +1,0 @@
-define("raptor/dom",function(e){"use strict";return{forEachChildEl:function(e,t,n){this.forEachChild(e,t,n,1)},forEachChild:function(e,t,n,r){if(!e)return;var i=0,s=e.childNodes,o=s.length;for(;i<o;i++){var u=s[i];u&&(r==null||r==u.nodeType)&&t.call(n,u)}}}});
