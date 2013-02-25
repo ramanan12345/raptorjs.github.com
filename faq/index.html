@@ -1,0 +1,57 @@
+<!DOCTYPE html><html><head><title itemprop="name">RaptorJS: FAQ</title><link rel="icon" href="../favicon.ico" type="image/x-icon"><link rel="shortcut icon" href="../favicon.ico" type="image/x-icon"><meta http-equiv="content-type" content="text/html; charset=UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><link rel="stylesheet" type="text/css" href="../static/faq-b44741e6.css">
+<link rel="stylesheet" type="text/css" href="../static/docs-8ce8bbe8.css">
+<script type="text/javascript">var _gaq=_gaq||[];_gaq.push(["_setAccount","UA-33982282-1"]),_gaq.push(["_trackPageview"]),function(){var e=document.createElement("script");e.type="text/javascript",e.async=!0,e.src=("https:"==document.location.protocol?"https://ssl":"http://www")+".google-analytics.com/ga.js";var t=document.getElementsByTagName("script")[0];t.parentNode.insertBefore(e,t)}();
+var __insp=__insp||[];__insp.push(["wid",2568045892]),function(){function e(){var e=document.createElement("script");e.type="text/javascript",e.async=!0,e.id="inspsync",e.src=("https:"==document.location.protocol?"https":"http")+"://www.inspectlet.com/inspectlet-jq.js";var t=document.getElementsByTagName("script")[0];t.parentNode.insertBefore(e,t)}window.attachEvent?window.attachEvent("onload",e):window.addEventListener("load",e,!1)}();</script></head><body><div class="navbar navbar-fixed-top"><div class="navbar-inner"><div class="container"><a class="brand" href="../index.html">RaptorJS</a><ul class="nav"><li class="divider-vertical"></li><li id="w195"><a href="../get-started/index.html">Get Started</a></li><li class="divider-vertical"></li><li id="w196" class="dropdown"><a data-toggle="dropdown" class="dropdown-toggle">Learn<b class="caret"></b></a><ul class="dropdown-menu"><li id="w197"><a href="../index.html">Overview</a></li><li id="w198"><a href="../get-started/index.html">Get Started</a></li><li id="w199"><a href="../tutorial/index.html">Tutorial</a></li><li id="w200"><a href="../api/index.html">API Reference</a></li><li id="w201" target="_blank"><a href="https://github.com/raptorjs/samples">Sample Apps</a></li><li id="w202" class="active nav-item-active"><a href="../faq/index.html">FAQ</a></li><li class="divider"></li><li id="w203"><a href="../modules-classes/index.html">Modules and Classes</a></li><li id="w204"><a href="../packaging/index.html">Packaging and Extensions</a></li><li id="w205"><a href="../module-loader/index.html">Module Loader</a></li><li id="w206"><a href="../optimizer/index.html">Optimizer</a></li><li id="w207"><a href="../raptor-templates/index.html">Raptor Templates</a></li><li id="w208"><a href="../widgets/index.html">Widget Framework</a></li><li class="divider"></li><li id="w209"><a href="../ui-components/index.html">Building UI Components</a></li><li id="w210"><a href="../logging/index.html">Logging</a></li><li id="w211"><a href="../resource-search-path/index.html">Resource Search Path</a></li><li id="w212"><a href="../cross-environment/index.html">Cross Environment Support</a></li></ul></li><li class="divider-vertical"></li><li id="w213" class="dropdown"><a data-toggle="dropdown" class="dropdown-toggle">Community<b class="caret"></b></a><ul class="dropdown-menu"><li id="w214"><a href="https://github.com/raptorjs/raptorjs">Source code</a></li><li id="w215"><a href="https://github.com/raptorjs/raptorjs/issues">Issue Tracker</a></li><li id="w216"><a href="../contribute/index.html">Contribute</a></li><li id="w217"><a href="../contributors/index.html">Contributors</a></li><li class="divider"></li><li id="w218"><a href="http://groups.google.com/group/raptorjs">Discussion Forum</a></li><li class="divider"></li><li id="w219"><a href="http://twitter.com/raptorjs">Twitter (@raptorjs)</a></li><li id="w220"><a href="https://plus.google.com/111493691067944627473/">Google+</a></li></ul></li><li class="divider-vertical"></li><li id="w221" class="dropdown"><a data-toggle="dropdown" class="dropdown-toggle">About<b class="caret"></b></a><ul class="dropdown-menu"><li id="w222"><a href="https://github.com/raptorjs/raptorjs/wiki/Release-Notes">Release Notes</a></li><li id="w223"><a href="../design-philosophy/index.html">Design Philosophy</a></li><li id="w224"><a href="../license/index.html">License</a></li><li id="w225"><a href="../credits/index.html">Credits</a></li><li id="w226"><a href="../creators/index.html">Creators</a></li></ul></li><li class="divider-vertical"></li></ul></div></div></div><div class="container"><div class="faq content"><h1>Frequently Asked Questions</h1><div class="qa"><div class="question">Why can't I just downloaded the JavaScript code for RaptorJS?</div><div class="answer">Downloading pre-optimized and bundled builds of RaptorJS goes against the
+modularity philosophy of RaptorJS. The
+<a href="../optimizer/index.html">RaptorJS Optimizer </a> makes it easy to pull in <i>only</i> the dependencies that your web page needs and that tool should be used to pull
+in JavaScript and CSS code into your web
+application.</div></div><div class="qa"><div class="question">How do I install RaptorJS packages into my application?</div><div class="answer"><p>RaptorJS does not currently include a package manager that handles the
+distribution of RaptorJS packages. Therefore, you will need to use your own
+scripts or tools into "install" a RaptorJS package into your application.
+RaptorJS allows developers to any directory to be added to the
+<a href="../resource-search-path/index.html">resource search path </a> so simply add directories that contain the installed RaptorJS packages to the
+RaptorJS resource search
+path.</p><p>Node includes <a href="https://npmjs.org/">npm</a> which is a package manager and that package manager can be used to install
+packages into the
+<code>node_modules</code> directory. You can use your own scripts to move RaptorJS modules into their
+own directory or simply add the
+<code>node_modules</code> directory to the RaptorJS resource search path.</p><p>Another option is to use <a href="https://github.com/twitter/bower">Twitter Bower</a> which is an "unopinionated" package manager that allows you to install
+packages from Git repositories and URLs into your
+project.</p></div></div><div class="qa"><div class="question">How do I share RaptorJS packages with others?</div><div class="answer"><p>Since RaptorJS does not currently include a package manager, we recommend using
+either
+<a href="https://github.com/twitter/bower">Twitter Bower</a> or <a href="https://npmjs.org/">npm</a> to share RaptorJS packages.</p></div></div></div></div><div style="clear: both"></div><div class="footer"><div class="container"><div class="bd"><p><div class="powered-by">Powered by <a href="../index.html" class="raptorjs">RaptorJS</a> | ©2011-2012 eBay Software Foundation</div> </p><p>Built at <a href="http://www.ebay.com/">eBay</a> by <a href="http://www.linkedin.com/in/patrickidem">Patrick Steele-Idem</a> (<a href="https://twitter.com/psteeleidem">@psteeleidem</a>) with <a href="../contributors/index.html">contributors</a>.</p><p>Code licensed under the <a href="http://www.apache.org/licenses/LICENSE-2.0" target="_blank">Apache License v2.0</a>. Documentation licensed under <a href="http://creativecommons.org/licenses/by/3.0/">CC BY 3.0</a>.</p><p><a href="https://github.com/raptorjs/raptorjs">View Project on Github</a> | <a href="https://github.com/raptorjs/raptorjs/issues">Submit an Issue</a> | <a href="../contribute/index.html">Contribute</a> | <a href="http://groups.google.com/group/raptorjs">Discuss</a> | <a href="http://twitter.com/raptorjs">Follow RaptorJS on Twitter</a> | <a href="../credits/index.html">Additional credits</a></p></div></div></div><script type="text/javascript" src="../static/core-f5729fb0.js"></script>
+<script type="text/javascript" src="../static/jquery-371da524.js"></script>
+<script type="text/javascript" src="../static/widgets-80dede79.js"></script>
+<script type="text/javascript" src="../static/faq-ecc2ac71.js"></script><script type="text/javascript">$rwidgets(
+["components.nav.Nav.NavItemWidget","w195",0,0,0,0],
+["components.nav.Nav.NavItemWidget","w196",0,0,0,0,
+["components.nav.Nav.NavItemWidget","w197",0,0,0,0],
+["components.nav.Nav.NavItemWidget","w198",0,0,0,0],
+["components.nav.Nav.NavItemWidget","w199",0,0,0,0],
+["components.nav.Nav.NavItemWidget","w200",0,0,0,0],
+["components.nav.Nav.NavItemWidget","w201",0,0,0,0],
+["components.nav.Nav.NavItemWidget","w202",0,0,0,0],
+["components.nav.Nav.NavItemWidget","w203",0,0,0,0],
+["components.nav.Nav.NavItemWidget","w204",0,0,0,0],
+["components.nav.Nav.NavItemWidget","w205",0,0,0,0],
+["components.nav.Nav.NavItemWidget","w206",0,0,0,0],
+["components.nav.Nav.NavItemWidget","w207",0,0,0,0],
+["components.nav.Nav.NavItemWidget","w208",0,0,0,0],
+["components.nav.Nav.NavItemWidget","w209",0,0,0,0],
+["components.nav.Nav.NavItemWidget","w210",0,0,0,0],
+["components.nav.Nav.NavItemWidget","w211",0,0,0,0],
+["components.nav.Nav.NavItemWidget","w212",0,0,0,0]],
+["components.nav.Nav.NavItemWidget","w213",0,0,0,0,
+["components.nav.Nav.NavItemWidget","w214",0,0,0,0],
+["components.nav.Nav.NavItemWidget","w215",0,0,0,0],
+["components.nav.Nav.NavItemWidget","w216",0,0,0,0],
+["components.nav.Nav.NavItemWidget","w217",0,0,0,0],
+["components.nav.Nav.NavItemWidget","w218",0,0,0,0],
+["components.nav.Nav.NavItemWidget","w219",0,0,0,0],
+["components.nav.Nav.NavItemWidget","w220",0,0,0,0]],
+["components.nav.Nav.NavItemWidget","w221",0,0,0,0,
+["components.nav.Nav.NavItemWidget","w222",0,0,0,0],
+["components.nav.Nav.NavItemWidget","w223",0,0,0,0],
+["components.nav.Nav.NavItemWidget","w224",0,0,0,0],
+["components.nav.Nav.NavItemWidget","w225",0,0,0,0],
+["components.nav.Nav.NavItemWidget","w226",0,0,0,0]]);</script></body></html>
