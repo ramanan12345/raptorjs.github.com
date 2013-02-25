@@ -1,0 +1,1 @@
+define("ebay-api/finding",function(e){var t="http://raptorjs-samples-api.herokuapp.com/ebay/finding";return{performSearch:function(e){var n=e.keywords,r=e.categoryId,i=t;return r&&(i+="/category/"+encodeURIComponent(r)),n&&(i+="/keywords/"+encodeURIComponent(n)),i+="?callback=?",$.getJSON(i)},_performServiceCall:function(e){}}});
