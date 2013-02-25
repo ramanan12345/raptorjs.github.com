@@ -153,11 +153,16 @@
                                 }
 
                                 bundle = bundleMappings.addDependencyToBundle(dependency, targetBundleName);
-                                bundle.sourceResource = sourceResource;
+
+                                
                                 bundle.dependencySlotInUrl = false;
-                                if (!sourceResource) {
-                                    bundle.requireChecksum = true;
+                                if (this.inPlaceDeploymentEnabled) {
+                                    bundle.sourceResource = sourceResource;    
+                                    if (!sourceResource) {
+                                        bundle.requireChecksum = true;
+                                    }
                                 }
+                                
                             }
                             
                             
