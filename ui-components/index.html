@@ -2,7 +2,7 @@
 <link rel="stylesheet" type="text/css" href="../static/docs-8ce8bbe8.css">
 <link rel="stylesheet" type="text/css" href="../static/code-editor-f1386401.css">
 <script type="text/javascript">var _gaq=_gaq||[];_gaq.push(["_setAccount","UA-33982282-1"]),_gaq.push(["_trackPageview"]),function(){var e=document.createElement("script");e.type="text/javascript",e.async=!0,e.src=("https:"==document.location.protocol?"https://ssl":"http://www")+".google-analytics.com/ga.js";var t=document.getElementsByTagName("script")[0];t.parentNode.insertBefore(e,t)}();
-var __insp=__insp||[];__insp.push(["wid",2568045892]),function(){function e(){var e=document.createElement("script");e.type="text/javascript",e.async=!0,e.id="inspsync",e.src=("https:"==document.location.protocol?"https":"http")+"://www.inspectlet.com/inspectlet-jq.js";var t=document.getElementsByTagName("script")[0];t.parentNode.insertBefore(e,t)}window.attachEvent?window.attachEvent("onload",e):window.addEventListener("load",e,!1)}();</script></head><body><div class="navbar navbar-fixed-top"><div class="navbar-inner"><div class="container"><a class="brand" href="../">RaptorJS</a><ul class="nav"><li class="divider-vertical"></li><li id="w1382"><a href="../get-started/">Get Started</a></li><li class="divider-vertical"></li><li id="w1383" class="dropdown"><a data-toggle="dropdown" class="dropdown-toggle">Learn<b class="caret"></b></a><ul class="dropdown-menu"><li id="w1384"><a href="../">Overview</a></li><li id="w1385"><a href="../get-started/">Get Started</a></li><li id="w1386"><a href="../tutorial/">Tutorial</a></li><li id="w1387"><a href="../api/">API Reference</a></li><li id="w1388" target="_blank"><a href="https://github.com/raptorjs/samples">Sample Apps</a></li><li id="w1389"><a href="../faq/">FAQ</a></li><li class="divider"></li><li id="w1390"><a href="../modules-classes/">Modules and Classes</a></li><li id="w1391"><a href="../packaging/">Packaging and Extensions</a></li><li id="w1392"><a href="../module-loader/">Module Loader</a></li><li id="w1393"><a href="../optimizer/">Optimizer</a></li><li id="w1394"><a href="../raptor-templates/">Raptor Templates</a></li><li id="w1395"><a href="../widgets/">Widget Framework</a></li><li class="divider"></li><li id="w1396"><a href="../ui-components/">Building UI Components</a></li><li id="w1397"><a href="../logging/">Logging</a></li><li id="w1398"><a href="../resource-search-path/">Resource Search Path</a></li><li id="w1399"><a href="../cross-environment/">Cross Environment Support</a></li></ul></li><li class="divider-vertical"></li><li id="w1400" class="dropdown"><a data-toggle="dropdown" class="dropdown-toggle">Community<b class="caret"></b></a><ul class="dropdown-menu"><li id="w1401"><a href="https://github.com/raptorjs/raptorjs">Source code</a></li><li id="w1402"><a href="https://github.com/raptorjs/raptorjs/issues">Issue Tracker</a></li><li id="w1403"><a href="../contribute/">Contribute</a></li><li id="w1404"><a href="../contributors/">Contributors</a></li><li class="divider"></li><li id="w1405"><a href="http://groups.google.com/group/raptorjs">Discussion Forum</a></li><li class="divider"></li><li id="w1406"><a href="http://twitter.com/raptorjs">Twitter (@raptorjs)</a></li><li id="w1407"><a href="https://plus.google.com/111493691067944627473/">Google+</a></li></ul></li><li class="divider-vertical"></li><li id="w1408" class="dropdown"><a data-toggle="dropdown" class="dropdown-toggle">About<b class="caret"></b></a><ul class="dropdown-menu"><li id="w1409"><a href="https://github.com/raptorjs/raptorjs/wiki/Release-Notes">Release Notes</a></li><li id="w1410"><a href="../design-philosophy/">Design Philosophy</a></li><li id="w1411"><a href="../license/">License</a></li><li id="w1412"><a href="../credits/">Credits</a></li><li id="w1413"><a href="../creators/">Creators</a></li></ul></li><li class="divider-vertical"></li></ul></div></div></div><div class="container"><div class="docs"><div class="bd"><div class="docs-content"><h1 id="title">Building UI Components</h1><div class="toc nav" id="docsNav"><ul class="toc"><li class="toc toc-level-0"><a href="#Overview">Overview</a><ul class="toc"></ul></li><li class="toc toc-level-0"><a href="#View_Demo">View Demo</a><ul class="toc"></ul></li><li class="toc toc-level-0"><a href="#Demo_Source">Demo Source</a><ul class="toc"></ul></li><li class="toc toc-level-0"><a href="#UI_Component_Parts">UI Component Parts</a><ul class="toc"><li class="toc toc-level-1"><a href="#Renderer">Renderer</a><ul class="toc"></ul></li><li class="toc toc-level-1"><a href="#HTMLTemplate">HTML Template</a><ul class="toc"></ul></li><li class="toc toc-level-1"><a href="#Widget">Widget</a><ul class="toc"></ul></li><li class="toc toc-level-1"><a href="#CSS">CSS</a><ul class="toc"></ul></li><li class="toc toc-level-1"><a href="#Package">package.json</a><ul class="toc"></ul></li><li class="toc toc-level-1"><a href="#Clientside_Component_Rendering">Client-side Component Rendering</a><ul class="toc"></ul></li><li class="toc toc-level-1"><a href="#Custom_Tag_Definition">Custom Tag Definition</a><ul class="toc"></ul></li></ul></li><li class="toc toc-level-0"><a href="#Discussion">Discussion</a><ul class="toc"></ul></li></ul><div class="docs-nav-footer"><ul><li><span class="powered-by">Powered by <a href="../" class="raptorjs">RaptorJS</a></span></li><li><a href="../license/">License</a></li><li><a href="../credits/">Credits</a></li></ul></div></div><div class="section section-level-0"><h2 id="Overview">Overview</h2><div class="bd"><p>This guide will describe a recipe for building UI components that are
+var __insp=__insp||[];__insp.push(["wid",2568045892]),function(){function e(){var e=document.createElement("script");e.type="text/javascript",e.async=!0,e.id="inspsync",e.src=("https:"==document.location.protocol?"https":"http")+"://www.inspectlet.com/inspectlet-jq.js";var t=document.getElementsByTagName("script")[0];t.parentNode.insertBefore(e,t)}window.attachEvent?window.attachEvent("onload",e):window.addEventListener("load",e,!1)}();</script></head><body><div class="navbar navbar-fixed-top"><div class="navbar-inner"><div class="container"><a class="brand" href="../">RaptorJS</a><ul class="nav"><li class="divider-vertical"></li><li id="w1382"><a href="../get-started/">Get Started</a></li><li class="divider-vertical"></li><li id="w1383" class="dropdown"><a data-toggle="dropdown" class="dropdown-toggle">Learn<b class="caret"></b></a><ul class="dropdown-menu"><li id="w1384"><a href="../">Overview</a></li><li id="w1385"><a href="../get-started/">Get Started</a></li><li id="w1386"><a href="../tutorial/">Tutorial</a></li><li id="w1387"><a href="../api/">API Reference</a></li><li id="w1388" target="_blank"><a href="https://github.com/raptorjs/samples">Sample Apps</a></li><li id="w1389"><a href="../faq/">FAQ</a></li><li class="divider"></li><li id="w1390"><a href="../modules-classes/">Modules and Classes</a></li><li id="w1391"><a href="../packaging/">Packaging and Extensions</a></li><li id="w1392"><a href="../module-loader/">Module Loader</a></li><li id="w1393"><a href="../optimizer/">Optimizer</a></li><li id="w1394"><a href="../raptor-templates/">Raptor Templates</a></li><li id="w1395"><a href="../widgets/">Widget Framework</a></li><li class="divider"></li><li id="w1396"><a href="../ui-components/">Building UI Components</a></li><li id="w1397"><a href="../logging/">Logging</a></li><li id="w1398"><a href="../resource-search-path/">Resource Search Path</a></li><li id="w1399"><a href="../cross-environment/">Cross Environment Support</a></li></ul></li><li class="divider-vertical"></li><li id="w1400" class="dropdown"><a data-toggle="dropdown" class="dropdown-toggle">Community<b class="caret"></b></a><ul class="dropdown-menu"><li id="w1401"><a href="https://github.com/raptorjs/raptorjs">Source code</a></li><li id="w1402"><a href="https://github.com/raptorjs/raptorjs/issues">Issue Tracker</a></li><li id="w1403"><a href="../contribute/">Contribute</a></li><li id="w1404"><a href="../contributors/">Contributors</a></li><li class="divider"></li><li id="w1405"><a href="http://groups.google.com/group/raptorjs">Discussion Forum</a></li><li class="divider"></li><li id="w1406"><a href="http://twitter.com/raptorjs">Twitter (@raptorjs)</a></li><li id="w1407"><a href="https://plus.google.com/111493691067944627473/">Google+</a></li></ul></li><li class="divider-vertical"></li><li id="w1408" class="dropdown"><a data-toggle="dropdown" class="dropdown-toggle">About<b class="caret"></b></a><ul class="dropdown-menu"><li id="w1409"><a href="https://github.com/raptorjs/raptorjs/wiki/Release-Notes">Release Notes</a></li><li id="w1410"><a href="../design-philosophy/">Design Philosophy</a></li><li id="w1411"><a href="../license/">License</a></li><li id="w1412"><a href="../credits/">Credits</a></li><li id="w1413"><a href="../creators/">Creators</a></li></ul></li><li class="divider-vertical"></li></ul></div></div></div><div class="container"><div class="docs"><div class="bd"><div class="docs-content"><h1 id="title">Building UI Components</h1><div class="toc nav" id="docsNav"><ul class="toc"><li class="toc toc-level-0"><a href="#Overview">Overview</a><ul class="toc"></ul></li><li class="toc toc-level-0"><a href="#View_Demo">View Demo</a><ul class="toc"></ul></li><li class="toc toc-level-0"><a href="#Demo_Source">Demo Source</a><ul class="toc"></ul></li><li class="toc toc-level-0"><a href="#UI_Component_Parts">UI Component Parts</a><ul class="toc"><li class="toc toc-level-1"><a href="#Renderer">Renderer</a><ul class="toc"></ul></li><li class="toc toc-level-1"><a href="#HTMLTemplate">HTML Template</a><ul class="toc"></ul></li><li class="toc toc-level-1"><a href="#Widget">Widget</a><ul class="toc"></ul></li><li class="toc toc-level-1"><a href="#CSS">CSS</a><ul class="toc"></ul></li><li class="toc toc-level-1"><a href="#Package">package.json</a><ul class="toc"></ul></li><li class="toc toc-level-1"><a href="#Clientside_Component_Rendering">Client-side Component Rendering</a><ul class="toc"></ul></li><li class="toc toc-level-1"><a href="#Custom_Tag_Definition">Custom Tag Definition</a><ul class="toc"></ul></li></ul></li><li class="toc toc-level-0"><a href="#Referencing_Nested_Widgets">Referencing Nested Widgets</a><ul class="toc"></ul></li><li class="toc toc-level-0"><a href="#Custom_Widget_Events">Custom Widget Events</a><ul class="toc"></ul></li><li class="toc toc-level-0"><a href="#Widget_Communication">Widget Communication</a><ul class="toc"></ul></li><li class="toc toc-level-0"><a href="#Discussion">Discussion</a><ul class="toc"></ul></li></ul><div class="docs-nav-footer"><ul><li><span class="powered-by">Powered by <a href="../" class="raptorjs">RaptorJS</a></span></li><li><a href="../license/">License</a></li><li><a href="../credits/">Credits</a></li></ul></div></div><div class="section section-level-0"><h2 id="Overview">Overview</h2><div class="bd"><p>This guide will describe a recipe for building UI components that are
 independently testable and can be rendered on the server or in the browser.
 Since this is only a recipe feel free to adapt it to your needs and swap out
 technologies as you see
@@ -199,7 +199,73 @@ code:</p><div class="code-editor" id="w1427"><h2 class="code-editor-title">/rtld
     <import-taglib path="/ui/containers/Tabs/Tabs.rtld"/>
     <import-taglib path="/ui/demo/ComponentsDemo/ComponentsDemo.rtld"/>
     
-</raptor-taglib></textarea></div></div></div></div></div><div class="section section-level-0"><h2 id="Discussion">Discussion</h2><div class="bd"><div id="disqus_thread"></div></div></div></div></div><div class="docs-footer-padding"></div></div></div><script type="text/javascript" src="../static/core-f5729fb0.js"></script>
+</raptor-taglib></textarea></div><p>Raptor Taglibs placed in a "rtlds" directory of a top-level resource search
+path will automatically discovered by the Raptor Templates
+Compiler.</p></div></div></div></div><div class="section section-level-0"><h2 id="Referencing_Nested_Widgets">Referencing Nested Widgets</h2><div class="bd"><p>Often it is helpful for a widget to obtain a reference to a nested widget. The <a href="../widgets/">RaptorJS Widget Framework</a> allows a "widget ID" to be assigned to nested widgets that where rendered as
+part of a Raptor Template. For
+example:</p><div class="code-editor" id="w1428"> <textarea id="w1428-textarea" style="display: none;" name="code-185">&lt;div w:widget="ui/demo/ComponentsDemo/ComponentsDemoWidget">
+    &lt;app:button label="Save" variant="success" w:id="saveButton"/>
+    &lt;app:button label="Delete" variant="danger" w:id="deleteButton"/>
+&lt;/div></textarea></div><p>Widgets that are assigned a widget ID can then be referenced by the containing
+widget as part of the "widgets" property that gets added to the containing
+widget instance. This is illustrated in the sample
+code:</p><div class="code-editor" id="w1429"><h2 class="code-editor-title">ui/demo/ComponentsDemo/ComponentsDemoWidget</h2> <textarea id="w1429-textarea" style="display: none;" name="code-186">define(
+    "ui/demo/ComponentsDemo/ComponentsDemoWidget",
+    function(require) {
+
+        var ComponentsDemoWidget = function(config) {
+
+            this.widgets.saveButton.on('click', function() {
+                alert('You clicked the "Save" button');
+            });
+
+            this.widgets.deleteButton.on('click', function() {
+                alert('You clicked the "Delete" button');
+            });
+
+        };
+        
+        ComponentsDemoWidget.prototype = {
+            // ...
+        };
+        
+        return ComponentsDemoWidget;
+    });</textarea></div><p>The <code>on</code> method is used to subscribe to custom widget events as described in the next
+section.</p></div></div><div class="section section-level-0"><h2 id="Custom_Widget_Events">Custom Widget Events</h2><div class="bd"><p>The <a href="../widgets/">RaptorJS Widget Framework</a> adds a small set of mixins to all initialized widgets. Two of those mixins are
+the
+<code>publish</code> and <code>subscribe</code> methods. These methods allow a widget to publish custom widget events and for
+other widgets to subscribe to custom widget
+events.</p><p>The supported custom widget events must be declared as a property of the widget
+as an
+<code>Array</code> as shown in the following sample code:</p><div class="code-editor" id="w1430"> <textarea id="w1430-textarea" style="display: none;" name="code-187">define(
+    "ui/buttons/Button/ButtonWidget",
+    ['raptor'],
+    function(raptor, require) {
+        var ButtonWidget = function(config) {
+            this.$().click(function() {
+                // Publish a custom event named "click"
+                this.publish('click', {
+                    button: this
+                });
+            }.bind(this));
+        };
+        
+        ButtonWidget.events = ["click"];
+        
+        ButtonWidget.prototype = {
+            // ...
+        };
+        
+        return ButtonWidget;
+    });</textarea></div></div></div><div class="section section-level-0"><h2 id="Widget_Communication">Widget Communication</h2><div class="bd"><p>RaptorJS provides a <code>raptor/pubsub</code> module that can be used to enable inter-widget communication. In addition, the
+RaptorJS Widget Framework allows custom widget events to be declaratively
+mapped to Pub/Sub messages. For
+example:</p><div class="code-editor" id="w1431"> <textarea id="w1431-textarea" style="display: none;" name="code-188">&lt;c:template xmlns:c="core" xmlns:app="app">
+    &lt;div>
+        &lt;app:simple-button label="Simple Button"/>
+        &lt;app:simple-button label="Another Simple Button"/>
+    &lt;/div>
+&lt;/c:template></textarea></div></div></div><div class="section section-level-0"><h2 id="Discussion">Discussion</h2><div class="bd"><div id="disqus_thread"></div></div></div></div></div><div class="docs-footer-padding"></div></div></div><script type="text/javascript" src="../static/core-f5729fb0.js"></script>
 <script type="text/javascript" src="../static/jquery-371da524.js"></script>
 <script type="text/javascript" src="../static/widgets-80dede79.js"></script>
 <script type="text/javascript" src="../static/ui-components-02c7930e.js"></script>
@@ -250,4 +316,8 @@ code:</p><div class="code-editor" id="w1427"><h2 class="code-editor-title">/rtld
 ["components/editors/CodeEditor/CodeEditorWidget","w1425",{"mode":"xml","autoResize":true,"readOnly":true},0,0,0],
 ["components/editors/CodeEditor/CodeEditorWidget","w1426",{"mode":"xml","autoResize":true,"readOnly":true},0,0,0],
 ["components/editors/CodeEditor/CodeEditorWidget","w1427",{"mode":"xml","autoResize":true,"readOnly":true},0,0,0],
+["components/editors/CodeEditor/CodeEditorWidget","w1428",{"mode":"xml","autoResize":true,"readOnly":true},0,0,0],
+["components/editors/CodeEditor/CodeEditorWidget","w1429",{"mode":"javascript","autoResize":true,"readOnly":true},0,0,0],
+["components/editors/CodeEditor/CodeEditorWidget","w1430",{"mode":"javascript","autoResize":true,"readOnly":true},0,0,0],
+["components/editors/CodeEditor/CodeEditorWidget","w1431",{"mode":"xml","autoResize":true,"readOnly":true},0,0,0],
 ["components.social.Disqus.DisqusWidget","disqus_thread",{"shortName":"raptor-js","id":"ui-components","title":"Building UI Components"},0,0,0]);</script></body></html>
