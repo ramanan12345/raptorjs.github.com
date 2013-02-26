@@ -1,10 +1,8 @@
-raptorjs.org
-===================
+Static Content for raptorjs.org
+===============================
 
-Source code and generated static content for [http://raptorjs.org](http://raptorjs.org)
+This repository contains the generated static content for [http://raptorjs.org](http://raptorjs.org). Please view the following Github repository
+for more information on how the website for RaptorJS is built:
+(https://github.com/raptorjs/website)
 
-The [src](https://github.com/raptorjs/raptorjs.github.com/tree/master/src) 
-directory contains the source code directory used for generating the static content. 
-The [publish-to-github](https://github.com/raptorjs/raptorjs.github.com/blob/master/publish-to-github) shell script is used to publish the generated documentation to 
-the public Github repository (including the generated HTML files, optimized JavaScript 
-and CSS bundles, generated API docs and zipped sample projects).
+[Github Pages](http://pages.github.com/) is used to serve up (http://raptorjs.org). 
