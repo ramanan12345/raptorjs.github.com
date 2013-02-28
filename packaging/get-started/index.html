@@ -1,8 +1,8 @@
  <!DOCTYPE html><html><head><title itemprop="name">RaptorJS: Get Started using Packaging</title><link rel="icon" href="../../favicon.ico" type="image/x-icon"><link rel="shortcut icon" href="../../favicon.ico" type="image/x-icon"><meta http-equiv="content-type" content="text/html; charset=UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><link rel="stylesheet" type="text/css" href="../../static/packaging-get-started-6e7769a6.css">
-<link rel="stylesheet" type="text/css" href="../../static/docs-8ce8bbe8.css">
+<link rel="stylesheet" type="text/css" href="../../static/docs-4a51d478.css">
 <link rel="stylesheet" type="text/css" href="../../static/code-editor-f1386401.css">
 <script type="text/javascript">var _gaq=_gaq||[];_gaq.push(["_setAccount","UA-33982282-1"]),_gaq.push(["_trackPageview"]),function(){var e=document.createElement("script");e.type="text/javascript",e.async=!0,e.src=("https:"==document.location.protocol?"https://ssl":"http://www")+".google-analytics.com/ga.js";var t=document.getElementsByTagName("script")[0];t.parentNode.insertBefore(e,t)}();
-var __insp=__insp||[];__insp.push(["wid",2568045892]),function(){function e(){var e=document.createElement("script");e.type="text/javascript",e.async=!0,e.id="inspsync",e.src=("https:"==document.location.protocol?"https":"http")+"://www.inspectlet.com/inspectlet-jq.js";var t=document.getElementsByTagName("script")[0];t.parentNode.insertBefore(e,t)}window.attachEvent?window.attachEvent("onload",e):window.addEventListener("load",e,!1)}();</script></head><body><div class="navbar navbar-fixed-top"><div class="navbar-inner"><div class="container"><a class="brand" href="../../">RaptorJS</a><ul class="nav"><li class="divider-vertical"></li><li id="w944"><a href="../../get-started/">Get Started</a></li><li class="divider-vertical"></li><li id="w945" class="dropdown"><a data-toggle="dropdown" class="dropdown-toggle">Learn<b class="caret"></b></a><ul class="dropdown-menu"><li id="w946"><a href="../../">Overview</a></li><li id="w947"><a href="../../get-started/">Get Started</a></li><li id="w948"><a href="../../tutorial/">Tutorial</a></li><li id="w949"><a href="../../api/">API Reference</a></li><li id="w950" target="_blank"><a href="https://github.com/raptorjs/samples">Sample Apps</a></li><li id="w951"><a href="../../faq/">FAQ</a></li><li class="divider"></li><li id="w952"><a href="../../modules-classes/">Modules and Classes</a></li><li id="w953"><a href="../../packaging/">Packaging and Extensions</a></li><li id="w954"><a href="../../module-loader/">Module Loader</a></li><li id="w955"><a href="../../optimizer/">Optimizer</a></li><li id="w956"><a href="../../raptor-templates/">Raptor Templates</a></li><li id="w957"><a href="../../widgets/">Widget Framework</a></li><li class="divider"></li><li id="w958"><a href="../../ui-components/">Building UI Components</a></li><li id="w959"><a href="../../logging/">Logging</a></li><li id="w960"><a href="../../resource-search-path/">Resource Search Path</a></li><li id="w961"><a href="../../cross-environment/">Cross Environment Support</a></li></ul></li><li class="divider-vertical"></li><li id="w962" class="dropdown"><a data-toggle="dropdown" class="dropdown-toggle">Community<b class="caret"></b></a><ul class="dropdown-menu"><li id="w963"><a href="https://github.com/raptorjs/raptorjs">Source code</a></li><li id="w964"><a href="https://github.com/raptorjs/raptorjs/issues">Issue Tracker</a></li><li id="w965"><a href="../../contribute/">Contribute</a></li><li id="w966"><a href="../../contributors/">Contributors</a></li><li class="divider"></li><li id="w967"><a href="http://groups.google.com/group/raptorjs">Discussion Forum</a></li><li class="divider"></li><li id="w968"><a href="http://twitter.com/raptorjs">Twitter (@raptorjs)</a></li><li id="w969"><a href="https://plus.google.com/111493691067944627473/">Google+</a></li></ul></li><li class="divider-vertical"></li><li id="w970" class="dropdown"><a data-toggle="dropdown" class="dropdown-toggle">About<b class="caret"></b></a><ul class="dropdown-menu"><li id="w971"><a href="https://github.com/raptorjs/raptorjs/wiki/Release-Notes">Release Notes</a></li><li id="w972"><a href="../../design-philosophy/">Design Philosophy</a></li><li id="w973"><a href="../../license/">License</a></li><li id="w974"><a href="../../credits/">Credits</a></li><li id="w975"><a href="../../creators/">Creators</a></li></ul></li><li class="divider-vertical"></li></ul></div></div></div><div class="container"><div class="docs"><div class="bd"><div class="docs-content"><h1 id="title">Get Started using RaptorJS Packaging</h1><div class="toc nav" id="docsNav"><ul class="toc"><li class="toc toc-level-0"><a href="#Overview">Overview</a><ul class="toc"></ul></li><li class="toc toc-level-0"><a href="#Sample_RaptorJS_Package">Sample RaptorJS Package</a><ul class="toc"></ul></li><li class="toc toc-level-0"><a href="#RaptorJS_Package_Format">RaptorJS Package Format</a><ul class="toc"><li class="toc toc-level-1"><a href="#Declaring_Dependency_Types">Declaring Dependency Types</a><ul class="toc"></ul></li><li class="toc toc-level-1"><a href="#Package_Extensions">Package Extensions</a><ul class="toc"></ul></li></ul></li><li class="toc toc-level-0"><a href="#Dependency_Types">Dependency Types</a><ul class="toc"></ul></li><li class="toc toc-level-0"><a href="#ResolvingModulePackages">Resolving Module Packages</a><ul class="toc"></ul></li><li class="toc toc-level-0"><a href="#Usage">Usage</a><ul class="toc"><li class="toc toc-level-1"><a href="#Loading_Modules_on_the_Server">Loading Modules on the Server</a><ul class="toc"></ul></li><li class="toc toc-level-1"><a href="#Delivering_Modules_to_the_Client">Delivering Modules to the Client</a><ul class="toc"></ul></li></ul></li><li class="toc toc-level-0"><a href="#3rdParty_Libraries">3rd-Party Libraries</a><ul class="toc"></ul></li><li class="toc toc-level-0"><a href="#Further_Reading">Further Reading</a><ul class="toc"></ul></li><li class="toc toc-level-0"><a href="#Discussion">Discussion</a><ul class="toc"></ul></li></ul><div class="docs-nav-footer"><ul><li><span class="powered-by">Powered by <a href="../../" class="raptorjs">RaptorJS</a></span></li><li><a href="../../license/">License</a></li><li><a href="../../credits/">Credits</a></li></ul></div></div><div class="section section-level-0"><h2 id="Overview">Overview</h2><div class="bd"><p>RaptorJS extends the popular <code>package.json</code> format so that it is better suited for packaging up code to be delivered to a
+var __insp=__insp||[];__insp.push(["wid",2568045892]),function(){function e(){var e=document.createElement("script");e.type="text/javascript",e.async=!0,e.id="inspsync",e.src=("https:"==document.location.protocol?"https":"http")+"://www.inspectlet.com/inspectlet-jq.js";var t=document.getElementsByTagName("script")[0];t.parentNode.insertBefore(e,t)}window.attachEvent?window.attachEvent("onload",e):window.addEventListener("load",e,!1)}();</script></head><body><div class="navbar navbar-fixed-top"><div class="navbar-inner"><div class="container"><a class="brand" href="../../">RaptorJS</a><ul class="nav"><li class="divider-vertical"></li><li id="w946"><a href="../../get-started/">Get Started</a></li><li class="divider-vertical"></li><li id="w947" class="dropdown"><a data-toggle="dropdown" class="dropdown-toggle">Learn<b class="caret"></b></a><ul class="dropdown-menu"><li id="w948"><a href="../../">Overview</a></li><li id="w949"><a href="../../get-started/">Get Started</a></li><li id="w950"><a href="../../tutorial/">Tutorial</a></li><li id="w951"><a href="../../api/">API Reference</a></li><li id="w952" target="_blank"><a href="https://github.com/raptorjs/samples">Sample Apps</a></li><li id="w953"><a href="../../faq/">FAQ</a></li><li class="divider"></li><li id="w954"><a href="../../modules-classes/">Modules and Classes</a></li><li id="w955"><a href="../../packaging/">Packaging and Extensions</a></li><li id="w956"><a href="../../module-loader/">Module Loader</a></li><li id="w957"><a href="../../optimizer/">Optimizer</a></li><li id="w958"><a href="../../raptor-templates/">Raptor Templates</a></li><li id="w959"><a href="../../widgets/">Widget Framework</a></li><li class="divider"></li><li id="w960"><a href="../../ui-components/">Building UI Components</a></li><li id="w961"><a href="../../logging/">Logging</a></li><li id="w962"><a href="../../resource-search-path/">Resource Search Path</a></li><li id="w963"><a href="../../cross-environment/">Cross Environment Support</a></li></ul></li><li class="divider-vertical"></li><li id="w964" class="dropdown"><a data-toggle="dropdown" class="dropdown-toggle">Community<b class="caret"></b></a><ul class="dropdown-menu"><li id="w965"><a href="https://github.com/raptorjs/raptorjs">Source code</a></li><li id="w966"><a href="https://github.com/raptorjs/raptorjs/issues">Issue Tracker</a></li><li id="w967"><a href="../../contribute/">Contribute</a></li><li id="w968"><a href="../../contributors/">Contributors</a></li><li class="divider"></li><li id="w969"><a href="http://groups.google.com/group/raptorjs">Discussion Forum</a></li><li class="divider"></li><li id="w970"><a href="http://twitter.com/raptorjs">Twitter (@raptorjs)</a></li><li id="w971"><a href="https://plus.google.com/111493691067944627473/">Google+</a></li></ul></li><li class="divider-vertical"></li><li id="w972" class="dropdown"><a data-toggle="dropdown" class="dropdown-toggle">About<b class="caret"></b></a><ul class="dropdown-menu"><li id="w973"><a href="https://github.com/raptorjs/raptorjs/wiki/Release-Notes">Release Notes</a></li><li id="w974"><a href="../../design-philosophy/">Design Philosophy</a></li><li id="w975"><a href="../../license/">License</a></li><li id="w976"><a href="../../credits/">Credits</a></li><li id="w977"><a href="../../creators/">Creators</a></li></ul></li><li class="divider-vertical"></li></ul></div></div></div><div class="container"><div class="docs"><div class="bd"><div class="docs-content"><h1 id="title">Get Started using RaptorJS Packaging</h1><div class="toc nav" id="docsNav"><ul class="toc"><li class="toc toc-level-0"><a href="#Overview">Overview</a><ul class="toc"></ul></li><li class="toc toc-level-0"><a href="#Sample_RaptorJS_Package">Sample RaptorJS Package</a><ul class="toc"></ul></li><li class="toc toc-level-0"><a href="#RaptorJS_Package_Format">RaptorJS Package Format</a><ul class="toc"><li class="toc toc-level-1"><a href="#Declaring_Dependency_Types">Declaring Dependency Types</a><ul class="toc"></ul></li><li class="toc toc-level-1"><a href="#Package_Extensions">Package Extensions</a><ul class="toc"></ul></li></ul></li><li class="toc toc-level-0"><a href="#DependencyTypes">Dependency Types</a><ul class="toc"></ul></li><li class="toc toc-level-0"><a href="#ResolvingModulePackages">Resolving Module Packages</a><ul class="toc"></ul></li><li class="toc toc-level-0"><a href="#Usage">Usage</a><ul class="toc"><li class="toc toc-level-1"><a href="#Loading_Modules_on_the_Server">Loading Modules on the Server</a><ul class="toc"></ul></li><li class="toc toc-level-1"><a href="#Delivering_Modules_to_the_Client">Delivering Modules to the Client</a><ul class="toc"></ul></li></ul></li><li class="toc toc-level-0"><a href="#3rdParty_Libraries">3rd-Party Libraries</a><ul class="toc"></ul></li><li class="toc toc-level-0"><a href="#Further_Reading">Further Reading</a><ul class="toc"></ul></li><li class="toc toc-level-0"><a href="#Discussion">Discussion</a><ul class="toc"></ul></li></ul><div class="docs-nav-footer"><ul><li><span class="powered-by">Powered by <a href="../../" class="raptorjs">RaptorJS</a></span></li><li><a href="../../license/">License</a></li><li><a href="../../credits/">Credits</a></li></ul></div></div><div class="section section-level-0"><h2 id="Overview">Overview</h2><div class="bd"><p>RaptorJS extends the popular <code>package.json</code> format so that it is better suited for packaging up code to be delivered to a
 browser
 <i>and</i> be loaded in multiple server-side JavaScript environments (Node, Rhino, etc.).
 RaptorJS packages allows developers to make dependencies explicit—including
@@ -16,7 +16,7 @@ and support any type of dependency ( JavaScript, CSS,
 packages to determine how to load JavaScript modules on the server. The
 <a href="../../optimizer/"><nobr>RaptorJS Optimizer</nobr></a> uses RaptorJS packages to determine which resources need to be optimized for
 delivery to web browsers. Lastly, the client-side
-<a href="../../module-loader/get-started-async/"><nobr>RaptorJS Async Loader</nobr></a> uses information from packages to optimally download packages asynchronously.</p></div></div><div class="section section-level-0"><h2 id="Sample_RaptorJS_Package">Sample RaptorJS Package</h2><div class="bd"><div class="code-editor" id="w976"> <textarea id="w976-textarea" style="display: none;" name="code-97">{
+<a href="../../module-loader/get-started-async/"><nobr>RaptorJS Async Loader</nobr></a> uses information from packages to optimally download packages asynchronously.</p></div></div><div class="section section-level-0"><h2 id="Sample_RaptorJS_Package">Sample RaptorJS Package</h2><div class="bd"><div class="code-editor" id="w978"> <textarea id="w978-textarea" style="display: none;" name="code-99">{
     "name": "some/namespace/my-module",
     "version": "1.0",
     "description": "My amazing module.",
@@ -33,7 +33,7 @@ some of the metadata is used by libraries and tools such as the
 <a href="../../optimizer/">RaptorJS Optimizer</a>. Because <code>package.json</code> files are used by multiple systems a namespacing scheme is used to prevent
 conflicts. All metadata that is specific to RaptorJS is nested within a
 top-level
-<code>"raptor"</code> property and everything else is ignored by the RaptorJS tools. A simple <code>package.json</code>file is shown below:</p><div class="code-editor" id="w977"> <textarea id="w977-textarea" style="display: none;" name="code-98">{
+<code>"raptor"</code> property and everything else is ignored by the RaptorJS tools. A simple <code>package.json</code>file is shown below:</p><div class="code-editor" id="w979"> <textarea id="w979-textarea" style="display: none;" name="code-100">{
     "name": "some/namespace/my-module",
     "version": "1.0",
     "description": "My amazing module.",
@@ -55,30 +55,32 @@ to at least one of the resource search path
 entries.</p><p>Transitive dependencies can be declared by adding another module as a
 dependency. RaptorJS is extensible and allows dependency handlers to be
 registered to support any type of dependency—including dependencies that must
-be compiled to JavaScript and CSS. For more information on registering
-dependency handlers, please see the
-<a href="#DependencyHandlers">Registering Dependency Handlers</a> section below.</p><div class="section section-level-1"><h2 id="Declaring_Dependency_Types">Declaring Dependency Types</h2><div class="bd"><p>For simple <code>String</code> dependencies the dependency type is inferred from the file extension. However,
+be compiled to JavaScript and CSS. section
+below.</p><div class="section section-level-1"><h2 id="Declaring_Dependency_Types">Declaring Dependency Types</h2><div class="bd"><p>For simple <code>String</code> dependencies the dependency type is inferred from the file extension. However,
 for completeness, RaptorJS supports a more verbose and equivalent syntax for
 declaring
-dependencies:</p> <div class="code-editor" id="w978"> <textarea id="w978-textarea" style="display: none;" name="code-99">{
+dependencies:</p> <div class="code-editor" id="w980"> <textarea id="w980-textarea" style="display: none;" name="code-101">{
     "name": "some/namespace/my-module",
     "version": "1.0",
     "description": "My amazing module.",
     "raptor": {
         "dependencies": [ 
             { "type": "module", "name": "some/namespace/another-module" },
-            { "type": "js",    "path": "my-module.js" }, 
-            { "type": "css",   "path": "my-module.css" }, 
-            { "type": "rhtml", "path": "my-module.rhtml" }
+            { "type": "js",     "path": "my-module.js" }, 
+            { "type": "css",    "path": "my-module.css" }, 
+            { "type": "rhtml",  "path": "my-module.rhtml" }
         ]
     }   
-}</textarea></div></div></div><div class="section section-level-1"><h2 id="Package_Extensions">Package Extensions</h2><div class="bd"><p>RaptorJS packages allow for environment-specific dependencies to be declared.
+}</textarea></div><p>Please see the <a href="#DependencyTypes">Dependency Types</a> section below for more information how dependencies of different types are
+handled.</p></div></div><div class="section section-level-1"><h2 id="Package_Extensions">Package Extensions</h2><div class="bd"><p>RaptorJS packages allow for environment-specific dependencies to be declared.
 Environment-specific dependencies are placed inside named extensions. If
 dependencies are part of a named extension that is not marked as "enabled" then
 the associated dependencies will be
 ignored.</p><p>Extension names are arbitrary and developers can introduce their own extension
 names for their application. However, there are a few common extension
-names:</p><ul><li><b>server</b> - Enabled for any server-side JavaScript environment (e.g. Node and Rhino)</li><li><b>node</b> - Enabled for Node only</li><li><b>rhino</b> - Enabled for Rhino only</li><li><b>browser</b> - Enabled for the browser only</li><li><b>jquery</b> - Enabled for environments that have jQuery loaded</li><li><b>development</b> - Enabled for development (i.e. non-production) environments only</li></ul><p>Sample <code>package.json</code> file that declares extensions is shown below:</p><div class="code-editor" id="w979"> <textarea id="w979-textarea" style="display: none;" name="code-100">{
+names:</p><ul><li><b>server</b> - Enabled for any server-side JavaScript environment (e.g. Node and Rhino)</li><li><b>node</b> - Enabled for Node only</li><li><b>rhino</b> - Enabled for Rhino only</li><li><b>browser</b> - Enabled for the browser only</li><li><b>jquery</b> - Enabled for environments that have jQuery loaded</li><li><b>development</b> - Enabled for development (i.e. non-production) environments only</li></ul><p>For your own application you might find it beneficial to introduce your own
+extensions such as "mobile" or "desktop" to target specific code for each
+environment.</p><p>Sample <code>package.json</code> file that declares extensions is shown below:</p><div class="code-editor" id="w981"> <textarea id="w981-textarea" style="display: none;" name="code-102">{
     "name": "some/namespace/my-module",
     "version": "1.0",
     "description": "My amazing module.",
@@ -102,30 +104,35 @@ names:</p><ul><li><b>server</b> - Enabled for any server-side JavaScript environ
             }
         ]
     }   
-}</textarea></div></div></div></div></div><div class="section section-level-0"><h2 id="Dependency_Types">Dependency Types</h2><div class="bd"><p>To support any type of dependency, RaptorJS can easily be extended to support
-any type of dependency. The only requirement is that each dependency type must
+}</textarea></div></div></div></div></div><div class="section section-level-0"><h2 id="DependencyTypes">Dependency Types</h2><div class="bd"><p>To support any type of dependency, RaptorJS can easily be extended to support
+any type of dependency. The only requirement is that each dependency must
 compile to either JavaScript or CSS. On the server, only JavaScript
 dependencies will be loaded and non-JavaScript dependencies will be ignored.
-For more information on adding support for new types of dependencies please see
-the
-<a href="../../packaging/developer-guide/">RaptorJS Packaging Developer Guide</a></p></div></div><div class="section section-level-0"><h2 id="ResolvingModulePackages">Resolving Module Packages</h2><div class="bd"><p>For a module named "some/namespace/my-module", the <code>package.json</code> should be placed in one of the following locations:</p><ol><li>&lt;path-to-modules>/some/namespace/my-module/package.json</li><li>&lt;path-to-modules>/some/namespace/my-module-package.json</li></ol><p>The second usage (i.e. "my-module-package.json"), allows multiple packages to
+For more information on registering dependency handlers, please see
+<a href="../../packaging/developer-guide/#RegisteringDependencyTypes"><nobr>RaptorJS Packaging Developer Guide » Registering Dependency Handlers</nobr></a>.</p></div></div><div class="section section-level-0"><h2 id="ResolvingModulePackages">Resolving Module Packages</h2><div class="bd"><p>The name of a module is used by RaptorJS to resolve a module name to its
+corresponding
+<code>package.json</code>. For a module named "some/namespace/my-module", the <code>package.json</code> should be placed in either of the following locations:</p><ol><li>&lt;path-to-modules>/some/namespace/my-module<span class="highlite">/</span>package.json</li><li>&lt;path-to-modules>/some/namespace/my-module<span class="highlite">-</span>package.json</li></ol><div class="message message-info"><div class="icon"><i class="icon-info-sign" style="font-size: 30px;"></i></div><div class="bd"><p>The second usage (i.e. "my-module-package.json"), allows multiple packages to
 be placed in the same
-directory.</p></div></div><div class="section section-level-0"><h2 id="Usage">Usage</h2><div class="bd"><div class="section section-level-1"><h2 id="Loading_Modules_on_the_Server">Loading Modules on the Server</h2><div class="bd"><p>When the module, "some/namespace/my-module", is required on the server the
+directory.</p></div></div></div></div><div class="section section-level-0"><h2 id="Usage">Usage</h2><div class="bd"><div class="section section-level-1"><h2 id="Loading_Modules_on_the_Server">Loading Modules on the Server</h2><div class="bd"><p>When the module, "some/namespace/my-module", is required on the server the
 server-side
-<a href="../../module-loader/">RaptorJS JavaScript Module Loader</a> will read the corresponding <code>package.json</code> file to determine which resources should be evaluate. The server-side module
-loader will ignore the dependencies that are part of the "browser" extension
-since the "browser" extension would not be enabled for the server-side module
-loader. The "server" extension, however, would be enabled. Therefore, the
-following dependencies would be evaluated (in order) on the server when the
-above module is
-required:</p><ol><li>(dependencies for the module named "another/namespace/another-module")</li><li>my-module-common.js</li><li>my-module-server.js</li></ol></div></div><div class="section section-level-1"><h2 id="Delivering_Modules_to_the_Client">Delivering Modules to the Client</h2><div class="bd"><p>When the module, "some/namespace/my-module", needs to be delivered to the web
+<a href="../../module-loader/">RaptorJS JavaScript Module Loader</a> will resolve the module name to its corresponding <code>package.json</code> file. The <code>package.json</code> file will then be rea to determine which resources should be evaluate. The
+server-side module loader will only load files that are outside of an extension
+or that are part of an enabled extension. For the example above, dependencies
+that are part of the "browser" extension will be ignored since the "browser"
+extension would not be enabled on the server. The "server" extension, however,
+would be enabled. Therefore, the following dependencies would be evaluated (in
+order) on the server when the above module is
+required:</p><ol><li>(dependencies for the module named "another/namespace/another-module")</li><li>my-module-common.js</li><li>my-module-server.js</li></ol><p>Also, non-JavaScript dependencies will be ignored by the RaptorJS server-side
+module
+loader.</p></div></div><div class="section section-level-1"><h2 id="Delivering_Modules_to_the_Client">Delivering Modules to the Client</h2><div class="bd"><p>When the module, "some/namespace/my-module", needs to be delivered to the web
 browser, the
 <a href="../../optimizer/">RaptorJS Optimizer</a> will read the corresponding <code>package.json</code> file to determine which resources should be included in the optimized resource
 bundles. The RaptorJS optimizer will ignore the dependencies that are part of
 the "server" extension since the "server" extension would not be enabled for
 the optimization process. The "browser" extension, however, would be enabled
-since the module is being optimized for the browser. Therefore, the following
-dependencies would be included (in order) in the resulting optimized resource
+since the module is being optimized for the web browser. Therefore, the
+following dependencies would be included (in order) in the resulting optimized
+resource
 bundles:</p><ol><li>(dependencies for the module named "another/namespace/another-module")</li><li>my-module-common.js</li><li>my-module.less (compiled to CSS)</li></ol></div></div></div></div><div class="section section-level-0"><h2 id="3rdParty_Libraries">3rd-Party Libraries</h2><div class="bd"><p>For third-party libraries that are not already packaged up using RaptorJS
 packages, a
 <code>package.json</code> file can easily be added without changing the code for the third-party
@@ -142,10 +149,8 @@ the
 <script type="text/javascript" src="../../static/widgets-80dede79.js"></script>
 <script type="text/javascript" src="../../static/packaging-get-started-02c7930e.js"></script>
 <script type="text/javascript" src="../../static/code-editor-36478451.js"></script><script type="text/javascript">$rwidgets(
-["components.nav.Nav.NavItemWidget","w944",0,0,0,0],
-["components.nav.Nav.NavItemWidget","w945",0,0,0,0,
 ["components.nav.Nav.NavItemWidget","w946",0,0,0,0],
-["components.nav.Nav.NavItemWidget","w947",0,0,0,0],
+["components.nav.Nav.NavItemWidget","w947",0,0,0,0,
 ["components.nav.Nav.NavItemWidget","w948",0,0,0,0],
 ["components.nav.Nav.NavItemWidget","w949",0,0,0,0],
 ["components.nav.Nav.NavItemWidget","w950",0,0,0,0],
@@ -159,23 +164,25 @@ the
 ["components.nav.Nav.NavItemWidget","w958",0,0,0,0],
 ["components.nav.Nav.NavItemWidget","w959",0,0,0,0],
 ["components.nav.Nav.NavItemWidget","w960",0,0,0,0],
-["components.nav.Nav.NavItemWidget","w961",0,0,0,0]],
-["components.nav.Nav.NavItemWidget","w962",0,0,0,0,
-["components.nav.Nav.NavItemWidget","w963",0,0,0,0],
-["components.nav.Nav.NavItemWidget","w964",0,0,0,0],
+["components.nav.Nav.NavItemWidget","w961",0,0,0,0],
+["components.nav.Nav.NavItemWidget","w962",0,0,0,0],
+["components.nav.Nav.NavItemWidget","w963",0,0,0,0]],
+["components.nav.Nav.NavItemWidget","w964",0,0,0,0,
 ["components.nav.Nav.NavItemWidget","w965",0,0,0,0],
 ["components.nav.Nav.NavItemWidget","w966",0,0,0,0],
 ["components.nav.Nav.NavItemWidget","w967",0,0,0,0],
 ["components.nav.Nav.NavItemWidget","w968",0,0,0,0],
-["components.nav.Nav.NavItemWidget","w969",0,0,0,0]],
-["components.nav.Nav.NavItemWidget","w970",0,0,0,0,
-["components.nav.Nav.NavItemWidget","w971",0,0,0,0],
-["components.nav.Nav.NavItemWidget","w972",0,0,0,0],
+["components.nav.Nav.NavItemWidget","w969",0,0,0,0],
+["components.nav.Nav.NavItemWidget","w970",0,0,0,0],
+["components.nav.Nav.NavItemWidget","w971",0,0,0,0]],
+["components.nav.Nav.NavItemWidget","w972",0,0,0,0,
 ["components.nav.Nav.NavItemWidget","w973",0,0,0,0],
 ["components.nav.Nav.NavItemWidget","w974",0,0,0,0],
-["components.nav.Nav.NavItemWidget","w975",0,0,0,0]],
-["components/editors/CodeEditor/CodeEditorWidget","w976",{"mode":"javascript","autoResize":true,"readOnly":true,"indentUnit":4},0,0,0],
-["components/editors/CodeEditor/CodeEditorWidget","w977",{"mode":"javascript","autoResize":true,"readOnly":true,"indentUnit":4},0,0,0],
+["components.nav.Nav.NavItemWidget","w975",0,0,0,0],
+["components.nav.Nav.NavItemWidget","w976",0,0,0,0],
+["components.nav.Nav.NavItemWidget","w977",0,0,0,0]],
 ["components/editors/CodeEditor/CodeEditorWidget","w978",{"mode":"javascript","autoResize":true,"readOnly":true,"indentUnit":4},0,0,0],
 ["components/editors/CodeEditor/CodeEditorWidget","w979",{"mode":"javascript","autoResize":true,"readOnly":true,"indentUnit":4},0,0,0],
+["components/editors/CodeEditor/CodeEditorWidget","w980",{"mode":"javascript","autoResize":true,"readOnly":true,"indentUnit":4},0,0,0],
+["components/editors/CodeEditor/CodeEditorWidget","w981",{"mode":"javascript","autoResize":true,"readOnly":true,"indentUnit":4},0,0,0],
 ["components.social.Disqus.DisqusWidget","disqus_thread",{"shortName":"raptor-js","id":"packaging-get-started","title":"Get Started using RaptorJS Packaging"},0,0,0]);</script></body></html>

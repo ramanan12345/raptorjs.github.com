@@ -1,8 +1,8 @@
  <!DOCTYPE html><html><head><title itemprop="name">RaptorJS: Building UI Components</title><link rel="icon" href="../favicon.ico" type="image/x-icon"><link rel="shortcut icon" href="../favicon.ico" type="image/x-icon"><meta http-equiv="content-type" content="text/html; charset=UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><link rel="stylesheet" type="text/css" href="../static/ui-components-6e7769a6.css">
-<link rel="stylesheet" type="text/css" href="../static/docs-8ce8bbe8.css">
+<link rel="stylesheet" type="text/css" href="../static/docs-4a51d478.css">
 <link rel="stylesheet" type="text/css" href="../static/code-editor-f1386401.css">
 <script type="text/javascript">var _gaq=_gaq||[];_gaq.push(["_setAccount","UA-33982282-1"]),_gaq.push(["_trackPageview"]),function(){var e=document.createElement("script");e.type="text/javascript",e.async=!0,e.src=("https:"==document.location.protocol?"https://ssl":"http://www")+".google-analytics.com/ga.js";var t=document.getElementsByTagName("script")[0];t.parentNode.insertBefore(e,t)}();
-var __insp=__insp||[];__insp.push(["wid",2568045892]),function(){function e(){var e=document.createElement("script");e.type="text/javascript",e.async=!0,e.id="inspsync",e.src=("https:"==document.location.protocol?"https":"http")+"://www.inspectlet.com/inspectlet-jq.js";var t=document.getElementsByTagName("script")[0];t.parentNode.insertBefore(e,t)}window.attachEvent?window.attachEvent("onload",e):window.addEventListener("load",e,!1)}();</script></head><body><div class="navbar navbar-fixed-top"><div class="navbar-inner"><div class="container"><a class="brand" href="../">RaptorJS</a><ul class="nav"><li class="divider-vertical"></li><li id="w1382"><a href="../get-started/">Get Started</a></li><li class="divider-vertical"></li><li id="w1383" class="dropdown"><a data-toggle="dropdown" class="dropdown-toggle">Learn<b class="caret"></b></a><ul class="dropdown-menu"><li id="w1384"><a href="../">Overview</a></li><li id="w1385"><a href="../get-started/">Get Started</a></li><li id="w1386"><a href="../tutorial/">Tutorial</a></li><li id="w1387"><a href="../api/">API Reference</a></li><li id="w1388" target="_blank"><a href="https://github.com/raptorjs/samples">Sample Apps</a></li><li id="w1389"><a href="../faq/">FAQ</a></li><li class="divider"></li><li id="w1390"><a href="../modules-classes/">Modules and Classes</a></li><li id="w1391"><a href="../packaging/">Packaging and Extensions</a></li><li id="w1392"><a href="../module-loader/">Module Loader</a></li><li id="w1393"><a href="../optimizer/">Optimizer</a></li><li id="w1394"><a href="../raptor-templates/">Raptor Templates</a></li><li id="w1395"><a href="../widgets/">Widget Framework</a></li><li class="divider"></li><li id="w1396"><a href="../ui-components/">Building UI Components</a></li><li id="w1397"><a href="../logging/">Logging</a></li><li id="w1398"><a href="../resource-search-path/">Resource Search Path</a></li><li id="w1399"><a href="../cross-environment/">Cross Environment Support</a></li></ul></li><li class="divider-vertical"></li><li id="w1400" class="dropdown"><a data-toggle="dropdown" class="dropdown-toggle">Community<b class="caret"></b></a><ul class="dropdown-menu"><li id="w1401"><a href="https://github.com/raptorjs/raptorjs">Source code</a></li><li id="w1402"><a href="https://github.com/raptorjs/raptorjs/issues">Issue Tracker</a></li><li id="w1403"><a href="../contribute/">Contribute</a></li><li id="w1404"><a href="../contributors/">Contributors</a></li><li class="divider"></li><li id="w1405"><a href="http://groups.google.com/group/raptorjs">Discussion Forum</a></li><li class="divider"></li><li id="w1406"><a href="http://twitter.com/raptorjs">Twitter (@raptorjs)</a></li><li id="w1407"><a href="https://plus.google.com/111493691067944627473/">Google+</a></li></ul></li><li class="divider-vertical"></li><li id="w1408" class="dropdown"><a data-toggle="dropdown" class="dropdown-toggle">About<b class="caret"></b></a><ul class="dropdown-menu"><li id="w1409"><a href="https://github.com/raptorjs/raptorjs/wiki/Release-Notes">Release Notes</a></li><li id="w1410"><a href="../design-philosophy/">Design Philosophy</a></li><li id="w1411"><a href="../license/">License</a></li><li id="w1412"><a href="../credits/">Credits</a></li><li id="w1413"><a href="../creators/">Creators</a></li></ul></li><li class="divider-vertical"></li></ul></div></div></div><div class="container"><div class="docs"><div class="bd"><div class="docs-content"><h1 id="title">Building UI Components</h1><div class="toc nav" id="docsNav"><ul class="toc"><li class="toc toc-level-0"><a href="#Overview">Overview</a><ul class="toc"></ul></li><li class="toc toc-level-0"><a href="#View_Demo">View Demo</a><ul class="toc"></ul></li><li class="toc toc-level-0"><a href="#Demo_Source">Demo Source</a><ul class="toc"></ul></li><li class="toc toc-level-0"><a href="#UI_Component_Parts">UI Component Parts</a><ul class="toc"><li class="toc toc-level-1"><a href="#Renderer">Renderer</a><ul class="toc"></ul></li><li class="toc toc-level-1"><a href="#HTMLTemplate">HTML Template</a><ul class="toc"></ul></li><li class="toc toc-level-1"><a href="#Widget">Widget</a><ul class="toc"></ul></li><li class="toc toc-level-1"><a href="#CSS">CSS</a><ul class="toc"></ul></li><li class="toc toc-level-1"><a href="#Package">package.json</a><ul class="toc"></ul></li><li class="toc toc-level-1"><a href="#Clientside_Component_Rendering">Client-side Component Rendering</a><ul class="toc"></ul></li><li class="toc toc-level-1"><a href="#Custom_Tag_Definition">Custom Tag Definition</a><ul class="toc"></ul></li></ul></li><li class="toc toc-level-0"><a href="#Referencing_Nested_Widgets">Referencing Nested Widgets</a><ul class="toc"></ul></li><li class="toc toc-level-0"><a href="#Custom_Widget_Events">Custom Widget Events</a><ul class="toc"></ul></li><li class="toc toc-level-0"><a href="#PubSub">Pub/Sub Communication</a><ul class="toc"></ul></li><li class="toc toc-level-0"><a href="#Discussion">Discussion</a><ul class="toc"></ul></li></ul><div class="docs-nav-footer"><ul><li><span class="powered-by">Powered by <a href="../" class="raptorjs">RaptorJS</a></span></li><li><a href="../license/">License</a></li><li><a href="../credits/">Credits</a></li></ul></div></div><div class="section section-level-0"><h2 id="Overview">Overview</h2><div class="bd"><p>This guide describes a recipe for building UI components that are independently
+var __insp=__insp||[];__insp.push(["wid",2568045892]),function(){function e(){var e=document.createElement("script");e.type="text/javascript",e.async=!0,e.id="inspsync",e.src=("https:"==document.location.protocol?"https":"http")+"://www.inspectlet.com/inspectlet-jq.js";var t=document.getElementsByTagName("script")[0];t.parentNode.insertBefore(e,t)}window.attachEvent?window.attachEvent("onload",e):window.addEventListener("load",e,!1)}();</script></head><body><div class="navbar navbar-fixed-top"><div class="navbar-inner"><div class="container"><a class="brand" href="../">RaptorJS</a><ul class="nav"><li class="divider-vertical"></li><li id="w1384"><a href="../get-started/">Get Started</a></li><li class="divider-vertical"></li><li id="w1385" class="dropdown"><a data-toggle="dropdown" class="dropdown-toggle">Learn<b class="caret"></b></a><ul class="dropdown-menu"><li id="w1386"><a href="../">Overview</a></li><li id="w1387"><a href="../get-started/">Get Started</a></li><li id="w1388"><a href="../tutorial/">Tutorial</a></li><li id="w1389"><a href="../api/">API Reference</a></li><li id="w1390" target="_blank"><a href="https://github.com/raptorjs/samples">Sample Apps</a></li><li id="w1391"><a href="../faq/">FAQ</a></li><li class="divider"></li><li id="w1392"><a href="../modules-classes/">Modules and Classes</a></li><li id="w1393"><a href="../packaging/">Packaging and Extensions</a></li><li id="w1394"><a href="../module-loader/">Module Loader</a></li><li id="w1395"><a href="../optimizer/">Optimizer</a></li><li id="w1396"><a href="../raptor-templates/">Raptor Templates</a></li><li id="w1397"><a href="../widgets/">Widget Framework</a></li><li class="divider"></li><li id="w1398"><a href="../ui-components/">Building UI Components</a></li><li id="w1399"><a href="../logging/">Logging</a></li><li id="w1400"><a href="../resource-search-path/">Resource Search Path</a></li><li id="w1401"><a href="../cross-environment/">Cross Environment Support</a></li></ul></li><li class="divider-vertical"></li><li id="w1402" class="dropdown"><a data-toggle="dropdown" class="dropdown-toggle">Community<b class="caret"></b></a><ul class="dropdown-menu"><li id="w1403"><a href="https://github.com/raptorjs/raptorjs">Source code</a></li><li id="w1404"><a href="https://github.com/raptorjs/raptorjs/issues">Issue Tracker</a></li><li id="w1405"><a href="../contribute/">Contribute</a></li><li id="w1406"><a href="../contributors/">Contributors</a></li><li class="divider"></li><li id="w1407"><a href="http://groups.google.com/group/raptorjs">Discussion Forum</a></li><li class="divider"></li><li id="w1408"><a href="http://twitter.com/raptorjs">Twitter (@raptorjs)</a></li><li id="w1409"><a href="https://plus.google.com/111493691067944627473/">Google+</a></li></ul></li><li class="divider-vertical"></li><li id="w1410" class="dropdown"><a data-toggle="dropdown" class="dropdown-toggle">About<b class="caret"></b></a><ul class="dropdown-menu"><li id="w1411"><a href="https://github.com/raptorjs/raptorjs/wiki/Release-Notes">Release Notes</a></li><li id="w1412"><a href="../design-philosophy/">Design Philosophy</a></li><li id="w1413"><a href="../license/">License</a></li><li id="w1414"><a href="../credits/">Credits</a></li><li id="w1415"><a href="../creators/">Creators</a></li></ul></li><li class="divider-vertical"></li></ul></div></div></div><div class="container"><div class="docs"><div class="bd"><div class="docs-content"><h1 id="title">Building UI Components</h1><div class="toc nav" id="docsNav"><ul class="toc"><li class="toc toc-level-0"><a href="#Overview">Overview</a><ul class="toc"></ul></li><li class="toc toc-level-0"><a href="#View_Demo">View Demo</a><ul class="toc"></ul></li><li class="toc toc-level-0"><a href="#Demo_Source">Demo Source</a><ul class="toc"></ul></li><li class="toc toc-level-0"><a href="#UI_Component_Parts">UI Component Parts</a><ul class="toc"><li class="toc toc-level-1"><a href="#Renderer">Renderer</a><ul class="toc"></ul></li><li class="toc toc-level-1"><a href="#HTMLTemplate">HTML Template</a><ul class="toc"></ul></li><li class="toc toc-level-1"><a href="#Widget">Widget</a><ul class="toc"></ul></li><li class="toc toc-level-1"><a href="#CSS">CSS</a><ul class="toc"></ul></li><li class="toc toc-level-1"><a href="#Package">package.json</a><ul class="toc"></ul></li><li class="toc toc-level-1"><a href="#Clientside_Component_Rendering">Client-side Component Rendering</a><ul class="toc"></ul></li><li class="toc toc-level-1"><a href="#Custom_Tag_Definition">Custom Tag Definition</a><ul class="toc"></ul></li></ul></li><li class="toc toc-level-0"><a href="#Referencing_Nested_Widgets">Referencing Nested Widgets</a><ul class="toc"></ul></li><li class="toc toc-level-0"><a href="#Custom_Widget_Events">Custom Widget Events</a><ul class="toc"></ul></li><li class="toc toc-level-0"><a href="#PubSub">Pub/Sub Communication</a><ul class="toc"></ul></li><li class="toc toc-level-0"><a href="#Discussion">Discussion</a><ul class="toc"></ul></li></ul><div class="docs-nav-footer"><ul><li><span class="powered-by">Powered by <a href="../" class="raptorjs">RaptorJS</a></span></li><li><a href="../license/">License</a></li><li><a href="../credits/">Credits</a></li></ul></div></div><div class="section section-level-0"><h2 id="Overview">Overview</h2><div class="bd"><p>This guide describes a recipe for building UI components that are independently
 testable and can be rendered on the server or in the browser. Since this is
 only a recipe feel free to adapt it to your needs and swap out technologies as
 you see
@@ -18,7 +18,7 @@ browser</li></ul></p><p>Each UI component part is described in further detail in
 The
 <a href="http://raptorjs.org/api/raptor/render-context/Context/">Context</a> object is also used to track information during rendering (such as the list of
 rendered
-widgets).</li></ul><p>A sample <code>Renderer</code> is shown below:</p><div class="code-editor" id="w1414"><h2 class="code-editor-title">/modules/ui/buttons/SimpleButton/SimpleButtonRenderer.js</h2> <textarea id="w1414-textarea" style="display: none;" name="code-171">define(
+widgets).</li></ul><p>A sample <code>Renderer</code> is shown below:</p><div class="code-editor" id="w1416"><h2 class="code-editor-title">/modules/ui/buttons/SimpleButton/SimpleButtonRenderer.js</h2> <textarea id="w1416-textarea" style="display: none;" name="code-173">define(
     "ui/buttons/SimpleButton/SimpleButtonRenderer",
     function(require) {
         return {
@@ -34,13 +34,13 @@ code shown above, String concatenation and the
 how an HTML template can be used to produce the view for the UI
 component.</p></div></div><div class="section section-level-1"><h2 id="HTMLTemplate">HTML Template</h2><div class="bd"><p>Typically, a <code>Renderer</code> will use a template to render it's view. If supported, the template rendering
 engine should be provided the
-<a href="http://raptorjs.org/api/raptor/render-context/Context/">Context</a> object to write out its output.</p><p>For this guide we will be using <a href="../raptor-templates/">Raptor Templates</a> as our templating language. A sample HTML template and the updated <code>Renderer</code> are shown below:</p><div class="code-editor" id="w1415"><h2 class="code-editor-title">/modules/ui/buttons/SimpleButton/SimpleButton.rhtml</h2> <textarea id="w1415-textarea" style="display: none;" name="code-172">&lt;c:template xmlns:c="core"
+<a href="http://raptorjs.org/api/raptor/render-context/Context/">Context</a> object to write out its output.</p><p>For this guide we will be using <a href="../raptor-templates/">Raptor Templates</a> as our templating language. A sample HTML template and the updated <code>Renderer</code> are shown below:</p><div class="code-editor" id="w1417"><h2 class="code-editor-title">/modules/ui/buttons/SimpleButton/SimpleButton.rhtml</h2> <textarea id="w1417-textarea" style="display: none;" name="code-174">&lt;c:template xmlns:c="core"
     name="ui/buttons/SimpleButton"
     params="label">
     
     &lt;button type="button">$label&lt;/button>
 
-&lt;/c:template></textarea></div><div class="code-editor" id="w1416"><h2 class="code-editor-title">/modules/ui/buttons/SimpleButton/SimpleButtonRenderer.js</h2> <textarea id="w1416-textarea" style="display: none;" name="code-173">define(
+&lt;/c:template></textarea></div><div class="code-editor" id="w1418"><h2 class="code-editor-title">/modules/ui/buttons/SimpleButton/SimpleButtonRenderer.js</h2> <textarea id="w1418-textarea" style="display: none;" name="code-175">define(
     "ui/buttons/SimpleButton/SimpleButtonRenderer",
     function(require) {
         var templating = require('raptor/templating');
@@ -57,7 +57,7 @@ engine should be provided the
         };
     });</textarea></div><div class="message message-info"><div class="icon"><i class="icon-info-sign" style="font-size: 30px;"></i></div><div class="bd"><p>If the templating engine produces a <code>String</code> object as the output, the <code>Renderer</code> should write out the resulting HTML string to the the context as shown in the
 following sample
-code:</p><div class="code-editor" id="w1417"><h2 class="code-editor-title">/modules/ui/buttons/SimpleButton/SimpleButtonRenderer.js</h2> <textarea id="w1417-textarea" style="display: none;" name="code-174">var htmlString = templating.renderToString(
+code:</p><div class="code-editor" id="w1419"><h2 class="code-editor-title">/modules/ui/buttons/SimpleButton/SimpleButtonRenderer.js</h2> <textarea id="w1419-textarea" style="display: none;" name="code-176">var htmlString = templating.renderToString(
     'ui/buttons/SimpleButton',
     {
         label: input.label
@@ -69,7 +69,7 @@ as handling DOM events. In addition, the
 the UI component in the
 browser.</p><p>An instance of a <code>Widget</code> should be bound to the DOM node corresponding to the rendered HTML produced by
 the
-<code>Renderer</code>. The <a href="../widgets/developer-guide/#Taglib/">Widgets Taglib</a> for <a href="../raptor-templates/">Raptor Templates</a> makes it effortless to initialize <code>Widget</code> instances and bind them to their corresponding DOM nodes. A <code>Widget</code> can be bound to a rendered HTML element using the custom <code>w:widget</code> attribute as shown in the following updated example template:</p><div class="code-editor" id="w1418"><h2 class="code-editor-title">/modules/ui/buttons/SimpleButton/SimpleButton.rhtml</h2> <textarea id="w1418-textarea" style="display: none;" name="code-175"><c:template xmlns:c="core"
+<code>Renderer</code>. The <a href="../widgets/developer-guide/#Taglib/">Widgets Taglib</a> for <a href="../raptor-templates/">Raptor Templates</a> makes it effortless to initialize <code>Widget</code> instances and bind them to their corresponding DOM nodes. A <code>Widget</code> can be bound to a rendered HTML element using the custom <code>w:widget</code> attribute as shown in the following updated example template:</p><div class="code-editor" id="w1420"><h2 class="code-editor-title">/modules/ui/buttons/SimpleButton/SimpleButton.rhtml</h2> <textarea id="w1420-textarea" style="display: none;" name="code-177"><c:template xmlns:c="core"
     xmlns:w="widgets"
     name="ui/buttons/SimpleButton"
     params="label">
@@ -82,7 +82,7 @@ the
         
     </button>
 
-</c:template></textarea></div><p>A sample implementation for <code>ui/buttons/SimpleButton/SimpleButtonWidget</code> is shown in the following sample code:</p><div class="code-editor" id="w1419"><h2 class="code-editor-title">/modules/ui/buttons/SimpleButton/SimpleButtonWidget.js</h2> <textarea id="w1419-textarea" style="display: none;" name="code-176">define(
+</c:template></textarea></div><p>A sample implementation for <code>ui/buttons/SimpleButton/SimpleButtonWidget</code> is shown in the following sample code:</p><div class="code-editor" id="w1421"><h2 class="code-editor-title">/modules/ui/buttons/SimpleButton/SimpleButtonWidget.js</h2> <textarea id="w1421-textarea" style="display: none;" name="code-178">define(
     "ui/buttons/SimpleButton/SimpleButtonWidget",
     function(require) {
         function SimpleButtonWidget(widgetConfig) {
@@ -110,7 +110,7 @@ the UI component being developed would typically be placed in the same
 directory as the UI component. Lastly, the root element of the UI component
 will typically be assigned a unique CSS class name so that styles selectors can
 be used to apply styling to the UI component. Example CSS
-file:</p><div class="code-editor" id="w1420"><h2 class="code-editor-title">/modules/ui/buttons/SimpleButton/SimpleButton.css</h2> <textarea id="w1420-textarea" style="display: none;" name="code-177">.simple-button {
+file:</p><div class="code-editor" id="w1422"><h2 class="code-editor-title">/modules/ui/buttons/SimpleButton/SimpleButton.css</h2> <textarea id="w1422-textarea" style="display: none;" name="code-179">.simple-button {
     border: 1px solid Black;
     border-radius: 4px;
 }</textarea></div><p>Styles that are shared across multiple UI components can be added to a separate
@@ -119,7 +119,7 @@ component being developed. Please see the
 <a href="#Package">package.json</a> section below for information on managing UI component dependencies.</p></div></div><div class="section section-level-1"><h2 id="Package">package.json</h2><div class="bd"><p>A <code>package.json</code> file is needed for each UI component so that the <a href="../optimizer/">RaptorJS Optimizer</a> will know which files need to be sent to the web browser for the UI component
 to function correctly. All of the resource and modules dependencies for the UI
 component should be listed in the
-<code>package.json</code> for the UI component as shown in the following sample <code>package.json</code>:</p><div class="code-editor" id="w1421"><h2 class="code-editor-title">/modules/ui/buttons/SimpleButton/package.json</h2> <textarea id="w1421-textarea" style="display: none;" name="code-178">{
+<code>package.json</code> for the UI component as shown in the following sample <code>package.json</code>:</p><div class="code-editor" id="w1423"><h2 class="code-editor-title">/modules/ui/buttons/SimpleButton/package.json</h2> <textarea id="w1423-textarea" style="display: none;" name="code-180">{
     "raptor": {
         "dependencies": [
             {"module": "raptor/templating"},
@@ -136,7 +136,7 @@ is to be rendered in the web
 browser:</p><ul><li><b>Module:</b> raptor/templating</li><li><b>Module:</b> raptor/templating/taglibs/widgets</li><li><b>Resource:</b> ButtonRenderer.js</li><li><b>Resource:</b> Button.rhtml</li></ul><p>In some cases it is beneficial to create two packages for a UI component to
 separate out the dependencies required for rendering into a separate "render"
 package. For
-example:</p><div class="code-editor" id="w1422"><h2 class="code-editor-title">/modules/ui/buttons/SimpleButton/package.json</h2> <textarea id="w1422-textarea" style="display: none;" name="code-179">{
+example:</p><div class="code-editor" id="w1424"><h2 class="code-editor-title">/modules/ui/buttons/SimpleButton/package.json</h2> <textarea id="w1424-textarea" style="display: none;" name="code-181">{
     "raptor": {
         "dependencies": [
             {"module": "raptor/widgets"},
@@ -144,7 +144,7 @@ example:</p><div class="code-editor" id="w1422"><h2 class="code-editor-title">/m
             "SimpleButton.css"
         ]
     }
-}</textarea></div><div class="code-editor" id="w1423"><h2 class="code-editor-title">/modules/ui/buttons/SimpleButton/render-package.json</h2> <textarea id="w1423-textarea" style="display: none;" name="code-180">{
+}</textarea></div><div class="code-editor" id="w1425"><h2 class="code-editor-title">/modules/ui/buttons/SimpleButton/render-package.json</h2> <textarea id="w1425-textarea" style="display: none;" name="code-182">{
     "raptor": {
         "dependencies": [
             {"module": "ui/buttons/SimpleButton"},
@@ -160,7 +160,7 @@ rendered on the server then only the
 using the
 <a href="http://raptorjs.org/api/raptor/component-renderer/">raptor/component-renderer</a> module. Assuming we have included the code for the <code>ui/buttons/SimpleButton</code> module and the <code>raptor/component-renderer</code> module, we can then use the following JavaScript code to render out our newly
 created component and add it to the
-DOM.</p><div class="code-editor" id="w1424"> <textarea id="w1424-textarea" style="display: none;" name="code-181">require('raptor/component-renderer')
+DOM.</p><div class="code-editor" id="w1426"> <textarea id="w1426-textarea" style="display: none;" name="code-183">require('raptor/component-renderer')
     .render(
         'ui/buttons/SimpleButton/SimpleButtonRenderer', // The renderer
         {                                               // The input data model
@@ -170,7 +170,7 @@ DOM.</p><div class="code-editor" id="w1424"> <textarea id="w1424-textarea" style
                               // the HTML into the DOM</textarea></div></div></div><div class="section section-level-1"><h2 id="Custom_Tag_Definition">Custom Tag Definition</h2><div class="bd"><p>Being able to use JavaScript code to render a UI component can be very helpful,
 but often it is much better to embed a UI component directly in an HTML
 template directly. For example, to embed the
-<code>ui/buttons/SimpleButton</code> component in a template we might want to do the following:</p><div class="code-editor" id="w1425"> <textarea id="w1425-textarea" style="display: none;" name="code-182">&lt;c:template xmlns:c="core" xmlns:app="app">
+<code>ui/buttons/SimpleButton</code> component in a template we might want to do the following:</p><div class="code-editor" id="w1427"> <textarea id="w1427-textarea" style="display: none;" name="code-184">&lt;c:template xmlns:c="core" xmlns:app="app">
     &lt;div>
         &lt;app:simple-button label="Simple Button"/>
         &lt;app:simple-button label="Another Simple Button"/>
@@ -180,7 +180,7 @@ allowed attributes (among other things) can be declared so that errors can be
 caught during compilation and it allows the Raptor Templates compiler to
 compile HTML templates into very optimized JavaScript functions. A sample
 custom tag definition is shown
-below:</p><div class="code-editor" id="w1426"><h2 class="code-editor-title">/modules/ui/buttons/SimpleButton/SimpleButton.rtld</h2> <textarea id="w1426-textarea" style="display: none;" name="code-183"><raptor-taglib>
+below:</p><div class="code-editor" id="w1428"><h2 class="code-editor-title">/modules/ui/buttons/SimpleButton/SimpleButton.rtld</h2> <textarea id="w1428-textarea" style="display: none;" name="code-185"><raptor-taglib>
 
     <tag name="simple-button" renderer="ui/buttons/SimpleButton/SimpleButtonRenderer">
         <attribute name="label" type="string"/>
@@ -190,7 +190,7 @@ below:</p><div class="code-editor" id="w1426"><h2 class="code-editor-title">/mod
 namespace. For this guide we will be adding all UI components to the "app"
 namespace by creating separate Raptor Taglib Definition that imports all of the
 custom tags into a single namespace as shown in the following sample
-code:</p><div class="code-editor" id="w1427"><h2 class="code-editor-title">/rtlds/app.rtld</h2> <textarea id="w1427-textarea" style="display: none;" name="code-184">
+code:</p><div class="code-editor" id="w1429"><h2 class="code-editor-title">/rtlds/app.rtld</h2> <textarea id="w1429-textarea" style="display: none;" name="code-186">
 <raptor-taglib>
     <uri>app</uri>
     
@@ -203,13 +203,13 @@ code:</p><div class="code-editor" id="w1427"><h2 class="code-editor-title">/rtld
 search path will automatically discovered by the Raptor Templates Compiler.
 </p></div></div></div></div></div></div><div class="section section-level-0"><h2 id="Referencing_Nested_Widgets">Referencing Nested Widgets</h2><div class="bd"><p>Often it is helpful for a widget to obtain a reference to a nested widget. The <a href="../widgets/">RaptorJS Widget Framework</a> allows a "widget ID" to be assigned to nested widgets inside a Raptor
 Template. For
-example:</p><div class="code-editor" id="w1428"> <textarea id="w1428-textarea" style="display: none;" name="code-185">&lt;div w:widget="ui/demo/ComponentsDemo/ComponentsDemoWidget">
+example:</p><div class="code-editor" id="w1430"> <textarea id="w1430-textarea" style="display: none;" name="code-187">&lt;div w:widget="ui/demo/ComponentsDemo/ComponentsDemoWidget">
     &lt;app:button label="Save" variant="success" w:id="saveButton"/>
     &lt;app:button label="Delete" variant="danger" w:id="deleteButton"/>
 &lt;/div></textarea></div><p>Widgets that are assigned a widget ID can then be referenced by the containing
 widget as part of the "widgets" property that gets added to the containing
 widget instance by the
-<a href="../widgets/">RaptorJS Widget Framework</a>. This is illustrated in the sample code:</p><div class="code-editor" id="w1429"><h2 class="code-editor-title">ui/demo/ComponentsDemo/ComponentsDemoWidget</h2> <textarea id="w1429-textarea" style="display: none;" name="code-186">define(
+<a href="../widgets/">RaptorJS Widget Framework</a>. This is illustrated in the sample code:</p><div class="code-editor" id="w1431"><h2 class="code-editor-title">ui/demo/ComponentsDemo/ComponentsDemoWidget</h2> <textarea id="w1431-textarea" style="display: none;" name="code-188">define(
     "ui/demo/ComponentsDemo/ComponentsDemoWidget",
     function(require) {
 
@@ -240,7 +240,7 @@ Pub/Sub messaging can be used as described in the
 widgets to subscribe to custom widget
 events.</p><p>The supported custom widget events must be declared as a property of the widget
 as an
-<code>Array</code> as shown in the following sample code:</p><div class="code-editor" id="w1430"> <textarea id="w1430-textarea" style="display: none;" name="code-187">define(
+<code>Array</code> as shown in the following sample code:</p><div class="code-editor" id="w1432"> <textarea id="w1432-textarea" style="display: none;" name="code-189">define(
     "ui/buttons/Button/ButtonWidget",
     ['raptor'],
     function(raptor, require) {
@@ -264,7 +264,7 @@ as an
 custom widget events to be declaratively mapped to Pub/Sub
 messages.</p><p>The following sample code illustrates how to declaratively map the custom
 "click" event to a Pub/Sub message named
-"sayHello":</p><div class="code-editor" id="w1431"> <textarea id="w1431-textarea" style="display: none;" name="code-188">&lt;c:template xmlns:c="core" 
+"sayHello":</p><div class="code-editor" id="w1433"> <textarea id="w1433-textarea" style="display: none;" name="code-190">&lt;c:template xmlns:c="core" 
     xmlns:app="app" 
     xmlns:w="widgets">
 
@@ -276,7 +276,7 @@ published using the
 <code><a href="http://raptorjs.org/api/raptor/pubsub/">raptor/pubsub</a></code> module. In addition, the message object will include a property named
 "message" with a value of "Hello World". The following code illustrates how
 this Pub/Sub message can be
-handled:</p><div class="code-editor" id="w1432"> <textarea id="w1432-textarea" style="display: none;" name="code-189">var pubsub = require('raptor/pubsub');
+handled:</p><div class="code-editor" id="w1434"> <textarea id="w1434-textarea" style="display: none;" name="code-191">var pubsub = require('raptor/pubsub');
 pubsub.subscribe('sayHello', function(eventArgs) {
     alert(eventArgs.message); // Will alert 'Hello World'
 }, this);</textarea></div></div></div><div class="section section-level-0"><h2 id="Discussion">Discussion</h2><div class="bd"><div id="disqus_thread"></div></div></div></div></div><div class="docs-footer-padding"></div></div></div><script type="text/javascript" src="../static/core-f5729fb0.js"></script>
@@ -284,10 +284,8 @@ pubsub.subscribe('sayHello', function(eventArgs) {
 <script type="text/javascript" src="../static/widgets-80dede79.js"></script>
 <script type="text/javascript" src="../static/ui-components-02c7930e.js"></script>
 <script type="text/javascript" src="../static/code-editor-36478451.js"></script><script type="text/javascript">$rwidgets(
-["components.nav.Nav.NavItemWidget","w1382",0,0,0,0],
-["components.nav.Nav.NavItemWidget","w1383",0,0,0,0,
 ["components.nav.Nav.NavItemWidget","w1384",0,0,0,0],
-["components.nav.Nav.NavItemWidget","w1385",0,0,0,0],
+["components.nav.Nav.NavItemWidget","w1385",0,0,0,0,
 ["components.nav.Nav.NavItemWidget","w1386",0,0,0,0],
 ["components.nav.Nav.NavItemWidget","w1387",0,0,0,0],
 ["components.nav.Nav.NavItemWidget","w1388",0,0,0,0],
@@ -301,38 +299,40 @@ pubsub.subscribe('sayHello', function(eventArgs) {
 ["components.nav.Nav.NavItemWidget","w1396",0,0,0,0],
 ["components.nav.Nav.NavItemWidget","w1397",0,0,0,0],
 ["components.nav.Nav.NavItemWidget","w1398",0,0,0,0],
-["components.nav.Nav.NavItemWidget","w1399",0,0,0,0]],
-["components.nav.Nav.NavItemWidget","w1400",0,0,0,0,
-["components.nav.Nav.NavItemWidget","w1401",0,0,0,0],
-["components.nav.Nav.NavItemWidget","w1402",0,0,0,0],
+["components.nav.Nav.NavItemWidget","w1399",0,0,0,0],
+["components.nav.Nav.NavItemWidget","w1400",0,0,0,0],
+["components.nav.Nav.NavItemWidget","w1401",0,0,0,0]],
+["components.nav.Nav.NavItemWidget","w1402",0,0,0,0,
 ["components.nav.Nav.NavItemWidget","w1403",0,0,0,0],
 ["components.nav.Nav.NavItemWidget","w1404",0,0,0,0],
 ["components.nav.Nav.NavItemWidget","w1405",0,0,0,0],
 ["components.nav.Nav.NavItemWidget","w1406",0,0,0,0],
-["components.nav.Nav.NavItemWidget","w1407",0,0,0,0]],
-["components.nav.Nav.NavItemWidget","w1408",0,0,0,0,
-["components.nav.Nav.NavItemWidget","w1409",0,0,0,0],
-["components.nav.Nav.NavItemWidget","w1410",0,0,0,0],
+["components.nav.Nav.NavItemWidget","w1407",0,0,0,0],
+["components.nav.Nav.NavItemWidget","w1408",0,0,0,0],
+["components.nav.Nav.NavItemWidget","w1409",0,0,0,0]],
+["components.nav.Nav.NavItemWidget","w1410",0,0,0,0,
 ["components.nav.Nav.NavItemWidget","w1411",0,0,0,0],
 ["components.nav.Nav.NavItemWidget","w1412",0,0,0,0],
-["components.nav.Nav.NavItemWidget","w1413",0,0,0,0]],
-["components/editors/CodeEditor/CodeEditorWidget","w1414",{"mode":"javascript","autoResize":true,"readOnly":true},0,0,0],
-["components/editors/CodeEditor/CodeEditorWidget","w1415",{"mode":"xml","autoResize":true,"readOnly":true},0,0,0],
+["components.nav.Nav.NavItemWidget","w1413",0,0,0,0],
+["components.nav.Nav.NavItemWidget","w1414",0,0,0,0],
+["components.nav.Nav.NavItemWidget","w1415",0,0,0,0]],
 ["components/editors/CodeEditor/CodeEditorWidget","w1416",{"mode":"javascript","autoResize":true,"readOnly":true},0,0,0],
-["components/editors/CodeEditor/CodeEditorWidget","w1417",{"mode":"javascript","autoResize":true,"readOnly":true},0,0,0],
-["components/editors/CodeEditor/CodeEditorWidget","w1418",{"mode":"xml","autoResize":true,"readOnly":true},0,0,0],
+["components/editors/CodeEditor/CodeEditorWidget","w1417",{"mode":"xml","autoResize":true,"readOnly":true},0,0,0],
+["components/editors/CodeEditor/CodeEditorWidget","w1418",{"mode":"javascript","autoResize":true,"readOnly":true},0,0,0],
 ["components/editors/CodeEditor/CodeEditorWidget","w1419",{"mode":"javascript","autoResize":true,"readOnly":true},0,0,0],
-["components/editors/CodeEditor/CodeEditorWidget","w1420",{"mode":"css","autoResize":true,"readOnly":true},0,0,0],
+["components/editors/CodeEditor/CodeEditorWidget","w1420",{"mode":"xml","autoResize":true,"readOnly":true},0,0,0],
 ["components/editors/CodeEditor/CodeEditorWidget","w1421",{"mode":"javascript","autoResize":true,"readOnly":true},0,0,0],
-["components/editors/CodeEditor/CodeEditorWidget","w1422",{"mode":"javascript","autoResize":true,"readOnly":true},0,0,0],
+["components/editors/CodeEditor/CodeEditorWidget","w1422",{"mode":"css","autoResize":true,"readOnly":true},0,0,0],
 ["components/editors/CodeEditor/CodeEditorWidget","w1423",{"mode":"javascript","autoResize":true,"readOnly":true},0,0,0],
 ["components/editors/CodeEditor/CodeEditorWidget","w1424",{"mode":"javascript","autoResize":true,"readOnly":true},0,0,0],
-["components/editors/CodeEditor/CodeEditorWidget","w1425",{"mode":"xml","autoResize":true,"readOnly":true},0,0,0],
-["components/editors/CodeEditor/CodeEditorWidget","w1426",{"mode":"xml","autoResize":true,"readOnly":true},0,0,0],
+["components/editors/CodeEditor/CodeEditorWidget","w1425",{"mode":"javascript","autoResize":true,"readOnly":true},0,0,0],
+["components/editors/CodeEditor/CodeEditorWidget","w1426",{"mode":"javascript","autoResize":true,"readOnly":true},0,0,0],
 ["components/editors/CodeEditor/CodeEditorWidget","w1427",{"mode":"xml","autoResize":true,"readOnly":true},0,0,0],
 ["components/editors/CodeEditor/CodeEditorWidget","w1428",{"mode":"xml","autoResize":true,"readOnly":true},0,0,0],
-["components/editors/CodeEditor/CodeEditorWidget","w1429",{"mode":"javascript","autoResize":true,"readOnly":true},0,0,0],
-["components/editors/CodeEditor/CodeEditorWidget","w1430",{"mode":"javascript","autoResize":true,"readOnly":true},0,0,0],
-["components/editors/CodeEditor/CodeEditorWidget","w1431",{"mode":"xml","autoResize":true,"readOnly":true},0,0,0],
+["components/editors/CodeEditor/CodeEditorWidget","w1429",{"mode":"xml","autoResize":true,"readOnly":true},0,0,0],
+["components/editors/CodeEditor/CodeEditorWidget","w1430",{"mode":"xml","autoResize":true,"readOnly":true},0,0,0],
+["components/editors/CodeEditor/CodeEditorWidget","w1431",{"mode":"javascript","autoResize":true,"readOnly":true},0,0,0],
 ["components/editors/CodeEditor/CodeEditorWidget","w1432",{"mode":"javascript","autoResize":true,"readOnly":true},0,0,0],
+["components/editors/CodeEditor/CodeEditorWidget","w1433",{"mode":"xml","autoResize":true,"readOnly":true},0,0,0],
+["components/editors/CodeEditor/CodeEditorWidget","w1434",{"mode":"javascript","autoResize":true,"readOnly":true},0,0,0],
 ["components.social.Disqus.DisqusWidget","disqus_thread",{"shortName":"raptor-js","id":"ui-components","title":"Building UI Components"},0,0,0]);</script></body></html>
