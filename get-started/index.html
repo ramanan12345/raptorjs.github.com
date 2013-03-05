@@ -34,7 +34,8 @@ var optimizedPage = optimizer.optimizePage({
     dependencies: [
         { module: 'raptor'}, 
         { module: 'raptor/pubsub', 
-        '/test.css']
+        '/test.css'
+    ]
 });</textarea></div><p>In the above sample code, <code>samplePage</code> will be an instance of <a href="http://raptorjs.org/api/raptor/optimizer/OptimizedPage/">raptor/optimizer/OptimizedPage</a>, which contains information about the optimized page.</p><p>The <a href="../optimizer/get-started-raptor-templates/">Optimizer Taglib</a> makes it even easier to build optimized pages by automatically optimizing
 resource bundles and generating the HTML to include those optimized resources
 as shown in the following sample
@@ -46,7 +47,7 @@ code:</p><div class="code-editor" id="w260"> <textarea id="w260-textarea" style=
         &lt;dependencies>
             &lt;module name="raptor"/>
             &lt;module name="raptor/pubsub"/>
-            &lt;module name="test.css"/>
+            &lt;css path="test.css"/>
         &lt;/dependencies>
     &lt;/optimizer:page>
 
@@ -70,9 +71,7 @@ code:</p><div class="code-editor" id="w260"> <textarea id="w260-textarea" style=
         &lt;h1>Test Page&lt;/h1>
         &lt;script type="text/javascript" src="test-page-a4cceb8e.js">&lt;/script>
     &lt;/body>
-&lt;/html></textarea></div><p>The above code barely scratches the surface of what is supported by the <a href="../optimizer/">RaptorJS Optimizer</a>. Please see the following documentation for more information on using and
-configuring the
-<a href="../optimizer/">RaptorJS Optimizer</a>: <a href="../optimizer/">RaptorJS Optimizer</a></p></div></div><div class="section section-level-0"><h2 id="Using_RaptorJS_in_a_Node_App">Using RaptorJS in a Node App</h2><div class="bd"><a href="https://npmjs.org/">npm</a> makes it easy to create a Node project that includes the module for RaptorJS.
+&lt;/html></textarea></div><p>The above code barely scratches the surface of what is supported by the <a href="../optimizer/">RaptorJS Optimizer</a>. Please see the following documentation for the <a href="../optimizer/">RaptorJS Optimizer</a> for more information.</p></div></div><div class="section section-level-0"><h2 id="Using_RaptorJS_in_a_Node_App">Using RaptorJS in a Node App</h2><div class="bd"><a href="https://npmjs.org/">npm</a> makes it easy to create a Node project that includes the module for RaptorJS.
 Follow the steps below to start using RaptorJS in a Node application:
 <pre class="sh">$ mkdir hello-world</pre> In the newly created directory, you will need to create a <code>package.json</code> file. This file will be used describe dependencies and additional metadata. To
 initialize a new package.json file use the following command and follow the
