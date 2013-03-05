@@ -158,9 +158,9 @@ example:</p><div class="code-editor" id="w1406"><h2 class="code-editor-title">/m
 rendered on the server then only the
 <code>ui/buttons/SimpleButton</code> module needs to be included on the page. If the <code>ui/buttons/SimpleButton</code> component is to be rendered on the browser then the <code>ui/buttons/SimpleButton/render</code> module should be included instead (internally the <code>ui/buttons/SimpleButton/render</code> includes <code>ui/buttons/SimpleButton</code> as a dependency).</p></div></div><div class="section section-level-1"><h2 id="Clientside_Component_Rendering">Client-side Component Rendering</h2><div class="bd"><p>After creating the <a href="#Renderer">Renderer</a>, <a href="#HTMLTemplate">HTML Template</a>, <a href="#Widget">Widget</a>, <a href="#CSS">CSS</a> and <a href="#Package">package.json</a> we are now render to try out our UI component in the browser by rendering it
 using the
-<a href="http://raptorjs.org/api/raptor/component-renderer/">raptor/component-renderer</a> module. Assuming we have included the code for the <code>ui/buttons/SimpleButton</code> module and the <code>raptor/component-renderer</code> module, we can then use the following JavaScript code to render out our newly
+<a href="http://raptorjs.org/api/raptor/renderer/">raptor/renderer</a> module. Assuming we have included the code for the <code>ui/buttons/SimpleButton</code> module and the <code>raptor/renderer</code> module, we can then use the following JavaScript code to render out our newly
 created component and add it to the
-DOM.</p><div class="code-editor" id="w1408"> <textarea id="w1408-textarea" style="display: none;" name="code-165">require('raptor/component-renderer')
+DOM.</p><div class="code-editor" id="w1408"> <textarea id="w1408-textarea" style="display: none;" name="code-165">require('raptor/renderer')
     .render(
         'ui/buttons/SimpleButton/SimpleButtonRenderer', // The renderer
         {                                               // The input data model
@@ -281,7 +281,7 @@ pubsub.subscribe('sayHello', function(eventArgs) {
     alert(eventArgs.message); // Will alert 'Hello World'
 }, this);</textarea></div></div></div><div class="section section-level-0"><h2 id="Discussion">Discussion</h2><div class="bd"><div id="disqus_thread"></div></div></div></div></div><div class="docs-footer-padding"></div></div></div><script type="text/javascript" src="../static/core-ad8b0270.js"></script>
 <script type="text/javascript" src="../static/jquery-371da524.js"></script>
-<script type="text/javascript" src="../static/widgets-80dede79.js"></script>
+<script type="text/javascript" src="../static/widgets-9c5c9e2b.js"></script>
 <script type="text/javascript" src="../static/ui-components-02c7930e.js"></script>
 <script type="text/javascript" src="../static/code-editor-36478451.js"></script><script type="text/javascript">$rwidgets(
 ["components.nav.Nav.NavItemWidget","w1366",0,0,0,0],

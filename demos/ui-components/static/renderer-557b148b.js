@@ -1,11 +1,11 @@
 define(
-    'raptor/component-renderer',
+    'raptor/renderer',
     ['raptor'],
     function(raptor, require) {
         "use strict";
 
         var renderContext = require('raptor/render-context'),
-            RenderResult = require('raptor/component-renderer/RenderResult');
+            RenderResult = require('raptor/renderer/RenderResult');
 
 
         
@@ -18,18 +18,18 @@ define(
              * <p>
              * Usage:
              * <js>
-             * var renderer = require('raptor/component-renderer');
+             * var renderer = require('raptor/renderer');
              * renderer.render('ui/buttons/Button', {label: "Hello World"}).appendChild('myContainer');
              * </js>
              *
              * <p>
-             * See {@link raptor/component-renderer/RenderResult} for supporting DOM insertion methods (including appendChild, prependChild, insertBefore, insertAfter and replace).
+             * See {@link raptor/renderer/RenderResult} for supporting DOM insertion methods (including appendChild, prependChild, insertBefore, insertAfter and replace).
              * 
              * @param  {String} renderer The class/module name for the renderer (resulting object must have a "render" method or a "process" method)
              * @param  {Object} data The input data for the renderer
              * @param  {raptor/render-context/Context} context The context to use for rendering the component (optional, a new render context is created if not provided)
              * 
-             * @return {raptor/component-renderer/RenderResult}   Returns the result of rendering the component as an instance of {@Link raptor/component-renderer/RenderResult}
+             * @return {raptor/renderer/RenderResult}   Returns the result of rendering the component as an instance of {@Link raptor/renderer/RenderResult}
              */
             render: function(renderer, data, context) {
                 if (typeof renderer === 'string') {
@@ -86,7 +86,7 @@ define(
              * @param  {String} templateName The name of the Raptor Template to render
              * @param  {Object} templateData The data model to pass to the template
              * @param  {raptor/render-context/Context} context The render context object to use (optional, a new render context is created if not provided)
-             * @return {raptor/component-renderer/RenderResult}   Returns the result of rendering the component as an instance of {@Link raptor/component-renderer/RenderResult}
+             * @return {raptor/renderer/RenderResult}   Returns the result of rendering the component as an instance of {@Link raptor/renderer/RenderResult}
              */
             renderTemplate: function(templateName, templateData, context) {
                 return this.render(

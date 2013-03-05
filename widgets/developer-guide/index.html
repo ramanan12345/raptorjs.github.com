@@ -82,12 +82,12 @@ clarity:</p><div class="code-editor" id="w1453"> <textarea id="w1453-textarea" s
 console.log(this.getEl().id);</textarea></div><p>How widgets are initialized and bound to DOM nodes is described later in this
 guide. In addition, the full collection of mixins that are applied to all
 widgets is described in the
-<a href="#WidgetMixins"> Widget Mixins</a> section below.</p></div></div><div class="section section-level-0"><h2 id="Clientside_Dependencies">Client-side Dependencies</h2><div class="bd"><p>In order to use the RaptorJS Widget Framework, the <a href="http://raptorjs.org/api/raptor/widgets/">raptor/widgets</a> module must be included on the page.</p><p>To render UI components in the browser, two additional modules must be included:</p><ul><li><a href="http://raptorjs.org/api/raptor/component-renderer/"><nobr><b>raptor/component-renderer</b></nobr></a>: Required for rendering UI components in the browser, inserting the resulting
+<a href="#WidgetMixins"> Widget Mixins</a> section below.</p></div></div><div class="section section-level-0"><h2 id="Clientside_Dependencies">Client-side Dependencies</h2><div class="bd"><p>In order to use the RaptorJS Widget Framework, the <a href="http://raptorjs.org/api/raptor/widgets/">raptor/widgets</a> module must be included on the page.</p><p>To render UI components in the browser, two additional modules must be included:</p><ul><li><a href="http://raptorjs.org/api/raptor/renderer/"><nobr><b>raptor/renderer</b></nobr></a>: Required for rendering UI components in the browser, inserting the resulting
 HTML into the DOM and initializing the widgets associated with the rendered UI
 components</li><li><a href="http://raptorjs.org/api/source/raptor/templating/taglibs/widgets/package.json/"><nobr><b>raptor/templating/taglibs/widgets</b></nobr></a>: Required to use custom tag handlers that are part of the <a href="#Taglib">Widgets Taglib</a></li></ul><p>These dependencies can be included as part of a <a href="../../packaging/">RaptorJS package.json</a> file or by using the <a href="../../optimizer/get-started-raptor-templates/">RaptorJS Optimizer Taglib</a> as shown in the following samples:</p><div class="code-editor" id="w1454"><h2 class="code-editor-title">Sample package.json</h2> <textarea id="w1454-textarea" style="display: none;" name="code-178">{
     "raptor": [
         { "module": "raptor/widgets" },
-        { "module": "raptor/component-renderer" },
+        { "module": "raptor/renderer" },
         { "module": "raptor/templating/taglibs/widgets" },
         ...
     ]
@@ -100,7 +100,7 @@ components</li><li><a href="http://raptorjs.org/api/source/raptor/templating/tag
         &lt;dependencies>
             &lt;module name="raptor"/>
             &lt;module name="raptor/widgets"/>
-            &lt;module name="raptor/component-renderer"/>
+            &lt;module name="raptor/renderer"/>
             &lt;module name="raptor/templating/taglibs/widgets"/>
             &lt;!-- Additional Dependencies... -->
         &lt;/dependencies>
@@ -185,21 +185,21 @@ accomplished by tracking rendered widgets in a custom data attribute of the
 render
 <a href="http://raptorjs.org/api/raptor/render-context/Context/">context</a> object. When the rendered UI components are added to the DOM, the widgets
 registered in the
-<code>context</code> object are then initialized. The <a href="http://raptorjs.org/api/raptor/component-renderer/"><nobr>raptor/component-renderer</nobr></a> module should be used to render UI components and then add the rendered HTML
+<code>context</code> object are then initialized. The <a href="http://raptorjs.org/api/raptor/renderer/"><nobr>raptor/renderer</nobr></a> module should be used to render UI components and then add the rendered HTML
 to the DOM since it handles the creation of the
 <code>context</code> object and provides methods for inserting the resulting HTML into the DOM.
 After the
-<a href="http://raptorjs.org/api/raptor/component-renderer/"><nobr>raptor/component-renderer</nobr></a> module is used to insert rendered UI components into the DOM, a Pub/Sub
+<a href="http://raptorjs.org/api/raptor/renderer/"><nobr>raptor/renderer</nobr></a> module is used to insert rendered UI components into the DOM, a Pub/Sub
 message named
-<code><nobr>raptor/component-renderer/renderedToDOM</nobr></code> is published and the <a href="http://raptorjs.org/api/raptor/widgets/">raptor/widgets</a> module responds to this message by initializing all of the widgets associated
+<code><nobr>raptor/renderer/renderedToDOM</nobr></code> is published and the <a href="http://raptorjs.org/api/raptor/widgets/">raptor/widgets</a> module responds to this message by initializing all of the widgets associated
 with the
-<code>context</code> object used to render the UI components.</p><p>The following sample code illustrates how to utilize the <a href="http://raptorjs.org/api/raptor/component-renderer/"><nobr>raptor/component-renderer</nobr></a> module to render a UI component in the browser:</p><div class="code-editor" id="w1461"> <textarea id="w1461-textarea" style="display: none;" name="code-185">require('raptor/component-renderer').render(
+<code>context</code> object used to render the UI components.</p><p>The following sample code illustrates how to utilize the <a href="http://raptorjs.org/api/raptor/renderer/"><nobr>raptor/renderer</nobr></a> module to render a UI component in the browser:</p><div class="code-editor" id="w1461"> <textarea id="w1461-textarea" style="display: none;" name="code-185">require('raptor/renderer').render(
     'some/namespace/MyRenderer',            // The renderer
     {                                       // The input data model
         message: 'Hello World'
     })
     .appendTo(this.getEl('myTargetEl'));    // Invoke helper method for inserting 
-                                            // the HTML into the DOM</textarea></div><p>The <code><nobr>raptor/component-renderer</nobr></code> will first create a render <a href="http://raptorjs.org/api/raptor/render-context/Context/">context</a> object and then it will invoke the <code>render</code> method of the provided renderer. Two arguments will be passed to the <code>render</code> method:</p><ol><li><b>input</b>: The input data model for the renderer</li><li><b>context</b>: The render <a href="http://raptorjs.org/api/raptor/render-context/Context/">context</a> object</li></ol><p>The job of the renderer is to write out its output based on its input to the
+                                            // the HTML into the DOM</textarea></div><p>The <code><nobr>raptor/renderer</nobr></code> will first create a render <a href="http://raptorjs.org/api/raptor/render-context/Context/">context</a> object and then it will invoke the <code>render</code> method of the provided renderer. Two arguments will be passed to the <code>render</code> method:</p><ol><li><b>input</b>: The input data model for the renderer</li><li><b>context</b>: The render <a href="http://raptorjs.org/api/raptor/render-context/Context/">context</a> object</li></ol><p>The job of the renderer is to write out its output based on its input to the
 provided context. For more details on building UI components and rendering them
 on the client, please see the following documentation:
 <a href="../../ui-components/">RaptorJS Widget Framework: UI Components</a></p></div></div></div></div><div class="section section-level-0"><h2 id="WidgetMixins">Widget Mixins</h2><div class="bd"><p>Every widget instance that is instantiated is given common behavior by
@@ -212,7 +212,7 @@ element ID is provided then the root DOM node that the widget is bound to is
 returned.</p></div></div><div class="section section-level-2"><h2 id="getElId">getElId</h2><div class="bd"><p><b><code>String</code> getElId(?widgetElId)</b>: Similar to <code>getEl</code> but returns the <code>String</code> ID of the DOM node instead.</p></div></div></div></div><div class="section section-level-1"><h2 id="Accessing_Nested_Widgets">Accessing Nested Widgets</h2><div class="bd"><p>The following mixin methods provide access to nested named widgets:</p><div class="section section-level-2"><h2 id="getWidget">getWidget</h2><div class="bd"><p><b><code>Object</code> getWidget(nestedWidgetId)</b>: Returns a reference to a single nested with with the provided assigned ID.</p></div></div><div class="section section-level-2"><h2 id="getWidgets">getWidgets</h2><div class="bd"><p><b><code>Array</code> getWidgets(nestedWidgetId)</b>: Similar to <code>getWidget</code>, but returns an <code>Array</code> containing all widgets with the matching assigned ID.</p></div></div></div></div><div class="section section-level-1"><h2 id="Widget_Lifecycle_Methods">Widget Lifecycle Methods</h2><div class="bd"><p>The following mixin methods provide functionality to control the life of a
 widget</p><div class="section section-level-2"><h2 id="destroy">destroy</h2><div class="bd"><p><b><code>void</code> destroy()</b>: Destroys a widget by detaching the widget from the DOM and also automatically
 unsubscribing the widget instance from all other widgets and Pub/Sub
-topics.</p></div></div><div class="section section-level-2"><h2 id="rerender">rerender</h2><div class="bd"><p><b><code><a href="http://raptorjs.org/api/raptor/component-renderer/RenderResult/">RenderResult</a></code> rerender(input, ?context)</b>: Re-renders a widget by first destroying the current widget and then
+topics.</p></div></div><div class="section section-level-2"><h2 id="rerender">rerender</h2><div class="bd"><p><b><code><a href="http://raptorjs.org/api/raptor/renderer/RenderResult/">RenderResult</a></code> rerender(input, ?context)</b>: Re-renders a widget by first destroying the current widget and then
 re-rendering the widget and replacing the original DOM node with the newly
 created DOM node. The widget class must have a static
 <code>render(input, context)</code> method can be invoked to produce the HTML output by writing to the provided
@@ -489,7 +489,7 @@ object:</p><div class="code-editor" id="w1492"> <textarea id="w1492-textarea" st
     age: 50
 }</textarea></div><p>Please see the <a href="#PubSub">Pub/Sub Communication</a> section above for more details on utilizing Pub/Sub communication.</p></div></div></div></div><div class="section section-level-0"><h2 id="Discussion">Discussion</h2><div class="bd"><div id="disqus_thread"></div></div></div></div></div><div class="docs-footer-padding"></div></div></div><script type="text/javascript" src="../../static/core-ad8b0270.js"></script>
 <script type="text/javascript" src="../../static/jquery-371da524.js"></script>
-<script type="text/javascript" src="../../static/widgets-80dede79.js"></script>
+<script type="text/javascript" src="../../static/widgets-9c5c9e2b.js"></script>
 <script type="text/javascript" src="../../static/widgets-developer-guide-4973a95a.js"></script>
 <script type="text/javascript" src="../../static/code-editor-36478451.js"></script><script type="text/javascript">$rwidgets(
 ["components.nav.Nav.NavItemWidget","w1417",0,0,0,0],
