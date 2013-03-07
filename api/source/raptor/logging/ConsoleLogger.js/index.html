@@ -180,6 +180,12 @@ define("raptor/logging/ConsoleLogger", function(require) {
 
                     if (error &amp;&amp; (!stacktraces || !stacktraces.trace)) {
                         console.error(error);
+                        var cause = error._cause;
+                        while (cause) {
+                            console.error('Caused by:');
+                            console.error(cause);
+                            cause = cause._cause;       
+                        }
                     }
                                   
                 }
