@@ -1,8 +1,8 @@
-<!DOCTYPE html><html><head><title itemprop="name">RaptorJS: Get Started</title><link rel="icon" href="../favicon.ico" type="image/x-icon"><link rel="shortcut icon" href="../favicon.ico" type="image/x-icon"><meta http-equiv="content-type" content="text/html; charset=UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><link rel="stylesheet" type="text/css" href="../static/get-started-7c1268a0.css">
+<!DOCTYPE html><html><head><title itemprop="name">RaptorJS: Get Started</title><link rel="icon" href="../favicon.ico" type="image/x-icon"><link rel="shortcut icon" href="../favicon.ico" type="image/x-icon"><meta http-equiv="content-type" content="text/html; charset=UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><link rel="stylesheet" type="text/css" href="../static/get-started-9d1a04bc.css">
 <link rel="stylesheet" type="text/css" href="../static/docs-6e628a8c.css">
 <link rel="stylesheet" type="text/css" href="../static/code-editor-f1386401.css">
 <script type="text/javascript">var _gaq=_gaq||[];_gaq.push(["_setAccount","UA-33982282-1"]),_gaq.push(["_trackPageview"]),function(){var e=document.createElement("script");e.type="text/javascript",e.async=!0,e.src=("https:"==document.location.protocol?"https://ssl":"http://www")+".google-analytics.com/ga.js";var t=document.getElementsByTagName("script")[0];t.parentNode.insertBefore(e,t)}();
-var __insp=__insp||[];__insp.push(["wid",2568045892]),function(){function e(){var e=document.createElement("script");e.type="text/javascript",e.async=!0,e.id="inspsync",e.src=("https:"==document.location.protocol?"https":"http")+"://www.inspectlet.com/inspectlet-jq.js";var t=document.getElementsByTagName("script")[0];t.parentNode.insertBefore(e,t)}window.attachEvent?window.attachEvent("onload",e):window.addEventListener("load",e,!1)}();</script></head><body data-spy="scroll"><div class="navbar navbar-fixed-top"><div class="navbar-inner"><div class="container"><a class="brand" href="../">RaptorJS</a><ul class="nav"><li class="divider-vertical"></li><li id="w227" class="active nav-item-active"><a href="../get-started/">Get Started</a></li><li class="divider-vertical"></li><li id="w228" class="dropdown"><a data-toggle="dropdown" class="dropdown-toggle">Learn<b class="caret"></b></a><ul class="dropdown-menu"><li id="w229"><a href="../">Overview</a></li><li id="w230" class="active nav-item-active"><a href="../get-started/">Get Started</a></li><li id="w231"><a href="../tutorial/">Tutorial</a></li><li id="w232"><a href="../api/">API Reference</a></li><li id="w233" target="_blank"><a href="https://github.com/raptorjs/samples">Sample Apps</a></li><li id="w234"><a href="../faq/">FAQ</a></li><li class="divider"></li><li id="w235"><a href="../modules-classes/">Modules and Classes</a></li><li id="w236"><a href="../packaging/">Packaging and Extensions</a></li><li id="w237"><a href="../module-loader/">Module Loader</a></li><li id="w238"><a href="../optimizer/">Optimizer</a></li><li id="w239"><a href="../raptor-templates/">Raptor Templates</a></li><li id="w240"><a href="../widgets/">Widget Framework</a></li><li class="divider"></li><li id="w241"><a href="../ui-components/">Building UI Components</a></li><li id="w242"><a href="../logging/">Logging</a></li><li id="w243"><a href="../resource-search-path/">Resource Search Path</a></li><li id="w244"><a href="../cross-environment/">Cross Environment Support</a></li></ul></li><li class="divider-vertical"></li><li id="w245" class="dropdown"><a data-toggle="dropdown" class="dropdown-toggle">Community<b class="caret"></b></a><ul class="dropdown-menu"><li id="w246"><a href="https://github.com/raptorjs/raptorjs">Source code</a></li><li id="w247"><a href="https://github.com/raptorjs/raptorjs/issues">Issue Tracker</a></li><li id="w248"><a href="../contribute/">Contribute</a></li><li id="w249"><a href="../contributors/">Contributors</a></li><li class="divider"></li><li id="w250"><a href="http://groups.google.com/group/raptorjs">Discussion Forum</a></li><li class="divider"></li><li id="w251"><a href="http://twitter.com/raptorjs">Twitter (@raptorjs)</a></li><li id="w252"><a href="https://plus.google.com/111493691067944627473/">Google+</a></li></ul></li><li class="divider-vertical"></li><li id="w253" class="dropdown"><a data-toggle="dropdown" class="dropdown-toggle">About<b class="caret"></b></a><ul class="dropdown-menu"><li id="w254"><a href="https://github.com/raptorjs/raptorjs/wiki/Release-Notes">Release Notes</a></li><li id="w255"><a href="../design-philosophy/">Design Philosophy</a></li><li id="w256"><a href="../license/">License</a></li><li id="w257"><a href="../credits/">Credits</a></li><li id="w258"><a href="../creators/">Creators</a></li></ul></li><li class="divider-vertical"></li></ul></div></div></div><div class="container"><div class="docs"><div class="bd"><div class="docs-content"><h1 id="title">Get Started with RaptorJS</h1><div class="toc nav" id="docsNav"><ul class="toc"><li class="toc toc-level-0"><a href="#Overview">Overview</a><ul class="toc"></ul></li><li class="toc toc-level-0"><a href="#Installing_Node">Installing Node</a><ul class="toc"></ul></li><li class="toc toc-level-0"><a href="#Installing_the_RaptorJS_Node_Module">Installing the RaptorJS Node Module</a><ul class="toc"></ul></li><li class="toc toc-level-0"><a href="#Using_RaptorJS_in_an_HTML_App">Using RaptorJS in an HTML App</a><ul class="toc"></ul></li><li class="toc toc-level-0"><a href="#Using_RaptorJS_in_a_Node_App">Using RaptorJS in a Node App</a><ul class="toc"></ul></li><li class="toc toc-level-0"><a href="#Further_Reading">Further Reading</a><ul class="toc"></ul></li><li class="toc toc-level-0"><a href="#Discussion">Discussion</a><ul class="toc"></ul></li></ul><div class="docs-nav-footer"><ul><li><span class="powered-by">Powered by <a href="../" class="raptorjs">RaptorJS</a></span></li><li><a href="../license/">License</a></li><li><a href="../credits/">Credits</a></li></ul></div></div><div class="section section-level-0"><h2 id="Overview">Overview</h2><div class="bd"><p>This guide will help you quickly get started with using RaptorJS to build an
+var __insp=__insp||[];__insp.push(["wid",2568045892]),function(){function e(){var e=document.createElement("script");e.type="text/javascript",e.async=!0,e.id="inspsync",e.src=("https:"==document.location.protocol?"https":"http")+"://www.inspectlet.com/inspectlet-jq.js";var t=document.getElementsByTagName("script")[0];t.parentNode.insertBefore(e,t)}window.attachEvent?window.attachEvent("onload",e):window.addEventListener("load",e,!1)}();</script></head><body data-spy="scroll"><div class="navbar navbar-fixed-top"><div class="navbar-inner"><div class="container"><a class="brand" href="../">RaptorJS</a><ul class="nav"><li class="divider-vertical"></li><li id="w234" class="active nav-item-active"><a href="../get-started/">Get Started</a></li><li class="divider-vertical"></li><li id="w235" class="dropdown"><a data-toggle="dropdown" class="dropdown-toggle">Learn<b class="caret"></b></a><ul class="dropdown-menu"><li id="w236"><a href="../">Overview</a></li><li id="w237" class="active nav-item-active"><a href="../get-started/">Get Started</a></li><li id="w238"><a href="../tutorial/">Tutorial</a></li><li id="w239"><a href="../api/">API Reference</a></li><li id="w240" target="_blank"><a href="https://github.com/raptorjs/samples">Sample Apps</a></li><li id="w241"><a href="../faq/">FAQ</a></li><li class="divider"></li><li id="w242"><a href="../modules-classes/">Modules and Classes</a></li><li id="w243"><a href="../packaging/">Packaging and Extensions</a></li><li id="w244"><a href="../module-loader/">Module Loader</a></li><li id="w245"><a href="../optimizer/">Optimizer</a></li><li id="w246"><a href="../raptor-templates/">Raptor Templates</a></li><li id="w247"><a href="../widgets/">Widget Framework</a></li><li class="divider"></li><li id="w248"><a href="../ui-components/">Building UI Components</a></li><li id="w249"><a href="../logging/">Logging</a></li><li id="w250"><a href="../resource-search-path/">Resource Search Path</a></li><li id="w251"><a href="../cross-environment/">Cross Environment Support</a></li></ul></li><li class="divider-vertical"></li><li id="w252" class="dropdown"><a data-toggle="dropdown" class="dropdown-toggle">Community<b class="caret"></b></a><ul class="dropdown-menu"><li id="w253"><a href="https://github.com/raptorjs/raptorjs">Source code</a></li><li id="w254"><a href="https://github.com/raptorjs/raptorjs/issues">Issue Tracker</a></li><li id="w255"><a href="../contribute/">Contribute</a></li><li id="w256"><a href="../contributors/">Contributors</a></li><li class="divider"></li><li id="w257"><a href="http://groups.google.com/group/raptorjs">Discussion Forum</a></li><li class="divider"></li><li id="w258"><a href="http://twitter.com/raptorjs">Twitter (@raptorjs)</a></li><li id="w259"><a href="https://plus.google.com/111493691067944627473/">Google+</a></li><li class="divider"></li><li id="w260"><a href="https://github.com/raptorjs/branding">Logos</a></li></ul></li><li class="divider-vertical"></li><li id="w261" class="dropdown"><a data-toggle="dropdown" class="dropdown-toggle">About<b class="caret"></b></a><ul class="dropdown-menu"><li id="w262"><a href="https://github.com/raptorjs/raptorjs/wiki/Release-Notes">Release Notes</a></li><li id="w263"><a href="../design-philosophy/">Design Philosophy</a></li><li id="w264"><a href="../license/">License</a></li><li id="w265"><a href="../credits/">Credits</a></li><li id="w266"><a href="../creators/">Creators</a></li></ul></li><li class="divider-vertical"></li></ul></div></div></div><div class="container"><div class="docs"><div class="bd"><div class="docs-content"><h1 id="title">Get Started with RaptorJS</h1><div class="toc nav" id="docsNav"><ul class="toc"><li class="toc toc-level-0"><a href="#Overview">Overview</a><ul class="toc"></ul></li><li class="toc toc-level-0"><a href="#Installing_Node">Installing Node</a><ul class="toc"></ul></li><li class="toc toc-level-0"><a href="#Installing_the_RaptorJS_Node_Module">Installing the RaptorJS Node Module</a><ul class="toc"></ul></li><li class="toc toc-level-0"><a href="#Using_RaptorJS_in_an_HTML_App">Using RaptorJS in an HTML App</a><ul class="toc"></ul></li><li class="toc toc-level-0"><a href="#Using_RaptorJS_in_a_Node_App">Using RaptorJS in a Node App</a><ul class="toc"></ul></li><li class="toc toc-level-0"><a href="#Further_Reading">Further Reading</a><ul class="toc"></ul></li><li class="toc toc-level-0"><a href="#Discussion">Discussion</a><ul class="toc"></ul></li></ul><div class="docs-nav-footer"><ul><li><span class="powered-by">Powered by <a href="../" class="raptorjs">RaptorJS</a></span></li><li><a href="../license/">License</a></li><li><a href="../credits/">Credits</a></li></ul></div></div><div class="section section-level-0"><h2 id="Overview">Overview</h2><div class="bd"><p>This guide will help you quickly get started with using RaptorJS to build an
 HTML app, as well as use RaptorJS in a Node app running on the
 server.</p></div></div><div class="section section-level-0"><h2 id="Installing_Node">Installing Node</h2><div class="bd"><p>The easiest way to start using RaptorJS is to install the "raptor" module using <a href="https://npmjs.org/">npm</a>, the package manager for Node. npm is installed as part of Node so if you have
 not yet installed node then head over to the
@@ -25,7 +25,7 @@ required for the
 JavaScript API is provided, as well as a custom Taglib for
 <a href="../raptor-templates/">Raptor Templates</a>.</p><p>For example, the sample JavaScript code below illustrates how easy it is to
 optimize a page that includes the the
-<code><a href="http://raptorjs.org/api/raptor/">raptor</a></code> and <code><a href="http://raptorjs.org/api/raptor/pubsub/">raptor/pubsub</a></code> modules as dependencies:</p><div class="code-editor" id="w259"> <textarea id="w259-textarea" style="display: none;" name="code-0">require('raptor'); //Initialize RaptorJS on the server and enable AMD
+<code><a href="http://raptorjs.org/api/raptor/">raptor</a></code> and <code><a href="http://raptorjs.org/api/raptor/pubsub/">raptor/pubsub</a></code> modules as dependencies:</p><div class="code-editor" id="w267"> <textarea id="w267-textarea" style="display: none;" name="code-0">require('raptor'); //Initialize RaptorJS on the server and enable AMD
 
 var optimizer = require('raptor/optimizer');
 
@@ -39,7 +39,7 @@ var optimizedPage = optimizer.optimizePage({
 });</textarea></div><p>In the above sample code, <code>samplePage</code> will be an instance of <a href="http://raptorjs.org/api/raptor/optimizer/OptimizedPage/">raptor/optimizer/OptimizedPage</a>, which contains information about the optimized page.</p><p>The <a href="../optimizer/get-started-raptor-templates/">Optimizer Taglib</a> makes it even easier to build optimized pages by automatically optimizing
 resource bundles and generating the HTML to include those optimized resources
 as shown in the following sample
-code:</p><div class="code-editor" id="w260"> <textarea id="w260-textarea" style="display: none;" name="code-1">&lt;c:template
+code:</p><div class="code-editor" id="w268"> <textarea id="w268-textarea" style="display: none;" name="code-1">&lt;c:template
     xmlns:c="core"
     xmlns:optimizer="optimizer">
 
@@ -62,7 +62,7 @@ code:</p><div class="code-editor" id="w260"> <textarea id="w260-textarea" style=
         &lt;/body>
     &lt;/html>
 
-&lt;/c:template></textarea></div><p>The output of rendering the above template will be similar to the following:</p><div class="code-editor" id="w261"> <textarea id="w261-textarea" style="display: none;" name="code-2">&lt;html>
+&lt;/c:template></textarea></div><p>The output of rendering the above template will be similar to the following:</p><div class="code-editor" id="w269"> <textarea id="w269-textarea" style="display: none;" name="code-2">&lt;html>
     &lt;head>
         &lt;title>Test Page&lt;/title>
         &lt;link rel="stylesheet" type="text/css" href="test-page-414fff80.css">
@@ -76,7 +76,7 @@ Follow the steps below to start using RaptorJS in a Node application:
 <pre class="sh">$ mkdir hello-world</pre> In the newly created directory, you will need to create a <code>package.json</code> file. This file will be used describe dependencies and additional metadata. To
 initialize a new package.json file use the following command and follow the
 prompts (use
-<code>index.js</code> as the main script): <pre class="sh">$ npm init</pre> Now the <code>raptor</code> module can be added as a project dependency using the following command: <pre class="sh">$ npm install raptor --save</pre><p>Now create a simple <code>index.js</code> file with the following contents: </p><div class="code-editor" id="w262"> <textarea id="w262-textarea" style="display: none;" name="code-3">require("raptor"); // Initialize RaptorJS on the server and enable AMD
+<code>index.js</code> as the main script): <pre class="sh">$ npm init</pre> Now the <code>raptor</code> module can be added as a project dependency using the following command: <pre class="sh">$ npm install raptor --save</pre><p>Now create a simple <code>index.js</code> file with the following contents: </p><div class="code-editor" id="w270"> <textarea id="w270-textarea" style="display: none;" name="code-3">require("raptor"); // Initialize RaptorJS on the server and enable AMD
                    // so that other AMD modules can be discovered and
                    // loaded on the server
                    
@@ -93,7 +93,7 @@ require("raptor/logging").configure({ //Configure the loggers to control the log
 require('raptor/resources').addSearchPathDir(__dirname);
 
 require("hello").greet("World"); //Load the RaptorJS "hello" module
-                                 //and invoke the "greet" method</textarea></div><p>Now create the <code>hello.js</code> file which will contain the definition for the <code>hello</code> module: </p><div class="code-editor" id="w263"> <textarea id="w263-textarea" style="display: none;" name="code-4">define(
+                                 //and invoke the "greet" method</textarea></div><p>Now create the <code>hello.js</code> file which will contain the definition for the <code>hello</code> module: </p><div class="code-editor" id="w271"> <textarea id="w271-textarea" style="display: none;" name="code-4">define(
     "hello",
     function(require, module, exports) { //This function will be invoked only once
                  //when the module is first required
@@ -117,15 +117,8 @@ links:</p><ul><li><a href="../modules-classes/">Modules &amp; Classes</a></li><l
 <script type="text/javascript" src="../static/widgets-9c5c9e2b.js"></script>
 <script type="text/javascript" src="../static/get-started-02c7930e.js"></script>
 <script type="text/javascript" src="../static/code-editor-36478451.js"></script><script type="text/javascript">$rwidgets(
-["components.nav.Nav.NavItemWidget","w227",0,0,0,0],
-["components.nav.Nav.NavItemWidget","w228",0,0,0,0,
-["components.nav.Nav.NavItemWidget","w229",0,0,0,0],
-["components.nav.Nav.NavItemWidget","w230",0,0,0,0],
-["components.nav.Nav.NavItemWidget","w231",0,0,0,0],
-["components.nav.Nav.NavItemWidget","w232",0,0,0,0],
-["components.nav.Nav.NavItemWidget","w233",0,0,0,0],
 ["components.nav.Nav.NavItemWidget","w234",0,0,0,0],
-["components.nav.Nav.NavItemWidget","w235",0,0,0,0],
+["components.nav.Nav.NavItemWidget","w235",0,0,0,0,
 ["components.nav.Nav.NavItemWidget","w236",0,0,0,0],
 ["components.nav.Nav.NavItemWidget","w237",0,0,0,0],
 ["components.nav.Nav.NavItemWidget","w238",0,0,0,0],
@@ -134,24 +127,32 @@ links:</p><ul><li><a href="../modules-classes/">Modules &amp; Classes</a></li><l
 ["components.nav.Nav.NavItemWidget","w241",0,0,0,0],
 ["components.nav.Nav.NavItemWidget","w242",0,0,0,0],
 ["components.nav.Nav.NavItemWidget","w243",0,0,0,0],
-["components.nav.Nav.NavItemWidget","w244",0,0,0,0]],
-["components.nav.Nav.NavItemWidget","w245",0,0,0,0,
+["components.nav.Nav.NavItemWidget","w244",0,0,0,0],
+["components.nav.Nav.NavItemWidget","w245",0,0,0,0],
 ["components.nav.Nav.NavItemWidget","w246",0,0,0,0],
 ["components.nav.Nav.NavItemWidget","w247",0,0,0,0],
 ["components.nav.Nav.NavItemWidget","w248",0,0,0,0],
 ["components.nav.Nav.NavItemWidget","w249",0,0,0,0],
 ["components.nav.Nav.NavItemWidget","w250",0,0,0,0],
-["components.nav.Nav.NavItemWidget","w251",0,0,0,0],
-["components.nav.Nav.NavItemWidget","w252",0,0,0,0]],
-["components.nav.Nav.NavItemWidget","w253",0,0,0,0,
+["components.nav.Nav.NavItemWidget","w251",0,0,0,0]],
+["components.nav.Nav.NavItemWidget","w252",0,0,0,0,
+["components.nav.Nav.NavItemWidget","w253",0,0,0,0],
 ["components.nav.Nav.NavItemWidget","w254",0,0,0,0],
 ["components.nav.Nav.NavItemWidget","w255",0,0,0,0],
 ["components.nav.Nav.NavItemWidget","w256",0,0,0,0],
 ["components.nav.Nav.NavItemWidget","w257",0,0,0,0],
-["components.nav.Nav.NavItemWidget","w258",0,0,0,0]],
-["components/editors/CodeEditor/CodeEditorWidget","w259",{"mode":"javascript","autoResize":true,"readOnly":true},0,0,0],
-["components/editors/CodeEditor/CodeEditorWidget","w260",{"mode":"xml","autoResize":true,"readOnly":true},0,0,0],
-["components/editors/CodeEditor/CodeEditorWidget","w261",{"mode":"htmlmixed","autoResize":true,"readOnly":true},0,0,0],
-["components/editors/CodeEditor/CodeEditorWidget","w262",{"mode":"javascript","autoResize":true,"readOnly":true},0,0,0],
-["components/editors/CodeEditor/CodeEditorWidget","w263",{"mode":"javascript","autoResize":true,"readOnly":true},0,0,0],
+["components.nav.Nav.NavItemWidget","w258",0,0,0,0],
+["components.nav.Nav.NavItemWidget","w259",0,0,0,0],
+["components.nav.Nav.NavItemWidget","w260",0,0,0,0]],
+["components.nav.Nav.NavItemWidget","w261",0,0,0,0,
+["components.nav.Nav.NavItemWidget","w262",0,0,0,0],
+["components.nav.Nav.NavItemWidget","w263",0,0,0,0],
+["components.nav.Nav.NavItemWidget","w264",0,0,0,0],
+["components.nav.Nav.NavItemWidget","w265",0,0,0,0],
+["components.nav.Nav.NavItemWidget","w266",0,0,0,0]],
+["components/editors/CodeEditor/CodeEditorWidget","w267",{"mode":"javascript","autoResize":true,"readOnly":true},0,0,0],
+["components/editors/CodeEditor/CodeEditorWidget","w268",{"mode":"xml","autoResize":true,"readOnly":true},0,0,0],
+["components/editors/CodeEditor/CodeEditorWidget","w269",{"mode":"htmlmixed","autoResize":true,"readOnly":true},0,0,0],
+["components/editors/CodeEditor/CodeEditorWidget","w270",{"mode":"javascript","autoResize":true,"readOnly":true},0,0,0],
+["components/editors/CodeEditor/CodeEditorWidget","w271",{"mode":"javascript","autoResize":true,"readOnly":true},0,0,0],
 ["components.social.Disqus.DisqusWidget","disqus_thread",{"shortName":"raptor-js","id":"get-started","title":"Get Started with RaptorJS"},0,0,0]);</script></body></html>
