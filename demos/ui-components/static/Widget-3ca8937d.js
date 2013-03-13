@@ -171,10 +171,12 @@ define(
              * @returns {DOMElement} The DOM element
              */
             getEl: function(widgetElId) {
-                return document.getElementById(this.getElId(widgetElId));
+                if (arguments.length === 1) {
+                    return document.getElementById(this.getElId(widgetElId));
+                } else {
+                    return this.el || document.getElementById(this.getElId());
+                }
             },
-            
-            
     
             /**
              * 
@@ -234,6 +236,18 @@ define(
             },
             
             /**
+             * This function will return the root element but unlike "getEl()" function, it will throw an error if there
+             * is no root element.
+             */
+            _getRootEl : function() {
+                var rootEl = this.getEl();
+                if (!rootEl) {
+                    throw raptor.createError(new Error("Root element missing for widget of type " + this.constructor.getName()));
+                }
+                return rootEl;
+            },
+
+            /**
              * Re-renders a widget by replacing the widget's existing root element with
              * the newly rendered HTML.
              *
@@ -251,11 +265,7 @@ define(
                 var renderer = this.renderer,
                     type = this.constructor.getName(),
                     componentRenderer = require('raptor/renderer'),
-                    rootEl = this.getEl();
-
-                if (!rootEl) {
-                    throw raptor.createError(new Error("Root element missing for widget of type " + type));
-                }
+                    rootEl = this._getRootEl();
 
                 if (!renderer) {
                     
@@ -274,8 +284,86 @@ define(
                 }
 
                 return componentRenderer.render(renderer, data, context).replace(rootEl);
-            }
+            },
 
+            /**
+             * This method removes the widget's root element from the DOM and saves a reference to
+             * it so that the widget can be re-attached to the DOM later.
+             *
+             * After detaching widget from DOM, use one of the following methods to re-attach:
+             * - appendTo
+             * - replace
+             * - replaceChildrenOf
+             * - insertBefore
+             * - insertAfter
+             * - prependTo
+             *
+             * @throws Error if widget does not have a root element
+             */
+            detach: function() {
+                dom.detach(this._getRootEl());
+            },
+
+            /**
+             * Appends the widget's root element as a child of the target element.
+             * 
+             * @param  {DOMElement|String} targetEl The target element
+             * @return {void}
+             */
+            appendTo: function(targetEl) {
+                dom.appendChild(this._getRootEl(), targetEl);
+            },
+
+            /**
+             * Replaces the target element with the widget's root element.
+             * 
+             * @param  {DOMElement|String} targetEl The target element
+             * @return {void}
+             */
+            replace: function(targetEl) {
+                dom.replace(this._getRootEl(), targetEl);
+            },
+            
+            /**
+             * Replaces the children of target element with the widget's root element.
+             * 
+             * @param  {DOMElement|String} targetEl The target element
+             * @return {void}
+             */
+            replaceChildrenOf: function(targetEl) {
+                dom.replaceChildrenOf(this._getRootEl(), targetEl);
+            },
+
+            /**
+             * Inserts the widget's root element before the target element (as a sibling).
+             * 
+             * @param  {DOMElement|String} targetEl The target element
+             * @return {void}
+             */
+            insertBefore: function(targetEl) {
+                dom.insertBefore(this._getRootEl(), targetEl);
+            }, 
+
+            /**
+             * Inserts the widget's root element after the target element (as a sibling).
+             * 
+             * @param  {DOMElement|String} targetEl The target element
+             * @return {void}
+             */
+            insertAfter: function(targetEl) {
+                dom.insertAfter(this._getRootEl(), targetEl);
+            }, 
+
+
+            /**
+             * Prepends the widget's root element as a child of the target element.
+             * 
+             * @param  {DOMElement|String} targetEl The target element
+             * @return {void}
+             */
+            prependTo: function(targetEl) {
+                dom.prependTo(this._getRootEl(), targetEl);
+            }
 
             /**
              * Subscribes to one or more events. 

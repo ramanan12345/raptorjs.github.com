@@ -36,7 +36,11 @@ on top of XHTML, it is not an entirely new language which reduces the learning
 curve.</p><p>For more information on the Raptor Templates language please see the following
 documentation:
 <a href="../../raptor-templates/language-guide/">Raptor Templates: Language Guide</a></p></div></div><div class="section section-level-0"><h2 id="JavaScript_API">JavaScript API</h2><div class="bd"><p></p><div class="section section-level-1"><h2 id="Template_Rendering">Template Rendering</h2><div class="bd"><p></p><div class="section section-level-2"><h2 id="Rendering_to_a_String">Rendering to a String</h2><div class="bd"><p>The <code>template.renderToString(templateName, template-data)</code> method can be used to render a template to a string.</p><div class="code-editor" id="w1067"> <textarea id="w1067-textarea" style="display: none;" name="code-90">var templating = require('raptor/templating');
-var output = templating.renderToString("test/Person", {person: person});</textarea></div><div class="message message-info"><div class="icon"><i class="icon-info-sign" style="font-size: 30px;"></i></div><div class="bd"><p>NOTE: On the server, if the template cannot be found then the templating module
+var output = templating.renderToString(
+    "test/Person", 
+    {
+        person: person
+    });</textarea></div><div class="message message-info"><div class="icon"><i class="icon-info-sign" style="font-size: 30px;"></i></div><div class="bd"><p>NOTE: On the server, if the template cannot be found then the templating module
 will convert the template name to a path and try to load the template. The
 templating module actually checks two paths as illustrated by the
 following:</p> Input template name: <code>"test/Person"</code><br> Paths checked: <ol><li><code>/test/Person.rhtml</code></li><li><code>/test/Person/Person.rhtml</code></li></ol></div></div></div></div><div class="section section-level-2"><h2 id="Rendering_to_a_Context">Rendering to a Context</h2><div class="bd"><p>Instead of rendering a template to a new string, the output of rendering a
@@ -139,7 +143,7 @@ constraints.
   }
 });</textarea></div><div class="code-editor" id="w1073"><h2 class="code-editor-title">Minified Compiled Output</h2> <textarea id="w1073-textarea" style="display: none;" name="code-96">$rset("rhtml","test",function(a){var e=a.ne,c=a.x,f=a.f;return function(a,b){var g=a.name,d=a.colors;b.w("Hello ").w(c(g)).w("!");e(d)?(b.w("&lt;ul>"),f(d,function(a){b.w("&lt;li>").w(c(a)).w("&lt;/li>")}),b.w("&lt;/ul>")):b.w("&lt;div>No colors!&lt;/div>")}});</textarea></div><table class="sizes table table-bordered"><thead><tr><th></th><th>Uncompressed</th><th>Gzipped</th></tr></thead><tbody><tr><td>Original Size:</td><td>454 bytes</td><td>248 bytes</td></tr><tr><td>Compiled Size:</td><td>243 bytes</td><td>178 bytes</td></tr></tbody></table> Saved 46.48% off the original size (28.23% off the gzipped size)</div></div></div></div><div class="section section-level-0"><h2 id="Advanced">Advanced</h2><div class="bd"><p></p><div class="section section-level-1"><h2 id="Creating_Taglibs">Creating Taglibs</h2><div class="bd"><p>Please see the sub-page, <a href="../../raptor-templates/taglibs/">Creating Taglibs</a>, for more details.</p></div></div><div class="section section-level-1"><h2 id="Raptor_Templates_Compilation">Raptor Templates Compilation</h2><div class="bd"><p>Please see the sub-page, <a href="../../raptor-templates/compilation/">Raptor Templates Compilation</a>, for more details.</p></div></div></div></div><div class="section section-level-0"><h2 id="Discussion">Discussion</h2><div class="bd"><div id="disqus_thread"></div></div></div></div></div><div class="docs-footer-padding"></div></div></div><script type="text/javascript" src="../../static/core-ad8b0270.js"></script>
 <script type="text/javascript" src="../../static/jquery-371da524.js"></script>
-<script type="text/javascript" src="../../static/widgets-9c5c9e2b.js"></script>
+<script type="text/javascript" src="../../static/widgets-84c61a1f.js"></script>
 <script type="text/javascript" src="../../static/raptor-templates-developer-guide-02c7930e.js"></script>
 <script type="text/javascript" src="../../static/code-editor-36478451.js"></script><script type="text/javascript">$rwidgets(
 ["components.nav.Nav.NavItemWidget","w1034",0,0,0,0],
