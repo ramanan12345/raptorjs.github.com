@@ -15,8 +15,7 @@ $rset("rhtml", "ui/containers/Tabs", function(helpers) {
       raptor_templating_taglibs_widgets_WidgetTag,
       {
         "jsClass": "ui/containers/Tabs/TabsWidget",
-        "config": undefined,
-        "id": id,
+        "elId": id,
         "_cfg": data.widgetConfig
       },
       function(widget) {

@@ -12,7 +12,6 @@ $rset("rhtml", "ui/buttons/SimpleButton", function(helpers) {
       raptor_templating_taglibs_widgets_WidgetTag,
       {
         "jsClass": "ui/buttons/SimpleButton/SimpleButtonWidget",
-        "config": undefined,
         "_cfg": data.widgetConfig
       },
       function(widget) {

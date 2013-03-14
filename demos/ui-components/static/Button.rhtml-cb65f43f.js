@@ -32,8 +32,7 @@ $rset("rhtml", "ui/buttons/Button", function(helpers) {
         raptor_templating_taglibs_widgets_WidgetTag,
         {
           "jsClass": "ui/buttons/Button/ButtonWidget",
-          "config": undefined,
-          "id": id,
+          "elId": id,
           "_cfg": data.widgetConfig
         },
         function(widget) {
@@ -51,8 +50,7 @@ $rset("rhtml", "ui/buttons/Button", function(helpers) {
         raptor_templating_taglibs_widgets_WidgetTag,
         {
           "jsClass": "ui/buttons/Button/ButtonWidget",
-          "config": undefined,
-          "id": id,
+          "elId": id,
           "_cfg": data.widgetConfig
         },
         function(widget) {
