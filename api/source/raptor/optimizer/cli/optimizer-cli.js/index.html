@@ -16,10 +16,8 @@
 
     return {
         
-        run: function(args, basePath) {
-            if (!basePath) {
-                basePath = cwd;
-            }
+        run: function(args) {
+            
             
             var pageName,
                 packageManifest = null,
@@ -35,6 +33,7 @@
                 developmentMode = false,
                 generateHtmlSlotsFile = false,
                 enabledExtensions = null,
+                basePath,
                 parseDependencies = function(dependencies) {
                     var asyncFound = false;
                         
@@ -87,8 +86,8 @@
                 if (!path) {
                     return path;
                 }
-                console.error(typeof basePath, typeof path);
-                return new File(files.resolvePath(basePath, path));
+                
+                return new File(files.resolvePath(cwd, path));
             };
 
 
