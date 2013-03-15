@@ -70,7 +70,7 @@ slot.</p><div class="section section-level-1"><h2 id="Page_Template">Page Templa
             <module name="module-c"/>
             <module name="module-d" async="true"/>
             <css path="index.css"/>
-            <js path="index.js"/>
+            <js path="index.js" slot="head"/>
         </dependencies>
     </optimizer:page>
 
@@ -99,7 +99,7 @@ slot.</p><div class="section section-level-1"><h2 id="Page_Template">Page Templa
         <profile>production</profile>
     </params>
     
-    <enable-profile>${profile}</enable-profile>
+    <enable-profile>production</enable-profile>
     
     <profile name="development">
         <enabled-extensions>browser,raptor/logging/console,development</enabled-extensions>
@@ -116,21 +116,25 @@ slot.</p><div class="section section-level-1"><h2 id="Page_Template">Page Templa
         <bundling-enabled>true</bundling-enabled>
         <resolve-css-urls>true</resolve-css-urls>
         <in-place-deployment-enabled>false</in-place-deployment-enabled>
-        <minify-js>true</minify-js>
-        <minify-css>true</minify-css>
+        <minify-js>false</minify-js>
+        <minify-css>false</minify-css>
     </profile>
     
     <output-dir>build/static</output-dir>
 
     <bundles>
         <!-- Configure two resource bundles for our application -->
+        <bundle name="core">
+            <module name="raptor"/>
+            <module name="raptor/loader"/>
+        </bundle>
         <bundle name="bundle1">
             <module name="module-a"/>
             <module name="module-b"/>
         </bundle>
         <bundle name="bundle2">
-            <module name="module-b"/>
             <module name="module-c"/>
+            <module name="module-d"/>
         </bundle>
     </bundles>
     
@@ -265,7 +269,7 @@ will be invalid. To enable in-place deployment when using an HTTP server,
 please see the
 <a href="../../optimizer/developer-guide/">RaptorJS Optimizer Developer Guide</a>.</p></div></div><div class="section section-level-1"><h2 id="Further_Reading">Further Reading</h2><div class="bd"><ul><li><a href="../../optimizer/developer-guide/">RaptorJS Optimizer: Developer Guide</a></li><li><a href="../../optimizer/configuration/">RaptorJS Optimizer: Configuration</a></li><li><a href="../../optimizer/get-started-javascript-api/">RaptorJS Optimizer: Get Started with the JS API</a></li><li><a href="../../optimizer/get-started-cli/">RaptorJS Optimizer: Get Started using the Command Line Interface</a></li><li><a href="../../raptor-templates/">Raptor Templates</a></li></ul></div></div></div></div><div class="section section-level-0"><h2 id="Discussion">Discussion</h2><div class="bd"><div id="disqus_thread"></div></div></div></div></div><div class="docs-footer-padding"></div></div></div><script type="text/javascript" src="../../static/core-ad8b0270.js"></script>
 <script type="text/javascript" src="../../static/jquery-371da524.js"></script>
-<script type="text/javascript" src="../../static/widgets-c0039f8f.js"></script>
+<script type="text/javascript" src="../../static/widgets-b8724a63.js"></script>
 <script type="text/javascript" src="../../static/optimizer-get-started-raptor-templates-02c7930e.js"></script>
 <script type="text/javascript" src="../../static/code-editor-36478451.js"></script><script type="text/javascript">$rwidgets(
 ["components.nav.Nav.NavItemWidget","w786",0,0,0,0],
