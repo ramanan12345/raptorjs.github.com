@@ -53,6 +53,9 @@ define(
         };
 
         WidgetsContext.prototype = {
+            getWidgets: function() {
+                return this.widgets;
+            },
             
             beginWidget: function(config, callback) {
                 
