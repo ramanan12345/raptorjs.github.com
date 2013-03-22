@@ -1715,7 +1715,7 @@ define('raptor/listeners', ['raptor'], function(raptor, require) {
         }
     };
 
-    return (listeners = {
+    var listeners = {
         /**
          * @type raptor/listeners/Message
          * 
@@ -1835,7 +1835,9 @@ define('raptor/listeners', ['raptor'], function(raptor, require) {
                 }
             }
         }
-    });    
+    };
+
+    return listeners;    
 });
 
 
