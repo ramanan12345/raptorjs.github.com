@@ -1,7 +1,7 @@
  <!DOCTYPE html><html><head><title>Widgets Demo | RaptorJS</title><link rel="stylesheet" type="text/css" href="static/WidgetsDemo-495d0c85.css">
 <link rel="stylesheet" type="text/css" href="static/index-da39a3ee.css"></head><body><fieldset><legend>Simple Widgets</legend><button type="button" id="w0">Click me to turn me red</button><button type="button" id="w1">Click me to turn me green</button></fieldset><fieldset><legend>Widgets Demo</legend><div class="widgets-demo" id="w2"><button type="button" id="w2-changeColorsButton">Change Button Colors (Direct Referencing)</button><button type="button" id="w3">Change Button Colors (Pub/Sub)</button><p><button type="button" id="w4">Click me (Red, Green and Blue)</button><button type="button" id="w5">Click me (Cyan, Magenta and Yellow)</button></p><p><button type="button" id="w6">Button 1</button><button type="button" id="w7">Button 2</button><button type="button" id="w8">Button 3</button><button type="button" id="w9">Button 4</button><button type="button" id="w10">Button 5</button><button type="button" id="w11">Button 6</button></p><hr><button type="button" id="w2-renderTemplateButton">Render Template with Widgets</button><div id="w2-renderTarget"></div></div></fieldset><script src="http://code.jquery.com/jquery-1.9.0.js"></script><script type="text/javascript" src="static/es5-75080252.js"></script>
 <script type="text/javascript" src="static/es6-b4fa4cc9.js"></script>
-<script type="text/javascript" src="static/raptor-d72ca376.js"></script>
+<script type="text/javascript" src="static/raptor-3b98db41.js"></script>
 <script type="text/javascript" src="static/logging_stubs-57bcbcec.js"></script>
 <script type="text/javascript" src="static/WidgetDef-8c4efe21.js"></script>
 <script type="text/javascript" src="static/WidgetsContext-fe3e9641.js"></script>
@@ -17,11 +17,11 @@
 <script type="text/javascript" src="static/StringBuilder-52d02076.js"></script>
 <script type="text/javascript" src="static/strings-fe5f919d.js"></script>
 <script type="text/javascript" src="static/xml-utils-e493a434.js"></script>
-<script type="text/javascript" src="static/Context-dad436e5.js"></script>
+<script type="text/javascript" src="static/Context-9a5400c9.js"></script>
 <script type="text/javascript" src="static/render-context-c432e815.js"></script>
 <script type="text/javascript" src="static/RenderResult-77fae396.js"></script>
 <script type="text/javascript" src="static/renderer-5f665b33.js"></script>
-<script type="text/javascript" src="static/templating-b0f3a137.js"></script>
+<script type="text/javascript" src="static/templating-3e3c195f.js"></script>
 <script type="text/javascript" src="static/WidgetTag-17a91db2.js"></script>
 <script type="text/javascript" src="static/WidgetFunctions-ba611253.js"></script>
 <script type="text/javascript" src="static/ColorChangeButtonWidget-82274736.js"></script>
@@ -31,8 +31,8 @@
 <script type="text/javascript" src="static/WidgetsDemoWidget-856863d4.js"></script>
 <script type="text/javascript" src="static/widgets-test.rhtml-766fd6ef.js"></script>
 <script type="text/javascript" src="static/SimpleWidget-064a905a.js"></script><script type="text/javascript">$rwidgets(
-["SimpleWidget; config={color: 'red'}","w0",0,0,0,0],
-["SimpleWidget; config={color: 'green'}","w1",0,0,0,0],
+["SimpleWidget","w0",{"color":"red"},0,0,0],
+["SimpleWidget","w1",{"color":"green"},0,0,0],
 ["ui/demo/WidgetsDemo/WidgetsDemoWidget","w2",0,0,0,0,
 ["ui/demo/Button/ButtonWidget","w3",0,0,0,[["click","changeButtonColors"]]],
 ["ui/demo/ColorChangeButton/ColorChangeButtonWidget","w4",{"colors":["red","green","blue"]},"w2","redGreenBlueButton",0],
