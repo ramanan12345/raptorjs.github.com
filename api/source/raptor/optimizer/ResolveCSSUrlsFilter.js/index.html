@@ -27,6 +27,14 @@
                         }
                         var inputUrl = url;
 
+                        var hashString = '',
+                            hashStart = url.indexOf('#');
+
+                        if (hashStart != -1) {
+                            hashString = url.substring(hashStart);
+                            url = url.substring(0, hashStart);
+                        }
+
                         var queryString = '',
                             queryStart = url.indexOf('?');
 
@@ -71,7 +79,7 @@
                                                 url = 'data:' + mime.lookup(filename) + ';base64,' + outputFileInfo.buffer.toString('base64');
                                             }
                                             else {
-                                                url = filename + queryString;    
+                                                url = filename + queryString + hashString;    
                                             }
                                             
                                             logger.debug("Resolved URL: " + inputUrl + ' --> ' + url);
@@ -90,7 +98,7 @@
                             }
                         }
 
-                        url += queryString;
+                        url = inputUrl;
                         
                         logger.debug("Resolved URL: " + inputUrl + ' --> ' + url);
 
