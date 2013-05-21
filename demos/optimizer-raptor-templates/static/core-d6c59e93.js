@@ -2259,7 +2259,9 @@ define('raptor/listeners', ['raptor'], function(raptor, require) {
      * @name raptor/listeners/Observable
      */
     var Observable = function() {
-        this._byName = {};
+        if (!this._byName) {
+            this._byName = {};    
+        }
     };
     
     Observable.prototype = {
@@ -2502,8 +2504,7 @@ define('raptor/listeners', ['raptor'], function(raptor, require) {
                 proto = obj;
             }
             
-            if (!proto._observable) {
-                proto._observable = true;
+            if (!proto.__observable) {
                 extend(proto, Observable.prototype);
             }
             

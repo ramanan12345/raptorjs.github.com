@@ -1,5 +1,24 @@
-.global{}
-.module-a{background-color:#FFC;border:1px solid Black;padding:10px;margin:10px}
-.module-b{background-color:#F96;border:1px solid Black;padding:10px;margin:10px}
-DIV.title{background-color:#FFC}
-.module-c{background-color:#CFF;border:1px solid Black;padding:10px;margin:10px}
+.global {
+    
+}
+.module-a {
+    background-color: #FFFFCC;
+    border: 1px solid Black;
+    padding: 10px;
+    margin: 10px;
+}
+.module-b {
+    background-color: #FF9966;
+    border: 1px solid Black;
+    padding: 10px;
+    margin: 10px;
+}
+DIV.title {
+    background-color: #FFFFCC;
+}
+.module-c {
+    background-color: #CCFFFF;
+    border: 1px solid Black;
+    padding: 10px;
+    margin: 10px;
+}
