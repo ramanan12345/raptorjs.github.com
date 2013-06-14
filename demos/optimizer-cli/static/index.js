@@ -2385,10 +2385,10 @@ define("raptor/stacktraces", function() {
 
 /**
  * This class servers a logger that sends all output to the "console" object (if it exists).
- * 
+ *
  * @param {number} level The log level
  * @param {string} loggerName The logger name
- * 
+ *
  */
 define("raptor/logging/ConsoleLogger", function(require) {
     "use strict";
@@ -2399,13 +2399,14 @@ define("raptor/logging/ConsoleLogger", function(require) {
     var ConsoleLogger = function(level, loggerName) {
         this._loggerName = loggerName;
         this._logLevel = level;
+        this._console = (typeof console === 'undefined') ? null : console;
     };
 
     
     ConsoleLogger.prototype = {
         
         /**
-         * 
+         *
          */
         isDebugEnabled: function()
         {
@@ -2413,7 +2414,7 @@ define("raptor/logging/ConsoleLogger", function(require) {
         },
         
         /**
-         * 
+         *
          */
         isInfoEnabled: function()
         {
@@ -2421,7 +2422,7 @@ define("raptor/logging/ConsoleLogger", function(require) {
         },
         
         /**
-         * 
+         *
          */
         isWarnEnabled: function()
         {
@@ -2429,7 +2430,7 @@ define("raptor/logging/ConsoleLogger", function(require) {
         },
         
         /**
-         * 
+         *
          */
         isErrorEnabled: function()
         {
@@ -2437,7 +2438,7 @@ define("raptor/logging/ConsoleLogger", function(require) {
         },
         
         /**
-         * 
+         *
          */
         isFatalEnabled: function()
         {
@@ -2445,7 +2446,7 @@ define("raptor/logging/ConsoleLogger", function(require) {
         },
         
         /**
-         * 
+         *
          */
         dump: function(obj, desc, allProps)
         {
@@ -2461,14 +2462,15 @@ define("raptor/logging/ConsoleLogger", function(require) {
             }
             
             this._log('debug', [desc]);
-            if (typeof console !== 'undefined' && console.debug)
+            var console = this._console;
+            if (console && console.debug)
             {
                 console.debug(obj);
             }
         },
         
         /**
-         * 
+         *
          */
         debug: function(message, exception)
         {
@@ -2477,7 +2479,7 @@ define("raptor/logging/ConsoleLogger", function(require) {
         },
         
         /**
-         * 
+         *
          */
         info: function(message, exception)
         {
@@ -2486,7 +2488,7 @@ define("raptor/logging/ConsoleLogger", function(require) {
         },
         
         /**
-         * 
+         *
          */
         warn: function(message, exception)
         {
@@ -2495,7 +2497,7 @@ define("raptor/logging/ConsoleLogger", function(require) {
         },
         
         /**
-         * 
+         *
          */
         error: function(message, exception, includeStackTrace)
         {
@@ -2506,7 +2508,7 @@ define("raptor/logging/ConsoleLogger", function(require) {
         },
         
         /**
-         * 
+         *
          */
         fatal: function(message, exception)
         {
@@ -2515,14 +2517,13 @@ define("raptor/logging/ConsoleLogger", function(require) {
         },
         
         /**
-         * 
+         *
          */
         _log: function(level, message, exception, includeStackTrace)
         {
-            if (typeof console !== 'undefined' && console[level])
+            var console = this._console;
+            if (console && console[level])
             {
-                
-
                 try
                 {
                     
@@ -2540,7 +2541,7 @@ define("raptor/logging/ConsoleLogger", function(require) {
                     {
                         error = message;
                         if (stacktraces && stacktraces.trace) {
-                            out += '\n\n' + stacktraces.trace(message);    
+                            out += '\n\n' + stacktraces.trace(message);
                         }
                     }
                     
@@ -2552,7 +2553,7 @@ define("raptor/logging/ConsoleLogger", function(require) {
                         while (cause) {
                             console.error('Caused by:');
                             console.error(cause);
-                            cause = cause._cause;       
+                            cause = cause._cause;
                         }
                     }
                                   
@@ -2564,13 +2565,14 @@ define("raptor/logging/ConsoleLogger", function(require) {
         },
         
         /**
-         * 
+         *
          */
         trace: function(message)
         {
             if (this.isDebugEnabled())
             {
-                if (typeof console !== 'undefined' && console.trace)
+                var console = this._console;
+                if (console && console.trace)
                 {
                     if (message)
                     {
