@@ -1489,13 +1489,16 @@ if (!String.prototype.trim || ws.trim()) {
                     exports: exports,
                     module: module
                 },
+                getSuperclass= function() {
+                    return (superclass = isString(superclass) ? require(superclass) : superclass);
+                },
                 _gather = function() { //Converts an array of dependency IDs to the actual dependency objects (input array is modified)
                     forEach(dependencies, function(requestedId, i) {
                         if (isString(requestedId)) {
                             var d;
 
                             if (!(d = local[requestedId])) { //See if the requested module is a local module and just use that module if it is
-                                d = simpleRequire(requestedId, id); //Not a local module, look it up...they will do the normalization
+                                d = requestedId == 'super' ? getSuperclass().prototype : simpleRequire(requestedId, id); //Not a local module, look it up...they will do the normalization
                             }
 
                             dependencies[i] = d;
@@ -1550,8 +1553,7 @@ if (!String.prototype.trim || ws.trim()) {
             else {
                 if (isClass || superclass) {
                     postCreate = function(instance) {
-                        superclass = isString(superclass) ? require(superclass) : superclass;
-                        return _makeClass(instance, superclass, id);
+                        return _makeClass(instance, getSuperclass(), id);
                     };
                 }
                 else if (isEnum) {
