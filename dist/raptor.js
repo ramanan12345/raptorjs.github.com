@@ -1153,6 +1153,12 @@ if (!String.prototype.trim || ws.trim()) {
 (function() {
     /* jshint strict:false */
 
+    var _global = (typeof window === 'undefined') ? global : window;
+    if (_global.__raptor !== undefined) {
+        // short-circuit raptor initialization if it already exists
+        return;
+    }
+
     var raptor, //The "raptor" module being created
         defs = {}, //Registered module definitions are added to this object
         getOrCreateDef = function(id) { //Returns the module definition entry for the given ID or creates one of one does not exist
@@ -1166,7 +1172,7 @@ if (!String.prototype.trim || ws.trim()) {
 
         /**
          * Extends an object with the properties of another object.
-         * 
+         *
          * @param  {Object} target The target object to extend (optional, if not provided an empty object is used as the target)
          * @param  {Object} source The source object with properties
          * @return {Object} The extended object
@@ -1196,12 +1202,12 @@ if (!String.prototype.trim || ws.trim()) {
          *
          * <p>
          * If the input Array is null/undefined then nothing is done.
-         * 
+         *
          * <p>
          * If the input object does not have a "forEach" method then
          * it is converted to a single element Array and iterated over.
-         * 
-         * 
+         *
+         *
          * @param  {Array|Object} a An Array or an Object
          * @param  {Function} fun The callback function for each property
          * @param  {Object} thisp The "this" object to use for the callback function
@@ -1209,7 +1215,7 @@ if (!String.prototype.trim || ws.trim()) {
          */
         forEach = function(a, func, thisp) {
             if (a != null) {
-                (a.forEach ? a : [a]).forEach(func, thisp);    
+                (a.forEach ? a : [a]).forEach(func, thisp);
             }
         },
 
@@ -1262,7 +1268,7 @@ if (!String.prototype.trim || ws.trim()) {
 
             if (postCreate) {
                 forEach(postCreate, function(func) {
-                    if ((o = func(instance))) { //Check if the postCreate function produced a new function... 
+                    if ((o = func(instance))) { //Check if the postCreate function produced a new function...
                         instance = o; //if so, use that instead
                     }
                 });
@@ -1271,7 +1277,7 @@ if (!String.prototype.trim || ws.trim()) {
         },
         /**
          * Wire up the prototypes to support inheritance
-         * 
+         *
          * @param   {Function} clazz    The constructor function
          * @param   {String} superclass The name of the super class
          * @param   {Boolean} copyProps If true, then all properties of the original prototype will be copied to the new prototype
@@ -1287,7 +1293,7 @@ if (!String.prototype.trim || ws.trim()) {
 
             extend(clazz,inherit);
             
-            F.prototype = inherit.prototype; 
+            F.prototype = inherit.prototype;
             clazz.superclass = F.prototype;
 
             clazz.prototype = new F();
@@ -1323,13 +1329,13 @@ if (!String.prototype.trim || ws.trim()) {
         },
         _enumValueOrdinal = function() {
             return this._ordinal;
-        }, 
+        },
         _enumValueName = function() {
             return this._name;
-        }, 
+        },
         _enumValueCompareTo = function(other) {
             return this._ordinal - other._ordinal;
-        }, 
+        },
         /**
          * Normalizes a module ID by resolving relative paths (if baseName is provided)
          * and by converting all dots to forward slashes.
@@ -1337,7 +1343,7 @@ if (!String.prototype.trim || ws.trim()) {
          * Examples:
          * normalize('test.MyClass') --> 'test/MyClass'
          * normalize('./AnotherClass', 'test/MyClass') --> 'test/AnotherClass'
-         * 
+         *
          * @param   {String} id       The module ID to normalize
          * @param   {String} baseName The base name for the module ID that is used to resolve relative paths. (optional)
          * @return  {String}          The normalized module ID
@@ -1375,7 +1381,7 @@ if (!String.prototype.trim || ws.trim()) {
          *
          * <p>
          * If a callback is provided then the {@Link raptor/loader} module is used to load the specified modules.
-         * 
+         *
          * @param   {String|Array}   id A String module ID or an Array of String module IDs (an Array is only allowed if a callback is provided)
          * @param   {Function} callback A callback function to use for asynchronous loading (optional)
          * @param   {Object}   thisObj  The "this" object to use for the callback function
@@ -1400,7 +1406,7 @@ if (!String.prototype.trim || ws.trim()) {
         },
         /**
          * These are properties that get added to all "require" functions.
-         * 
+         *
          * NOTE: The require function will always include a "normalize" function
          *       that can be used to normalize a module ID based on the context
          *       where the require was created
@@ -1431,7 +1437,7 @@ if (!String.prototype.trim || ws.trim()) {
         },
         /**
          * These are properties that get added to all "define" functions.
-         * 
+         *
          * NOTE: The define function will always include a "require" function
          *       that can be used to require other modules.
          */
@@ -1448,7 +1454,7 @@ if (!String.prototype.trim || ws.trim()) {
                 return _define(arguments, this.require, 0, 0, 1);
             }
         },
-        _extendDefine = function(define) { 
+        _extendDefine = function(define) {
             //Unfortunately functions cannot have custom prototypes so we much manually copy properties for each new instance
             return extend(define, defineProps);
         },
@@ -1458,7 +1464,7 @@ if (!String.prototype.trim || ws.trim()) {
         /**
          * This functions takes in the arguments to define, define.Class and define.extend
          * calls and does the hard work of handling optional arguments.
-         * 
+         *
          * @param   {arguments}  args The arguments object for the define, define.Class or define.extend
          * @param   {Function}  simpleRequire The function that should be used to actually perform the require of an object
          * @param   {Boolean} isClass Should only be true if this is define.Class call
@@ -1478,8 +1484,8 @@ if (!String.prototype.trim || ws.trim()) {
                 postCreate, //A function that should be invoked after the object is created for the first time...Used to handle inheritance and to apply an extension
                 factory, //The factory function or object definition (required, always the last argument)
                 require = _extendRequire(function(requestedId, callback) { //This is the "require" function that the user code will see...Need to add the required props
-                    return callback ? 
-                        require.load(requestedId, callback) : 
+                    return callback ?
+                        require.load(requestedId, callback) :
                         simpleRequire(requestedId, id); //Pass along the requested ID and the base ID to the require implementation
                 }),
                 module = new Module(require), //Create a module object
@@ -1513,7 +1519,7 @@ if (!String.prototype.trim || ws.trim()) {
             };
 
             /*
-             Loop through the arguments to sort things out... 
+             Loop through the arguments to sort things out...
              */
             for (; i<last; i++) {
                 arg = args[i];
@@ -1588,7 +1594,7 @@ if (!String.prototype.trim || ws.trim()) {
                             forEach(enumValues, function(name) {
                                 _addEnumValue(name, EnumClass);
                             });
-                        } 
+                        }
                         else if (enumValues) {
                             var EnumCtor = function() {};
                             EnumCtor.prototype = proto;
@@ -1645,12 +1651,12 @@ if (!String.prototype.trim || ws.trim()) {
     /**
      * The core raptor module provides an AMD implementation that can be used
      * on the server or in the web browser.
-     * 
+     *
      * @module
      * @name raptor
      * @raptor
      */
-    raptor = {
+    _global.__raptor = raptor = {
         cache: cache,
         
         inherit: _inherit,
@@ -1662,7 +1668,7 @@ if (!String.prototype.trim || ws.trim()) {
         /**
          * Converts a native arguments object to a native JavaScript
          * Array.
-         * 
+         *
          * @param  {arguments} args The arguments object
          * @param  {int} startIndex The starting index (optional)
          * @return {Array} The native JavaScript error
@@ -1694,7 +1700,7 @@ if (!String.prototype.trim || ws.trim()) {
          *  <li><js>throw raptor.createError(new Error('Invalid. Exception: ' + cause), cause);</js></li>
          *  <li><js>throw raptor.createError(new Error('Invalid'));</js></li>
          * </ul>
-         * 
+         *
          * @param  {String|Error} message An error message or an Error object
          * @param  {Error} cause The cause of the error
          * @return {Error} The resulting Error object that can then be thrown.
@@ -1706,18 +1712,18 @@ if (!String.prototype.trim || ws.trim()) {
             
             if (argsLen == 2)
             {
-                error = message instanceof E ? message : new E(message);            
-                error._cause = cause;                        
+                error = message instanceof E ? message : new E(message);
+                error._cause = cause;
             }
             else if (argsLen == 1)
-            {            
+            {
                 if (message instanceof E)
                 {
                     error = message;
                 }
                 else
                 {
-                    error = new E(message);                
+                    error = new E(message);
                 }
             }
             
@@ -1729,7 +1735,7 @@ if (!String.prototype.trim || ws.trim()) {
          *
          * NOTE: This function does no normalization of module IDs
          *       and it executes the factory function with no arguments.
-         *       
+         *
          * @param  {String}          id         The ID of the object being defined
          * @param  {Function|Object} factory    The factory function or Object instance
          * @param  {Function}        postCreate A function to execute after the object is created for the first time (optional)
@@ -1743,7 +1749,7 @@ if (!String.prototype.trim || ws.trim()) {
             var def = getOrCreateDef(id),
                 instance;
             if (factory) {
-                def.factory = factory;    
+                def.factory = factory;
             }
             
             if (postCreate) {
@@ -1764,7 +1770,7 @@ if (!String.prototype.trim || ws.trim()) {
 
         /**
          * Returns true if a RaptorJS AMD module with specified ID exists, false otherwise.
-         * 
+         *
          * @param  {String} id The ID of a module
          * @return {Boolean} true if a RaptorJS AMD module with specified ID exists, false otherwise.
          */
@@ -1774,7 +1780,7 @@ if (!String.prototype.trim || ws.trim()) {
         
         /**
          * Returns an initialized RaptorJS AMD module with specified ID if it exists, undefined otherwise.
-         * 
+         *
          * @param  {String} id The ID of a module
          * @return {Object} an initialized RaptorJS AMD module with specified ID if it exists, undefined otherwise
          */
@@ -1791,16 +1797,8 @@ if (!String.prototype.trim || ws.trim()) {
         props: [requireProps, defineProps]
     };  //End raptor
 
-
-    
-    
-    var _global;
-
     if (typeof window != 'undefined') {
         /*global require:true */
-
-        _global = window;
-        
         var defineRequire = defineProps.require = function(id, baseName) {
             return _require(_normalize(id, baseName));
         };
@@ -1821,7 +1819,6 @@ if (!String.prototype.trim || ws.trim()) {
         define.amd = {};
     }
     else {
-        _global = global;
         module.exports = raptor;
     }
     
@@ -1831,7 +1828,7 @@ if (!String.prototype.trim || ws.trim()) {
     The below code adds global lookup related functions that can always used
     look up objects by keys or to look up an array of objects by key. These
     functions are used by compiled code only and should not be used by
-    user code directly. 
+    user code directly.
     TODO: provide a "raptor/lookup" module for user code
      */
     
@@ -1856,7 +1853,7 @@ if (!String.prototype.trim || ws.trim()) {
                     catData = lookup[category] = {};
                 }
                 if (data !== undefined) {
-                    catData[key] = data;    
+                    catData[key] = data;
                 }
                 else {
                     delete catData[key];
@@ -1875,12 +1872,14 @@ if (!String.prototype.trim || ws.trim()) {
 
         $rget: function(category, key) {
             var catData = lookup[category];
-            return arguments.length == 2 ? catData && catData[key] : catData; 
+            return arguments.length == 2 ? catData && catData[key] : catData;
         }
     });
 
     
     raptor.global = _global;
+
+    _global.__raptor__ = true;
 }());
 /*
  * Copyright 2011 eBay Software Foundation

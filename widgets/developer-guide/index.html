@@ -65,7 +65,7 @@ widget:</p><div class="code-editor" id="w32"><h2 class="code-editor-title">/demo
     &lt;c:var name="widgetConfig" value="{colors: ['red', 'green', 'blue']}"/>
 
     &lt;button type="button" 
-        w:widget="demo/ColorChangeWidget; config=widgetConfig">
+        w:widget="demo/ColorChangeWidget" w:config="widgetConfig">
         Click Me!
     &lt;/button>
 
@@ -413,10 +413,14 @@ equivalent:</p><div class="compare-table compare-table-2"><div class="compare-se
 &lt;/button></textarea></div></div></div></div></div></div><div class="section section-level-1"><h2 id="WidgetConfig">Widget Config</h2><div class="bd"><p>Arbitrary widget configuration data determined at render time can be provided
 to the constructor of a widget. There are three options for attaching widget
 configuration data to a widget and those options are as
-follows:</p><ol><li><b>As part of <code>w:widget</code> attribute:</b><div class="code-editor" id="w68"> <textarea id="w68-textarea" style="display: none;" name="code-34">&lt;div w:widget="demo/MyWidget; config={message: 'Hello World'}" 
+follows:</p><ol><li><b>Using the <code>w:config</code> attribute:</b><div class="code-editor" id="w68"> <textarea id="w68-textarea" style="display: none;" name="code-34">&lt;div w:widget="demo/MyWidget" w:config="{message: 'Hello World'}" 
      class="my-widget">
     ...
-&lt;/div></textarea></div></li><li><b>As the value of the <code>config</code> attribute for the <code>&lt;w:widget></code> tag:</b><div class="code-editor" id="w69"> <textarea id="w69-textarea" style="display: none;" name="code-35">&lt;w:widget js-class="demo/MyWidget" config="{message: 'Hello World'}">
+&lt;/div></textarea></div><p>NOTE: The value of <code>w:config</code> should be a valid JavaScript expression that resolves to a JavaScript object.
+Therefore, the value can be an object in JavaScript notation, a variable
+reference or a more complex expression that evaluates to a JavaScript object at
+render
+time.</p></li><li><b>As the value of the <code>config</code> attribute for the <code>&lt;w:widget></code> tag:</b><div class="code-editor" id="w69"> <textarea id="w69-textarea" style="display: none;" name="code-35">&lt;w:widget js-class="demo/MyWidget" config="{message: 'Hello World'}">
     ...
 &lt;/w:widget></textarea></div></li><li><b>As a <code>widgetConfig</code> property of the input data model for a Raptor template:</b><div class="code-editor" id="w70"> <textarea id="w70-textarea" style="display: none;" name="code-36">require('raptor/templating').render(
     'demo/MyTemplate',
@@ -494,9 +498,9 @@ will also be published with the following message
 object:</p><div class="code-editor" id="w77"> <textarea id="w77-textarea" style="display: none;" name="code-43">{
     name: 'John',
     age: 50
-}</textarea></div><p>Please see the <a href="#PubSub">Pub/Sub Communication</a> section above for more details on utilizing Pub/Sub communication.</p></div></div></div></div><div class="section section-level-0"><h2 id="Discussion">Discussion</h2><div class="bd"><div id="disqus_thread"></div></div></div></div></div><div class="docs-footer-padding"></div></div></div><script type="text/javascript" src="../../static/core-d7590ff6.js"></script>
+}</textarea></div><p>Please see the <a href="#PubSub">Pub/Sub Communication</a> section above for more details on utilizing Pub/Sub communication.</p></div></div></div></div><div class="section section-level-0"><h2 id="Discussion">Discussion</h2><div class="bd"><div id="disqus_thread"></div></div></div></div></div><div class="docs-footer-padding"></div></div></div><script type="text/javascript" src="../../static/core-958a5492.js"></script>
 <script type="text/javascript" src="../../static/jquery-371da524.js"></script>
-<script type="text/javascript" src="../../static/widgets-358d2f51.js"></script>
+<script type="text/javascript" src="../../static/widgets-7ede07b1.js"></script>
 <script type="text/javascript" src="../../static/widgets-developer-guide-4973a95a.js"></script>
 <script type="text/javascript" src="../../static/code-editor-36478451.js"></script><script type="text/javascript">$rwidgets(
 ["components.nav.Nav.NavItemWidget","w0",0,0,0,0],
@@ -533,7 +537,7 @@ object:</p><div class="code-editor" id="w77"> <textarea id="w77-textarea" style=
 ["components.nav.Nav.NavItemWidget","w31",0,0,0,0]],
 ["components/editors/CodeEditor/CodeEditorWidget","w32",{"mode":"javascript","autoResize":true,"readOnly":true},0,0,0],
 ["components/editors/CodeEditor/CodeEditorWidget","w33",{"mode":"xml","autoResize":true,"readOnly":true},0,0,0],
-["demo/ColorChangeWidget; config=widgetConfig","w34",0,0,0,0],
+["demo/ColorChangeWidget","w34",{"colors":["red","green","blue"]},0,0,0],
 ["components/editors/CodeEditor/CodeEditorWidget","w35",{"mode":"xml","autoResize":true,"readOnly":true},0,0,0],
 ["components/editors/CodeEditor/CodeEditorWidget","w36",{"mode":"javascript","autoResize":true,"readOnly":true},0,0,0],
 ["components/editors/CodeEditor/CodeEditorWidget","w37",{"mode":"javascript","autoResize":true,"readOnly":true},0,0,0],
