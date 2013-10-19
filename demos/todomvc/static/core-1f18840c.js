@@ -1152,10 +1152,10 @@ if (!String.prototype.trim || ws.trim()) {
 
 (function() {
     /* jshint strict:false */
-    if ((typeof window !== 'undefined') && (window.raptorDefine !== undefined)) {
-        define = window.raptorDefine;
-        require = window.raptorRequire;
-        // short-circuit raptor initialization in browser environment if it already exists
+
+    var _global = (typeof window === 'undefined') ? global : window;
+    if (_global.__raptor !== undefined) {
+        // short-circuit raptor initialization if it already exists
         return;
     }
 
@@ -1656,7 +1656,7 @@ if (!String.prototype.trim || ws.trim()) {
      * @name raptor
      * @raptor
      */
-    raptor = {
+    _global.__raptor = raptor = {
         cache: cache,
         
         inherit: _inherit,
@@ -1730,10 +1730,6 @@ if (!String.prototype.trim || ws.trim()) {
             return error;
         },
 
-        setImplicitId: function(id) {
-            this._implicitId = id;
-        },
-
         /**
          * Registers a factory function or object with an ID.
          *
@@ -1746,17 +1742,12 @@ if (!String.prototype.trim || ws.trim()) {
          * @return {Object} Returns undefined if an "id" is provided. If an "id" is provided then the object is immediately built and returned.
          */
         define: function(id, factory, postCreate) {
-            var instance;
             if (!id) {
-                if (!this._implicitId) {
-                    return _build.apply(raptor, arguments);
-                }
-                
-                id = this._implicitId;
-                this._implicitId = undefined;
+                return _build.apply(raptor, arguments);
             }
 
-            var def = getOrCreateDef(id);
+            var def = getOrCreateDef(id),
+                instance;
             if (factory) {
                 def.factory = factory;
             }
@@ -1806,44 +1797,28 @@ if (!String.prototype.trim || ws.trim()) {
         props: [requireProps, defineProps]
     };  //End raptor
 
-    var _global;
-
-    if (typeof window !== 'undefined') {
-        // browser environment
-        _global = window;
-
+    if (typeof window != 'undefined') {
         /*global require:true */
         var defineRequire = defineProps.require = function(id, baseName) {
             return _require(_normalize(id, baseName));
         };
         
-        // always export raptorDefine function to global scope (this should not cause a conflict)
-        window.raptorDefine = define = _extendDefine(
+        define = _extendDefine(
             function() {
                 return _define(arguments, defineRequire);
             });
 
-        // always export raptorRequire function to global scope (this should not cause a conflict)
-        window.raptorRequire = require = _extendRequire(function(id, callback) {
+        require = _extendRequire(function(id, callback) {
             return isFunction(callback) ?
                 require.load(id, callback) :
                 _require(_normalize(id));
         });
-
-        if (typeof raptorNoConflict === 'undefined' || raptorNoConflict !== true) {
-            // We are not in no-conflict mode so expose define and require.
-            // Put AMD-style define and require functions in the global window scope.
-            window.define = raptorDefine;
-            window.require = raptorRequire;
-        }
         
         require.normalize = _normalize;
 
         define.amd = {};
     }
     else {
-        // server-side environment
-        _global = global;
         module.exports = raptor;
     }
     
@@ -1903,6 +1878,8 @@ if (!String.prototype.trim || ws.trim()) {
 
     
     raptor.global = _global;
+
+    _global.__raptor__ = true;
 }());
 /*
  * Copyright 2011 eBay Software Foundation

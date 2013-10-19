@@ -770,7 +770,7 @@ define(
                         walkDOM(rootEl);
                     }
                     
-                    if (removeNode && rootEl.parentNode) {
+                    if (removeNode) {
                         //Remove the widget's DOM nodes from the DOM tree if the root element is known
                         rootEl.parentNode.removeChild(rootEl);
                     }
