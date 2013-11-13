@@ -1152,10 +1152,14 @@ if (!String.prototype.trim || ws.trim()) {
 
 (function() {
     /* jshint strict:false */
-
-    var _global = (typeof window === 'undefined') ? global : window;
-    if (_global.__raptor !== undefined) {
-        // short-circuit raptor initialization if it already exists
+    
+    if ((typeof window !== 'undefined') && (window.raptorDefine !== undefined)) {
+        /* global require:true */
+        // TODO: Maybe in raptor-no-conflict mode the global variable names for storing the raptor define and
+        //       require methods should be randomly generated so Raptor can avoid conflicting with itself?
+        define = window.raptorDefine;
+        require = window.raptorRequire;
+        // short-circuit raptor initialization in browser environment if it already exists
         return;
     }
 
@@ -1290,8 +1294,6 @@ if (!String.prototype.trim || ws.trim()) {
                 F = function() {};
               
             var inherit = isString(superclass) ? _require(superclass) : superclass;
-
-            extend(clazz,inherit);
             
             F.prototype = inherit.prototype;
             clazz.superclass = F.prototype;
@@ -1656,7 +1658,7 @@ if (!String.prototype.trim || ws.trim()) {
      * @name raptor
      * @raptor
      */
-    _global.__raptor = raptor = {
+    raptor = {
         cache: cache,
         
         inherit: _inherit,
@@ -1730,6 +1732,10 @@ if (!String.prototype.trim || ws.trim()) {
             return error;
         },
 
+        setImplicitId: function(id) {
+            this._implicitId = id;
+        },
+
         /**
          * Registers a factory function or object with an ID.
          *
@@ -1742,12 +1748,17 @@ if (!String.prototype.trim || ws.trim()) {
          * @return {Object} Returns undefined if an "id" is provided. If an "id" is provided then the object is immediately built and returned.
          */
         define: function(id, factory, postCreate) {
+            var instance;
             if (!id) {
-                return _build.apply(raptor, arguments);
+                if (!this._implicitId) {
+                    return _build.apply(raptor, arguments);
+                }
+                
+                id = this._implicitId;
+                this._implicitId = undefined;
             }
 
-            var def = getOrCreateDef(id),
-                instance;
+            var def = getOrCreateDef(id);
             if (factory) {
                 def.factory = factory;
             }
@@ -1797,28 +1808,44 @@ if (!String.prototype.trim || ws.trim()) {
         props: [requireProps, defineProps]
     };  //End raptor
 
-    if (typeof window != 'undefined') {
+    var _global;
+
+    if (typeof window !== 'undefined') {
+        // browser environment
+        _global = window;
+
         /*global require:true */
         var defineRequire = defineProps.require = function(id, baseName) {
             return _require(_normalize(id, baseName));
         };
         
-        define = _extendDefine(
+        // always export raptorDefine function to global scope (this should not cause a conflict)
+        window.raptorDefine = define = _extendDefine(
             function() {
                 return _define(arguments, defineRequire);
             });
 
-        require = _extendRequire(function(id, callback) {
+        // always export raptorRequire function to global scope (this should not cause a conflict)
+        window.raptorRequire = require = _extendRequire(function(id, callback) {
             return isFunction(callback) ?
                 require.load(id, callback) :
                 _require(_normalize(id));
         });
+
+        if (typeof raptorNoConflict === 'undefined' || raptorNoConflict !== true) {
+            // We are not in no-conflict mode so expose define and require.
+            // Put AMD-style define and require functions in the global window scope.
+            window.define = raptorDefine;
+            window.require = raptorRequire;
+        }
         
         require.normalize = _normalize;
 
         define.amd = {};
     }
     else {
+        // server-side environment
+        _global = global;
         module.exports = raptor;
     }
     
@@ -1878,8 +1905,6 @@ if (!String.prototype.trim || ws.trim()) {
 
     
     raptor.global = _global;
-
-    _global.__raptor__ = true;
 }());
 /*
  * Copyright 2011 eBay Software Foundation
@@ -2230,6 +2255,19 @@ define('raptor/listeners', ['raptor'], function(raptor, require) {
             }
             // remove all of the listeners that have been flagged for removal
             _cleanupListeners(this);
+        },
+
+        removeObserver: function(observer) {
+            var listeners = this._listeners;
+            for (var i = 0; i < listeners.length; i++) {
+                var listener = listeners[i];
+                if (listener.thisObj === observer) {
+                    // flag listener for removal
+                    listener.removed = true;
+                }
+            }
+            // remove all of the listeners that have been flagged for removal
+            _cleanupListeners(this);
         }
     };
     
@@ -2328,7 +2366,7 @@ define('raptor/listeners', ['raptor'], function(raptor, require) {
      */
     var Observable = function() {
         if (!this._byName) {
-            this._byName = {};    
+            this._byName = {};
         }
     };
     
@@ -2375,13 +2413,24 @@ define('raptor/listeners', ['raptor'], function(raptor, require) {
         on: Observable_subscribe,
 
         unsubscribeAll : function() {
-            var _this = this;
-
-            forEachEntry(_this._byName, function(name, listeners) {
+            forEachEntry(this._byName, function(name, listeners) {
                 listeners.removeAll();
             });
 
-            _this._byName = {};
+            this._byName = {};
+        },
+
+        /**
+         * This method is used to remove any listeners that the given
+         * observer created. The given observer should have been provided
+         * to the subscribe/on method as the "thisObj" argument.
+         */
+        unsubscribeObserver: function(observer) {
+            // remove all listener istances whose "thisObj" is the given observer
+            //var handles = observer[handlesPropName];
+            forEachEntry(this._byName, function(name, listeners) {
+                listeners.removeObserver(observer);
+            });
         },
         
         /**
@@ -2569,6 +2618,7 @@ define('raptor/listeners', ['raptor'], function(raptor, require) {
 });
 
 
+$rset('loaderMeta',{});
 /*
  * Copyright 2011 eBay Software Foundation
  *
@@ -2586,340 +2636,735 @@ define('raptor/listeners', ['raptor'], function(raptor, require) {
  */
 
 /**
- * Simple module to support decoupled communication using Pub/Sub communication.
- *
- * <h1>Overview</h1>
- * <p>
- * Pub/sub allows independent objects on a page to communicate by allowing publishers
- * to share information with subscribers by having subscribers publish messages
- * with a "topic name" that is agreed upon by the subscribers. The topic name
- * is simply a string value.  There are two key
- * methods for pub/sub and they are described below:
- * </p>
- *
- * <ul>
- *  <li>
- *      <b>publish(topic, props)</b><br>
- *      Publishes a message using the provided topic name. The properties in the props object, if provided, will be applied to the message that is published.
- *  </li>
- *  <li>
- *      <b>subscribe(topic, callbackFunction, thisObj)</b><br>
- *      Subscribes to messages on the provided topic.
- *      If a message is published to the provided topic then the provided callback function will be invoked. If the publisher of the message provides any argument object
- *      then argument object will be passed as arguments to the callback function (in order). In addition, the Message object will be provided after the arguments (see below).
- *  </li>
- * </ul>
- *
- * <h2>Usage:</h2>
- * <p>
- * <js>var pubsub = require('raptor/pubsub');
- * pubsub.subscribe('someTopic', function(message) {
- *     alert(message.myMessage); //Will alert "Hello World!"
- * });
- *
- * pubsub.publish('someTopic', {myMessage: 'Hello World!'});
- * </js>
- * </p>
- *
- * <h1>Private Pub/Sub Channels</h1>
- * <p>
- *
- * Pub/sub also supports private communication channels for messages. A private communication
- * channel can be obtained using <code>channel(channelName)</code> method.
- *
- * For channels to be effective, a set of publishers and subscribers would have to agree
- * on a channel name.
- * </p>
- *
- * <p>
- * <h2>Channel usage:</h2>
- * <js>var pubsub = require('raptor/pubsub');
- * var channel = pubsub.channel('myPrivateChannel');
- * channel.subscribe('someTopic', function(message) {
- *     alert(message.myMessage); //Will alert "Hello World!"
- * });
- *
- * channel.publish('someTopic', {myMessage: 'Hello World!'});
- * </js>
- * </p>
- *
- * <h1>Topics and Namespaces</h1>
- * <p>
- * A topic can be a simple topic such as "myTopic" or a namespaced topic such as "myTopic.mySubTopic". <b>Important:</b> Dots should be used to separate the topic parts.
- * The RaptorJS pubsub module supports wildcard topics when subscribing to topics.
- * </p>
- *
- * <p>
- * NOTE: The original topic can be accessed using a special message object that is passed in as the second argument to the listener function. The message data provided to the publish method will always be passed in as the first argument.
- * </p>
- *
- * <p>
- * <h2>Wildcard usage:</h2>
- * <js>var pubsub = require('raptor/pubsub');
- *
- * channel.subscribe('someTopic.*', function(data, message) {
- *     alert(data.myValue + " - " + message.getTopic());
- * });
- *
- * channel.publish('someTopic.a', {myValue: 'A'}); //Will result in alert("A - someTopic.a")
- * channel.publish('someTopic.b', {myValue: 'B'}); //Will result in alert("B - someTopic.b")
- * </js>
- * </p>
- *
- *
+ * @extension Module Loader
  */
-define('raptor/pubsub', function(require, exports, module) {
+define.extend('raptor/loader', function(require) {
     "use strict";
     
-    var listeners = require('raptor/listeners');
-
-    /**
-     * The Message class allows additional information to be provided to subscribers.
-     *
-     * @class
-     * @anonymous
-     * @name raptor/pubsub/Message
-     * @augments raptor/listeners/Message
-     *
-     * @param topic {String} The topic name of the message
-     * @param props {Object} An object with properties that should be applied to the newly created message
-     */
+    var logger = require('raptor/logging').logger('raptor/loader'),
+        raptor = require('raptor'),
+        forEach = raptor.forEach,
+        extend = raptor.extend;
     
-    var Message = define.Class({
-            superclass: listeners.Message
-        },
-        function() {
-            var Message = function(topic, props) {
-                listeners.Message.call(this, topic, props);
-                this.topic = topic;
-            };
-            
-            Message.prototype = {
-                /**
-                 * Returns the topic name that the message was published to.
-                 *
-                 * @returns {String} The topic name that the message was published to
-                 */
-                getTopic: function() {
-                    return this.topic;
-                }
-            };
-            
-            return Message;
-        });
-    
-    /**
-     * @class
-     * @anonymous
-     */
-    var Channel = define.Class(function() {
+    var handle_require = function(requireId, transaction) {
+        
+        //See if the require already exists
 
-        return {
-            /**
-             *
-             * @param name
-             * @returns
-             */
-            init: function(name) {
-                this.name = name;
-                this.observable = listeners.createObservable();
-            },
-            
-            /**
-             *
-             * Publishes a Pub/Sub message to the provided topic and with the provided arguments.
-             *
-             * Usage:
-             * <js>
-             * var pubsub = require('raptor/pubsub');
-             * var channel = pubsub.channel('myChannel');
-             *
-             * channel.publish('myTopic', {
-             *     hello: "Hello",
-             *     world: "World"
-             * });
-             *
-             * </js>
-             *
-             * @param topic {String|raptor/pubsub/Message} The topic name or the Message object that should be published
-             * @param data {Object} The data object to associate with the published message (optional)
-             *
-             *
-             */
-            publish: function(topic, data)  {
-                
-                var message;
-                
-                //Convert the arguments into a Message object if necessary so that we can associate extra information with the message being published
-                if (listeners.isMessage(topic)) {
-                    message = topic;
-                }
-                else {
-                    message = require('raptor/pubsub').createMessage(topic, data);
-                }
-                
-                this.observable.publish(message);
-                
-                return message;
-            },
-            
-            /**
-             * Subscribes to one or more topics on the channel.
-             *
-             * Two signatures are supported:
-             * <ol>
-             * <li> eventHandle subscribe(type, callback, thisObj, autoRemove)</li>
-             * <li> eventHandle subscribe(callbacks, thisObj, autoRemove)</li>
-             * </ol>
-             *
-             * Usage:
-             * <js>var pubsub = require('raptor/pubsub');
-             *
-             *  //Option 1) Subscribing to a single topic
-             *  pubsub.subscribe('someTopic', function(message) {
-             *      //Do something when a message is received
-             *  }, this);
-             *
-             *  //Option 2) Subscribing to a multiple topics
-             *  pubsub.subscribe({
-             *          'someTopic': function(message) {
-             *              //Do something when a message is received
-             *          },
-             *          'anotherTopic': function(message) {
-             *              //Do something when a message is received
-             *          }
-             *      }, this);
-             * </js>
-             *
-             * @param topic {String} The topic name
-             * @param callback {Function} The callback function
-             * @param thisObj {Object} The "this" object to use for the callback function
-             *
-             * @returns {raptor/listeners/ObservableListenerHandle} A handle to remove the subscriber(s)
-             */
-            subscribe: function(topic, callback, thisObj) {
-                return this.observable.subscribe(topic, callback, thisObj);
-            }
+        if (require.exists(requireId)) {
+            return; //Module already available... nothing to do
+        }
+        
+        //If the require has already been included as part of this transaction then nothing to do
+        if (transaction.isIncluded(requireId)) {
+            return;
+        }
+        
+        //Mark the require as being part of this transaction
+        transaction.setIncluded(requireId);
+        
+        var missing = function() {
+            throw new Error('Dependencies missing: "' + requireId + '"');
         };
         
-    });
+        //The metadata for the requires should have been serialized to a global variable
+        //This information is required so that we know what the dependencies are for the require
+        /*
+        var asyncModulesMetadata = raptor.global.$rloaderMeta;
+        
+        if (!asyncModulesMetadata) {
+            //Can't load the require if there is no metadata for any of the requires
+            missing();
+        }
+        */
+        
+        //Now load the metadata for the requested requireId
+        var metadata =  $rget('loaderMeta', requireId);
+        
+        if (!metadata) {
+            //No metadata data found for this require... Throw an error
+            missing();
+        } else {     
+            //Include all of the requires that this require depends on (if any)
+            transaction.add('requires', metadata.requires);
+            
+            //Include all of the CSS resources that are required by this require (if any)
+            transaction.add('js', metadata.js);
+            
+            //And include all of the JS resources that are required by this require (if any)
+            transaction.add('css', metadata.css);
+        }
+    };
     
+    return {
+        handle_require: handle_require,
+        handle_requires: handle_require,
+
+        /**
+         * Includes the specified requires asynchronously and invokes the callback methods in the provided callback for the supported events.
+         * 
+         * <p>The loaded requires will be passed to the success callback in the order that the requires are specified. 
+         * 
+         * @param requires {String|Array<String>} A require name or an array of require names
+         * @param callback {Function|Object} Either a success/error callback function or an object with event callbacks. Supported events: asyncStart, success, error, asyncComplete, complete
+         * @param thisObj The "this" object to use for the callback functions
+         * 
+         * @returns {raptor/loader/Transaction} The transaction for the asynchronous loading of the require(s)
+         */
+        load: function(requires, callback, thisObj) {
+            var userSuccessFunc, //A reference to the user's success callback (if provided)
+                wrappedCallback,
+                isFunctionCallback = typeof callback === 'function';
+            
+            if ((userSuccessFunc = (isFunctionCallback ? callback : callback.success))) {
+                //We want to pass the loaded requires as arguments to the success callback and that
+                //is something the "loader" require will not do for us since it deals with objects
+                //of mixed types (including CSS resources, JS resources and requires). To solve
+                //that problem we are going to wrap the user success callback with our own
+                //and have it be a proxy to the user's success callback
+                
+                //Copy all of the callback properties to a new object
+                wrappedCallback = typeof callback !== "function" ? extend({}, callback) : {};
+                
+                //Now replace the success callback with our own. NOTE: We have already saved a reference to the user's success callback
+                wrappedCallback.success = function() {
+                    //Everything has finished loading so now let's go back through the require names and get the references
+                    //to the loaded requires and added to the loadedModules array which will be passed to the success callback
+                    var loadedModules = [];
+                    try
+                    {
+                        forEach(requires, function(requireId) {
+                            loadedModules.push(require.exists(requireId) ? require(requireId) : null); //Loading the require for the first time might trigger an error if there is a problem inside one of the factory functions for the required requires
+                        });
+                    }
+                    catch(e) {
+                        //Log the error since this happened in an asynchronous callback
+                        logger.error(e);
+                        
+                        //If an error happens we want to make sure the error callback is invoked
+                        if (wrappedCallback.error) {
+                            wrappedCallback.error.call(thisObj);
+                        }
+                        return;
+                    }
+                    
+                    //Everything loaded successfully... pass along the required requires to the user's success callback function
+                    userSuccessFunc.apply(thisObj, loadedModules);
+                };
+                
+                if (isFunctionCallback) {
+                    //A single function as we provided as a callback that is used for both success and error. Thereore, we need to also
+                    //wrap the error callback and invoke the provided callback with no arguments to indicate an error
+                    wrappedCallback.error = function() {
+                        //Call the success callback with no requires to indicate an error
+                        userSuccessFunc.call(thisObj);
+                    };
+                }
+                
+            }
+            
+            //Create a new transaction that consists of the requested requires and execute it
+            return this.include(
+                {
+                    requires: requires
+                }, 
+                wrappedCallback || callback, 
+                thisObj);
+        }
+        
+    };
+});
+/*
+ * Copyright 2011 eBay Software Foundation
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *    http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+/**
+ * The RaptorJS loader module allows JavaScript, CSS and modules to be included in the page asynchronously after the page
+ * has already finished loading. The loader module supports including individual resources or including multiple resources
+ * of possibly mixed types as a single transaction. 
+ * 
+ * <p>
+ * When including a resource or a set of resources a callback can
+ * be provided to track the progress of the include. 
+ * 
+ * 
+ */
+define('raptor/loader', ['raptor'], function(raptor, require, exports, module) {
+    "use strict";
     
-    
-    var channels = {};
+    var included = {},
+        downloaded = {},
+        forEach = raptor.forEach,
+        forEachEntry = raptor.forEachEntry,
+        listeners = require('raptor/listeners'),
+        events = ['asyncStart', 'asyncComplete', 'success', 'error', 'complete'],
+        _createAsyncCallback = function(callback, thisObj) {
+            var observable = listeners.createObservable(events, true);
+            if (callback) {
+                if (typeof callback === 'function') {
+                    observable.complete(callback, thisObj);
+                }
+                else {
+                    //Assume the callback is an object
+                    observable.subscribe(callback, thisObj);
+                }
+            }
+            return observable;
+        },
+        progressEvents = listeners.createObservable(),
+        _handleUrlStart = function(url, callback) {
+            var data = downloaded[url];
+                
+            if (data) {
+
+                if (data.success) {
+                    callback.success(data);
+                }
+                else {
+                    callback.error(data);
+                }
+                callback.complete(data);
+                return true;
+            }
+            else if ((data = included[url])) {
+                callback.asyncStart(data);
+                
+                //Piggy-back off the existing include for the remaining events
+                forEach(
+                    events,
+                    function(event) {
+                        if (event === 'asyncStart') {
+                            //Skip the "asyncStart" event since already handled that
+                            return;
+                        }
+                        progressEvents.subscribe(event + ':' + url, function(data) {
+                            callback.publish(event, data);
+                        }, this, true /*auto remove*/);
+                    }, this);
+                return true;
+            }
+
+            included[url] = data = {url: url, completed: false};
+            
+            callback.asyncStart(data);
+            return false;
+        },
+        _handleUrlComplete = function(url, isSuccess, callback) {
+            var data = included[url];
+            delete included[url];
+            
+            data.success = isSuccess;
+            data.complete = true;
+            
+            var _publish = function(event) {
+                callback[event](data);
+                progressEvents.publish(event + ':' + url, data);
+            };
+            
+            if (isSuccess) {
+                downloaded[url] = data;
+                _publish('success');
+                
+            }
+            else {
+                _publish('error');
+            }
+            
+            _publish('asyncComplete');
+            _publish('complete');
+        },
+        _createImplCallback = function(url, callback) {
+            return {
+                success: function() {
+                    _handleUrlComplete(url, true, callback);
+                },
+                error: function() {
+                    _handleUrlComplete(url, false, callback);
+                }
+            };
+        };
+        
+    /**
+     * A transaction consisting of resources to be included.
+     * 
+     * @class
+     * @anonymous
+     * @name raptor/loaderTransaction
+     * 
+     * @param loader {loader} The loader module that started this transaction 
+     */
+    var Transaction = function(loader) {
+        
+        var _includes = [],
+            _included = {},
+            started,
+            _this = {
+                
+                /**
+                 * Adds a include to the transaction
+                 * 
+                 * @param url {String} The URL/ID of the include
+                 * @param include {Object} The data for the include
+                 * @param includeFunc The function to actually include the resource (a callback will be provided)
+                 * @param thisObj The "this" object ot use for the includeFunc arg
+                 */
+                _add: function(url, include, includeFunc, thisObj) {
+                    if (started || _included[url]) {
+                        return;
+                    }
+                    
+                    _included[url] = 1;
+                    
+                    _includes.push(function(callback) {
+                        if (_handleUrlStart(url, callback)) {
+                            return;
+                        }
+                        
+                        includeFunc.call(
+                                thisObj, 
+                                include, 
+                                _createImplCallback(url, callback));
+                    });
+                },
+                
+                /**
+                 * 
+                 * @param url
+                 * @returns {Boolean} Returns true if the  URL has already been included as part of this transaction. False, otherwise.
+                 */
+                isIncluded: function(url) {
+                    return !!_included[url];
+                },
+                
+                /**
+                 * Marks a URL as included
+                 * 
+                 * @param url The URL to mark as included
+                 */
+                setIncluded: function(url) {
+                    _included[url] = 1;
+                },
+                
+                /**
+                 * 
+                 * @param type The resource type (e.g. "js", "css" or "module"
+                 * @param includes {Object|Array} The array of includes or a single include 
+                 */
+                add: function(type, includes) {
+                    
+                    var handler = loader["handle_" + type];
+                    
+                    if (handler == null) {
+                        throw new Error("Invalid type: " + type);
+                    }
+                    
+                    forEach(includes, function(include) {
+                        handler.call(loader, include, _this);
+                    });
+                },
+                        
+                /**
+                 * 
+                 * @param userCallback
+                 * @returns {raptor/loader/Transaction} Returns itself
+                 */
+                execute: function(userCallback) {
+                    started = 1;
+                    
+                    var failed = [],
+                        status = {failed: failed};
+                    
+                    if (!_includes.length) {
+                        userCallback.success(status);
+                        userCallback.complete(status);
+                    }
+                    
+                    var completedCount = 0,
+                        asyncStarted = false,
+                        callback = _createAsyncCallback({
+                                asyncStart: function() {
+                                    if (!asyncStarted) {
+                                        asyncStarted = true;
+                                        userCallback.asyncStart(status);
+                                    }
+                                },
+                                error: function(url) {
+                                    failed.push(url);
+                                }, 
+                                complete: function() {
+                                    completedCount++;
+                                    if (completedCount === _includes.length) {
+                                        
+                                        if ((status.success = !failed.length)) {
+                                            userCallback.success(status);
+                                        }
+                                        else {
+                                            userCallback.error(status);
+                                        }
+                                        
+                                        if (asyncStarted) {
+                                            userCallback.asyncComplete(status);
+                                        }
+            
+                                        userCallback.complete(status);
+                                    }
+                                }
+                            });
+                    
+                    
+                    
+                    forEach(_includes, function(execFunc) {
+                        execFunc(callback);
+                    });
+                    return _this;
+                }
+            };
+        
+        return _this;
+    };
 
     return {
+        
         /**
-         * Returns a messaging channel with the provided name. If the messaging channel has not been created then it is created and returned.
-         *
-         * @param name {String} The name of the messaging channel.
-         *
-         * @returns {raptor/pubsub/Channel} The messaging channel with the specified name.
+         * 
+         * @param url
+         * @returns
          */
-        channel: function(name) {
-            var channel;
-            if (name) {
-                channel = channels[name];
-                if (!channel) {
-                    channel = new Channel(name);
-                    channels[name] = channel;
-                }
-            } else {
-                channel = new Channel();
+        isDownloaded: function(url) {
+            return downloaded[url] !== undefined;
+        },
+        
+        setDownloaded: function(url){
+            if (url){
+                downloaded[url] = {
+                    url: url,
+                    success: true,
+                    complete: true
+                };
             }
-            return channel;
+        },
+        /**
+         * 
+         * @param includes
+         * @param callback
+         * @param thisObj
+         * @returns
+         */
+        include: function(includes, callback, thisObj) {
+            var transaction = new Transaction(this);
+            
+            if (this.beforeInclude) {
+                this.beforeInclude();
+            }
+
+            forEachEntry(includes, function(type, includesForType) {
+                transaction.add(type, includesForType);
+            });
+
+            return transaction.execute(_createAsyncCallback(callback, thisObj));
+        }
+    };
+});
+/*
+ * Copyright 2011 eBay Software Foundation
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *    http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+/**
+ * @extension Browser
+ */
+define.extend('raptor/loader', ['raptor'], function(raptor, require) {
+    "use strict";
+    
+    var resourcesRegistered = false,
+        forEach = raptor.forEach;
+    
+    return {
+        
+        handle_js: function(include, transaction) {
+            var url = include.src || include.url || include;
+            transaction._add(url, include, this.includeJSImpl, this);
+        },
+        
+        handle_css: function(include, transaction) {
+            var url = include.href || include.url || include;
+            transaction._add(url, include, this.includeCSSImpl, this);
         },
         
         /**
-         * Returns the global messaging channel.
-         *
-         * @returns {raptor/pubsub/Channel} The "global channel
+         * 
+         * @param src
+         * @param callback
+         * @param thisObj
+         * @returns
          */
-        global: function() {
-            return this.channel("global");
+        includeJS: function(src, callback, thisObj) {
+            return this.include({js: [src]}, callback, thisObj);
         },
         
         /**
-         *
-         * Publishes a Pub/Sub message to the provided topic and with the provided arguments to the "global" channel.
-         *
-         * Usage:
-         * <js>
-         * var pubsub = require('raptor/pubsub');
-         *
-         * pubsub.publish('myTopic', {
-         *     hello: "Hello",
-         *     world: "World"
-         * });
-         *
-         * </js>
-         *
-         * NOTE: Calling this method is equivalent to the following code:
-         * <js>pubsub.global().publish(topic, props)</js>
-         *
-         * @param topic {String|raptor/pubsub/Message} The topic name or the Message object that should be published
-         * @param props {Object} An object with properties that should be applied to the message object (optional)
-         *
-         *
+         * 
+         * @param href
+         * @param callback
+         * @param thisObj
+         * @returns
          */
-        publish: function(topic, props) {
-            var global = this.global();
-            global.publish.apply(global, arguments);
+        includeCSS: function(href, callback, thisObj) {
+            return this.include({css: [href]}, callback, thisObj);
         },
         
         /**
-         * Subscribes to one or more topics on the "global" channel.
-         *
-         * Two signatures are supported:
-         * <ol>
-         * <li> eventHandle subscribe(type, callback, thisObj, autoRemove)</li>
-         * <li> eventHandle subscribe(callbacks, thisObj, autoRemove)</li>
-         * </ol>
-         *
-         * Usage:
-         * <js>var pubsub = require('raptor/pubsub');
-         *
-         *  //Option 1) Subscribing to a single topic
-         *  pubsub.subscribe('someTopic', function(message) {
-         *      //Do something when a message is received
-         *  }, this);
-         *
-         *  //Option 2) Subscribing to a multiple topics
-         *  pubsub.subscribe({
-         *          'someTopic': function(message) {
-         *              //Do something when a message is received
-         *          },
-         *          'anotherTopic': function(message) {
-         *              //Do something when a message is received
-         *          }
-         *      }, this);
-         * </js>
-         *
-         * NOTE: Calling this method is equivalent to the following code:
-         * <js>pubsub.global().subscribe(topic, callback, thisObj)</js>
-         *
-         * @param topic {String} The topic name
-         * @param callback {Function} The callback function
-         * @param thisObj {Object} The "this" object to use for the callback function
-         *
-         * @returns {raptor/listeners/ObservableListenerHandle} A handle to remove the subscriber(s)
-         *
-         * @see {@link raptor/pubsub/Channel#subscribe}
+         * Find out all the script and links tag on the page
+         * and register with downloaded object.
+         * @returns
          */
-        subscribe: function(topic, callback, thisObj) {
-            var global = this.global();
-            return global.subscribe.apply(global, arguments);
+        registerResources: function(){
+            var scripts = document.getElementsByTagName('script'),
+                scriptsLen = scripts.length,
+                links = document.getElementsByTagName('link'),
+                linksLen = links.length,
+                i;
+
+            for (i = 0; i < scriptsLen; i++) {
+                this.setDownloaded(scripts[i].src || scripts[i].href);
+            }
+
+            for (i = 0; i < linksLen; i++) {
+                this.setDownloaded(links[i].src || links[i].href);
+            }
         },
         
         /**
-         * Returns a new {@Link raptor/pubsub/Message} object with the provided topic and properties applied.
-         *
-         * @param topic {String} The topic name
-         * @param props {Object} Properties to apply to the newly created Message object (optional)
-         * @returns {raptor/pubsub/Message} The newly created Message object.
+         * Before calling include for first time register page resources.
+         * It is done only once for the first time "include" is called
+         * @returns
          */
-        createMessage: function(topic, data) {
-            return new Message(topic, data);
+        beforeInclude: function(){
+            if (!resourcesRegistered){
+                this.registerResources();
+            }
+            
+            resourcesRegistered = true;
+        }
+        
+    };
+});
+
+/*
+ * Copyright 2011 eBay Software Foundation
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *    http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+/**
+ * @extension Raptor
+ */
+define.extend('raptor/loader', ['raptor'], function(raptor, require) {
+    "use strict";
+    var logger = require('raptor/logging').logger('raptor/loader'),
+        extend = raptor.extend,
+        headEl,
+        createEl = function(tagName, attributes) {
+            var newEl = document.createElement(tagName);
+            if (attributes) {
+                extend(newEl, attributes);    
+            }
+            return newEl;
+        },
+        insertEl = function(el) {
+            if (headEl == null)
+            {
+                headEl = document.getElementsByTagName("head")[0];
+            }       
+            headEl.appendChild(el);
+        };
+    
+    return {
+        /**
+         * 
+         * @param src
+         * @param callback
+         * @returns
+         * 
+         * @protected
+         */
+        includeJSImpl: function(src, callback, attributes) {
+
+            attributes = attributes || {};
+            
+            var complete = false;
+            
+            var success = function() {
+                if (complete === false) {                    
+                    complete = true;
+                    logger.debug('Downloaded "' + src + '"...');
+                    callback.success();
+                }
+            };
+            
+            var error = function() {
+                if (complete === false) {                    
+                    complete = true;
+                    logger.error('Failed: "' + src);
+                    //Let the loader module know that the resource was failed to be included
+                    callback.error();
+                }
+            };
+            
+            extend(attributes, {
+                type: 'text/javascript',
+                src: src,
+                onreadystatechange: function () {
+                    if (el.readyState == 'complete' || el.readyState == 'loaded') {
+                        success();
+                    }
+                },
+
+                onload: success,
+                
+                onerror: error
+            });
+            
+            var el = createEl(
+                    "script", 
+                    attributes);
+            
+            if (el.addEventListener)
+            {
+                try {
+                    el.addEventListener("load", function() {
+                        success();
+                    });
+                }
+                catch(e) {}
+            }
+
+            insertEl(el);
+        },
+        
+        /**
+         * 
+         * @param href
+         * @param callback
+         * @param attributes
+         * @returns
+         * 
+         * @protected
+         */
+        includeCSSImpl: function(href, callback, attributes) {
+
+            var retries = 20;
+            
+            var complete = false,
+                _this = this;
+            
+            var el = createEl('link');
+            
+            var cleanup = function() {
+                el.onload = null;
+                el.onreadystatechange = null;
+                el.onerror = null;
+            };
+            
+            var isLoaded  = function() {
+                var sheets = document.styleSheets;
+                for (var idx = 0, len = sheets.length; idx < len; idx++) {
+                    if (sheets[idx].href === href) {
+                        return true;
+                    }
+                }
+                return false;
+            };
+
+            var success = function() {
+                if (complete === false) {                    
+                    complete = true;
+                    cleanup();
+                    logger.debug('Downloaded: "' + href + '"');
+                    //Let the loader module know that the resource has included successfully
+                    callback.success();
+                }
+            };
+            
+            var pollSuccess = function() {
+                if (complete === false) {
+                    if (!isLoaded() && (retries--)) {
+                        return window.setTimeout(pollSuccess,10);
+                    }
+                    success();
+                }
+            };
+            
+            var error = function() {
+                logger.error('Failed: "' + href + '"');
+                if (complete === false)
+                {                    
+                    complete = true; 
+                    cleanup();
+                    //Let the loader module know that the resource was failed to be included
+                    callback.error();
+                }
+            };
+            
+            extend(el, {
+                type: 'text/css',
+                rel: "stylesheet",
+                href: href
+            });
+            
+            if (attributes) {
+                extend(el, attributes);
+            }
+            
+            if (navigator.appName == 'Microsoft Internet Explorer') {
+                el.onload = success;                
+                el.onreadystatechange = function() {
+                    var readyState = this.readyState;
+                    if ("loaded" === readyState || "complete" === readyState) {
+                        success();
+                    }
+                };
+            }
+            else
+            {
+                //For non-IE browsers we don't get the "onload" and "onreadystatechange" events...
+                pollSuccess();
+            }
+            
+            el.onerror = error;      
+            insertEl(el);
         }
     };
 });

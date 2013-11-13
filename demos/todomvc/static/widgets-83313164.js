@@ -164,7 +164,7 @@ define('raptor/dom', function(require) {
             if (pubsub) {
                 pubsub.publish('dom/beforeRemove', { // NOTE: Give other modules a chance to gracefully cleanup after removing the old node
                     el: referenceEl
-                }); 
+                });
             }
         };
 
@@ -175,7 +175,7 @@ define('raptor/dom', function(require) {
         },
 
         /**
-         * 
+         *
          */
         forEachChild: function(node, callback, scope, nodeType)
         {
@@ -183,7 +183,7 @@ define('raptor/dom', function(require) {
                 return;
             }
 
-            var i=0, 
+            var i=0,
                 childNodes = node.childNodes,
                 len = childNodes.length;
 
@@ -221,8 +221,37 @@ define('raptor/dom', function(require) {
         },
 
         /**
-         * Replaces a child DOM node with another DOM node 
-         * 
+         * Removes a node from the DOM
+         *
+         * @param  {Node|String} el the element to remove
+         * @return {void}
+         */
+        remove: function(el) {
+            el = getNode(el);
+            _beforeRemove(el);
+            if (el.parentNode) {
+                el.parentNode.removeChild(el);
+            }
+        },
+
+        /**
+         * Removes a node from the DOM
+         *
+         * @param  {Node|String} el the element to remove
+         * @return {void}
+         */
+        removeChildren: function(parentEl) {
+            parentEl = getNode(parentEl);
+            dom.forEachChildEl(parentEl, function(childEl) {
+                _beforeRemove(childEl);
+            });
+
+            parentEl.innerHTML = "";
+        },
+
+        /**
+         * Replaces a child DOM node with another DOM node
+         *
          * @param  {Node|String} newChild The DOM node (or the ID of the DOM node) to use as a replacement
          * @param  {Node|String} replacedChild The reference child node that will be replaced by the new child
          * @return {void}
@@ -243,7 +272,7 @@ define('raptor/dom', function(require) {
         replaceChildrenOf: function(newChild, referenceParentEl) {
             referenceParentEl = getNode(referenceParentEl);
             dom.forEachChildEl(referenceParentEl, function(childEl) {
-                _beforeRemove(childEl); 
+                _beforeRemove(childEl);
             });
 
             referenceParentEl.innerHTML = "";
@@ -252,15 +281,15 @@ define('raptor/dom', function(require) {
 
         /**
          * Inserts a DOM node before a reference node (as a sibling).
-         * 
+         *
          * @param  {Node|String} newChild The DOM node (or the ID of the DOM node) to insert as a sibling
          * @param  {Node|String} referenceChild The reference child node
          * @return {void}
          */
         insertBefore: function(newChild, referenceChild) {
-            referenceChild = getNode(referenceChild);    
+            referenceChild = getNode(referenceChild);
             referenceChild.parentNode.insertBefore(getNode(newChild), referenceChild);
-        }, 
+        },
 
         /**
          * Inserts a DOM node after a reference node (as a sibling).
@@ -282,7 +311,7 @@ define('raptor/dom', function(require) {
             else {
                 parentNode.appendChild(newChild);
             }
-        }, 
+        },
 
 
         /**
@@ -770,7 +799,7 @@ define(
                         walkDOM(rootEl);
                     }
                     
-                    if (removeNode) {
+                    if (removeNode && rootEl.parentNode) {
                         //Remove the widget's DOM nodes from the DOM tree if the root element is known
                         rootEl.parentNode.removeChild(rootEl);
                     }
@@ -1090,6 +1119,8 @@ define(
         };
 
         widgetProto.on = widgetProto.subscribe;
+
+        widgetProto.elId = widgetProto.getElId;
 
         return Widget;
     });

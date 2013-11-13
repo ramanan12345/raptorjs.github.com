@@ -60,7 +60,7 @@ define(
                         walkDOM(rootEl);
                     }
                     
-                    if (removeNode) {
+                    if (removeNode && rootEl.parentNode) {
                         //Remove the widget's DOM nodes from the DOM tree if the root element is known
                         rootEl.parentNode.removeChild(rootEl);
                     }
@@ -380,6 +380,8 @@ define(
         };
 
         widgetProto.on = widgetProto.subscribe;
+
+        widgetProto.elId = widgetProto.getElId;
 
         return Widget;
     });

@@ -1152,10 +1152,14 @@ if (!String.prototype.trim || ws.trim()) {
 
 (function() {
     /* jshint strict:false */
-
-    var _global = (typeof window === 'undefined') ? global : window;
-    if (_global.__raptor !== undefined) {
-        // short-circuit raptor initialization if it already exists
+    
+    if ((typeof window !== 'undefined') && (window.raptorDefine !== undefined)) {
+        /* global require:true */
+        // TODO: Maybe in raptor-no-conflict mode the global variable names for storing the raptor define and
+        //       require methods should be randomly generated so Raptor can avoid conflicting with itself?
+        define = window.raptorDefine;
+        require = window.raptorRequire;
+        // short-circuit raptor initialization in browser environment if it already exists
         return;
     }
 
@@ -1290,8 +1294,6 @@ if (!String.prototype.trim || ws.trim()) {
                 F = function() {};
               
             var inherit = isString(superclass) ? _require(superclass) : superclass;
-
-            extend(clazz,inherit);
             
             F.prototype = inherit.prototype;
             clazz.superclass = F.prototype;
@@ -1656,7 +1658,7 @@ if (!String.prototype.trim || ws.trim()) {
      * @name raptor
      * @raptor
      */
-    _global.__raptor = raptor = {
+    raptor = {
         cache: cache,
         
         inherit: _inherit,
@@ -1730,6 +1732,10 @@ if (!String.prototype.trim || ws.trim()) {
             return error;
         },
 
+        setImplicitId: function(id) {
+            this._implicitId = id;
+        },
+
         /**
          * Registers a factory function or object with an ID.
          *
@@ -1742,12 +1748,17 @@ if (!String.prototype.trim || ws.trim()) {
          * @return {Object} Returns undefined if an "id" is provided. If an "id" is provided then the object is immediately built and returned.
          */
         define: function(id, factory, postCreate) {
+            var instance;
             if (!id) {
-                return _build.apply(raptor, arguments);
+                if (!this._implicitId) {
+                    return _build.apply(raptor, arguments);
+                }
+                
+                id = this._implicitId;
+                this._implicitId = undefined;
             }
 
-            var def = getOrCreateDef(id),
-                instance;
+            var def = getOrCreateDef(id);
             if (factory) {
                 def.factory = factory;
             }
@@ -1797,28 +1808,44 @@ if (!String.prototype.trim || ws.trim()) {
         props: [requireProps, defineProps]
     };  //End raptor
 
-    if (typeof window != 'undefined') {
+    var _global;
+
+    if (typeof window !== 'undefined') {
+        // browser environment
+        _global = window;
+
         /*global require:true */
         var defineRequire = defineProps.require = function(id, baseName) {
             return _require(_normalize(id, baseName));
         };
         
-        define = _extendDefine(
+        // always export raptorDefine function to global scope (this should not cause a conflict)
+        window.raptorDefine = define = _extendDefine(
             function() {
                 return _define(arguments, defineRequire);
             });
 
-        require = _extendRequire(function(id, callback) {
+        // always export raptorRequire function to global scope (this should not cause a conflict)
+        window.raptorRequire = require = _extendRequire(function(id, callback) {
             return isFunction(callback) ?
                 require.load(id, callback) :
                 _require(_normalize(id));
         });
+
+        if (typeof raptorNoConflict === 'undefined' || raptorNoConflict !== true) {
+            // We are not in no-conflict mode so expose define and require.
+            // Put AMD-style define and require functions in the global window scope.
+            window.define = raptorDefine;
+            window.require = raptorRequire;
+        }
         
         require.normalize = _normalize;
 
         define.amd = {};
     }
     else {
+        // server-side environment
+        _global = global;
         module.exports = raptor;
     }
     
@@ -1878,8 +1905,6 @@ if (!String.prototype.trim || ws.trim()) {
 
     
     raptor.global = _global;
-
-    _global.__raptor__ = true;
 }());
 /*
  * Copyright 2011 eBay Software Foundation
