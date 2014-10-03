@@ -1,1 +1,0 @@
-define("ui/demo/Button/ButtonWidget",["raptor"],function(e,t){var n=function(e){this.$().click(function(){this.publish("click",{button:this})}.bind(this))};return n.events=["click"],n.prototype={},n});

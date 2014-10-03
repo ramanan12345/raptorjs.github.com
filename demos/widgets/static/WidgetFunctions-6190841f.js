@@ -1,1 +1,0 @@
-define("raptor/templating/taglibs/widgets/WidgetFunctions",function(e){"use strict";var t=e("raptor/widgets");return{widgetArgs:function(e,t,n){this.attributes.widgetArgs={id:e,scope:t,events:n}}}});
